@@ -1,0 +1,39 @@
+# Linux
+.directory
+*~
+.*.swp
+
+# OS X
+.DS_Store*
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Windows XP
+ehthumbs.db
+
+# Project npm dependencies
+/node_modules
+
+# Bower libraries
+/assets/lib
+
+# IDE
+nbproject/
+
+# Deliver
+/build
+
+# Sass
+.sass-cache
+
+# Compiled file
+/assets/js/*
+/assets/css/*
+
+# Documentation
+/site
+/.grunt
