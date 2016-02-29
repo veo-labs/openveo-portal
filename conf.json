@@ -1,0 +1,36 @@
+{
+  "theme": "default",
+  "scriptLibFiles" : {
+    "base" : [
+      "/lib/angular/angular.js",
+      "/lib/angular-animate/angular-animate.min.js",
+      "/lib/angular-route/angular-route.min.js",
+      "/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
+      "/lib/angular-touch/angular-touch.min.js",
+      "/lib/angular-sanitize/angular-sanitize.min.js"
+    ],
+    "dev" : [
+      "/i18n/I18nApp.js",
+      "/i18n/I18nFilter.js"
+    ],
+    "prod" : [
+      "/js/openveo-portal-lib.js"
+    ]
+  },
+  "scriptFiles" : {
+    "dev" : [
+      "/ov/OvApp.js",
+      "/ov/ErrorInterceptor.js",
+      "/ov/HomeController.js",
+      "/ov/MainController.js"
+    ],
+    "prod" : [
+      "/js/openveo-portal.js"
+    ]
+  },
+  "cssFiles" : [
+    "/css/bootstrap.css",
+    "/lib/angular/angular-csp.css",
+    "/lib/angular-bootstrap/ui-bootstrap-csp.css"
+  ]
+}

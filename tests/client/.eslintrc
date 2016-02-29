@@ -1,0 +1,32 @@
+{
+
+  "env": {
+
+    // Add browser environment globals
+    "browser": true,
+
+    // Add mocha environment globals
+    "mocha": true
+
+  },
+  "globals": {
+
+    // Add chai to environment globals but do not authorize to overwrite it
+    chai: false,
+    assert: false,
+
+    // Add protractor environment globals but do not authorize to overwrite it
+    "element": true,
+    "by": true,
+    "protractor": true,
+    "browser": true
+
+  },
+  "rules": {
+
+    // Require JSDoc comment
+    "require-jsdoc": 0
+
+  }
+
+}

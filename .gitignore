@@ -24,7 +24,10 @@ ehthumbs.db
 # IDE
 nbproject/
 
-# Deliver
+# Any log file
+*.log
+
+# Build
 /build
 
 # Sass
@@ -33,6 +36,8 @@ nbproject/
 # Compiled file
 /assets/js/*
 /assets/css/*
+/assets/themes/default/style.css
+/assets/themes/default/style.css.map
 
 # Documentation
 /site
