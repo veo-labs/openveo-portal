@@ -134,7 +134,7 @@ Server.prototype.onDatabaseAvailable = function(database) {
   // Serve favicon
   this.app.use(favicon(process.root + '/assets/themes/' + portalConf.theme + '/favicon.ico'));
 
-  // Logo each request
+  // Log each request
   this.app.use(openveoAPI.middlewares.logRequestMiddleware);
 
   // Deliver assets using static server

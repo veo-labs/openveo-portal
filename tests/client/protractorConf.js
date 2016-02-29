@@ -7,6 +7,7 @@ var openveoAPI = require('@openveo/api');
 var e2e = require('@openveo/test').e2e;
 var configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 var serverConfPath = path.join(configurationDirectoryPath, 'serverTestConf.json');
+var loggerConfPath = path.join(configurationDirectoryPath, 'loggerTestConf.json');
 var screenshotPlugin = e2e.plugins.screenshotPlugin;
 var serverConf = require(serverConfPath);
 var portalServer;
@@ -44,9 +45,10 @@ exports.config = {
     // Set browser size
     e2e.browser.setSize(1920, 1080);
 
-    // Executes watcher as a child process
+    // Executes server as a child process
     portalServer = childProcess.fork(path.join(process.root, '/server.js'), [
       '--serverConf', serverConfPath,
+      '--loggerConf', loggerConfPath,
       '--databaseConf', path.join(configurationDirectoryPath, 'databaseTestConf.json')
     ]);
 
