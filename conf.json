@@ -1,5 +1,4 @@
 {
-  "theme": "default",
   "scriptLibFiles" : {
     "base" : [
       "/lib/angular/angular.js",
