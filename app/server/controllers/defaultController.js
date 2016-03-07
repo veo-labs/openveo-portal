@@ -35,7 +35,7 @@ module.exports.defaultAction = (request, response) => {
   response.locals.scriptsBase = applicationConf['scriptFiles']['base'] || [];
   response.locals.scripts = applicationConf['scriptFiles'][env] || [];
   response.locals.scripts = response.locals.scriptsBase.concat(response.locals.scripts);
-  response.locals.css = applicationConf['cssFiles'] || [];
+  response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
   response.locals.languages = ['"en"', '"fr"'];
   response.locals.theme = portalConf.theme;
 
