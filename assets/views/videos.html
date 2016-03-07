@@ -1,0 +1,138 @@
+<div ng-cloak>
+  <div layout-xs="column" layout-gt-xs="row">
+    <h1 class="md-headline" hide-gt-xs ng-bind="'VIDEOS.TITLE'|translate"></h1>
+    <h1 class="md-display-1" hide-xs ng-bind="'VIDEOS.TITLE'|translate"></h1>
+    <span flex></span>
+    
+    <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center" 
+          flex-xs="95"
+          flex-sm="50"
+          flex-md="32"
+          flex-gt-md="30">
+      <md-input-container flex="80">
+        <label ng-bind="'SEARCH.KEYWORD'|translate"></label>
+        <input ng-model="search.key">
+      </md-input-container>
+     
+      <md-button type="submit" id="submit" class="md-icon-button">
+          <md-icon material-icons md-light md-48">search</md-icon>
+      </md-button>
+    </form>
+  </div>
+  
+  <div layout="column"  md-whiteframe="3">
+    <md-toolbar class="md-secondary">
+        <div class="md-toolbar-tools">
+          <h3 class="ng-binding" ng-bind=" 'SEARCH.ADVANCED' | translate "></h3>
+          <span flex></span>
+          <md-button  type="button" ng-click="showAdvancedSearch = !showAdvancedSearch">
+            <md-icon material-icons md-light md-48 ng-class="{reverse: showAdvancedSearch}">keyboard_arrow_down</md-icon>
+          </md-button>
+        </div>
+    </md-toolbar>
+    <div layout="column" layout-padding ng-show='showAdvancedSearch'>
+      <form ng-submit="searchSubmit()" name="searchForm" layout="column" >
+        <div layout="row" layout-xs="column" >
+          <div flex-xs="100" flex-gt-xs='50'  layout="row" layout-xs="column" layout-align='left center'  layout-margin>
+            <label flex='30'>date between</label>
+            <md-datepicker flex-gt-xs='70' flex-xs="100" ng-model="search.startDate" md-placeholder="Enter date"></md-datepicker>
+          </div>
+          <div flex-xs="100" flex-gt-xs='50' layout="row" layout-xs="column" layout-align='left center'  layout-margin>
+            <label flex='20'>and</label>
+            <md-datepicker flex-gt-xs='80' flex-xs="100" ng-model="search.endDate" md-placeholder="Enter date"></md-datepicker> 
+          </div>
+        </div>
+        <div layout="row" layout-xs="column">
+          <div layout="column" flex-xs="100" flex-gt-xs="50" layout-margin>
+            <md-input-container>
+              <label>Nom</label>
+              <md-select ng-model="search.name">
+                <md-option ng-repeat="name in filters.names" value="{{name.id}}">
+                  {{name.label}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            <md-input-container>
+              <label>Rubrique</label>
+              <md-select ng-model="search.categorie">
+                <md-option ng-repeat="categorie in filters.categories" value="{{categorie.id}}">
+                  {{categorie.label}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div layout="column" flex-xs="100" flex-gt-xs="50"  layout-margin>
+            <md-input-container>
+              <label>Origine</label>
+              <md-select ng-model="search.origin">
+                <md-option ng-repeat="origin in filters.origins" value="{{origin.id}}">
+                  {{origin.label}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            <div layout="row" layout="column" layout-align="center center" >
+              <md-button type="submit" id="submit" class="md-primary md-raised" ng-bind="'UI.SEARCH' | translate"></md-button>
+              <md-button ng-click="resetSearch()" class="md-secondary md-raised" ng-bind="'UI.CANCEL' | translate"></md-button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div layout-xs='column' layout="row" layout-align="space-between center">
+    <div layout='row'  flex-xs='100' flex-gt-xs="66" layout-align="space-between center">
+      <div class="md-body-2" flex-xs="50" flex="15" >
+        <span ng-bind="pagination.size"></span> <span ng-bind=" 'SEARCH.RESULTS' | translate"></span>
+      </div>
+      <div flex-xs="50" flex-gt-xs="auto" class="orderBy" layout='row' layout-align="center center">
+        <span hide-xs hide-sm flex=20 ng-bind="'SEARCH.ORDER_BY' | translate"></span>
+        <md-switch class="md-primary" md-no-ink ng-model="search.orderBy"  
+                  ng-change="orderOnChange()"
+        >
+          <md-icon material-icons md-light md-48 ng-bind="search.orderBy?'visibility':'access_time'"></md-icon>
+
+        </md-switch>
+        <md-switch class="md-primary" md-no-ink ng-model="search.orderAsc"  
+                  ng-change="orderOnChange()"
+        >
+          <md-icon material-icons md-light md-48 ng-class="{reverse: search.orderAsc}">sort</md-icon>
+        </md-switch>
+
+      </div>
+    </div>
+    <div flex-xs='100' flex-gt-xs="33">
+      <md-tabs  ng-if="pages.length > 1" md-border-bottom md-autoselect md-selected="pagination.page"  >
+        <md-tab ng-repeat="page in pages" label="{{page}}"></md-tab>
+      </md-tabs>
+    </div>
+  </div>
+  
+  <md-grid-list
+        md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
+        md-row-height="16:9"
+        md-gutter="12px" md-gutter-gt-sm="25px" >
+    <md-grid-tile ng-repeat="video in videos" layout="column" ng-click="openVideo($event, video)" >
+      <div class='thumbnail' flex>
+        <img ng-src="{{video.thumbnail}}">
+      </div>
+      
+      <md-grid-tile-footer >
+        <div class='md-title' flex>{{video.title}}</div>
+        <div flex layout="row" layout-align="center center">
+          <div class='md-body-2' flex>{{video.date | date : 'd MMMM yyyy'}}</div>
+          <div class='md-caption nb-views' flex='30'>{{video.views}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
+        </div>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+  
+  <div layout="row" layout-align="center center" ng-if="pages.length > 1">
+    <div flex-xs="100" flex-sm="50" flex-gt-sm="33" layout="column" class="pagination">
+        <md-tabs  md-border-bottom md-autoselect md-selected="pagination.page">
+          <md-tab ng-repeat="page in pages" label="{{page}}" ></md-tab>
+        </md-tabs>
+    </div>
+  </div>
+</div>
+

@@ -3,6 +3,8 @@
   <head>
     <title ng-bind="title | translate"></title>
     <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{=[[ ]]=}}
 
@@ -15,9 +17,61 @@
     </script>
   </head>
 
-  <body>
-    <header></header>
-    <div ng-view ng-cloak></div>
+  <body ng-cloak>
+    <header>
+      <div class="container">
+        <div layout="row" layout-align="space-between center">
+          <div>logo</div>
+          <md-button hide-xs class='md-raised md-primary' ng-click='authenticate()' ng-bind="'UI.CONNECTION'|translate"> 
+          </md-button>
+        </div>
+      </div>
+
+      <div layout="column" layout-fill>
+        <md-toolbar  md-scroll-shrink hide-xs >
+          <div class="md-toolbar-tools">
+            <div class='container'>
+              <md-button ng-href="/" ng-bind="'MENU.HOME'|translate"></md-button>
+              <md-button ng-href="/videos" ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button>
+              <span flex></span>
+            </div>
+          </div>
+        </md-toolbar>
+        <md-toolbar  hide-gt-xs>
+          <div class="md-toolbar-tools">
+            <md-menu>
+             <!-- Trigger element is a md-button with an icon -->
+             <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
+               <md-icon material-icons md-light md-48>menu</md-icon>
+             </md-button>
+             <md-menu-content>
+               <md-menu-item><md-button ng-href="/" ng-bind="'MENU.HOME'|translate"></md-button></md-menu-item>
+               <md-menu-item><md-button ng-href="/videos" ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button></md-menu-item>
+             </md-menu-content>
+            </md-menu>
+            <span flex></span>
+            <md-button ng-bind="'UI.CONNECTION'|translate"></md-button>
+          </div>
+        </md-toolbar>
+      </div>
+    </header>
+    <div layout="column" class="zero">
+      <div class="container">
+        <div ng-view ng-cloak></div>
+      </div>
+    </div>
+    <footer class="footer">
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <div class='container'>
+              <div layout="row" layout-align="center center">
+                <md-button class="md-primary" ng-href="{{contactMailTo}}" target="_blank" ng-bind="'LINKS.CONTACT'|translate"></md-button> |
+                <md-button class="md-primary" ng-href="{{helpUrl}}" ng-bind="'LINKS.HELP'|translate"></md-button>
+              </div>
+            </div>
+          </div>
+        </md-toolbar>
+    </footer>
 
     [[#librariesScripts]]
     <script type="text/javascript" src="[[.]]"></script>
@@ -30,7 +84,7 @@
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/i18n/openveo-portal-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/conf.js">\x3C/script>');
     </script>
-
+   
     [[#scripts]]
     <script type="text/javascript" src="[[.]]"></script>
     [[/scripts]]

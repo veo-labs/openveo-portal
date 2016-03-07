@@ -13,9 +13,10 @@
 
   var moduleDependencies = [
     'ngRoute',
-    'ui.bootstrap',
-    'ngTouch',
     'ngAnimate',
+    'ngMaterial',
+    'ngMessages',
+    'ngSanitize',
     'ov.locale',
     'ov.i18n',
     'ov.configuration'
@@ -29,11 +30,32 @@
   app.config(['$routeProvider', '$locationProvider', '$httpProvider',
     function($routeProvider, $locationProvider, $httpProvider) {
 
+      $routeProvider.when('/videos', {
+        templateUrl: 'views/videos.html',
+        controller: 'VideosController',
+        title: 'VIDEOS.PAGE_TITLE',
+        reloadOnSearch: false,
+        resolve: {
+          videos: ['$location', 'searchService', function($location, searchService) {
+            var param = $location.search();
+            return searchService.search(param, null);
+          }],
+          filters: ['searchService', function(searchService) {
+            return searchService.getFilters();
+          }]
+        }
+      });
+
       // Register home page route
       $routeProvider.when('/', {
         templateUrl: 'views/home.html',
         controller: 'HomeController',
-        title: 'HOME.PAGE_TITLE'
+        title: 'HOME.PAGE_TITLE',
+        resolve: {
+          videos: ['searchService', function(searchService) {
+            return searchService.searchHomeVideos();
+          }]
+        }
       }).otherwise('/');
 
       $locationProvider.html5Mode(true);

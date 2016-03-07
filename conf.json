@@ -4,8 +4,9 @@
       "/lib/angular/angular.js",
       "/lib/angular-animate/angular-animate.min.js",
       "/lib/angular-route/angular-route.min.js",
-      "/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
-      "/lib/angular-touch/angular-touch.min.js",
+      "/lib/angular-aria/angular-aria.min.js",
+      "/lib/angular-messages/angular-messages.min.js",
+      "/lib/angular-material/angular-material.min.js",
       "/lib/angular-sanitize/angular-sanitize.min.js"
     ],
     "dev" : [
@@ -21,15 +22,17 @@
       "/ov/OvApp.js",
       "/ov/ErrorInterceptor.js",
       "/ov/HomeController.js",
-      "/ov/MainController.js"
+      "/ov/VideosController.js",
+      "/ov/MainController.js",
+      "/ov/SearchService.js"
     ],
     "prod" : [
       "/js/openveo-portal.js"
     ]
   },
   "cssFiles" : [
-    "/css/bootstrap.css",
     "/lib/angular/angular-csp.css",
-    "/lib/angular-bootstrap/ui-bootstrap-csp.css"
+    "/lib/angular-material/angular-material.min.css",
+    "https://fonts.googleapis.com/icon?family=Material+Icons"
   ]
 }

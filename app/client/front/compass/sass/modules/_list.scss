@@ -1,0 +1,26 @@
+md-pagination-wrapper{
+  position: relative;
+  margin: auto;
+}
+md-grid-tile{
+  overflow: hidden;
+  cursor:pointer;
+  
+  .thumbnail{
+    width:100%;
+  }
+  img{
+    width:100%;
+  }
+}
+md-grid-tile-footer {
+  
+  figcaption{
+    position: relative;
+    width: 100%;
+  }
+  .nb-views{
+    padding-right: 10px;
+    text-align: right;
+  }
+}

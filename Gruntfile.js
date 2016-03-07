@@ -50,7 +50,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-protractor-runner');
 
   // Listen to changes on SCSS files and generate CSS files
-  grunt.registerTask('default', ['compass:dev', 'compass:devLib', 'watch']);
+  grunt.registerTask('default', ['compass:dev', 'watch']);
 
   // Launch end to end tests
   // e.g. grunt test-e2e --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true

@@ -8,8 +8,7 @@ module.exports = {
   compass: {
     files: '**/*.scss',
     tasks: [
-      'compass:dev',
-      'compass:devLib'
+      'compass:dev'
     ]
   }
 
