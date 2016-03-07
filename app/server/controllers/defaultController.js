@@ -10,12 +10,12 @@
  * @class defaultController
  */
 
-var path = require('path');
-var openveoAPI = require('@openveo/api');
-var configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
-var portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
-var applicationConf = process.require('conf.json');
-var env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
+const path = require('path');
+const openveoAPI = require('@openveo/api');
+const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
+const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
+const applicationConf = process.require('conf.json');
+const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
 
 /**
  * Handles default action to display main HTML.
@@ -26,7 +26,7 @@ var env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
  * @method defaultAction
  * @static
  */
-module.exports.defaultAction = function(request, response) {
+module.exports.defaultAction = (request, response) => {
 
   // Retrieve the list of scripts and css files from configuration
   response.locals.librariesScriptsBase = applicationConf['scriptLibFiles']['base'] || [];
@@ -40,7 +40,7 @@ module.exports.defaultAction = function(request, response) {
   response.locals.theme = portalConf.theme;
 
   // Add theme css file
-  response.locals.css.push('/themes/' + portalConf.theme + '/style.css');
+  response.locals.css.push(`/themes/${portalConf.theme}/style.css`);
 
   response.render('root', response.locals);
 };

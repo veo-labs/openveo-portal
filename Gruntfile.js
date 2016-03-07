@@ -1,33 +1,32 @@
 'use strict';
 
 require('./processRequire.js');
+const fs = require('fs');
 
 /**
  * Loads a bunch of grunt configuration files from the given directory.
  *
  * Loaded configurations can be referenced using the configuration file name.
- * For example, if myConf.js describes a property "test", it will be accessible
- * using myConf.test.
+ * For example, if myConf.js returns an object with a property "test", it will be accessible using myConf.test.
  *
  * @param {String} path Path of the directory containing configuration files
- * @return {Object} The list of configurations indexed by filename without
- * the extension
+ * @return {Object} The list of configurations indexed by filename without the extension
  */
 function loadConfig(path) {
-  var glob = require('glob');
-  var object = {};
-  var key;
+  const configuration = {};
+  const configurationFiles = fs.readdirSync(path);
 
-  glob.sync('*', {cwd: path}).forEach(function(option) {
-    key = option.replace(/\.js$/, '');
-    object[key] = require(path + '/' + option);
-  });
+  for (const configurationFile of configurationFiles)
+    configuration[configurationFile.replace(/\.js$/, '')] = require(`${path}/${configurationFile}`);
 
-  return object;
+  return configuration;
 }
 
+/**
+ * Initializes grunt, load extensions and register tasks.
+ */
 module.exports = function(grunt) {
-  var config = {
+  const config = {
     pkg: grunt.file.readJSON('package.json'),
     env: process.env
   };

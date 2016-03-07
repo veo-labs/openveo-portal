@@ -1,22 +1,22 @@
 'use strict';
 
 require('../../processRequire.js');
-var path = require('path');
-var childProcess = require('child_process');
-var openveoAPI = require('@openveo/api');
-var e2e = require('@openveo/test').e2e;
-var configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
-var serverConfPath = path.join(configurationDirectoryPath, 'serverTestConf.json');
-var loggerConfPath = path.join(configurationDirectoryPath, 'loggerTestConf.json');
-var screenshotPlugin = e2e.plugins.screenshotPlugin;
-var serverConf = require(serverConfPath);
-var portalServer;
+const path = require('path');
+const childProcess = require('child_process');
+const openveoAPI = require('@openveo/api');
+const e2e = require('@openveo/test').e2e;
+const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
+const serverConfPath = path.join(configurationDirectoryPath, 'serverTestConf.json');
+const loggerConfPath = path.join(configurationDirectoryPath, 'loggerTestConf.json');
+const screenshotPlugin = e2e.plugins.screenshotPlugin;
+const serverConf = require(serverConfPath);
+let portalServer;
 
 // Load a console logger
 process.logger = openveoAPI.logger.get('portal');
 
 // Load test suites
-var suites = process.require('tests/client/protractorSuites.json');
+const suites = process.require('tests/client/protractorSuites.json');
 
 exports.config = {
   seleniumServerJar: process.env.SELENIUM_JAR,
@@ -26,17 +26,17 @@ exports.config = {
     timeout: 200000,
     bail: false
   },
-  suites: suites,
-  baseUrl: 'http://127.0.0.1:' + serverConf.port + '/',
+  suites,
+  baseUrl: `http://127.0.0.1:${serverConf.port}/`,
   plugins: [
     {
       outdir: 'build/screenshots',
       inline: screenshotPlugin
     }
   ],
-  onPrepare: function() {
-    var deferred = protractor.promise.defer();
-    var flow = browser.controlFlow();
+  onPrepare: () => {
+    const deferred = protractor.promise.defer();
+    const flow = browser.controlFlow();
 
     // Init process configuration
     e2e.browser.deactivateAnimations();
@@ -53,7 +53,7 @@ exports.config = {
     ]);
 
     // Listen to messages from server process
-    portalServer.on('message', function(data) {
+    portalServer.on('message', (data) => {
       if (data) {
         if (data.status === 'started') {
           process.logger.info('Server started');
@@ -62,11 +62,11 @@ exports.config = {
       }
     });
 
-    return flow.execute(function() {
+    return flow.execute(() => {
       return deferred.promise;
     });
   },
-  onCleanUp: function() {
+  onCleanUp: () => {
     process.logger.info('Tests finished, exit server');
     portalServer.kill('SIGINT');
   }

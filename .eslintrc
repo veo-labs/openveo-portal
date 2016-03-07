@@ -1,11 +1,23 @@
 {
 
+  "parserOptions": {
+    "ecmaFeatures": {
+
+      // Give ESLint the ability to read let and const variables
+      "blockBindings": true
+
+    }
+  },
+
   // Extends eslint recommended rules
   "extends": "eslint:recommended",
   "env": {
 
     // Add node.js environment globals
-    "node": true
+    "node": true,
+
+    // Enable ECMAScript 6 features
+    "es6": true
 
   },
   "rules": {
@@ -224,7 +236,58 @@
     "spaced-comment": [2, "always"],
 
     // Limit Maximum Length of Line
-    "max-len": [2, 120, 2, {"ignoreUrls": true}]
+    "max-len": [2, 120, 2, {"ignoreUrls": true}],
+
+    // Require parens in arrow function arguments
+    arrow-parens: [2, "always"],
+
+    // Require space before and after arrow function's arrow
+    "arrow-spacing": 2,
+
+    // Require call to super() only in constructors extending another object
+    "constructor-super": 2,
+
+    // Require space before generator star but not after
+    "generator-star-spacing": [2, {"before": false, "after": true}],
+
+    // Disallow modifying variables of class declarations
+    "no-class-assign": 2,
+
+    // Disallow modifying variables that are declared unsing const
+    "no-const-assign": 2,
+
+    // Disallow duplicate name in class members
+    "no-dupe-class-members": 2,
+
+    // Disallow Symbol constructor
+    "no-new-symbol": 2,
+
+    // Disallow unnecessary constructor
+    "no-useless-constructor": 2,
+
+    // Require let or const instead of var
+    "no-var": 2,
+
+    // Require object literal shorthand syntax
+    "object-shorthand": 2,
+
+    // Suggest using arrow functions as callbacks
+    "prefer-arrow-callback": 2,
+
+    // Suggest using const
+    "prefer-const": 2,
+
+    // Suggest using template literals instead of string concatenation
+    "prefer-template": 2,
+
+    // Disallow generator functions that do not have yield
+    "require-yield": 2,
+
+    // Enforce usage of spacing in template strings
+    "template-curly-spacing": 2,
+
+    // Enforce spacing after yield stars
+    "yield-star-spacing": [2, "after"]
 
   }
 }

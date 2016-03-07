@@ -1,27 +1,36 @@
 'use strict';
 
-var util = require('util');
-var e2e = require('@openveo/test').e2e;
-var Page = e2e.Page;
+const e2e = require('@openveo/test').e2e;
+const Page = e2e.pages.Page;
 
 /**
- * Creates a new HomePage.
+ * Defines a page corresponding to portal home page.
  */
-function HomePage() {
-  HomePage.super_.call(this);
+class HomePage extends Page {
 
-  // Page path
-  this.path = '';
+  /**
+   * Creates a new HomePage.
+   */
+  constructor() {
+    super();
+
+    Object.defineProperties(this, {
+      path: {
+        value: '',
+        writable: true
+      }
+    });
+  }
+
+  /**
+   * Checks if the home page is loaded.
+   *
+   * @return {Promise} Promise resolving when page is fully loaded
+   */
+  onLoaded() {
+    return protractor.promise.fulfilled();
+  }
+
 }
 
 module.exports = HomePage;
-util.inherits(HomePage, Page);
-
-/**
- * Checks if the home page is loaded.
- *
- * @return {Promise} Promise resolving when page is fully loaded
- */
-HomePage.prototype.onLoaded = function() {
-  return protractor.promise.fulfilled();
-};

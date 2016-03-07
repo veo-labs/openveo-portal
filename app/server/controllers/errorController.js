@@ -10,8 +10,8 @@
  * @class errorController
  */
 
-var errors = process.require('app/server/httpErrors.js');
-var defaultController = process.require('app/server/controllers/defaultController.js');
+const errors = process.require('app/server/httpErrors.js');
+const defaultController = process.require('app/server/controllers/defaultController.js');
 
 /**
  * Handles requests which does not correspond to anything.
@@ -19,7 +19,7 @@ var defaultController = process.require('app/server/controllers/defaultControlle
  * @method notFoundAction
  * @static
  */
-module.exports.notFoundAction = function(request, response, next) {
+module.exports.notFoundAction = (request, response, next) => {
   next(errors.PATH_NOT_FOUND);
 };
 
@@ -36,7 +36,7 @@ module.exports.notFoundAction = function(request, response, next) {
  * @static
  * @param {Object} error An error object with error code, HTTP code and error message
  */
-module.exports.errorAction = function(error, request, response, next) {
+module.exports.errorAction = (error, request, response, next) => {
   if (!error)
     error = errors.UNKNOWN_ERROR;
 

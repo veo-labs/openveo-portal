@@ -4,18 +4,15 @@
  * @module passport-cas
  */
 
-var util = require('util');
-var CAS = process.require('app/server/passport/cas/CAS.js');
+const CAS = process.require('app/server/passport/cas/CAS.js');
 
 /**
- * Creates a cas client interfacing with cas protocol 2.0.
+ * Defines a cas client interfacing with cas protocol 2.0.
  *
- * @construct
- * @param {Object} options The list of cas strategy options
+ * @class CAS 2
  */
-function CAS2(options) {
-  CAS.call(this, options);
+class CAS2 extends CAS {
+
 }
 
 module.exports = CAS2;
-util.inherits(CAS2, CAS);

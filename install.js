@@ -1,18 +1,18 @@
 'use strict';
 
 require('./processRequire.js');
-var readline = require('readline');
-var crypto = require('crypto');
-var path = require('path');
-var fs = require('fs');
-var os = require('os');
-var async = require('async');
-var openVeoAPI = require('@openveo/api');
-var confDir = path.join(openVeoAPI.fileSystem.getConfDir(), 'portal');
-var exit = process.exit;
+const readline = require('readline');
+const crypto = require('crypto');
+const path = require('path');
+const fs = require('fs');
+const os = require('os');
+const async = require('async');
+const openVeoAPI = require('@openveo/api');
+const confDir = path.join(openVeoAPI.fileSystem.getConfDir(), 'portal');
+const exit = process.exit;
 
 // Create a readline interface to interact with the user
-var rl = readline.createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -44,7 +44,7 @@ function createConfDir(callback) {
  *   - **Error** An error if something went wrong, null otherwise
  */
 function createLoggerDir(callback) {
-  var conf = require(path.join(confDir, 'loggerConf.json'));
+  const conf = require(path.join(confDir, 'loggerConf.json'));
   openVeoAPI.fileSystem.mkdir(path.dirname(conf.fileName), callback);
 }
 
@@ -54,8 +54,8 @@ function createLoggerDir(callback) {
  * @param {Function} callback Function to call when its done
  */
 function createConf(callback) {
-  var confFile = path.join(confDir, 'conf.json');
-  var conf = {
+  const confFile = path.join(confDir, 'conf.json');
+  const conf = {
     theme: 'default'
   };
 
@@ -63,23 +63,23 @@ function createConf(callback) {
 
     // Test if portal configuration exists
     // If configuration file already exists, nothing is done
-    function(callback) {
-      fs.exists(confFile, function(exists) {
+    (callback) => {
+      fs.exists(confFile, (exists) => {
         if (exists)
-          callback(new Error(confFile + ' already exists\n'));
+          callback(new Error(`${confFile} already exists\n`));
         else
           callback();
       });
     },
 
     // Ask for theme
-    function(callback) {
-      rl.question('Enter the name of the theme to use (default: ' + conf.theme + ') :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter the name of the theme to use (default: "${conf.theme}") :\n`, (answer) => {
         conf.theme = answer || conf.theme;
         callback();
       });
     }
-  ], function(error, results) {
+  ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
       callback();
@@ -94,8 +94,8 @@ function createConf(callback) {
  * @param {Function} callback Function to call when its done
  */
 function createDatabaseConf(callback) {
-  var confFile = path.join(confDir, 'databaseConf.json');
-  var conf = {
+  const confFile = path.join(confDir, 'databaseConf.json');
+  const conf = {
     type: 'mongodb',
     host: 'localhost',
     port: 27017
@@ -105,55 +105,55 @@ function createDatabaseConf(callback) {
 
     // Test if database configuration exists
     // If configuration file already exists, nothing is done
-    function(callback) {
-      fs.exists(confFile, function(exists) {
+    (callback) => {
+      fs.exists(confFile, (exists) => {
         if (exists)
-          callback(new Error(confFile + ' already exists\n'));
+          callback(new Error(`${confFile} already exists\n`));
         else
           callback();
       });
     },
 
     // Ask for database host
-    function(callback) {
-      rl.question('Enter database host (default: ' + conf.host + ') :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter database host (default: ${conf.host}) :\n`, (answer) => {
         conf.host = answer || conf.host;
         callback();
       });
     },
 
     // Ask for database port
-    function(callback) {
-      rl.question('Enter database port (default: ' + conf.port + ') :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter database port (default: ${conf.port}) :\n`, (answer) => {
         conf.port = answer || conf.port;
         callback();
       });
     },
 
     // Ask for database name
-    function(callback) {
-      rl.question('Enter database name :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter database name :\n`, (answer) => {
         conf.database = answer || '';
         callback();
       });
     },
 
     // Ask for database user name
-    function(callback) {
-      rl.question('Enter database user name :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter database user name :\n`, (answer) => {
         conf.username = answer || '';
         callback();
       });
     },
 
     // Ask for database user password
-    function(callback) {
-      rl.question('Enter database user password :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter database user password :\n`, (answer) => {
         conf.password = answer || '';
         callback();
       });
     }
-  ], function(error, results) {
+  ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
       callback();
@@ -168,8 +168,8 @@ function createDatabaseConf(callback) {
  * @param {Function} callback Function to call when its done
  */
 function createLoggerConf(callback) {
-  var confFile = path.join(confDir, 'loggerConf.json');
-  var conf = {
+  const confFile = path.join(confDir, 'loggerConf.json');
+  const conf = {
     level: 'info',
     maxFileSize: 1048576,
     maxFiles: 2
@@ -179,24 +179,24 @@ function createLoggerConf(callback) {
 
     // Test if logger configuration exists
     // If configuration file already exists, nothing is done
-    function(callback) {
-      fs.exists(confFile, function(exists) {
+    (callback) => {
+      fs.exists(confFile, (exists) => {
         if (exists)
-          callback(new Error(confFile + ' already exists\n'));
+          callback(new Error(`${confFile} already exists\n`));
         else
           callback();
       });
     },
 
     // Ask for log directory path
-    function(callback) {
-      var defaultPath = path.join(os.tmpdir(), 'openveo', 'logs');
-      rl.question('Enter OpenVeo Portal logs directory (default: ' + defaultPath + ') :\n', function(answer) {
+    (callback) => {
+      const defaultPath = path.join(os.tmpdir(), 'openveo', 'logs');
+      rl.question(`Enter OpenVeo Portal logs directory (default: ${defaultPath}) :\n`, (answer) => {
         conf.fileName = path.join((answer || defaultPath), 'openveo-portal.log').replace(/\\/g, '/');
         callback();
       });
     }
-  ], function(error, results) {
+  ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
       callback();
@@ -213,45 +213,45 @@ function createLoggerConf(callback) {
  *   - **Object** The cas configuration
  */
 function askForCasAuthConf(callback) {
-  var conf = {
+  const conf = {
     version: '3'
   };
 
   async.series([
 
     // Ask for application service registered in cas server
-    function(callback) {
-      rl.question('Enter the application service registered in cas server :\n', function(answer) {
+    (callback) => {
+      rl.question('Enter the application service registered in cas server :\n', (answer) => {
         conf.service = answer;
         callback();
       });
     },
 
     // Enter the url of the cas server
-    function(callback) {
-      rl.question('Enter the url of the cas server :\n', function(answer) {
+    (callback) => {
+      rl.question('Enter the url of the cas server :\n', (answer) => {
         conf.url = answer;
         callback();
       });
     },
 
     // Ask for authentication
-    function(callback) {
-      rl.question('Enter the version of the cas protocol to use to connect to the cas server ? (default: ' +
-                  conf.version + ') :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter the version of the cas protocol to use to connect to the cas server ? (default: \
+${conf.version}) :\n`, (answer) => {
         conf.version = answer || conf.version;
         callback();
       });
     },
 
     // Ask for certificate
-    function(callback) {
-      rl.question('Enter the complete path to the cas certificate :\n', function(answer) {
+    (callback) => {
+      rl.question('Enter the complete path to the cas certificate :\n', (answer) => {
         conf.certificate = answer;
         callback();
       });
     }
-  ], function(error, results) {
+  ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
       callback();
@@ -266,9 +266,9 @@ function askForCasAuthConf(callback) {
  * @param {Function} callback Function to call when its done
  */
 function createServerConf(callback) {
-  var confFile = path.join(confDir, 'serverConf.json');
-  var authConf;
-  var conf = {
+  let authConf;
+  const confFile = path.join(confDir, 'serverConf.json');
+  const conf = {
     port: 3003
   };
 
@@ -276,49 +276,49 @@ function createServerConf(callback) {
 
     // Test if server configuration exists
     // If configuration file already exists, nothing is done
-    function(callback) {
-      fs.exists(confFile, function(exists) {
+    (callback) => {
+      fs.exists(confFile, (exists) => {
         if (exists)
-          callback(new Error(confFile + ' already exists\n'));
+          callback(new Error(`${confFile} already exists\n`));
         else
           callback();
       });
     },
 
     // Ask for log session hash
-    function(callback) {
-      var hash = getRandomHash(40);
-      rl.question('Enter a hash to secure HTTP sessions (default: ' + hash + ') :\n', function(answer) {
+    (callback) => {
+      const hash = getRandomHash(40);
+      rl.question(`Enter a hash to secure HTTP sessions (default: ${hash}) :\n`, (answer) => {
         conf.sessionSecret = answer || hash;
         callback();
       });
     },
 
     // Ask for HTTP server port
-    function(callback) {
-      rl.question('Enter OpenVeo Portal server port (default: ' + conf.port + ') :\n', function(answer) {
+    (callback) => {
+      rl.question(`Enter OpenVeo Portal server port (default: ${conf.port}) :\n`, (answer) => {
         conf.port = answer || conf.port;
         callback();
       });
     },
 
     // Ask for authentication
-    function(callback) {
-      rl.question('Do you want to add authentication to the portal ? (y/N) :\n', function(answer) {
+    (callback) => {
+      rl.question('Do you want to add authentication to the portal ? (y/N) :\n', (answer) => {
         if (answer === 'y') authConf = {};
         callback();
       });
     },
 
     // Ask for the authentication mechanism
-    function(callback) {
+    (callback) => {
       if (!authConf) return callback();
       rl.question('Which authentication mechanism do you want to configure ? (0:local -default-, 1:cas) :\n',
-      function(answer) {
+      (answer) => {
         if (answer === '1') {
           authConf.type = 'cas';
 
-          askForCasAuthConf(function(casConf) {
+          askForCasAuthConf((casConf) => {
             authConf.cas = casConf;
             callback();
           });
@@ -328,7 +328,7 @@ function createServerConf(callback) {
         }
       });
     }
-  ], function(error, results) {
+  ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
       callback();
@@ -345,12 +345,12 @@ function createServerConf(callback) {
  * @param {Function} callback Function to call when its done
  */
 function verifyDatbaseConf(callback) {
-  var databaseConf = require(path.join(confDir, 'databaseConf.json'));
-  var db = openVeoAPI.Database.getDatabase(databaseConf);
+  const databaseConf = require(path.join(confDir, 'databaseConf.json'));
+  const db = openVeoAPI.Database.getDatabase(databaseConf);
 
-  db.connect(function(error) {
+  db.connect((error) => {
     if (error) {
-      process.stdout.write('Could not connect to the database with message : ' + error.message);
+      process.stdout.write(`Could not connect to the database with message : ${error.message}`);
       exit();
     }
 
@@ -367,7 +367,7 @@ async.series([
   createLoggerDir,
   createServerConf,
   verifyDatbaseConf
-], function(error, results) {
+], (error, results) => {
   if (error)
     throw error;
   else {
