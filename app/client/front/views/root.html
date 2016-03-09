@@ -14,16 +14,24 @@
 
     <script>
       var languages = [ [[& languages]] ];
+      var ovPlayerDirectory = "/lib/openveo-player/";
     </script>
   </head>
 
   <body ng-cloak>
     <header>
       <div class="container">
-        <div layout="row" layout-align="space-between center">
+        <div layout="row" layout-align="space-between center" layout-margin>
           <div>logo</div>
-          <md-button hide-xs class='md-raised md-primary' ng-click='authenticate()' ng-bind="'UI.CONNECTION'|translate"> 
-          </md-button>
+          [[#user]]
+          <div layout="row" layout-align="end center">
+            <label><span ng-bind="'UI.HELLO'|translate"></span> [[user]]</label>
+            <md-button hide-xs class='md-raised md-primary' href="/logout" target="_self" ng-bind="'UI.LOGOUT'|translate"></md-button>
+          </div>
+          [[/user]]
+          [[^user]]
+          <md-button hide-xs class='md-raised md-primary' href="/authenticate" target="_self" ng-bind="'UI.LOGIN'|translate"></md-button>
+          [[/user]]
         </div>
       </div>
 
@@ -83,6 +91,7 @@
       document.write('\x3Cscript type="text/javascript" src="/lib/angular-i18n/angular-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/i18n/openveo-portal-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/conf.js">\x3C/script>');
+      videojs.options.flash.swf = "/lib/openveo-player/lib/video.js/dist/video-js.swf";
     </script>
    
     [[#scripts]]

@@ -3,11 +3,17 @@
 angular.module('ov.locale', [], ['$provide', function($provide) {
   $provide.value('translations', {
     UI: {
-      CONNECTION: 'Connexion',
+      LOGIN: 'Connexion',
+      LOGOUT: 'Déconnexion',
+      HELLO: 'Bonjour',
       SEARCH: 'Rechercher',
       CANCEL: 'Annuler',
       VIEWS: 'vues',
-      DATE: 'date'
+      DATE: 'date',
+      SHARE: 'Partager',
+      DATE_BETWEEN: 'Date entre',
+      AND: 'et',
+      CLOSE: 'Fermer'
     },
     HOME: {
       PAGE_TITLE: 'Portail - Accueil',
@@ -22,21 +28,26 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       KEYWORD: 'Rechercher par mot clé',
       RESULTS: 'Résultats',
       RESULT: 'Résultat',
+      NO_RESULTS: 'Aucun résultat correspondant à la recherche',
       ADVANCED: 'Recherche avancée',
-      ORDER_BY: 'Trier par : '
+      ORDER_BY: 'Trier par : ',
+      NAME: 'Intervenant',
+      CATEGORY: 'Rubrique',
+      ORIGIN: 'Origine',
+      TITLE: 'Titre'
     },
     MENU: {
       HOME: 'Accueil',
       ALL_VIDEOS: 'Toutes les vidéos'
     },
-    LINKS : {
+    LINKS: {
       CONTACT: 'Contact',
       HELP: 'Aide'
     },
-    ERROR : {
-      CLIENT : 'Une erreur applicative est survenue, veuillez contacter l\'administrateur.',
-      SERVER : 'Une erreur serveur est survenue, veuillez contacter l\'administrateur.',
-      FORBIDDEN : 'Vous n\'avez pas la permission d\'effectuer cette action.'
+    ERROR: {
+      CLIENT: 'Une erreur applicative est survenue, veuillez contacter l\'administrateur.',
+      SERVER: 'Une erreur serveur est survenue, veuillez contacter l\'administrateur.',
+      FORBIDDEN: 'Vous n\'avez pas la permission d\'effectuer cette action.'
     }
   });
 }]);

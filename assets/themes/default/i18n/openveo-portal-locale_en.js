@@ -3,11 +3,17 @@
 angular.module('ov.locale', [], ['$provide', function($provide) {
   $provide.value('translations', {
     UI: {
-      CONNECTION: 'Connection',
+      LOGIN: 'Log in',
+      LOGOUT: 'Log out',
+      HELLO: 'Hi',
       SEARCH: 'Search',
       CANCEL: 'Cancel',
       VIEWS: 'views',
-      DATE: 'date'
+      DATE: 'date',
+      SHARE: 'Share',
+      DATE_BETWEEN: 'Date between',
+      AND: 'and',
+      CLOSE: 'Close'
     },
     HOME: {
       PAGE_TITLE: 'Portal - Home',
@@ -22,21 +28,26 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       KEYWORD: 'Search by keyword',
       RESULTS: 'Results',
       RESULT: 'Result',
+      NO_RESULTS: 'No results found',
       ADVANCED: 'Advanced search',
-      ORDER_BY: 'Order by : '
+      ORDER_BY: 'Order by : ',
+      NAME: 'Speaker',
+      CATEGORY: 'Categorie',
+      ORIGIN: 'Origin',
+      TITLE: 'Title'
     },
     MENU: {
       HOME: 'HOME',
       ALL_VIDEOS: 'All videos'
     },
-    LINKS : {
+    LINKS: {
       CONTACT: 'Contact',
       HELP: 'Help'
     },
-    ERROR : {
-      CLIENT : 'An application error occured, please contact the administrator.',
-      SERVER : 'A server error occured, please contact the administrator.',
-      FORBIDDEN : 'You don\'t have permission for this action.'
+    ERROR: {
+      CLIENT: 'An application error occured, please contact the administrator.',
+      SERVER: 'A server error occured, please contact the administrator.',
+      FORBIDDEN: 'You don\'t have permission for this action.'
     }
   });
 }]);

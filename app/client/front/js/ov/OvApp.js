@@ -17,9 +17,11 @@
     'ngMaterial',
     'ngMessages',
     'ngSanitize',
+    'ngCookies',
     'ov.locale',
     'ov.i18n',
-    'ov.configuration'
+    'ov.configuration',
+    'ov.player'
   ];
 
   var app = angular.module('ov.portal', moduleDependencies);
