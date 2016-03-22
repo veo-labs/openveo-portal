@@ -3,6 +3,7 @@ md-pagination-wrapper{
   margin: auto;
 }
 md-grid-tile{
+  @include transition(all 0.45s ease-out 0s);
   overflow: hidden;
   cursor:pointer;
   

@@ -5,7 +5,9 @@
     <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     {{=[[ ]]=}}
 
     [[#css]]
@@ -19,18 +21,24 @@
   </head>
 
   <body ng-cloak>
-    <header>
+    <header ng-if="!isIframe">
       <div class="container">
-        <div layout="row" layout-align="space-between center" layout-margin>
+        <div layout="row" layout-align="space-between center" layout-padding>
           <div>logo</div>
           [[#user]]
           <div layout="row" layout-align="end center">
             <label><span ng-bind="'UI.HELLO'|translate"></span> [[user]]</label>
-            <md-button hide-xs class='md-raised md-primary' href="/logout" target="_self" ng-bind="'UI.LOGOUT'|translate"></md-button>
+            <md-button hide-xs class='md-raised md-primary text-button'
+                       href="/logout" target="_self"
+                       aria-label="{{'UI.LOGOUT'|translate}}"
+                       ng-bind="'UI.LOGOUT'|translate"></md-button>
           </div>
           [[/user]]
           [[^user]]
-          <md-button hide-xs class='md-raised md-primary' href="/authenticate" target="_self" ng-bind="'UI.LOGIN'|translate"></md-button>
+          <md-button hide-xs class='md-raised md-primary text-button' 
+                     href="/authenticate" target="_self" 
+                     aria-label="{{'UI.LOGIN'|translate}}"
+                     ng-bind="'UI.LOGIN'|translate" ></md-button>
           [[/user]]
         </div>
       </div>
@@ -39,8 +47,12 @@
         <md-toolbar  md-scroll-shrink hide-xs >
           <div class="md-toolbar-tools">
             <div class='container'>
-              <md-button ng-href="/" ng-bind="'MENU.HOME'|translate"></md-button>
-              <md-button ng-href="/videos" ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button>
+              <md-button ng-href="/" 
+                         aria-label="{{'MENU.HOME'|translate}}"
+                         ng-bind="'MENU.HOME'|translate"></md-button>
+              <md-button ng-href="/search"
+                         aria-label="{{'MENU.ALL_VIDEOS'|translate}}"
+                         ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button>
               <span flex></span>
             </div>
           </div>
@@ -52,13 +64,19 @@
              <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
                <md-icon material-icons md-light md-48>menu</md-icon>
              </md-button>
-             <md-menu-content>
-               <md-menu-item><md-button ng-href="/" ng-bind="'MENU.HOME'|translate"></md-button></md-menu-item>
-               <md-menu-item><md-button ng-href="/videos" ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button></md-menu-item>
+             <md-menu-content  width="12">
+               <md-menu-item><md-button ng-href="/"
+                                        aria-label="{{'MENU.HOME'|translate}}"
+                                        ng-bind="'MENU.HOME'|translate"></md-button></md-menu-item>
+               <md-menu-item><md-button ng-href="/search"
+                                        aria-label="{{'MENU.ALL_VIDEOS'|translate}}"
+                                        ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button></md-menu-item>
              </md-menu-content>
             </md-menu>
             <span flex></span>
-            <md-button ng-bind="'UI.CONNECTION'|translate"></md-button>
+            <md-button 
+              aria-label="{{'UI.LOGIN'|translate}}"
+              ng-bind="'UI.LOGIN'|translate"></md-button>
           </div>
         </md-toolbar>
       </div>
@@ -68,13 +86,19 @@
         <div ng-view ng-cloak></div>
       </div>
     </div>
-    <footer class="footer">
+    <footer ng-if="!isIframe" class="footer">
         <md-toolbar>
           <div class="md-toolbar-tools">
             <div class='container'>
               <div layout="row" layout-align="center center">
-                <md-button class="md-primary" ng-href="{{contactMailTo}}" target="_blank" ng-bind="'LINKS.CONTACT'|translate"></md-button> |
-                <md-button class="md-primary" ng-href="{{helpUrl}}" ng-bind="'LINKS.HELP'|translate"></md-button>
+                <md-button class="md-primary" 
+                           ng-href="{{contactMailTo}}" target="_blank" 
+                           aria-label="{{'LINKS.CONTACT'|translate}}"
+                           ng-bind="'LINKS.CONTACT'|translate"></md-button> |
+                <md-button class="md-primary" 
+                           ng-href="{{helpUrl}}" target="_blank" 
+                           aria-label="{{'LINKS.HELP'|translate}}"
+                           ng-bind="'LINKS.HELP'|translate"></md-button>
               </div>
             </div>
           </div>

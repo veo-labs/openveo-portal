@@ -32,13 +32,45 @@
   app.config(['$routeProvider', '$locationProvider', '$httpProvider',
     function($routeProvider, $locationProvider, $httpProvider) {
 
-      $routeProvider.when('/videos', {
-        templateUrl: 'views/videos.html',
-        controller: 'VideosController',
-        title: 'VIDEOS.PAGE_TITLE',
+      $routeProvider.when('/video/:mediaId', {
+        templateUrl: 'views/videoPage.html',
+        controller: 'VideoPageController',
+        title: 'VIDEO.PAGE_TITLE',
         reloadOnSearch: false,
         resolve: {
-          videos: ['$location', 'searchService', function($location, searchService) {
+          video: ['$q', 'searchService', '$route', function($q, searchService, $route) {
+            var deferred = $q.defer();
+            var mediaId = $route.current.params.mediaId;
+
+            searchService.loadVideo(mediaId).then(function(result) {
+
+              // video found and public or user authentified
+              if (result.data.entity)
+                deferred.resolve.apply(deferred, arguments);
+
+              // user not authentified
+              else if (result.data.needAuth)
+                deferred.reject({redirect: '/authenticate'});
+
+            }, function(error) {
+
+              // error on call
+              searchService.cacheClear();
+              deferred.reject({redirect: '/'});
+            });
+
+            return deferred.promise;
+          }]
+        }
+      });
+
+      $routeProvider.when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchController',
+        title: 'SEARCH.PAGE_TITLE',
+        reloadOnSearch: false,
+        resolve: {
+          result: ['$location', 'searchService', function($location, searchService) {
             var param = $location.search();
             return searchService.search(param, null);
           }],
@@ -54,7 +86,7 @@
         controller: 'HomeController',
         title: 'HOME.PAGE_TITLE',
         resolve: {
-          videos: ['searchService', function(searchService) {
+          result: ['searchService', function(searchService) {
             return searchService.searchHomeVideos();
           }]
         }

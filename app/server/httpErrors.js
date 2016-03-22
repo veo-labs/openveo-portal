@@ -21,6 +21,21 @@ module.exports = {
   PATH_NOT_FOUND: {
     code: 0x002,
     httpCode: 404
-  }
+  },
 
+  // VIDEO errors
+  GET_VIDEO_UNKNOWN: {
+    code: 0x101,
+    httpCode: 500
+  },
+
+  // SEARCH
+  GET_SEARCH_FILTER_ERROR: {
+    code: 0x201,
+    httpCode: 500
+  },
+  SEARCH_ERROR: {
+    code: 0x202,
+    httpCode: 500
+  }
 };

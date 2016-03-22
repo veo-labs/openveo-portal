@@ -340,11 +340,76 @@ function createServerConf(callback) {
 }
 
 /**
+ * Creates portal configuration file if it does not exist.
+ *
+ * @param {Function} callback Function to call when its done
+ */
+function createWebservicesConf(callback) {
+  const confFile = path.join(confDir, 'webservicesConf.json');
+  const conf = {
+    host: '192.168.0.1',
+    port: '3001'
+  };
+
+  async.series([
+
+    // Test if webservices configuration exists
+    // If configuration file already exists, nothing is done
+    (callback) => {
+      fs.exists(confFile, (exists) => {
+        if (exists)
+          callback(new Error(`${confFile} already exists\n`));
+        else
+          callback();
+      });
+    },
+
+    // Ask webservices ip
+    (callback) => {
+      rl.question('Enter Webservices host IP with port (default: 192.168.0.1):\n', (answer) => {
+        conf.host = answer || conf.host;
+        callback();
+      });
+    },
+
+    // Ask webservices port
+    (callback) => {
+      rl.question('Enter Webservices host IP with port (default: 3001):\n', (answer) => {
+        conf.port = answer || conf.port;
+        callback();
+      });
+    },
+
+    // Ask webservices oAuth client ID
+    (callback) => {
+      rl.question('Enter Webservices oAuth Client ID :\n', (answer) => {
+        conf.clientID = answer || '';
+        callback();
+      });
+    },
+
+    // Ask webservices oAuth secret ID
+    (callback) => {
+      rl.question('Enter Webservices oAuth Secret ID :\n', (answer) => {
+        conf.secretID = answer || '';
+        callback();
+      });
+    }
+  ], (error, results) => {
+    if (error) {
+      process.stdout.write(error.message);
+      callback();
+    } else
+      fs.writeFile(confFile, JSON.stringify(conf, null, '\t'), {encoding: 'utf8'}, callback);
+  });
+}
+
+/**
  * Verifies connection to the database.
  *
  * @param {Function} callback Function to call when its done
  */
-function verifyDatbaseConf(callback) {
+function verifyDatabaseConf(callback) {
   const databaseConf = require(path.join(confDir, 'databaseConf.json'));
   const db = openVeoAPI.Database.getDatabase(databaseConf);
 
@@ -366,7 +431,8 @@ async.series([
   createLoggerConf,
   createLoggerDir,
   createServerConf,
-  verifyDatbaseConf
+  createWebservicesConf,
+  verifyDatabaseConf
 ], (error, results) => {
   if (error)
     throw error;

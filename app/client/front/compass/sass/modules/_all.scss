@@ -6,3 +6,30 @@
 @import "list";
 @import "player";
 @import "search";
+@import "home";
+
+.text-button{
+  padding: 0 25px;
+}
+
+md-divider{
+  &.ng-hide-add, &.ng-hide-remove {
+  @include transition(opacity 0.45s ease 0s);
+  }
+  
+  &.ng-hide-add {
+    opacity: 1;
+  }
+
+  &.ng-hide-add-active {
+    opacity: 0;
+  }
+
+  &.ng-hide-remove {
+    opacity: 0;
+  }
+
+  &.ng-hide-remove-active {
+    opacity: 1;
+  }
+}

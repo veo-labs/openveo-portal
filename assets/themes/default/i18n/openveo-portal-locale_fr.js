@@ -13,28 +13,33 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       SHARE: 'Partager',
       DATE_BETWEEN: 'Date entre',
       AND: 'et',
-      CLOSE: 'Fermer'
+      CLOSE: 'Fermer',
+      LINK: 'Lien',
+      CODE: 'Code HTML',
+      TITLE: 'Titre'
     },
     HOME: {
       PAGE_TITLE: 'Portail - Accueil',
       TITLE: 'Les vidéos du moment',
       ALL_VIDEOS: 'Voir toutes les vidéos'
     },
-    VIDEOS: {
-      PAGE_TITLE: 'Portail - Vidéos',
-      TITLE: 'Toutes les vidéos'
+    VIDEO: {
+      PAGE_TITLE: 'Portail - Vidéo'
     },
     SEARCH: {
+      PAGE_TITLE: 'Portail - Recherche',
+      TITLE: 'Toutes les vidéos',
       KEYWORD: 'Rechercher par mot clé',
       RESULTS: 'Résultats',
       RESULT: 'Résultat',
       NO_RESULTS: 'Aucun résultat correspondant à la recherche',
       ADVANCED: 'Recherche avancée',
       ORDER_BY: 'Trier par : ',
-      NAME: 'Intervenant',
-      CATEGORY: 'Rubrique',
-      ORIGIN: 'Origine',
-      TITLE: 'Titre'
+      NAME_FILTER: 'Intervenant',
+      CATEGORY_FILTER: 'Rubrique',
+      ORIGIN_FILTER: 'Origine',
+      DATE_OR_VIEWS: 'Date ou nombre de vues',
+      ORDER_ASC: 'Croissant ou décroissant'
     },
     MENU: {
       HOME: 'Accueil',

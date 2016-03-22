@@ -1,5 +1,42 @@
-md-dialog-content {
-  max-width:900px;
-  max-height:900px;
-  margin:auto;
+md-dialog.dialog-video{
+	@include desktop(){
+     width:900px;
+
+	}
+  
+  @include wide(){
+    width:1024px;
+	}
+  
+  &.md-dialog-fullscreen{
+    min-width:100%;
+  }
+  md-dialog-content {
+    max-width:900px;
+    max-height:900px;
+    width: 100%;
+    margin:auto;
+    
+    @include wide(){
+       max-width: none;
+    }
+  }
+  .md-dialog-content {
+ 
+    &.video-info{
+      padding-top:0;
+      padding-bottom:0;
+    }
+    &.player-container{
+      padding-bottom:0;
+    }
+  }
+  .player-container{
+
+  }
+
+  .share-code{
+    /*display:none;*/
+  }
+  
 }

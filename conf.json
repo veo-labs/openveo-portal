@@ -27,9 +27,11 @@
       "/ov/OvApp.js",
       "/ov/ErrorInterceptor.js",
       "/ov/HomeController.js",
-      "/ov/VideosController.js",
+      "/ov/VideoController.js",
+      "/ov/VideoPageController.js",
       "/ov/MainController.js",
-      "/ov/SearchService.js"
+      "/ov/SearchService.js",
+      "/ov/SearchController.js"
     ],
     "prod" : [
       "/js/openveo-portal.js"

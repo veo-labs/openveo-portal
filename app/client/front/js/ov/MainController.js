@@ -3,69 +3,41 @@
 (function(app) {
 
   /**
+   * Define toast controller for all toast in app
+   * @param {type} $scope
+   * @param {type} $mdToast
+   * @returns {MainController_L3.ToastController}
+   */
+  function ToastController($scope, $mdToast) {
+    $scope.closeToast = function() {
+      $mdToast.hide();
+    };
+  }
+
+  /**
+   * Define dialog controller for all dialog in app
    * @param {type} $scope
    * @param {type} $mdDialog
    * @param {type} video
    * @returns {MainController_L3.DialogController}
    */
-  function DialogController($scope, $mdDialog, $locale, $timeout, video) {
-    $scope.language = $locale.id;
+  function DialogController($scope, $mdDialog, video, $mdMedia) {
+
     $scope.video = video;
-    $scope.shareClosed = true;
-    $scope.moreInfoClosed = true;
-
-    var myPlayer = document.getElementById('openveo-player');
-    var playerController;
-
-    /**
-     * Executes, safely, the given function in AngularJS process.
-     *
-     * @param {Function} functionToExecute The function to execute as part of
-     * the angular digest process.
-     */
-    function safeApply(functionToExecute) {
-
-      // Execute each apply on a different loop
-      $timeout(function() {
-
-        // Make sure we're not on a digestion cycle
-        var phase = $scope.$root.$$phase;
-
-        if (phase === '$apply' || phase === '$digest')
-          functionToExecute();
-        else
-          $scope.$apply(functionToExecute);
-      }, 1);
-    }
-
-    angular.element(myPlayer).on('durationChange', function(event, duration) {
-      safeApply(function() {
-
-        // only gets called once
-        if (!playerController || duration) {
-          playerController = angular.element(myPlayer).controller('ovPlayer');
-        }
-      });
-    });
-
-    // Listen to player errors
-    // If an error occurs go back to catalog with an alert
-    angular.element(myPlayer).on('error', function(event, error) {
-      $scope.$emit('setAlert', 'danger', error.message, 8000);
-    });
+    $scope.dialogIsFull = ($mdMedia('sm') || $mdMedia('xs'));
 
     $scope.hide = function() {
       $mdDialog.hide();
-      $scope.shareClosed = true;
     };
     $scope.cancel = function() {
       $mdDialog.cancel();
-      $scope.shareClosed = true;
     };
-    $scope.share = function(video) {
-      $scope.shareClosed = !$scope.shareClosed;
-      $scope.shareCode = '<iframe>' + video.title + '</iframne>';
-    };
+
+    $scope.$watch(function() {
+      return ($mdMedia('sm') || $mdMedia('xs'));
+    }, function(wantsFullScreen) {
+      $scope.dialogIsFull = (wantsFullScreen === true);
+    });
   }
 
   /**
@@ -73,19 +45,36 @@
    * application. All actions not handled in partials are handled
    * by the main controller.
    */
-  function MainController($route, $scope, links, $mdDialog, $mdMedia) {
+  function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia, $location, $filter) {
+    var urlParams = $location.search();
+    $scope.isIframe = urlParams['iframe'] || false;
+    $scope.hideDetailVideo = urlParams['hidedetail'] || false;
+    $scope.contactMailTo = links.contactMailTo;
+    $scope.helpUrl = links.helpUrl;
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
-
       // Change page title
       $scope.title = $route.current && $route.current.title || '';
-      $scope.contactMailTo = links.contactMailTo;
-      $scope.helpUrl = links.helpUrl;
+    });
+
+    // Listen to the route change error event
+    // If user is not authenticated, redirect to the login page
+    // otherwise redirect to the home page
+    $scope.$on('$routeChangeError', function(event, current, previous, eventObj) {
+      if (eventObj && eventObj.redirect) {
+        if (eventObj.redirect == '/authenticate')
+          window.location.href = eventObj.redirect;
+        else $location.path(eventObj.redirect);
+      } else {
+        $location.path('/');
+        if (eventObj.status == '500')
+          $scope.showToast($filter('translate')('ERROR.SERVER'));
+      }
     });
 
     $scope.openVideo = function(ev, video) {
-      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs') || $mdMedia('md') || $mdMedia('lg'));
+      $scope.dialogUseFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
       $mdDialog.show({
         controller: DialogController,
         templateUrl: 'views/dialogVideo.html',
@@ -95,18 +84,30 @@
           video: video
         },
         clickOutsideToClose: true,
-        fullscreen: useFullScreen
+        fullscreen: $scope.dialogUseFullScreen
       });
 
       $scope.$watch(function() {
-        return ($mdMedia('sm') || $mdMedia('xs') || $mdMedia('md') || $mdMedia('lg'));
+        return ($mdMedia('sm') || $mdMedia('xs'));
+      }, function(wantsFullScreen) {
+        $scope.dialogUseFullScreen = (wantsFullScreen === true);
       });
+    };
+
+    $scope.showToast = function(message) {
+      var toast = $mdToast.simple()
+        .textContent(message)
+        .position('bottom left')
+        .hideDelay(3000);
+      $mdToast.show(toast);
     };
   }
 
   app.controller('MainController', MainController);
   app.controller('DialogController', DialogController);
-  MainController.$inject = ['$route', '$scope', 'links', '$mdDialog', '$mdMedia'];
-  DialogController.$inject = ['$scope', '$mdDialog', '$locale', '$timeout', 'video'];
+  app.controller('ToastController', ToastController);
+  MainController.$inject = ['$route', '$scope', 'links', '$mdDialog', '$mdToast', '$mdMedia', '$location', '$filter'];
+  DialogController.$inject = ['$scope', '$mdDialog', 'video', '$mdMedia'];
+  ToastController.$inject = ['$scope', '$mdToast'];
 
 })(angular.module('ov.portal'));

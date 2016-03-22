@@ -4,12 +4,15 @@
   /**
    * Defines the home page controller.
    */
-  function VideosController($scope, $location, searchService, videos, filters) {
+  function SearchController($scope, $location, $q, searchService, result, filters) {
     var reloadOnPageChange = false;
-    $scope.videos = videos.data;
-    $scope.filters = filters;
-    $scope.pagination = angular.extend($scope.pagination ? $scope.pagination : {}, videos.paginate);
+    var canceller = $q.defer();
+
+    $scope.videos = result.data.rows || [];
+    $scope.filters = filters.data || {};
+    $scope.pagination = angular.extend($scope.pagination ? $scope.pagination : {}, result.data.pagination);
     $scope.showAdvancedSearch = false;
+    $scope.isLoading = false;
 
     /**
      * init search from location
@@ -26,10 +29,19 @@
      * Search call to service
      */
     function search() {
-      searchService.search($scope.search, $scope.pagination).then(function(videos) {
-        $scope.videos = videos.data;
+      $scope.isLoading = true;
+      if (canceller) canceller.resolve();
+      canceller = $q.defer();
+      searchService.search($scope.search, $scope.pagination, canceller).then(function(result) {
+        if (result.data.error) {
+          $scope.isLoading = false;
+          $scope.showToast('error');
+          return;
+        }
+        $scope.videos = result.data.rows;
         $scope.search = $location.search();
-        $scope.pagination = videos.paginate;
+        $scope.pagination = result.data.pagination;
+        $scope.isLoading = false;
       });
     }
 
@@ -73,7 +85,7 @@
     });
   }
 
-  app.controller('VideosController', VideosController);
-  VideosController.$inject = ['$scope', '$location', 'searchService', 'videos', 'filters'];
+  app.controller('SearchController', SearchController);
+  SearchController.$inject = ['$scope', '$location', '$q', 'searchService', 'result', 'filters'];
 
 })(angular.module('ov.portal'));

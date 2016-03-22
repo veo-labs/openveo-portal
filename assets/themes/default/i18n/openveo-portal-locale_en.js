@@ -13,7 +13,10 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       SHARE: 'Share',
       DATE_BETWEEN: 'Date between',
       AND: 'and',
-      CLOSE: 'Close'
+      CLOSE: 'Close',
+      LINK: 'Link',
+      CODE: 'HTML Code',
+      TITLE: 'Title'
     },
     HOME: {
       PAGE_TITLE: 'Portal - Home',
@@ -21,20 +24,22 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       ALL_VIDEOS: 'See all videos'
     },
     VIDEOS: {
-      PAGE_TITLE: 'Portal - Videos',
-      TITLE: 'Last videos'
+      PAGE_TITLE: 'Portal - Video'
     },
     SEARCH: {
+      PAGE_TITLE: 'Portal - Videos',
+      TITLE: 'Last videos',
       KEYWORD: 'Search by keyword',
       RESULTS: 'Results',
       RESULT: 'Result',
       NO_RESULTS: 'No results found',
       ADVANCED: 'Advanced search',
       ORDER_BY: 'Order by : ',
-      NAME: 'Speaker',
-      CATEGORY: 'Categorie',
-      ORIGIN: 'Origin',
-      TITLE: 'Title'
+      NAME_FILTER: 'Speaker',
+      CATEGORY_FILTER: 'Categorie',
+      ORIGIN_FILTER: 'Origin',
+      DATE_OR_VIEWS: 'Date or views',
+      ORDER_ASC: 'Ascending or descending'
     },
     MENU: {
       HOME: 'HOME',

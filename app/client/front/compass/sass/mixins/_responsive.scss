@@ -5,30 +5,10 @@
 	}
 }
 
-// specific css for mobile mode landscape
-@mixin mobile-landscape (){
-	@include mq($until: mobile, $and: '(orientation: landscape)') {
-        @content;
-    }
-}
-
-// specific css for mobile and tablet mode
-@mixin mobile-and-tablet (){
-	@include mq($until: desktop) {
-        @content;
-    }
-}
 
 // specific css for tablet mode
 @mixin tablet (){
 	@include mq(mobile, tablet){
-		@content;
-	}
-}
-
-// specific css for tablet mode
-@mixin desktop-and-tablet (){
-	@include mq($from: tablet){
 		@content;
 	}
 }
@@ -45,11 +25,4 @@
    @include mq($from: desktop){
 		@content;
 	}
-}
-
-// specific css for print display
-@mixin print {
-  @media print {
-    @content;
-  }
 }

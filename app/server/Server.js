@@ -4,7 +4,7 @@
  * @module server
  * @main server
  */
-
+const http = require('http');
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -16,9 +16,14 @@ const favicon = require('serve-favicon');
 const openveoAPI = require('@openveo/api');
 const defaultController = process.require('app/server/controllers/defaultController.js');
 const errorController = process.require('app/server/controllers/errorController.js');
+const searchController = process.require('app/server/controllers/searchController.js');
 const passportStrategies = process.require('app/server/passport/strategies.js');
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
+const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
+
+const OPENVEO_HOST = webservicesConf.host;
+const OPENVEO_PORT = webservicesConf.port;
 
 // Common options for all static servers delivering static files
 const staticServerOptions = {
@@ -142,6 +147,39 @@ class Server {
 
     }
 
+    // for thumbnail only, set server as proxy to webservice server
+    this.app.get('*/thumbnail.jpg', (req, res) => {
+
+      const requestOptions = {
+        port: OPENVEO_PORT,
+        host: OPENVEO_HOST,
+        method: 'GET',
+        path: req.url
+      };
+
+      const requestCallback = (response) => {
+        let currentByteIndex = 0;
+        let responseContentLength = 0;
+
+        response.setEncoding('binary');
+        if (response.headers && response.headers['content-length']) {
+          responseContentLength = parseInt(response.headers['content-length']);
+        }
+        const responseBody = new Buffer(responseContentLength);
+
+        response.on('data', (chunk) => {
+          responseBody.write(chunk, currentByteIndex, 'binary');
+          currentByteIndex += chunk.length;
+        });
+
+        response.on('end', () => {
+          res.contentType('thumbnail.jpg');
+          res.send(responseBody);
+        });
+      };
+      http.request(requestOptions, requestCallback).end();
+    });
+
     // Disable cache on get requests
     this.app.get('*', openveoAPI.middlewares.disableCacheMiddleware);
 
@@ -176,8 +214,13 @@ class Server {
 
       // Use passport to logout the request using the strategy defined in configuration
       this.app.get('/logout', passport.logout(this.configuration.auth.type));
-
     }
+
+    this.app.get('/getvideo/:id', searchController.getVideoAction);
+
+    this.app.get('/filters', searchController.getSearchFiltersAction);
+
+    this.app.post('/search', searchController.searchAction);
 
     // Handle not found routes
     this.app.all('*', defaultController.defaultAction);

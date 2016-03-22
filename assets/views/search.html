@@ -1,7 +1,7 @@
 <div ng-cloak>
   <div layout-xs="column" layout-gt-xs="row">
-    <h1 class="md-headline" hide-gt-xs ng-bind="'VIDEOS.TITLE'|translate"></h1>
-    <h1 class="md-display-1" hide-xs ng-bind="'VIDEOS.TITLE'|translate"></h1>
+    <h1 class="md-headline" hide-gt-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
+    <h1 class="md-display-1" hide-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
     <span flex></span>
     
     <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center" 
@@ -46,7 +46,7 @@
         <div layout="row" layout-xs="column">
           <div layout="column" flex-xs="100" flex-gt-xs="50" layout-margin>
             <md-input-container>
-              <label ng-bind="'SEARCH.NAME'|translate"></label>
+              <label ng-bind="'SEARCH.NAME_FILTER'|translate"></label>
               <md-select ng-model="search.name">
                 <md-option ng-repeat="name in filters.names" value="{{name.id}}">
                   {{name.label}}
@@ -54,7 +54,7 @@
               </md-select>
             </md-input-container>
             <md-input-container>
-              <label ng-bind="'SEARCH.CATEGORY'|translate"></label>
+              <label ng-bind="'SEARCH.CATEGORY_FILTER'|translate"></label>
               <md-select ng-model="search.categorie">
                 <md-option ng-repeat="categorie in filters.categories" value="{{categorie.id}}">
                   {{categorie.label}}
@@ -64,7 +64,7 @@
           </div>
           <div layout="column" flex-xs="100" flex-gt-xs="50"  layout-margin>
             <md-input-container>
-              <label ng-bind="'SEARCH.ORIGIN'|translate"></label>
+              <label ng-bind="'SEARCH.ORIGIN_FILTER'|translate"></label>
               <md-select ng-model="search.origin">
                 <md-option ng-repeat="origin in filters.origins" value="{{origin.id}}">
                   {{origin.label}}
@@ -94,15 +94,17 @@
       </div>
       <div ng-if="pagination.size>1" flex-xs="50" flex-gt-xs="auto" class="orderBy" layout='row' layout-align="center center">
         <span hide-xs hide-sm flex=20 ng-bind="'SEARCH.ORDER_BY' | translate"></span>
-        <md-switch class="md-primary" md-no-ink ng-model="search.orderBy"  
+        <md-switch class="md-primary" md-no-ink 
+                  ng-model="search.orderBy"  
                   ng-change="orderOnChange()"
-        >
+                  aria-label="{{'SEARCH.DATE_OR_VIEWS' | translate}}">
           <md-icon material-icons md-light md-48 ng-bind="search.orderBy?'visibility':'access_time'"></md-icon>
 
         </md-switch>
-        <md-switch class="md-primary" md-no-ink ng-model="search.orderAsc"  
+        <md-switch class="md-primary" md-no-ink 
+                  ng-model="search.orderAsc"  
                   ng-change="orderOnChange()"
-        > 
+                  aria-label="{{'SEARCH.ORDER_ASC' | translate}}"> 
           <md-icon material-icons md-light md-48 ng-class="{reverse: search.orderAsc}">sort</md-icon>
         </md-switch>
 
@@ -115,11 +117,15 @@
     </div>
   </div>
   
-  <md-grid-list ng-if="videos.length > 1" 
+  <div ng-show="isLoading" layout="row" layout-align="space-around" layout-margin >
+    <md-progress-circular md-mode="indeterminate"  md-diameter="150"></md-progress-circular>
+  </div>
+  
+  <md-grid-list ng-if="videos.length > 0 && !isLoading" 
         md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
         md-row-height="16:9"
-        md-gutter="12px" md-gutter-gt-sm="25px" 
-        layout-margin>
+        md-gutter="12px" md-gutter-gt-sm="25px">
+    
     <md-grid-tile ng-repeat="video in videos" layout="column" ng-click="openVideo($event, video)" >
       <div class='thumbnail' flex>
         <img ng-src="{{video.thumbnail}}">
@@ -134,11 +140,11 @@
       </md-grid-tile-footer>
     </md-grid-tile>
   </md-grid-list>
-  <md-content ng-if="videos.length==0" layout-margin layout-padding>
+  <md-content ng-if="videos.length==0 && !isLoading" layout-margin layout-padding>
       <p flex ng-bind="'SEARCH.NO_RESULTS'|translate"></p>
   </md-content>
   
-  <div layout="row" layout-align="center end" ng-if="pages.length > 1">
+  <div layout="row" layout-align="center end" ng-if="pages.length > 1 && !isLoading">
     <div flex-xs="100" flex-sm="50" flex-gt-sm="33" layout="column" class="pagination">
         <md-tabs  md-border-bottom md-autoselect md-selected="pagination.page">
           <md-tab ng-repeat="page in pages" label="{{page}}" ></md-tab>

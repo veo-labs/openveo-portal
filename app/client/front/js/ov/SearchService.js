@@ -9,20 +9,39 @@
    * @class applicationService
    */
   function SearchService($http, $q) {
+    var basePath = '/';
+    var filters;
+    var homeVideos;
+    var videosCache = {};
+
+    /**
+     *
+     * @param {type} id
+     * @return {unresolved}
+     */
+    function loadVideo(id) {
+      if (!videosCache[id] || videosCache[id].needAuth) {
+        return $http.get(basePath + 'getvideo/' + id).success(function(obj) {
+          videosCache[id] = obj;
+        });
+      }
+      return $q.when({
+        data: {entity: videosCache[id]}
+      });
+    }
 
     /**
      *
      * @return filters
      */
     function getFilters() {
-      var response = {origins: [], categories: [], names: []};
-
-      for (var i = 0; i < 12; i++) {
-        response.origins.push({label: 'origins' + i, id: i});
-        response.categories.push({label: 'categories' + i, id: i});
-        response.names.push({label: 'names' + i, id: i});
+      if (!filters) {
+        return $http.get(basePath + 'filters').success(function(obj) {
+          filters = obj;
+        });
       }
-      return $q.when(response);
+
+      return $q.when({data: filters});
     }
 
     /**
@@ -34,31 +53,23 @@
      */
     function searchHomeVideos() {
 
-      // TODO replace this stub by server http call
-      var response = {data: []};
-      var date = new Date();
-      for (var i = 0; i < 6; i++) {
-        response.data.push(
-          {
-            title: 'home ' + i,
-            type: 'youtube',
-            date: date.getTime(),
-            views: 25,
-            thumbnail: 'http://www.tenstickers.fr/stickers/img/preview/sticker-affichage-mire-4537.png',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
-                    'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
-                    ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris' +
-                    ' nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit' +
-                    ' in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint ' +
-                    'occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id ' +
-                    'est laborum.',
-            mediaId: 't4gjl-uwUHc',
-            speaker: 'toto',
-            category: 'category'
+      if (!homeVideos) {
+
+        var params = {
+          filter: {},
+          pagination: {
+            page: 0,
+            limit: 6,
+            orderBy: 'date',
+            orderAsc: true
           }
-        );
+        };
+        return $http.post(basePath + 'search', params).success(function(obj) {
+          homeVideos = obj;
+        });
       }
-      return $q.when(response);
+
+      return $q.when({data: homeVideos});
     }
 
     /**
@@ -67,47 +78,26 @@
      * @param {Object} paginate
      * @return data
      */
-    function search(params, paginate) {
+    function search(filter, paginate, canceller) {
+      var options = {timeout: canceller};
+      var params = {filter: filter, pagination: paginate};
+      return $http.post(basePath + 'search', params, options);
+    }
 
-      // TODO replace this stub by server http call
-      var keyword = params.key;
-      var page = paginate ? paginate.page : 0;
-      var count = Math.floor((Math.random() * 100) + 1);
-      var response = {data: []};
-      var date = new Date();
-      for (var i = 0; i < 9; i++) {
-        response.data.push(
-          {
-            title: keyword + ' ' + i,
-            type: 'youtube',
-            date: date.getTime(),
-            views: 25,
-            thumbnail: 'http://www.tenstickers.fr/stickers/img/preview/sticker-affichage-mire-4537.png',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
-                    'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
-                    ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris' +
-                    ' nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit' +
-                    ' in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint ' +
-                    'occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id ' +
-                    'est laborum.',
-            mediaId: 't4gjl-uwUHc',
-            speaker: 'toto',
-            category: 'category'
-          }
-        );
-      }
-
-      response.paginate = {
-        count: 9,
-        page: page,
-        pages: Math.ceil(count / 9),
-        size: count
-      };
-
-      return $q.when(response);
+    /**
+     * Clears a search service cache.
+     *
+     * @param {String} [type] The cache element to clear null to
+     * clear all caches
+     * @method cacheClear
+     */
+    function cacheClear() {
+      videosCache = {};
     }
 
     return {
+      cacheClear: cacheClear,
+      loadVideo: loadVideo,
       getFilters: getFilters,
       searchHomeVideos: searchHomeVideos,
       search: search

@@ -13,8 +13,9 @@
         <label ng-bind="'SEARCH.KEYWORD'|translate"></label>
         <input ng-model="search.key">
       </md-input-container>
-     
-      <md-button flex class="md-icon-button" type="submit" id="submit">
+      
+      <md-button class="md-icon-button" type="submit" id="submit">
+          <md-tooltip md-direction="top">{{'UI.SEARCH' | translate}}</md-tooltip>
           <md-icon material-icons md-light md-48">search</md-icon>
       </md-button>
     </form>
@@ -24,8 +25,8 @@
         md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
         md-row-height="16:9"
         md-gutter="12px" md-gutter-gt-sm="25px" 
-        layout-margin>
-     <md-grid-tile ng-repeat="video in videos" 
+        >
+     <md-grid-tile ng-repeat="video in videos"
                   ng-click="openVideo($event, video)"
                   md-rowspan-gt-xs="{{$index>0?1:2}}"
                   md-colspan-gt-xs="{{$index>0?1:2}}"
@@ -46,6 +47,9 @@
   </md-grid-list>
   
   <div layout="row" layout="column" layout-align="center center" >
-    <md-button flex="35" class="md-primary md-raised" ng-href="/videos" ng-bind="'HOME.ALL_VIDEOS' | translate"></md-button>
+    <md-button class="md-primary md-raised text-button" 
+               ng-href="/search"
+               aria-label="{{'HOME.ALL_VIDEOS' | translate}}"
+               ng-bind="'HOME.ALL_VIDEOS' | translate"></md-button>
   </div>
 </div>

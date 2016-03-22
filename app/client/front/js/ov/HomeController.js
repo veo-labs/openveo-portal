@@ -11,16 +11,16 @@
   /**
    * Defines the home page controller.
    */
-  function HomeController($scope, $location, videos) {
-    $scope.videos = videos ? videos.data : [];
+  function HomeController($scope, $location, result) {
+    $scope.videos = result && result.data ? result.data.rows : [];
     $scope.search = {key: ''};
 
     $scope.searchSubmit = function() {
-      $location.path('/videos').search($scope.search);
+      $location.path('/search').search($scope.search);
     };
   }
 
   app.controller('HomeController', HomeController);
-  HomeController.$inject = ['$scope', '$location', 'videos'];
+  HomeController.$inject = ['$scope', '$location', 'result'];
 
 })(angular.module('ov.portal'));

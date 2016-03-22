@@ -1,6 +1,7 @@
 .container{
   width: 100%;
 	margin: 0 auto;
+  @include transition(width 0.45s ease 0s);
 
 	@include mobile(){
 		/*background: darkseagreen;*/
