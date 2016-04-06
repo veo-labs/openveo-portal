@@ -11,11 +11,13 @@
  */
 
 const path = require('path');
+const cons = require('consolidate');
 const openveoAPI = require('@openveo/api');
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
 const applicationConf = process.require('conf.json');
 const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
+const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.theme, 'analytics.html');
 
 /**
  * Handles default action to display main HTML.
@@ -38,10 +40,18 @@ module.exports.defaultAction = (request, response) => {
   response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
   response.locals.languages = ['"en"', '"fr"'];
   response.locals.theme = portalConf.theme;
+
   response.locals.user = request.isAuthenticated ? request.user : null;
 
   // Add theme css file
   response.locals.css.push(`/themes/${portalConf.theme}/style.css`);
 
-  response.render('root', response.locals);
+  // Retrieve analytics template and render root with analytics
+  cons.mustache(analyticsPath, {}, (err, html) => {
+    if (err) response.render('root', response.locals);
+    else {
+      response.locals.analytics = html;
+      response.render('root', response.locals);
+    }
+  });
 };

@@ -10,7 +10,7 @@
    * @param {type} $location
    * @returns {VideoController_L3.VideoController}
    */
-  function VideoController($scope, $locale, $timeout, $location) {
+  function VideoController($scope, $locale, $timeout, $location, $analytics, videoService) {
     $scope.dialIsOpen = false;
     $scope.language = $locale.id;
     $scope.shareOpen = false;
@@ -33,6 +33,7 @@
     ];
     var myPlayer = document.getElementById('openveo-player');
     var playerController;
+    var videoDuration;
 
     /**
      * Executes, safely, the given function in AngularJS process.
@@ -57,12 +58,19 @@
 
     angular.element(myPlayer).on('durationChange', function(event, duration) {
       safeApply(function() {
+        videoDuration = duration;
 
         // only gets called once
         if (!playerController || duration) {
           playerController = angular.element(myPlayer).controller('ovPlayer');
         }
       });
+    });
+
+    angular.element(myPlayer).on('ovPlay', function(event) {
+      $analytics.pageTrack($location.path());
+      $analytics.eventTrack('play', {value: $scope.video.id});
+      videoService.increaseVideoView($scope.video.id, videoDuration);
     });
 
     // Listen to player errors
@@ -79,6 +87,6 @@
   }
 
   app.controller('VideoController', VideoController);
-  VideoController.$inject = ['$scope', '$locale', '$timeout', '$location'];
+  VideoController.$inject = ['$scope', '$locale', '$timeout', '$location', '$analytics', 'videoService'];
 
 })(angular.module('ov.portal'));

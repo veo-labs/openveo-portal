@@ -78,6 +78,15 @@ function createConf(callback) {
         conf.theme = answer || conf.theme;
         callback();
       });
+    },
+
+    // Ask for Piwik
+    (callback) => {
+      rl.question(`If you want to embed your analytic HTML code,\n
+      you will need to define it in assets/themes/${conf.theme}/analytics.html)\n
+      (press enter to continue)\n`, (answer) => {
+        callback();
+      });
     }
   ], (error, results) => {
     if (error) {
@@ -364,9 +373,9 @@ function createWebservicesConf(callback) {
       });
     },
 
-    // Ask webservices ip
+    // Ask webservices host
     (callback) => {
-      rl.question('Enter Webservices host IP with port (default: 192.168.0.1):\n', (answer) => {
+      rl.question(`Enter Webservices host (default: ${conf.host}):\n`, (answer) => {
         conf.host = answer || conf.host;
         callback();
       });
@@ -374,7 +383,7 @@ function createWebservicesConf(callback) {
 
     // Ask webservices port
     (callback) => {
-      rl.question('Enter Webservices host IP with port (default: 3001):\n', (answer) => {
+      rl.question(`Enter Webservices port (default: ${conf.port}):\n`, (answer) => {
         conf.port = answer || conf.port;
         callback();
       });

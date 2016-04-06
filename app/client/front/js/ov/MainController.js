@@ -45,17 +45,19 @@
    * application. All actions not handled in partials are handled
    * by the main controller.
    */
-  function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia, $location, $filter) {
+  function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia,
+  $location, $filter, searchService, $analytics) {
     var urlParams = $location.search();
     $scope.isIframe = urlParams['iframe'] || false;
     $scope.hideDetailVideo = urlParams['hidedetail'] || false;
     $scope.contactMailTo = links.contactMailTo;
     $scope.helpUrl = links.helpUrl;
+    $scope.title = '';
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
-      // Change page title
-      $scope.title = $route.current && $route.current.title || '';
+      $analytics.pageTrack($location.path());
+      $scope.title = $route.current && $route.current.title || $scope.title;
     });
 
     // Listen to the route change error event
@@ -106,7 +108,8 @@
   app.controller('MainController', MainController);
   app.controller('DialogController', DialogController);
   app.controller('ToastController', ToastController);
-  MainController.$inject = ['$route', '$scope', 'links', '$mdDialog', '$mdToast', '$mdMedia', '$location', '$filter'];
+  MainController.$inject = ['$route', '$scope', 'links', '$mdDialog',
+    '$mdToast', '$mdMedia', '$location', '$filter', 'searchService', '$analytics'];
   DialogController.$inject = ['$scope', '$mdDialog', 'video', '$mdMedia'];
   ToastController.$inject = ['$scope', '$mdToast'];
 

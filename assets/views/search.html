@@ -4,11 +4,13 @@
     <h1 class="md-display-1" hide-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
     <span flex></span>
     
-    <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center" 
+    <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center"
           flex-xs="95"
           flex-sm="50"
           flex-md="32"
-          flex-gt-md="30">
+          flex-gt-md="30"
+          analytics-on analytics-event="Search"
+          >
       <md-input-container flex="80">
         <label ng-bind="'SEARCH.KEYWORD'|translate"></label>
         <input ng-model="search.key">
@@ -16,7 +18,7 @@
      
       <md-button type="submit" id="submit" class="md-icon-button">
           <md-tooltip md-direction="top">{{'UI.SEARCH' | translate}}</md-tooltip>
-          <md-icon material-icons md-light md-48">search</md-icon>
+          <md-icon material-icons md-light md-48>search</md-icon>
       </md-button>
     </form>
   </div>
@@ -32,7 +34,9 @@
         </div>
     </md-toolbar>
     <div layout="column" ng-show='showAdvancedSearch' class='collapse'>
-      <form ng-submit="searchSubmit()" name="searchForm" layout="column" >
+      <form ng-submit="searchSubmit()" name="searchForm" layout="column" 
+            analytics-on analytics-event="AdvancedSearch"
+            >
         <div layout="row" layout-xs="column" >
           <div flex-xs="100" flex-gt-xs='50'  layout="row" layout-xs="column" layout-align='left center'  layout-margin>
             <label flex='30' ng-bind="'UI.DATE_BETWEEN'|translate"></label>
@@ -126,7 +130,11 @@
         md-row-height="16:9"
         md-gutter="12px" md-gutter-gt-sm="25px">
     
-    <md-grid-tile ng-repeat="video in videos" layout="column" ng-click="openVideo($event, video)" >
+    <md-grid-tile ng-repeat="video in videos"
+                  layout="column"
+                  ng-click="openVideo($event, video)"
+                  analytics-on='click' analytics-event="OpenVideo"
+                  >
       <div class='thumbnail' flex>
         <img ng-src="{{video.thumbnail}}">
       </div>

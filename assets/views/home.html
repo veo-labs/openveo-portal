@@ -4,11 +4,13 @@
     <h1 class="md-display-1" hide-xs ng-bind="'HOME.TITLE' | translate"></h1>
     <span flex></span>
     
-    <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center" 
+    <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center"
           flex-xs="95"
           flex-sm="50"
           flex-md="32"
-          flex-gt-md="30">
+          flex-gt-md="30"
+          analytics-on analytics-event="HomeSearch"
+          >
       <md-input-container flex="80">
         <label ng-bind="'SEARCH.KEYWORD'|translate"></label>
         <input ng-model="search.key">
@@ -16,7 +18,7 @@
       
       <md-button class="md-icon-button" type="submit" id="submit">
           <md-tooltip md-direction="top">{{'UI.SEARCH' | translate}}</md-tooltip>
-          <md-icon material-icons md-light md-48">search</md-icon>
+          <md-icon material-icons md-light md-48>search</md-icon>
       </md-button>
     </form>
   </div>
@@ -31,12 +33,14 @@
                   md-rowspan-gt-xs="{{$index>0?1:2}}"
                   md-colspan-gt-xs="{{$index>0?1:2}}"
                   md-colspan-xs="1"
-                  md-rowspan-xs="1">
+                  md-rowspan-xs="1"
+                  analytics-on='click' analytics-event="OpenVideo"
+                  >
       <div class='thumbnail' flex>
         <img ng-src="{{video.thumbnail}}">
       </div>
       
-      <md-grid-tile-footer >
+      <md-grid-tile-footer>
         <div class='md-title' flex>{{video.title}}</div>
         <div flex layout="row" layout-align="center center">
           <div class='md-body-2' flex>{{video.date | date : 'd MMMM yyyy'}}</div>

@@ -31,14 +31,18 @@
             <md-button hide-xs class='md-raised md-primary text-button'
                        href="/logout" target="_self"
                        aria-label="{{'UI.LOGOUT'|translate}}"
-                       ng-bind="'UI.LOGOUT'|translate"></md-button>
+                       ng-bind="'UI.LOGOUT'|translate"
+                       analytics-on='click' analytics-event="Logout"
+                       ></md-button>
           </div>
           [[/user]]
           [[^user]]
           <md-button hide-xs class='md-raised md-primary text-button' 
                      href="/authenticate" target="_self" 
                      aria-label="{{'UI.LOGIN'|translate}}"
-                     ng-bind="'UI.LOGIN'|translate" ></md-button>
+                     ng-bind="'UI.LOGIN'|translate"
+                     analytics-on='click' analytics-event="Login"
+                     ></md-button>
           [[/user]]
         </div>
       </div>
@@ -60,18 +64,18 @@
         <md-toolbar  hide-gt-xs>
           <div class="md-toolbar-tools">
             <md-menu>
-             <!-- Trigger element is a md-button with an icon -->
-             <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
-               <md-icon material-icons md-light md-48>menu</md-icon>
-             </md-button>
-             <md-menu-content  width="12">
-               <md-menu-item><md-button ng-href="/"
+            <!-- Trigger element is a md-button with an icon -->
+              <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
+                <md-icon material-icons md-light md-48>menu</md-icon>
+              </md-button>
+              <md-menu-content width="12">
+                <md-menu-item><md-button ng-href="/"
                                         aria-label="{{'MENU.HOME'|translate}}"
                                         ng-bind="'MENU.HOME'|translate"></md-button></md-menu-item>
-               <md-menu-item><md-button ng-href="/search"
+                <md-menu-item><md-button ng-href="/search"
                                         aria-label="{{'MENU.ALL_VIDEOS'|translate}}"
                                         ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button></md-menu-item>
-             </md-menu-content>
+              </md-menu-content>
             </md-menu>
             <span flex></span>
             <md-button 
@@ -94,11 +98,15 @@
                 <md-button class="md-primary" 
                            ng-href="{{contactMailTo}}" target="_blank" 
                            aria-label="{{'LINKS.CONTACT'|translate}}"
-                           ng-bind="'LINKS.CONTACT'|translate"></md-button> |
+                           ng-bind="'LINKS.CONTACT'|translate"
+                           analytics-on='click' analytics-event="Contact"
+                           ></md-button> |
                 <md-button class="md-primary" 
                            ng-href="{{helpUrl}}" target="_blank" 
                            aria-label="{{'LINKS.HELP'|translate}}"
-                           ng-bind="'LINKS.HELP'|translate"></md-button>
+                           ng-bind="'LINKS.HELP'|translate"
+                           analytics-on='click' analytics-event="Help"
+                           ></md-button>
               </div>
             </div>
           </div>
@@ -122,6 +130,7 @@
     <script type="text/javascript" src="[[.]]"></script>
     [[/scripts]]
 
+    [[{analytics}]]
   </body>
   [[={{ }}=]]
 </html>

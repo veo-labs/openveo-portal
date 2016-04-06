@@ -4,7 +4,7 @@
   /**
    * Defines the home page controller.
    */
-  function SearchController($scope, $location, $q, searchService, result, filters) {
+  function SearchController($scope, $location, $q, searchService, result, filters, $analytics) {
     var reloadOnPageChange = false;
     var canceller = $q.defer();
 
@@ -42,6 +42,7 @@
         $scope.search = $location.search();
         $scope.pagination = result.data.pagination;
         $scope.isLoading = false;
+        $analytics.trackSiteSearch($scope.search.key, $scope.search.categorie, $scope.pagination.size);
       });
     }
 
@@ -86,6 +87,6 @@
   }
 
   app.controller('SearchController', SearchController);
-  SearchController.$inject = ['$scope', '$location', '$q', 'searchService', 'result', 'filters'];
+  SearchController.$inject = ['$scope', '$location', '$q', 'searchService', 'result', 'filters', '$analytics'];
 
 })(angular.module('ov.portal'));
