@@ -25,6 +25,8 @@ const CLIENT_SECRET = webservicesConf.secretId;
 
 const openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET);
 
+const videoCache = process.require('/app/server/serverCache/VideoCache');
+
 /**
  * Handles default action to display main HTML.
  *
@@ -119,14 +121,13 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
 
 
 module.exports.getVideoAction = (request, response, next) => {
-
-  // Get video detail
-  openVeoClient.get(`publish/video/${request.params.id}`).then((result) => {
-    if (result.private && !request.isAuthenticated())
+  videoCache.getVideo(request.params.id, (error, video) => {
+    if (error) {
+      next(error);
+      return;
+    } else if (video.private && !request.isAuthenticated())
       response.send({needAuth: true});
     else
-      response.send({entity: result});
-  }).catch((error) => {
-    return next(errors.GET_VIDEO_UNKNOWN);
+      response.send({entity: video});
   });
 };

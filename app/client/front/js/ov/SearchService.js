@@ -22,7 +22,7 @@
     function loadVideo(id) {
       if (!videosCache[id] || videosCache[id].needAuth) {
         return $http.get(basePath + 'getvideo/' + id).success(function(obj) {
-          videosCache[id] = obj;
+          videosCache[id] = obj.entity;
         });
       }
       return $q.when({

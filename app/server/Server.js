@@ -17,6 +17,7 @@ const openveoAPI = require('@openveo/api');
 const defaultController = process.require('app/server/controllers/defaultController.js');
 const errorController = process.require('app/server/controllers/errorController.js');
 const searchController = process.require('app/server/controllers/searchController.js');
+const statisticsController = process.require('app/server/controllers/statisticsController.js');
 const passportStrategies = process.require('app/server/passport/strategies.js');
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
@@ -215,6 +216,8 @@ class Server {
       // Use passport to logout the request using the strategy defined in configuration
       this.app.get('/logout', passport.logout(this.configuration.auth.type));
     }
+
+    this.app.post('/statistics/:entity/:type/:id', statisticsController.statisticsAction);
 
     this.app.get('/getvideo/:id', searchController.getVideoAction);
 
