@@ -16,13 +16,15 @@
     $scope.shareOpen = false;
     $scope.shareItems = [
       {name: 'UI.LINK', icon: 'link', direction: 'bottom', action: function(video) {
-        $scope.shareText = $location.protocol() + '://' + $location.host() + '/video/' + video.id;
+        delete $scope.shareText;
+        $scope.shareLink = $location.protocol() + '://' + $location.host() + '/video/' + video.id;
         $scope.shareOpen = !$scope.shareOpen;
       }},
       {name: 'UI.CODE',
         icon: 'code',
         direction: 'left',
         action: function(video) {
+          delete $scope.shareLink;
           $scope.shareText =
                   '<iframe width="480" height="270" ' +
                   'src="' + $location.protocol() + '://' + $location.host() + '/video/' + video.id +

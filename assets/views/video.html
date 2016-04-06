@@ -1,4 +1,5 @@
 <md-content ng-controller="VideoController as vctl">
+
   <div class="player-container" ng-class="{'md-dialog-content': !dialogIsFull}">
     <ov-player
      ov-player-type="{{video.type}}"
@@ -47,7 +48,8 @@
     <md-content>
       <md-divider ng-show="shareOpen"></md-divider>
       <div ng-show="shareOpen"  layout='column' layout-margin class="share-code collapse ng-hide">
-      <code>{{shareText}}</code>
+        <a ng-if="shareLink" href="{{shareLink}}">{{shareLink}}</a>
+        <code ng-if="shareText" >{{shareText}}</code>
       </div>
       <md-divider ng-show="shareOpen"></md-divider>
     </md-content>
