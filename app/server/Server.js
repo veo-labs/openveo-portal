@@ -22,8 +22,8 @@ const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(),
 const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 
-const OPENVEO_HOST = webservicesConf.host;
-const OPENVEO_PORT = webservicesConf.port;
+const OPENVEOHOST = webservicesConf.host;
+const OPENVEOPORT = webservicesConf.port;
 
 // Common options for all static servers delivering static files
 const staticServerOptions = {
@@ -103,9 +103,7 @@ class Server {
     // Set mustache as the template engine and set views directory
     this.app.engine('html', consolidate.mustache);
     this.app.set('view engine', 'html');
-    this.app.set('views', [
-      path.join(process.root, 'app/client/front/views')
-    ]);
+    this.app.set('views', path.join(process.root, 'app/client/front/views'));
 
     // Parse Cookie header
     this.app.use(cookieParser());
@@ -148,11 +146,13 @@ class Server {
     }
 
     // for thumbnail only, set server as proxy to webservice server
-    this.app.get('*/thumbnail.jpg', (req, res) => {
+    // path : /*/*.jpg, /*/*.jpeg, /*/*.jpg?thumb=small, /*/*.jpeg?thumb=small
+    this.app.get(/^\/.+\/.+(\.jpg|\.jpeg)(\?thumb=small)?$/, (req, res) => {
 
+      const filename = path.basename(req.url).split('?')[0];
       const requestOptions = {
-        port: OPENVEO_PORT,
-        host: OPENVEO_HOST,
+        port: OPENVEOPORT,
+        host: OPENVEOHOST,
         method: 'GET',
         path: req.url
       };
@@ -173,7 +173,7 @@ class Server {
         });
 
         response.on('end', () => {
-          res.contentType('thumbnail.jpg');
+          res.contentType(filename);
           res.send(responseBody);
         });
       };

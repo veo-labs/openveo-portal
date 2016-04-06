@@ -77,12 +77,17 @@
       else reloadOnPageChange = true;
     });
 
-    $scope.$on('$routeUpdate', function() {
+    $scope.$on('$routeUpdate', function(event, route) {
       $scope.search = $location.search();
       if (!$scope.search.key) $scope.search.key = '';
-      reloadOnPageChange = false;
-      $scope.pagination.page = 0;
-      search();
+
+      if (!$scope.context || !$scope.context.keepContext) {
+        reloadOnPageChange = false;
+        $scope.pagination.page = 0;
+        search();
+      } else {
+        $scope.context.keepContext = false;
+      }
     });
   }
 

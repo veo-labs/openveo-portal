@@ -34,7 +34,8 @@
       "/ov/VideoPageController.js",
       "/ov/MainController.js",
       "/ov/SearchService.js",
-      "/ov/SearchController.js"
+      "/ov/SearchController.js",
+      "/ov/VideoService.js"
     ],
     "prod" : [
       "/js/openveo-portal.js"

@@ -29,6 +29,21 @@
 
   var app = angular.module('ov.portal', moduleDependencies);
 
+  // Redefine path to not reload when modify is change
+  app.run(['$route', '$rootScope', '$location', function($route, $rootScope, $location) {
+    var original = $location.path;
+    $location.path = function(path, reload) {
+      if (reload === false) {
+        var lastRoute = $route.current;
+        var un = $rootScope.$on('$locationChangeSuccess', function() {
+          $route.current = lastRoute;
+          un();
+        });
+      }
+      return original.apply($location, [path]);
+    };
+  }]);
+
   /**
    * Configures application main routes and set location mode to HTML5.
    */
@@ -39,28 +54,30 @@
         templateUrl: 'views/videoPage.html',
         controller: 'VideoPageController',
         title: 'VIDEO.PAGE_TITLE',
-        reloadOnSearch: false,
         resolve: {
           video: ['$q', 'searchService', '$route', function($q, searchService, $route) {
             var deferred = $q.defer();
             var mediaId = $route.current.params.mediaId;
+            if (mediaId)
+              searchService.loadVideo(mediaId).then(function(result) {
 
-            searchService.loadVideo(mediaId).then(function(result) {
+                // video found and public or user authentified
+                if (result.data.entity)
+                  deferred.resolve.apply(deferred, arguments);
 
-              // video found and public or user authentified
-              if (result.data.entity)
-                deferred.resolve.apply(deferred, arguments);
+                // user not authentified
+                else if (result.data.needAuth)
+                  deferred.reject({redirect: '/authenticate'});
 
-              // user not authentified
-              else if (result.data.needAuth)
-                deferred.reject({redirect: '/authenticate'});
+              }, function(error) {
 
-            }, function(error) {
-
-              // error on call
-              searchService.cacheClear();
+                // error on call
+                searchService.cacheClear();
+                deferred.reject({redirect: '/'});
+              });
+            else {
               deferred.reject({redirect: '/'});
-            });
+            }
 
             return deferred.promise;
           }]

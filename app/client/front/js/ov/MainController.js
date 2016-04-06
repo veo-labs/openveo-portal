@@ -48,6 +48,7 @@
   function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia,
   $location, $filter, searchService, $analytics) {
     var urlParams = $location.search();
+    $scope.context = {context: false};
     $scope.isIframe = urlParams['iframe'] || false;
     $scope.hideDetailVideo = urlParams['hidedetail'] || false;
     $scope.contactMailTo = links.contactMailTo;
@@ -76,17 +77,47 @@
     });
 
     $scope.openVideo = function(ev, video) {
+      $scope.context.keepContext = false;
+      var urlContext = $location.path();
+      var searchContext = $location.search();
+
       $scope.dialogUseFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-      $mdDialog.show({
+      $scope.dialog = {
         controller: DialogController,
         templateUrl: 'views/dialogVideo.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         locals: {
-          video: video
+          video: null
         },
         clickOutsideToClose: true,
         fullscreen: $scope.dialogUseFullScreen
+      };
+
+      searchService.loadVideo(video.id).then(function(result) {
+
+        // video found and public or user authentified
+        if (result.data.entity) {
+          $location.path('/video/' + video.id, false).search({});
+
+          $scope.dialog.locals.video = result.data.entity.video;
+          $mdDialog.show($scope.dialog).finally(function() {
+            $scope.context.keepContext = true;
+            $location.path(urlContext, false).search(searchContext);
+          });
+
+          // user not authentified
+        } else if (result.data.needAuth) {
+          window.location.href = '/authenticate';
+        } else $location.path('/');
+
+      }, function(error) {
+
+        // error on call
+        searchService.cacheClear();
+        $location.path('/');
+        if (error.status == '500')
+          $scope.showToast($filter('translate')('ERROR.SERVER'));
       });
 
       $scope.$watch(function() {
