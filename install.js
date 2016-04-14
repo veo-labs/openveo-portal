@@ -56,7 +56,8 @@ function createLoggerDir(callback) {
 function createConf(callback) {
   const confFile = path.join(confDir, 'conf.json');
   const conf = {
-    theme: 'default'
+    theme: 'default',
+    filter: ['categories']
   };
 
   async.series([
@@ -82,18 +83,42 @@ function createConf(callback) {
 
     // Ask for Piwik
     (callback) => {
-      rl.question(`If you want to embed your analytic HTML code,\n
-      you will need to define it in assets/themes/${conf.theme}/analytics.html)\n
-      (press enter to continue)\n`, (answer) => {
+      rl.question(`If you want to embed your analytic HTML code,
+you will need to define it in assets/themes/${conf.theme}/analytics.html
+(press enter to continue)\n`, (answer) => {
         callback();
       });
+    },
+
+    // Ask for category filter
+    (callback) => {
+      rl.question(`Do you want to let user filter video by category ("Y/n") :\n`, (answer) => {
+        if (answer == 'n')
+          conf.filter = [];
+      });
+    },
+
+    // Ask for available filters
+    (callback) => {
+      const ask = () => {
+        rl.question(`Enter the name of video properties that the user would filter
+(Enter empty value to skip or finish) :\n`, (answer) => {
+          if (answer) {
+            conf.filter.push(answer);
+            ask();
+          } else {
+            callback();
+          }
+        });
+      };
+      ask();
     }
   ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
       callback();
     } else
-      fs.writeFile(confFile, JSON.stringify(conf, null, '\t'), {encoding: 'utf8'}, callback);
+    fs.writeFile(confFile, JSON.stringify(conf, null, '\t'), {encoding: 'utf8'}, callback);
   });
 }
 
