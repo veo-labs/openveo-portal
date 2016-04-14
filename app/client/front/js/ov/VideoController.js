@@ -10,7 +10,11 @@
    * @param {type} $location
    * @returns {VideoController_L3.VideoController}
    */
-  function VideoController($scope, $locale, $timeout, $location, $analytics, videoService) {
+  function VideoController($scope, $locale, $timeout, $location, $analytics, videoService, searchService) {
+    searchService.getCategoryName($scope.video.category).then(function(val) {
+      $scope.categoryName = val;
+    });
+
     $scope.dialIsOpen = false;
     $scope.language = $locale.id;
     $scope.shareOpen = false;
@@ -89,6 +93,7 @@
   }
 
   app.controller('VideoController', VideoController);
-  VideoController.$inject = ['$scope', '$locale', '$timeout', '$location', '$analytics', 'videoService'];
+  VideoController.$inject = ['$scope', '$locale', '$timeout', '$location',
+   '$analytics', 'videoService', 'searchService'];
 
 })(angular.module('ov.portal'));

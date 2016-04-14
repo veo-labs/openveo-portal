@@ -12,8 +12,8 @@
    * Defines the home page controller.
    */
   function HomeController($scope, $location, result) {
-    $scope.videos = result && result.data ? result.data.rows : [];
-    $scope.search = {key: ''};
+    $scope.videos = result && result.data ? result.data.videos : [];
+    $scope.search = {query: ''};
 
     $scope.searchSubmit = function() {
       $location.path('/search').search($scope.search);

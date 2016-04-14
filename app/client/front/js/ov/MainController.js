@@ -54,11 +54,16 @@
     $scope.contactMailTo = links.contactMailTo;
     $scope.helpUrl = links.helpUrl;
     $scope.title = '';
+    $scope.tabSelected = -1;
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
       $analytics.pageTrack($location.path());
       $scope.title = $route.current && $route.current.title || $scope.title;
+      switch (route.originalPath) {
+        case '/search': $scope.tabSelected = 1; break;
+        default: $scope.tabSelected = 0;
+      }
     });
 
     // Listen to the route change error event
@@ -125,6 +130,10 @@
       }, function(wantsFullScreen) {
         $scope.dialogUseFullScreen = (wantsFullScreen === true);
       });
+    };
+
+    $scope.goTo = function(path) {
+      $location.path(path).search({});
     };
 
     $scope.showToast = function(message) {

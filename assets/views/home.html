@@ -5,55 +5,61 @@
     <span flex></span>
     
     <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center"
-          flex-xs="95"
-          flex-sm="50"
-          flex-md="32"
-          flex-gt-md="30"
-          analytics-on analytics-event="HomeSearch"
-          >
-      <md-input-container flex="80">
-        <label ng-bind="'SEARCH.KEYWORD'|translate"></label>
-        <input ng-model="search.key">
-      </md-input-container>
-      
-      <md-button class="md-icon-button" type="submit" id="submit">
-          <md-tooltip md-direction="top">{{'UI.SEARCH' | translate}}</md-tooltip>
-          <md-icon material-icons md-light md-48>search</md-icon>
-      </md-button>
-    </form>
+    flex-xs="95"
+    flex-sm="50"
+    flex-md="32"
+    flex-gt-md="30"
+    analytics-on analytics-event="HomeSearch"
+    >
+    <md-input-container flex="80">
+      <label ng-bind="'SEARCH.KEYWORD'|translate"></label>
+      <input ng-model="search.query">
+    </md-input-container>
+
+    <md-button class="md-icon-button" type="submit" id="submit">
+      <md-tooltip md-direction="top">{{'UI.SEARCH' | translate}}</md-tooltip>
+      <md-icon material-icons md-light md-48>search</md-icon>
+    </md-button>
+  </form>
+</div>
+
+<md-grid-list
+md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
+md-row-height="16:9"
+md-gutter="12px" md-gutter-gt-sm="25px" 
+>
+<md-grid-tile ng-repeat="video in videos"
+ng-click="openVideo($event, video)"
+md-rowspan-gt-xs="{{$index>0?1:2}}"
+md-colspan-gt-xs="{{$index>0?1:2}}"
+md-colspan-xs="1"
+md-rowspan-xs="1"
+analytics-on='click' analytics-event="OpenVideo"
+>
+<div class='tile-layout' layout='column'  layout-align="space-between none" >
+  <div class='thumbnail' flex>
+    <img class="placeholder" ng-src="/themes/{{theme}}/placeholder.jpg">
+    <img ng-src="{{video.thumbnail}}">
+     <div class='play'>
+            <md-icon material-icons md-light ng-class="{reverse: search.sortOrder}">play_circle_outline</md-icon>
+     </div>
   </div>
-  
-  <md-grid-list
-        md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
-        md-row-height="16:9"
-        md-gutter="12px" md-gutter-gt-sm="25px" 
-        >
-     <md-grid-tile ng-repeat="video in videos"
-                  ng-click="openVideo($event, video)"
-                  md-rowspan-gt-xs="{{$index>0?1:2}}"
-                  md-colspan-gt-xs="{{$index>0?1:2}}"
-                  md-colspan-xs="1"
-                  md-rowspan-xs="1"
-                  analytics-on='click' analytics-event="OpenVideo"
-                  >
-      <div class='thumbnail' flex>
-        <img ng-src="{{video.thumbnail}}">
-      </div>
-      
-      <md-grid-tile-footer>
-        <div class='md-title' flex>{{video.title}}</div>
-        <div flex layout="row" layout-align="center center">
-          <div class='md-body-2' flex>{{video.date | date : 'd MMMM yyyy'}}</div>
-          <div class='md-caption nb-views' flex='30'>{{video.views}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
-        </div>
-      </md-grid-tile-footer>
-    </md-grid-tile>
-  </md-grid-list>
-  
-  <div layout="row" layout="column" layout-align="center center" id="more-button-layout">
-    <md-button class="md-primary md-raised text-button" 
-               ng-href="/search"
-               aria-label="{{'HOME.ALL_VIDEOS' | translate}}"
-               ng-bind="'HOME.ALL_VIDEOS' | translate"></md-button>
+
+  <md-grid-tile-footer>
+  <div class='md-title' flex>{{video.title}}</div>
+  <div flex layout="row" layout-align="center center">
+    <div class='md-body-2' flex>{{video.date | date : 'd MMMM yyyy'}}</div>
+    <div class='md-caption nb-views' flex='30'>{{video.views}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
   </div>
+</md-grid-tile-footer>
+</div>
+</md-grid-tile>
+</md-grid-list>
+
+<div layout="row" layout="column" layout-align="center center" id="more-button-layout">
+  <md-button class="md-primary md-raised text-button" 
+  ng-href="/search"
+  aria-label="{{'HOME.ALL_VIDEOS' | translate}}"
+  ng-bind="'HOME.ALL_VIDEOS' | translate"></md-button>
+</div>
 </div>

@@ -91,8 +91,10 @@
         reloadOnSearch: false,
         resolve: {
           result: ['$location', 'searchService', function($location, searchService) {
-            var param = $location.search();
-            return searchService.search(param, null);
+            var param = angular.copy($location.search());
+            param.sortBy = param.sortBy ? 'views' : 'date';
+            param.sortOrder = param.sortOrder ? 'asc' : 'desc';
+            return searchService.search(param, {});
           }],
           filters: ['searchService', function(searchService) {
             return searchService.getFilters();

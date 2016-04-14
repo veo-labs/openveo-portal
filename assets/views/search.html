@@ -13,7 +13,7 @@
           >
       <md-input-container flex="80">
         <label ng-bind="'SEARCH.KEYWORD'|translate"></label>
-        <input ng-model="search.key">
+        <input ng-model="search.query">
       </md-input-container>
      
       <md-button type="submit" id="submit" class="md-icon-button">
@@ -24,69 +24,56 @@
   </div>
   
   <div layout="column" md-whiteframe="1">
-    <md-toolbar class="md-secondary">
+    <md-toolbar class="md-accent advanced-search" ng-click="showAdvancedSearch = !showAdvancedSearch">
         <div class="md-toolbar-tools">
           <h3 class="ng-binding" ng-bind=" 'SEARCH.ADVANCED' | translate "></h3>
           <span flex></span>
-          <md-button  type="button" ng-click="showAdvancedSearch = !showAdvancedSearch">
+          <md-button  type="button" >
             <md-icon material-icons md-light md-48 ng-class="{reverse: showAdvancedSearch}">keyboard_arrow_down</md-icon>
           </md-button>
         </div>
     </md-toolbar>
-    <div layout="column" ng-show='showAdvancedSearch' class='collapse'>
-      <form ng-submit="searchSubmit()" name="searchForm" layout="column" 
+    <div layout="column" ng-show='showAdvancedSearch' class='collapse' >
+      <form ng-submit="searchSubmit()" name="searchForm" layout="column" layout-margin    
             analytics-on analytics-event="AdvancedSearch"
             >
+        <div layout="row" layout-align="center center" layout-align-xs="left center" >
+          <label flex="nogrow" ng-bind="'UI.DATE_BETWEEN'|translate"></label>
+          <md-divider show-xs></md-divider>
+          <div flex layout="row" layout-xs="column"  layout-align="left center" layout-align-xs=" center left">
+            <md-datepicker  flex="nogrow" ng-model="search.dateStart" md-placeholder=""></md-datepicker>
+            <span flex="15" class="text-center" ng-bind="'UI.AND'|translate"></span>
+            <md-datepicker flex="nogrow" ng-model="search.dateEnd" md-placeholder=""></md-datepicker>
+          </div>
+          <span flex-xs='20' flex-sm='10' hide-gt-sm> </span>
+        </div>
+
         <div layout="row" layout-xs="column" >
-          <div flex-xs="100" flex-gt-xs='50'  layout="row" layout-xs="column" layout-align='left center'  layout-margin>
-            <label flex='30' ng-bind="'UI.DATE_BETWEEN'|translate"></label>
-            <md-datepicker flex-gt-xs='70' flex-xs="100" ng-model="search.startDate" md-placeholder=""></md-datepicker>
-          </div>
-          <div flex-xs="100" flex-gt-xs='50' layout="row" layout-xs="column" layout-align='left center'  layout-margin>
-            <label flex='20' ng-bind="'UI.AND'|translate"></label>
-            <md-datepicker flex-gt-xs='80' flex-xs="100" ng-model="search.endDate" md-placeholder=""></md-datepicker> 
-          </div>
+          <label ng-bind="'SEARCH.FILTER_BY'|translate"></label>
         </div>
-        <div layout="row" layout-xs="column">
-          <div layout="column" flex-xs="100" flex-gt-xs="50" layout-margin>
-            <md-input-container>
-              <label ng-bind="'SEARCH.NAME_FILTER'|translate"></label>
-              <md-select ng-model="search.name">
-                <md-option ng-repeat="name in filters.names" value="{{name.id}}">
-                  {{name.label}}
+        
+        <div layout="row" layout-xs="column" layout-wrap>
+            <md-input-container ng-repeat="filter in filters | orderBy:'name'" class="md-block" flex-gt-sm='33' flex-sm='50' flex-xs='100'>
+              <label ng-bind="filter.name=='categories'? 'SEARCH.CATEGORY_FILTER' : filter.name | translate"></label>
+              <md-select ng-if="filter.type=='list'" ng-model="search[filter.name]">
+                <md-option ng-repeat="(key, value) in filter.values" value="{{filter.name=='categories'?key:value}}">
+                  {{value}}
                 </md-option>
               </md-select>
+              <input ng-if="filter.type=='text'" ng-model="search[filter.name]">
             </md-input-container>
-            <md-input-container>
-              <label ng-bind="'SEARCH.CATEGORY_FILTER'|translate"></label>
-              <md-select ng-model="search.categorie">
-                <md-option ng-repeat="categorie in filters.categories" value="{{categorie.id}}">
-                  {{categorie.label}}
-                </md-option>
-              </md-select>
-            </md-input-container>
-          </div>
-          <div layout="column" flex-xs="100" flex-gt-xs="50"  layout-margin>
-            <md-input-container>
-              <label ng-bind="'SEARCH.ORIGIN_FILTER'|translate"></label>
-              <md-select ng-model="search.origin">
-                <md-option ng-repeat="origin in filters.origins" value="{{origin.id}}">
-                  {{origin.label}}
-                </md-option>
-              </md-select>
-            </md-input-container>
-            <div layout="row" layout="column" layout-align="center center" >
-              <md-button type="submit" id="submit" class="md-primary md-fab" >
-                <md-tooltip md-direction="left">{{'UI.SEARCH' | translate}}</md-tooltip>
-                <md-icon material-icons md-light md-48>search</md-icon>
-              </md-button>
-              <md-button ng-click="resetSearch()" class="md-secondary md-fab" >
-                <md-tooltip md-direction="right">{{'UI.CANCEL' | translate}}</md-tooltip>
-                <md-icon material-icons md-light md-48>close</md-icon>
-              </md-button>
-            </div>
-          </div>
         </div>
+       
+         <div layout="row" layout="column" layout-align="center center" layout-margin>
+            <md-button type="submit" id="submit" class="md-primary md-fab" >
+              <md-tooltip md-direction="left">{{'UI.SEARCH' | translate}}</md-tooltip>
+              <md-icon material-icons md-light md-48>search</md-icon>
+            </md-button>
+            <md-button ng-click="resetSearch()" class="md-secondary md-fab" >
+              <md-tooltip md-direction="right">{{'UI.CANCEL' | translate}}</md-tooltip>
+              <md-icon material-icons md-light md-48>close</md-icon>
+            </md-button>
+          </div>
       </form>
     </div>
   </div>
@@ -99,17 +86,16 @@
       <div ng-if="pagination.size>1" flex-xs="50" flex-gt-xs="auto" class="orderBy" layout='row' layout-align="center center">
         <span hide-xs hide-sm flex=20 ng-bind="'SEARCH.ORDER_BY' | translate"></span>
         <md-switch class="md-primary" md-no-ink 
-                  ng-model="search.orderBy"  
+                  ng-model="search.sortBy"
                   ng-change="orderOnChange()"
                   aria-label="{{'SEARCH.DATE_OR_VIEWS' | translate}}">
-          <md-icon material-icons md-light md-48 ng-bind="search.orderBy?'visibility':'access_time'"></md-icon>
-
+          <md-icon material-icons md-light md-48 ng-bind="search.sortBy?'visibility':'access_time'"></md-icon>
         </md-switch>
         <md-switch class="md-primary" md-no-ink 
-                  ng-model="search.orderAsc"  
+                  ng-model="search.sortOrder"
                   ng-change="orderOnChange()"
                   aria-label="{{'SEARCH.ORDER_ASC' | translate}}"> 
-          <md-icon material-icons md-light md-48 ng-class="{reverse: search.orderAsc}">sort</md-icon>
+          <md-icon material-icons md-light md-48 ng-class="{reverse: search.sortOrder}">sort</md-icon>
         </md-switch>
 
       </div>
@@ -127,25 +113,37 @@
   
   <md-grid-list ng-if="videos.length > 0 && !isLoading" 
         md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
-        md-row-height="16:9"
+        md-row-height-gt-md="16:13"
+        md-row-height-gt-xs="16:14"
+        md-row-height-xs="16:13"
         md-gutter="12px" md-gutter-gt-sm="25px">
     
     <md-grid-tile ng-repeat="video in videos"
                   layout="column"
                   ng-click="openVideo($event, video)"
                   analytics-on='click' analytics-event="OpenVideo"
-                  >
-      <div class='thumbnail' flex>
-        <img ng-src="{{video.thumbnail}}">
-      </div>
-      
-      <md-grid-tile-footer >
-        <div class='md-title' flex>{{video.title}}</div>
-        <div flex layout="row" layout-align="center center">
-          <div class='md-body-2' flex>{{video.date | date : 'd MMMM yyyy'}}</div>
-          <div class='md-caption nb-views' flex='30'>{{video.views}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
+                  > 
+      <div class='tile-layout' layout='column'  layout-align="space-between none" >
+        <div class='thumbnail'>
+          <img class="placeholder" ng-src="/themes/{{theme}}/placeholder.jpg">
+          <img ng-src="{{video.thumbnail}}">
+          <div class='play'>
+            <md-icon material-icons md-light md-48 ng-class="{reverse: search.sortOrder}">play_circle_outline</md-icon>
+          </div>
         </div>
-      </md-grid-tile-footer>
+      
+        <div flex layout="column" layout-align="space-between none"  class="details">
+          <div class='md-title' >{{video.title}}</div>
+          <div  layout="row" layout-align="space-between center">
+            <div class='md-body-2'>{{video.date | date : 'd MMMM yyyy'}}</div>
+            <div class='md-caption nb-views'>{{video.views}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
+          </div>
+          
+        </div>
+        <md-divider class='marge'></md-divider>
+
+      </div>
+
     </md-grid-tile>
   </md-grid-list>
   <md-content ng-if="videos.length==0 && !isLoading" layout-margin layout-padding>

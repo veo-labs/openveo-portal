@@ -56,7 +56,7 @@ videoCache.on('expired', (key, value) => {
             })
             .catch((error) => {
 
-              // do not celar anything
+              // do not clear anything
             });
   });
 });

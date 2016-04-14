@@ -4,11 +4,11 @@
   /**
    * Defines the home page controller.
    */
-  function SearchController($scope, $location, $q, searchService, result, filters, $analytics) {
+  function SearchController($scope, $location, $q, $filter, searchService, result, filters, $analytics) {
     var reloadOnPageChange = false;
     var canceller = $q.defer();
 
-    $scope.videos = result.data.rows || [];
+    $scope.videos = result.data.videos || [];
     $scope.filters = filters.data || {};
     $scope.pagination = angular.extend($scope.pagination ? $scope.pagination : {}, result.data.pagination);
     $scope.showAdvancedSearch = false;
@@ -20,8 +20,8 @@
      * @returns {undefined}
      */
     function initSearch(searchTmp) {
-      if (searchTmp.startDate) searchTmp.startDate = new Date(searchTmp.startDate);
-      if (searchTmp.endDate) searchTmp.endDate = new Date(searchTmp.startDate);
+      if (searchTmp.dateStart) searchTmp.dateStart = new Date(searchTmp.dateStart);
+      if (searchTmp.dateEnd) searchTmp.dateEnd = new Date(searchTmp.dateStart);
       $scope.search = angular.copy(searchTmp);
     }
 
@@ -32,17 +32,24 @@
       $scope.isLoading = true;
       if (canceller) canceller.resolve();
       canceller = $q.defer();
-      searchService.search($scope.search, $scope.pagination, canceller).then(function(result) {
+
+      var search = angular.copy($scope.search);
+      search.sortBy = search.sortBy ? 'views' : 'date';
+      search.sortOrder = search.sortOrder ? 'asc' : 'desc';
+      search.dateStart = $filter('date')($scope.search.dateStart, 'MM/dd/yyyy');
+      search.dateEnd = $filter('date')($scope.search.dateEnd, 'MM/dd/yyyy');
+
+      searchService.search(search, $scope.pagination, canceller).then(function(result) {
         if (result.data.error) {
           $scope.isLoading = false;
           $scope.showToast('error');
           return;
         }
-        $scope.videos = result.data.rows;
+        $scope.videos = result.data.videos;
         $scope.search = $location.search();
         $scope.pagination = result.data.pagination;
         $scope.isLoading = false;
-        $analytics.trackSiteSearch($scope.search.key, $scope.search.categorie, $scope.pagination.size);
+        $analytics.trackSiteSearch($scope.search.query, $scope.search.categories, $scope.pagination.size);
       });
     }
 
@@ -54,7 +61,7 @@
     };
 
     $scope.resetSearch = function() {
-      initSearch({key: $scope.search.key});
+      initSearch({query: $scope.search.query});
     };
 
     $scope.orderOnChange = function() {
@@ -79,7 +86,7 @@
 
     $scope.$on('$routeUpdate', function(event, route) {
       $scope.search = $location.search();
-      if (!$scope.search.key) $scope.search.key = '';
+      if (!$scope.search.query) $scope.search.query = '';
 
       if (!$scope.context || !$scope.context.keepContext) {
         reloadOnPageChange = false;
@@ -92,6 +99,7 @@
   }
 
   app.controller('SearchController', SearchController);
-  SearchController.$inject = ['$scope', '$location', '$q', 'searchService', 'result', 'filters', '$analytics'];
+  SearchController.$inject = ['$scope', '$location', '$q', '$filter',
+   'searchService', 'result', 'filters', '$analytics'];
 
 })(angular.module('ov.portal'));

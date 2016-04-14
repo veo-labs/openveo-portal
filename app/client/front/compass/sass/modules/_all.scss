@@ -8,8 +8,36 @@
 @import "search";
 @import "home";
 
+md-toolbar.navbar-background{
+  min-height: auto;
+  md-pagination-wrapper{
+    margin: inherit;
+  }
+}
+
 footer{
+  z-index:50;
   margin-top: 25px;
+  position:fixed;
+  width:100%;
+  bottom:0;
+}
+header{
+  @include mobile(){
+    z-index:50;
+    background-color: white;
+    position:fixed;
+    top:0;
+    width:100%;
+  }
+}
+.footer-spacing{
+  height:64px;
+  margin-top:25px;
+}
+
+.header-spacing{
+  height:112px;
 }
 
 .text-button{
@@ -36,8 +64,40 @@ md-divider{
   &.ng-hide-remove-active {
     opacity: 1;
   }
+
 }
 
 .reverse{
   transform: scale(1, -1);
+}
+
+md-input-container .md-errors-spacer{
+  min-height:auto;
+}
+
+md-ink-bar{
+  height: 3px;
+}
+
+.text-center{
+  text-align:center;
+}
+
+.zero{
+  z-index:1;
+}
+
+.marge{
+  @include mobile(){
+    margin:7px 0 0 0 ;
+  }
+  @include tablet(){
+    margin:7px 0 0 0 ;
+  }
+  @include desktop(){
+    margin:15px 0 0 0 ;
+  }
+  @include wide(){
+    margin:15px 0 0 0 ;
+  }
 }

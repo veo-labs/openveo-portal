@@ -35,6 +35,7 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       NO_RESULTS: 'No results found',
       ADVANCED: 'Advanced search',
       ORDER_BY: 'Order by : ',
+      FILTER_BY: 'Filter by : ',
       NAME_FILTER: 'Speaker',
       CATEGORY_FILTER: 'Categorie',
       ORIGIN_FILTER: 'Origin',

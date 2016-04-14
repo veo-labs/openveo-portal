@@ -11,6 +11,7 @@
   function SearchService($http, $q) {
     var basePath = '/';
     var filters;
+    var categories;
     var homeVideos;
     var videosCache = {};
 
@@ -44,6 +45,32 @@
       return $q.when({data: filters});
     }
 
+
+    /**
+     *
+     * @return categories
+     */
+    function getCategories() {
+      if (!categories) {
+        return $http.get(basePath + 'categories').success(function(obj) {
+          categories = obj;
+        });
+      }
+
+      return $q.when({data: categories});
+    }
+
+    /**
+     *
+     * @return categories
+     */
+    function getCategoryName(id) {
+      var self = this;
+      return self.getCategories().then(function(result) {
+        return result.data.values[id];
+      });
+    }
+
     /**
      * Loads the list of videos for Homepage
      *
@@ -56,12 +83,13 @@
       if (!homeVideos) {
 
         var params = {
-          filter: {},
+          filter: {
+            sortBy: 'date',
+            sortOrder: 'asc'
+          },
           pagination: {
             page: 0,
-            limit: 6,
-            orderBy: 'date',
-            orderAsc: true
+            limit: 6
           }
         };
         return $http.post(basePath + 'search', params).success(function(obj) {
@@ -79,7 +107,9 @@
      * @return data
      */
     function search(filter, paginate, canceller) {
-      var options = {timeout: canceller};
+      var options = {};
+      if (canceller)
+        options['timeout'] = canceller;
       var params = {filter: filter, pagination: paginate};
       return $http.post(basePath + 'search', params, options);
     }
@@ -99,6 +129,8 @@
       cacheClear: cacheClear,
       loadVideo: loadVideo,
       getFilters: getFilters,
+      getCategories: getCategories,
+      getCategoryName: getCategoryName,
       searchHomeVideos: searchHomeVideos,
       search: search
     };

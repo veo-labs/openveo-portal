@@ -44,7 +44,6 @@
       </md-fab-speed-dial>
     </div>
 
-
     <md-content>
       <md-divider ng-show="shareOpen"></md-divider>
       <div ng-show="shareOpen"  layout='column' layout-margin class="share-code collapse ng-hide">
@@ -54,8 +53,7 @@
       <md-divider ng-show="shareOpen"></md-divider>
     </md-content>
 
-
-    <md-content layout-margin class="collapse" layout='row' layout-align="space-between center">
+    <md-content layout-margin class="collapse" layout='row' layout-align="left center">
       <div ng-show="video.title" layout='row' layout-align="center center"> 
         <md-tooltip md-direction="bottom">{{'UI.TITLE' | translate}}</md-tooltip>
         <md-icon layout-margin flex material-icons md-light md-32>title</md-icon>
@@ -68,12 +66,9 @@
       </div>
       <div ng-show="video.category" layout='row' layout-align="center center"> 
         <span flex layout-margin ng-bind="'SEARCH.CATEGORY_FILTER' | translate"></span>
-        <span>: {{video.category}}</span>
+        <span>: {{categoryName}}</span>
       </div>
     </md-content>
-
-
-
 
     <p>{{video.description}}</p>
 
