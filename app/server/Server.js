@@ -148,7 +148,7 @@ class Server {
 
     // for thumbnail only, set server as proxy to webservice server
     // path : /*/*.jpg, /*/*.jpeg, /*/*.jpg?thumb=small, /*/*.jpeg?thumb=small
-    this.app.get(/^\/.+\/.+(\.jpg|\.jpeg)(\?thumb=small)?$/, (req, res) => {
+    this.app.get(/^\/((?!themes).)+\/.+(\.jpg|\.jpeg)(\?thumb=small)?$/, (req, res) => {
 
       const filename = path.basename(req.url).split('?')[0];
       const requestOptions = {
@@ -181,21 +181,22 @@ class Server {
       http.request(requestOptions, requestCallback).end();
     });
 
-    // Disable cache on get requests
-    this.app.get('*', openveoAPI.middlewares.disableCacheMiddleware);
-
-    // Serve favicon
-    this.app.use(favicon(`${process.root}/assets/themes/${portalConf.theme}/favicon.ico`));
-
-    // Log each request
-    this.app.use(openveoAPI.middlewares.logRequestMiddleware);
-
     // Deliver assets using static server
     this.app.use(express.static(path.normalize(`${process.root}/assets`), staticServerOptions));
 
     // Add private static assets directory for development (uncompressed client JavaScript files)
     if (process.env.NODE_ENV !== 'production')
       this.app.use(express.static(path.normalize(`${process.root}/app/client/front/js`), staticServerOptions));
+
+    // Serve favicon
+    this.app.use(favicon(`${process.root}/assets/themes/${portalConf.theme}/favicon.ico`));
+
+    // Disable cache on get requests
+    this.app.get('*', openveoAPI.middlewares.disableCacheMiddleware);
+
+    // Log each request
+    this.app.use(openveoAPI.middlewares.logRequestMiddleware);
+
 
     this.mountRoutes();
   }
