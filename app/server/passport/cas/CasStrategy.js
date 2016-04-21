@@ -121,7 +121,7 @@ class CasStrategy extends Strategy {
         host: serviceChunks.host,
         pathname: urlChunks.pathname
       }), request.query.ticket).then((user) => {
-        self.success(user.name, user.attributes);
+        self.success(user);
       }).catch((error) => {
         const message = `Authentication failed with message : "${error.message}"`;
         process.logger.error(message);

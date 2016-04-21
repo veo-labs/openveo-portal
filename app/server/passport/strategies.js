@@ -7,7 +7,11 @@
  * @main passport
  */
 
+const path = require('path');
 const passport = require('passport');
+const openveoAPI = require('@openveo/api');
+const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
+const conf = require(path.join(configurationDirectoryPath, 'conf.json'));
 
 module.exports = {
 
@@ -52,7 +56,9 @@ module.exports = {
           // Serialize user into passport session. For cas strategy, no user information is stored outside the
           // session, thus the whole user object can be stored into the session.
           passport.serializeUser((user, done) => {
-            done(null, user);
+            const usr = {name: user.name};
+            usr[conf.authentFilter] = user.group ? user.group : [];
+            done(null, usr);
           });
 
           // Deserialize user from passport session. For cas strategy, the user information stored inside the

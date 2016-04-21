@@ -57,7 +57,8 @@ function createConf(callback) {
   const confFile = path.join(confDir, 'conf.json');
   const conf = {
     theme: 'default',
-    filter: ['categories']
+    exposedFilter: ['categories'],
+    privateFilter: 'visibility'
   };
 
   async.series([
@@ -94,17 +95,17 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     (callback) => {
       rl.question(`Do you want to let user filter video by category ("Y/n") :\n`, (answer) => {
         if (answer == 'n')
-          conf.filter = [];
+          conf.exposedFilter = [];
       });
     },
 
-    // Ask for available filters
+    // Ask for available exposedFilter
     (callback) => {
       const ask = () => {
         rl.question(`Enter the name of video properties that the user would filter
 (Enter empty value to skip or finish) :\n`, (answer) => {
           if (answer) {
-            conf.filter.push(answer);
+            conf.exposedFilter.push(answer);
             ask();
           } else {
             callback();
@@ -112,6 +113,15 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
         });
       };
       ask();
+    },
+
+    // Ask for theme
+    (callback) => {
+      rl.question(`Enter the name of visibility filter (hidden to user) (default: "${conf.privateFilter}") :\n`,
+      (answer) => {
+        conf.privateFilter = answer || conf.privateFilter;
+        callback();
+      });
     }
   ], (error, results) => {
     if (error) {

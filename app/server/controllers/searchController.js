@@ -43,7 +43,6 @@ const VIDEO_PUBLISH_STATES = 12;
  * @static
  */
 module.exports.searchAction = (request, response, next) => {
-  const isAuthenticated = request.isAuthenticated();
   const body = request.body || {};
   const orderedProperties = ['views', 'date'];
   let params;
@@ -67,9 +66,16 @@ module.exports.searchAction = (request, response, next) => {
     });
   }
 
-  // Add private roles
-  if (isAuthenticated) {
-    params['roles'] = [];
+  // Add Visibility filter
+  if (request.isAuthenticated()) {
+
+    // Add user filter
+    if (request.user[conf.authentFilter].length)
+      params[`properties[${conf.authentFilter}]`] = request.user[conf.authentFilter];
+  } else {
+
+    // Add public filter
+    params[`properties[${conf.authentFilter}]`] = ['public'];
   }
 
   // Add published states
@@ -121,7 +127,7 @@ module.exports.searchAction = (request, response, next) => {
 module.exports.getSearchFiltersAction = (request, response, next) => {
   const filters = [];
   const parallel = [];
-  const arrayTitle = conf.filter;
+  const arrayTitle = conf.exposedFilter;
   for (let i = 0; i < arrayTitle.length; i++) {
     if (arrayTitle[i] == 'categories')
       parallel.push((callback) => {

@@ -41,7 +41,7 @@ module.exports.defaultAction = (request, response) => {
   response.locals.languages = ['"en"', '"fr"'];
   response.locals.theme = portalConf.theme;
 
-  response.locals.user = request.isAuthenticated ? request.user : null;
+  response.locals.user = request.isAuthenticated() ? request.user.name : null;
 
   // Add theme css file
   response.locals.css.push(`/themes/${portalConf.theme}/style.css`);
