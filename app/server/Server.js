@@ -143,7 +143,6 @@ class Server {
       // Initialize passport strategy depending on the configuration
       const authType = this.configuration.auth.type;
       passport.use(passportStrategies.get(authType, this.configuration.auth[authType]));
-
     }
 
     // for thumbnail only, set server as proxy to webservice server
@@ -163,24 +162,29 @@ class Server {
       };
 
       const requestCallback = (response) => {
-        let currentByteIndex = 0;
-        let responseContentLength = 0;
+        if (response.statusCode == 200) {
+          let currentByteIndex = 0;
+          let responseContentLength = 0;
 
-        response.setEncoding('binary');
-        if (response.headers && response.headers['content-length']) {
-          responseContentLength = parseInt(response.headers['content-length']);
+          response.setEncoding('binary');
+          if (response.headers && response.headers['content-length']) {
+            responseContentLength = parseInt(response.headers['content-length']);
+          }
+          const responseBody = new Buffer(responseContentLength);
+
+          response.on('data', (chunk) => {
+            responseBody.write(chunk, currentByteIndex, 'binary');
+            currentByteIndex += chunk.length;
+          });
+
+          response.on('end', () => {
+            res.contentType(filename);
+            res.send(responseBody);
+          });
+        } else {
+          res.status(404)        // HTTP status 404: NotFound
+            .send('Not found');
         }
-        const responseBody = new Buffer(responseContentLength);
-
-        response.on('data', (chunk) => {
-          responseBody.write(chunk, currentByteIndex, 'binary');
-          currentByteIndex += chunk.length;
-        });
-
-        response.on('end', () => {
-          res.contentType(filename);
-          res.send(responseBody);
-        });
       };
       http.request(requestOptions, requestCallback).end();
     });
@@ -200,7 +204,6 @@ class Server {
 
     // Log each request
     this.app.use(openveoAPI.middlewares.logRequestMiddleware);
-
 
     this.mountRoutes();
   }

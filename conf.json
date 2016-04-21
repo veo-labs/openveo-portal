@@ -46,6 +46,7 @@
     "/lib/angular-material/angular-material.min.css",
     "https://fonts.googleapis.com/icon?family=Material+Icons",
     "/lib/openveo-player/dist/openveo-player.css",
-    "/lib/openveo-player/lib/video.js/dist/video-js.min.css"
+    "/lib/openveo-player/lib/video.js/dist/video-js.min.css",
+    "/css/style.css"
   ]
 }

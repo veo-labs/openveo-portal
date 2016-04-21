@@ -70,12 +70,7 @@ md-grid-list{
     img{
       display: block;
       width:100%;
-      position: absolute;
       top: 0;
-
-      &.placeholder{
-        position:relative;
-      }
     }
     
     md-grid-tile-footer {

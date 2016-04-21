@@ -142,6 +142,25 @@
     };
   }
 
+  /**
+   * Define placeholder directive on all video element
+   */
+  function ImageLoadedDirective($http) {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        attrs.$observe('ngSrc', function(ngSrc) {
+          $http.get(ngSrc).success(function() {
+
+            // do nothing
+          }).error(function() {
+            element.attr('src', '/themes/' + scope.theme + '/images/placeholder.jpg'); // set default image
+          });
+        });
+      }
+    };
+  }
+
   app.controller('MainController', MainController);
   app.controller('DialogController', DialogController);
   app.controller('ToastController', ToastController);
@@ -149,5 +168,8 @@
     '$mdToast', '$mdMedia', '$location', '$filter', 'searchService', '$analytics'];
   DialogController.$inject = ['$scope', '$mdDialog', 'video', '$mdMedia'];
   ToastController.$inject = ['$scope', '$mdToast'];
+
+  ImageLoadedDirective.$inject = ['$http'];
+  app.directive('checkImage', ImageLoadedDirective);
 
 })(angular.module('ov.portal'));

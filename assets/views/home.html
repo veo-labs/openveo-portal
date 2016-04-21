@@ -38,11 +38,10 @@ analytics-on='click' analytics-event="OpenVideo"
 >
 <div class='tile-layout' layout='column'  layout-align="space-between none" >
   <div class='thumbnail' flex>
-    <img class="placeholder" ng-src="/themes/{{theme}}/images/placeholder.jpg">
-    <img ng-src="{{video.thumbnail}}">
-     <div class='play'>
-            <md-icon material-icons md-light ng-class="{reverse: search.sortOrder}">play_circle_outline</md-icon>
-     </div>
+    <img check-image ng-src="{{video.thumbnail}}">
+    <div class='play'>
+      <md-icon material-icons md-light ng-class="{reverse: search.sortOrder}">play_circle_outline</md-icon>
+    </div>
   </div>
 
   <md-grid-tile-footer>

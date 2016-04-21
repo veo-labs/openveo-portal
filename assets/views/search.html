@@ -65,14 +65,15 @@
         </div>
        
          <div layout="row" layout="column" layout-align="center center" layout-margin>
+           <md-button ng-click="resetSearch()" class="md-secondary md-fab" >
+              <md-tooltip md-direction="right">{{'UI.CANCEL' | translate}}</md-tooltip>
+              <md-icon material-icons md-light md-48>close</md-icon>
+            </md-button>
             <md-button type="submit" id="submit" class="md-primary md-fab" >
               <md-tooltip md-direction="left">{{'UI.SEARCH' | translate}}</md-tooltip>
               <md-icon material-icons md-light md-48>search</md-icon>
             </md-button>
-            <md-button ng-click="resetSearch()" class="md-secondary md-fab" >
-              <md-tooltip md-direction="right">{{'UI.CANCEL' | translate}}</md-tooltip>
-              <md-icon material-icons md-light md-48>close</md-icon>
-            </md-button>
+            
           </div>
       </form>
     </div>
@@ -125,8 +126,7 @@
                   > 
       <div class='tile-layout' layout='column'  layout-align="space-between none" >
         <div class='thumbnail'>
-          <img class="placeholder" ng-src="/themes/{{theme}}/images/placeholder.jpg">
-          <img ng-src="{{video.thumbnail}}">
+          <img check-image ng-src="{{video.thumbnail}}">
           <div class='play'>
             <md-icon material-icons md-light md-48 ng-class="{reverse: search.sortOrder}">play_circle_outline</md-icon>
           </div>

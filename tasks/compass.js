@@ -9,7 +9,7 @@ module.exports = {
     options: {
       sourcemap: true,
       sassDir: '<%= project.sass %>',
-      cssDir: '<%= project.defaultTheme %>',
+      cssDir: '<%= project.assets %>/css',
       fontsDir: '<%= project.fonts %>',
       httpFontsPath: '<%= project.fontHttpPath %>',
       environment: 'development',
@@ -23,7 +23,7 @@ module.exports = {
     options: {
       sourcemap: false,
       sassDir: '<%= project.sass %>',
-      cssDir: '<%= project.defaultTheme %>',
+      cssDir: '<%= project.assets %>/css',
       fontsDir: '<%= project.fonts %>',
       httpFontsPath: '<%= project.fontHttpPath %>',
       environment: 'production',
