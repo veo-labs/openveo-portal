@@ -25,7 +25,9 @@
     <header ng-if="!isIframe" >
       <div class="container">
         <div layout="row" layout-align="space-between center" layout-padding>
-          <div>logo</div>
+          <a ng-href="/" aria-label="{{'MENU.HOME'|translate}}">
+            <img ng-src="/themes/{{theme}}/images/logo.png">
+          </a>
           [[#user]]
           <div layout="row" layout-align="end center">
             <label><span ng-bind="'UI.HELLO'|translate"></span> [[user]]</label>
