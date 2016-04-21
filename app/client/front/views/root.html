@@ -50,13 +50,13 @@
 
       <div layout="column" layout-fill>
         <md-toolbar class="navbar-background" md-scroll-shrink hide-xs >
-        <md-tabs class="md-primary container navbar" md-selected="tabSelected" md-autoselect='false'>
-          <md-tab id="tab1" ng-click="goTo('/')" aria-label="{{'MENU.HOME'|translate}}">
+        <md-tabs class="md-primary container navbar"  md-autoselect='false'>
+          <md-tab id="tab1" ng-click="goTo('/')" md-active="path=='/'" aria-label="{{'MENU.HOME'|translate}}">
             <md-tab-label>{{'MENU.HOME'|translate}}</md-tab-label>
           </md-tab>
-          <md-tab id="tab2" ng-click="goTo('/search')" aria-label="{{'MENU.ALL_VIDEOS'|translate}}">
+          <md-tab id="tab2" ng-click="goTo('/search')" md-active="path=='/search'"aria-label="{{'MENU.ALL_VIDEOS'|translate}}">
             <md-tab-label>{{'MENU.ALL_VIDEOS'|translate}}</md-tab-label>
-            </md-tab>
+          </md-tab>
         </md-tabs>
         </md-toolbar >
 

@@ -54,16 +54,13 @@
     $scope.contactMailTo = links.contactMailTo;
     $scope.helpUrl = links.helpUrl;
     $scope.title = '';
-    $scope.tabSelected = -1;
+    $scope.path = '';
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
-      $analytics.pageTrack($location.path());
+      $analytics.pageTrack($scope.path);
       $scope.title = $route.current && $route.current.title || $scope.title;
-      switch (route.originalPath) {
-        case '/search': $scope.tabSelected = 1; break;
-        default: $scope.tabSelected = 0;
-      }
+      $scope.path = $location.path();
     });
 
     // Listen to the route change error event
