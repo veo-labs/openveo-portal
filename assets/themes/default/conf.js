@@ -5,8 +5,8 @@ var app = angular.module('ov.configuration', [],
 // Set Links
  ['$provide', function($provide) {
   $provide.value('links', {
-    contactMailTo: 'mailto:coucou@coucou.com',
-    helpUrl: 'http://www.google.fr'
+    contactMailTo: 'mailto:info@veo-labs.com',
+    helpUrl: 'http://www.veo-labs.com'
   });
 }]);
 
