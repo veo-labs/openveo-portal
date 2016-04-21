@@ -22,14 +22,16 @@ const configurationDirectoryPath = path.join(openVeoAPI.fileSystem.getConfDir(),
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 const conf = require(path.join(configurationDirectoryPath, 'conf.json'));
 
-const OPENVEO_URL = `http://${webservicesConf.host}:${webservicesConf.port}`;
+const OPENVEO_CERT = webservicesConf.certificate;
+const OPENVEO_URL = webservicesConf.path;
 const CLIENT_ID = webservicesConf.clientID;
-const CLIENT_SECRET = webservicesConf.secretId;
+const CLIENT_SECRET = webservicesConf.secretID;
 
-const openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET);
+const openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET, OPENVEO_CERT);
 
 const videoCache = process.require('/app/server/serverCache/VideoCache');
 const filterCache = process.require('/app/server/serverCache/FilterCache');
+const VIDEO_PUBLISH_STATES = 12;
 
 /**
  * Handles default action to display main HTML.
@@ -71,10 +73,12 @@ module.exports.searchAction = (request, response, next) => {
   }
 
   // Add published states
-  params['states'] = 12;
+  params['states'] = VIDEO_PUBLISH_STATES;
 
   // Add properties
   Object.keys(body.filter).forEach((key) => {
+
+    // if filter key is allready set thanks to shallowValidateObject
     if (params[key] == undefined) {
       params[`properties[${key}]`] = body.filter[key];
     }

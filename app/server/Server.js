@@ -6,6 +6,7 @@
  */
 const http = require('http');
 const path = require('path');
+const url = require('url');
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
@@ -23,8 +24,7 @@ const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(),
 const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 
-const OPENVEOHOST = webservicesConf.host;
-const OPENVEOPORT = webservicesConf.port;
+const OPENVEO_URL = webservicesConf.path;
 
 // Common options for all static servers delivering static files
 const staticServerOptions = {
@@ -148,12 +148,16 @@ class Server {
 
     // for thumbnail only, set server as proxy to webservice server
     // path : /*/*.jpg, /*/*.jpeg, /*/*.jpg?thumb=small, /*/*.jpeg?thumb=small
+    // not: /themes/*.jpg
     this.app.get(/^\/((?!themes).)+\/.+(\.jpg|\.jpeg)(\?thumb=small)?$/, (req, res) => {
 
       const filename = path.basename(req.url).split('?')[0];
+
+      const urlParsed = url.parse(OPENVEO_URL);
       const requestOptions = {
-        port: OPENVEOPORT,
-        host: OPENVEOHOST,
+        protocol: urlParsed.protocol,
+        port: urlParsed.port,
+        host: urlParsed.hostname,
         method: 'GET',
         path: req.url
       };

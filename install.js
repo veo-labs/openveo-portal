@@ -381,8 +381,8 @@ function createServerConf(callback) {
 function createWebservicesConf(callback) {
   const confFile = path.join(confDir, 'webservicesConf.json');
   const conf = {
-    host: '192.168.0.1',
-    port: '3001'
+    path: 'http://127.0.0.1:3001',
+    certificate: ''
   };
 
   async.series([
@@ -400,16 +400,16 @@ function createWebservicesConf(callback) {
 
     // Ask webservices host
     (callback) => {
-      rl.question(`Enter Webservices host (default: ${conf.host}):\n`, (answer) => {
-        conf.host = answer || conf.host;
+      rl.question(`Enter Webservices path (default: ${conf.path}):\n`, (answer) => {
+        conf.path = answer || conf.path;
         callback();
       });
     },
 
-    // Ask webservices port
+    // Ask certificate path
     (callback) => {
-      rl.question(`Enter Webservices port (default: ${conf.port}):\n`, (answer) => {
-        conf.port = answer || conf.port;
+      rl.question(`Enter Webservices certificate path (default: ${conf.certificate}):\n`, (answer) => {
+        conf.certificate = answer || conf.certificate;
         callback();
       });
     },
