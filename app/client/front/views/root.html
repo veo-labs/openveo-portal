@@ -28,9 +28,9 @@
             <img ng-src="/themes/{{theme}}/images/logo.png">
           </a>
           [[#user]]
-          <div layout="row" layout-align="end center">
+          <div layout="row" hide-xs layout-align="end center">
             <label><span ng-bind="'UI.HELLO'|translate"></span> [[user]]</label>
-            <md-button hide-xs class='md-raised md-primary text-button'
+            <md-button  class='md-raised md-primary text-button'
                        href="/logout" target="_self"
                        aria-label="{{'UI.LOGOUT'|translate}}"
                        ng-bind="'UI.LOGOUT'|translate"
@@ -50,18 +50,24 @@
       </div>
 
       <div layout="column" layout-fill>
-        <md-toolbar class="navbar-background" md-scroll-shrink hide-xs >
-        <md-tabs class="md-primary container navbar"  md-autoselect='false'>
-          <md-tab id="tab1" ng-click="goTo('/')" md-active="path=='/'" aria-label="{{'MENU.HOME'|translate}}">
+        <md-toolbar md-theme="inverse" class="navbar-background" md-scroll-shrink hide-xs >
+        <md-tabs md-theme="inverse" class="md-primary container navbar"  md-autoselect='false'>
+          <md-tab id="tab1" 
+            ng-click="goTo('/')"
+            md-active="path=='/'"
+            aria-label="{{'MENU.HOME'|translate}}">
             <md-tab-label>{{'MENU.HOME'|translate}}</md-tab-label>
           </md-tab>
-          <md-tab id="tab2" ng-click="goTo('/search')" md-active="path=='/search'"aria-label="{{'MENU.ALL_VIDEOS'|translate}}">
+          <md-tab id="tab2" 
+            ng-click="goTo('/search')" 
+            md-active="path=='/search'" 
+            aria-label="{{'MENU.ALL_VIDEOS'|translate}}">
             <md-tab-label>{{'MENU.ALL_VIDEOS'|translate}}</md-tab-label>
           </md-tab>
         </md-tabs>
         </md-toolbar >
 
-        <md-toolbar  hide-gt-xs>
+        <md-toolbar md-theme="inverse" hide-gt-xs>
           <div class="md-toolbar-tools">
             <md-menu>
             <!-- Trigger element is a md-button with an icon -->
@@ -78,9 +84,25 @@
               </md-menu-content>
             </md-menu>
             <span flex></span>
-            <md-button 
-              aria-label="{{'UI.LOGIN'|translate}}"
-              ng-bind="'UI.LOGIN'|translate"></md-button>
+           [[#user]]
+          <div layout="row" layout-align="end center">
+            <label class="md-caption" ><span ng-bind="'UI.HELLO'|translate"></span> [[user]]</label>
+            <md-button class ='md-raised md-accent text-button'
+                       href="/logout" target="_self"
+                       aria-label="{{'UI.LOGOUT'|translate}}"
+                       ng-bind="'UI.LOGOUT'|translate"
+                       analytics-on='click' analytics-event="Logout"
+                       ></md-button>
+          </div>
+          [[/user]]
+          [[^user]]
+          <md-button class='md-raised md-accent text-button' 
+                     href="/authenticate" target="_self" 
+                     aria-label="{{'UI.LOGIN'|translate}}"
+                     ng-bind="'UI.LOGIN'|translate"
+                     analytics-on='click' analytics-event="Login"
+                     ></md-button>
+          [[/user]]
           </div>
         </md-toolbar>
       </div>
@@ -95,18 +117,18 @@
     </div>
     <div ng-if="!isIframe" class="footer-spacing"></div>
 
-    <footer ng-if="!isIframe" class="footer">
+    <footer md-theme="inverse" ng-if="!isIframe" class="footer">
         <md-toolbar>
           <div class="md-toolbar-tools">
             <div class='container'>
               <div layout="row" layout-align="center center">
-                <md-button class="md-primary" 
+                <md-button 
                            ng-href="{{contactMailTo}}" target="_blank" 
                            aria-label="{{'LINKS.CONTACT'|translate}}"
                            ng-bind="'LINKS.CONTACT'|translate"
                            analytics-on='click' analytics-event="Contact"
                            ></md-button> |
-                <md-button class="md-primary" 
+                <md-button class="text-left"
                            ng-href="{{helpUrl}}" target="_blank" 
                            aria-label="{{'LINKS.HELP'|translate}}"
                            ng-bind="'LINKS.HELP'|translate"

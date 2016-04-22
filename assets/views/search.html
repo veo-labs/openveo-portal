@@ -1,7 +1,7 @@
 <div ng-cloak>
   <div layout-xs="column" layout-gt-xs="row">
-    <h1 class="md-headline" hide-gt-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
-    <h1 class="md-display-1" hide-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
+    <h1 class="md-headline" md-colors="{color: 'default-primary'}" hide-gt-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
+    <h1 class="md-display-1" md-colors="{color: 'default-primary'}" hide-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
     <span flex></span>
     
     <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center"
@@ -24,13 +24,11 @@
   </div>
   
   <div layout="column" md-whiteframe="1">
-    <md-toolbar class="md-accent advanced-search" ng-click="showAdvancedSearch = !showAdvancedSearch">
+    <md-toolbar class="md-primary advanced-search" ng-click="showAdvancedSearch = !showAdvancedSearch">
         <div class="md-toolbar-tools">
           <h3 class="ng-binding" ng-bind=" 'SEARCH.ADVANCED' | translate "></h3>
           <span flex></span>
-          <md-button  type="button" >
-            <md-icon material-icons md-light md-48 ng-class="{reverse: showAdvancedSearch}">keyboard_arrow_down</md-icon>
-          </md-button>
+          <md-icon material-icons md-light md-48 ng-class="{reverse: showAdvancedSearch}">keyboard_arrow_down</md-icon>
         </div>
     </md-toolbar>
     <div layout="column" ng-show='showAdvancedSearch' class='collapse' >
@@ -135,7 +133,7 @@
         <div flex layout="column" layout-align="space-between none"  class="details">
           <div class='md-title' >{{video.title}}</div>
           <div  layout="row" layout-align="space-between center">
-            <div class='md-body-2'>{{video.date | date : 'd MMMM yyyy'}}</div>
+            <div class='md-body-2' md-colors="{color: 'default-primary'}">{{video.date | date : 'd MMMM yyyy'}}</div>
             <div class='md-caption nb-views'>{{video.views}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
           </div>
           

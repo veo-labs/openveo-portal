@@ -21,6 +21,9 @@ footer{
   position:fixed;
   width:100%;
   bottom:0;
+  md-toolbar{
+    background: #FAFAFA;
+  }
 }
 header{
   @include mobile(){
@@ -81,6 +84,9 @@ md-ink-bar{
 
 .text-center{
   text-align:center;
+}
+.text-left{
+  text-align:left;
 }
 
 .zero{
