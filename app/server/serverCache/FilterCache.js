@@ -38,8 +38,8 @@ filterCache.on('expired', (key, value) => {
 });
 
 // Get A filter from cache or call the entity from Openveo
-module.exports.getFilter = (title, callback) => {
-  filterCache.get(`${title}`, (error, filter) => {
+module.exports.getFilter = (id, callback) => {
+  filterCache.get(id, (error, filter) => {
     if (error) {
       return callback(error);
     }
@@ -48,10 +48,10 @@ module.exports.getFilter = (title, callback) => {
       return callback(null, filter);
     }
 
-    openVeoClient.get(`publish/properties?query=${title}`).then((result) => {
+    openVeoClient.get(`publish/property/${id}`).then((result) => {
       // cache result
-      filterCache.set(`${title}`, result);
-      callback(null, result);
+      filterCache.set(id, result.property);
+      callback(null, result.property);
     }).catch((error) => {
       callback(errors.GET_PROPERTY_UNKNOWN);
     });
@@ -70,7 +70,6 @@ module.exports.getCategories = (callback) => {
     }
 
     openVeoClient.get('publish/categories').then((result) => {
-
       const categoriesByKey = {};
       const categoriesIds = JSONPath({json: result, path: '$..*[?(@.id)]'});
       if (categoriesIds && categoriesIds.length != 0)

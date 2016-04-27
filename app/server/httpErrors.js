@@ -28,6 +28,10 @@ module.exports = {
     code: 0x101,
     httpCode: 500
   },
+  GET_VIDEO_NOT_ALLOWED: {
+    code: 0x102,
+    httpCode: 403
+  },
 
   // SEARCH
   GET_SEARCH_FILTER_ERROR: {

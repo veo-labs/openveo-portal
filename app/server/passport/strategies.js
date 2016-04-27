@@ -57,7 +57,7 @@ module.exports = {
           // session, thus the whole user object can be stored into the session.
           passport.serializeUser((user, done) => {
             const usr = {name: user.name};
-            usr[conf.authentFilter] = user.group ? user.group : [];
+            usr['groups'] = conf.privateFilter;
             done(null, usr);
           });
 

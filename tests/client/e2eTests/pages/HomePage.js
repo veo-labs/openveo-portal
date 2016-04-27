@@ -13,6 +13,10 @@ class HomePage extends Page {
    */
   constructor() {
     super();
+    this.pageTitleElement = element(by.binding('HOME.TITLE'));
+    this.moreButtonElement = element(by.binding('HOME.ALL_VIDEOS'));
+    this.connexionButtonElement = element(by.binding('UI.LOGIN'));
+    this.videoElements = element.all(by.repeater('video in videos').column('video.date'));
 
     Object.defineProperties(this, {
       path: {
@@ -28,9 +32,8 @@ class HomePage extends Page {
    * @return {Promise} Promise resolving when page is fully loaded
    */
   onLoaded() {
-    return protractor.promise.fulfilled();
+    return browser.wait(this.EC.presenceOf(this.pageTitleElement), 5000, 'Missing home page title');
   }
-
 }
 
 module.exports = HomePage;

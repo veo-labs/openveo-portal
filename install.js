@@ -58,7 +58,8 @@ function createConf(callback) {
   const conf = {
     theme: 'default',
     exposedFilter: ['categories'],
-    privateFilter: 'visibility'
+    privateFilter: [],
+    publicFilter: []
   };
 
   async.series([
@@ -102,7 +103,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     // Ask for available exposedFilter
     (callback) => {
       const ask = () => {
-        rl.question(`Enter the name of video properties that the user would filter
+        rl.question(`Enter the video properties ID that the user could filter
 (Enter empty value to skip or finish) :\n`, (answer) => {
           if (answer) {
             conf.exposedFilter.push(answer);
@@ -115,13 +116,40 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
       ask();
     },
 
-    // Ask for theme
+    // Ask for public group filter
     (callback) => {
-      rl.question(`Enter the name of visibility filter (hidden to user) (default: "${conf.privateFilter}") :\n`,
-      (answer) => {
-        conf.privateFilter = answer || conf.privateFilter;
-        callback();
-      });
+      const ask = () => {
+        const alert = conf.publicFilter.length ?
+        'If you do not specify any group, all videos without group will be shown.' : '';
+        rl.question(`Enter the video group IDs that anonymous user will see. ${alert}
+(Enter empty value to skip or finish):\n`, (answer) => {
+          if (answer) {
+            conf.publicFilter.push(answer);
+            ask();
+          } else {
+            callback();
+          }
+        });
+      };
+      ask();
+    },
+
+    // Ask for private group filter
+    (callback) => {
+      const ask = () => {
+        const alert = conf.privateFilter.length ?
+        'If you do not specify any group, results will not change even if the user is connected' : '';
+        rl.question(`Enter the video group IDs that authentified user will see. ${alert}
+(Enter empty value to skip or finish):\n`, (answer) => {
+          if (answer) {
+            conf.privateFilter.push(answer);
+            ask();
+          } else {
+            callback();
+          }
+        });
+      };
+      ask();
     }
   ], (error, results) => {
     if (error) {

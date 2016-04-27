@@ -66,16 +66,15 @@ module.exports.searchAction = (request, response, next) => {
     });
   }
 
-  // Add Visibility filter
+  // Add public group filter
+  params['groups'] = conf.publicFilter;
+
+  // Add visibility group filter
   if (request.isAuthenticated()) {
 
     // Add user filter
-    if (request.user[conf.authentFilter].length)
-      params[`properties[${conf.authentFilter}]`] = request.user[conf.authentFilter];
-  } else {
-
-    // Add public filter
-    params[`properties[${conf.authentFilter}]`] = ['public'];
+    if (request.user['groups'].length)
+      params['groups'] = params['groups'].concat(request.user['groups']);
   }
 
   // Add published states
@@ -126,11 +125,11 @@ module.exports.searchAction = (request, response, next) => {
 
 module.exports.getSearchFiltersAction = (request, response, next) => {
   const filters = [];
-  const parallel = [];
-  const arrayTitle = conf.exposedFilter;
-  for (let i = 0; i < arrayTitle.length; i++) {
-    if (arrayTitle[i] == 'categories')
-      parallel.push((callback) => {
+  const series = [];
+  const arrayId = conf.exposedFilter;
+  for (let i = 0; i < arrayId.length; i++) {
+    if (arrayId[i] == 'categories')
+      series.push((callback) => {
         filterCache.getCategories((error, categories) => {
           if (categories) {
             filters.push(categories);
@@ -138,17 +137,18 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
           callback();
         });
       });
-    else parallel.push((callback) => {
-      filterCache.getFilter(arrayTitle[i], (error, filter) => {
+    else series.push((callback) => {
+      filterCache.getFilter(arrayId[i], (error, filter) => {
         if (filter) {
-          filters.push(filter.properties[0]);
+          filters.push(filter);
         }
         callback();
       });
     });
   }
 
-  async.parallel(parallel, () => {
+  async.series(series, () => {
+
     response.send(filters);
   });
 };
@@ -165,13 +165,39 @@ module.exports.getCategoriesAction = (request, response, next) => {
 };
 
 module.exports.getVideoAction = (request, response, next) => {
-  videoCache.getVideo(request.params.id, (error, video) => {
+  videoCache.getVideo(request.params.id, (error, res) => {
     if (error) {
       next(error);
       return;
-    } else if (video.private && !request.isAuthenticated())
-      response.send({needAuth: true});
-    else
-      response.send({entity: video});
+    }
+
+    const isInPublic = openVeoAPI.util.intersectArray(res.video.metadata.groups, conf.publicFilter);
+    const isInPrivate = openVeoAPI.util.intersectArray(res.video.metadata.groups, conf.privateFilter);
+
+    // return entity if entity is public
+    if (isInPublic.length)
+      response.send({entity: res});
+
+    // if video is private
+    else if (isInPrivate.length) {
+
+      // if user is not authentified, send need authent
+      if (!request.isAuthenticated())
+        response.send({needAuth: true});
+
+      // if user is authentified
+      else {
+        const isAllowed = openVeoAPI.util.intersectArray(isInPrivate, request.user.groups);
+
+        // if is allowed return authent else return error
+        if (isAllowed.length) response.send({entity: res});
+        else next(errors.GET_VIDEO_NOT_ALLOWED);
+      }
+
+      // if no group corresponding to an entity
+    } else {
+      next(errors.GET_VIDEO_NOT_ALLOWED);
+    }
+
   });
 };
