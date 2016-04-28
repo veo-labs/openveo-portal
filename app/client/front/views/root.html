@@ -53,14 +53,14 @@
         <md-toolbar md-theme="inverse" class="navbar-background" md-scroll-shrink hide-xs >
         <md-tabs md-theme="inverse" class="md-primary container navbar"  md-autoselect='false'>
           <md-tab id="tab1" 
-            ng-click="goTo('/')"
             md-active="path=='/'"
+            md-on-select="onTabSelected('/')"
             aria-label="{{'MENU.HOME'|translate}}">
             <md-tab-label>{{'MENU.HOME'|translate}}</md-tab-label>
           </md-tab>
           <md-tab id="tab2" 
-            ng-click="goTo('/search')" 
             md-active="path=='/search'" 
+            md-on-select="onTabSelected('/search')" 
             aria-label="{{'MENU.ALL_VIDEOS'|translate}}">
             <md-tab-label>{{'MENU.ALL_VIDEOS'|translate}}</md-tab-label>
           </md-tab>
@@ -123,17 +123,12 @@
             <div class='container'>
               <div layout="row" layout-align="center center">
                 <md-button 
-                           ng-href="{{contactMailTo}}" target="_blank" 
-                           aria-label="{{'LINKS.CONTACT'|translate}}"
-                           ng-bind="'LINKS.CONTACT'|translate"
-                           analytics-on='click' analytics-event="Contact"
-                           ></md-button> |
-                <md-button class="text-left"
-                           ng-href="{{helpUrl}}" target="_blank" 
-                           aria-label="{{'LINKS.HELP'|translate}}"
-                           ng-bind="'LINKS.HELP'|translate"
-                           analytics-on='click' analytics-event="Help"
-                           ></md-button>
+                ng-repeat="(key, value) in links"
+                ng-href="{{value}}" target="_blank" 
+                aria-label="{{'LINKS.'+key|translate}}"
+                ng-bind="'LINKS.'+ key|translate"
+                analytics-on='click' analytics-event="{{key}}"
+                ></md-button> 
               </div>
             </div>
           </div>

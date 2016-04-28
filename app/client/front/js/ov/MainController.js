@@ -51,16 +51,15 @@
     $scope.context = {context: false};
     $scope.isIframe = urlParams['iframe'] || false;
     $scope.hideDetailVideo = urlParams['hidedetail'] || false;
-    $scope.contactMailTo = links.contactMailTo;
-    $scope.helpUrl = links.helpUrl;
+    $scope.links = links;
     $scope.title = '';
     $scope.path = '';
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
-      $analytics.pageTrack($scope.path);
       $scope.title = $route.current && $route.current.title || $scope.title;
       $scope.path = $location.path();
+      $analytics.pageTrack($scope.path);
     });
 
     // Listen to the route change error event
@@ -73,7 +72,7 @@
         else $location.path(eventObj.redirect);
       } else {
         $location.path('/');
-        if (eventObj.status == '500')
+        if (eventObj.status == '500' || eventObj.status == '502')
           $scope.showToast($filter('translate')('ERROR.SERVER'));
       }
     });
@@ -118,7 +117,7 @@
         // error on call
         searchService.cacheClear();
         $location.path('/');
-        if (error.status == '500')
+        if (error.status == '500' || error.status == '502')
           $scope.showToast($filter('translate')('ERROR.SERVER'));
       });
 
@@ -129,14 +128,17 @@
       });
     };
 
-    $scope.goTo = function(path) {
-      $location.path(path).search({});
+    $scope.onTabSelected = function(path) {
+      if (path == '/search')
+        $location.path(path);
+      else // reset search on home page
+        $location.path(path).search({});
     };
 
     $scope.showToast = function(message) {
       var toast = $mdToast.simple()
         .textContent(message)
-        .position('bottom left')
+        .position('top center')
         .hideDelay(3000);
       $mdToast.show(toast);
     };

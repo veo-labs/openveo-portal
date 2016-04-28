@@ -48,7 +48,7 @@ module.exports.getFilter = (id, callback) => {
       return callback(null, filter);
     }
 
-    openVeoClient.get(`publish/property/${id}`).then((result) => {
+    openVeoClient.get(`publish/properties/${id}`).then((result) => {
       // cache result
       filterCache.set(id, result.property);
       callback(null, result.property);

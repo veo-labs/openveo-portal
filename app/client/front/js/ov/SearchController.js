@@ -57,6 +57,9 @@
 
     $scope.searchSubmit = function() {
       $scope.showAdvancedSearch = false;
+      if ($scope.search.query == '') delete $scope.search.query;
+      if ($scope.search.sortOrder == false) delete $scope.search.sortOrder;
+      if ($scope.search.sortBy == false) delete $scope.search.sortBy;
       $location.search($scope.search);
     };
 

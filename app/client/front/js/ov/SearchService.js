@@ -123,6 +123,9 @@
      */
     function cacheClear() {
       videosCache = {};
+      filters = {};
+      categories = {};
+      homeVideos = {};
     }
 
     return {

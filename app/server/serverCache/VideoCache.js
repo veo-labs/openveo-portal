@@ -78,7 +78,7 @@ module.exports.getVideo = (id, callback) => {
     }
 
     // not cached : Do call
-    openVeoClient.get(`publish/video/${id}`).then((result) => {
+    openVeoClient.get(`publish/videos/${id}`).then((result) => {
       // cache result
       videoCache.set(`${id}`, result);
       callback(null, result);

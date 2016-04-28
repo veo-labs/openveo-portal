@@ -4,7 +4,6 @@
  * @module server
  * @main server
  */
-const http = require('http');
 const path = require('path');
 const url = require('url');
 const express = require('express');
@@ -176,6 +175,9 @@ class Server {
             responseBody.write(chunk, currentByteIndex, 'binary');
             currentByteIndex += chunk.length;
           });
+          response.on('error', (error) => {
+            res.status(502).send('Server unavailable');
+          });
 
           response.on('end', () => {
             res.contentType(filename);
@@ -186,7 +188,13 @@ class Server {
             .send('Not found');
         }
       };
-      http.request(requestOptions, requestCallback).end();
+      const protocol = urlParsed.protocol.split(':')[0];
+      const request = require(protocol).request(requestOptions, requestCallback);
+      request.on('error', (error) => {
+        res.status(502).send('Server unavailable');
+      });
+
+      request.end();
     });
 
     // Deliver assets using static server
