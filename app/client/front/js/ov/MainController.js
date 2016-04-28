@@ -51,7 +51,7 @@
     $scope.context = {context: false};
     $scope.isIframe = urlParams['iframe'] || false;
     $scope.hideDetailVideo = urlParams['hidedetail'] || false;
-    $scope.links = links;
+    $scope.links = Object.keys(links).length === 0 && JSON.stringify(links) === JSON.stringify({}) ? null : links;
     $scope.title = '';
     $scope.path = '';
 

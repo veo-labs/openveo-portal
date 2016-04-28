@@ -115,9 +115,9 @@
         <div ng-view ng-cloak></div>
       </div>
     </div>
-    <div ng-if="!isIframe" class="footer-spacing"></div>
+    <div ng-if="!isIframe && links" class="footer-spacing"></div>
 
-    <footer md-theme="inverse" ng-if="!isIframe" class="footer">
+    <footer md-theme="inverse" ng-if="!isIframe && links" class="footer">
         <md-toolbar>
           <div class="md-toolbar-tools">
             <div class='container'>
