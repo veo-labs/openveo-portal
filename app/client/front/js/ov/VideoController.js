@@ -21,7 +21,8 @@
     $scope.shareItems = [
       {name: 'UI.LINK', icon: 'link', direction: 'bottom', action: function(video) {
         delete $scope.shareText;
-        $scope.shareLink = $location.protocol() + '://' + $location.host() + '/video/' + video.id;
+        var port = ($location.port() != 80 && $location.port() != 443) ? ':' + $location.port() : '';
+        $scope.shareLink = $location.protocol() + '://' + $location.host() + port + '/video/' + video.id;
         $scope.shareOpen = !$scope.shareOpen;
       }},
       {name: 'UI.CODE',
@@ -29,9 +30,10 @@
         direction: 'left',
         action: function(video) {
           delete $scope.shareLink;
+          var port = ($location.port() != 80 && $location.port() != 443) ? ':' + $location.port() : '';
           $scope.shareText =
                   '<iframe width="480" height="270" ' +
-                  'src="' + $location.protocol() + '://' + $location.host() + '/video/' + video.id +
+                  'src="' + $location.protocol() + '://' + $location.host() + port + '/video/' + video.id +
                   '?iframe=true&&hidedetail=false" frameborder="0"></iframe>';
 
           $scope.shareOpen = !$scope.shareOpen;
