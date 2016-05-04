@@ -24,7 +24,7 @@
     <header ng-if="!isIframe" >
       <div class="container">
         <div layout="row" layout-align="space-between center" layout-padding>
-          <a ng-href="/" aria-label="{{'MENU.HOME'|translate}}">
+          <a id='logo' ng-href="/" aria-label="{{'MENU.HOME'|translate}}">
             <img ng-src="/themes/{{theme}}/images/logo.png">
           </a>
           [[#user]]
@@ -39,7 +39,7 @@
           </div>
           [[/user]]
           [[^user]]
-          <md-button hide-xs class='md-raised md-primary text-button' 
+          <md-button hide-xs class='md-raised md-primary text-button log-in' 
                      href="/authenticate" target="_self" 
                      aria-label="{{'UI.LOGIN'|translate}}"
                      ng-bind="'UI.LOGIN'|translate"
@@ -51,7 +51,7 @@
 
       <div layout="column" layout-fill>
         <md-toolbar md-theme="inverse" class="navbar-background" md-scroll-shrink hide-xs >
-        <md-tabs md-theme="inverse" class="md-primary container navbar"  md-autoselect='false'>
+        <md-tabs md-theme="inverse" class="md-primary container navbar" md-selected="-1" md-autoselect='false'>
           <md-tab id="tab1" 
             md-active="path=='/'"
             md-on-select="onTabSelected('/')"
@@ -96,7 +96,7 @@
           </div>
           [[/user]]
           [[^user]]
-          <md-button class='md-raised md-accent text-button' 
+          <md-button class='md-raised md-accent text-button log-in-mobile' 
                      href="/authenticate" target="_self" 
                      aria-label="{{'UI.LOGIN'|translate}}"
                      ng-bind="'UI.LOGIN'|translate"
