@@ -4,7 +4,7 @@
     <h1 class="md-display-1" md-colors="{color: 'default-primary'}" hide-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
     <span flex></span>
     
-    <form ng-submit="searchSubmit()" name="userForm" layout="row" layout-align="center center"
+    <form ng-submit="searchSubmit()" name="searchForm" layout="row" layout-align="center center"
           flex-xs="95"
           flex-sm="50"
           flex-md="32"
@@ -53,7 +53,7 @@
         <div layout="row" layout-xs="column" layout-wrap>
             <md-input-container ng-repeat="filter in filters | orderBy:'name'" class="md-block" flex-gt-sm='33' flex-sm='50' flex-xs='100'>
               <label ng-bind="filter.name=='categories'? 'SEARCH.CATEGORY_FILTER' : filter.name | translate"></label>
-              <md-select ng-if="filter.type=='list'" ng-model="search[filter.name]">
+              <md-select ng-if="filter.type=='list'" ng-model="search[filter.id]">
                 <md-option ng-repeat="(key, value) in filter.values" value="{{filter.name=='categories'?key:value}}">
                   {{value}}
                 </md-option>
@@ -63,7 +63,7 @@
         </div>
        
          <div layout="row" layout="column" layout-align="center center" layout-margin>
-           <md-button ng-click="resetSearch()" class="md-secondary md-fab" >
+           <md-button ng-click="resetSearch()" class="md-accent md-fab" >
               <md-tooltip md-direction="right">{{'UI.CANCEL' | translate}}</md-tooltip>
               <md-icon material-icons md-light md-48>close</md-icon>
             </md-button>

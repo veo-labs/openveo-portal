@@ -80,6 +80,7 @@ module.exports.getCategories = (callback) => {
 
         // cache result
       const categories = {
+        id: 'categories',
         type: 'list',
         name: 'categories',
         values: categoriesByKey
