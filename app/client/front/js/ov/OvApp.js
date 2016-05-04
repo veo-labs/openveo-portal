@@ -44,6 +44,26 @@
     };
   }]);
 
+  app.config(['$mdDateLocaleProvider', function($mdDateLocaleProvider) {
+    var locale = angular.injector(['ng']).get('$locale').id.slice(0, 2);
+    $mdDateLocaleProvider.firstDayOfWeek = 1;
+    $mdDateLocaleProvider.parseDate = function(dateString) {
+      var dateParts = dateString.split('/');
+      if (locale == 'fr') return new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+      else return new Date(dateParts[2], (dateParts[0] - 1), dateParts[1]);
+    };
+    $mdDateLocaleProvider.formatDate = function(date) {
+      if (date) {
+        var dateObj = new Date(date);
+        var day = dateObj.getDate();
+        var month = dateObj.getMonth();
+        var year = dateObj.getFullYear();
+        if (locale == 'fr') return day + '/' + month + '/' + year;
+        else return month + '/' + day + '/' + year;
+      } else return '';
+    };
+  }]);
+
   /**
    * Configures application main routes and set location mode to HTML5.
    */
