@@ -9,7 +9,7 @@
    * @returns {VideoPageController_L3.VideoPageController}
    */
   function VideoPageController($scope, video) {
-    $scope.video = video.data.entity.video;
+    $scope.video = video.data.entity;
   }
 
   app.controller('VideoPageController', VideoPageController);

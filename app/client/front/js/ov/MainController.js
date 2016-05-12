@@ -101,7 +101,7 @@
         if (result.data.entity) {
           $location.path('/video/' + video.id, false).search({});
 
-          $scope.dialog.locals.video = result.data.entity.video;
+          $scope.dialog.locals.video = result.data.entity;
           $mdDialog.show($scope.dialog).finally(function() {
             $scope.context.keepContext = true;
             $location.path(urlContext, false).search(searchContext);

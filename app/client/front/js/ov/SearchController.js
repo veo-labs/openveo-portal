@@ -8,7 +8,7 @@
     var reloadOnPageChange = false;
     var canceller = $q.defer();
 
-    $scope.videos = result.data.videos || [];
+    $scope.videos = result.data.entities || [];
     $scope.filters = filters.data || {};
     $scope.pagination = angular.extend($scope.pagination ? $scope.pagination : {}, result.data.pagination);
     $scope.showAdvancedSearch = false;
@@ -45,7 +45,7 @@
           $scope.showToast('error');
           return;
         }
-        $scope.videos = result.data.videos;
+        $scope.videos = result.data.entities;
         $scope.search = $location.search();
         $scope.pagination = result.data.pagination;
         $scope.isLoading = false;

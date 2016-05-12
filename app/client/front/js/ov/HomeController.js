@@ -12,7 +12,7 @@
    * Defines the home page controller.
    */
   function HomeController($scope, $location, result) {
-    $scope.videos = result && result.data ? result.data.videos : [];
+    $scope.videos = result && result.data ? result.data.entities : [];
     $scope.search = {query: ''};
 
     $scope.searchSubmit = function() {

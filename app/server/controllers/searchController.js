@@ -171,12 +171,12 @@ module.exports.getVideoAction = (request, response, next) => {
       return;
     }
 
-    const isInPublic = openVeoAPI.util.intersectArray(res.video.metadata.groups, conf.publicFilter);
-    const isInPrivate = openVeoAPI.util.intersectArray(res.video.metadata.groups, conf.privateFilter);
+    const isInPublic = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.publicFilter);
+    const isInPrivate = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.privateFilter);
 
     // return entity if entity is public
     if (isInPublic.length)
-      response.send({entity: res});
+      response.send(res);
 
     // if video is private
     else if (isInPrivate.length) {
@@ -190,7 +190,7 @@ module.exports.getVideoAction = (request, response, next) => {
         const isAllowed = openVeoAPI.util.intersectArray(isInPrivate, request.user.groups);
 
         // if is allowed return authent else return error
-        if (isAllowed.length) response.send({entity: res});
+        if (isAllowed.length) response.send(res);
         else next(errors.GET_VIDEO_NOT_ALLOWED);
       }
 
