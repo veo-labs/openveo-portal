@@ -65,5 +65,5 @@ module.exports = function(grunt) {
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
 
   // Prepare project for production
-  grunt.registerTask('dist', ['compass:dist', 'compass:distLib', 'compile-js']);
+  grunt.registerTask('dist', ['compass:dist', 'compile-js']);
 };
