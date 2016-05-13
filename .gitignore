@@ -23,6 +23,7 @@ ehthumbs.db
 
 # IDE
 nbproject/
+.idea/
 
 # Any log file
 *.log
