@@ -97,6 +97,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
       rl.question(`Do you want to let user filter video by category ("Y/n") :\n`, (answer) => {
         if (answer == 'n')
           conf.exposedFilter = [];
+        callback();
       });
     },
 
