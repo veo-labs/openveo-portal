@@ -30,7 +30,7 @@ const NodeCache = require('node-cache');
 
 
 // video are deleted by cache expiration
-const videoCache = new NodeCache({stdTTL: 60}); // default ttl: 1mn
+const videoCache = new NodeCache({stdTTL: 60, checkperiod: 60}); // default ttl: 1mn
 
 // views are deleted by videocache expiration
 const viewsCache = new NodeCache({checkperiod: 0});
@@ -68,7 +68,7 @@ userCache.on('expired', (key, value) => {
 
 // Get A video from cache or call the entity from Openveo
 module.exports.getVideo = (id, callback) => {
-  videoCache.get(`${id}`, (error, video) => {
+  videoCache.get(id, (error, video) => {
     if (error) {
       return callback(error);
     }
@@ -79,8 +79,9 @@ module.exports.getVideo = (id, callback) => {
 
     // not cached : Do call
     openVeoClient.get(`/publish/videos/${id}`).then((result) => {
+
       // cache result
-      videoCache.set(`${id}`, result);
+      videoCache.set(id, result);
       callback(null, result);
     }).catch((error) => {
       callback(errors.GET_VIDEO_UNKNOWN);
@@ -110,6 +111,7 @@ module.exports.addVideoView = (id) => {
     }
 
     viewsCache.set(key, 1);
+    return;
   });
 };
 

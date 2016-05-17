@@ -58,14 +58,13 @@ module.exports.statisticsAction = (request, response, next) => {
     case 'video':
       switch (request.params.type) {
         case 'views':
-          videoCache.getVideo(request.params.id, (error, entity) => {
-            const video = entity.entity;
+          videoCache.getVideo(request.params.id, (error, video) => {
             if (error) {
               next(error);
-            } else if (video.private && !request.isAuthenticated())
+            } else if (video.entity.private && !request.isAuthenticated())
               next();
             else
-              increaseViews(video, request.sessionID, () => {
+              increaseViews(video.entity, request.sessionID, () => {
                 response.send();
               });
           });
