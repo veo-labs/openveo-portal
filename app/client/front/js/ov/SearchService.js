@@ -85,7 +85,7 @@
         var params = {
           filter: {
             sortBy: 'date',
-            sortOrder: 'asc'
+            sortOrder: 'desc'
           },
           pagination: {
             page: 0,
