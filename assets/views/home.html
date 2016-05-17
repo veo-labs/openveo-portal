@@ -48,7 +48,7 @@ analytics-on='click' analytics-event="OpenVideo"
   <div class='md-title' flex>{{video.title}}</div>
   <div flex layout="row" layout-align="center center">
     <div class='md-body-2' md-colors="{color: 'default-primary'}" flex>{{video.date | date : 'd MMMM yyyy'}}</div>
-    <div class='md-caption nb-views' flex='30'>{{video.views}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
+    <div class='md-caption nb-views' flex='30'>{{video.views?video.views:0}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
   </div>
 </md-grid-tile-footer>
 </div>

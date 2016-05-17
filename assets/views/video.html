@@ -18,7 +18,7 @@
         </div>
         <div  layout="row" layout-align="center center">
           <md-icon  material-icons md-light md-48>visibility</md-icon>
-          <div >{{video.views}}</div>
+          <div >{{video.views?video.views:0}}</div>
         </div>
       </div>
 
