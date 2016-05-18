@@ -57,9 +57,14 @@ function createConf(callback) {
   const confFile = path.join(confDir, 'conf.json');
   const conf = {
     theme: 'default',
-    exposedFilter: ['categories'],
+    exposedFilter: [],
+    categoriesFilter: '',
     privateFilter: [],
-    publicFilter: []
+    publicFilter: [],
+    cache: {
+      filterTTL: 600,
+      videoTTL: 60
+    }
   };
 
   async.series([
@@ -94,9 +99,8 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
 
     // Ask for category filter
     (callback) => {
-      rl.question(`Do you want to let user filter video by category ("Y/n") :\n`, (answer) => {
-        if (answer == 'n')
-          conf.exposedFilter = [];
+      rl.question(`Enter the taxonomy ID that the user could filter (default: none) :\n`, (answer) => {
+        conf.categoriesFilter = answer || conf.categoriesFilter;
         callback();
       });
     },
@@ -120,8 +124,8 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     // Ask for public group filter
     (callback) => {
       const ask = () => {
-        const alert = conf.publicFilter.length ?
-        'If you do not specify any group, all videos without group will be shown.' : '';
+        const alert = conf.publicFilter.length ? '' :
+        'If you do not specify any group, all videos without group will be shown.';
         rl.question(`Enter the video group IDs that anonymous user will see. ${alert}
 (Enter empty value to skip or finish):\n`, (answer) => {
           if (answer) {
@@ -138,8 +142,8 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     // Ask for private group filter
     (callback) => {
       const ask = () => {
-        const alert = conf.privateFilter.length ?
-        'If you do not specify any group, results will not change even if the user is connected' : '';
+        const alert = conf.privateFilter.length ? '' :
+        'If you do not specify any group, results will not change even if the user is connected';
         rl.question(`Enter the video group IDs that authentified user will see. ${alert}
 (Enter empty value to skip or finish):\n`, (answer) => {
           if (answer) {
@@ -151,7 +155,24 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
         });
       };
       ask();
+    },
+
+    // Ask for cache filter TTL
+    (callback) => {
+      rl.question(`Enter the TTL of cache filter in seconds (default:600) :\n`, (answer) => {
+        conf.cache.filterTTL = answer || conf.cache.filterTTL;
+        callback();
+      });
+    },
+
+    // Ask for cache video TTL
+    (callback) => {
+      rl.question(`Enter the TTL of cache video in seconds (default:60) :\n`, (answer) => {
+        conf.cache.videoTTL = answer || conf.cache.videoTTL;
+        callback();
+      });
     }
+
   ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);

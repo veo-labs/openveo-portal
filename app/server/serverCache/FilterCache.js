@@ -19,6 +19,7 @@ const OpenVeoClient = require('@openveo/openveo-rest-nodejs-client').OpenVeoClie
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
+const conf = require(path.join(configurationDirectoryPath, 'conf.json'));
 
 const OPENVEO_CERT = webservicesConf.certificate;
 const OPENVEO_URL = webservicesConf.path;
@@ -30,7 +31,7 @@ const openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET, O
 const NodeCache = require('node-cache');
 
 // filter are deleted by cache expiration
-const filterCache = new NodeCache({stdTTL: 600}); // default ttl: 1mn
+const filterCache = new NodeCache({stdTTL: conf.cache.filterTTL}); // default ttl: 1mn
 
 // When a cached filter has expired, send count to openveo
 filterCache.on('expired', (key, value) => {
@@ -48,7 +49,7 @@ module.exports.getFilter = (id, callback) => {
       return callback(null, filter);
     }
 
-    openVeoClient.get(`publish/properties/${id}`).then((result) => {
+    openVeoClient.get(`/publish/properties/${id}`).then((result) => {
       // cache result
       filterCache.set(id, result.entity);
       callback(null, result.entity);
@@ -58,8 +59,8 @@ module.exports.getFilter = (id, callback) => {
   });
 };
 
-module.exports.getCategories = (callback) => {
-  const key = 'publish-taxo-categories';
+module.exports.getCategories = (id, callback) => {
+  const key = 'publish-taxo-categories-${id}';
   filterCache.get(key, (error, filter) => {
     if (error) {
       return callback(error);
@@ -69,9 +70,10 @@ module.exports.getCategories = (callback) => {
       return callback(null, filter);
     }
 
-    openVeoClient.get('publish/categories').then((result) => {
+
+    openVeoClient.get(`/taxonomies/${id}`).then((result) => {
       const categoriesByKey = {};
-      const categoriesIds = JSONPath({json: result, path: '$..*[?(@.id)]'});
+      const categoriesIds = JSONPath({json: result.entity, path: '$..*[?(@.id)]'});
       if (categoriesIds && categoriesIds.length != 0)
         categoriesIds.map((obj) => {
           categoriesByKey[obj.id] = obj.title;

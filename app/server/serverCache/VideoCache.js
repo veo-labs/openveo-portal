@@ -18,6 +18,7 @@ const OpenVeoClient = require('@openveo/openveo-rest-nodejs-client').OpenVeoClie
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
+const conf = require(path.join(configurationDirectoryPath, 'conf.json'));
 
 const OPENVEO_CERT = webservicesConf.certificate;
 const OPENVEO_URL = webservicesConf.path;
@@ -30,7 +31,7 @@ const NodeCache = require('node-cache');
 
 
 // video are deleted by cache expiration
-const videoCache = new NodeCache({stdTTL: 60, checkperiod: 60}); // default ttl: 1mn
+const videoCache = new NodeCache({stdTTL: conf.cache.videoTTL, checkperiod: conf.cache.videoTTL}); // default ttl: 1mn
 
 // views are deleted by videocache expiration
 const viewsCache = new NodeCache({checkperiod: 0});

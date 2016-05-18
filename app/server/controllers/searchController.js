@@ -126,19 +126,21 @@ module.exports.searchAction = (request, response, next) => {
 module.exports.getSearchFiltersAction = (request, response, next) => {
   const filters = [];
   const series = [];
-  const arrayId = conf.exposedFilter;
-  for (let i = 0; i < arrayId.length; i++) {
-    if (arrayId[i] == 'categories')
-      series.push((callback) => {
-        filterCache.getCategories((error, categories) => {
-          if (categories) {
-            filters.push(categories);
-          }
-          callback();
-        });
+  const filtersId = conf.exposedFilter;
+  const categoriesId = conf.categoriesFilter;
+  if (categoriesId && categoriesId != '')
+    series.push((callback) => {
+      filterCache.getCategories(categoriesId, (error, categories) => {
+        if (categories) {
+          filters.push(categories);
+        }
+        callback();
       });
-    else series.push((callback) => {
-      filterCache.getFilter(arrayId[i], (error, filter) => {
+    });
+
+  for (let i = 0; i < filtersId.length; i++) {
+    series.push((callback) => {
+      filterCache.getFilter(filtersId[i], (error, filter) => {
         if (filter) {
           filters.push(filter);
         }
@@ -154,7 +156,7 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
 };
 
 module.exports.getCategoriesAction = (request, response, next) => {
-  filterCache.getCategories((error, categories) => {
+  filterCache.getCategories(conf.categoriesFilter, (error, categories) => {
     if (error) {
       next(error);
       return;
