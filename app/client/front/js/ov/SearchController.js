@@ -34,17 +34,21 @@
       canceller = $q.defer();
 
       var search = angular.copy($scope.search);
+      var paginateParam = angular.copy($scope.pagination);
+
       search.sortBy = search.sortBy ? 'views' : 'date';
       search.sortOrder = search.sortOrder ? 'asc' : 'desc';
       search.dateStart = $filter('date')($scope.search.dateStart, 'MM/dd/yyyy');
       search.dateEnd = $filter('date')($scope.search.dateEnd, 'MM/dd/yyyy');
+      paginateParam.page++;
 
-      searchService.search(search, $scope.pagination, canceller).then(function(result) {
+      searchService.search(search, paginateParam, canceller).then(function(result) {
         if (result.data.error) {
           $scope.isLoading = false;
           $scope.showToast('error');
           return;
         }
+
         $scope.videos = result.data.entities;
         $scope.search = $location.search();
         $scope.pagination = result.data.pagination;
