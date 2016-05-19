@@ -82,9 +82,8 @@ module.exports.searchAction = (request, response, next) => {
 
   // Add properties
   Object.keys(body.filter).forEach((key) => {
-
     // if filter key is allready set thanks to shallowValidateObject
-    if (params[key] == undefined) {
+    if (!params[key] && params[key] !== '') {
       params[`properties[${key}]`] = body.filter[key];
     }
   });
@@ -108,10 +107,6 @@ module.exports.searchAction = (request, response, next) => {
     params[key] = paginate[key];
   });
 
-  Object.keys(params).forEach((key) => {
-    if (params[key] === null) delete params[key];
-  });
-
   const query = querystring.stringify(params);
 
   // Get the list of videos
@@ -119,6 +114,7 @@ module.exports.searchAction = (request, response, next) => {
     result.pagination.page--;
     response.send(result);
   }).catch((error) => {
+    process.logger.error(error.message, {error, method: 'searchAction'});
     return next(errors.SEARCH_ERROR);
   });
 };

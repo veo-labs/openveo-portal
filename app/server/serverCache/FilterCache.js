@@ -54,6 +54,7 @@ module.exports.getFilter = (id, callback) => {
       filterCache.set(id, result.entity);
       callback(null, result.entity);
     }).catch((error) => {
+      process.logger.error(error.message, {error, method: 'FilterCache.getFilter'});
       callback(errors.GET_PROPERTY_UNKNOWN);
     });
   });
@@ -90,6 +91,7 @@ module.exports.getCategories = (id, callback) => {
       filterCache.set(key, categories);
       callback(null, categories);
     }).catch((error) => {
+      process.logger.error(error.message, {error, method: 'FilterCache.getCategories'});
       callback(errors.GET_PROPERTY_UNKNOWN);
     });
   });

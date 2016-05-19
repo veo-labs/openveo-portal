@@ -59,6 +59,7 @@ videoCache.on('expired', (key, value) => {
             .catch((error) => {
 
               // do not clear anything
+              process.logger.error(error.message, {error, method: 'videoCache.sendStatistics'});
             });
   });
 });
@@ -85,6 +86,7 @@ module.exports.getVideo = (id, callback) => {
       videoCache.set(id, result);
       callback(null, result);
     }).catch((error) => {
+      process.logger.error(error.message, {error, method: 'videoCache.getVideo'});
       callback(errors.GET_VIDEO_UNKNOWN);
     });
   });

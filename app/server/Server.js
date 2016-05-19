@@ -6,6 +6,7 @@
  */
 const path = require('path');
 const url = require('url');
+const fs = require('fs');
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
@@ -176,6 +177,7 @@ class Server {
             currentByteIndex += chunk.length;
           });
           response.on('error', (error) => {
+            process.logger.error(error.message, {error, method: 'getImageResponse'});
             res.status(502).send('Server unavailable');
           });
 
@@ -188,9 +190,17 @@ class Server {
             .send('Not found');
         }
       };
+
       const protocol = urlParsed.protocol.split(':')[0];
+      if (protocol == 'https') {
+        requestOptions['ca'] = fs.readFileSync(path.normalize(webservicesConf.certificate));
+        requestOptions['agent'] = false;
+        requestOptions['rejectUnauthorized'] = process.env.NODE_ENV === 'production';
+      }
+
       const request = require(protocol).request(requestOptions, requestCallback);
       request.on('error', (error) => {
+        process.logger.error(error.message, {error, method: 'getImageRequest'});
         res.status(502).send('Server unavailable');
       });
 
