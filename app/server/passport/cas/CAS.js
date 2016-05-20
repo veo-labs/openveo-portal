@@ -217,14 +217,14 @@ class CAS {
           });
         });
 
-        response.on('error', (error) => {
-          reject(error);
-        });
+        response.on('error', (error) => reject(error));
 
       });
 
-      request.on('error', (error) => {
-        reject(error);
+      request.on('error', (error) => reject(error));
+      request.setTimeout(10000, () => {
+        request.abort();
+        reject('CAS server unavaible');
       });
 
       request.end();
