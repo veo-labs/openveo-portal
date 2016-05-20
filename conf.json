@@ -13,9 +13,10 @@
       "/lib/angulartics-piwik/dist/angulartics-piwik.min.js",
       "/lib/angulartics-google-analytics/dist/angulartics-google-analytics.min.js",
       "/lib/openveo-player/dist/openveo-player.js",
-      "/lib/openveo-player/lib/video.js/dist/video.min.js",
-      "/lib/openveo-player/lib/dash.js/dist/dash.all.js",
-      "/lib/openveo-player/lib/videojs-contrib-dash/src/js/videojs-dash.js"
+      "/lib/video.js/dist/video.min.js",
+      "/lib/dash.js/dist/dash.all.js",
+      "/lib/videojs-contrib-dash/src/js/videojs-dash.js",
+      "/lib/videojs-contrib-hls/index.js"
     ],
     "dev" : [
       "/i18n/I18nApp.js",
@@ -46,7 +47,7 @@
     "/lib/angular-material/angular-material.min.css",
     "https://fonts.googleapis.com/icon?family=Material+Icons",
     "/lib/openveo-player/dist/openveo-player.css",
-    "/lib/openveo-player/lib/video.js/dist/video-js.min.css",
+    "/lib/video.js/dist/video-js.min.css",
     "/css/style.css"
   ]
 }

@@ -14,7 +14,7 @@ const path = require('path');
 
 const errors = process.require('app/server/httpErrors.js');
 const openveoAPI = require('@openveo/api');
-const OpenVeoClient = require('@openveo/openveo-rest-nodejs-client').OpenVeoClient;
+const OpenVeoClient = require('@openveo/rest-nodejs-client').OpenVeoClient;
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
