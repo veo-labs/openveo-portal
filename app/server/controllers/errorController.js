@@ -42,7 +42,6 @@ module.exports.errorAction = (error, request, response, next) => {
 
   process.logger.error('Error', {
     code: error.code,
-    module: error.module,
     method: request.method,
     path: request.url,
     headers: request.headers
