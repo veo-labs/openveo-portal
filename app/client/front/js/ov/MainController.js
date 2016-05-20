@@ -24,6 +24,7 @@
   function DialogController($scope, $mdDialog, video, $mdMedia) {
 
     $scope.video = video;
+    $scope.playerType = video.type == 'youtube' ? 'youtube' : 'html';
     $scope.dialogIsFull = ($mdMedia('sm') || $mdMedia('xs'));
 
     $scope.hide = function() {

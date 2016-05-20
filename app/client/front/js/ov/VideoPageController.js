@@ -10,6 +10,7 @@
    */
   function VideoPageController($scope, video) {
     $scope.video = video.data.entity;
+    $scope.playerType = $scope.video.type == 'youtube' ? 'youtube' : 'html';
   }
 
   app.controller('VideoPageController', VideoPageController);
