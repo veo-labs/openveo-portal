@@ -28,7 +28,7 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     },
     SEARCH: {
       PAGE_TITLE: 'Portal - Videos',
-      TITLE: 'Last videos',
+      TITLE: 'All videos',
       KEYWORD: 'Search by keyword',
       RESULTS: 'Results',
       RESULT: 'Result',
