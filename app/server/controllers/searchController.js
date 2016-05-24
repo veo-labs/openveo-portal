@@ -137,7 +137,7 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
   for (let i = 0; i < filtersId.length; i++) {
     series.push((callback) => {
       filterCache.getFilter(filtersId[i], (error, filter) => {
-        if (filter) {
+        if (filter && filter.type !== 'boolean') {
           filters.push(filter);
         }
         callback();
