@@ -60,10 +60,12 @@
     initSearch($location.search());
 
     $scope.searchSubmit = function() {
+      var search = angular.copy($scope.search);
       $scope.showAdvancedSearch = false;
-      if ($scope.search.query == '') delete $scope.search.query;
-      if ($scope.search.sortOrder == false) delete $scope.search.sortOrder;
-      if ($scope.search.sortBy == false) delete $scope.search.sortBy;
+
+      // Clean search parameters to avoid conflicts
+      $scope.search = searchService.cleanSearch(search);
+
       $location.search($scope.search);
     };
 

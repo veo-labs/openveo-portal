@@ -117,7 +117,7 @@
     /**
      * Clears a search service cache.
      *
-     * @param {String} [type] The cache element to clear null to
+     * @param {String} [type] The cache element to clsear null to
      * clear all caches
      * @method cacheClear
      */
@@ -128,6 +128,25 @@
       homeVideos = {};
     }
 
+    /**
+     * Clears search parameters to avoid conflicts
+     *
+     * @param  {Object} params
+     * @return {Object} clean search params
+     */
+    function cleanSearch(params) {
+      var paramsKeys = Object.keys(params);
+      var paramsCopy = angular.copy(params);
+
+      paramsKeys.map(function(value) {
+        if (paramsCopy[value] === '' || paramsCopy[value] === false || paramsCopy[value] === 'false') {
+          delete params[value];
+        }
+      });
+
+      return params;
+    }
+
     return {
       cacheClear: cacheClear,
       loadVideo: loadVideo,
@@ -135,7 +154,8 @@
       getCategories: getCategories,
       getCategoryName: getCategoryName,
       searchHomeVideos: searchHomeVideos,
-      search: search
+      search: search,
+      cleanSearch: cleanSearch
     };
 
   }

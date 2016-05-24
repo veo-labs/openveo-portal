@@ -114,6 +114,11 @@
             var param = angular.copy($location.search());
             param.sortBy = param.sortBy ? 'views' : 'date';
             param.sortOrder = param.sortOrder ? 'asc' : 'desc';
+            var paramTemp = angular.copy(param);
+
+            // Clean search parameters to avoid conflicts
+            param = searchService.cleanSearch(paramTemp);
+
             return searchService.search(param, {});
           }],
           filters: ['searchService', function(searchService) {
