@@ -52,13 +52,16 @@
         
         <div layout="row" layout-xs="column" layout-wrap>
             <md-input-container ng-repeat="filter in filters | orderBy:'name'" class="md-block" flex-gt-sm='33' flex-sm='50' flex-xs='100'>
-              <label ng-bind="filter.name=='categories'? 'SEARCH.CATEGORY_FILTER' : filter.name | translate"></label>
+              <label ng-if="filter.type!=='boolean'" ng-bind="filter.name=='categories'? 'SEARCH.CATEGORY_FILTER' : filter.name | translate"></label>
               <md-select ng-if="filter.type=='list'" ng-model="search[filter.id]">
                 <md-option ng-repeat="(key, value) in filter.values" value="{{filter.name=='categories'?key:value}}">
                   {{value}}
                 </md-option>
               </md-select>
               <input ng-if="filter.type=='text'" ng-model="search[filter.id]">
+              <md-checkbox ng-if="filter.type=='boolean'" ng-model="search[filter.id]" aria-label="{{filter.name | translate}}">
+                <span ng-bind="filter.name | translate"></span>
+              </md-checkbox>
             </md-input-container>
         </div>
        
