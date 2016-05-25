@@ -88,6 +88,7 @@ describe('Home page', () => {
 
   // Switch URL
   it('should switch url on "More video" button click', () => {
+    browser.executeScript('window.scrollTo(0,document.body.scrollHeight);');
     page.clickMoreButton();
     assert.eventually.equal(page.getPath(), '/search', 'Path sould be /search');
   });
