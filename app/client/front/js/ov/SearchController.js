@@ -53,6 +53,7 @@
         $scope.search = $location.search();
         $scope.pagination = result.data.pagination;
         $scope.isLoading = false;
+        reloadOnPageChange = true;
         $analytics.trackSiteSearch($scope.search.query, $scope.search.categories, $scope.pagination.size);
       });
     }
@@ -78,13 +79,11 @@
     };
 
     $scope.$watch('pagination.pages', function(current, old) {
-      if (!reloadOnPageChange) {
-        var input = [];
-        for (var i = 1; i <= current; i++) {
-          input.push(i);
-        }
-        $scope.pages = input;
+      var input = [];
+      for (var i = 1; i <= current; i++) {
+        input.push(i);
       }
+      $scope.pages = input;
     });
 
     $scope.$watch('pagination.page', function(current, old) {
