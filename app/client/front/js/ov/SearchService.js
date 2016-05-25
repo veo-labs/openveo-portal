@@ -80,7 +80,7 @@
      */
     function searchHomeVideos() {
 
-      if (!homeVideos) {
+      if (!homeVideos || !Object.keys(homeVideos).length) {
 
         var params = {
           filter: {
