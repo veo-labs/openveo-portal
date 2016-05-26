@@ -36,7 +36,7 @@
      * @return filters
      */
     function getFilters() {
-      if (!filters) {
+      if (!filters || !Object.keys(filters).length) {
         return $http.get(basePath + 'filters').success(function(obj) {
           filters = obj;
         });
@@ -51,7 +51,7 @@
      * @return categories
      */
     function getCategories() {
-      if (!categories) {
+      if (!categories || !Object.keys(categories).length) {
         return $http.get(basePath + 'categories').success(function(obj) {
           categories = obj;
         });
