@@ -121,7 +121,7 @@ class Server {
       secret: this.configuration.sessionSecret,
       saveUninitialized: true,
       resave: true,
-      store: database.getStore(),
+      store: database.getStore('portal_sessions'),
       cookie: {}
     };
 
