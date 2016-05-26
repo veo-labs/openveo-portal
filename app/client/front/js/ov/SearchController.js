@@ -54,7 +54,11 @@
         $scope.pagination = result.data.pagination;
         $scope.isLoading = false;
         reloadOnPageChange = true;
-        $analytics.trackSiteSearch($scope.search.query, $scope.search.categories, $scope.pagination.size);
+
+        var searchQuery = ($scope.search.query) ? $scope.search.query : '';
+        var searchCategories = ($scope.search.categories) ? $scope.search.categories : '';
+
+        $analytics.trackSiteSearch(searchQuery, searchCategories, $scope.pagination.size);
       });
     }
 
@@ -94,7 +98,6 @@
 
     $scope.$on('$routeUpdate', function(event, route) {
       $scope.search = $location.search();
-      if (!$scope.search.query) $scope.search.query = '';
 
       if (!$scope.context || !$scope.context.keepContext) {
         reloadOnPageChange = false;
