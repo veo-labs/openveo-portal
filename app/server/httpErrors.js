@@ -22,6 +22,11 @@ module.exports = {
     code: 0x002,
     httpCode: 404
   },
+  CONF_ERROR: {
+    code: 0x003,
+    httpCode: 500,
+    message: 'Portal configuration error'
+  },
 
   // VIDEO errors
   GET_VIDEO_UNKNOWN: {

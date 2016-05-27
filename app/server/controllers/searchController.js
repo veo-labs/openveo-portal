@@ -66,6 +66,12 @@ module.exports.searchAction = (request, response, next) => {
     });
   }
 
+  // Public group filter not defined
+  if (!conf.publicFilter.length || conf.publicFilter[0] == '') {
+    process.logger.error(errors.CONF_ERROR.message, {error: errors.CONF_ERROR, method: 'searchAction'});
+    return next(errors.CONF_ERROR);
+  }
+
   // Add public group filter
   params['groups'] = conf.publicFilter;
 
