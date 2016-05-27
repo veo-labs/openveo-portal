@@ -13,7 +13,7 @@
    */
   function HomeController($scope, $location, result) {
     $scope.videos = result && result.data ? result.data.entities : [];
-    $scope.search = {query: ''};
+    $scope.search = {};
 
     $scope.searchSubmit = function() {
       $location.path('/search').search($scope.search);
