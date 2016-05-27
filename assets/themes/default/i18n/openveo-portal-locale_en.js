@@ -8,7 +8,10 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       HELLO: 'Hi',
       SEARCH: 'Search',
       CANCEL: 'Cancel',
-      VIEWS: 'views',
+      VIEW: {
+        SINGLE: 'view',
+        PLURAL: 'views'
+      },
       DATE: 'date',
       SHARE: 'Share',
       DATE_BETWEEN: 'Date between',
@@ -30,8 +33,10 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       PAGE_TITLE: 'Portal - Videos',
       TITLE: 'All videos',
       KEYWORD: 'Search by keyword',
-      RESULTS: 'Results',
-      RESULT: 'Result',
+      RESULT: {
+        SINGLE: 'Result',
+        PLURAL: 'Results'
+      },
       NO_RESULTS: 'No results found',
       ADVANCED: 'Advanced search',
       ORDER_BY: 'Order by : ',

@@ -83,7 +83,7 @@
   <div layout-xs='column' layout="row" layout-align="space-between center" layout-margin>
     <div layout='row'  flex-xs='100' flex-gt-xs="66" layout-align="space-between center">
       <div class="md-body-2" flex-xs="50" flex-sm="25" flex-gt-sm="15" >
-        <span ng-bind="pagination.size"></span> <span ng-bind=" 'SEARCH.RESULTS' | translate"></span>
+        <span ng-bind="pagination.size"></span> <span ng-bind=" 'SEARCH.RESULT' | translate:pagination.size"></span>
       </div>
       <div ng-if="pagination.size>1" flex-xs="50" flex-gt-xs="auto" class="orderBy" layout='row' layout-align="center center">
         <span hide-xs hide-sm flex=20 ng-bind="'SEARCH.ORDER_BY' | translate"></span>
@@ -137,7 +137,7 @@
           <div class='md-title' >{{video.title}}</div>
           <div  layout="row" layout-align="space-between center">
             <div class='md-body-2' md-colors="{color: 'default-primary'}">{{video.date | date : 'd MMMM yyyy'}}</div>
-            <div class='md-caption nb-views'>{{video.views?video.views:0}} <span ng-bind=" 'UI.VIEWS'|translate"></span></div>
+            <div class='md-caption nb-views'>{{video.views?video.views:0}} <span ng-bind=" 'UI.VIEW'|translate:video.views?video.views:0"></span></div>
           </div>
           
         </div>

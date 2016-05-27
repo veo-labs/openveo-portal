@@ -16,9 +16,10 @@
      *
      * @method translate
      * @param {String} id The id of the translation
+     * @param {int} number The number to determine pluralization
      * @return {String} The translated string
      */
-    return function(id) {
+    return function(id, number) {
       if (id) {
         var properties = id.split('.');
         var property = translations;
@@ -27,6 +28,14 @@
           if (property[properties[i]])
             property = property[properties[i]];
         }
+
+        // pluralization
+        if (typeof property === 'object' && typeof number !== 'undefined') {
+          if ('SINGLE' in property && 'PLURAL' in property) {
+            return (number == 0 || number == 1) ? property['SINGLE'] : property['PLURAL'];
+          }
+        }
+
         return (typeof property === 'string') ? property : id;
       }
 
