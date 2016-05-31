@@ -21,7 +21,6 @@
     "angular-mocks": "1.4.9"
   },
   "resolutions": {
-    "angular": "1.4.9",
-    "angular-material": "v1.1.0-rc4"
+    "angular": "1.4.9"
   }
 }
