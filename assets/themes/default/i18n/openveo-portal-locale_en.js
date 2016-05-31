@@ -26,11 +26,11 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       TITLE: 'Last videos',
       ALL_VIDEOS: 'See all videos'
     },
-    VIDEOS: {
+    VIDEO: {
       PAGE_TITLE: 'Portal - Video'
     },
     SEARCH: {
-      PAGE_TITLE: 'Portal - Videos',
+      PAGE_TITLE: 'Portal - Search',
       TITLE: 'All videos',
       KEYWORD: 'Search by keyword',
       RESULT: {
