@@ -128,7 +128,8 @@ class Server {
     // Secure cookies on production
     if (process.env.NODE_ENV === 'production') {
       this.app.set('trust proxy', 1);
-      sessionOptions.cookie.secure = true;
+
+      // sessionOptions.cookie.secure = true; Only needed if server is ssl server, not behind a frontal
     }
 
     this.app.use(session(sessionOptions));
@@ -193,7 +194,7 @@ class Server {
 
       const protocol = urlParsed.protocol.split(':')[0];
       if (protocol == 'https') {
-        requestOptions['ca'] = fs.readFileSync(path.normalize(webservicesConf.certificate));
+        requestOptions['cert'] = fs.readFileSync(path.normalize(webservicesConf.certificate));
         requestOptions['agent'] = false;
         requestOptions['rejectUnauthorized'] = process.env.NODE_ENV === 'production';
       }

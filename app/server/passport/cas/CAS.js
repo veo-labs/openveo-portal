@@ -198,8 +198,10 @@ class CAS {
         path: `${this.path}${this.validateUri}?service=${service}&ticket=${ticket}`,
         method: 'GET',
         rejectUnauthorized: process.env.NODE_ENV === 'production',
-        ca: fs.readFileSync(path.normalize(this.certificate))
+        cert: fs.readFileSync(path.normalize(this.certificate))
       };
+
+      options.agent = new this.httpClient.Agent(options);
 
       const request = this.httpClient.request(options, (response) => {
         response.setEncoding('utf8');
