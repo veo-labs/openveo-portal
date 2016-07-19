@@ -15,7 +15,7 @@
       "/lib/openveo-player/dist/openveo-player.js",
       "/lib/video.js/dist/video.min.js",
       "/lib/dash.js/dist/dash.all.js",
-      "/lib/videojs-contrib-dash/src/js/videojs-dash.js",
+      "/lib/videojs-contrib-dash/index.js",
       "/lib/videojs-contrib-hls/index.js"
     ],
     "dev" : [
