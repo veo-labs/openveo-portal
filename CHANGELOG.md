@@ -1,3 +1,8 @@
+# 1.0.1 / 2016-07-19
+
+- Debugging video freeze updating videoJs and Dash dependencies 
+- Debug SSL certificate to communicate with webservices
+
 # 1.0.0 / 2016-05-31
 
 Firt stable version of OpenVeo Portal .
