@@ -14,7 +14,7 @@
       "/lib/angulartics-google-analytics/dist/angulartics-google-analytics.min.js",
       "/lib/openveo-player/dist/openveo-player.js",
       "/lib/video.js/dist/video.min.js",
-      "/lib/dash.js/dist/dash.all.js",
+      "/lib/dash.js/dist/dash.all.min.js",
       "/lib/videojs-contrib-dash/index.js",
       "/lib/videojs-contrib-hls/index.js"
     ],
