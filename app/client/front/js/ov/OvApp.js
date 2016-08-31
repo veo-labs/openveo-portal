@@ -56,7 +56,7 @@
       if (date) {
         var dateObj = new Date(date);
         var day = dateObj.getDate();
-        var month = dateObj.getMonth();
+        var month = dateObj.getMonth() + 1;
         var year = dateObj.getFullYear();
         if (locale == 'fr') return day + '/' + month + '/' + year;
         else return month + '/' + day + '/' + year;
