@@ -45,7 +45,8 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       CATEGORY_FILTER: 'Rubrique',
       ORIGIN_FILTER: 'Origine',
       DATE_OR_VIEWS: 'Date ou nombre de vues',
-      ORDER_ASC: 'Croissant ou décroissant'
+      ORDER_ASC: 'Croissant ou décroissant',
+      NO_FILTER: 'Aucun'
     },
     MENU: {
       HOME: 'Accueil',

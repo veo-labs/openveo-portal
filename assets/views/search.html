@@ -54,6 +54,7 @@
             <md-input-container ng-repeat="filter in filters | orderBy:'name'" class="md-block" flex-gt-sm='33' flex-sm='50' flex-xs='100'>
               <label ng-if="filter.type!=='boolean'" ng-bind="filter.name=='categories'? 'SEARCH.CATEGORY_FILTER' : filter.name | translate"></label>
               <md-select ng-if="filter.type=='list'" ng-model="search[filter.id]">
+                <md-option value="">{{'SEARCH.NO_FILTER' | translate}}</md-option>
                 <md-option ng-repeat="(key, value) in filter.values" value="{{filter.name=='categories'?key:value}}">
                   {{value}}
                 </md-option>
