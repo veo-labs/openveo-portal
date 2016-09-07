@@ -16,18 +16,12 @@ const querystring = require('querystring');
 
 const errors = process.require('app/server/httpErrors.js');
 const openVeoAPI = require('@openveo/api');
-const OpenVeoClient = require('@openveo/rest-nodejs-client').OpenVeoClient;
 const configurationDirectoryPath = path.join(openVeoAPI.fileSystem.getConfDir(), 'portal');
 
-const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 const conf = require(path.join(configurationDirectoryPath, 'conf.json'));
 
-const OPENVEO_CERT = webservicesConf.certificate;
-const OPENVEO_URL = webservicesConf.path;
-const CLIENT_ID = webservicesConf.clientID;
-const CLIENT_SECRET = webservicesConf.secretID;
-
-const openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET, OPENVEO_CERT);
+const webserviceClient = process.require('/app/server/WebserviceClient');
+const openVeoClient = webserviceClient.getClient();
 
 const videoCache = process.require('/app/server/serverCache/VideoCache');
 const filterCache = process.require('/app/server/serverCache/FilterCache');
