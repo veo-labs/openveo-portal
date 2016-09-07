@@ -19,7 +19,6 @@
     'ngSanitize',
     'ngCookies',
     'angulartics',
-    'angulartics.google.analytics',
     'angulartics.piwik',
     'ov.locale',
     'ov.i18n',
