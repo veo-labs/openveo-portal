@@ -21,7 +21,7 @@
      */
     function initSearch(searchTmp) {
       if (searchTmp.dateStart) searchTmp.dateStart = new Date(searchTmp.dateStart);
-      if (searchTmp.dateEnd) searchTmp.dateEnd = new Date(searchTmp.dateStart);
+      if (searchTmp.dateEnd) searchTmp.dateEnd = new Date(searchTmp.dateEnd);
       $scope.search = angular.copy(searchTmp);
     }
 
@@ -39,7 +39,11 @@
       search.sortBy = search.sortBy ? 'views' : 'date';
       search.sortOrder = search.sortOrder ? 'asc' : 'desc';
       search.dateStart = $filter('date')($scope.search.dateStart, 'MM/dd/yyyy');
-      search.dateEnd = $filter('date')($scope.search.dateEnd, 'MM/dd/yyyy');
+      if ($scope.search.dateEnd) {
+        var dateEnd = angular.copy($scope.search.dateEnd);
+        dateEnd.setDate(dateEnd.getDate() + 1);
+        search.dateEnd = $filter('date')(dateEnd, 'MM/dd/yyyy');
+      }
       paginateParam.page++;
 
       searchService.search(search, paginateParam, canceller).then(function(result) {

@@ -109,11 +109,19 @@
         title: 'SEARCH.PAGE_TITLE',
         reloadOnSearch: false,
         resolve: {
-          result: ['$location', 'searchService', function($location, searchService) {
+          result: ['$location', 'searchService', '$filter', function($location, searchService, $filter) {
             var param = angular.copy($location.search());
             param.sortBy = param.sortBy ? 'views' : 'date';
             param.sortOrder = param.sortOrder ? 'asc' : 'desc';
             var paramTemp = angular.copy(param);
+            if (paramTemp.dateStart) {
+              paramTemp.dateStart = $filter('date')(new Date(paramTemp.dateStart), 'MM/dd/yyyy');
+            }
+            if (paramTemp.dateEnd) {
+              var dateEnd = new Date(paramTemp.dateEnd);
+              dateEnd.setDate(dateEnd.getDate() + 1);
+              paramTemp.dateEnd = $filter('date')(dateEnd, 'MM/dd/yyyy');
+            }
 
             // Clean search parameters to avoid conflicts
             param = searchService.cleanSearch(paramTemp);
