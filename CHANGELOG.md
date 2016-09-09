@@ -1,3 +1,10 @@
+# 1.0.2 / 2016-09-09
+
+- Debug calendar selected date
+- Debug request when period selected is only one day
+- Debug webservice to avoid token problem
+- Add reset feature on select field
+
 # 1.0.1 / 2016-07-19
 
 - Debugging video freeze updating videoJs and Dash dependencies 
