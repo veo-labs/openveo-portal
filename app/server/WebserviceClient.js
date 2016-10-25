@@ -17,7 +17,8 @@ const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(),
 
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 
-const OPENVEO_CERT = webservicesConf.certificate;
+// TODO Must verify if certificate file exist or not empty before initialize OpenVeoCLient
+// const OPENVEO_CERT = webservicesConf.certificate;
 const OPENVEO_URL = webservicesConf.path;
 const CLIENT_ID = webservicesConf.clientID;
 const CLIENT_SECRET = webservicesConf.secretID;
@@ -25,7 +26,7 @@ const CLIENT_SECRET = webservicesConf.secretID;
 let openVeoClient;
 
 module.exports.getClient = function() {
-  if (!openVeoClient) openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET, OPENVEO_CERT);
+  if (!openVeoClient) openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET);
   return openVeoClient;
 };
 
