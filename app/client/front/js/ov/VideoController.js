@@ -32,7 +32,7 @@
           delete $scope.shareLink;
           var port = ($location.port() != 80 && $location.port() != 443) ? ':' + $location.port() : '';
           $scope.shareText =
-                  '<iframe width="480" height="270" ' +
+                  '<iframe width="768" height="500" ' +
                   'src="' + $location.protocol() + '://' + $location.host() + port + '/video/' + video.id +
                   '?iframe=true&&hidedetail=false" frameborder="0"></iframe>';
 

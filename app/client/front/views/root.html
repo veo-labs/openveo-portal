@@ -111,7 +111,7 @@
     <div ng-if="!isIframe" show-xs hide-gt-xs class="header-spacing"></div>
 
     <div layout="column" class="zero">
-      <div class="container">
+      <div ng-class="{container: !isIframe}">
         <div ng-view ng-cloak></div>
       </div>
     </div>
