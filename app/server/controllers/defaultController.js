@@ -40,6 +40,7 @@ module.exports.defaultAction = (request, response) => {
   response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
   response.locals.languages = ['"en"', '"fr"'];
   response.locals.theme = portalConf.theme;
+  response.locals.useDialog = portalConf.useDialog;
 
   response.locals.user = request.isAuthenticated() ? request.user.name : null;
 

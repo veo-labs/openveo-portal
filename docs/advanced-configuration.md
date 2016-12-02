@@ -32,7 +32,8 @@ Open **~/.openveo/portal/conf.json**
   "cache": {
     "filterTTL": 600, // Time (in seconds) to keep the list of categories and custom properties' values in cache
     "videoTTL": 60 // Time (in seconds) to keep information about a video in cache
-  }
+  },
+  "useDialog": true // Set if UI open videos in a dialog popin, if false user will open video by navigate to URL
 }
 ```
 

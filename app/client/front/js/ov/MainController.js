@@ -79,6 +79,13 @@
     });
 
     $scope.openVideo = function(ev, video) {
+
+      // If dialog disable, open video by URL
+      if (!$scope.useDialog) {
+        $location.path('/video/' + video.id, true);
+        return;
+      }
+
       $scope.context.keepContext = false;
       var urlContext = $location.path();
       var searchContext = $location.search();

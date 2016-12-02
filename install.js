@@ -64,7 +64,8 @@ function createConf(callback) {
     cache: {
       filterTTL: 600,
       videoTTL: 60
-    }
+    },
+    useDialog: true
   };
 
   async.series([
@@ -169,6 +170,14 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     (callback) => {
       rl.question(`Enter the TTL of cache video in seconds (default:60) :\n`, (answer) => {
         conf.cache.videoTTL = answer || conf.cache.videoTTL;
+        callback();
+      });
+    },
+
+    // Ask for UI to open video
+    (callback) => {
+      rl.question(`Do you want to open video in a popin dialog (n/Y) :\n`, (answer) => {
+        if (answer === 'n') conf.useDialog = false;
         callback();
       });
     }
