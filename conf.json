@@ -13,7 +13,7 @@
       "/lib/angulartics-piwik/dist/angulartics-piwik.min.js",
       "/lib/openveo-player/dist/openveo-player.min.js",
       "/lib/video.js/dist/video.min.js",
-      "/lib/dash.js/dist/dash.all.min.js",
+      "/lib/dashjs/dist/dash.all.min.js",
       "/lib/videojs-contrib-dash/index.js",
       "/lib/videojs-contrib-hls/index.js"
     ],
