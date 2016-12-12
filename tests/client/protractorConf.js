@@ -19,8 +19,6 @@ process.logger = openveoAPI.logger.get('portal');
 const suites = process.require('tests/client/protractorSuites.json');
 
 exports.config = {
-  seleniumServerJar: process.env.SELENIUM_JAR,
-  chromeDriver: process.env.CHROME_DRIVER,
   framework: 'mocha',
   mochaOpts: {
     timeout: 200000,
