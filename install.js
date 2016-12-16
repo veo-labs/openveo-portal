@@ -16,6 +16,28 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+let rlSecure = false;
+
+/**
+ * Secure question to not show stdout
+ */
+function secureQuestion(query, callback) {
+  rlSecure = true;
+  rl.question(query, (value) => {
+    rl.history = rl.history.slice(1);
+    rlSecure = false;
+    callback(value);
+  });
+}
+
+// rewrite stdout in cas of secure rl
+process.stdin.on('data', (char) => {
+  if (rlSecure) {
+    const pass = Array(rl.line.length + 1).join('*');
+    process.stdout.write(`\x1B[2K\x1B[200D${pass}`);
+  }
+});
+
 
 /**
  * Creates a random hash.
@@ -251,7 +273,7 @@ function createDatabaseConf(callback) {
 
     // Ask for database user password
     (callback) => {
-      rl.question(`Enter database user password :\n`, (answer) => {
+      secureQuestion(`Enter database user password :\n`, (answer) => {
         conf.password = answer || '';
         callback();
       });
@@ -391,7 +413,7 @@ function createServerConf(callback) {
     // Ask for log session hash
     (callback) => {
       const hash = getRandomHash(40);
-      rl.question(`Enter a hash to secure HTTP sessions (default: ${hash}) :\n`, (answer) => {
+      secureQuestion(`Enter a hash to secure HTTP sessions (default: ${hash}) :\n`, (answer) => {
         conf.sessionSecret = answer || hash;
         callback();
       });
@@ -493,7 +515,7 @@ function createWebservicesConf(callback) {
 
     // Ask webservices oAuth secret ID
     (callback) => {
-      rl.question('Enter Webservices oAuth Secret ID :\n', (answer) => {
+      secureQuestion('Enter Webservices oAuth Secret ID :\n', (answer) => {
         conf.secretID = answer || '';
         callback();
       });
