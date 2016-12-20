@@ -19,7 +19,7 @@
     "oauth",
     "authentication"
   ],
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "author": "Veo-Labs <info@veo-labs.com> (http://www.veo-labs.com/)",
   "dependencies": {
     "@openveo/api": "3.*",
