@@ -39,7 +39,7 @@ OpenVeo has been tested on the following  :
 ## Screenshots
 
 ### Home page
-![Home page](images/screenshots/home.jpg)
+![Home page](images/screenshots/home-page.jpg)
 
 ### Video player
 ![Video player](images/screenshots/video-player.jpg)
