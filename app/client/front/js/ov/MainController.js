@@ -49,18 +49,22 @@
   function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia,
   $location, $filter, searchService, $analytics) {
     var urlParams = $location.search();
-    $scope.context = {context: false};
+    $scope.context = {keepContext: false};
     $scope.isIframe = urlParams['iframe'] || false;
     $scope.hideDetailVideo = urlParams['hidedetail'] || false;
     $scope.links = Object.keys(links).length === 0 && JSON.stringify(links) === JSON.stringify({}) ? null : links;
-    $scope.title = '';
-    $scope.path = '';
+    $scope.page = {
+      title: '',
+      path: '',
+      selectedTab: -1
+    };
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
-      $scope.title = $route.current && $route.current.title || $scope.title;
-      $scope.path = $location.path();
-      $analytics.pageTrack($scope.path);
+      $scope.page.title = $route.current && $route.current.title || $scope.title;
+      $scope.page.path = $location.path();
+      $scope.page.selectedTab = -1;
+      $analytics.pageTrack($scope.page.path);
     });
 
     // Listen to the route change error event

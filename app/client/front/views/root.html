@@ -2,7 +2,7 @@
 {{=[[ ]]=}}
 <html ng-app="ov.portal" ng-controller="MainController" ng-strict-di ng-init="theme = '[[theme]]'; useDialog = [[useDialog]];">
   <head>
-    <title ng-bind="title | translate"></title>
+    <title ng-bind="page.title | translate"></title>
     <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,16 +51,16 @@
 
       <div layout="column" layout-fill>
         <md-toolbar md-theme="inverse" class="navbar-background" md-scroll-shrink hide-xs >
-        <md-tabs md-theme="inverse" class="md-primary container navbar" md-selected="-1" md-autoselect='false'>
-          <md-tab id="tab1" 
-            md-active="path=='/'"
+        <md-tabs md-theme="inverse" class="md-primary container navbar" md-selected="page.selectedTab" md-autoselect='false'>
+          <md-tab id="tab1"
+            md-active="page.path == '/'"
             md-on-select="onTabSelected('/')"
             aria-label="{{'MENU.HOME'|translate}}">
             <md-tab-label>{{'MENU.HOME'|translate}}</md-tab-label>
           </md-tab>
-          <md-tab id="tab2" 
-            md-active="path=='/search'" 
-            md-on-select="onTabSelected('/search')" 
+          <md-tab id="tab2"
+            md-active="page.path == '/search'"
+            md-on-select="onTabSelected('/search')"
             aria-label="{{'MENU.ALL_VIDEOS'|translate}}">
             <md-tab-label>{{'MENU.ALL_VIDEOS'|translate}}</md-tab-label>
           </md-tab>
