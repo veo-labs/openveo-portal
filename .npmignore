@@ -1,0 +1,64 @@
+# Linux
+# *.swp is already ignored by npm
+.directory
+*~
+
+# OS X
+# .DS_Store* and ._* are already ignored by npm
+Icon?
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Windows XP
+ehthumbs.db
+
+# Logs
+*.log
+/logs
+
+# Project npm dependencies
+/node_modules
+
+# Bower libraries
+/assets/lib
+
+# IDE
+/nbproject
+
+# Deliver
+/build
+
+# Sass
+/.sass-cache
+
+# Unit tests
+/tests
+
+# Front JavaScript files
+/app/client/admin
+/app/client/front/js
+
+# Documentation
+/docs
+/site
+/.grunt
+/mkdocs.yml
+
+# Grunt files
+/Gruntfile.js
+/tasks
+
+# Published video packages
+/assets/player/videos
+
+# Temporary directory for video packages
+/tmp
+
+# Git
+.gitignore
+.gitattributes
+
+# Eslint
+.eslintrc
