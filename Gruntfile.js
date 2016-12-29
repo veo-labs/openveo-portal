@@ -45,6 +45,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-mkdocs');
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-rename');
   grunt.loadNpmTasks('grunt-remove');
   grunt.loadNpmTasks('grunt-protractor-runner');
@@ -62,8 +63,11 @@ module.exports = function(grunt) {
   grunt.registerTask('compile-js', ['uglify:dist', 'concat:lib', 'concat:js']);
 
   // Generate documentation
-  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
+  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
 
   // Prepare project for production
   grunt.registerTask('dist', ['compass:dist', 'compile-js']);
+
+  // Deploy documentation to github pages
+  grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
 };
