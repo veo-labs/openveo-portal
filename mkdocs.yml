@@ -1,0 +1,21 @@
+site_name: Openveo Portal
+theme: readthedocs
+site_dir: site/version
+markdown_extensions:
+  - fenced_code
+  - tables
+pages:
+- 'INTRODUCTION': 'index.md'
+- 'USERS':
+  - 'Prerequisites': 'prerequisites.md'
+  - 'Getting started': 'getting-started.md'
+  - 'Advanced configuration': 'advanced-configuration.md'
+  - 'Production': 'production.md'
+- 'DEVELOPERS':
+  - 'Prerequisites': 'developers/prerequisites.md'
+  - 'Installation': 'developers/installation.md'
+  - 'conf.json': 'developers/conf.md'
+  - 'CSS / SASS / JS compilation': 'developers/compilation.md'
+  - 'Logger': 'developers/logger.md'
+  - 'Coding standards': 'developers/coding-standards.md'
+  - 'End to end tests': 'developers/end-to-end-tests.md'

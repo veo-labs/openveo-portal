@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>/home/developer/workspace/openveo-portal/app/server/controllers/searchController.js - OpenVeo Portal server</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo Portal server</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 1.1.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/CAS.html">CAS</a></li>
+                                <li><a href="../classes/CAS 2.html">CAS 2</a></li>
+                                <li><a href="../classes/CAS1.html">CAS1</a></li>
+                                <li><a href="../classes/CAS3.html">CAS3</a></li>
+                                <li><a href="../classes/CasStrategy.html">CasStrategy</a></li>
+                                <li><a href="../classes/defaultController.html">defaultController</a></li>
+                                <li><a href="../classes/errorController.html">errorController</a></li>
+                                <li><a href="../classes/filterCache.html">filterCache</a></li>
+                                <li><a href="../classes/migrationLoader.html">migrationLoader</a></li>
+                                <li><a href="../classes/searchController.html">searchController</a></li>
+                                <li><a href="../classes/Server.html">Server</a></li>
+                                <li><a href="../classes/StatisticsController.html">StatisticsController</a></li>
+                                <li><a href="../classes/VideoCache.html">VideoCache</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/controllers.html">controllers</a></li>
+                                <li><a href="../modules/core-loaders.html">core-loaders</a></li>
+                                <li><a href="../modules/http-errors.html">http-errors</a></li>
+                                <li><a href="../modules/passport.html">passport</a></li>
+                                <li><a href="../modules/passport-cas.html">passport-cas</a></li>
+                                <li><a href="../modules/portal-cache.html">portal-cache</a></li>
+                                <li><a href="../modules/portal-controllers.html">portal-controllers</a></li>
+                                <li><a href="../modules/server.html">server</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: /home/developer/workspace/openveo-portal/app/server/controllers/searchController.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module controllers
+ */
+
+/**
+ * Provides default route action to deal with angularJS single page application.
+ *
+ * @class searchController
+ */
+
+const path = require(&#x27;path&#x27;);
+const async = require(&#x27;async&#x27;);
+const querystring = require(&#x27;querystring&#x27;);
+
+const errors = process.require(&#x27;app/server/httpErrors.js&#x27;);
+const openVeoAPI = require(&#x27;@openveo/api&#x27;);
+const configurationDirectoryPath = path.join(openVeoAPI.fileSystem.getConfDir(), &#x27;portal&#x27;);
+
+const conf = require(path.join(configurationDirectoryPath, &#x27;conf.json&#x27;));
+
+const webserviceClient = process.require(&#x27;/app/server/WebserviceClient&#x27;);
+const openVeoClient = webserviceClient.getClient();
+
+const videoCache = process.require(&#x27;/app/server/serverCache/VideoCache&#x27;);
+const filterCache = process.require(&#x27;/app/server/serverCache/FilterCache&#x27;);
+const VIDEO_PUBLISH_STATES = 12;
+
+/**
+ * Handles default action to display main HTML.
+ *
+ * If no other action were performed display the main template.
+ * Main template loads libraries JavaScript files, Bootstrap CSS file and CSS file from the configured theme.
+ *
+ * @method defaultAction
+ * @static
+ */
+module.exports.searchAction = (request, response, next) =&gt; {
+  const body = request.body || {};
+  const orderedProperties = [&#x27;views&#x27;, &#x27;date&#x27;];
+  let params;
+  let paginate;
+
+  // Parse Filters
+  try {
+    params = openVeoAPI.util.shallowValidateObject(body.filter, {
+      query: {type: &#x27;string&#x27;},
+      dateStart: {type: &#x27;string&#x27;},
+      dateEnd: {type: &#x27;string&#x27;},
+      categories: {type: &#x27;array&lt;string&gt;&#x27;},
+      sortBy: {type: &#x27;string&#x27;, in: orderedProperties, default: &#x27;date&#x27;},
+      sortOrder: {type: &#x27;string&#x27;, in: [&#x27;asc&#x27;, &#x27;desc&#x27;], default: &#x27;desc&#x27;}
+    });
+  } catch (error) {
+    return response.status(500).send({
+      error: {
+        message: error.message
+      }
+    });
+  }
+
+  // Public group filter not defined
+  if (!conf.publicFilter.length || conf.publicFilter[0] == &#x27;&#x27;) {
+    process.logger.error(errors.CONF_ERROR.message, {error: errors.CONF_ERROR, method: &#x27;searchAction&#x27;});
+    return next(errors.CONF_ERROR);
+  }
+
+  // Add public group filter
+  params[&#x27;groups&#x27;] = conf.publicFilter;
+
+  // Add visibility group filter
+  if (request.isAuthenticated()) {
+
+    // Add user filter
+    if (request.user[&#x27;groups&#x27;].length)
+      params[&#x27;groups&#x27;] = params[&#x27;groups&#x27;].concat(request.user[&#x27;groups&#x27;]);
+  }
+
+  // Add published states
+  params[&#x27;states&#x27;] = VIDEO_PUBLISH_STATES;
+
+  // Add properties
+  Object.keys(body.filter).forEach((key) =&gt; {
+    // if filter key is allready set thanks to shallowValidateObject
+    if (!params[key] &amp;&amp; params[key] !== &#x27;&#x27;) {
+      params[&#x60;properties[${key}]&#x60;] = body.filter[key];
+    }
+  });
+
+  // Parse pagination
+  try {
+    paginate = openVeoAPI.util.shallowValidateObject(body.pagination, {
+      limit: {type: &#x27;number&#x27;, gt: 0, default: 9},
+      page: {type: &#x27;number&#x27;, gt: 0, default: 1}
+    });
+  } catch (error) {
+    return response.status(500).send({
+      error: {
+        message: error.message
+      }
+    });
+  }
+
+  // Add pagination
+  Object.keys(paginate).forEach((key) =&gt; {
+    params[key] = paginate[key];
+  });
+
+  const query = querystring.stringify(params);
+
+  // Get the list of videos
+  openVeoClient.get(&#x60;/publish/videos?${query}&#x60;).then((result) =&gt; {
+    result.pagination.page--;
+    response.send(result);
+  }).catch((error) =&gt; {
+    process.logger.error(error.message, {error, method: &#x27;searchAction&#x27;});
+    return next(errors.SEARCH_ERROR);
+  });
+};
+
+module.exports.getSearchFiltersAction = (request, response, next) =&gt; {
+  const filters = [];
+  const series = [];
+  const filtersId = conf.exposedFilter;
+  const categoriesId = conf.categoriesFilter;
+  if (categoriesId &amp;&amp; categoriesId != &#x27;&#x27;)
+    series.push((callback) =&gt; {
+      filterCache.getCategories(categoriesId, (error, categories) =&gt; {
+        if (categories) {
+          filters.push(categories);
+        }
+        callback();
+      });
+    });
+
+  for (let i = 0; i &lt; filtersId.length; i++) {
+    series.push((callback) =&gt; {
+      filterCache.getFilter(filtersId[i], (error, filter) =&gt; {
+        if (filter &amp;&amp; filter.type !== &#x27;boolean&#x27;) {
+          filters.push(filter);
+        }
+        callback();
+      });
+    });
+  }
+
+  async.series(series, () =&gt; {
+
+    response.send(filters);
+  });
+};
+
+module.exports.getCategoriesAction = (request, response, next) =&gt; {
+  filterCache.getCategories(conf.categoriesFilter, (error, categories) =&gt; {
+    if (error) {
+      next(error);
+      return;
+    } else {
+      response.send(categories);
+    }
+  });
+};
+
+module.exports.getVideoAction = (request, response, next) =&gt; {
+  videoCache.getVideo(request.params.id, (error, res) =&gt; {
+    if (error) {
+      next(error);
+      return;
+    }
+
+    const isInPublic = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.publicFilter);
+    const isInPrivate = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.privateFilter);
+
+    // return entity if entity is public
+    if (isInPublic.length)
+      response.send(res);
+
+    // if video is private
+    else if (isInPrivate.length) {
+
+      // if user is not authentified, send need authent
+      if (!request.isAuthenticated())
+        response.send({needAuth: true});
+
+      // if user is authentified
+      else {
+        const isAllowed = openVeoAPI.util.intersectArray(isInPrivate, request.user.groups);
+
+        // if is allowed return authent else return error
+        if (isAllowed.length) response.send(res);
+        else next(errors.GET_VIDEO_NOT_ALLOWED);
+      }
+
+      // if no group corresponding to an entity
+    } else {
+      next(errors.GET_VIDEO_NOT_ALLOWED);
+    }
+
+  });
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

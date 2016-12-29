@@ -1,0 +1,26 @@
+{
+  "name": "openveo-portal",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-route": "1.4.9",
+    "angular-animate": "1.4.9",
+    "angular-i18n": "1.4.9",
+    "angular-sanitize": "1.4.9",
+    "angular-material": "v1.0.8",
+    "angular-cookies": "1.4.9",
+    "angulartics-google-analytics": "0.1.4",
+    "angulartics-piwik": "1.0.2",
+    "openveo-player": "2.* >=2.1.0",
+    "video.js": "5.9.2",
+    "dashjs": "2.1.1",
+    "videojs-contrib-dash": "https://github.com/videojs/videojs-contrib-dash/releases/download/v2.4.0/videojs-dash.min.js",
+    "videojs-contrib-hls": "https://github.com/videojs/videojs-contrib-hls/releases/download/v1.3.11/videojs.hls.min.js"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.9"
+  },
+  "resolutions": {
+    "angular": "1.4.9"
+  }
+}

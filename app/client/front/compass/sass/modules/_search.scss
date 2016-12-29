@@ -1,0 +1,36 @@
+.collapse{
+  overflow:hidden;
+  &.ng-hide-add, &.ng-hide-remove {
+  @include transition(all 0.45s ease 0s);
+  }
+  
+  &.ng-hide-add {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0em);
+  }
+
+  &.ng-hide-add-active {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-2em);
+  }
+
+  &.ng-hide-remove {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-2em);
+  }
+
+  &.ng-hide-remove-active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0em);
+  }
+
+}
+
+md-toolbar.advanced-search{
+  cursor:pointer;
+  outline: none;
+}

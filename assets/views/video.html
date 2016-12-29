@@ -1,0 +1,77 @@
+<md-content ng-controller="VideoController as vctl">
+
+  <div class="player-container" ng-class="{'md-dialog-content': !dialogIsFull}">
+    <ov-player
+     ov-player-type="{{playerType}}"
+     ov-data="video"
+     ov-language="{{language}}"
+     ov-media-sources-icon="true"
+     id="openveo-player"
+    ></ov-player>
+  </div>
+
+  <div ng-if="!hideDetailVideo" class="video-info md-dialog-content">
+    <div layout="row"  layout-align="space-between center">
+      <div  flex layout="column" layout-align="center start">
+        <div layout="row" layout-align="center center">
+          <md-icon material-icons md-light md-48 class="md-primary">today</md-icon>
+          <div md-colors="{color: 'default-primary'}">{{video.date  | date : 'd MMMM yyyy'}}</div>
+        </div>
+        <div  layout="row" layout-align="center center">
+          <md-icon  material-icons md-light md-48>visibility</md-icon>
+          <div >{{video.views?video.views:0}}</div>
+        </div>
+      </div>
+
+      <md-fab-speed-dial  md-open="vctl.dialIsOpen" class="md-scale" md-direction="left"
+                         ng-mouseenter="vctl.dialIsOpen=true" ng-mouseleave="vctl.dialIsOpen=false">
+        <md-fab-trigger>
+          <md-button aria-label="{{'UI.SHARE'| translate}}" class="md-fab md-primary" ng-class="{'md-primary': !vctl.dialIsOpen}">
+            <md-tooltip md-direction="bottom">{{'UI.SHARE'| translate}}</md-tooltip>
+            <md-icon material-icons md-light md-32>share</md-icon>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <div ng-repeat="item in shareItems">
+            <md-button aria-label="{{item.name | translate}}" class="md-fab md-raised md-mini"
+                       ng-click="item.action(video)">
+              <md-tooltip md-direction="{{item.direction}}"  md-autohide="false">
+                {{item.name | translate}}
+              </md-tooltip>
+              <md-icon material-icons md-light md-32 aria-label="{{item.name | translate}}">{{item.icon}}</md-icon>
+            </md-button>
+          </div>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+    </div>
+
+    <md-content>
+      <md-divider ng-show="shareOpen"></md-divider>
+      <div ng-show="shareOpen"  layout='column' layout-margin class="share-code collapse ng-hide">
+        <a ng-if="shareLink" href="{{shareLink}}">{{shareLink}}</a>
+        <code ng-if="shareText" >{{shareText}}</code>
+      </div>
+      <md-divider ng-show="shareOpen"></md-divider>
+    </md-content>
+
+    <md-content layout-margin class="collapse" layout='row' layout-align="left center">
+      <div ng-show="video.title" layout='row' layout-align="center center"> 
+        <md-tooltip md-direction="bottom">{{'UI.TITLE' | translate}}</md-tooltip>
+        <md-icon layout-margin flex material-icons md-light md-32>title</md-icon>
+        <span>{{video.title}}</span>
+      </div>
+      <div ng-show="video.speaker" layout='row' layout-align="center center"> 
+        <md-tooltip md-direction="bottom">{{'SEARCH.NAME_FILTER' | translate}}</md-tooltip>
+        <md-icon layout-margin flex material-icons md-light md-32>record_voice_over</md-icon>
+        <span>{{video.speaker}}</span>
+      </div>
+      <div ng-show="video.category" layout='row' layout-align="center center"> 
+        <span flex layout-margin ng-bind="'SEARCH.CATEGORY_FILTER' | translate"></span>
+        <span>: {{categoryName}}</span>
+      </div>
+    </md-content>
+
+    <p>{{video.description}}</p>
+
+  </div>
+</md-content>

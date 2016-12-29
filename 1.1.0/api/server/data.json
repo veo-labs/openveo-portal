@@ -1,0 +1,1031 @@
+{
+    "project": {
+        "name": "OpenVeo Portal server",
+        "description": "OpenVeo Portal server side documentation",
+        "version": "1.1.0"
+    },
+    "files": {
+        "/home/developer/workspace/openveo-portal/app/server/controllers/defaultController.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/controllers/defaultController.js",
+            "modules": {},
+            "classes": {
+                "defaultController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/controllers/doc.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/controllers/doc.js",
+            "modules": {
+                "controllers": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/controllers/errorController.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/controllers/errorController.js",
+            "modules": {},
+            "classes": {
+                "errorController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/controllers/searchController.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/controllers/searchController.js",
+            "modules": {},
+            "classes": {
+                "searchController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js",
+            "modules": {
+                "portal-controllers": 1
+            },
+            "classes": {
+                "StatisticsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "modules": {},
+            "classes": {
+                "CAS": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS1.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS1.js",
+            "modules": {},
+            "classes": {
+                "CAS1": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS2.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS2.js",
+            "modules": {},
+            "classes": {
+                "CAS 2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS3.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS3.js",
+            "modules": {},
+            "classes": {
+                "CAS3": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "modules": {
+                "passport-cas": 1
+            },
+            "classes": {
+                "CasStrategy": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/passport/strategies.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/passport/strategies.js",
+            "modules": {
+                "passport": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/serverCache/FilterCache.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/serverCache/FilterCache.js",
+            "modules": {
+                "portal-cache": 1
+            },
+            "classes": {
+                "filterCache": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/serverCache/VideoCache.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/serverCache/VideoCache.js",
+            "modules": {},
+            "classes": {
+                "VideoCache": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/Server.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "modules": {
+                "server": 1
+            },
+            "classes": {
+                "Server": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/WebserviceClient.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/WebserviceClient.js",
+            "modules": {
+                "core-loaders": 1
+            },
+            "classes": {
+                "migrationLoader": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/developer/workspace/openveo-portal/app/server/httpErrors.js": {
+            "name": "/home/developer/workspace/openveo-portal/app/server/httpErrors.js",
+            "modules": {
+                "http-errors": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "controllers": {
+            "name": "controllers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "defaultController": 1,
+                "errorController": 1,
+                "searchController": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/searchController.js",
+            "line": 7,
+            "description": "Controllers provide all server route actions.",
+            "itemtype": "main"
+        },
+        "portal-controllers": {
+            "name": "portal-controllers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "StatisticsController": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js",
+            "line": 7
+        },
+        "passport-cas": {
+            "name": "passport-cas",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "CAS": 1,
+                "CAS1": 1,
+                "CAS 2": 1,
+                "CAS3": 1,
+                "CasStrategy": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 13,
+            "description": "Defines a passport cas strategy.",
+            "itemtype": "main"
+        },
+        "passport": {
+            "name": "passport",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/strategies.js",
+            "line": 3,
+            "description": "Defines passport strategies.",
+            "itemtype": "main"
+        },
+        "portal-cache": {
+            "name": "portal-cache",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "filterCache": 1,
+                "VideoCache": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "/home/developer/workspace/openveo-portal/app/server/serverCache/VideoCache.js",
+            "line": 7
+        },
+        "server": {
+            "name": "server",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Server": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 37,
+            "itemtype": "main"
+        },
+        "core-loaders": {
+            "name": "core-loaders",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "migrationLoader": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "/home/developer/workspace/openveo-portal/app/server/WebserviceClient.js",
+            "line": 7
+        },
+        "http-errors": {
+            "name": "http-errors",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/developer/workspace/openveo-portal/app/server/httpErrors.js",
+            "line": 3,
+            "description": "The list of HTTP errors with, for each error, its associated hexadecimal code and HTTP return code.\nHTTP errors are sent by {{#crossLinkModule \"controllers\"}}{{/crossLinkModule}}.",
+            "example": [
+                "\n    var httpErrors = process.require(\"app/server/httpErrors.js\");\n    console.log(httpErrors.UNKNOWN_ERROR);"
+            ],
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "defaultController": {
+            "name": "defaultController",
+            "shortname": "defaultController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/defaultController.js",
+            "line": 7,
+            "description": "Provides default route action to deal with angularJS single page application."
+        },
+        "errorController": {
+            "name": "errorController",
+            "shortname": "errorController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/errorController.js",
+            "line": 7,
+            "description": "Provides route actions to deal with errors."
+        },
+        "searchController": {
+            "name": "searchController",
+            "shortname": "searchController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/searchController.js",
+            "line": 7,
+            "description": "Provides default route action to deal with angularJS single page application."
+        },
+        "StatisticsController": {
+            "name": "StatisticsController",
+            "shortname": "StatisticsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal-controllers",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js",
+            "line": 7,
+            "description": "Provides route actions for all requests relative to statistics."
+        },
+        "CAS": {
+            "name": "CAS",
+            "shortname": "CAS",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "passport-cas",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 14,
+            "description": "Defines a cas client.\n\nA cas client is responsible of the protocol to communicate with the cas server.",
+            "example": [
+                "\n    e.g. Configuration example\n    // {\n    //   \"url\": \"https://openveo-cas.com:8443/cas\", // CAS server url\n    //   \"version\": \"4\", // CAS version (could be 1, 2, 3, 4)\n    //   \"certificate\": \"/home/test/cas.crt\" // CAS certificate public key\n    // }"
+            ]
+        },
+        "CAS1": {
+            "name": "CAS1",
+            "shortname": "CAS1",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "passport-cas",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS1.js",
+            "line": 9,
+            "description": "Defines a cas client interfacing with cas protocol 1.0."
+        },
+        "CAS 2": {
+            "name": "CAS 2",
+            "shortname": "CAS 2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "passport-cas",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS2.js",
+            "line": 9,
+            "description": "Defines a cas client interfacing with cas protocol 2.0."
+        },
+        "CAS3": {
+            "name": "CAS3",
+            "shortname": "CAS3",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "passport-cas",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS3.js",
+            "line": 9,
+            "description": "Defines a cas client interfacing with cas protocol 3.0.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "The list of cas strategy options",
+                    "type": "Object"
+                }
+            ]
+        },
+        "CasStrategy": {
+            "name": "CasStrategy",
+            "shortname": "CasStrategy",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "passport-cas",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 13,
+            "description": "Defines a passport cas strategy to authenticate requests using a cas server.",
+            "example": [
+                "\n    e.g. Configuration example\n    // {\n    //   \"service\": \"https://openveo-portal.com\", // Application service\n    //   \"url\": \"https://openveo-cas.com:8443/cas\", // CAS server url\n    //   \"version\": \"3\", // CAS protocol version (could be 1, 2, 3)\n    //   \"certificate\": \"/home/test/cas.crt\" // CAS certificate public key\n    // }"
+            ]
+        },
+        "filterCache": {
+            "name": "filterCache",
+            "shortname": "filterCache",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal-cache",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/serverCache/FilterCache.js",
+            "line": 7,
+            "description": "Provides route actions for all requests relative to statistics."
+        },
+        "VideoCache": {
+            "name": "VideoCache",
+            "shortname": "VideoCache",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal-cache",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/serverCache/VideoCache.js",
+            "line": 7,
+            "description": "Provides route actions for all requests relative to statistics."
+        },
+        "Server": {
+            "name": "Server",
+            "shortname": "Server",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "server",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 37,
+            "description": "Defines Portal HTTP Server.",
+            "example": [
+                "\n    var Server = process.require(\"app/server/Server.js\");\n    var serv = new Server({\n       port: 3000,\n       sessionSecret: \"123456789\",\n       auth: {\n         type: \"cas\",\n         cas: {\n           ...\n         }\n       }\n    });"
+            ]
+        },
+        "migrationLoader": {
+            "name": "migrationLoader",
+            "shortname": "migrationLoader",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core-loaders",
+            "namespace": "",
+            "file": "/home/developer/workspace/openveo-portal/app/server/WebserviceClient.js",
+            "line": 7,
+            "description": "Provides functions to load migration script."
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/defaultController.js",
+            "line": 22,
+            "description": "Handles default action to display main HTML.\n\nIf no other action were performed display the main template.\nMain template loads libraries JavaScript files, Bootstrap CSS file and CSS file from the configured theme.",
+            "itemtype": "method",
+            "name": "defaultAction",
+            "static": 1,
+            "class": "defaultController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/errorController.js",
+            "line": 16,
+            "description": "Handles requests which does not correspond to anything.",
+            "itemtype": "method",
+            "name": "notFoundAction",
+            "static": 1,
+            "class": "errorController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/errorController.js",
+            "line": 26,
+            "description": "Handles all errors.",
+            "example": [
+                "\n    {\n      \"code\" : 1,\n      \"httpCode\" : 500\n    }"
+            ],
+            "itemtype": "method",
+            "name": "errorAction",
+            "static": 1,
+            "params": [
+                {
+                    "name": "error",
+                    "description": "An error object with error code, HTTP code and error message",
+                    "type": "Object"
+                }
+            ],
+            "class": "errorController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/searchController.js",
+            "line": 30,
+            "description": "Handles default action to display main HTML.\n\nIf no other action were performed display the main template.\nMain template loads libraries JavaScript files, Bootstrap CSS file and CSS file from the configured theme.",
+            "itemtype": "method",
+            "name": "defaultAction",
+            "static": 1,
+            "class": "searchController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js",
+            "line": 15,
+            "description": "Verify that a user has not seen the video more than one time during the video duration",
+            "class": "StatisticsController",
+            "module": "portal-controllers"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js",
+            "line": 35,
+            "description": "Increase video count when needed",
+            "class": "StatisticsController",
+            "module": "portal-controllers"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js",
+            "line": 46,
+            "description": "Displays video player template.\n\nChecks first if the video id is valid and if the video is published\nbefore returning the template.",
+            "itemtype": "method",
+            "name": "displayVideoAction",
+            "static": 1,
+            "class": "StatisticsController",
+            "module": "portal-controllers"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 31,
+            "description": "Creates a new cas client.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "The list of cas strategy options",
+                    "type": "Object"
+                }
+            ],
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 48,
+            "description": "CAS server url.",
+            "itemtype": "property",
+            "name": "url",
+            "type": "String",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 58,
+            "description": "Cas server certificate's public key.",
+            "itemtype": "property",
+            "name": "certificate",
+            "type": "String",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 68,
+            "description": "CAS server host.",
+            "itemtype": "property",
+            "name": "host",
+            "type": "String",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 78,
+            "description": "CAS server protocol, either http or https.",
+            "itemtype": "property",
+            "name": "protocol",
+            "type": "String",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 88,
+            "description": "Either the http or https client of NodeJS.",
+            "itemtype": "property",
+            "name": "httpClient",
+            "type": "Object",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 98,
+            "description": "CAS server port.",
+            "itemtype": "property",
+            "name": "port",
+            "type": "Number",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 108,
+            "description": "CAS server uri (usally /cas).",
+            "itemtype": "property",
+            "name": "path",
+            "type": "String",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 118,
+            "description": "CAS server login uri.",
+            "itemtype": "property",
+            "name": "loginUri",
+            "type": "String",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 128,
+            "description": "CAS server validate uri.",
+            "itemtype": "property",
+            "name": "validateUri",
+            "type": "String",
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 142,
+            "description": "Gets validate uri.",
+            "itemtype": "method",
+            "name": "getValidateUri",
+            "return": {
+                "description": "The validate uri",
+                "type": "String"
+            },
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 152,
+            "description": "Gets login uri.",
+            "itemtype": "method",
+            "name": "getLoginUri",
+            "return": {
+                "description": "The login uri",
+                "type": "String"
+            },
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 162,
+            "description": "Gets logout uri.",
+            "itemtype": "method",
+            "name": "getLogoutUri",
+            "return": {
+                "description": "The logout uri",
+                "type": "String"
+            },
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 172,
+            "description": "Gets cas server url.",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "Cas server url",
+                "type": "String"
+            },
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 182,
+            "description": "Validates a ticket using cas.",
+            "async": 1,
+            "itemtype": "method",
+            "name": "validateTicket",
+            "params": [
+                {
+                    "name": "service",
+                    "description": "Cas registered service",
+                    "type": "String"
+                },
+                {
+                    "name": "ticket",
+                    "description": "Ticket to validate",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with cas user information (name and attributes)",
+                "type": "Promise"
+            },
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js",
+            "line": 236,
+            "description": "Analyzes the validate ticket response from cas server.",
+            "params": [
+                {
+                    "name": "response",
+                    "description": "Validate ticket response from cas server",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with cas user information (name and attributes)",
+                "type": "Promise"
+            },
+            "class": "CAS",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS1.js",
+            "line": 16,
+            "description": "Gets validate uri.",
+            "itemtype": "method",
+            "name": "getValidateUri",
+            "return": {
+                "description": "The validate uri",
+                "type": "String"
+            },
+            "class": "CAS1",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS1.js",
+            "line": 26,
+            "description": "Analyzes the validate ticket response from cas server.",
+            "async": 1,
+            "itemtype": "method",
+            "name": "analyzeValidateTicketResponse",
+            "params": [
+                {
+                    "name": "response",
+                    "description": "Validate ticket response from cas server",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when analyzed with :\n - **Error** An error if authentication failed or something went wrong, null otherwise\n - **String** Success response content",
+                    "type": "Function"
+                }
+            ],
+            "class": "CAS1",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CAS3.js",
+            "line": 18,
+            "description": "Gets validate uri.\n\nIt depends on cas server version.",
+            "itemtype": "method",
+            "name": "getValidateUri",
+            "return": {
+                "description": "The validate uri",
+                "type": "String"
+            },
+            "class": "CAS3",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 29,
+            "description": "Creates a new passport cas strategy.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "The list of cas strategy options",
+                    "type": "Object"
+                }
+            ],
+            "class": "CasStrategy",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 46,
+            "description": "Passport cas strategy name.",
+            "itemtype": "property",
+            "name": "cas",
+            "type": "String",
+            "default": "\"cas\"",
+            "class": "CasStrategy",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 57,
+            "description": "Application service registered in CAS.",
+            "itemtype": "property",
+            "name": "service",
+            "type": "String",
+            "class": "CasStrategy",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 67,
+            "description": "CAS protocol version.",
+            "itemtype": "property",
+            "name": "version",
+            "type": "String",
+            "class": "CasStrategy",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 82,
+            "description": "CAS client implementation.",
+            "itemtype": "property",
+            "name": "cas",
+            "type": "CAS",
+            "class": "CasStrategy",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 97,
+            "description": "Authenticates a request using cas.",
+            "itemtype": "method",
+            "name": "authenticate",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "The express authenticate request",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "Passport authenticate options such as redirects",
+                    "type": "Object"
+                }
+            ],
+            "class": "CasStrategy",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js",
+            "line": 153,
+            "description": "Logouts from cas.",
+            "itemtype": "method",
+            "name": "logout",
+            "params": [
+                {
+                    "name": "request",
+                    "description": "The express logout request",
+                    "type": "Object"
+                },
+                {
+                    "name": "request",
+                    "description": "The express response",
+                    "type": "Object"
+                }
+            ],
+            "class": "CasStrategy",
+            "module": "passport-cas"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/passport/strategies.js",
+            "line": 18,
+            "description": "Gets an instance of a passport strategy.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "strategyName",
+                    "description": "The name of the strategy",
+                    "type": "String"
+                },
+                {
+                    "name": "configuration",
+                    "description": "Strategy configuration, it depends on the strategy",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "A passport strategy",
+                "type": "Strategy"
+            },
+            "class": "filterCache",
+            "module": "passport"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 57,
+            "description": "Creates a new Portal HTTP server.",
+            "params": [
+                {
+                    "name": "configuration",
+                    "description": "Service configuration",
+                    "type": "Object"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "Server",
+            "module": "server"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 67,
+            "description": "Express application.",
+            "itemtype": "property",
+            "name": "app",
+            "type": "Application",
+            "class": "Server",
+            "module": "server"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 78,
+            "description": "Server configuration object.",
+            "itemtype": "property",
+            "name": "configuration",
+            "type": "Object",
+            "class": "Server",
+            "module": "server"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 93,
+            "description": "Prepares server after being sure that the connection to the database is established.",
+            "params": [
+                {
+                    "name": "database",
+                    "description": "Project's database",
+                    "type": "Database"
+                }
+            ],
+            "itemtype": "method",
+            "name": "onDatabaseAvailable",
+            "class": "Server",
+            "module": "server"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 230,
+            "description": "Mounts server routes.",
+            "itemtype": "method",
+            "name": "mountRoutes",
+            "class": "Server",
+            "module": "server"
+        },
+        {
+            "file": "/home/developer/workspace/openveo-portal/app/server/Server.js",
+            "line": 264,
+            "description": "Starts the server.",
+            "itemtype": "method",
+            "name": "start",
+            "class": "Server",
+            "module": "server"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nVerify that a user has not seen the video more than one time during the video duration",
+            "line": " /home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js:15"
+        },
+        {
+            "message": "Missing item type\nIncrease video count when needed",
+            "line": " /home/developer/workspace/openveo-portal/app/server/controllers/statisticsController.js:35"
+        },
+        {
+            "message": "Missing item type\nCreates a new cas client.",
+            "line": " /home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js:31"
+        },
+        {
+            "message": "Missing item type\nAnalyzes the validate ticket response from cas server.",
+            "line": " /home/developer/workspace/openveo-portal/app/server/passport/cas/CAS.js:236"
+        },
+        {
+            "message": "Missing item type\nCreates a new passport cas strategy.",
+            "line": " /home/developer/workspace/openveo-portal/app/server/passport/cas/CasStrategy.js:29"
+        },
+        {
+            "message": "Missing item type\nCreates a new Portal HTTP server.",
+            "line": " /home/developer/workspace/openveo-portal/app/server/Server.js:57"
+        }
+    ]
+}

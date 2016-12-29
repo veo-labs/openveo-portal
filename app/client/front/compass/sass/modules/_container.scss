@@ -1,0 +1,24 @@
+.container{
+  width: 100%;
+	margin: 0 auto;
+  @include transition(width 0.45s ease 0s);
+
+	@include mobile(){
+		/*background: darkseagreen;*/
+	}
+
+	@include tablet(){
+    width: mq-get-breakpoint-width('mobile');
+		/*background: yellow;*/
+	}
+
+	@include desktop(){
+    width: mq-get-breakpoint-width('tablet');
+		/*background: greenyellow;*/
+	}
+  
+  @include wide(){
+    width: mq-get-breakpoint-width('desktop');
+		/*background: grey;*/
+	}
+}
