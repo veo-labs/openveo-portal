@@ -1,3 +1,8 @@
+# 1.1.0 / 2016-12-29
+
+- Update Player to allow multisources video
+- Enable classic UI navigation (without popin)
+
 # 1.0.2 / 2016-09-09
 
 - Debug calendar selected date
