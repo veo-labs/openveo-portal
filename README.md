@@ -22,4 +22,4 @@ Maintainer : [Veo-Labs](http://www.veo-labs.com/)
 
 # License
 
-MIT
+[AGPL](http://www.gnu.org/licenses/agpl-3.0.en.html)
