@@ -1,3 +1,7 @@
+# 1.1.1 / 2017-01-04
+
+- Update Readme to refer to the right license
+
 # 1.1.0 / 2016-12-29
 
 - Update Player to allow multisources video

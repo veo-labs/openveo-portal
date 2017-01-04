@@ -1,6 +1,6 @@
 {
   "name": "@openveo/portal",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "OpenVeo Portal gives access to medias exposed by OpenVeo server associated to an OpenVeo Publish plugin",
   "keywords": [
     "openveo",
