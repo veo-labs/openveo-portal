@@ -12,12 +12,9 @@
 
 const path = require('path');
 const cons = require('consolidate');
-const openveoAPI = require('@openveo/api');
-const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
-const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
+const portalConf = process.require('app/server/conf.js');
 const applicationConf = process.require('conf.json');
 const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
-const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.theme, 'analytics.html');
 
 /**
  * Handles default action to display main HTML.
@@ -39,15 +36,16 @@ module.exports.defaultAction = (request, response) => {
   response.locals.scripts = response.locals.scriptsBase.concat(response.locals.scripts);
   response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
   response.locals.languages = ['"en"', '"fr"'];
-  response.locals.theme = portalConf.theme;
-  response.locals.useDialog = portalConf.useDialog;
+  response.locals.theme = portalConf.data.theme;
+  response.locals.useDialog = portalConf.data.useDialog;
 
   response.locals.user = request.isAuthenticated() ? request.user.name : null;
 
   // Add theme css file
-  response.locals.css.push(`/themes/${portalConf.theme}/style.css`);
+  response.locals.css.push(`/themes/${portalConf.data.theme}/style.css`);
 
   // Retrieve analytics template and render root with analytics
+  const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.data.theme, 'analytics.html');
   cons.mustache(analyticsPath, {}, (err, html) => {
     if (err) response.render('root', response.locals);
     else {

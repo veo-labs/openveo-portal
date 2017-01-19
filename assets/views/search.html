@@ -16,7 +16,7 @@
         <input ng-model="search.query">
       </md-input-container>
      
-      <md-button type="submit" class="md-icon-button submit">
+      <md-button type="submit" class="md-icon-button submit" id="searchSubmit">
           <md-tooltip md-direction="top">{{'UI.SEARCH' | translate}}</md-tooltip>
           <md-icon material-icons md-light md-48>search</md-icon>
       </md-button>
@@ -67,11 +67,11 @@
         </div>
        
          <div layout="row" layout="column" layout-align="center center" layout-margin>
-           <md-button ng-click="resetSearch()" class="md-accent md-fab" >
+           <md-button ng-click="resetSearch()" class="md-accent md-fab" id="advancedSearchCancel">
               <md-tooltip md-direction="right">{{'UI.CANCEL' | translate}}</md-tooltip>
               <md-icon material-icons md-light md-48>close</md-icon>
             </md-button>
-            <md-button type="submit" class="md-primary md-fab submit" >
+            <md-button type="submit" class="md-primary md-fab submit" id="advancedSearchSubmit">
               <md-tooltip md-direction="left">{{'UI.SEARCH' | translate}}</md-tooltip>
               <md-icon material-icons md-light md-48>search</md-icon>
             </md-button>

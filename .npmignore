@@ -50,8 +50,10 @@ ehthumbs.db
 /Gruntfile.js
 /tasks
 
-# Published video packages
-/assets/player/videos
+# Themes not default
+/assets/themes/*
+!/assets/themes/default/*
+
 
 # Temporary directory for video packages
 /tmp

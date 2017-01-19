@@ -20,14 +20,14 @@ class SearchPage extends Page {
     this.videoElementsByDate = element.all(by.repeater('video in videos').column('video.date'));
     this.videoElementsByViews = element.all(by.repeater('video in videos').column('video.views'));
     this.searchInputElement = element(by.model('search.query'));
-    this.searchSubmitbuttonElement = element(by.css('form[name=searchForm] button#submit'));
+    this.searchSubmitbuttonElement = element(by.css('button#searchSubmit'));
     this.sortByButtonElement = element(by.model('search.sortBy'));
     this.sortOrderButtonElement = element(by.model('search.sortOrder'));
 
     this.advancedSearchBlocElement = element(by.css('.advanced-search'));
     this.advancedSearchFormElement = element(by.css('.advanced-search + .collapse'));
-    this.advancedSearchButtonElement = element(by.css('.advanced-search + .collapse button#submit'));
-    this.advancedSearchCancelButtonElement = element(by.css('.advanced-search + .collapse button.md-accent'));
+    this.advancedSearchButtonElement = element(by.css('button#advancedSearchSubmit'));
+    this.advancedSearchCancelButtonElement = element(by.css('button#advancedSearchCancel'));
 
     Object.defineProperties(this, {
       path: {

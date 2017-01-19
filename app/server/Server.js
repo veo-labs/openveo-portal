@@ -20,8 +20,8 @@ const errorController = process.require('app/server/controllers/errorController.
 const searchController = process.require('app/server/controllers/searchController.js');
 const statisticsController = process.require('app/server/controllers/statisticsController.js');
 const passportStrategies = process.require('app/server/passport/strategies.js');
+const portalConf = process.require('app/server/conf.js');
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
-const portalConf = require(path.join(configurationDirectoryPath, 'conf.json'));
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 
 const OPENVEO_URL = webservicesConf.path;
@@ -216,7 +216,7 @@ class Server {
       this.app.use(express.static(path.normalize(`${process.root}/app/client/front/js`), staticServerOptions));
 
     // Serve favicon
-    this.app.use(favicon(`${process.root}/assets/themes/${portalConf.theme}/favicon.ico`));
+    this.app.use(favicon(`${process.root}/assets/themes/${portalConf.data.theme}/favicon.ico`));
 
     // Disable cache on get requests
     this.app.get('*', openveoAPI.middlewares.disableCacheMiddleware);

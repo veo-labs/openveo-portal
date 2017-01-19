@@ -37,9 +37,13 @@ nbproject/
 # Compiled file
 /assets/js/*
 /assets/css/*
+/assets/themes/*
+!/assets/themes/default/*
 /assets/themes/default/style.css
 /assets/themes/default/style.css.map
 
 # Documentation
 /site
 /.grunt
+
+# Themes Files

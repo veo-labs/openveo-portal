@@ -8,6 +8,7 @@ const e2e = require('@openveo/test').e2e;
 const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 const serverConfPath = path.join(configurationDirectoryPath, 'serverTestConf.json');
 const loggerConfPath = path.join(configurationDirectoryPath, 'loggerTestConf.json');
+const confPath = path.join(configurationDirectoryPath, 'confTest.json');
 const screenshotPlugin = e2e.plugins.screenshotPlugin;
 const serverConf = require(serverConfPath);
 let portalServer;
@@ -47,7 +48,8 @@ exports.config = {
     portalServer = childProcess.fork(path.join(process.root, '/server.js'), [
       '--serverConf', serverConfPath,
       '--loggerConf', loggerConfPath,
-      '--databaseConf', path.join(configurationDirectoryPath, 'databaseTestConf.json')
+      '--databaseConf', path.join(configurationDirectoryPath, 'databaseTestConf.json'),
+      '--conf', confPath
     ]);
 
     // Listen to messages from server process

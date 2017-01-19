@@ -10,15 +10,12 @@
  * @class searchController
  */
 
-const path = require('path');
 const async = require('async');
 const querystring = require('querystring');
 
 const errors = process.require('app/server/httpErrors.js');
 const openVeoAPI = require('@openveo/api');
-const configurationDirectoryPath = path.join(openVeoAPI.fileSystem.getConfDir(), 'portal');
-
-const conf = require(path.join(configurationDirectoryPath, 'conf.json'));
+const conf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
 const openVeoClient = webserviceClient.getClient();
@@ -26,6 +23,7 @@ const openVeoClient = webserviceClient.getClient();
 const videoCache = process.require('/app/server/serverCache/VideoCache');
 const filterCache = process.require('/app/server/serverCache/FilterCache');
 const VIDEO_PUBLISH_STATES = 12;
+
 
 /**
  * Handles default action to display main HTML.
@@ -61,13 +59,13 @@ module.exports.searchAction = (request, response, next) => {
   }
 
   // Public group filter not defined
-  if (!conf.publicFilter.length || conf.publicFilter[0] == '') {
+  if (!conf.data.publicFilter.length || conf.data.publicFilter[0] == '') {
     process.logger.error(errors.CONF_ERROR.message, {error: errors.CONF_ERROR, method: 'searchAction'});
     return next(errors.CONF_ERROR);
   }
 
   // Add public group filter
-  params['groups'] = conf.publicFilter;
+  params['groups'] = conf.data.publicFilter;
 
   // Add visibility group filter
   if (request.isAuthenticated()) {
@@ -120,13 +118,14 @@ module.exports.searchAction = (request, response, next) => {
 };
 
 module.exports.getSearchFiltersAction = (request, response, next) => {
+  const filterCacheInstance = filterCache.getFilterCache();
   const filters = [];
   const series = [];
-  const filtersId = conf.exposedFilter;
-  const categoriesId = conf.categoriesFilter;
+  const filtersId = conf.data.exposedFilter;
+  const categoriesId = conf.data.categoriesFilter;
   if (categoriesId && categoriesId != '')
     series.push((callback) => {
-      filterCache.getCategories(categoriesId, (error, categories) => {
+      filterCacheInstance.getCategories(categoriesId, (error, categories) => {
         if (categories) {
           filters.push(categories);
         }
@@ -136,7 +135,7 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
 
   for (let i = 0; i < filtersId.length; i++) {
     series.push((callback) => {
-      filterCache.getFilter(filtersId[i], (error, filter) => {
+      filterCacheInstance.getFilter(filtersId[i], (error, filter) => {
         if (filter && filter.type !== 'boolean') {
           filters.push(filter);
         }
@@ -152,7 +151,8 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
 };
 
 module.exports.getCategoriesAction = (request, response, next) => {
-  filterCache.getCategories(conf.categoriesFilter, (error, categories) => {
+  const filterCacheInstance = filterCache.getFilterCache();
+  filterCacheInstance.getCategories(conf.data.categoriesFilter, (error, categories) => {
     if (error) {
       next(error);
       return;
@@ -163,14 +163,15 @@ module.exports.getCategoriesAction = (request, response, next) => {
 };
 
 module.exports.getVideoAction = (request, response, next) => {
-  videoCache.getVideo(request.params.id, (error, res) => {
+  const videoCacheInstance = videoCache.getVideoCache();
+  videoCacheInstance.getVideo(request.params.id, (error, res) => {
     if (error) {
       next(error);
       return;
     }
 
-    const isInPublic = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.publicFilter);
-    const isInPrivate = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.privateFilter);
+    const isInPublic = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.data.publicFilter);
+    const isInPrivate = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.data.privateFilter);
 
     // return entity if entity is public
     if (isInPublic.length)

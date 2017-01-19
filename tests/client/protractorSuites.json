@@ -1,3 +1,7 @@
 {
-  "portal": "e2eTests/*.js"
+  "portal": [
+    "e2eTests/globalPage.js",
+    "e2eTests/homePage.js",
+    "e2eTests/searchPage.js"
+  ]
 }

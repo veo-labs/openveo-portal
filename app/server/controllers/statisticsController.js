@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module portal-controllers
+ * @module controllers
  */
 
 /**
@@ -16,7 +16,8 @@ const videoCache = process.require('/app/server/serverCache/VideoCache');
  * Verify that a user has not seen the video more than one time during the video duration
  */
 const userCanIncrease = (sesionID, entity, callback) => {
-  videoCache.getVideoViewByUser(sesionID, entity.id, (error, value) => {
+  const videoCacheInstance = videoCache.getVideoCache();
+  videoCacheInstance.getVideoViewByUser(sesionID, entity.id, (error, value) => {
 
     if (error || value) {
       callback(false);
@@ -27,7 +28,7 @@ const userCanIncrease = (sesionID, entity, callback) => {
 
     // user has not view this video
     // This user will not be allowed to increase view number during video duration or at least 2hours
-    videoCache.setVideoViewByUser(sesionID, entity.id, duration);
+    videoCacheInstance.setVideoViewByUser(sesionID, entity.id, duration);
     callback(true);
   });
 };
@@ -36,9 +37,10 @@ const userCanIncrease = (sesionID, entity, callback) => {
  * Increase video count when needed
  */
 const increaseViews = (video, sesionID, callback) => {
+  const videoCacheInstance = videoCache.getVideoCache();
   userCanIncrease(sesionID, video, (canIncrease) => {
     if (canIncrease)
-      videoCache.addVideoView(video.id);
+      videoCacheInstance.addVideoView(video.id);
     callback();
   });
 };
@@ -53,12 +55,12 @@ const increaseViews = (video, sesionID, callback) => {
  * @static
  */
 module.exports.statisticsAction = (request, response, next) => {
-
+  const videoCacheInstance = videoCache.getVideoCache();
   switch (request.params.entity) {
     case 'video':
       switch (request.params.type) {
         case 'views':
-          videoCache.getVideo(request.params.id, (error, video) => {
+          videoCacheInstance.getVideo(request.params.id, (error, video) => {
             if (error) {
               next(error);
             } else if (video.entity.private && !request.isAuthenticated())

@@ -1,9 +1,16 @@
 'use strict';
 
+const path = require('path');
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 const SearchPage = process.require('tests/client/e2eTests/pages/SearchPage.js');
 const GlobalPage = process.require('tests/client/e2eTests/pages/GlobalPage.js');
+const e2e = require('@openveo/test').e2e;
+const Helper = e2e.helpers.Helper;
+const WsModel = process.require('tests/client/e2eTests/models/WsModel.js');
+const dataPath = path.join(process.root, 'tests/client/e2eTests/resources/data.json');
+const dataResources = require(dataPath);
+
 
 // Load assertion library
 const assert = chai.assert;
@@ -12,6 +19,7 @@ chai.use(chaiAsPromised);
 describe('Search page', () => {
   let page;
   let body;
+  let videoHelper;
 
   const isOrderByViews = (inverse) => {
     return page.videoElementsByViews.map((elm, key) => {
@@ -56,7 +64,12 @@ describe('Search page', () => {
   before(() => {
     page = new SearchPage();
     body = new GlobalPage();
+    videoHelper = new Helper(new WsModel('videos'));
     page.load();
+  });
+
+  after(() => {
+    return videoHelper.removeAllEntities();
   });
 
 
@@ -65,22 +78,27 @@ describe('Search page', () => {
     assert.eventually.isAtMost(page.videoElements.count(), 9, 'videos list length should be at most 9 by page');
   });
 
-   // Open dialog
+  // Open dialog
   it('should open and close dialog on video click', () => {
-    page.getPath().then((path) => {
-      const oldpath = path;
-      page.openVideo();
-      assert.eventually.ok(body.dialogElement.isDisplayed(), 'dialog video should be displayed');
-      assert.eventually.match(page.getPath(), /^\/video\/.+/, 'Url should change to /video/* when dialog is open');
-      page.firstVideoElement.element(by.css('.md-title')).getText().then((result) => {
-        assert.eventually.equal(
-          body.dialogElement.element(by.css('h2')).getText(),
-          result,
-          'dialog video should be displayed'
-          );
-        body.closeDialog();
-        assert.eventually.isNotOk(body.dialogElement.isPresent(), 'dialog video should be displayed');
-        assert.eventually.equal(page.getPath(), oldpath, 'Url should change back to old path when dialog is closed');
+
+    videoHelper.addEntities(dataResources.videos.date).then((addedVideos) => {
+      page.refresh();
+
+      return page.getPath().then((path) => {
+        const oldpath = path;
+        page.openVideo();
+        assert.eventually.ok(body.dialogElement.isDisplayed(), 'dialog video should be displayed');
+        assert.eventually.match(page.getPath(), /^\/video\/.+/, 'Url should change to /video/* when dialog is open');
+        return page.firstVideoElement.element(by.css('.md-title')).getText().then((result) => {
+          assert.eventually.equal(
+            body.dialogElement.element(by.css('h2')).getText(),
+            result,
+            'dialog video should be displayed'
+            );
+          body.closeDialog();
+          assert.eventually.isNotOk(body.dialogElement.isPresent(), 'dialog video should be displayed');
+          assert.eventually.equal(page.getPath(), oldpath, 'Url should change back to old path when dialog is closed');
+        });
       });
     });
   });
@@ -142,10 +160,11 @@ describe('Search page', () => {
 
   // Search
   it('should switch url on search action', () => {
+    const keys = 'test';
     page.reload('search');
-    page.setSearch('test');
+    page.setSearch(keys);
     page.searchSubmit();
-    assert.eventually.equal(page.getPath(), '/search?query=test', 'Path sould be /search?query=test');
+    assert.eventually.equal(page.getPath(), `/search?query=${keys}`, `Path sould be /search?query=${keys}`);
   });
 
 });

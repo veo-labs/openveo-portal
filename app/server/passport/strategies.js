@@ -7,11 +7,8 @@
  * @main passport
  */
 
-const path = require('path');
 const passport = require('passport');
-const openveoAPI = require('@openveo/api');
-const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
-const conf = require(path.join(configurationDirectoryPath, 'conf.json'));
+const conf = process.require('app/server/conf.js');
 
 module.exports = {
 
@@ -57,7 +54,7 @@ module.exports = {
           // session, thus the whole user object can be stored into the session.
           passport.serializeUser((user, done) => {
             const usr = {name: user.name};
-            usr['groups'] = conf.privateFilter;
+            usr['groups'] = conf.data.privateFilter;
             done(null, usr);
           });
 

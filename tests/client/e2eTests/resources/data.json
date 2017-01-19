@@ -1,0 +1,66 @@
+{
+  "properties": {
+    "prop1": {
+      "name" : "Intervenant",
+      "description" : "Intervenant de la vidéo",
+      "type" : "list",
+      "values" : [ 
+        "Georges", 
+        "Ringo", 
+        "Paul"
+      ]
+    },
+    "prop2": {
+      "name" : "Intervenant",
+      "description" : "Intervenant de la vidéo",
+      "type" : "list",
+      "values" : [ 
+        "Georges", 
+        "Ringo", 
+        "Paul"
+      ]
+    }
+  },
+  "categories": {
+    "id": "a"
+  },
+  "groups": {
+    "publishGroup1": {
+      "name": "publish-group-1",
+      "description": "publish-group-1"
+    },
+    "publishGroup2": {
+      "name": "publish-group-2",
+      "description": "publish-group-2"
+    }
+  },
+
+  "videos": {
+    "date": [
+      {
+        "id": "0",
+        "state": 12,
+        "date": 1415916390000,
+        "groups": ["public"],
+        "title": "test public date 0",
+        "views": 0
+      },
+      {
+        "id": "1",
+        "state": 12,
+        "date": 1425916390000,
+        "groups": ["public"],
+        "title": "test public date 1",
+        "views": 1
+      }
+    ],
+    "to_open": {
+      "id": "2",
+      "state": 12,
+      "date": 1435916390000,
+      "groups": ["public"],
+      "title": "test open"
+    }
+  }
+}
+
