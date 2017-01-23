@@ -26,11 +26,16 @@ describe('Home page', () => {
     page = new HomePage();
     body = new GlobalPage();
     videoHelper = new Helper(new WsModel('videos'));
+    videoHelper.addEntities(dataResources.videos.home);
     page.load();
   });
 
   after(() => {
     return videoHelper.removeAllEntities();
+  });
+
+  afterEach(() => {
+    page.reload('');
   });
 
   // Element
@@ -48,45 +53,41 @@ describe('Home page', () => {
   });
 
   it('should display the video list sorted by date', () => {
-    videoHelper.addEntities(dataResources.videos.date).then((addedVideos) => {
-      page.refresh();
-
-      return page.videoElementsByDate.map((elm, key) => {
-        return {
-          index: key,
-          date: new Date(elm.getText())
-        };
-      }).then((result) => {
-        const sorted = result.slice().sort((a, b) => {
-          return b.date - a.date;
-        });
-        for (let i = 0; i < sorted.length; i++) {
-          assert.equal(sorted[i].index, result[i].index, 'video list should be sorted by date');
-        }
+    page.videoElementsByDate.map((elm, key) => {
+      return {
+        index: key,
+        date: elm.getText()
+      };
+    }).then((result) => {
+      const sorted = result.slice().sort((a, b) => {
+        const tsa = new Date(a.date).getTime();
+        const tsb = new Date(b.date).getTime();
+        return tsb - tsa;
       });
+      let isSorted = true;
+      for (let i = 0; i < sorted.length; i++) {
+        isSorted = isSorted && sorted[i].index == result[i].index;
+      }
+      assert.isTrue(isSorted, 'video list should be sorted by date');
     });
   });
 
   // Open dialog
   it('should open and close dialog on video click', () => {
-    videoHelper.addEntities(dataResources.videos.to_open).then((addedVideos) => {
-      page.refresh();
-
-      return page.getPath().then((path) => {
-        const oldpath = path;
-        page.openVideo();
-        assert.eventually.ok(body.dialogElement.isDisplayed(), 'dialog video should be displayed');
-        assert.eventually.match(page.getPath(), /^\/video\/.+/, 'Url should change to /video/* when dialog is open');
-        return page.firstVideoElement.element(by.css('.md-title')).getText().then((result) => {
-          assert.eventually.equal(
-            body.dialogElement.element(by.css('h2')).getText(),
-            result,
-            'dialog video should be displayed'
-            );
-          body.closeDialog();
-          assert.eventually.isNotOk(body.dialogElement.isPresent(), 'dialog video should be displayed');
-          assert.eventually.equal(page.getPath(), oldpath, 'Url should change back to old path when dialog is closed');
-        });
+    page.getPath().then((path) => {
+      const oldpath = path;
+      page.openVideo();
+      assert.eventually.ok(body.dialogElement.isDisplayed(), 'dialog video should be displayed');
+      assert.eventually.match(page.getPath(), /^\/video\/.+/, 'Url should change to /video/* when dialog is open');
+      return page.firstVideoElement.element(by.css('.md-title')).getText().then((result) => {
+        assert.eventually.equal(
+          body.dialogElement.element(by.css('h2')).getText(),
+          result,
+          'dialog video should be displayed'
+          );
+        body.closeDialog();
+        assert.eventually.isNotOk(body.dialogElement.isPresent(), 'dialog video should be displayed');
+        assert.eventually.equal(page.getPath(), oldpath, 'Url should change back to old path when dialog is closed');
       });
     });
   });

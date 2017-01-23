@@ -138,7 +138,7 @@
           <div class='md-title' >{{video.title}}</div>
           <div  layout="row" layout-align="space-between center">
             <div class='md-body-2' md-colors="{color: 'default-primary'}">{{video.date | date : 'd MMMM yyyy'}}</div>
-            <div class='md-caption nb-views'>{{video.views?video.views:0}} <span ng-bind=" 'UI.VIEW'|translate:video.views?video.views:0"></span></div>
+            <div class='md-caption nb-views'><span class='number'>{{video.views?video.views:0}}</span> <span ng-bind="'UI.VIEW'|translate:video.views?video.views:0"></span></div>
           </div>
           
         </div>

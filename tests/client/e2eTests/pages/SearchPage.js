@@ -18,7 +18,7 @@ class SearchPage extends Page {
     this.firstVideoElement = this.videoElements.first();
 
     this.videoElementsByDate = element.all(by.repeater('video in videos').column('video.date'));
-    this.videoElementsByViews = element.all(by.repeater('video in videos').column('video.views'));
+    this.videoElementsByViews = element.all(by.css('.nb-views > span.number'));
     this.searchInputElement = element(by.model('search.query'));
     this.searchSubmitbuttonElement = element(by.css('button#searchSubmit'));
     this.sortByButtonElement = element(by.model('search.sortBy'));
