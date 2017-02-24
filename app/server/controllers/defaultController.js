@@ -8,6 +8,7 @@
  * Provides default route action to deal with angularJS single page application.
  *
  * @class defaultController
+ * @static
  */
 
 const path = require('path');
@@ -24,6 +25,10 @@ const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
  *
  * @method defaultAction
  * @static
+ * @async
+ * @param {Request} request ExpressJS HTTP Request
+ * @param {Response} response ExpressJS HTTP Response
+ * @param {Function} next Function to defer execution to the next registered middleware
  */
 module.exports.defaultAction = (request, response) => {
 

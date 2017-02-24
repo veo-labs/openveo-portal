@@ -7,8 +7,8 @@ const path = require('path');
 const fs = require('fs');
 const os = require('os');
 const async = require('async');
-const openVeoAPI = require('@openveo/api');
-const confDir = path.join(openVeoAPI.fileSystem.getConfDir(), 'portal');
+const openVeoApi = require('@openveo/api');
+const confDir = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const exit = process.exit;
 
 // Create a readline interface to interact with the user
@@ -56,7 +56,7 @@ function getRandomHash(size) {
  *   - **Error** An error if something went wrong, null otherwise
  */
 function createConfDir(callback) {
-  openVeoAPI.fileSystem.mkdir(confDir, callback);
+  openVeoApi.fileSystem.mkdir(confDir, callback);
 }
 
 /**
@@ -67,7 +67,7 @@ function createConfDir(callback) {
  */
 function createLoggerDir(callback) {
   const conf = require(path.join(confDir, 'loggerConf.json'));
-  openVeoAPI.fileSystem.mkdir(path.dirname(conf.fileName), callback);
+  openVeoApi.fileSystem.mkdir(path.dirname(conf.fileName), callback);
 }
 
 /**
@@ -122,7 +122,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
 
     // Ask for category filter
     (callback) => {
-      rl.question(`Enter the taxonomy ID that the user could filter (default: none) :\n`, (answer) => {
+      rl.question('Enter the taxonomy ID that the user could filter (default: none) :\n', (answer) => {
         conf.categoriesFilter = answer || conf.categoriesFilter;
         callback();
       });
@@ -131,8 +131,8 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     // Ask for available exposedFilter
     (callback) => {
       const ask = () => {
-        rl.question(`Enter the video properties ID that the user could filter
-(Enter empty value to skip or finish) :\n`, (answer) => {
+        rl.question('Enter the video properties ID that the user could filter ' +
+                    '(Enter empty value to skip or finish) :\n', (answer) => {
           if (answer) {
             conf.exposedFilter.push(answer);
             ask();
@@ -182,7 +182,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
 
     // Ask for cache filter TTL
     (callback) => {
-      rl.question(`Enter the TTL of cache filter in seconds (default:600) :\n`, (answer) => {
+      rl.question('Enter the TTL of cache filter in seconds (default:600) :\n', (answer) => {
         conf.cache.filterTTL = answer || conf.cache.filterTTL;
         callback();
       });
@@ -190,7 +190,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
 
     // Ask for cache video TTL
     (callback) => {
-      rl.question(`Enter the TTL of cache video in seconds (default:60) :\n`, (answer) => {
+      rl.question('Enter the TTL of cache video in seconds (default:60) :\n', (answer) => {
         conf.cache.videoTTL = answer || conf.cache.videoTTL;
         callback();
       });
@@ -198,7 +198,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
 
     // Ask for UI to open video
     (callback) => {
-      rl.question(`Do you want to open video in a popin dialog (n/Y) :\n`, (answer) => {
+      rl.question('Do you want to open video in a popin dialog (n/Y) :\n', (answer) => {
         if (answer === 'n') conf.useDialog = false;
         callback();
       });
@@ -257,7 +257,7 @@ function createDatabaseConf(callback) {
 
     // Ask for database name
     (callback) => {
-      rl.question(`Enter database name :\n`, (answer) => {
+      rl.question('Enter database name :\n', (answer) => {
         conf.database = answer || '';
         callback();
       });
@@ -265,7 +265,7 @@ function createDatabaseConf(callback) {
 
     // Ask for database user name
     (callback) => {
-      rl.question(`Enter database user name :\n`, (answer) => {
+      rl.question('Enter database user name :\n', (answer) => {
         conf.username = answer || '';
         callback();
       });
@@ -273,7 +273,7 @@ function createDatabaseConf(callback) {
 
     // Ask for database user password
     (callback) => {
-      secureQuestion(`Enter database user password :\n`, (answer) => {
+      secureQuestion('Enter database user password :\n', (answer) => {
         conf.password = answer || '';
         callback();
       });
@@ -472,7 +472,7 @@ function createServerConf(callback) {
 function createWebservicesConf(callback) {
   const confFile = path.join(confDir, 'webservicesConf.json');
   const conf = {
-    path: 'http://127.0.0.1:3001',
+    path: 'http://127.0.0.1:3002',
     certificate: ''
   };
 
@@ -536,7 +536,7 @@ function createWebservicesConf(callback) {
  */
 function verifyDatabaseConf(callback) {
   const databaseConf = require(path.join(confDir, 'databaseConf.json'));
-  const db = openVeoAPI.Database.getDatabase(databaseConf);
+  const db = openVeoApi.database.factory.get(databaseConf);
 
   db.connect((error) => {
     if (error) {

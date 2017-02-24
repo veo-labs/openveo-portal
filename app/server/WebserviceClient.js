@@ -1,26 +1,52 @@
 'use strict';
 
 /**
- * Provides functions to load migration script.
- *
- * @class migrationLoader
+ * @module portal
  */
 
-const path = require('path');
-const openveoAPI = require('@openveo/api');
 const OpenVeoClient = require('@openveo/rest-nodejs-client').OpenVeoClient;
-const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
 
-const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
+/**
+ * OpenVeo Web Service client singleton.
+ *
+ * @property openVeoClient
+ * @type OpenVeoClient
+ * @private
+ */
+let openVeoClient = null;
 
-const OPENVEO_URL = webservicesConf.path;
-const CLIENT_ID = webservicesConf.clientID;
-const CLIENT_SECRET = webservicesConf.secretID;
+/**
+ * Defines a unique OpenVeo Web Service client.
+ *
+ * @class WebserviceClient
+ * @static
+ */
 
-let openVeoClient;
-
-module.exports.getClient = function() {
-  if (!openVeoClient) openVeoClient = new OpenVeoClient(OPENVEO_URL, CLIENT_ID, CLIENT_SECRET);
-  return openVeoClient;
+/**
+ * Creates an OpenVeo Web Service client singleton.
+ *
+ * @method create
+ * @param {Object} [webservicesConf] Web Service configuration
+ * @param {String} webservicesConf.path Web Service url
+ * @param {String} webservicesConf.clientID Web Service client id
+ * @param {String} webservicesConf.secretID Web Service secret id
+ */
+module.exports.create = function(webservicesConf) {
+  if (!openVeoClient) {
+    openVeoClient = new OpenVeoClient(
+      webservicesConf.path,
+      webservicesConf.clientID,
+      webservicesConf.secretID
+    );
+  }
 };
 
+/**
+ * Gets OpenVeo Web Service client singleton.
+ *
+ * @method get
+ * @return {OpenVeoClient|Null} The Web Service client or null if not created yet
+ */
+module.exports.get = function() {
+  return openVeoClient;
+};

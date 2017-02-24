@@ -1,12 +1,9 @@
 'use strict';
 
 /**
- * @module controllers
- */
-
-/**
  * Provides default route action to deal with angularJS single page application.
  *
+ * @module controllers
  * @class searchController
  */
 
@@ -14,7 +11,7 @@ const async = require('async');
 const querystring = require('querystring');
 
 const errors = process.require('app/server/httpErrors.js');
-const openVeoAPI = require('@openveo/api');
+const openVeoApi = require('@openveo/api');
 const conf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
@@ -42,7 +39,7 @@ module.exports.searchAction = (request, response, next) => {
 
   // Parse Filters
   try {
-    params = openVeoAPI.util.shallowValidateObject(body.filter, {
+    params = openVeoApi.util.shallowValidateObject(body.filter, {
       query: {type: 'string'},
       dateStart: {type: 'string'},
       dateEnd: {type: 'string'},
@@ -88,7 +85,7 @@ module.exports.searchAction = (request, response, next) => {
 
   // Parse pagination
   try {
-    paginate = openVeoAPI.util.shallowValidateObject(body.pagination, {
+    paginate = openVeoApi.util.shallowValidateObject(body.pagination, {
       limit: {type: 'number', gt: 0, default: 9},
       page: {type: 'number', gt: 0, default: 1}
     });
@@ -170,8 +167,8 @@ module.exports.getVideoAction = (request, response, next) => {
       return;
     }
 
-    const isInPublic = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.data.publicFilter);
-    const isInPrivate = openVeoAPI.util.intersectArray(res.entity.metadata.groups, conf.data.privateFilter);
+    const isInPublic = openVeoApi.util.intersectArray(res.entity.metadata.groups, conf.data.publicFilter);
+    const isInPrivate = openVeoApi.util.intersectArray(res.entity.metadata.groups, conf.data.privateFilter);
 
     // return entity if entity is public
     if (isInPublic.length)
@@ -186,7 +183,7 @@ module.exports.getVideoAction = (request, response, next) => {
 
       // if user is authentified
       else {
-        const isAllowed = openVeoAPI.util.intersectArray(isInPrivate, request.user.groups);
+        const isAllowed = openVeoApi.util.intersectArray(isInPrivate, request.user.groups);
 
         // if is allowed return authent else return error
         if (isAllowed.length) response.send(res);

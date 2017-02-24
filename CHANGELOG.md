@@ -1,3 +1,41 @@
+# 2.0.0 /
+
+## BREAKING CHANGES
+
+- Drop support for Node.js &lt;7.4.0
+- Drop support for NPM &lt;4.0.5
+- Drop support for OpenVeo Publish &lt;3.0.0
+
+## DEPENDENCIES
+
+- **async** has been updated from 1.5.2 to **2.1.4**
+- **body-parser** has been updated from 1.15.0 to **1.15.2**
+- **consolidate** has been updated from 0.14.0 to **0.14.5**
+- **cookie-parser** has been updated from 1.4.1 to **1.4.3**
+- **express** has been updated from 4.13.4 to **4.14.0**
+- **express-session** has been updated from 1.13.0 to **1.14.2**
+- **mustache** has been updated from 2.2.1 to **2.3.0**
+- **node-cache** has been updated from 3.2.1 to **4.1.1**
+- **nopt** has been updated from 3.0.6 to **4.0.1**
+- **serve-favicon** has been updated from 2.3.0 to **2.3.2**
+- **shortid** has been updated from 2.2.4 to **2.2.6**
+- **xml2js** has been updated from 0.4.16 to **0.4.17**
+- **grunt** has been updated from 0.4.5 to **1.0.1**
+- **grunt-contrib-uglify** has been updated from 1.0.1 to **2.0.0**
+- **grunt-eslint** has been updated from 18.1.0 to **19.0.0**
+- **grunt-mkdocs** has been updated from 0.1.3 to **0.2.0**
+- **grunt-mocha-test** has been updated from 0.12.7 to **0.13.2**
+- **mocha** has been updated from 2.4.5 to **3.2.0**
+- **nodemon** has been updated from 1.9.2 to **1.11.0**
+- **pre-commit** has been updated from 1.1.2 to **1.2.2**
+- **connect-mongo** has been updated removed
+- **mongodb** has been updated removed
+- **winston** has been updated removed
+- **grunt-extend-config** has been updated removed
+- **grunt-init** has been updated removed
+- **grunt-remove** has been updated removed
+- **grunt-rename** has been updated removed
+
 # 1.1.1 / 2017-01-04
 
 - Update Readme to refer to the right license
@@ -16,7 +54,7 @@
 
 # 1.0.1 / 2016-07-19
 
-- Debugging video freeze updating videoJs and Dash dependencies 
+- Debugging video freeze updating videoJs and Dash dependencies
 - Debug SSL certificate to communicate with webservices
 
 # 1.0.0 / 2016-05-31
@@ -28,6 +66,6 @@ Adds the following features :
 - View last published videos on Openveo Publish
 - Search for videos by properties, category, date or title and description
 - Connect to a CAS authent to enable user to see private video
-- Record video views number in Openveo 
+- Record video views number in Openveo
 - Send statistics to a Piwik server
 - Theming portal according to client to personalize wording, colors, ...

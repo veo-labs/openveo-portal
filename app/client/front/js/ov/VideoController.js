@@ -95,7 +95,14 @@
   }
 
   app.controller('VideoController', VideoController);
-  VideoController.$inject = ['$scope', '$locale', '$timeout', '$location',
-   '$analytics', 'videoService', 'searchService'];
+  VideoController.$inject = [
+    '$scope',
+    '$locale',
+    '$timeout',
+    '$location',
+    '$analytics',
+    'videoService',
+    'searchService'
+  ];
 
 })(angular.module('ov.portal'));

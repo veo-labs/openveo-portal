@@ -114,7 +114,15 @@
   }
 
   app.controller('SearchController', SearchController);
-  SearchController.$inject = ['$scope', '$location', '$q', '$filter',
-   'searchService', 'result', 'filters', '$analytics'];
+  SearchController.$inject = [
+    '$scope',
+    '$location',
+    '$q',
+    '$filter',
+    'searchService',
+    'result',
+    'filters',
+    '$analytics'
+  ];
 
 })(angular.module('ov.portal'));

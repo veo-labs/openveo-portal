@@ -2,11 +2,11 @@
 
 Configuration files are all in user's directory under **~/.openveo/portal**
 
-- **~/.openveo/core/conf.json**
-- **~/.openveo/core/databaseConf.json**
-- **~/.openveo/core/loggerConf.json**
-- **~/.openveo/core/serverConf.json**
-- **~/.openveo/core/webservicesConf.json**
+- **~/.openveo/portal/conf.json**
+- **~/.openveo/portal/databaseConf.json**
+- **~/.openveo/portal/loggerConf.json**
+- **~/.openveo/portal/serverConf.json**
+- **~/.openveo/portal/webservicesConf.json**
 
 **Nb :** You must restart OpenVeo Portal after modifications.
 
@@ -71,7 +71,7 @@ Open **~/.openveo/core/serverConf.json**
 
 ```json
 {
-  "port": PORT, // Replace PORT by the HTTP server port to use (e.g. 3000)
+  "port": PORT, // Replace PORT by the HTTP server port to use (e.g. 3003)
   "sessionSecret": "SECRET", // Replace SECRET by a secret used to secure HTTP sessions
   "auth": {
     "type": "cas", // The authentication mechanism to use (only cas is supported right now)

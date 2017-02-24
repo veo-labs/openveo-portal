@@ -4,6 +4,7 @@
  * @module passport-cas
  */
 
+/* eslint no-sync: 0 */
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
@@ -11,26 +12,22 @@ const xml2js = require('xml2js');
 const http = require('http');
 const https = require('https');
 
-/**
- * Defines a cas client.
- *
- * A cas client is responsible of the protocol to communicate with the cas server.
- *
- * @example
- *     e.g. Configuration example
- *     // {
- *     //   "url": "https://openveo-cas.com:8443/cas", // CAS server url
- *     //   "version": "4", // CAS version (could be 1, 2, 3, 4)
- *     //   "certificate": "/home/test/cas.crt" // CAS certificate public key
- *     // }
- *
- * @class CAS
- */
 class CAS {
 
   /**
-   * Creates a new cas client.
+   * Defines a cas client.
    *
+   * A cas client is responsible of the protocol to communicate with the cas server.
+   *
+   * @example
+   *     e.g. Configuration example
+   *     // {
+   *     //   "url": "https://openveo-cas.com:8443/cas", // CAS server url
+   *     //   "version": "4", // CAS version (could be 1, 2, 3, 4)
+   *     //   "certificate": "/home/test/cas.crt" // CAS certificate public key
+   *     // }
+   *
+   * @class CAS
    * @constructor
    * @param {Object} options The list of cas strategy options
    */
@@ -50,6 +47,7 @@ class CAS {
        *
        * @property url
        * @type String
+       * @final
        */
       url: {
         value: options.url
@@ -60,6 +58,7 @@ class CAS {
        *
        * @property certificate
        * @type String
+       * @final
        */
       certificate: {
         value: options.certificate
@@ -70,6 +69,7 @@ class CAS {
        *
        * @property host
        * @type String
+       * @final
        */
       host: {
         value: urlChunks.hostname
@@ -80,6 +80,7 @@ class CAS {
        *
        * @property protocol
        * @type String
+       * @final
        */
       protocol: {
         value: urlChunks.protocol === 'http:' ? 'http' : 'https'
@@ -90,6 +91,7 @@ class CAS {
        *
        * @property httpClient
        * @type Object
+       * @final
        */
       httpClient: {
         value: urlChunks.protocol === 'http:' ? http : https
@@ -100,6 +102,7 @@ class CAS {
        *
        * @property port
        * @type Number
+       * @final
        */
       port: {
         value: urlChunks.port || (this.protocol === 'http' ? 80 : 443)
@@ -110,6 +113,7 @@ class CAS {
        *
        * @property path
        * @type String
+       * @final
        */
       path: {
         value: urlChunks.path
@@ -120,6 +124,7 @@ class CAS {
        *
        * @property loginUri
        * @type String
+       * @final
        */
       loginUri: {
         value: this.getLoginUri()
@@ -130,6 +135,7 @@ class CAS {
        *
        * @property validateUri
        * @type String
+       * @final
        */
       validateUri: {
         value: this.getValidateUri()

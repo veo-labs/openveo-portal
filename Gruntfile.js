@@ -1,7 +1,9 @@
 'use strict';
 
+/* eslint no-sync: 0 */
 require('./processRequire.js');
 const fs = require('fs');
+const openVeoApi = require('@openveo/api');
 
 /**
  * Loads a bunch of grunt configuration files from the given directory.
@@ -46,9 +48,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-mkdocs');
   grunt.loadNpmTasks('grunt-gh-pages');
-  grunt.loadNpmTasks('grunt-rename');
-  grunt.loadNpmTasks('grunt-remove');
   grunt.loadNpmTasks('grunt-protractor-runner');
+
+  grunt.registerMultiTask('rename', openVeoApi.grunt.renameTask(grunt));
+  grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
 
   // Listen to changes on SCSS files and generate CSS files
   grunt.registerTask('default', ['compass:dev', 'watch']);

@@ -9,7 +9,7 @@ Openveo Portal interacts with a Web Service exposed by an [OpenVeo](https://gith
 
 # Install a custom theme
 
-By default, OpenVeo Portal comes from a default theme. If this theme does not suite your graphical interface, you can customize OpenVeo Portal with your own theme and install it into **assets/themes**.
+By default, OpenVeo Portal comes with a default theme. If this theme does not suite your graphical interface, you can customize OpenVeo Portal with your own theme and install it into **assets/themes**.
 
 # Launch the application
 

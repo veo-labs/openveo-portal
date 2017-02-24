@@ -23,7 +23,7 @@ When launching tests, an OpenVeo Portal server is automatically spawned and must
 }
 ```
 
-In order not to drop your development openveo-portal database, you need to configure a test openveo-portal database through **databaseTestConf.json**.Typically you may want to change the database, username and password.
+In order not to drop your development openveo-portal database, you need to configure a test openveo-portal database through **databaseTestConf.json**. Typically you may want to change the database, username and password.
 
 **~/.openveo/core/databaseTestConf.json**
 
@@ -38,7 +38,7 @@ In order not to drop your development openveo-portal database, you need to confi
 }
 ```
 
-You will also need to configure your server by edit options relative to end-to-end-test. You need a **confTest.json** to typically set your test options like **publicFilter** .
+You will also need to configure your server by editing options relative to end-to-end tests. You need a **confTest.json** to typically set your test options like **publicFilter**.
 
 **~/.openveo/core/confTest.json**
 
@@ -57,7 +57,7 @@ You will also need to configure your server by edit options relative to end-to-e
 }
 ```
 
-Finally the logger has to be configured through **loggerTestConf.json**. Typically you may want to deactivate logger standard output.
+The logger has to be configured through **loggerTestConf.json**. Typically you may want to deactivate logger standard output.
 
 **~/.openveo/core/loggerTestConf.json**
 
@@ -70,7 +70,19 @@ Finally the logger has to be configured through **loggerTestConf.json**. Typical
   "console": false
 }
 ```
+
 **console: false** will deactivate standard output.
+
+Finally the Web Service has to be configured through **webservicesTestConf.json**. Typically you may want to have a different client or a different server.
+
+```json
+{
+  "path": "http://127.0.0.1:3002",
+  "certificate": "",
+  "clientID": "B1535kPqe",
+  "secretID": "a058d8ff7420b84708bd1ff4bacb8e4c42424cd0"
+}
+```
 
 # Create test
 
@@ -78,7 +90,7 @@ Create your test file in **tests/client/e2eTests/** then update the list of suit
 
 # Debug
 
-If a test fails, a screenshot of the browser at the instant is taken and available in **build/screenshots** of the core.
+If a test fails, a screenshot of the browser at the instant is taken and available in **build/screenshots** of the project.
 
 # Launch end to end tests
 

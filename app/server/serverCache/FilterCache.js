@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module serverCache
+ * @module cache
  */
 
 const JSONPath = require('jsonpath-plus');
@@ -10,21 +10,18 @@ const errors = process.require('app/server/httpErrors.js');
 const conf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
-const openVeoClient = webserviceClient.getClient();
 
 const NodeCache = require('node-cache');
 
 let filterCacheInstance;
 
-/**
- * Provides all caches relative to filter.
- *
- * @class FilterCache
- */
 class FilterCache {
 
   /**
-   * Creates a new FilterCache.
+   * Provides all caches relative to filter.
+   *
+   * @class FilterCache
+   * @constructor
    */
   constructor() {
     Object.defineProperties(this, {
@@ -39,7 +36,7 @@ class FilterCache {
     });
   }
 
-   /**
+  /**
    * FilterCache singleton getter.
    *
    * @return {FilterCache} filterCacheInstance the FilterCache Singleton
@@ -53,6 +50,8 @@ class FilterCache {
 
   // Get A filter from cache or call the entity from Openveo
   getFilter(id, callback) {
+    const openVeoClient = webserviceClient.get();
+
     this.filterCache.get(id, (error, filter) => {
       if (error) {
         return callback(error);
@@ -74,7 +73,9 @@ class FilterCache {
   }
 
   getCategories(id, callback) {
+    const openVeoClient = webserviceClient.get();
     const key = 'publish-taxo-categories-${id}';
+
     this.filterCache.get(key, (error, filter) => {
       if (error) {
         return callback(error);

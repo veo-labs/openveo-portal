@@ -10,27 +10,28 @@
 const url = require('url');
 const Strategy = require('passport-strategy');
 
-/**
- * Defines a passport cas strategy to authenticate requests using a cas server.
- *
- * @example
- *     e.g. Configuration example
- *     // {
- *     //   "service": "https://openveo-portal.com", // Application service
- *     //   "url": "https://openveo-cas.com:8443/cas", // CAS server url
- *     //   "version": "3", // CAS protocol version (could be 1, 2, 3)
- *     //   "certificate": "/home/test/cas.crt" // CAS certificate public key
- *     // }
- *
- * @class CasStrategy
- */
 class CasStrategy extends Strategy {
 
   /**
-   * Creates a new passport cas strategy.
+   * Defines a passport cas strategy to authenticate requests using a cas server.
    *
+   * @example
+   *     e.g. Configuration example
+   *     // {
+   *     //   "service": "https://openveo-portal.com", // Application service
+   *     //   "url": "https://openveo-cas.com:8443/cas", // CAS server url
+   *     //   "version": "3", // CAS protocol version (could be 1, 2, 3)
+   *     //   "certificate": "/home/test/cas.crt" // CAS certificate public key
+   *     // }
+   *
+   * @class CasStrategy
    * @constructor
+   * @extends Strategy
    * @param {Object} options The list of cas strategy options
+   * @param {String} options.service The service to use to authenticate to the CAS server
+   * @param {String} options.version The version of the CAS server
+   * @param {String} options.url The url of the CAS server
+   * @param {String} options.certificate The absolute path to the CAS server certificate
    */
   constructor(options) {
     super();
@@ -41,6 +42,16 @@ class CasStrategy extends Strategy {
     if (!options.service)
       throw new Error('Missing cas service for cas strategy');
 
+    const version = options.version ? options.version : '3';
+    let cas = null;
+
+    try {
+      const CAS = process.require(`app/server/passport/cas/CAS${version}.js`);
+      cas = new CAS(options);
+    } catch (error) {
+      throw new Error(`This version of cas is not implemented : ${error.message}`);
+    }
+
     Object.defineProperties(this, {
 
       /**
@@ -49,6 +60,7 @@ class CasStrategy extends Strategy {
        * @property cas
        * @type String
        * @default "cas"
+       * @final
        */
       name: {
         value: 'cas'
@@ -59,6 +71,7 @@ class CasStrategy extends Strategy {
        *
        * @property service
        * @type String
+       * @final
        */
       service: {
         value: options.service
@@ -69,29 +82,25 @@ class CasStrategy extends Strategy {
        *
        * @property version
        * @type String
+       * @final
        */
       version: {
-        value: options.version ? options.version : '3'
-      }
-
-    });
-
-    try {
-      const CAS = process.require(`app/server/passport/cas/CAS${this.version}.js`);
+        value: version
+      },
 
       /**
        * CAS client implementation.
        *
        * @property cas
        * @type CAS
+       * @final
        */
-      Object.defineProperty(this, 'cas', {
-        value: new CAS(options)
-      });
+      cas: {
+        value: cas
+      }
 
-    } catch (error) {
-      throw new Error(`This version of cas is not implemented : ${error.message}`);
-    }
+    });
+
   }
 
   /**

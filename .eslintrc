@@ -73,8 +73,8 @@
     // Disallow multiline strings
     "no-multi-str": 2,
 
-    // Disallow reassignment of native objects
-    "no-native-reassign": 2,
+    // Disallow assignment to native objects or read-only global variables
+    "no-global-assign": 2,
 
     // Disallow function constructor
     "no-new-func": 2,
@@ -135,6 +135,9 @@
 
     // Disallow process.exit()
     "no-process-exit": 2,
+
+    // Disallow synchronous methods
+    "no-sync": 2,
 
     // Disallow spaces inside of brackets
     "array-bracket-spacing": 2,
@@ -238,56 +241,8 @@
     // Limit Maximum Length of Line
     "max-len": [2, 120, 2, {"ignoreUrls": true}],
 
-    // Require parens in arrow function arguments
-    arrow-parens: [2, "always"],
-
-    // Require space before and after arrow function's arrow
-    "arrow-spacing": 2,
-
-    // Require call to super() only in constructors extending another object
-    "constructor-super": 2,
-
-    // Require space before generator star but not after
-    "generator-star-spacing": [2, {"before": false, "after": true}],
-
-    // Disallow modifying variables of class declarations
-    "no-class-assign": 2,
-
-    // Disallow modifying variables that are declared unsing const
-    "no-const-assign": 2,
-
-    // Disallow duplicate name in class members
-    "no-dupe-class-members": 2,
-
-    // Disallow Symbol constructor
-    "no-new-symbol": 2,
-
-    // Disallow unnecessary constructor
-    "no-useless-constructor": 2,
-
-    // Require let or const instead of var
-    "no-var": 2,
-
-    // Require object literal shorthand syntax
-    "object-shorthand": 2,
-
-    // Suggest using arrow functions as callbacks
-    "prefer-arrow-callback": 2,
-
-    // Suggest using const
-    "prefer-const": 2,
-
-    // Suggest using template literals instead of string concatenation
-    "prefer-template": 2,
-
-    // Disallow generator functions that do not have yield
-    "require-yield": 2,
-
-    // Enforce usage of spacing in template strings
-    "template-curly-spacing": 2,
-
-    // Enforce spacing after yield stars
-    "yield-star-spacing": [2, "after"]
+    // Disallow trailing commas
+    "comma-dangle": 2
 
   }
 }

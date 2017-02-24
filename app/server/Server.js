@@ -1,9 +1,13 @@
 'use strict';
 
 /**
- * @module server
- * @main server
+ * Defines Portal HTTP Server.
+ *
+ * @module portal
+ * @main portal
  */
+
+/* eslint no-sync: 0 */
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
@@ -14,14 +18,14 @@ const consolidate = require('consolidate');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
-const openveoAPI = require('@openveo/api');
+const openVeoApi = require('@openveo/api');
 const defaultController = process.require('app/server/controllers/defaultController.js');
 const errorController = process.require('app/server/controllers/errorController.js');
 const searchController = process.require('app/server/controllers/searchController.js');
 const statisticsController = process.require('app/server/controllers/statisticsController.js');
 const passportStrategies = process.require('app/server/passport/strategies.js');
 const portalConf = process.require('app/server/conf.js');
-const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
+const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 
 const OPENVEO_URL = webservicesConf.path;
@@ -34,31 +38,27 @@ const staticServerOptions = {
   }
 };
 
-/**
- * Defines Portal HTTP Server.
- *
- * @example
- *     var Server = process.require("app/server/Server.js");
- *     var serv = new Server({
- *        port: 3000,
- *        sessionSecret: "123456789",
- *        auth: {
- *          type: "cas",
- *          cas: {
- *            ...
- *          }
- *        }
- *     });
- *
- * @class Server
- */
 class Server {
 
   /**
    * Creates a new Portal HTTP server.
    *
-   * @param {Object} configuration Service configuration
+   * @example
+   *     var Server = process.require('app/server/Server.js');
+   *     var serv = new Server({
+   *        port: 3003,
+   *        sessionSecret: '123456789',
+   *        auth: {
+   *          type: 'cas',
+   *          cas: {
+   *            ...
+   *          }
+   *        }
+   *     });
+   *
+   * @class Server
    * @constructor
+   * @param {Object} configuration Server configuration
    */
   constructor(configuration) {
 
@@ -93,8 +93,8 @@ class Server {
   /**
    * Prepares server after being sure that the connection to the database is established.
    *
-   * @param {Database} database Project's database
    * @method onDatabaseAvailable
+   * @param {Database} database Project's database
    */
   onDatabaseAvailable(database) {
 
@@ -171,7 +171,7 @@ class Server {
           if (response.headers && response.headers['content-length']) {
             responseContentLength = parseInt(response.headers['content-length']);
           }
-          const responseBody = new Buffer(responseContentLength);
+          const responseBody = Buffer.alloc(responseContentLength);
 
           response.on('data', (chunk) => {
             responseBody.write(chunk, currentByteIndex, 'binary');
@@ -219,10 +219,10 @@ class Server {
     this.app.use(favicon(`${process.root}/assets/themes/${portalConf.data.theme}/favicon.ico`));
 
     // Disable cache on get requests
-    this.app.get('*', openveoAPI.middlewares.disableCacheMiddleware);
+    this.app.get('*', openVeoApi.middlewares.disableCacheMiddleware);
 
     // Log each request
-    this.app.use(openveoAPI.middlewares.logRequestMiddleware);
+    this.app.use(openVeoApi.middlewares.logRequestMiddleware);
 
     this.mountRoutes();
   }

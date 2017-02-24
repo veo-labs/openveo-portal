@@ -10,6 +10,8 @@ const CAS = process.require('app/server/passport/cas/CAS.js');
  * Defines a cas client interfacing with cas protocol 1.0.
  *
  * @class CAS1
+ * @extends CAS
+ * @constructor
  */
 class CAS1 extends CAS {
 

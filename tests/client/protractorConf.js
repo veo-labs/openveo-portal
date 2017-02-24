@@ -3,9 +3,9 @@
 require('../../processRequire.js');
 const path = require('path');
 const childProcess = require('child_process');
-const openveoAPI = require('@openveo/api');
+const openVeoApi = require('@openveo/api');
 const e2e = require('@openveo/test').e2e;
-const configurationDirectoryPath = path.join(openveoAPI.fileSystem.getConfDir(), 'portal');
+const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const serverConfPath = path.join(configurationDirectoryPath, 'serverTestConf.json');
 const loggerConfPath = path.join(configurationDirectoryPath, 'loggerTestConf.json');
 const confPath = path.join(configurationDirectoryPath, 'confTest.json');
@@ -14,7 +14,7 @@ const serverConf = require(serverConfPath);
 let portalServer;
 
 // Load a console logger
-process.logger = openveoAPI.logger.get('portal');
+process.logger = openVeoApi.logger.add('portal');
 
 // Load test suites
 const suites = process.require('tests/client/protractorSuites.json');
@@ -49,6 +49,7 @@ exports.config = {
       '--serverConf', serverConfPath,
       '--loggerConf', loggerConfPath,
       '--databaseConf', path.join(configurationDirectoryPath, 'databaseTestConf.json'),
+      '--webservicesConf', path.join(configurationDirectoryPath, 'webservicesTestConf.json'),
       '--conf', confPath
     ]);
 

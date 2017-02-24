@@ -10,16 +10,22 @@
 const passport = require('passport');
 const conf = process.require('app/server/conf.js');
 
+/**
+ * Defines a passport middleware to create a strategy depending on its type.
+ *
+ * @class strategies
+ * @static
+ */
 module.exports = {
 
   /**
    * Gets an instance of a passport strategy.
    *
-   * @static
    * @method get
+   * @static
    * @param {String} strategyName The name of the strategy
    * @param {Object} configuration Strategy configuration, it depends on the strategy
-   * @return {Strategy} A passport strategy
+   * @return {Object} A passport middleware
    */
   get(strategyName, configuration) {
     if (strategyName && configuration) {

@@ -7,7 +7,8 @@
 /**
  * Provides route actions for all requests relative to statistics.
  *
- * @class StatisticsController
+ * @class statisticsController
+ * @static
  */
 
 const videoCache = process.require('/app/server/serverCache/VideoCache');
@@ -45,15 +46,6 @@ const increaseViews = (video, sesionID, callback) => {
   });
 };
 
-/**
- * Displays video player template.
- *
- * Checks first if the video id is valid and if the video is published
- * before returning the template.
- *
- * @method displayVideoAction
- * @static
- */
 module.exports.statisticsAction = (request, response, next) => {
   const videoCacheInstance = videoCache.getVideoCache();
   switch (request.params.entity) {

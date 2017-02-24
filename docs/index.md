@@ -16,19 +16,19 @@ It includes the following features :
 
 OpenVeo Portal has been tested on the following operating systems :
 
-- Windows 7
-- Ubuntu 14.04
-- Debian 8 (Jessy)
+- Windows 10
+- Ubuntu 16.04
+- Xubuntu 16.04
 
 OpenVeo has been tested on the following  :
 
-- Google Chrome 45
-- Mozilla Firefox 40
-- Opera 32
-- Internet Explorer 11
+- Google Chrome 54
+- Mozilla Firefox 47
+- Opera 42
+- Internet Explorer Edge
 
 ![Ubuntu](images/operating-systems/ubuntu.gif)
-![Debian](images/operating-systems/debian.gif)
+![Xubuntu](images/operating-systems/xubuntu.gif)
 ![Windows](images/operating-systems/windows.gif)
 
 ![Firefox](images/browsers/firefox.gif)

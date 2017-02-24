@@ -1,29 +1,28 @@
 'use strict';
 
 /**
- * @module serverCache
+ * @module cache
  */
 
 const errors = process.require('app/server/httpErrors.js');
 const conf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
-const openVeoClient = webserviceClient.getClient();
 const NodeCache = require('node-cache');
 
 let videoCacheInstance;
 
-/**
- * Provides all caches relative to videos.
- *
- * @class VideoCache
- */
 class VideoCache {
 
   /**
-   * Creates a new VideoCache.
+   * Provides all caches relative to videos.
+   *
+   * @class VideoCache
+   * @constructor
    */
   constructor() {
+    const openVeoClient = webserviceClient.get();
+
     Object.defineProperties(this, {
       videoCache: {
         value: new NodeCache({stdTTL: conf.data.cache.videoTTL, checkperiod: conf.data.cache.videoTTL})
@@ -80,6 +79,8 @@ class VideoCache {
 
   // Get A video from cache or call the entity from Openveo
   getVideo(id, callback) {
+    const openVeoClient = webserviceClient.get();
+
     this.videoCache.get(id, (error, video) => {
       if (error) {
         return callback(error);
