@@ -44,7 +44,6 @@
         dateEnd.setDate(dateEnd.getDate() + 1);
         search.dateEnd = $filter('date')(dateEnd, 'MM/dd/yyyy');
       }
-      paginateParam.page++;
 
       searchService.search(search, paginateParam, canceller).then(function(result) {
         if (result.data.error) {

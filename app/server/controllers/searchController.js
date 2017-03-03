@@ -1,10 +1,14 @@
 'use strict';
 
 /**
- * Provides default route action to deal with angularJS single page application.
- *
  * @module controllers
+ */
+
+/**
+ * Provides route actions for the search engine.
+ *
  * @class searchController
+ * @static
  */
 
 const async = require('async');
@@ -15,25 +19,15 @@ const openVeoApi = require('@openveo/api');
 const conf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
-const openVeoClient = webserviceClient.getClient();
 
 const videoCache = process.require('/app/server/serverCache/VideoCache');
 const filterCache = process.require('/app/server/serverCache/FilterCache');
 const VIDEO_PUBLISH_STATES = 12;
 
-
-/**
- * Handles default action to display main HTML.
- *
- * If no other action were performed display the main template.
- * Main template loads libraries JavaScript files, Bootstrap CSS file and CSS file from the configured theme.
- *
- * @method defaultAction
- * @static
- */
 module.exports.searchAction = (request, response, next) => {
   const body = request.body || {};
   const orderedProperties = ['views', 'date'];
+  const openVeoClient = webserviceClient.get();
   let params;
   let paginate;
 
@@ -87,7 +81,7 @@ module.exports.searchAction = (request, response, next) => {
   try {
     paginate = openVeoApi.util.shallowValidateObject(body.pagination, {
       limit: {type: 'number', gt: 0, default: 9},
-      page: {type: 'number', gt: 0, default: 1}
+      page: {type: 'number', gte: 0, default: 0}
     });
   } catch (error) {
     return response.status(500).send({
@@ -106,7 +100,6 @@ module.exports.searchAction = (request, response, next) => {
 
   // Get the list of videos
   openVeoClient.get(`/publish/videos?${query}`).then((result) => {
-    result.pagination.page--;
     response.send(result);
   }).catch((error) => {
     process.logger.error(error.message, {error, method: 'searchAction'});

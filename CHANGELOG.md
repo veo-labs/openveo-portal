@@ -1,5 +1,9 @@
 # 2.0.0 /
 
+## NEW FEATURES
+
+- Improve search engine when searching by text
+
 ## BREAKING CHANGES
 
 - Drop support for Node.js &lt;7.4.0
