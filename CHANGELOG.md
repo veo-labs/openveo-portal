@@ -10,6 +10,10 @@
 - Drop support for NPM &lt;4.0.5
 - Drop support for OpenVeo Publish &lt;3.0.0
 
+## BUG FIXES
+
+- Fix SASS warning when compiling
+
 ## DEPENDENCIES
 
 - **async** has been updated from 1.5.2 to **2.1.4**
