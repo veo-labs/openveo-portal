@@ -23,6 +23,40 @@ When launching tests, an OpenVeo Portal server is automatically spawned and must
 }
 ```
 
+In order not to drop your development openveo-portal database, you need to configure a test openveo-portal database through **databaseTestConf.json**.Typically you may want to change the database, username and password.
+
+**~/.openveo/core/databaseTestConf.json**
+
+```json
+{
+  "type": "mongodb",
+  "host": "localhost",
+  "port": 27017,
+  "database": "openveo-portal-test",
+  "username": "openveo-test",
+  "password": "openveo-test"
+}
+```
+
+You will also need to configure your server by edit options relative to end-to-end-test. You need a **confTest.json** to typically set your test options like **publicFilter** .
+
+**~/.openveo/core/confTest.json**
+
+```json
+{
+  "theme": "default",
+  "exposedFilter": [""],
+  "categoriesFilter": "",
+  "privateFilter": [""],
+  "publicFilter": ["public"],
+  "cache": {
+    "filterTTL" : 600,
+    "videoTTL" : 60
+    },
+  "useDialog": false
+}
+```
+
 Finally the logger has to be configured through **loggerTestConf.json**. Typically you may want to deactivate logger standard output.
 
 **~/.openveo/core/loggerTestConf.json**
@@ -32,11 +66,10 @@ Finally the logger has to be configured through **loggerTestConf.json**. Typical
   "level": "info",
   "maxFileSize": 1048576,
   "maxFiles": 2,
-  "fileName": "/tmp/openveo-portal.log",
+  "fileName": "/tmp/openveo-portal-test.log",
   "console": false
 }
 ```
-
 **console: false** will deactivate standard output.
 
 # Create test
