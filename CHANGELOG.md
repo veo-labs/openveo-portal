@@ -13,6 +13,7 @@
 ## BUG FIXES
 
 - Fix SASS warning when compiling
+- Fix bug when player throw an undefined error
 
 ## DEPENDENCIES
 
