@@ -94,6 +94,6 @@ Open **~/.openveo/portal/webservicesConf.json**
  "path": "https://www.my-openveo-ws.com", // Complete path to the web service (including port if necessary)
  "clientID": "65d6247f0293049523d6a5e2efdf49ac07b51600", // OpenVeo Portal id
  "secretID": "8a7b0d43a631b52cf15e89eba7a65f274ccc7f73", // OpenVeo Portal secret
- "certificate": "server.crt" // OpenVeo Web Service certificate
+ "certificate": "server.crt" // The absolute path to the OpenVeo Web Service certificate if root CA is not in the system well known CAs
 }
 ```

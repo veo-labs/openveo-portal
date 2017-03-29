@@ -36,7 +36,8 @@ module.exports.create = function(webservicesConf) {
     openVeoClient = new OpenVeoClient(
       webservicesConf.path,
       webservicesConf.clientID,
-      webservicesConf.secretID
+      webservicesConf.secretID,
+      webservicesConf.certificate
     );
   }
 };
