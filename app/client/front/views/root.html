@@ -39,8 +39,8 @@
           </div>
           [[/user]]
           [[^user]]
-          <md-button hide-xs class='md-raised md-primary text-button log-in' 
-                     href="/authenticate" target="_self" 
+          <md-button hide-xs class='md-raised md-primary text-button log-in'
+                     href="/authenticate" target="_self"
                      aria-label="{{'UI.LOGIN'|translate}}"
                      ng-bind="'UI.LOGIN'|translate"
                      analytics-on='click' analytics-event="Login"
@@ -96,8 +96,8 @@
           </div>
           [[/user]]
           [[^user]]
-          <md-button class='md-raised md-accent text-button log-in-mobile' 
-                     href="/authenticate" target="_self" 
+          <md-button class='md-raised md-accent text-button log-in-mobile'
+                     href="/authenticate" target="_self"
                      aria-label="{{'UI.LOGIN'|translate}}"
                      ng-bind="'UI.LOGIN'|translate"
                      analytics-on='click' analytics-event="Login"
@@ -122,13 +122,13 @@
           <div class="md-toolbar-tools">
             <div class='container'>
               <div layout="row" layout-align="center center">
-                <md-button 
+                <md-button
                 ng-repeat="(key, value) in links"
-                ng-href="{{value}}" target="_blank" 
+                ng-href="{{value}}" target="_blank"
                 aria-label="{{'LINKS.'+key|translate}}"
                 ng-bind="'LINKS.'+ key|translate"
                 analytics-on='click' analytics-event="{{key}}"
-                ></md-button> 
+                ></md-button>
               </div>
             </div>
           </div>
@@ -140,14 +140,14 @@
     [[/librariesScripts]]
 
     <script>
-      var languageCode = navigator.language || navigator.browserLanguage;
+      var languageCode = (navigator.language || navigator.browserLanguage).split('-')[0];
       languageCode = languages.indexOf(languageCode) > -1 ? languageCode : languages[0];
       document.write('\x3Cscript type="text/javascript" src="/lib/angular-i18n/angular-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/i18n/openveo-portal-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/conf.js">\x3C/script>');
       videojs.options.flash.swf = "/lib/openveo-player/lib/video.js/dist/video-js.swf";
     </script>
-   
+
     [[#scripts]]
     <script type="text/javascript" src="[[.]]"></script>
     [[/scripts]]

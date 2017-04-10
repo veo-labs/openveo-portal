@@ -18,6 +18,7 @@
 - Take CAS user groups into account. CAS user groups didn't have any impact on the available videos. It has now. If a CAS user belongs to a group not listed in "privateFilter" configuration option, he will still be able to access all videos belonging to his groups. To resume, a connected user can access all videos belonging to groups listed in "privateFilter" plus all videos belonging to groups listed in "publicFilter" plus all videos belonging to his CAS groups.
 - Add missing style.css file for default theme
 - Fix requests on localhost/piwik.js with default theme
+- Fix translations on Internet Explorer. Only english translations could be displayed on Internet Explorer even if the browser was in another supported language.
 
 ## DEPENDENCIES
 
