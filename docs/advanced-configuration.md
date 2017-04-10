@@ -79,7 +79,7 @@ Open **~/.openveo/core/serverConf.json**
       "version": "3", // The version of the CAS server
       "service": "https://my-openveo-portal.com", // The service to use to authenticate to the CAS server
       "url": "https://my-cas-server.com:8443/cas", // The url of the CAS server
-      "certificate": "cas.crt" // The absolute path to the CAS server certificate
+      "certificate": "cas.crt" // The absolute path to the CAS server certificate if root CA is not in the Node.JS well known CAs
     }
   }
 }

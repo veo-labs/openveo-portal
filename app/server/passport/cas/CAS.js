@@ -203,8 +203,7 @@ class CAS {
         port: this.port,
         path: `${this.path}${this.validateUri}?service=${service}&ticket=${ticket}`,
         method: 'GET',
-        rejectUnauthorized: process.env.NODE_ENV === 'production',
-        cert: fs.readFileSync(path.normalize(this.certificate))
+        ca: this.certificate && fs.readFileSync(path.normalize(this.certificate))
       };
 
       options.agent = new this.httpClient.Agent(options);

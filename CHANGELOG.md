@@ -14,6 +14,7 @@
 
 - Fix SASS warning when compiling
 - Fix bug when player throw an undefined error
+- Fix CAS certificate issue when root CA is not part of the well known CAs
 
 ## DEPENDENCIES
 
