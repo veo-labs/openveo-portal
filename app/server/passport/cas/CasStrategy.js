@@ -130,6 +130,10 @@ class CasStrategy extends Strategy {
         host: serviceChunks.host,
         pathname: urlChunks.pathname
       }), request.query.ticket).then((user) => {
+        user.groups = (
+          (Object.prototype.toString.call(user.attributes.groups) === '[object Array]') &&
+          user.attributes.groups
+        ) || (user.attributes.groups && [user.attributes.groups]) || [];
         self.success(user);
       }).catch((error) => {
         const message = `Authentication failed with message : "${error.message}"`;

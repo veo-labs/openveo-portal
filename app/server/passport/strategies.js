@@ -8,7 +8,6 @@
  */
 
 const passport = require('passport');
-const conf = process.require('app/server/conf.js');
 
 /**
  * Defines a passport middleware to create a strategy depending on its type.
@@ -59,8 +58,7 @@ module.exports = {
           // Serialize user into passport session. For cas strategy, no user information is stored outside the
           // session, thus the whole user object can be stored into the session.
           passport.serializeUser((user, done) => {
-            const usr = {name: user.name};
-            usr['groups'] = conf.data.privateFilter;
+            const usr = {name: user.name, groups: user.groups};
             done(null, usr);
           });
 

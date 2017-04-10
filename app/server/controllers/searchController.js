@@ -55,15 +55,21 @@ module.exports.searchAction = (request, response, next) => {
     return next(errors.CONF_ERROR);
   }
 
-  // Add public group filter
-  params['groups'] = conf.data.publicFilter;
+  // Add group filter
 
-  // Add visibility group filter
+  // Add public groups
+  params['groups'] = conf.data.publicFilter || [];
+
   if (request.isAuthenticated()) {
 
-    // Add user filter
-    if (request.user['groups'].length)
-      params['groups'] = params['groups'].concat(request.user['groups']);
+    // Add private groups
+    if (conf.data.privateFilter)
+      params['groups'] = params['groups'].concat(conf.data.privateFilter);
+
+    // Add user groups
+    if (request.user.groups.length)
+      params['groups'] = params['groups'].concat(request.user.groups);
+
   }
 
   // Add published states
@@ -160,33 +166,34 @@ module.exports.getVideoAction = (request, response, next) => {
       return;
     }
 
-    const isInPublic = openVeoApi.util.intersectArray(res.entity.metadata.groups, conf.data.publicFilter);
-    const isInPrivate = openVeoApi.util.intersectArray(res.entity.metadata.groups, conf.data.privateFilter);
+    const isInPublicGroups = openVeoApi.util.intersectArray(res.entity.metadata.groups, conf.data.publicFilter).length;
 
-    // return entity if entity is public
-    if (isInPublic.length)
+    if (isInPublicGroups) {
+
+      // Video is public
       response.send(res);
 
-    // if video is private
-    else if (isInPrivate.length) {
+    } else if (!request.isAuthenticated()) {
 
-      // if user is not authentified, send need authent
-      if (!request.isAuthenticated())
-        response.send({needAuth: true});
+      // User is not authenticated
+      // Send need authent
+      response.send({needAuth: true});
 
-      // if user is authentified
-      else {
-        const isAllowed = openVeoApi.util.intersectArray(isInPrivate, request.user.groups);
-
-        // if is allowed return authent else return error
-        if (isAllowed.length) response.send(res);
-        else next(errors.GET_VIDEO_NOT_ALLOWED);
-      }
-
-      // if no group corresponding to an entity
     } else {
-      next(errors.GET_VIDEO_NOT_ALLOWED);
-    }
 
+      // User is authenticated
+      // Find out if video is part of private groups or its groups
+      // If video is part of these groups user is allowed to access the video
+
+      const isInPrivateGroups = openVeoApi.util.intersectArray(
+        res.entity.metadata.groups, conf.data.privateFilter
+      ).length;
+      const isInUserGroups = openVeoApi.util.intersectArray(
+        res.entity.metadata.groups, request.user.groups
+      ).length;
+
+      if (isInPrivateGroups || isInUserGroups) response.send(res);
+      else next(errors.GET_VIDEO_NOT_ALLOWED);
+    }
   });
 };
