@@ -183,7 +183,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     // Ask for cache filter TTL
     (callback) => {
       rl.question('Enter the TTL of cache filter in seconds (default:600) :\n', (answer) => {
-        conf.cache.filterTTL = answer || conf.cache.filterTTL;
+        conf.cache.filterTTL = parseInt(answer || conf.cache.filterTTL);
         callback();
       });
     },
@@ -191,7 +191,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     // Ask for cache video TTL
     (callback) => {
       rl.question('Enter the TTL of cache video in seconds (default:60) :\n', (answer) => {
-        conf.cache.videoTTL = answer || conf.cache.videoTTL;
+        conf.cache.videoTTL = parseInt(answer || conf.cache.videoTTL);
         callback();
       });
     },
@@ -250,7 +250,7 @@ function createDatabaseConf(callback) {
     // Ask for database port
     (callback) => {
       rl.question(`Enter database port (default: ${conf.port}) :\n`, (answer) => {
-        conf.port = answer || conf.port;
+        conf.port = parseInt(answer || conf.port);
         callback();
       });
     },
@@ -422,7 +422,7 @@ function createServerConf(callback) {
     // Ask for HTTP server port
     (callback) => {
       rl.question(`Enter OpenVeo Portal server port (default: ${conf.port}) :\n`, (answer) => {
-        conf.port = answer || conf.port;
+        conf.port = parseInt(answer || conf.port);
         callback();
       });
     },
