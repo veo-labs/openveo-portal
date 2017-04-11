@@ -23,6 +23,7 @@
 - Remove duplicate "&" in iframe share code
 - Remove blue outlines on the player icons
 - Change help link and email contact in default theme which were pointing to a real company
+- Remove hyperlink on share url which was pointing to the actual page
 
 ## DEPENDENCIES
 
