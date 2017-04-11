@@ -13,7 +13,8 @@ module.exports = {
       'processRequire.js',
       'tasks/**/*.js',
       'tests/**/*.js',
-      'app/**/*.js'
+      'app/**/*.js',
+      'assets/themes/**/*.js'
     ]
   }
 
