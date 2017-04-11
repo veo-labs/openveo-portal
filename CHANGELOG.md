@@ -22,6 +22,7 @@
 - Fix translations on Internet Explorer. Only english translations could be displayed on Internet Explorer even if the browser was in another supported language.
 - Remove duplicate "&" in iframe share code
 - Remove blue outlines on the player icons
+- Change help link and email contact in default theme which were pointing to a real company
 
 ## DEPENDENCIES
 

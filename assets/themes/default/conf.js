@@ -3,8 +3,8 @@
 var app = angular.module('ov.configuration', [],
   ['$provide', function($provide) {
     $provide.value('links', {
-      CONTACT: 'mailto:info@company.com',
-      HELP: 'http://help.company.com'
+      CONTACT: 'mailto:info@company.local',
+      HELP: 'http://help.company.local'
     });
   }]
 );
