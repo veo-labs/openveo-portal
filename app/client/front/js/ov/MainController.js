@@ -117,7 +117,7 @@
           $mdDialog.show($scope.dialog).finally(function() {
             $scope.context.keepContext = true;
             $location.path(urlContext, false).search(searchContext);
-          });
+          }).catch(angular.noop);
 
           // user not authentified
         } else if (result.data.needAuth) {
@@ -164,10 +164,10 @@
       restrict: 'A',
       link: function(scope, element, attrs) {
         attrs.$observe('ngSrc', function(ngSrc) {
-          $http.get(ngSrc).success(function() {
+          $http.get(ngSrc).then(function() {
 
             // do nothing
-          }).error(function() {
+          }).catch(function() {
             element.attr('src', '/themes/' + scope.theme + '/images/placeholder.jpg'); // set default image
           });
         });

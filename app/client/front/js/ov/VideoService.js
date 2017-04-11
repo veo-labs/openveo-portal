@@ -18,7 +18,7 @@
      */
     function increaseVideoView(id, expires) {
       if ($cookies.get(id) || !expires) return;
-      return $http.post(basePath + 'statistics/video/views/' + id).success(function() {
+      return $http.post(basePath + 'statistics/video/views/' + id).then(function() {
         var now = new Date();
         var dateExpires = new Date(now.getTime() + expires);
         $cookies.put(id, true, {expires: dateExpires});

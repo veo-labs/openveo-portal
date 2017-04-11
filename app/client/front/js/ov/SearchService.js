@@ -22,8 +22,9 @@
      */
     function loadVideo(id) {
       if (!videosCache[id] || videosCache[id].needAuth) {
-        return $http.get(basePath + 'getvideo/' + id).success(function(obj) {
-          videosCache[id] = obj.entity;
+        return $http.get(basePath + 'getvideo/' + id).then(function(response) {
+          videosCache[id] = response.data.entity;
+          return response;
         });
       }
       return $q.when({
@@ -37,8 +38,9 @@
      */
     function getFilters() {
       if (!filters || !Object.keys(filters).length) {
-        return $http.get(basePath + 'filters').success(function(obj) {
-          filters = obj;
+        return $http.get(basePath + 'filters').then(function(response) {
+          filters = response.data;
+          return response;
         });
       }
 
@@ -52,8 +54,9 @@
      */
     function getCategories() {
       if (!categories || !Object.keys(categories).length) {
-        return $http.get(basePath + 'categories').success(function(obj) {
-          categories = obj;
+        return $http.get(basePath + 'categories').then(function(response) {
+          categories = response.data;
+          return response;
         });
       }
 
@@ -92,8 +95,9 @@
             limit: 6
           }
         };
-        return $http.post(basePath + 'search', params).success(function(obj) {
-          homeVideos = obj;
+        return $http.post(basePath + 'search', params).then(function(response) {
+          homeVideos = response.data;
+          return response;
         });
       }
 

@@ -9,7 +9,7 @@
     var canceller = $q.defer();
 
     $scope.videos = result.data.entities || [];
-    $scope.filters = filters.data || {};
+    $scope.filters = filters.data || [];
     $scope.pagination = angular.extend($scope.pagination ? $scope.pagination : {}, result.data.pagination);
     $scope.showAdvancedSearch = false;
     $scope.isLoading = false;

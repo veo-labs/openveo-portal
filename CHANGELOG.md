@@ -3,6 +3,7 @@
 ## NEW FEATURES
 
 - Improve search engine when searching by text
+- Upgrade to AngularJS 1.6.4
 
 ## BREAKING CHANGES
 
