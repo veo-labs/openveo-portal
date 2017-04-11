@@ -52,8 +52,7 @@ ehthumbs.db
 
 # Themes not default
 /assets/themes/*
-!/assets/themes/default/*
-
+!/assets/themes/default
 
 # Temporary directory for video packages
 /tmp

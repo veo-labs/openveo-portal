@@ -38,7 +38,7 @@ nbproject/
 /assets/js/*
 /assets/css/*
 /assets/themes/*
-!/assets/themes/default/*
+!/assets/themes/default
 
 # Documentation
 /site
