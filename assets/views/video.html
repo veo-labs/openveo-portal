@@ -70,8 +70,7 @@
         <span>: {{categoryName}}</span>
       </div>
     </md-content>
-
-    <p>{{video.description}}</p>
+    <div class="description" ng-if="video.description && video.description!=''" ng-bind-html="trustedHTML(video.description)"></div>
 
   </div>
 </md-content>

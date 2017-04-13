@@ -10,7 +10,7 @@
    * @param {type} $location
    * @returns {VideoController_L3.VideoController}
    */
-  function VideoController($scope, $locale, $timeout, $location, $analytics, videoService, searchService) {
+  function VideoController($scope, $locale, $timeout, $location, $analytics, videoService, searchService, $sce) {
     searchService.getCategoryName($scope.video.category).then(function(val) {
       $scope.categoryName = val;
     });
@@ -39,6 +39,7 @@
           $scope.shareOpen = !$scope.shareOpen;
         }}
     ];
+
     var myPlayer = document.getElementById('openveo-player');
     var playerController;
     var videoDuration;
@@ -92,6 +93,10 @@
         $scope.shareOpen = false;
       }
     });
+
+    $scope.trustedHTML = function(string) {
+      return $sce.trustAsHtml(string);
+    };
   }
 
   app.controller('VideoController', VideoController);
@@ -102,7 +107,8 @@
     '$location',
     '$analytics',
     'videoService',
-    'searchService'
+    'searchService',
+    '$sce'
   ];
 
 })(angular.module('ov.portal'));
