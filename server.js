@@ -37,7 +37,7 @@ try {
   loggerConf = require(processOptions.loggerConf || loggerConfPath);
   serverConf = require(processOptions.serverConf || serverConfPath);
   databaseConf = require(processOptions.databaseConf || databaseConfPath);
-  webservicesConf = require(processOptions.webservicesConfPath || webservicesConfPath);
+  webservicesConf = require(processOptions.webservicesConf || webservicesConfPath);
   conf.data = require(processOptions.conf || confPath);
 } catch (error) {
   throw new Error(`Invalid configuration file : ${error.message}`);
