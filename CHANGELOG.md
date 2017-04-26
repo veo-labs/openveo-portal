@@ -44,6 +44,7 @@
 - **grunt-eslint** has been updated from 18.1.0 to **19.0.0**
 - **grunt-mkdocs** has been updated from 0.1.3 to **0.2.0**
 - **grunt-mocha-test** has been updated from 0.12.7 to **0.13.2**
+- **grunt-protractor-runner** has been updated from 4.0.0 to **5.0.0**
 - **mocha** has been updated from 2.4.5 to **3.2.0**
 - **nodemon** has been updated from 1.9.2 to **1.11.0**
 - **pre-commit** has been updated from 1.1.2 to **1.2.2**
