@@ -15,7 +15,7 @@ class GlobalPage extends Page {
     this.connexionButtonElement = element(by.css('a.log-in'));
     this.homeMenuElement = element(by.css('md-tab-item[aria-controls=tab-content-0]'));
     this.searchMenuElement = element(by.css('md-tab-item[aria-controls=tab-content-1]'));
-    this.activeItemElement = element(by.className('md-active')).element(by.css('span'));
+    this.activeItemElement = element(by.className('md-active'));
 
     this.dialogElement = element(by.css('.dialog-video'));
     this.speedDialElement = this.dialogElement.element(by.css('md-fab-speed-dial'));
