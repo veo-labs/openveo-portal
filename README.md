@@ -4,7 +4,7 @@ OpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicati
 
 It aims to offer a portal to access medias exposed by an [OpenVeo](https://github.com/veo-labs/openveo-core) server associated to an [OpenVeo Publish](https://github.com/veo-labs/openveo-publish) plugin.
 
-It includes the following features :
+It includes the following features:
 
 - An home page to present the most seen medias
 - A search engine
@@ -18,7 +18,7 @@ Documentation is available on [Github pages](http://veo-labs.github.io/openveo-p
 
 # Contributors
 
-Maintainer : [Veo-Labs](http://www.veo-labs.com/)
+Maintainer: [Veo-Labs](http://www.veo-labs.com/)
 
 # License
 

@@ -4,7 +4,7 @@ Some project's development configuration is made in **conf.json** file.
 
 # Load JavaScript files
 
-The list of JavaScript files to load are defined in **conf.json** :
+The list of JavaScript files to load are defined in **conf.json**:
 
 ```js
 {
@@ -32,7 +32,7 @@ The list of JavaScript files to load are defined in **conf.json** :
 
 # Load CSS files
 
-The list of CSS files to load are defined in **conf.json** :
+The list of CSS files to load are defined in **conf.json**:
 
 ```js
 {

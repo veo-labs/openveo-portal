@@ -33,7 +33,7 @@ Open **~/.openveo/portal/conf.json**
     "filterTTL": 600, // Time (in seconds) to keep the list of categories and custom properties' values in cache
     "videoTTL": 60 // Time (in seconds) to keep information about a video in cache
   },
-  "useDialog": true // Set if UI open videos in a dialog popin, if false user will open video by navigate to URL
+  "useDialog": true // true to open videos in a dialog, false to open videos in a new page
 }
 ```
 
@@ -79,7 +79,7 @@ Open **~/.openveo/core/serverConf.json**
       "version": "3", // The version of the CAS server
       "service": "https://my-openveo-portal.com", // The service to use to authenticate to the CAS server
       "url": "https://my-cas-server.com:8443/cas", // The url of the CAS server
-      "certificate": "cas.crt" // The absolute path to the CAS server certificate if root CA is not in the Node.JS well known CAs
+      "certificate": "cas.crt" // The absolute path of the CAS server certificate if root CA is not in the Node.JS well known CAs
     }
   }
 }
@@ -94,6 +94,6 @@ Open **~/.openveo/portal/webservicesConf.json**
  "path": "https://www.my-openveo-ws.com", // Complete path to the web service (including port if necessary)
  "clientID": "65d6247f0293049523d6a5e2efdf49ac07b51600", // OpenVeo Portal id
  "secretID": "8a7b0d43a631b52cf15e89eba7a65f274ccc7f73", // OpenVeo Portal secret
- "certificate": "server.crt" // The absolute path to the OpenVeo Web Service certificate if root CA is not in the system well known CAs
+ "certificate": "server.crt" // The absolute path of the OpenVeo Web Service certificate if root CA is not in the system well known CAs
 }
 ```

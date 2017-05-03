@@ -4,7 +4,7 @@ All server logs are performed by module [Winston](https://github.com/winstonjs/w
 
 # Use OpenVeo Portal logger
 
-By default OpenVeo Portal creates one logger named **portal**. You can use this logger using the following code :
+By default OpenVeo Portal creates one logger named **portal**. You can use this logger using the following code:
 
 ```javascript
 process.logger.silly('Silly log');

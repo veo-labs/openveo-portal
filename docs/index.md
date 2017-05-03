@@ -1,10 +1,10 @@
-# What's OpenVeo Portal ?
+# What's OpenVeo Portal?
 
 OpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicative server based on [Express framework](http://expressjs.com/).
 
 It aims to offer a portal to access medias exposed by an [OpenVeo](https://github.com/veo-labs/openveo-core) server associated to an [OpenVeo Publish](https://github.com/veo-labs/openveo-publish) plugin.
 
-It includes the following features :
+It includes the following features:
 
 - An home page to present the most seen medias
 - A search engine
@@ -14,13 +14,13 @@ It includes the following features :
 
 ## Compatibility
 
-OpenVeo Portal has been tested on the following operating systems :
+OpenVeo Portal has been tested on the following operating systems:
 
 - Windows 10
 - Ubuntu 16.04
 - Xubuntu 16.04
 
-OpenVeo has been tested on the following  :
+OpenVeo has been tested on the following:
 
 - Google Chrome 54
 - Mozilla Firefox 47

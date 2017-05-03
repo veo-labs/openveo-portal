@@ -10,6 +10,8 @@ You need to have a running OpenVeo Web Service server before starting tests.
 
     node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update
 
+NB: Note that protractor module could be in node_modules/protractor
+
 # Configure tests
 
 When launching tests, an OpenVeo Portal server is automatically spawned and must be configured through **serverTestConf.json**. Typically you may want to change the server port.
@@ -73,7 +75,7 @@ The logger has to be configured through **loggerTestConf.json**. Typically you m
 
 **console: false** will deactivate standard output.
 
-Finally the Web Service has to be configured through **webservicesTestConf.json**. Typically you may want to have a different client or a different server.
+Finally the Web Service has to be configured through **webservicesTestConf.json**. Typically you may want to have a different server.
 
 ```json
 {
