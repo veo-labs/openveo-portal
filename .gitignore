@@ -11,14 +11,12 @@ Icon?
 # Windows
 Thumbs.db
 Desktop.ini
-
-# Windows XP
 ehthumbs.db
 
-# Project npm dependencies
+# NPM dependencies
 /node_modules
 
-# Bower libraries
+# Bower dependencies
 /assets/lib
 
 # IDE
@@ -30,18 +28,16 @@ nbproject/
 
 # Build
 /build
-
-# Sass
-.sass-cache
-
-# Compiled file
 /assets/js/*
 /assets/css/*
 /assets/themes/*
 !/assets/themes/default
 
+# Sass
+.sass-cache
+
 # Documentation
 /site
-/.grunt
 
-# Themes Files
+# Grunt
+/.grunt

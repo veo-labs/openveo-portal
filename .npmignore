@@ -10,24 +10,22 @@ Icon?
 # Windows
 Thumbs.db
 Desktop.ini
-
-# Windows XP
 ehthumbs.db
 
 # Logs
 *.log
-/logs
 
-# Project npm dependencies
+# NPM dependencies
 /node_modules
 
-# Bower libraries
+# Bower dependencies
 /assets/lib
 
 # IDE
 /nbproject
+.idea/
 
-# Deliver
+# Build
 /build
 
 # Sass
@@ -43,12 +41,12 @@ ehthumbs.db
 # Documentation
 /docs
 /site
-/.grunt
 /mkdocs.yml
 
 # Grunt files
 /Gruntfile.js
 /tasks
+/.grunt
 
 # Themes not default
 /assets/themes/*
