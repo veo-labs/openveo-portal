@@ -296,7 +296,7 @@ function createLoggerConf(callback) {
   const confFile = path.join(confDir, 'loggerConf.json');
   const conf = {
     level: 'info',
-    maxFileSize: 10485760,
+    maxFileSize: 104857600,
     maxFiles: 2
   };
 

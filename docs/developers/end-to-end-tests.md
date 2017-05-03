@@ -64,7 +64,7 @@ The logger has to be configured through **loggerTestConf.json**. Typically you m
 ```json
 {
   "level": "info",
-  "maxFileSize": 1048576,
+  "maxFileSize": 104857600,
   "maxFiles": 2,
   "fileName": "/tmp/openveo-portal-test.log",
   "console": false
