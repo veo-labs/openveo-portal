@@ -1,8 +1,9 @@
 # Clone project from git
 
+    cd /WORKSPACE_PATH/
     git clone git@github.com:veo-labs/openveo-portal.git
 
 # Install OpenVeo Portal
 
-    cd openveo-portal
+    cd /WORKSPACE_PATH/openveo-portal
     npm install
