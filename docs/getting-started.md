@@ -6,7 +6,7 @@ Openveo Portal interacts with a Web Service exposed by an [OpenVeo](https://gith
 
 Actually OpenVeo Portal can be downloaded directly from [github](https://github.com/veo-labs/openveo-portal):
 
-- Select the tag you want to download (**from version >=2.0.0**)
+- Select the tag you want to download (**from version >=2.0.1**)
 - Then download the associated archive
 - Deploy the archive on your server
 

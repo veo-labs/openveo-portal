@@ -1,3 +1,9 @@
+# 2.0.1 /
+
+## BUG FIXES
+
+- Add missing files to versions. Compiled files were not included into tags.
+
 # 2.0.0 / 2017-05-04
 
 ## NEW FEATURES
