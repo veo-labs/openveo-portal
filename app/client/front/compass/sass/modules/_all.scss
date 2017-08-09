@@ -9,9 +9,10 @@
 @import "home";
 @import "menu";
 
-md-toolbar.navbar-background{
+md-toolbar.navbar-background {
   min-height: auto;
-  md-pagination-wrapper{
+
+  md-pagination-wrapper {
     margin: inherit;
   }
 }
@@ -20,13 +21,14 @@ md-toolbar.navbar-background{
   font-size: 16px;
 }
 
-footer{
-  z-index:50;
+footer {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
   margin-top: 25px;
-  position:fixed;
-  width:100%;
-  bottom:0;
-  md-toolbar{
+  bottom: 0;
+
+  md-toolbar {
     background: #FAFAFA;
   }
 
@@ -34,31 +36,33 @@ footer{
     height: 40px;
   }
 }
-header{
-  @include mobile(){
-    z-index:50;
-    background-color: white;
-    position:fixed;
-    top:0;
-    width:100%;
+
+header {
+  @include mobile() {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
   }
 }
-.footer-spacing{
-  height:64px;
-  margin-top:25px;
+
+.footer-spacing {
+  height: 64px;
+  margin-top: 25px;
 }
 
-.header-spacing{
+.header-spacing {
   height: 160px;
 }
 
-.text-button{
+.text-button {
   padding: 0 25px;
 }
 
-md-divider{
+md-divider {
   &.ng-hide-add, &.ng-hide-remove {
-  @include transition(opacity 0.45s ease 0s);
+    @include transition(opacity 0.45s ease 0s);
   }
 
   &.ng-hide-add {
@@ -79,15 +83,15 @@ md-divider{
 
 }
 
-.reverse{
+.reverse {
   transform: scale(1, -1);
 }
 
-md-input-container .md-errors-spacer{
-  min-height:auto;
+md-input-container .md-errors-spacer {
+  min-height: auto;
 }
 
-md-ink-bar{
+md-ink-bar {
   height: 3px;
 }
 
@@ -97,28 +101,28 @@ md-option {
   }
 }
 
-.text-center{
-  text-align:center;
+.text-center {
+  text-align: center;
 }
-.text-left{
-  text-align:left;
-}
-
-.zero{
-  z-index:1;
+.text-left {
+  text-align: left;
 }
 
-.margin{
-  @include mobile(){
-    margin:7px 0 0 0 ;
+.zero {
+  z-index: 1;
+}
+
+.margin {
+  @include mobile() {
+    margin: 7px 0 0 0;
   }
-  @include tablet(){
-    margin:7px 0 0 0 ;
+  @include tablet() {
+    margin: 7px 0 0 0;
   }
-  @include desktop(){
-    margin:15px 0 0 0 ;
+  @include desktop() {
+    margin: 15px 0 0 0;
   }
-  @include wide(){
-    margin:15px 0 0 0 ;
+  @include wide() {
+    margin: 15px 0 0 0;
   }
 }

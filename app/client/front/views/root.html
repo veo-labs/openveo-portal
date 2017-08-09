@@ -21,90 +21,113 @@
   </head>
 
   <body ng-cloak>
-    <header ng-if="!isIframe" >
+    <header ng-if="!isIframe">
+
+      <!-- Header -->
       <div class="container">
         <div layout="row" layout-align="space-between center" layout-padding>
-          <a id='logo' ng-href="/" aria-label="{{'MENU.HOME'|translate}}">
+          <a id="logo" ng-href="/" aria-label="{{'MENU.HOME'|translate}}">
             <img ng-src="/themes/{{theme}}/images/logo.png">
           </a>
           [[#user]]
           <div layout="row" hide-xs layout-align="end center">
-            <label><span ng-bind="'UI.HELLO'|translate"></span> [[user]]</label>
-            <md-button  class='md-raised md-primary text-button'
-                       href="/logout" target="_self"
-                       aria-label="{{'UI.LOGOUT'|translate}}"
-                       ng-bind="'UI.LOGOUT'|translate"
-                       analytics-on='click' analytics-event="Logout"
-                       ></md-button>
+            <label>
+              <span ng-bind="'UI.HELLO' | translate"></span> [[user]]
+            </label>
+            <md-button class="md-raised md-primary text-button"
+                       href="/logout"
+                       target="_self"
+                       aria-label="{{'UI.LOGOUT' | translate}}"
+                       ng-bind="'UI.LOGOUT' | translate"
+                       analytics-on="click"
+                       analytics-event="Logout">
+            </md-button>
           </div>
           [[/user]]
           [[^user]]
-          <md-button hide-xs class='md-raised md-primary text-button log-in'
-                     href="/authenticate" target="_self"
-                     aria-label="{{'UI.LOGIN'|translate}}"
-                     ng-bind="'UI.LOGIN'|translate"
-                     analytics-on='click' analytics-event="Login"
-                     ></md-button>
+          <md-button hide-xs class="md-raised md-primary text-button log-in"
+                     href="/authenticate"
+                     target="_self"
+                     aria-label="{{'UI.LOGIN' | translate}}"
+                     ng-bind="'UI.LOGIN' | translate"
+                     analytics-on="click"
+                     analytics-event="Login">
+          </md-button>
           [[/user]]
         </div>
       </div>
 
+      <!-- Menu -->
       <div layout="column" layout-fill>
         <md-toolbar md-theme="inverse" class="navbar-background" hide-xs>
-        <md-tabs md-theme="inverse" class="md-primary container navbar" md-selected="page.selectedTab" md-autoselect='false'>
-          <md-tab id="tab1"
-            md-active="page.path == '/'"
-            md-on-select="onTabSelected('/')"
-            aria-label="{{'MENU.HOME'|translate}}">
-            <md-tab-label>{{'MENU.HOME'|translate}}</md-tab-label>
-          </md-tab>
-          <md-tab id="tab2"
-            md-active="page.path == '/search'"
-            md-on-select="onTabSelected('/search')"
-            aria-label="{{'MENU.ALL_VIDEOS'|translate}}">
-            <md-tab-label>{{'MENU.ALL_VIDEOS'|translate}}</md-tab-label>
-          </md-tab>
-        </md-tabs>
+          <md-tabs md-theme="inverse" class="md-primary container navbar" md-selected="page.selectedTab" md-autoselect="false">
+            <md-tab id="tab1"
+                    md-active="page.path == '/'"
+                    md-on-select="onTabSelected('/')"
+                    aria-label="{{'MENU.HOME' | translate}}">
+              <md-tab-label>{{'MENU.HOME'|translate}}</md-tab-label>
+            </md-tab>
+            <md-tab id="tab2"
+                    md-active="page.path == '/search'"
+                    md-on-select="onTabSelected('/search')"
+                    aria-label="{{'MENU.ALL_VIDEOS' | translate}}">
+              <md-tab-label>{{'MENU.ALL_VIDEOS'|translate}}</md-tab-label>
+            </md-tab>
+          </md-tabs>
         </md-toolbar>
 
         <md-toolbar md-theme="inverse" hide-gt-xs>
           <div class="md-toolbar-tools">
             <md-menu>
-            <!-- Trigger element is a md-button with an icon -->
+              <!-- Trigger element is a md-button with an icon -->
               <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
                 <md-icon material-icons md-light md-48>menu</md-icon>
               </md-button>
               <md-menu-content width="12">
-                <md-menu-item><md-button ng-href="/"
-                                        aria-label="{{'MENU.HOME'|translate}}"
-                                        ng-bind="'MENU.HOME'|translate"
-                                        class="menu-item"></md-button></md-menu-item>
-                <md-menu-item><md-button ng-href="/search"
-                                        aria-label="{{'MENU.ALL_VIDEOS'|translate}}"
-                                        ng-bind="'MENU.ALL_VIDEOS'|translate"
-                                        class="menu-item"></md-button></md-menu-item>
+                <md-menu-item>
+                  <md-button ng-href="/"
+                             aria-label="{{'MENU.HOME' | translate}}"
+                             ng-bind="'MENU.HOME' | translate"
+                             class="menu-item">
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-href="/search"
+                             aria-label="{{'MENU.ALL_VIDEOS' | translate}}"
+                             ng-bind="'MENU.ALL_VIDEOS' | translate"
+                             class="menu-item">
+                  </md-button>
+                </md-menu-item>
               </md-menu-content>
             </md-menu>
+
             <span flex></span>
-           [[#user]]
-          <div layout="row" layout-align="end center">
-            <label class="md-caption" ><span ng-bind="'UI.HELLO'|translate"></span> [[user]]</label>
-            <md-button class ='md-raised md-accent text-button'
-                       href="/logout" target="_self"
-                       aria-label="{{'UI.LOGOUT'|translate}}"
-                       ng-bind="'UI.LOGOUT'|translate"
-                       analytics-on='click' analytics-event="Logout"
-                       ></md-button>
-          </div>
-          [[/user]]
-          [[^user]]
-          <md-button class='md-raised md-accent text-button log-in-mobile'
-                     href="/authenticate" target="_self"
-                     aria-label="{{'UI.LOGIN'|translate}}"
-                     ng-bind="'UI.LOGIN'|translate"
-                     analytics-on='click' analytics-event="Login"
-                     ></md-button>
-          [[/user]]
+
+            [[#user]]
+            <div layout="row" layout-align="end center">
+              <label class="md-caption" >
+                <span ng-bind="'UI.HELLO'|translate"></span> [[user]]
+              </label>
+              <md-button class="md-raised md-accent text-button"
+                         href="/logout"
+                         target="_self"
+                         aria-label="{{'UI.LOGOUT' | translate}}"
+                         ng-bind="'UI.LOGOUT' | translate"
+                         analytics-on="click"
+                         analytics-event="Logout">
+              </md-button>
+            </div>
+            [[/user]]
+            [[^user]]
+            <md-button class="md-raised md-accent text-button log-in-mobile"
+                       href="/authenticate"
+                       target="_self"
+                       aria-label="{{'UI.LOGIN' | translate}}"
+                       ng-bind="'UI.LOGIN' | translate"
+                       analytics-on="click"
+                       analytics-event="Login">
+            </md-button>
+            [[/user]]
           </div>
         </md-toolbar>
       </div>
@@ -112,6 +135,7 @@
 
     <div ng-if="!isIframe" show-xs hide-gt-xs class="header-spacing"></div>
 
+    <!-- Page content -->
     <div ng-class="{container: !isIframe}">
       <div layout="column" layout-margin class="zero">
         <div ng-view ng-cloak></div>
@@ -119,22 +143,24 @@
     </div>
     <div ng-if="!isIframe && links" class="footer-spacing"></div>
 
+    <!-- Footer -->
     <footer md-theme="inverse" ng-if="!isIframe && links" class="footer">
-        <md-toolbar>
-          <div class="md-toolbar-tools">
-            <div class='container'>
-              <div layout="row" layout-align="center center">
-                <md-button
-                ng-repeat="(key, value) in links"
-                ng-href="{{value}}" target="_blank"
-                aria-label="{{'LINKS.'+key|translate}}"
-                ng-bind="'LINKS.'+ key|translate"
-                analytics-on='click' analytics-event="{{key}}"
-                ></md-button>
-              </div>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <div class="container">
+            <div layout="row" layout-align="center center">
+              <md-button ng-repeat="(key, value) in links"
+                         ng-href="{{value}}"
+                         target="_blank"
+                         aria-label="{{'LINKS.'+key | translate}}"
+                         ng-bind="'LINKS.'+ key | translate"
+                         analytics-on="click"
+                         analytics-event="{{key}}">
+              </md-button>
             </div>
           </div>
-        </md-toolbar>
+        </div>
+      </md-toolbar>
     </footer>
 
     [[#librariesScripts]]

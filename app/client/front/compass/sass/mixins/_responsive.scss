@@ -1,28 +1,27 @@
 // specific css for mobile mode
 @mixin mobile (){
-	@include mq($until: mobile){
-		@content;
-	}
+  @include mq($until: mobile){
+    @content;
+  }
 }
-
 
 // specific css for tablet mode
 @mixin tablet (){
-	@include mq(mobile, tablet){
-		@content;
-	}
+  @include mq(mobile, tablet){
+    @content;
+  }
 }
 
 // specific css for desktop mode
 @mixin desktop () {
-   @include mq(tablet, desktop){
-		@content;
-	}
+ @include mq(tablet, desktop){
+    @content;
+  }
 }
 
 // specific css for desktop mode
 @mixin wide () {
-   @include mq($from: desktop){
-		@content;
-	}
+ @include mq($from: desktop){
+    @content;
+  }
 }

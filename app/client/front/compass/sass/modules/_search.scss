@@ -1,7 +1,8 @@
-.collapse{
-  overflow:hidden;
+.collapse {
+  overflow: hidden;
+
   &.ng-hide-add, &.ng-hide-remove {
-  @include transition(all 0.45s ease 0s);
+    @include transition(all 0.45s ease 0s);
   }
 
   &.ng-hide-add {

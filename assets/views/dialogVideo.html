@@ -1,15 +1,15 @@
-<md-dialog class="dialog-video" ng-class="{'md-dialog-fullscreen':dialogIsFull}" aria-label="{{video.title}}">
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2 ng-bind="video.title"></h2>
-        <span flex></span>
-        <md-button class="md-icon-button" ng-click="cancel()">
-          <md-tooltip md-direction="left">{{'UI.CLOSE' | translate}}</md-tooltip>
-          <md-icon material-icons md-light md-48>close</md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
-    <md-dialog-content class="dialog-container">
-      <ng-include src="'views/video.html'"></ng-include>
-    </md-dialog-content>
+<md-dialog class="dialog-video" ng-class="{'md-dialog-fullscreen' : dialogIsFull}" aria-label="{{video.title}}">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 ng-bind="video.title"></h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-tooltip md-direction="left">{{'UI.CLOSE' | translate}}</md-tooltip>
+        <md-icon material-icons md-light md-48>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content class="dialog-container">
+    <ng-include src="'views/video.html'"></ng-include>
+  </md-dialog-content>
 </md-dialog>

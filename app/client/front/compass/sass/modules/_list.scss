@@ -1,50 +1,52 @@
-md-pagination-wrapper{
+md-pagination-wrapper {
   position: relative;
   margin: auto;
 }
-md-grid-list{
 
-  md-grid-tile{
+md-grid-list {
+
+  md-grid-tile {
     @include transition(all 0.45s ease-out 0s, box-shadow 0.1s ease-out 0s);
     overflow: hidden;
-    cursor:pointer;
+    cursor: pointer;
 
-    .play{
-      @include transition(all 0.1s ease-out 0s);
-      font-size: 48px;
-
+    .play {
       position: absolute;
+      top: 0;
       display: inline-flex;
-
-      text-align: center;
       height: 100%;
       width: 100%;
-      top: 0;
-      background-color: rgba(0,0,0,0);
+      font-size: 48px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0);
+      @include transition(all 0.1s ease-out 0s);
 
-      md-icon{
-        @include transition(opacity 0.1s ease-out 0s);
-        display:block;
-        font-size: 80px;
-        height: 80px;
+      md-icon {
+        opacity: 0;
+        display: block;
         width: 80px;
-        color:white;
-        opacity:0;
+        height: 80px;
+        font-size: 80px;
+        color: white;
+        @include transition(opacity 0.1s ease-out 0s);
       }
     }
-    &:hover{
-      box-shadow: 0px 0px 4px rgba(0,0,0,0.25);
-      .play{
+
+    &:hover {
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+      .play {
         z-index: 1;
-        background-color: rgba(0,0,0,0.2);
-        md-icon{
-          opacity:1;
+        background-color: rgba(0, 0, 0, 0.2);
+
+        md-icon {
+          opacity: 1;
         }
       }
     }
 
-    .details{
-      padding:0 10px;
+    .details {
+      padding: 0 10px;
 
       & > div:first-child {
         overflow: hidden;
@@ -74,16 +76,16 @@ md-grid-list{
     }
 
 
-    .tile-layout{
-      height:100%;
+    .tile-layout {
+      height: 100%;
       width: 100%;
     }
 
-    .thumbnail{
-      width:100%;
+    .thumbnail {
+      position: relative;
       overflow: hidden;
-      position:relative;
       display: block;
+      width: 100%;
       margin-bottom: 7px;
 
       @include mobile() {
@@ -103,20 +105,20 @@ md-grid-list{
       }
     }
 
-    img{
+    img {
       display: block;
-      width:100%;
+      width: 100%;
       top: 0;
     }
 
     md-grid-tile-footer {
+      height: auto;
       padding: 3px 10px 5px 10px;
-      height:auto;
-      color: black;
-      background-color: rgba(255,255,255,.86);
       line-height: 14px;
+      color: black;
+      background-color: rgba(255, 255, 255, .86);
 
-      figcaption{
+      figcaption {
         position: relative;
         width: 100%;
 
