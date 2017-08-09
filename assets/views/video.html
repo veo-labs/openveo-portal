@@ -1,4 +1,4 @@
-<md-content ng-controller="VideoController as vctl">
+<md-content ng-controller="VideoController as vctl" class="video">
 
   <div class="player-container" ng-class="{'md-dialog-content': !dialogIsFull}">
     <ov-player
@@ -55,17 +55,17 @@
     </md-content>
 
     <md-content layout-margin class="collapse" layout='row' layout-align="left center">
-      <div ng-show="video.title" layout='row' layout-align="center center"> 
+      <div ng-show="video.title" layout='row' layout-align="center center">
         <md-tooltip md-direction="bottom">{{'UI.TITLE' | translate}}</md-tooltip>
         <md-icon layout-margin flex material-icons md-light md-32>title</md-icon>
-        <span>{{video.title}}</span>
+        <span class="title">{{video.title}}</span>
       </div>
-      <div ng-show="video.speaker" layout='row' layout-align="center center"> 
+      <div ng-show="video.speaker" layout='row' layout-align="center center">
         <md-tooltip md-direction="bottom">{{'SEARCH.NAME_FILTER' | translate}}</md-tooltip>
         <md-icon layout-margin flex material-icons md-light md-32>record_voice_over</md-icon>
         <span>{{video.speaker}}</span>
       </div>
-      <div ng-show="video.category" layout='row' layout-align="center center"> 
+      <div ng-show="video.category" layout='row' layout-align="center center">
         <span flex layout-margin ng-bind="'SEARCH.CATEGORY_FILTER' | translate"></span>
         <span>: {{categoryName}}</span>
       </div>

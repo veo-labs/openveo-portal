@@ -7,12 +7,17 @@
 @import "player";
 @import "search";
 @import "home";
+@import "menu";
 
 md-toolbar.navbar-background{
   min-height: auto;
   md-pagination-wrapper{
     margin: inherit;
   }
+}
+
+.md-toolbar-tools {
+  font-size: 16px;
 }
 
 footer{
@@ -23,6 +28,10 @@ footer{
   bottom:0;
   md-toolbar{
     background: #FAFAFA;
+  }
+
+  .md-toolbar-tools {
+    height: 40px;
   }
 }
 header{
@@ -40,7 +49,7 @@ header{
 }
 
 .header-spacing{
-  height:112px;
+  height: 160px;
 }
 
 .text-button{
@@ -51,7 +60,7 @@ md-divider{
   &.ng-hide-add, &.ng-hide-remove {
   @include transition(opacity 0.45s ease 0s);
   }
-  
+
   &.ng-hide-add {
     opacity: 1;
   }
@@ -82,6 +91,12 @@ md-ink-bar{
   height: 3px;
 }
 
+md-option {
+  .md-text {
+    font-size: 14px;
+  }
+}
+
 .text-center{
   text-align:center;
 }
@@ -93,7 +108,7 @@ md-ink-bar{
   z-index:1;
 }
 
-.marge{
+.margin{
   @include mobile(){
     margin:7px 0 0 0 ;
   }

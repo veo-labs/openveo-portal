@@ -3,7 +3,7 @@
   &.ng-hide-add, &.ng-hide-remove {
   @include transition(all 0.45s ease 0s);
   }
-  
+
   &.ng-hide-add {
     max-height: 500px;
     opacity: 1;
@@ -30,7 +30,16 @@
 
 }
 
-md-toolbar.advanced-search{
-  cursor:pointer;
-  outline: none;
+.search {
+
+  .md-toolbar-tools {
+    height: 40px;
+  }
+
+  .advanced-search {
+    min-height: 40px;
+    cursor: pointer;
+    outline: none;
+  }
+
 }

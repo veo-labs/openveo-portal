@@ -92,7 +92,7 @@
           },
           pagination: {
             page: 0,
-            limit: 6
+            limit: 9
           }
         };
         return $http.post(basePath + 'search', params).then(function(response) {

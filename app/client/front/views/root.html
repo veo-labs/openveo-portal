@@ -77,10 +77,12 @@
               <md-menu-content width="12">
                 <md-menu-item><md-button ng-href="/"
                                         aria-label="{{'MENU.HOME'|translate}}"
-                                        ng-bind="'MENU.HOME'|translate"></md-button></md-menu-item>
+                                        ng-bind="'MENU.HOME'|translate"
+                                        class="menu-item"></md-button></md-menu-item>
                 <md-menu-item><md-button ng-href="/search"
                                         aria-label="{{'MENU.ALL_VIDEOS'|translate}}"
-                                        ng-bind="'MENU.ALL_VIDEOS'|translate"></md-button></md-menu-item>
+                                        ng-bind="'MENU.ALL_VIDEOS'|translate"
+                                        class="menu-item"></md-button></md-menu-item>
               </md-menu-content>
             </md-menu>
             <span flex></span>
@@ -110,8 +112,8 @@
 
     <div ng-if="!isIframe" show-xs hide-gt-xs class="header-spacing"></div>
 
-    <div layout="column" class="zero">
-      <div ng-class="{container: !isIframe}">
+    <div ng-class="{container: !isIframe}">
+      <div layout="column" layout-margin class="zero">
         <div ng-view ng-cloak></div>
       </div>
     </div>

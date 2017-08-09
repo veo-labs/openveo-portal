@@ -3,6 +3,7 @@
 ## NEW FEATURES
 
 - Video title has been removed from the shared page
+- The aspect of the whole display is now smaller and 4 columns of videos are now displayed instead of 3
 
 ## DEPENDENCIES
 

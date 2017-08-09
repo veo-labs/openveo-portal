@@ -36,8 +36,29 @@ md-dialog.dialog-video{
     /*display:none;*/
   }
 
+  .md-toolbar-tools {
+    overflow: hidden;
+    max-height: 45px;
+    height: 45px;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+
+    h2 {
+      width: 100%;
+      line-height: 40px;
+    }
+  }
+
 }
 
 .player-container :focus {
   outline: none;
+}
+
+.video-info {
+  .title {
+    width: 100%;
+    padding-left: 24px;
+  }
 }

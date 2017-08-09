@@ -3,7 +3,7 @@ md-pagination-wrapper{
   margin: auto;
 }
 md-grid-list{
-  
+
   md-grid-tile{
     @include transition(all 0.45s ease-out 0s, box-shadow 0.1s ease-out 0s);
     overflow: hidden;
@@ -12,7 +12,7 @@ md-grid-list{
     .play{
       @include transition(all 0.1s ease-out 0s);
       font-size: 48px;
-      
+
       position: absolute;
       display: inline-flex;
 
@@ -25,18 +25,11 @@ md-grid-list{
       md-icon{
         @include transition(opacity 0.1s ease-out 0s);
         display:block;
-        font-size: 120px;
-        height:120px;
-
-        width:120px;
+        font-size: 80px;
+        height: 80px;
+        width: 80px;
         color:white;
         opacity:0;
-        @include tablet(){
-          font-size: 100px;
-          height:100px;
-
-          width:100px;
-        }
       }
     }
     &:hover{
@@ -52,6 +45,32 @@ md-grid-list{
 
     .details{
       padding:0 10px;
+
+      & > div:first-child {
+        overflow: hidden;
+        line-height: 13px;
+
+        @include mobile() {
+          height: 26px;
+          max-height: 26px;
+        }
+
+        @include tablet() {
+          height: 26px;
+          max-height: 26px;
+        }
+
+        @include desktop() {
+          height: 26px;
+          max-height: 26px;
+        }
+
+        @include wide() {
+          height: 41px;
+          max-height: 41px;
+        }
+
+      }
     }
 
 
@@ -62,9 +81,26 @@ md-grid-list{
 
     .thumbnail{
       width:100%;
+      overflow: hidden;
       position:relative;
       display: block;
       margin-bottom: 7px;
+
+      @include mobile() {
+        max-height: 286px;
+      }
+
+      @include tablet() {
+        max-height: 104px;
+      }
+
+      @include desktop() {
+        max-height: 122px;
+      }
+
+      @include wide() {
+        max-height: 167px;
+      }
     }
 
     img{
@@ -72,21 +108,35 @@ md-grid-list{
       width:100%;
       top: 0;
     }
-    
+
     md-grid-tile-footer {
-      padding: 5px 15px;
+      padding: 3px 10px 5px 10px;
       height:auto;
       color: black;
       background-color: rgba(255,255,255,.86);
+      line-height: 14px;
 
       figcaption{
         position: relative;
         width: 100%;
+
+        .title {
+          overflow: hidden;
+          max-height: 27px;
+          line-height: 13px;
+        }
+
+        .info {
+          margin-top: 4px;
+        }
       }
       .nb-views{
-        padding-right: 10px;
         text-align: right;
       }
     }
   }
+}
+
+md-toolbar {
+  min-height: auto;
 }
