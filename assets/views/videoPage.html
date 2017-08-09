@@ -1,6 +1,6 @@
 <div layout-xs="column" layout-gt-xs="row" ng-class="{'md-dialog-content': !dialogIsFull}">
-    <h1 class="md-headline" hide-gt-xs >{{video.title}}</h1>
-    <h1 class="md-display-1" hide-xs >{{video.title}}</h1>
+    <h1 ng-if="!hideDetailVideo" class="md-headline" hide-gt-xs >{{video.title}}</h1>
+    <h1 ng-if="!hideDetailVideo" class="md-display-1" hide-xs >{{video.title}}</h1>
 </div>
 <md-dialog-content class="dialog-container">
       <ng-include src="'views/video.html'"></ng-include>

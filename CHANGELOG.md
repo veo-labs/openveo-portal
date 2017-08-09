@@ -1,5 +1,9 @@
 # 2.1.0 /
 
+## NEW FEATURES
+
+- Video title has been removed from the shared page
+
 ## DEPENDENCIES
 
 - **chai** has been upgraded from 3.5.0 to **4.0.2**
