@@ -19,7 +19,9 @@
     ],
     "dev" : [
       "/i18n/I18nApp.js",
-      "/i18n/I18nFilter.js"
+      "/i18n/I18nFilter.js",
+      "/storage/StorageApp.js",
+      "/authentication/AuthenticationApp.js"
     ],
     "prod" : [
       "/js/openveo-portal-lib.js"

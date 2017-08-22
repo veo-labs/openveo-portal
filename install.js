@@ -435,23 +435,22 @@ function createServerConf(callback) {
       });
     },
 
-    // Ask for the authentication mechanism
+    // Ask for authentication mechanisms
     (callback) => {
       if (!authConf) return callback();
-      rl.question('Which authentication mechanism do you want to configure ? (0:local -default-, 1:cas) :\n',
-      (answer) => {
-        if (answer === '1') {
-          authConf.type = 'cas';
 
+      // CAS
+      rl.question('Do you want to configure authentication using CAS ? (y/N) :\n', (answer) => {
+        if (answer === 'y') {
           askForCasAuthConf((casConf) => {
             authConf.cas = casConf;
             callback();
           });
         } else {
-          authConf.type = 'local';
           callback();
         }
       });
+
     }
   ], (error, results) => {
     if (error) {

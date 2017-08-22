@@ -12,7 +12,10 @@
     angular: false,
 
     // Enable ECMAScript 6 features
-    "es6": false
+    "es6": false,
+
+    // Add openveo global var to environment globals but do not authorize to overwrite it
+    openVeoPortalSettings: false
 
   },
   "rules": {

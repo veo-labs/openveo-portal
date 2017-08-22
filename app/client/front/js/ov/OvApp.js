@@ -23,7 +23,9 @@
     'ov.locale',
     'ov.i18n',
     'ov.configuration',
-    'ov.player'
+    'ov.player',
+    'ov.authentication',
+    'ov.storage'
   ];
 
   var app = angular.module('ov.portal', moduleDependencies);
@@ -69,6 +71,7 @@
   app.config(['$routeProvider', '$locationProvider', '$httpProvider',
     function($routeProvider, $locationProvider, $httpProvider) {
 
+      // Register video page route
       $routeProvider.when('/video/:mediaId', {
         templateUrl: 'views/videoPage.html',
         controller: 'VideoPageController',
@@ -86,7 +89,7 @@
 
                 // user not authentified
                 else if (result.data.needAuth)
-                  deferred.reject({redirect: '/authenticate'});
+                  deferred.reject({redirect: '/', needAuth: true});
 
               }, function(error) {
 
@@ -103,6 +106,7 @@
         }
       });
 
+      // Register search page route
       $routeProvider.when('/search', {
         templateUrl: 'views/search.html',
         controller: 'SearchController',

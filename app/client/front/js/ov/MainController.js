@@ -47,7 +47,7 @@
    * by the main controller.
    */
   function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia,
-  $location, $filter, searchService, $analytics) {
+  $location, $filter, $analytics, searchService, authenticationService) {
     var urlParams = $location.search();
     $scope.context = {keepContext: false};
     $scope.isIframe = urlParams['iframe'] || false;
@@ -58,6 +58,7 @@
       path: '',
       selectedTab: -1
     };
+    $scope.user = openVeoPortalSettings.user || authenticationService.getUserInfo() || null;
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
@@ -72,9 +73,10 @@
     // otherwise redirect to the home page
     $scope.$on('$routeChangeError', function(event, current, previous, eventObj) {
       if (eventObj && eventObj.redirect) {
-        if (eventObj.redirect == '/authenticate')
-          window.location.href = eventObj.redirect;
-        else $location.path(eventObj.redirect);
+        $location.path(eventObj.redirect);
+
+        if (eventObj.needAuth)
+          $scope.showToast($filter('translate')('ERROR.FORBIDDEN'));
       } else {
         $location.path('/');
         if (eventObj.status == '500' || eventObj.status == '502')
@@ -119,10 +121,12 @@
             $location.path(urlContext, false).search(searchContext);
           }).catch(angular.noop);
 
-          // user not authentified
-        } else if (result.data.needAuth) {
-          window.location.href = '/authenticate';
-        } else $location.path('/');
+        } else {
+          $location.path('/');
+
+          if (result.data.needAuth)
+            $scope.showToast($filter('translate')('ERROR.FORBIDDEN'));
+        }
 
       }, function(error) {
 
@@ -154,6 +158,18 @@
         .hideDelay(3000);
       $mdToast.show(toast);
     };
+
+    /**
+     * Logs out connected user.
+     *
+     * @method logout
+     */
+    $scope.logout = function() {
+      authenticationService.logout().then(function() {
+        authenticationService.setUserInfo();
+        $location.path('/');
+      });
+    };
   }
 
   /**
@@ -178,8 +194,19 @@
   app.controller('MainController', MainController);
   app.controller('DialogController', DialogController);
   app.controller('ToastController', ToastController);
-  MainController.$inject = ['$route', '$scope', 'links', '$mdDialog',
-    '$mdToast', '$mdMedia', '$location', '$filter', 'searchService', '$analytics'];
+  MainController.$inject = [
+    '$route',
+    '$scope',
+    'links',
+    '$mdDialog',
+    '$mdToast',
+    '$mdMedia',
+    '$location',
+    '$filter',
+    '$analytics',
+    'searchService',
+    'authenticationService'
+  ];
   DialogController.$inject = ['$scope', '$mdDialog', 'video', '$mdMedia'];
   ToastController.$inject = ['$scope', '$mdToast'];
 

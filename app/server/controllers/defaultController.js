@@ -44,7 +44,7 @@ module.exports.defaultAction = (request, response) => {
   response.locals.theme = portalConf.data.theme;
   response.locals.useDialog = portalConf.data.useDialog;
 
-  response.locals.user = request.isAuthenticated() ? request.user.name : null;
+  response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
 
   // Add theme css file
   response.locals.css.push(`/themes/${portalConf.data.theme}/style.css`);

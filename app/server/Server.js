@@ -142,8 +142,11 @@ class Server {
       this.app.use(passport.session());
 
       // Initialize passport strategy depending on the configuration
-      const authType = this.configuration.auth.type;
-      passport.use(passportStrategies.get(authType, this.configuration.auth[authType]));
+      const auth = this.configuration.auth;
+
+      // Load passport strategies
+      for (var type in auth)
+        passport.use(passportStrategies.get(type, auth[type]));
     }
 
     // for thumbnail only, set server as proxy to webservice server
@@ -235,13 +238,26 @@ class Server {
   mountRoutes() {
     if (this.configuration.auth) {
 
-      // Use passport to authenticate the request using the strategy defined in configuration
-      this.app.get('/authenticate', passport.authenticate(this.configuration.auth.type, {
-        successRedirect: '/'
-      }));
+      // Use passport to authenticate requests using a strategy with redirection
+      this.app.get('/authenticate/:type', (request, response, next) => {
+        passportStrategies.getAuthenticateMiddleware(
+          request.params.type
+        )(request, response, next);
+      });
 
-      // Use passport to logout the request using the strategy defined in configuration
-      this.app.get('/logout', passport.logout(this.configuration.auth.type));
+      // Use passport to authenticate requests using a strategy without redirection
+      this.app.post('/authenticate', (request, response, next) => {
+        passportStrategies.getAuthenticateMiddleware(
+          request.body.type,
+          request.body.credentials
+        )(request, response, next);
+      });
+
+      // Use passport to logout the user using the strategy which make him logged
+      this.app.get('/logout', (request, response, next) => {
+        passportStrategies.getLogoutMiddleware(request.user.strategy)(request, response, next);
+      });
+
     }
 
     this.app.post('/statistics/:entity/:type/:id', statisticsController.statisticsAction);

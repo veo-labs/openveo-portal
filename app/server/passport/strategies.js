@@ -9,6 +9,8 @@
 
 const passport = require('passport');
 
+const CAS_STRATEGY = 'cas';
+
 /**
  * Defines a passport middleware to create a strategy depending on its type.
  *
@@ -16,6 +18,56 @@ const passport = require('passport');
  * @static
  */
 module.exports = {
+
+  /**
+   * Gets middleware to authenticate requests.
+   *
+   * @method getAuthenticateMiddleware
+   * @static
+   * @param {String} name The name of the strategy which will perform the authentication
+   * @param {Object} [credentials] The credentials depending on the strategy
+   * @return {Object} A middleware to authenticate requests using the given strategy
+   */
+  getAuthenticateMiddleware(name, credentials) {
+
+    // CAS strategy
+    if (name === CAS_STRATEGY) {
+      return passport.authenticate(name, {
+        successRedirect: '/'
+      });
+    }
+
+  },
+
+  /**
+   * Gets middleware to logout requests.
+   *
+   * @method getLogoutMiddleware
+   * @static
+   * @param {String} name The name of the strategy
+   * @return {Object} A middleware to logout requests using the given strategy
+   */
+  getLogoutMiddleware(name) {
+
+    // Retrieve strategy from loaded strategies
+    const strategyPrototype = passport._strategy(name);
+
+    return (request, response, next) => {
+      if (!request.isAuthenticated())
+        return next();
+
+      // Logout from passport
+      request.logout();
+
+      const strategy = Object.create(strategyPrototype);
+
+      // Logout from server
+      if (strategy.logout)
+        strategy.logout(request, response);
+
+    };
+
+  },
 
   /**
    * Gets an instance of a passport strategy.
@@ -30,35 +82,15 @@ module.exports = {
     if (strategyName && configuration) {
       let Strategy; /* eslint prefer-const: 0*/
 
-      // Add a logout method to passport, to be able to logout
-      passport.logout = ((name) => {
-
-        // Retrieve strategy from passport
-        const strategyPrototype = passport._strategy(name);
-
-        return (request, response, next) => {
-          if (!request.isAuthenticated())
-            return next();
-
-          // Logout from passport
-          request.logout();
-
-          const strategy = Object.create(strategyPrototype);
-
-          if (strategy.logout)
-            strategy.logout(request, response);
-        };
-      });
-
       switch (strategyName) {
 
         // Cas strategy
-        case 'cas':
+        case CAS_STRATEGY:
 
           // Serialize user into passport session. For cas strategy, no user information is stored outside the
           // session, thus the whole user object can be stored into the session.
           passport.serializeUser((user, done) => {
-            const usr = {name: user.name, groups: user.groups};
+            const usr = {name: user.name, groups: user.groups, strategy: CAS_STRATEGY};
             done(null, usr);
           });
 

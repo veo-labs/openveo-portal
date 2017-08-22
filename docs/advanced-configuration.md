@@ -74,7 +74,6 @@ Open **~/.openveo/core/serverConf.json**
   "port": PORT, // Replace PORT by the HTTP server port to use (e.g. 3003)
   "sessionSecret": "SECRET", // Replace SECRET by a secret used to secure HTTP sessions
   "auth": {
-    "type": "cas", // The authentication mechanism to use (only cas is supported right now)
     "cas": { // CAS configuration in case of type "cas"
       "version": "3", // The version of the CAS server
       "service": "https://my-openveo-portal.com", // The service to use to authenticate to the CAS server
