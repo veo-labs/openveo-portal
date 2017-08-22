@@ -41,7 +41,7 @@
     "mustache": "2.3.0",
     "node-cache": "4.1.1",
     "nopt": "4.0.1",
-    "passport": "0.3.2",
+    "passport": "0.4.0",
     "passport-strategy": "1.0.0",
     "serve-favicon": "2.3.2",
     "shortid": "2.2.6",

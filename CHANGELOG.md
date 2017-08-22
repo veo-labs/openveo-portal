@@ -13,6 +13,7 @@
 
 - **chai** has been upgraded from 3.5.0 to **4.0.2**
 - **chai-as-promised** has been upgraded from 6.0.0 to **7.1.1**
+- **passport** has been upgraded from 0.3.2 to **0.4.0**
 
 # 2.0.1 / 2017-06-13
 
