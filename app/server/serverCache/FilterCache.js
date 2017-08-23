@@ -7,7 +7,7 @@
 const JSONPath = require('jsonpath-plus');
 
 const errors = process.require('app/server/httpErrors.js');
-const conf = process.require('app/server/conf.js');
+const portalConf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
 
@@ -26,7 +26,7 @@ class FilterCache {
   constructor() {
     Object.defineProperties(this, {
       filterCache: {
-        value: new NodeCache({stdTTL: conf.data.cache.filterTTL}) // default ttl: 1mn
+        value: new NodeCache({stdTTL: portalConf.conf.cache.filterTTL}) // default ttl: 1mn
       }
     });
 

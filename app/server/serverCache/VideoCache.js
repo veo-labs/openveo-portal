@@ -5,7 +5,7 @@
  */
 
 const errors = process.require('app/server/httpErrors.js');
-const conf = process.require('app/server/conf.js');
+const portalConf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
 const NodeCache = require('node-cache');
@@ -25,7 +25,7 @@ class VideoCache {
 
     Object.defineProperties(this, {
       videoCache: {
-        value: new NodeCache({stdTTL: conf.data.cache.videoTTL, checkperiod: conf.data.cache.videoTTL})
+        value: new NodeCache({stdTTL: portalConf.conf.cache.videoTTL, checkperiod: portalConf.conf.cache.videoTTL})
       },
       viewsCache: {
         value: new NodeCache({checkperiod: 0})

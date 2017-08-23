@@ -15,11 +15,6 @@ const databaseConfPath = path.join(configurationDirectoryPath, 'databaseConf.jso
 const webservicesConfPath = path.join(configurationDirectoryPath, 'webservicesConf.json');
 const confPath = path.join(configurationDirectoryPath, 'conf.json');
 
-let loggerConf;
-let serverConf;
-let databaseConf;
-let webservicesConf;
-
 // Process list of arguments
 const knownProcessOptions = {
   serverConf: [String, null],
@@ -34,26 +29,26 @@ const processOptions = nopt(knownProcessOptions, null, process.argv);
 
 // Load configuration files
 try {
-  loggerConf = require(processOptions.loggerConf || loggerConfPath);
-  serverConf = require(processOptions.serverConf || serverConfPath);
-  databaseConf = require(processOptions.databaseConf || databaseConfPath);
-  webservicesConf = require(processOptions.webservicesConf || webservicesConfPath);
-  conf.data = require(processOptions.conf || confPath);
+  conf.loggerConf = require(processOptions.loggerConf || loggerConfPath);
+  conf.serverConf = require(processOptions.serverConf || serverConfPath);
+  conf.databaseConf = require(processOptions.databaseConf || databaseConfPath);
+  conf.webservicesConf = require(processOptions.webservicesConf || webservicesConfPath);
+  conf.conf = require(processOptions.conf || confPath);
 } catch (error) {
   throw new Error(`Invalid configuration file : ${error.message}`);
 }
 
 // Create logger
-process.logger = openVeoApi.logger.add('portal', loggerConf);
+process.logger = openVeoApi.logger.add('portal', conf.loggerConf);
 
 // Create Web Service client
-WebserviceClient.create(webservicesConf);
+WebserviceClient.create(conf.webservicesConf);
 
 // Instanciate a Server
-const server = new Server(serverConf);
+const server = new Server(conf.serverConf);
 
 // Get a Database instance
-const db = openVeoApi.database.factory.get(databaseConf);
+const db = openVeoApi.database.factory.get(conf.databaseConf);
 
 // Establish connection to the database
 db.connect((error) => {

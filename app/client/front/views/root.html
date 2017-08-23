@@ -18,7 +18,8 @@
       var languages = [ [[& languages]] ];
       var ovPlayerDirectory = "/lib/openveo-player/";
       var openVeoPortalSettings = {
-        user: [[& user]]
+        user: [[& user]],
+        authenticationMechanisms: [[& authenticationMechanisms]]
       };
     </script>
   </head>
@@ -49,7 +50,7 @@
                      href="/authenticate/cas"
                      target="_self"
                      aria-label="{{'UI.LOGIN' | translate}}"
-                     ng-if="!user"
+                     ng-if="!user && isAuth"
                      ng-bind="'UI.LOGIN' | translate"
                      analytics-on="click"
                      analytics-event="Login">
@@ -120,7 +121,7 @@
                        href="/authenticate/cas"
                        target="_self"
                        aria-label="{{'UI.LOGIN' | translate}}"
-                       ng-if="!user"
+                       ng-if="!user && isAuth"
                        ng-bind="'UI.LOGIN' | translate"
                        analytics-on="click"
                        analytics-event="Login">

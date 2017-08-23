@@ -41,16 +41,21 @@ module.exports.defaultAction = (request, response) => {
   response.locals.scripts = response.locals.scriptsBase.concat(response.locals.scripts);
   response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
   response.locals.languages = ['"en"', '"fr"'];
-  response.locals.theme = portalConf.data.theme;
-  response.locals.useDialog = portalConf.data.useDialog;
+  response.locals.theme = portalConf.conf.theme;
+  response.locals.useDialog = portalConf.conf.useDialog;
 
+  // Add user information
   response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
 
+  // Add available authentication mechanisms
+  const authConf = portalConf.serverConf.auth;
+  response.locals.authenticationMechanisms = authConf && JSON.stringify(Object.keys(authConf));
+
   // Add theme css file
-  response.locals.css.push(`/themes/${portalConf.data.theme}/style.css`);
+  response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);
 
   // Retrieve analytics template and render root with analytics
-  const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.data.theme, 'analytics.html');
+  const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.conf.theme, 'analytics.html');
   cons.mustache(analyticsPath, {}, (err, html) => {
     if (err) response.render('root', response.locals);
     else {

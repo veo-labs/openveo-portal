@@ -4,6 +4,10 @@
 
 - Authentication configuration has changed to be able to handle more authentication strategies. All property names under "auth" object, in your **serverConf.json** file, must be valid strategies, thus you have to **remove the "auth.type"** or your server won't start as "type" is not a valid strategy.
 
+## BUG FIXES
+
+- Hide connection button if no authentication mechanism has been configured
+
 # 2.1.0 / 2017-09-18
 
 ## NEW FEATURES

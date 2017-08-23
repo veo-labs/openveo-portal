@@ -219,7 +219,7 @@ class Server {
       this.app.use(express.static(path.normalize(`${process.root}/app/client/front/js`), staticServerOptions));
 
     // Serve favicon
-    this.app.use(favicon(`${process.root}/assets/themes/${portalConf.data.theme}/favicon.ico`));
+    this.app.use(favicon(`${process.root}/assets/themes/${portalConf.conf.theme}/favicon.ico`));
 
     // Disable cache on get requests
     this.app.get('*', openVeoApi.middlewares.disableCacheMiddleware);

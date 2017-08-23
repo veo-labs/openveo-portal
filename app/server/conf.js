@@ -1,3 +1,9 @@
 'use strict';
 
-module.exports = {data: null};
+module.exports = {
+  conf: null,
+  loggerConf: null,
+  serverConf: null,
+  databaseConf: null,
+  webservicesConf: null
+};

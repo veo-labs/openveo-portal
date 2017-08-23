@@ -16,7 +16,7 @@ const querystring = require('querystring');
 
 const errors = process.require('app/server/httpErrors.js');
 const openVeoApi = require('@openveo/api');
-const conf = process.require('app/server/conf.js');
+const portalConf = process.require('app/server/conf.js');
 
 const webserviceClient = process.require('/app/server/WebserviceClient');
 
@@ -50,7 +50,7 @@ module.exports.searchAction = (request, response, next) => {
   }
 
   // Public group filter not defined
-  if (!conf.data.publicFilter.length || conf.data.publicFilter[0] == '') {
+  if (!portalConf.conf.publicFilter.length || portalConf.conf.publicFilter[0] == '') {
     process.logger.error(errors.CONF_ERROR.message, {error: errors.CONF_ERROR, method: 'searchAction'});
     return next(errors.CONF_ERROR);
   }
@@ -58,13 +58,13 @@ module.exports.searchAction = (request, response, next) => {
   // Add group filter
 
   // Add public groups
-  params['groups'] = conf.data.publicFilter || [];
+  params['groups'] = portalConf.conf.publicFilter || [];
 
   if (request.isAuthenticated()) {
 
     // Add private groups
-    if (conf.data.privateFilter)
-      params['groups'] = params['groups'].concat(conf.data.privateFilter);
+    if (portalConf.conf.privateFilter)
+      params['groups'] = params['groups'].concat(portalConf.conf.privateFilter);
 
     // Add user groups
     if (request.user.groups.length)
@@ -117,8 +117,8 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
   const filterCacheInstance = filterCache.getFilterCache();
   const filters = [];
   const series = [];
-  const filtersId = conf.data.exposedFilter;
-  const categoriesId = conf.data.categoriesFilter;
+  const filtersId = portalConf.conf.exposedFilter;
+  const categoriesId = portalConf.conf.categoriesFilter;
   if (categoriesId && categoriesId != '')
     series.push((callback) => {
       filterCacheInstance.getCategories(categoriesId, (error, categories) => {
@@ -148,7 +148,7 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
 
 module.exports.getCategoriesAction = (request, response, next) => {
   const filterCacheInstance = filterCache.getFilterCache();
-  filterCacheInstance.getCategories(conf.data.categoriesFilter, (error, categories) => {
+  filterCacheInstance.getCategories(portalConf.conf.categoriesFilter, (error, categories) => {
     if (error) {
       next(error);
       return;
@@ -166,7 +166,10 @@ module.exports.getVideoAction = (request, response, next) => {
       return;
     }
 
-    const isInPublicGroups = openVeoApi.util.intersectArray(res.entity.metadata.groups, conf.data.publicFilter).length;
+    const isInPublicGroups = openVeoApi.util.intersectArray(
+      res.entity.metadata.groups,
+      portalConf.conf.publicFilter
+    ).length;
 
     if (isInPublicGroups) {
 
@@ -186,7 +189,7 @@ module.exports.getVideoAction = (request, response, next) => {
       // If video is part of these groups user is allowed to access the video
 
       const isInPrivateGroups = openVeoApi.util.intersectArray(
-        res.entity.metadata.groups, conf.data.privateFilter
+        res.entity.metadata.groups, portalConf.conf.privateFilter
       ).length;
       const isInUserGroups = openVeoApi.util.intersectArray(
         res.entity.metadata.groups, request.user.groups
