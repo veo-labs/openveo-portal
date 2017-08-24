@@ -1,0 +1,18 @@
+footer {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  margin-top: 25px;
+  bottom: 0;
+
+  a.lowercase-button {
+    margin: 0;
+    padding: 6px 16px;
+  }
+}
+
+/* Space between footer and content */
+.footer-spacing {
+  height: 64px;
+  margin-top: 25px;
+}

@@ -1,0 +1,22 @@
+header {
+  @include mobile() {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  #logo {
+    text-decoration: none;
+  }
+
+  .md-nav-bar {
+    border: 0;
+  }
+}
+
+/* Space between header and content */
+.header-spacing {
+  height: 160px;
+}

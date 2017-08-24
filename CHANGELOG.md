@@ -3,6 +3,10 @@
 ## BREAKING CHANGES
 
 - Authentication configuration has changed to be able to handle more authentication strategies. All property names under "auth" object, in your **serverConf.json** file, must be valid strategies, thus you have to **remove the "auth.type"** or your server won't start as "type" is not a valid strategy.
+- Use of theming colors has changed:
+  - Footer links are now accent hue 3
+  - Theme inverse has been removed, only default theme is used now
+  - Menu and links backgrounds are now background 100
 
 ## BUG FIXES
 
@@ -14,6 +18,8 @@
 
 - Video title has been removed from the shared page
 - The aspect of the whole display is now smaller and 4 columns of videos are now displayed instead of 3
+- Make better use of colors for default theme, blue colors are now only there to show important information and context
+- Connection / deconnection button on mobile devices has been moved next to the logotype
 
 ## BUG FIXES
 

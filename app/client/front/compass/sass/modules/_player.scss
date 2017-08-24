@@ -34,13 +34,17 @@ md-dialog.dialog-video {
 
   }
 
+  md-toolbar {
+    min-height: 40px;
+  }
+
   .md-toolbar-tools {
     overflow: hidden;
     max-height: 45px;
     height: 45px;
-    -webkit-align-items: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
 
     h2 {
       width: 100%;

@@ -16,8 +16,8 @@
       <!-- Date and number of views -->
       <div flex layout="column" layout-align="center start">
         <div layout="row" layout-align="center center">
-          <md-icon material-icons md-light md-48 class="md-primary">today</md-icon>
-          <div md-colors="{color: 'default-primary'}">{{video.date  | date : 'd MMMM yyyy'}}</div>
+          <md-icon material-icons md-light md-48 class="md-accent">today</md-icon>
+          <div>{{video.date  | date : 'd MMMM yyyy'}}</div>
         </div>
         <div layout="row" layout-align="center center">
           <md-icon material-icons md-light md-48>visibility</md-icon>
@@ -32,7 +32,7 @@
                          ng-mouseenter="vctl.dialIsOpen=true"
                          ng-mouseleave="vctl.dialIsOpen=false">
         <md-fab-trigger>
-          <md-button aria-label="{{'UI.SHARE' | translate}}" class="md-fab md-primary" ng-class="{'md-primary': !vctl.dialIsOpen}">
+          <md-button aria-label="{{'UI.SHARE' | translate}}" class="md-fab">
             <md-tooltip md-direction="bottom">{{'UI.SHARE' | translate}}</md-tooltip>
             <md-icon material-icons md-light md-32>share</md-icon>
           </md-button>

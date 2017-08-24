@@ -48,7 +48,9 @@
    */
   function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia,
   $location, $filter, $analytics, searchService, authenticationService) {
+    var self = this;
     var urlParams = $location.search();
+    this.currentNavItem = null;
     $scope.context = {keepContext: false};
     $scope.isIframe = urlParams['iframe'] || false;
     $scope.hideDetailVideo = urlParams['hidedetail'] || false;
@@ -66,6 +68,12 @@
       $scope.page.title = $route.current && $route.current.title || $scope.title;
       $scope.page.path = $location.path();
       $scope.page.selectedTab = -1;
+
+      // Set current navigation item depending on the displayed page
+      if ($scope.page.path === '/') self.currentNavItem = 'home';
+      else if ($scope.page.path === '/search') self.currentNavItem = 'search';
+      else self.currentNavItem = null;
+
       $analytics.pageTrack($scope.page.path);
     });
 

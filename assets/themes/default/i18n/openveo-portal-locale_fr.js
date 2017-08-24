@@ -50,11 +50,13 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     },
     MENU: {
       HOME: 'Accueil',
-      ALL_VIDEOS: 'Toutes les vidéos'
+      ALL_VIDEOS: 'Toutes les vidéos',
+      ARIA_DESCRIPTION: 'Liens de navigation'
     },
     LINKS: {
       CONTACT: 'Contact',
-      HELP: 'Aide'
+      HELP: 'Aide',
+      ARIA_DESCRIPTION: 'Liens d\'information'
     },
     ERROR: {
       CLIENT: 'Une erreur applicative est survenue, veuillez contacter l\'administrateur.',

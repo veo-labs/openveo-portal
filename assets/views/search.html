@@ -2,8 +2,8 @@
 
   <!-- Title + search engine -->
   <div layout-xs="column" layout-gt-xs="row">
-    <h1 class="md-headline" md-colors="{color: 'default-primary'}" hide-gt-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
-    <h1 class="md-headline" md-colors="{color: 'default-primary'}" hide-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
+    <h1 class="md-headline" hide-gt-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
+    <h1 class="md-headline" hide-xs ng-bind="'SEARCH.TITLE'|translate"></h1>
 
     <span flex></span>
 
@@ -33,7 +33,7 @@
   <div layout="column" md-whiteframe="1">
 
     <!-- Title of the collapsable section -->
-    <md-toolbar class="md-primary advanced-search" ng-click="showAdvancedSearch = !showAdvancedSearch">
+    <md-toolbar class="advanced-search" ng-click="showAdvancedSearch = !showAdvancedSearch">
       <div class="md-subhead md-toolbar-tools">
         <h3 class="ng-binding" ng-bind="'SEARCH.ADVANCED' | translate"></h3>
         <span flex></span>
@@ -58,7 +58,7 @@
 
           <div flex layout="row" layout-xs="column" layout-align="left center" layout-align-xs="center left">
             <md-datepicker flex="nogrow" ng-model="search.dateStart" md-placeholder=""></md-datepicker>
-            <span flex="15" class="text-center" ng-bind="'UI.AND' | translate"></span>
+            <span flex="15" class="between-label" ng-bind="'UI.AND' | translate"></span>
             <md-datepicker flex="nogrow" ng-model="search.dateEnd" md-placeholder=""></md-datepicker>
           </div>
           <span flex-xs="20" flex-sm="10" hide-gt-sm> </span>
@@ -96,11 +96,11 @@
 
         <!-- Reset and submit buttons -->
         <div layout="row" layout="column" layout-align="center center" layout-margin>
-          <md-button ng-click="resetSearch()" class="md-accent md-fab" id="advancedSearchCancel">
+          <md-button ng-click="resetSearch()" class="md-fab" id="advancedSearchCancel" md-colors="::{background: '{{theme}}-background-500'}">
             <md-tooltip md-direction="right">{{'UI.CANCEL' | translate}}</md-tooltip>
             <md-icon material-icons md-light md-48>close</md-icon>
           </md-button>
-          <md-button type="submit" class="md-primary md-fab submit" id="advancedSearchSubmit">
+          <md-button type="submit" class="md-fab submit" id="advancedSearchSubmit">
             <md-tooltip md-direction="left">{{'UI.SEARCH' | translate}}</md-tooltip>
             <md-icon material-icons md-light md-48>search</md-icon>
           </md-button>
@@ -123,15 +123,13 @@
       <!-- Sort buttons -->
       <div ng-if="pagination.size > 1" flex-xs="50" flex-gt-xs="auto" class="orderBy" layout="row" layout-align="center center">
         <span hide-xs hide-sm flex="20" class="md-body-2" ng-bind="'SEARCH.ORDER_BY' | translate"></span>
-        <md-switch class="md-primary"
-                   md-no-ink
+        <md-switch md-no-ink
                    ng-model="search.sortBy"
                    ng-change="orderOnChange()"
                    aria-label="{{'SEARCH.DATE_OR_VIEWS' | translate}}">
           <md-icon material-icons md-light md-48 ng-bind="search.sortBy ? 'visibility' : 'access_time'"></md-icon>
         </md-switch>
-        <md-switch class="md-primary"
-                   md-no-ink
+        <md-switch md-no-ink
                    ng-model="search.sortOrder"
                    ng-change="orderOnChange()"
                    aria-label="{{'SEARCH.ORDER_ASC' | translate}}">
@@ -173,14 +171,14 @@
         <div class="thumbnail">
           <img check-image ng-src="{{video.thumbnail}}">
           <div class="play">
-            <md-icon material-icons md-light md-48 ng-class="{reverse: search.sortOrder}">play_circle_outline</md-icon>
+            <md-icon material-icons md-light md-48>play_circle_outline</md-icon>
           </div>
         </div>
 
         <div flex layout="column" layout-align="space-between none" class="details">
           <div class="md-body-2">{{video.title}}</div>
           <div  layout="row" layout-align="space-between center">
-            <div class="md-caption" md-colors="{color: 'default-primary'}">{{video.date | date : 'd MMMM yyyy'}}</div>
+            <div class="md-caption">{{video.date | date : 'd MMMM yyyy'}}</div>
             <div class="md-caption nb-views"><span class="number">{{video.views ? video.views : 0}}</span> <span ng-bind="'UI.VIEW' | translate:video.views?video.views:0"></span></div>
           </div>
         </div>

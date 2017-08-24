@@ -7,63 +7,16 @@
 @import "player";
 @import "search";
 @import "home";
-@import "menu";
+@import "header";
+@import "footer";
+@import "buttons";
 
-md-toolbar.navbar-background {
-  min-height: auto;
-
-  md-pagination-wrapper {
-    margin: inherit;
-  }
-}
-
+/* Toolbar tools */
 .md-toolbar-tools {
   font-size: 16px;
 }
 
-footer {
-  position: fixed;
-  z-index: 50;
-  width: 100%;
-  margin-top: 25px;
-  bottom: 0;
-
-  md-toolbar {
-    background: #FAFAFA;
-  }
-
-  .md-toolbar-tools {
-    height: 40px;
-  }
-}
-
-header {
-  @include mobile() {
-    position: fixed;
-    z-index: 50;
-    top: 0;
-    width: 100%;
-    background-color: #fff;
-  }
-
-  #logo {
-    text-decoration: none;
-  }
-}
-
-.footer-spacing {
-  height: 64px;
-  margin-top: 25px;
-}
-
-.header-spacing {
-  height: 160px;
-}
-
-.text-button {
-  padding: 0 25px;
-}
-
+/* Dividers */
 md-divider {
   &.ng-hide-add, &.ng-hide-remove {
     @include transition(opacity 0.45s ease 0s);
@@ -84,49 +37,19 @@ md-divider {
   &.ng-hide-remove-active {
     opacity: 1;
   }
-
 }
 
+/* Mirror an element on y axis */
 .reverse {
   transform: scale(1, -1);
 }
 
+/* Reduce space between inputs and below elements */
 md-input-container .md-errors-spacer {
   min-height: auto;
 }
 
+/* Make ink bars a little bit bigger */
 md-ink-bar {
   height: 3px;
-}
-
-md-option {
-  .md-text {
-    font-size: 14px;
-  }
-}
-
-.text-center {
-  text-align: center;
-}
-.text-left {
-  text-align: left;
-}
-
-.zero {
-  z-index: 1;
-}
-
-.margin {
-  @include mobile() {
-    margin: 7px 0 0 0;
-  }
-  @include tablet() {
-    margin: 7px 0 0 0;
-  }
-  @include desktop() {
-    margin: 15px 0 0 0;
-  }
-  @include wide() {
-    margin: 15px 0 0 0;
-  }
 }
