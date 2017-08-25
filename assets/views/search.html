@@ -76,7 +76,7 @@
             <label ng-if="filter.type !== 'boolean'" ng-bind="filter.name == 'categories' ? 'SEARCH.CATEGORY_FILTER' : filter.name | translate"></label>
 
             <!-- Lists -->
-            <md-select ng-if="filter.type == 'list'" ng-model="search[filter.id]">
+            <md-select ng-if="filter.type == 'list'" ng-model="search[filter.id]" md-container-class="select-filter">
               <md-option value="">{{'SEARCH.NO_FILTER' | translate}}</md-option>
               <md-option ng-repeat="(key, value) in filter.values" value="{{filter.name == 'categories' ? key : value}}">
                 {{value}}

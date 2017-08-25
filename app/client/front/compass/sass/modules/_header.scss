@@ -14,9 +14,15 @@ header {
   .md-nav-bar {
     border: 0;
   }
+
 }
 
 /* Space between header and content */
 .header-spacing {
   height: 160px;
+}
+
+/* User dropdown menu and main dropdown menu  */
+.user-menu, .main-dropdown-menu {
+  padding: 0;
 }
