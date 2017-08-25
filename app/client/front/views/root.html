@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {{=[[ ]]=}}
-<html ng-app="ov.portal" ng-controller="MainController" ng-strict-di ng-init="theme = '[[theme]]'; useDialog = [[useDialog]];">
+<html ng-app="ov.portal" ng-controller="MainController as mainCtrl" ng-strict-di>
   <head>
     <title ng-bind="page.title | translate"></title>
     <base href="/">
@@ -19,7 +19,9 @@
       var ovPlayerDirectory = "/lib/openveo-player/";
       var openVeoPortalSettings = {
         user: [[& user]],
-        authenticationMechanisms: [[& authenticationMechanisms]]
+        authenticationMechanisms: [[& authenticationMechanisms]],
+        theme: '[[theme]]',
+        useDialog: [[useDialog]]
       };
     </script>
   </head>

@@ -62,6 +62,8 @@
     };
     $scope.user = openVeoPortalSettings.user || authenticationService.getUserInfo() || null;
     $scope.isAuth = openVeoPortalSettings.authenticationMechanisms.length ? true : false;
+    $scope.theme = openVeoPortalSettings.theme;
+    $scope.useDialog = openVeoPortalSettings.useDialog;
 
     // Listen to route change success event to set new page title
     $scope.$on('$routeChangeSuccess', function(event, route) {
