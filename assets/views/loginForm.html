@@ -1,0 +1,15 @@
+<div md-whiteframe="6" class="content login" md-colors="::{background: '{{loginCtrl.theme}}-background-50'}">
+  <div layout="column" ng-if="loginCtrl.hasExternal">
+    <p class="md-caption" ng-bind="'LOGIN.CONNECT_WITH' | translate"></p>
+
+    <md-button class="text-button lowercase-button cas-button"
+               aria-label="{{'LOGIN.CAS' | translate}}"
+               ng-bind="'LOGIN.CAS' | translate"
+               ng-if="loginCtrl.hasCas"
+               target="_self"
+               href="/authenticate/cas"
+               analytics-on="click"
+               analytics-event="Login">
+    </md-button>
+  </div>
+</div>

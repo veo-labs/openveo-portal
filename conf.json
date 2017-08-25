@@ -37,6 +37,7 @@
       "/ov/MainController.js",
       "/ov/SearchService.js",
       "/ov/SearchController.js",
+      "/ov/LoginFormController.js",
       "/ov/VideoService.js"
     ],
     "prod" : [

@@ -46,7 +46,7 @@
    * application. All actions not handled in partials are handled
    * by the main controller.
    */
-  function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia,
+  function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia, $mdPanel,
   $location, $filter, $analytics, searchService, authenticationService) {
     var self = this;
     var urlParams = $location.search();
@@ -179,6 +179,38 @@
         $location.path('/');
       });
     };
+
+    /**
+     * Show the login dialog.
+     *
+     * @method showLoginDialog
+     */
+    this.showLoginDialog = function() {
+      var position = $mdPanel.newPanelPosition()
+      .relativeTo('.log-in-button')
+      .addPanelPosition($mdPanel.xPosition.CENTER, $mdPanel.yPosition.BELOW);
+
+      var animation = $mdPanel.newPanelAnimation()
+      .duration(50)
+      .openFrom('.log-in-button')
+      .closeTo('.log-in-button')
+      .withAnimation($mdPanel.animation.SCALE);
+
+      var config = {
+        id: 'loginDialog',
+        attachTo: angular.element(document.body),
+        controller: 'LoginFormController',
+        controllerAs: 'loginCtrl',
+        templateUrl: 'views/loginForm.html',
+        clickOutsideToClose: true,
+        escapeToClose: true,
+        panelClass: 'login-panel',
+        position: position,
+        animation: animation
+      };
+
+      $mdPanel.open(config);
+    };
   }
 
   /**
@@ -210,6 +242,7 @@
     '$mdDialog',
     '$mdToast',
     '$mdMedia',
+    '$mdPanel',
     '$location',
     '$filter',
     '$analytics',

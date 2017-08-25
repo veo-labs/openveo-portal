@@ -12,7 +12,7 @@ class GlobalPage extends Page {
     super();
 
     this.logoElement = element(by.css('a#logo'));
-    this.connexionButtonElement = element(by.css('a.log-in'));
+    this.connexionButtonElement = element(by.css('a.log-in-button'));
     this.homeMenuElement = element(by.css('md-tab-item[aria-controls=tab-content-0]'));
     this.searchMenuElement = element(by.css('md-tab-item[aria-controls=tab-content-1]'));
     this.activeItemElement = element(by.className('md-active'));

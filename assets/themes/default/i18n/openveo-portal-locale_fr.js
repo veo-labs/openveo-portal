@@ -5,7 +5,6 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     UI: {
       LOGIN: 'Connexion',
       LOGOUT: 'Déconnexion',
-      HELLO: 'Bonjour',
       SEARCH: 'Rechercher',
       CANCEL: 'Annuler',
       VIEW: {
@@ -19,7 +18,8 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       CLOSE: 'Fermer',
       LINK: 'Lien',
       CODE: 'Code HTML',
-      TITLE: 'Titre'
+      TITLE: 'Titre',
+      ARIA_USER_MENU: 'Ouvrir le menu utilisateur'
     },
     HOME: {
       PAGE_TITLE: 'Portail - Accueil',
@@ -47,6 +47,10 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       DATE_OR_VIEWS: 'Date ou nombre de vues',
       ORDER_ASC: 'Croissant ou décroissant',
       NO_FILTER: 'Aucun'
+    },
+    LOGIN: {
+      CONNECT_WITH: 'Connectez-vous avec',
+      CAS: 'CAS'
     },
     MENU: {
       HOME: 'Accueil',

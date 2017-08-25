@@ -1,0 +1,15 @@
+.login {
+  .cas-button {
+    color: #ffffff;
+    background-color: #74c162;
+  }
+
+  .cas-button:not([disabled]):hover {
+    color: #ffffff;
+    background-color: #4a923a;
+  }
+
+  p {
+    margin: 0;
+  }
+}

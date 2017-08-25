@@ -33,28 +33,39 @@
           <a id="logo" ng-href="/" aria-label="{{'MENU.HOME'|translate}}">
             <img ng-src="/themes/{{theme}}/images/logo.png">
           </a>
+
           <div layout="row" layout-align="end center" ng-if="user">
-            <label>
-              <span ng-bind="'UI.HELLO' | translate"></span> {{user.name}}
-            </label>
-            <md-button class="md-raised text-button lowercase-button md-primary"
-                       href="/logout"
-                       target="_self"
-                       aria-label="{{'UI.LOGOUT' | translate}}"
-                       ng-bind="'UI.LOGOUT' | translate"
-                       analytics-on="click"
-                       analytics-event="Logout">
-            </md-button>
+
+            <!-- User menu -->
+            <md-menu>
+              <md-button ng-click="$mdMenu.open($event)" aria-label="{{'UI.ARIA_USER_MENU' | translate}}" class="lowercase-button">
+                <md-icon class="material-icons">account_circle</md-icon>
+                {{user.name}}
+                <md-icon class="material-icons">arrow_drop_down</md-icon>
+              </md-button>
+              <md-menu-content class="user-menu">
+                <md-menu-item>
+                  <md-button href="/logout"
+                             target="_self"
+                             aria-label="{{'UI.LOGOUT' | translate}}"
+                             analytics-on="click"
+                             analytics-event="Logout">
+                    <md-icon class="material-icons">power_settings_new</md-icon>
+                    {{'UI.LOGOUT' | translate}}
+                  </md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
           </div>
-          <md-button class="md-raised text-button log-in lowercase-button md-primary"
-                     target="_self"
+
+          <!-- Connection button -->
+          <md-button class="md-raised text-button log-in-button lowercase-button md-primary"
                      aria-label="{{'UI.LOGIN' | translate}}"
                      ng-if="!user && isAuth"
                      ng-bind="'UI.LOGIN' | translate"
-                     href="/authenticate/cas"
-                     analytics-on="click"
-                     analytics-event="Login">
+                     ng-click="mainCtrl.showLoginDialog();">
           </md-button>
+
         </div>
       </div>
 
