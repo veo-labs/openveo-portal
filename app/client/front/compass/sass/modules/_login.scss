@@ -1,4 +1,6 @@
 .login {
+  width: 175px;
+
   .cas-button {
     color: #ffffff;
     background-color: #74c162;
@@ -11,5 +13,10 @@
 
   p {
     margin: 0;
+  }
+
+  .login-field, .password-field {
+    margin: 5px 0;
+    font-size: 12px;
   }
 }

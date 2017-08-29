@@ -50,7 +50,12 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     },
     LOGIN: {
       CONNECT_WITH: 'Connect with',
-      CAS: 'CAS'
+      CONNECT_OR: 'or',
+      CAS: 'CAS',
+      SUBMIT: 'Submit',
+      LOGIN_FIELD: 'Login',
+      PASSWORD_FIELD: 'Password',
+      ERROR: 'Login and / or password incorrect'
     },
     MENU: {
       HOME: 'HOME',

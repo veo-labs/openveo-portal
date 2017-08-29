@@ -47,10 +47,11 @@
    * by the main controller.
    */
   function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia, $mdPanel,
-  $location, $filter, $analytics, searchService, authenticationService) {
+  $location, $filter, $window, $analytics, searchService, authenticationService) {
     var self = this;
     var urlParams = $location.search();
     this.currentNavItem = null;
+    this.isLoggingOut = false;
     $scope.context = {keepContext: false};
     $scope.isIframe = urlParams['iframe'] || false;
     $scope.hideDetailVideo = urlParams['hidedetail'] || false;
@@ -190,7 +191,7 @@
     this.showLoginDialog = function() {
       var position = $mdPanel.newPanelPosition()
       .relativeTo('.log-in-button')
-      .addPanelPosition($mdPanel.xPosition.CENTER, $mdPanel.yPosition.BELOW);
+      .addPanelPosition($mdPanel.xPosition.CENTER, $mdPanel.yPosition.CENTER);
 
       var animation = $mdPanel.newPanelAnimation()
       .duration(50)
@@ -212,6 +213,33 @@
       };
 
       $mdPanel.open(config);
+    };
+
+    /**
+     * Logouts connected user.
+     *
+     * @method logout
+     */
+    this.logout = function() {
+      var self = this;
+      if ($scope.user) {
+        $analytics.eventTrack('Logout');
+
+        if ($scope.user.strategy === 'cas') {
+
+          // CAS strategy needs a redirection
+          $window.location.href = '/logout';
+
+        } else {
+          this.isLoggingOut = true;
+          authenticationService.logout().then(function() {
+            self.isLoggingOut = false;
+            $scope.user = null;
+            authenticationService.setUserInfo();
+            $window.location.href = '/';
+          });
+        }
+      }
     };
   }
 
@@ -247,6 +275,7 @@
     '$mdPanel',
     '$location',
     '$filter',
+    '$window',
     '$analytics',
     'searchService',
     'authenticationService'

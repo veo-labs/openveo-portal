@@ -74,11 +74,23 @@ Open **~/.openveo/core/serverConf.json**
   "port": PORT, // Replace PORT by the HTTP server port to use (e.g. 3003)
   "sessionSecret": "SECRET", // Replace SECRET by a secret used to secure HTTP sessions
   "auth": {
-    "cas": { // CAS configuration in case of type "cas"
+    "cas": { // CAS configuration
       "version": "3", // The version of the CAS server
       "service": "https://my-openveo-portal.com", // The service to use to authenticate to the CAS server
       "url": "https://my-cas-server.com:8443/cas", // The url of the CAS server
       "certificate": "cas.crt" // The absolute path of the CAS server certificate if root CA is not in the Node.JS well known CAs
+    },
+    "ldapauth": { // LDAP configuration
+      "url": "ldaps://my-ldap.test", // The url of the LDAP server
+      "bindAttribute": "dn", // The LDAP attribute used by "bindDn" (default to "dn")
+      "bindDn": "cn=my-user,dc=my-ldap,dc=test", // The value of the "bindAttribute" associated to the entry used to connect to the server
+      "bindPassword": "qT5gvobG2ZxYSiY2r4mt", // The password of the entry used to connect to the server
+      "searchBase": "ou=user,dc=my-ldap,dc=test", // The search base when looking for users
+      "searchScope": "sub", // The search scope when looking for users (default to "sub")
+      "searchFilter": "(&(objectclass=person)(cn={{username}}))", // The search filter to find user by name, use placeholder "{{username}}" which will be replaced by the user name when searching
+      "groupAttribute": "group", // The name of the LDAP attribute holding the group name of a user
+      "userNameAttribute": "cn", // The name of the LDAP attribute holding the name of a user
+      "certificate": "/absolute/path/to/cert/ldap.crt" // The absolute path of the LDAP server certificate full chain if root CA is not in the Node.JS well known CAs
     }
   }
 }

@@ -47,11 +47,9 @@
               </md-button>
               <md-menu-content class="user-menu">
                 <md-menu-item>
-                  <md-button href="/logout"
-                             target="_self"
-                             aria-label="{{'UI.LOGOUT' | translate}}"
-                             analytics-on="click"
-                             analytics-event="Logout">
+                  <md-button aria-label="{{'UI.LOGOUT' | translate}}"
+                             ng-click="mainCtrl.logout();"
+                             ng-disabled="mainCtrl.isLoggingOut">
                     <md-icon class="material-icons">power_settings_new</md-icon>
                     {{'UI.LOGOUT' | translate}}
                   </md-button>

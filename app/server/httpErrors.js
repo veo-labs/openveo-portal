@@ -56,6 +56,78 @@ var HTTP_ERRORS = {
     message: 'Portal configuration error'
   },
 
+  /**
+   * A server error occurring when authenticating to external provider with wrong parameters.
+   *
+   * @property AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS: {
+    code: 0x004,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when authenticating to internal provider with wrong parameters.
+   *
+   * @property AUTHENTICATE_INTERNAL_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  AUTHENTICATE_INTERNAL_WRONG_PARAMETERS: {
+    code: 0x005,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when authenticating the user to CAS.
+   *
+   * @property CAS_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  CAS_AUTHENTICATION_ERROR: {
+    code: 0x006,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when user authentication to CAS failed.
+   *
+   * @property CAS_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  CAS_AUTHENTICATION_FAILED: {
+    code: 0x007,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when authenticating the user to LDAP.
+   *
+   * @property LDAP_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  LDAP_AUTHENTICATION_ERROR: {
+    code: 0x008,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when user authentication to LDAP failed.
+   *
+   * @property LDAP_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  LDAP_AUTHENTICATION_FAILED: {
+    code: 0x009,
+    httpCode: 401
+  },
+
   // VIDEO errors
 
   /**

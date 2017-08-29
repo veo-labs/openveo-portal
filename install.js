@@ -386,6 +386,108 @@ ${conf.version}) :\n`, (answer) => {
 }
 
 /**
+ * Asks the user for LDAP configuration.
+ *
+ * @param {Function} The function to call when its done with:
+ *   - **Error** An error if something went wrong
+ *   - **Object** The LDAP configuration
+ */
+function askForLdapAuthConf(callback) {
+  const conf = {
+    searchFilter: '(&(objectclass=person)(cn={{username}}))'
+  };
+
+  async.series([
+
+    // LDAP server url
+    (callback) => {
+      rl.question('Enter the url of the LDAP server:\n', (answer) => {
+        conf.url = answer;
+        callback();
+      });
+    },
+
+    // Bind attribute
+    (callback) => {
+      rl.question('Enter the entry attribute to bind to when connecting to LDAP server: (default: dn)\n', (answer) => {
+        if (answer) conf.bindAttribute = answer;
+        callback();
+      });
+    },
+
+    // Entry id
+    (callback) => {
+      rl.question('Enter the entry id to use to connect to LDAP server:\n', (answer) => {
+        conf.bindDn = answer;
+        callback();
+      });
+    },
+
+    // Entry password
+    (callback) => {
+      secureQuestion('Enter the entry password:\n', (answer) => {
+        conf.bindPassword = answer;
+        callback();
+      });
+    },
+
+    // Search base
+    (callback) => {
+      rl.question('Enter the search base when looking for users:\n', (answer) => {
+        conf.searchBase = answer;
+        callback();
+      });
+    },
+
+    // Search scope
+    (callback) => {
+      rl.question('Enter the search scope when looking for users: (default: sub)\n', (answer) => {
+        if (answer) conf.searchScope = answer;
+        callback();
+      });
+    },
+
+    // Search filter
+    (callback) => {
+      rl.question(`Enter the search filter to find a user: (default: ${conf.searchFilter})\n`, (answer) => {
+        conf.searchFilter = answer || conf.searchFilter;
+        callback();
+      });
+    },
+
+    // Group attribute
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user group:\n', (answer) => {
+        if (answer) conf.groupAttribute = answer;
+        callback();
+      });
+    },
+
+    // User name attribute
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user name:\n', (answer) => {
+        if (answer) conf.userNameAttribute = answer;
+        callback();
+      });
+    },
+
+    // Certificate
+    (callback) => {
+      rl.question('Enter the complete path to the LDAP certificate:\n', (answer) => {
+        if (answer) conf.certificate = answer;
+        callback();
+      });
+    }
+  ], (error, results) => {
+    if (error) {
+      process.stdout.write(error.message);
+      callback();
+    } else
+      callback(conf);
+  });
+}
+
+/**
  * Creates server configuration file if it does not exist.
  *
  * @param {Function} callback Function to call when its done
@@ -435,15 +537,31 @@ function createServerConf(callback) {
       });
     },
 
-    // Ask for authentication mechanisms
+    // CAS
     (callback) => {
       if (!authConf) return callback();
 
-      // CAS
       rl.question('Do you want to configure authentication using CAS ? (y/N) :\n', (answer) => {
         if (answer === 'y') {
           askForCasAuthConf((casConf) => {
             authConf.cas = casConf;
+            callback();
+          });
+        } else {
+          callback();
+        }
+      });
+
+    },
+
+    // LDAP
+    (callback) => {
+      if (!authConf) return callback();
+
+      rl.question('Do you want to configure authentication using LDAP ? (y/N) :\n', (answer) => {
+        if (answer === 'y') {
+          askForLdapAuthConf((ldapConf) => {
+            authConf.ldapauth = ldapConf;
             callback();
           });
         } else {

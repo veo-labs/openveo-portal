@@ -33,18 +33,16 @@
      * Signs in using the given credentials.
      *
      * @param {String} type The type of authentication
-     * @param {String} email The email
+     * @param {String} login The login
      * @param {String} password The password
      * @return {HttPromise} The authentication promise
      * @method login
      */
-    function login(type, email, password) {
+    function login(type, login, password) {
       return $http.post(basePath + 'authenticate', {
         type: type,
-        credentials: {
-          email: email,
-          password: password
-        }
+        login: login,
+        password: password
       });
     }
 

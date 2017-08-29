@@ -1,5 +1,5 @@
 <div md-whiteframe="6" class="content login" md-colors="::{background: '{{loginCtrl.theme}}-background-50'}">
-  <div layout="column" ng-if="loginCtrl.hasExternal">
+  <div layout="column" layout-align="center center" ng-if="loginCtrl.hasExternal">
     <p class="md-caption" ng-bind="'LOGIN.CONNECT_WITH' | translate"></p>
 
     <md-button class="text-button lowercase-button cas-button"
@@ -12,4 +12,40 @@
                analytics-event="Login">
     </md-button>
   </div>
+  <form name="loginForm" ng-if="loginCtrl.hasLdap">
+    <div layout="column" layout-align="center center">
+      <p class="md-caption" ng-bind="'LOGIN.CONNECT_OR' | translate" ng-if="loginCtrl.hasExternal"></p>
+
+      <!-- Login field -->
+      <md-input-container md-no-float class="login-field">
+        <input ng-model="loginCtrl.login" type="text" placeholder="{{'LOGIN.LOGIN_FIELD' | translate}}" ng-required="true" name="login">
+        <div ng-messages="loginForm.login.$error">
+          <div ng-message="required"><!-- Hack to avoid mdInput warning about animation --></div>
+        </div>
+      </md-input-container>
+
+      <!-- Password field -->
+      <md-input-container md-no-float class="password-field">
+        <input ng-model="loginCtrl.password" type="text" placeholder="{{'LOGIN.PASSWORD_FIELD' | translate}}" ng-required="true" name="password">
+        <div ng-messages="loginForm.password.$error">
+          <div ng-message="required"><!-- Hack to avoid mdInput warning about animation --></div>
+        </div>
+      </md-input-container>
+
+      <md-button class="text-button lowercase-button md-raised md-primary"
+                 aria-label="{{'LOGIN.SUBMIT' | translate}}"
+                 ng-bind="'LOGIN.SUBMIT' | translate"
+                 ng-click="loginCtrl.signIn();"
+                 ng-disabled="loginCtrl.isLogging">
+      </md-button>
+
+      <p ng-show="loginCtrl.hasError"
+         class="md-caption"
+         role="alert"
+         ng-bind="'LOGIN.ERROR' | translate"
+         md-colors="::{color: '{{loginCtrl.theme}}-warn-A700'}">
+      </p>
+
+    </div>
+  </form>
 </div>

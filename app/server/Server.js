@@ -23,6 +23,7 @@ const defaultController = process.require('app/server/controllers/defaultControl
 const errorController = process.require('app/server/controllers/errorController.js');
 const searchController = process.require('app/server/controllers/searchController.js');
 const statisticsController = process.require('app/server/controllers/statisticsController.js');
+const authenticationController = process.require('app/server/controllers/authenticationController.js');
 const passportStrategies = process.require('app/server/passport/strategies.js');
 const portalConf = process.require('app/server/conf.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
@@ -147,6 +148,16 @@ class Server {
       // Load passport strategies
       for (var type in auth)
         passport.use(passportStrategies.get(type, auth[type]));
+
+      // Serialize user into passport session
+      passport.serializeUser((user, done) => {
+        done(null, user);
+      });
+
+      // Deserialize user from passport session
+      passport.deserializeUser((user, done) => {
+        done(null, user);
+      });
     }
 
     // for thumbnail only, set server as proxy to webservice server
@@ -237,27 +248,10 @@ class Server {
    */
   mountRoutes() {
     if (this.configuration.auth) {
-
-      // Use passport to authenticate requests using a strategy with redirection
-      this.app.get('/authenticate/:type', (request, response, next) => {
-        passportStrategies.getAuthenticateMiddleware(
-          request.params.type
-        )(request, response, next);
-      });
-
-      // Use passport to authenticate requests using a strategy without redirection
-      this.app.post('/authenticate', (request, response, next) => {
-        passportStrategies.getAuthenticateMiddleware(
-          request.body.type,
-          request.body.credentials
-        )(request, response, next);
-      });
-
-      // Use passport to logout the user using the strategy which make him logged
-      this.app.get('/logout', (request, response, next) => {
-        passportStrategies.getLogoutMiddleware(request.user.strategy)(request, response, next);
-      });
-
+      this.app.get('/authenticate/:type', authenticationController.authenticateExternalAction);
+      this.app.post('/authenticate', authenticationController.authenticateInternalAction);
+      this.app.get('/logout', authenticationController.logoutAction);
+      this.app.post('/logout', authenticationController.logoutAction);
     }
 
     this.app.post('/statistics/:entity/:type/:id', statisticsController.statisticsAction);
