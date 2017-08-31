@@ -143,14 +143,20 @@ module.exports.getLogoutMiddleware = (name) => {
     // Logout from passport
     request.logout();
 
-    const strategy = Object.create(strategyPrototype);
+    // Destroy session from session store
+    request.session.destroy((error) => {
+      if (error)
+        process.logger.error(error.message, {error: error});
 
-    // Logout from server
-    if (strategy.logout)
-      strategy.logout(request, response);
+      const strategy = Object.create(strategyPrototype);
 
-    if (name === this.STRATEGIES.LDAP)
-      response.status(200).send();
+      // Logout from server
+      if (strategy.logout)
+        strategy.logout(request, response);
+
+      if (name === this.STRATEGIES.LDAP)
+        response.status(200).send();
+    });
   };
 
 };
