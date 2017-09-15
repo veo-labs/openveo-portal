@@ -126,7 +126,7 @@
             // Clean search parameters to avoid conflicts
             param = searchService.cleanSearch(paramTemp);
 
-            return searchService.search(param, {});
+            return searchService.search(param, {limit: 12});
           }],
           filters: ['searchService', function(searchService) {
             return searchService.getFilters();
