@@ -5,6 +5,10 @@
 - Video title has been removed from the shared page
 - The aspect of the whole display is now smaller and 4 columns of videos are now displayed instead of 3
 
+## BUG FIXES
+
+- Remove glyph next to the logotype on Internet Explorer 10
+
 ## DEPENDENCIES
 
 - **chai** has been upgraded from 3.5.0 to **4.0.2**
