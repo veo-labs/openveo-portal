@@ -9,7 +9,7 @@
     var self = this;
     this.theme = openVeoPortalSettings.theme;
     this.hasCas = openVeoPortalSettings.authenticationMechanisms.indexOf('cas') >= 0;
-    this.hasLdap = true;
+    this.hasLdap = openVeoPortalSettings.authenticationMechanisms.indexOf('ldapauth') >= 0;
     this.hasExternal = this.hasCas;
     this.hasError = false;
     this.isLogging = false;
