@@ -1,0 +1,660 @@
+{
+    "project": {
+        "name": "OpenVeo Portal client",
+        "description": "AngularJS OpenVeo Portal client side documentation",
+        "version": "2.1.0"
+    },
+    "files": {
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\i18n\\I18nApp.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\i18n\\I18nApp.js",
+            "modules": {
+                "ov.i18n": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\i18n\\I18nFilter.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\i18n\\I18nFilter.js",
+            "modules": {},
+            "classes": {
+                "TranslateFilter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\ErrorInterceptor.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\ErrorInterceptor.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\HomeController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\HomeController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\OvApp.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\OvApp.js",
+            "modules": {
+                "ov.portal": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "modules": {
+                "ov": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoPageController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoPageController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoService.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoService.js",
+            "modules": {},
+            "classes": {
+                "applicationService": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "ov.i18n": {
+            "name": "ov.i18n",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "TranslateFilter": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\i18n\\I18nFilter.js",
+            "line": 9,
+            "description": "Control internationalization.",
+            "itemtype": "main"
+        },
+        "ov.portal": {
+            "name": "ov.portal",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\OvApp.js",
+            "line": 3,
+            "description": "Main OpenVeo Portal module.\n\nInitializes routes.",
+            "itemtype": "main"
+        },
+        "ov": {
+            "name": "ov",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "applicationService": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoService.js",
+            "line": 5,
+            "description": "Defines service to manage the video search."
+        }
+    },
+    "classes": {
+        "TranslateFilter": {
+            "name": "TranslateFilter",
+            "shortname": "TranslateFilter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ov.i18n",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\i18n\\I18nFilter.js",
+            "line": 9,
+            "description": "Defines a filter to translate an id, contained inside a dictionary of translations,\ninto the appropriated text.",
+            "is_constructor": 1
+        },
+        "applicationService": {
+            "name": "applicationService",
+            "shortname": "applicationService",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ov",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoService.js",
+            "line": 5,
+            "description": "Defines service to manage the video search."
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\i18n\\I18nFilter.js",
+            "line": 18,
+            "description": "Translates an id into the appropriated text.",
+            "itemtype": "method",
+            "name": "translate",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the translation",
+                    "type": "String"
+                },
+                {
+                    "name": "number",
+                    "description": "The number to determine pluralization",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "The translated string",
+                "type": "String"
+            },
+            "class": "TranslateFilter",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\ErrorInterceptor.js",
+            "line": 5,
+            "description": "Builds the error message for the given error.",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The promise error as returned by the interceptor",
+                    "type": "Object"
+                },
+                {
+                    "name": "$filter",
+                    "description": "Angular filter",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The translated error message",
+                "type": "String"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\ErrorInterceptor.js",
+            "line": 38,
+            "description": "Defines an HTTP interceptor to handle all application errors.\n\nNot authorized errors (401) logs out the user while the other HTTP errors set an error message\nusing an alert.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\HomeController.js",
+            "line": 3,
+            "params": [
+                {
+                    "name": "app",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\HomeController.js",
+            "line": 11,
+            "description": "Defines the home page controller.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js",
+            "line": 5,
+            "description": "Define toast controller for all toast in app",
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$mdToast",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "MainController_L3.ToastController"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js",
+            "line": 17,
+            "description": "Define dialog controller for all dialog in app",
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$mdDialog",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "video",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "MainController_L3.DialogController"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js",
+            "line": 44,
+            "description": "Defines the main controller parent of all controllers in the\napplication. All actions not handled in partials are handled\nby the main controller.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js",
+            "line": 159,
+            "description": "Define placeholder directive on all video element",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\OvApp.js",
+            "line": 66,
+            "description": "Configures application main routes and set location mode to HTML5.",
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js",
+            "line": 4,
+            "description": "Defines the home page controller.",
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js",
+            "line": 17,
+            "description": "init search from location",
+            "params": [
+                {
+                    "name": "searchTmp",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js",
+            "line": 28,
+            "description": "Search call to service",
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 18,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Unresolved"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 35,
+            "return": {
+                "description": "filters"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 51,
+            "return": {
+                "description": "categories"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 66,
+            "return": {
+                "description": "categories"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 77,
+            "description": "Loads the list of videos for Homepage",
+            "return": {
+                "description": "data"
+            },
+            "itemtype": "method",
+            "name": "loadScopes",
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 107,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "paginate",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "data"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 121,
+            "description": "Clears a search service cache.",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "The cache element to clsear null to\nclear all caches",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "itemtype": "method",
+            "name": "cacheClear",
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js",
+            "line": 135,
+            "description": "Clears search parameters to avoid conflicts",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "clean search params",
+                "type": "Object"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoController.js",
+            "line": 5,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$locale",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$timeout",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$location",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "VideoController_L3.VideoController"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoController.js",
+            "line": 47,
+            "description": "Executes, safely, the given function in AngularJS process.",
+            "params": [
+                {
+                    "name": "functionToExecute",
+                    "description": "The function to execute as part of\nthe angular digest process.",
+                    "type": "Function"
+                }
+            ],
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoPageController.js",
+            "line": 5,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "video",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "VideoPageController_L3.VideoPageController"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoService.js",
+            "line": 15,
+            "return": {
+                "description": "filters"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\HomeController.js:3"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js:5"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js:17"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js:17"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoController.js:5"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoPageController.js:5"
+        },
+        {
+            "message": "Missing item type\nBuilds the error message for the given error.",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\ErrorInterceptor.js:5"
+        },
+        {
+            "message": "Missing item type\nDefines an HTTP interceptor to handle all application errors.\n\nNot authorized errors (401) logs out the user while the other HTTP errors set an error message\nusing an alert.",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\ErrorInterceptor.js:38"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\HomeController.js:3"
+        },
+        {
+            "message": "Missing item type\nDefines the home page controller.",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\HomeController.js:11"
+        },
+        {
+            "message": "Missing item type\nDefine toast controller for all toast in app",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js:5"
+        },
+        {
+            "message": "Missing item type\nDefine dialog controller for all dialog in app",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js:17"
+        },
+        {
+            "message": "Missing item type\nDefines the main controller parent of all controllers in the\napplication. All actions not handled in partials are handled\nby the main controller.",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js:44"
+        },
+        {
+            "message": "Missing item type\nDefine placeholder directive on all video element",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\MainController.js:159"
+        },
+        {
+            "message": "Missing item type\nConfigures application main routes and set location mode to HTML5.",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\OvApp.js:66"
+        },
+        {
+            "message": "Missing item type\nDefines the home page controller.",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js:4"
+        },
+        {
+            "message": "Missing item type\ninit search from location",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js:17"
+        },
+        {
+            "message": "Missing item type\nSearch call to service",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchController.js:28"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js:18"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js:35"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js:51"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js:66"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js:107"
+        },
+        {
+            "message": "Missing item type\nClears search parameters to avoid conflicts",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\SearchService.js:135"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoController.js:5"
+        },
+        {
+            "message": "Missing item type\nExecutes, safely, the given function in AngularJS process.",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoController.js:47"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoPageController.js:5"
+        },
+        {
+            "message": "Missing item type",
+            "line": " F:\\projects\\openveo-portal\\app\\client\\front\\js\\ov\\VideoService.js:15"
+        }
+    ]
+}

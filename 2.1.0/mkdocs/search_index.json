@@ -1,0 +1,244 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "What's OpenVeo Portal?\n\n\nOpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicative server based on \nExpress framework\n.\n\n\nIt aims to offer a portal to access medias exposed by an \nOpenVeo\n server associated to an \nOpenVeo Publish\n plugin.\n\n\nIt includes the following features:\n\n\n\n\nAn home page to present the most seen medias\n\n\nA search engine\n\n\nSupport for authentication using \nCAS\n\n\nThemes\n\n\nStatistics with support for \nPiwik\n\n\n\n\nCompatibility\n\n\nOpenVeo Portal has been tested on the following operating systems:\n\n\n\n\nWindows 10\n\n\nUbuntu 16.04\n\n\nXubuntu 16.04\n\n\n\n\nOpenVeo has been tested on the following:\n\n\n\n\nGoogle Chrome 54\n\n\nMozilla Firefox 47\n\n\nOpera 42\n\n\nInternet Explorer Edge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScreenshots\n\n\nHome page\n\n\n\n\nVideo player",
+            "title": "INTRODUCTION"
+        },
+        {
+            "location": "/#whats-openveo-portal",
+            "text": "OpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicative server based on  Express framework .  It aims to offer a portal to access medias exposed by an  OpenVeo  server associated to an  OpenVeo Publish  plugin.  It includes the following features:   An home page to present the most seen medias  A search engine  Support for authentication using  CAS  Themes  Statistics with support for  Piwik",
+            "title": "What's OpenVeo Portal?"
+        },
+        {
+            "location": "/#compatibility",
+            "text": "OpenVeo Portal has been tested on the following operating systems:   Windows 10  Ubuntu 16.04  Xubuntu 16.04   OpenVeo has been tested on the following:   Google Chrome 54  Mozilla Firefox 47  Opera 42  Internet Explorer Edge",
+            "title": "Compatibility"
+        },
+        {
+            "location": "/#screenshots",
+            "text": "",
+            "title": "Screenshots"
+        },
+        {
+            "location": "/#home-page",
+            "text": "",
+            "title": "Home page"
+        },
+        {
+            "location": "/#video-player",
+            "text": "",
+            "title": "Video player"
+        },
+        {
+            "location": "/prerequisites/",
+            "text": "OpenVeo Portal requires and has been tested on:\n\n\n\n\nOpenveo\n (\n>=4.0.0\n) with \nOpenveo Publish Plugin\n (\n>=3.0.0\n) - OpenVeo Portal retrieves all its videos from an OpenVeo server\n\n\nNode.js\n (\n>=7.4.0\n) - The server side of OpenVeo Portal is written in Node.js\n\n\nNpm\n (\n>=4.0.5\n) - Npm is used to install OpenVeo Portal server dependencies\n\n\nMongoDB\n (\n>=3.0.0\n) - OpenVeo Portal stores user sessions in a MongoDB database\n\n\nBower\n (\n>=1.5.2\n) - Bower is used to install OpenVeo Portal client dependencies\n\n\n\n\nNB:\n Moreover, for a Windows installation, Visual Studio Express is required as some OpenVeo dependencies are written in C and need to be compiled. For Linux you may have to install the package libkrb5-dev.",
+            "title": "Prerequisites"
+        },
+        {
+            "location": "/getting-started/",
+            "text": "OpenVeo Portal\n\n\nOpenveo Portal interacts with a Web Service exposed by an \nOpenVeo\n server associated to an \nOpenVeo Publish\n plugin.\n\n\nDownload OpenVeo Portal\n\n\nActually OpenVeo Portal can be downloaded directly from \ngithub\n:\n\n\n\n\nSelect the tag you want to download (\nfrom version >=2.0.1\n)\n\n\nThen download the associated archive\n\n\nDeploy the archive on your server\n\n\n\n\nInstall OpenVeo Portal\n\n\nFrom OpenVeo Portal root directory:\n\n\nnpm install --production\n\n\n\nNb :\n You will be prompted for some configuration. Don't worry if you made an error, you can edit configuration anytime using \nadvanced configuration\n.\n\n\nInstall a custom theme\n\n\nBy default, OpenVeo Portal comes with a default theme. If this theme does not suite your graphical interface, you can customize OpenVeo Portal with your own theme and install it into \nassets/themes\n.\n\n\nLaunch the application\n\n\nOpenVeo Portal is now installed. Launch it:\n\n\nnode server.js",
+            "title": "Getting started"
+        },
+        {
+            "location": "/getting-started/#openveo-portal",
+            "text": "Openveo Portal interacts with a Web Service exposed by an  OpenVeo  server associated to an  OpenVeo Publish  plugin.",
+            "title": "OpenVeo Portal"
+        },
+        {
+            "location": "/getting-started/#download-openveo-portal",
+            "text": "Actually OpenVeo Portal can be downloaded directly from  github :   Select the tag you want to download ( from version >=2.0.1 )  Then download the associated archive  Deploy the archive on your server",
+            "title": "Download OpenVeo Portal"
+        },
+        {
+            "location": "/getting-started/#install-openveo-portal",
+            "text": "From OpenVeo Portal root directory:  npm install --production  Nb :  You will be prompted for some configuration. Don't worry if you made an error, you can edit configuration anytime using  advanced configuration .",
+            "title": "Install OpenVeo Portal"
+        },
+        {
+            "location": "/getting-started/#install-a-custom-theme",
+            "text": "By default, OpenVeo Portal comes with a default theme. If this theme does not suite your graphical interface, you can customize OpenVeo Portal with your own theme and install it into  assets/themes .",
+            "title": "Install a custom theme"
+        },
+        {
+            "location": "/getting-started/#launch-the-application",
+            "text": "OpenVeo Portal is now installed. Launch it:  node server.js",
+            "title": "Launch the application"
+        },
+        {
+            "location": "/advanced-configuration/",
+            "text": "Introduction\n\n\nConfiguration files are all in user's directory under \n~/.openveo/portal\n\n\n\n\n~/.openveo/portal/conf.json\n\n\n~/.openveo/portal/databaseConf.json\n\n\n~/.openveo/portal/loggerConf.json\n\n\n~/.openveo/portal/serverConf.json\n\n\n~/.openveo/portal/webservicesConf.json\n\n\n\n\nNb :\n You must restart OpenVeo Portal after modifications.\n\n\nConfigure OpenVeo Portal\n\n\nOpen \n~/.openveo/portal/conf.json\n\n\n{\n  \"theme\": \"default\", // The name of the theme to use (this is the name of the directory in assets/themes)\n  \"exposedFilter\": [ // A list of custom properties' ids defined in OpenVeo Publish to add as search engine filters\n    \"VJWL6-0Cx\",\n    \"NkLcut70x\",\n    \"4yYs5f0Ag\"\n  ],\n  \"categoriesFilter\": \"1443702123703\", // Id of the taxonomy \"categories\" defined in OpenVeo Publish\n  \"privateFilter\": [ // A list of groups' ids, defined in OpenVeo, only content in this list of groups will be available to an authenticated user\n    \"4keznvtlW\"\n  ],\n  \"publicFilter\": [ // A list of groups' ids, defined in OpenVeo, only content in this list of groups will be available to an anonymous user\n    \"Vyog3_KgW\"\n  ],\n  \"cache\": {\n    \"filterTTL\": 600, // Time (in seconds) to keep the list of categories and custom properties' values in cache\n    \"videoTTL\": 60 // Time (in seconds) to keep information about a video in cache\n  },\n  \"useDialog\": true // true to open videos in a dialog, false to open videos in a new page\n}\n\n\n\n\nConfigure database access\n\n\nOpen \n~/.openveo/portal/databaseConf.json\n\n\n{\n  \"type\" : \"mongodb\", // Do not change\n  \"host\" : \"localhost\", // MongoDB server host\n  \"port\" : 27017, // MongoDB port\n  \"database\" : \"DATABASE_NAME\", // Replace DATABASE_NAME by the name of the OpenVeo Portal database\n  \"username\" : \"DATABASE_USER_NAME\", // Replace DATABASE_USER_NAME by the name of the database user\n  \"password\" : \"DATABASE_USER_PWD\" // Replace DATABASE_USER_PWD  by the password of the database user\n}\n\n\n\n\nConfigure the logger\n\n\nOpen \n~/.openveo/portal/loggerConf.json\n\n\n{\n  \"fileName\" : \"/var/log/openveo/openveo-portal.log\", // Path to application log file\n  \"level\" : \"info\", // Log level\n  \"maxFileSize\" : 104857600, // Maximum log file size (in Bytes)\n  \"maxFiles\" : 2 // Maximum number of files archived\n}\n\n\n\n\nConfigure the server\n\n\nOpen \n~/.openveo/core/serverConf.json\n\n\n{\n  \"port\": PORT, // Replace PORT by the HTTP server port to use (e.g. 3003)\n  \"sessionSecret\": \"SECRET\", // Replace SECRET by a secret used to secure HTTP sessions\n  \"auth\": {\n    \"type\": \"cas\", // The authentication mechanism to use (only cas is supported right now)\n    \"cas\": { // CAS configuration in case of type \"cas\"\n      \"version\": \"3\", // The version of the CAS server\n      \"service\": \"https://my-openveo-portal.com\", // The service to use to authenticate to the CAS server\n      \"url\": \"https://my-cas-server.com:8443/cas\", // The url of the CAS server\n      \"certificate\": \"cas.crt\" // The absolute path of the CAS server certificate if root CA is not in the Node.JS well known CAs\n    }\n  }\n}\n\n\n\n\nConfigure the access to OpenVeo Web Service\n\n\nOpen \n~/.openveo/portal/webservicesConf.json\n\n\n{\n \"path\": \"https://www.my-openveo-ws.com\", // Complete path to the web service (including port if necessary)\n \"clientID\": \"65d6247f0293049523d6a5e2efdf49ac07b51600\", // OpenVeo Portal id\n \"secretID\": \"8a7b0d43a631b52cf15e89eba7a65f274ccc7f73\", // OpenVeo Portal secret\n \"certificate\": \"server.crt\" // The absolute path of the OpenVeo Web Service certificate if root CA is not in the system well known CAs\n}",
+            "title": "Advanced configuration"
+        },
+        {
+            "location": "/advanced-configuration/#introduction",
+            "text": "Configuration files are all in user's directory under  ~/.openveo/portal   ~/.openveo/portal/conf.json  ~/.openveo/portal/databaseConf.json  ~/.openveo/portal/loggerConf.json  ~/.openveo/portal/serverConf.json  ~/.openveo/portal/webservicesConf.json   Nb :  You must restart OpenVeo Portal after modifications.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/advanced-configuration/#configure-openveo-portal",
+            "text": "Open  ~/.openveo/portal/conf.json  {\n  \"theme\": \"default\", // The name of the theme to use (this is the name of the directory in assets/themes)\n  \"exposedFilter\": [ // A list of custom properties' ids defined in OpenVeo Publish to add as search engine filters\n    \"VJWL6-0Cx\",\n    \"NkLcut70x\",\n    \"4yYs5f0Ag\"\n  ],\n  \"categoriesFilter\": \"1443702123703\", // Id of the taxonomy \"categories\" defined in OpenVeo Publish\n  \"privateFilter\": [ // A list of groups' ids, defined in OpenVeo, only content in this list of groups will be available to an authenticated user\n    \"4keznvtlW\"\n  ],\n  \"publicFilter\": [ // A list of groups' ids, defined in OpenVeo, only content in this list of groups will be available to an anonymous user\n    \"Vyog3_KgW\"\n  ],\n  \"cache\": {\n    \"filterTTL\": 600, // Time (in seconds) to keep the list of categories and custom properties' values in cache\n    \"videoTTL\": 60 // Time (in seconds) to keep information about a video in cache\n  },\n  \"useDialog\": true // true to open videos in a dialog, false to open videos in a new page\n}",
+            "title": "Configure OpenVeo Portal"
+        },
+        {
+            "location": "/advanced-configuration/#configure-database-access",
+            "text": "Open  ~/.openveo/portal/databaseConf.json  {\n  \"type\" : \"mongodb\", // Do not change\n  \"host\" : \"localhost\", // MongoDB server host\n  \"port\" : 27017, // MongoDB port\n  \"database\" : \"DATABASE_NAME\", // Replace DATABASE_NAME by the name of the OpenVeo Portal database\n  \"username\" : \"DATABASE_USER_NAME\", // Replace DATABASE_USER_NAME by the name of the database user\n  \"password\" : \"DATABASE_USER_PWD\" // Replace DATABASE_USER_PWD  by the password of the database user\n}",
+            "title": "Configure database access"
+        },
+        {
+            "location": "/advanced-configuration/#configure-the-logger",
+            "text": "Open  ~/.openveo/portal/loggerConf.json  {\n  \"fileName\" : \"/var/log/openveo/openveo-portal.log\", // Path to application log file\n  \"level\" : \"info\", // Log level\n  \"maxFileSize\" : 104857600, // Maximum log file size (in Bytes)\n  \"maxFiles\" : 2 // Maximum number of files archived\n}",
+            "title": "Configure the logger"
+        },
+        {
+            "location": "/advanced-configuration/#configure-the-server",
+            "text": "Open  ~/.openveo/core/serverConf.json  {\n  \"port\": PORT, // Replace PORT by the HTTP server port to use (e.g. 3003)\n  \"sessionSecret\": \"SECRET\", // Replace SECRET by a secret used to secure HTTP sessions\n  \"auth\": {\n    \"type\": \"cas\", // The authentication mechanism to use (only cas is supported right now)\n    \"cas\": { // CAS configuration in case of type \"cas\"\n      \"version\": \"3\", // The version of the CAS server\n      \"service\": \"https://my-openveo-portal.com\", // The service to use to authenticate to the CAS server\n      \"url\": \"https://my-cas-server.com:8443/cas\", // The url of the CAS server\n      \"certificate\": \"cas.crt\" // The absolute path of the CAS server certificate if root CA is not in the Node.JS well known CAs\n    }\n  }\n}",
+            "title": "Configure the server"
+        },
+        {
+            "location": "/advanced-configuration/#configure-the-access-to-openveo-web-service",
+            "text": "Open  ~/.openveo/portal/webservicesConf.json  {\n \"path\": \"https://www.my-openveo-ws.com\", // Complete path to the web service (including port if necessary)\n \"clientID\": \"65d6247f0293049523d6a5e2efdf49ac07b51600\", // OpenVeo Portal id\n \"secretID\": \"8a7b0d43a631b52cf15e89eba7a65f274ccc7f73\", // OpenVeo Portal secret\n \"certificate\": \"server.crt\" // The absolute path of the OpenVeo Web Service certificate if root CA is not in the system well known CAs\n}",
+            "title": "Configure the access to OpenVeo Web Service"
+        },
+        {
+            "location": "/production/",
+            "text": "Launch in production\n\n\nTo use OpenVeo Portal in a production environment, start the server in production:\n\n\n# Starts OpenVeo Portal application in production environment\nNODE_ENV=production node server.js\n\n\n\nNb:\n You should also consider launching the process as a deamon.",
+            "title": "Production"
+        },
+        {
+            "location": "/production/#launch-in-production",
+            "text": "To use OpenVeo Portal in a production environment, start the server in production:  # Starts OpenVeo Portal application in production environment\nNODE_ENV=production node server.js  Nb:  You should also consider launching the process as a deamon.",
+            "title": "Launch in production"
+        },
+        {
+            "location": "/developers/prerequisites/",
+            "text": "OpenVeo Portal requires additional elements for development:\n\n\n\n\nGit\n - openveo-portal is versioned with git\n\n\nRuby\n / \nSass\n / \nCompass\n - CSS is written using SASS / Compass\n\n\nGrunt\n - Grunt is used to launch development tasks (compilation, obfuscation, tests etc.)\n\n\nMkdocs\n - To generate this documentation",
+            "title": "Prerequisites"
+        },
+        {
+            "location": "/developers/installation/",
+            "text": "Clone project from git\n\n\ncd /WORKSPACE_PATH/\ngit clone git@github.com:veo-labs/openveo-portal.git\n\n\n\nInstall OpenVeo Portal\n\n\ncd /WORKSPACE_PATH/openveo-portal\nnpm install",
+            "title": "Installation"
+        },
+        {
+            "location": "/developers/installation/#clone-project-from-git",
+            "text": "cd /WORKSPACE_PATH/\ngit clone git@github.com:veo-labs/openveo-portal.git",
+            "title": "Clone project from git"
+        },
+        {
+            "location": "/developers/installation/#install-openveo-portal",
+            "text": "cd /WORKSPACE_PATH/openveo-portal\nnpm install",
+            "title": "Install OpenVeo Portal"
+        },
+        {
+            "location": "/developers/conf/",
+            "text": "Introduction\n\n\nSome project's development configuration is made in \nconf.json\n file.\n\n\nLoad JavaScript files\n\n\nThe list of JavaScript files to load are defined in \nconf.json\n:\n\n\n{\n  scriptLibFiles: { // List of JavaScript files to load first\n    base: [ // List of JavaScript files to load on both development and production environments\n      ...\n    ],\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  },\n  scriptFiles: { // List of JavaScript files to load next\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  }\n}\n\n\n\n\nLoad CSS files\n\n\nThe list of CSS files to load are defined in \nconf.json\n:\n\n\n{\n  cssFiles: [ // List of CSS files to load\n    ...\n  ]\n}",
+            "title": "conf.json"
+        },
+        {
+            "location": "/developers/conf/#introduction",
+            "text": "Some project's development configuration is made in  conf.json  file.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/developers/conf/#load-javascript-files",
+            "text": "The list of JavaScript files to load are defined in  conf.json :  {\n  scriptLibFiles: { // List of JavaScript files to load first\n    base: [ // List of JavaScript files to load on both development and production environments\n      ...\n    ],\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  },\n  scriptFiles: { // List of JavaScript files to load next\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  }\n}",
+            "title": "Load JavaScript files"
+        },
+        {
+            "location": "/developers/conf/#load-css-files",
+            "text": "The list of CSS files to load are defined in  conf.json :  {\n  cssFiles: [ // List of CSS files to load\n    ...\n  ]\n}",
+            "title": "Load CSS files"
+        },
+        {
+            "location": "/developers/compilation/",
+            "text": "Introduction\n\n\nOpenVeo Portal is written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance.\n\n\nCompiling SASS files\n\n\nYou can compile the SASS files using the following command:\n\n\ngrunt compass:dist\n\n\n\nOr you can watch SASS files changes using the following command:\n\n\ngrunt\n\n\n\nCompiling JavaScript files\n\n\nYou'll probably want to compile AngularJS files, in production, for better performance. You can do it using:\n\n\ngrunt dist",
+            "title": "CSS / SASS / JS compilation"
+        },
+        {
+            "location": "/developers/compilation/#introduction",
+            "text": "OpenVeo Portal is written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/developers/compilation/#compiling-sass-files",
+            "text": "You can compile the SASS files using the following command:  grunt compass:dist  Or you can watch SASS files changes using the following command:  grunt",
+            "title": "Compiling SASS files"
+        },
+        {
+            "location": "/developers/compilation/#compiling-javascript-files",
+            "text": "You'll probably want to compile AngularJS files, in production, for better performance. You can do it using:  grunt dist",
+            "title": "Compiling JavaScript files"
+        },
+        {
+            "location": "/developers/api/",
+            "text": "Server side API (Node.js)\n\n\nOpenVeo Portal server API\n is the generated version of the Node.JS code documentation.\n\n\nClient side API (AngularJS)\n\n\nOpenVeo Portal client API\n is the generated version of the AngularJS code documentation.",
+            "title": "API"
+        },
+        {
+            "location": "/developers/api/#server-side-api-nodejs",
+            "text": "OpenVeo Portal server API  is the generated version of the Node.JS code documentation.",
+            "title": "Server side API (Node.js)"
+        },
+        {
+            "location": "/developers/api/#client-side-api-angularjs",
+            "text": "OpenVeo Portal client API  is the generated version of the AngularJS code documentation.",
+            "title": "Client side API (AngularJS)"
+        },
+        {
+            "location": "/developers/logger/",
+            "text": "Introduction\n\n\nAll server logs are performed by module \nWinston\n.\n\n\nUse OpenVeo Portal logger\n\n\nBy default OpenVeo Portal creates one logger named \nportal\n. You can use this logger using the following code:\n\n\nprocess.logger.silly('Silly log');\nprocess.logger.debug('Debug log');\nprocess.logger.verbose('Verbose log');\nprocess.logger.info('Info log');\nprocess.logger.warn('Warn log');\nprocess.logger.error('Error log');",
+            "title": "Logger"
+        },
+        {
+            "location": "/developers/logger/#introduction",
+            "text": "All server logs are performed by module  Winston .",
+            "title": "Introduction"
+        },
+        {
+            "location": "/developers/logger/#use-openveo-portal-logger",
+            "text": "By default OpenVeo Portal creates one logger named  portal . You can use this logger using the following code:  process.logger.silly('Silly log');\nprocess.logger.debug('Debug log');\nprocess.logger.verbose('Verbose log');\nprocess.logger.info('Info log');\nprocess.logger.warn('Warn log');\nprocess.logger.error('Error log');",
+            "title": "Use OpenVeo Portal logger"
+        },
+        {
+            "location": "/developers/coding-standards/",
+            "text": "OpenVeo Portal uses \nNode.js\n coding standards. \nESLint\n is used to validate coding rules. You can launch a code verification using the following command:\n\n\ngrunt eslint\n\n\n\nNb:\n Both Node.js and AngularJS parts of OpenVeo Portal must respect the same coding standards",
+            "title": "Coding standards"
+        },
+        {
+            "location": "/developers/end-to-end-tests/",
+            "text": "Introduction\n\n\nEnd to end tests are performed using \nProtractor\n.\n\n\nYou need to have a running OpenVeo Web Service server before starting tests.\n\n\nWARNING\n : Each time you launch end to end tests, all information are removed from OpenVeo ! Launch OpenVeo Web Service with option \n--databaseConf\n to specify a test database.\n\n\nInstall selenium web driver and chrome driver\n\n\nnode_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update\n\n\n\nNB: Note that protractor module could be in node_modules/protractor\n\n\nConfigure tests\n\n\nWhen launching tests, an OpenVeo Portal server is automatically spawned and must be configured through \nserverTestConf.json\n. Typically you may want to change the server port.\n\n\n~/.openveo/core/serverTestConf.json\n\n\n{\n  \"port\": 3004,\n  \"sessionSecret\": \"2bXELdIqoT9Tbv5i1RfcXGEIE+GQS+XYbwVn0qEx\"\n}\n\n\n\n\nIn order not to drop your development openveo-portal database, you need to configure a test openveo-portal database through \ndatabaseTestConf.json\n. Typically you may want to change the database, username and password.\n\n\n~/.openveo/core/databaseTestConf.json\n\n\n{\n  \"type\": \"mongodb\",\n  \"host\": \"localhost\",\n  \"port\": 27017,\n  \"database\": \"openveo-portal-test\",\n  \"username\": \"openveo-test\",\n  \"password\": \"openveo-test\"\n}\n\n\n\n\nYou will also need to configure your server by editing options relative to end-to-end tests. You need a \nconfTest.json\n to typically set your test options like \npublicFilter\n.\n\n\n~/.openveo/core/confTest.json\n\n\n{\n  \"theme\": \"default\",\n  \"exposedFilter\": [\"\"],\n  \"categoriesFilter\": \"\",\n  \"privateFilter\": [\"\"],\n  \"publicFilter\": [\"public\"],\n  \"cache\": {\n    \"filterTTL\" : 600,\n    \"videoTTL\" : 60\n    },\n  \"useDialog\": false\n}\n\n\n\n\nThe logger has to be configured through \nloggerTestConf.json\n. Typically you may want to deactivate logger standard output.\n\n\n~/.openveo/core/loggerTestConf.json\n\n\n{\n  \"level\": \"info\",\n  \"maxFileSize\": 104857600,\n  \"maxFiles\": 2,\n  \"fileName\": \"/tmp/openveo-portal-test.log\",\n  \"console\": false\n}\n\n\n\n\nconsole: false\n will deactivate standard output.\n\n\nFinally the Web Service has to be configured through \nwebservicesTestConf.json\n. Typically you may want to have a different server.\n\n\n{\n  \"path\": \"http://127.0.0.1:3002\",\n  \"certificate\": \"\",\n  \"clientID\": \"B1535kPqe\",\n  \"secretID\": \"a058d8ff7420b84708bd1ff4bacb8e4c42424cd0\"\n}\n\n\n\n\nCreate test\n\n\nCreate your test file in \ntests/client/e2eTests/\n then update the list of suites, if necessary, in \ntests/client/e2eTests/protractorSuites.json\n.\n\n\nDebug\n\n\nIf a test fails, a screenshot of the browser at the instant is taken and available in \nbuild/screenshots\n of the project.\n\n\nLaunch end to end tests\n\n\n# Launch all end to end tests on chrome\ngrunt test-e2e --capabilities=\"{\\\"browserName\\\": \\\"chrome\\\"}\" --directConnect=true\n\n# Launch all end to end tests on firefox\ngrunt test-e2e --capabilities=\"{\\\"browserName\\\": \\\"firefox\\\"}\" --directConnect=true\n\n# Launch only portal suite on chrome\ngrunt test-e2e --capabilities=\"{\\\"browserName\\\": \\\"chrome\\\"}\" --directConnect=true --suite=\"portal\"",
+            "title": "End to end tests"
+        },
+        {
+            "location": "/developers/end-to-end-tests/#introduction",
+            "text": "End to end tests are performed using  Protractor .  You need to have a running OpenVeo Web Service server before starting tests.  WARNING  : Each time you launch end to end tests, all information are removed from OpenVeo ! Launch OpenVeo Web Service with option  --databaseConf  to specify a test database.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/developers/end-to-end-tests/#install-selenium-web-driver-and-chrome-driver",
+            "text": "node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update  NB: Note that protractor module could be in node_modules/protractor",
+            "title": "Install selenium web driver and chrome driver"
+        },
+        {
+            "location": "/developers/end-to-end-tests/#configure-tests",
+            "text": "When launching tests, an OpenVeo Portal server is automatically spawned and must be configured through  serverTestConf.json . Typically you may want to change the server port.  ~/.openveo/core/serverTestConf.json  {\n  \"port\": 3004,\n  \"sessionSecret\": \"2bXELdIqoT9Tbv5i1RfcXGEIE+GQS+XYbwVn0qEx\"\n}  In order not to drop your development openveo-portal database, you need to configure a test openveo-portal database through  databaseTestConf.json . Typically you may want to change the database, username and password.  ~/.openveo/core/databaseTestConf.json  {\n  \"type\": \"mongodb\",\n  \"host\": \"localhost\",\n  \"port\": 27017,\n  \"database\": \"openveo-portal-test\",\n  \"username\": \"openveo-test\",\n  \"password\": \"openveo-test\"\n}  You will also need to configure your server by editing options relative to end-to-end tests. You need a  confTest.json  to typically set your test options like  publicFilter .  ~/.openveo/core/confTest.json  {\n  \"theme\": \"default\",\n  \"exposedFilter\": [\"\"],\n  \"categoriesFilter\": \"\",\n  \"privateFilter\": [\"\"],\n  \"publicFilter\": [\"public\"],\n  \"cache\": {\n    \"filterTTL\" : 600,\n    \"videoTTL\" : 60\n    },\n  \"useDialog\": false\n}  The logger has to be configured through  loggerTestConf.json . Typically you may want to deactivate logger standard output.  ~/.openveo/core/loggerTestConf.json  {\n  \"level\": \"info\",\n  \"maxFileSize\": 104857600,\n  \"maxFiles\": 2,\n  \"fileName\": \"/tmp/openveo-portal-test.log\",\n  \"console\": false\n}  console: false  will deactivate standard output.  Finally the Web Service has to be configured through  webservicesTestConf.json . Typically you may want to have a different server.  {\n  \"path\": \"http://127.0.0.1:3002\",\n  \"certificate\": \"\",\n  \"clientID\": \"B1535kPqe\",\n  \"secretID\": \"a058d8ff7420b84708bd1ff4bacb8e4c42424cd0\"\n}",
+            "title": "Configure tests"
+        },
+        {
+            "location": "/developers/end-to-end-tests/#create-test",
+            "text": "Create your test file in  tests/client/e2eTests/  then update the list of suites, if necessary, in  tests/client/e2eTests/protractorSuites.json .",
+            "title": "Create test"
+        },
+        {
+            "location": "/developers/end-to-end-tests/#debug",
+            "text": "If a test fails, a screenshot of the browser at the instant is taken and available in  build/screenshots  of the project.",
+            "title": "Debug"
+        },
+        {
+            "location": "/developers/end-to-end-tests/#launch-end-to-end-tests",
+            "text": "# Launch all end to end tests on chrome\ngrunt test-e2e --capabilities=\"{\\\"browserName\\\": \\\"chrome\\\"}\" --directConnect=true\n\n# Launch all end to end tests on firefox\ngrunt test-e2e --capabilities=\"{\\\"browserName\\\": \\\"firefox\\\"}\" --directConnect=true\n\n# Launch only portal suite on chrome\ngrunt test-e2e --capabilities=\"{\\\"browserName\\\": \\\"chrome\\\"}\" --directConnect=true --suite=\"portal\"",
+            "title": "Launch end to end tests"
+        }
+    ]
+}
