@@ -26,7 +26,7 @@
 
       <!-- Password field -->
       <md-input-container md-no-float class="password-field">
-        <input ng-model="loginCtrl.password" type="text" placeholder="{{'LOGIN.PASSWORD_FIELD' | translate}}" ng-required="true" name="password">
+        <input ng-model="loginCtrl.password" type="password" placeholder="{{'LOGIN.PASSWORD_FIELD' | translate}}" ng-required="true" name="password">
         <div ng-messages="loginForm.password.$error">
           <div ng-message="required"><!-- Hack to avoid mdInput warning about animation --></div>
         </div>
