@@ -49,6 +49,8 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       NO_FILTER: 'Aucun'
     },
     LOGIN: {
+      PAGE_TITLE: 'Portail - Connexion',
+      TITLE: 'Connexion',
       CONNECT_WITH: 'Connectez-vous avec',
       CONNECT_OR: 'ou',
       CAS: 'CAS',

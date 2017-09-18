@@ -1,5 +1,4 @@
-.login {
-  width: 175px;
+.login-form {
 
   .cas-button {
     color: #ffffff;
@@ -12,11 +11,37 @@
   }
 
   p {
-    margin: 0;
+    text-align: center;
   }
 
   .login-field, .password-field {
     margin: 5px 0;
     font-size: 12px;
+  }
+
+  .submit-button {
+    text-align: center;
+  }
+}
+
+.login-dialog {
+  p {
+    margin: 0;
+  }
+}
+
+.login-page {
+  h1 {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .login-form-wrapper {
+    width: 300px;
+    margin: 0 auto;
+
+    @include mobile() {
+      width: 100%;
+    }
   }
 }

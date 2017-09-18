@@ -89,7 +89,7 @@
 
                 // user not authentified
                 else if (result.data.needAuth)
-                  deferred.reject({redirect: '/', needAuth: true});
+                  deferred.reject({redirect: '/login', needAuth: true});
 
               }, function(error) {
 
@@ -136,6 +136,14 @@
             return searchService.getFilters();
           }]
         }
+      });
+
+      // Register login page route
+      $routeProvider.when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginFormController',
+        controllerAs: 'loginCtrl',
+        title: 'LOGIN.PAGE_TITLE'
       });
 
       // Register home page route

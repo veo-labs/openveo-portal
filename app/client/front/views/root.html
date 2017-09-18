@@ -61,7 +61,7 @@
           <!-- Connection button -->
           <md-button class="md-raised text-button log-in-button lowercase-button md-primary"
                      aria-label="{{'UI.LOGIN' | translate}}"
-                     ng-if="!user && isAuth"
+                     ng-if="!user && isAuth && page.path !== '/login'"
                      ng-bind="'UI.LOGIN' | translate"
                      ng-click="mainCtrl.showLoginDialog();">
           </md-button>
@@ -70,7 +70,7 @@
       </div>
 
       <!-- Menu -->
-      <nav layout="column" layout-fill md-colors="::{background: '{{theme}}-background-100'}">
+      <nav layout="column" layout-fill md-colors="::{background: '{{theme}}-background-100'}" ng-if="page.path !== '/login'">
 
         <!-- Menu as tabs for large devices -->
         <md-nav-bar hide-xs
@@ -128,7 +128,7 @@
     <div ng-if="!isIframe && links" class="footer-spacing"></div>
 
     <!-- Footer -->
-    <footer ng-if="!isIframe && links" class="footer">
+    <footer ng-if="!isIframe && links && page.path !== '/login'" class="footer">
       <nav layout="column" layout-fill md-colors="::{background: '{{theme}}-background-100'}">
         <ul class="container"
             layout="row"

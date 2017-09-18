@@ -1,4 +1,4 @@
-<div md-whiteframe="6" class="content login" md-colors="::{background: '{{loginCtrl.theme}}-background-50'}">
+<div class="login-form">
   <div layout="column" layout-align="center center" ng-if="loginCtrl.hasExternal">
     <p class="md-caption" ng-bind="'LOGIN.CONNECT_WITH' | translate"></p>
 
@@ -12,8 +12,9 @@
                analytics-event="Login">
     </md-button>
   </div>
+
   <form name="loginForm" ng-if="loginCtrl.hasLdap">
-    <div layout="column" layout-align="center center">
+    <div layout="column" layout-align="center stretch">
       <p class="md-caption" ng-bind="'LOGIN.CONNECT_OR' | translate" ng-if="loginCtrl.hasExternal"></p>
 
       <!-- Login field -->
@@ -32,12 +33,14 @@
         </div>
       </md-input-container>
 
-      <md-button class="text-button lowercase-button md-raised md-primary"
-                 aria-label="{{'LOGIN.SUBMIT' | translate}}"
-                 ng-bind="'LOGIN.SUBMIT' | translate"
-                 ng-click="loginCtrl.signIn();"
-                 ng-disabled="loginCtrl.isLogging">
-      </md-button>
+      <div class="submit-button">
+        <md-button class="text-button lowercase-button md-raised md-primary"
+                   aria-label="{{'LOGIN.SUBMIT' | translate}}"
+                   ng-bind="'LOGIN.SUBMIT' | translate"
+                   ng-click="loginCtrl.signIn();"
+                   ng-disabled="loginCtrl.isLogging">
+        </md-button>
+      </div>
 
       <p ng-show="loginCtrl.hasError"
          class="md-caption"

@@ -20,7 +20,7 @@
 - The aspect of the whole display is now smaller and 4 columns of videos are now displayed instead of 3
 - Make better use of colors for default theme, blue colors are now only there to show important information and context
 - Connection / deconnection button on mobile devices has been moved next to the logotype
-- To be able to connect with multiple authentication providers, a connection dialog is now available instead of a simple button
+- To be able to connect with multiple authentication providers, a connection dialog (and page) is now available instead of a simple button
 - Add authentication using LDAP
 
 ## BUG FIXES

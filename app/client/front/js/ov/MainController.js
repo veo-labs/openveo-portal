@@ -66,7 +66,17 @@
     $scope.theme = openVeoPortalSettings.theme;
     $scope.useDialog = openVeoPortalSettings.useDialog;
 
-    // Listen to route change success event to set new page title
+    // Listen to route change start event
+    $scope.$on('$routeChangeStart', function(event, next) {
+
+      // User is authenticated and request access to the login page or no authentication mechanism
+      // has been found
+      // Refuse access to the page and redirect to the home page
+      if ($location.path() === '/login' && ($scope.user || !$scope.isAuth)) $location.path('/');
+
+    });
+
+    // Listen to route change success event
     $scope.$on('$routeChangeSuccess', function(event, route) {
       $scope.page.title = $route.current && $route.current.title || $scope.title;
       $scope.page.path = $location.path();
@@ -133,12 +143,11 @@
             $location.path(urlContext, false).search(searchContext);
           }).catch(angular.noop);
 
-        } else {
+        } else if (result.data.needAuth) {
+          $location.path('/login');
+          $scope.showToast($filter('translate')('ERROR.FORBIDDEN'));
+        } else
           $location.path('/');
-
-          if (result.data.needAuth)
-            $scope.showToast($filter('translate')('ERROR.FORBIDDEN'));
-        }
 
       }, function(error) {
 
@@ -204,7 +213,7 @@
         attachTo: angular.element(document.body),
         controller: 'LoginFormController',
         controllerAs: 'loginCtrl',
-        templateUrl: 'views/loginForm.html',
+        templateUrl: 'views/dialogLogin.html',
         clickOutsideToClose: true,
         escapeToClose: true,
         panelClass: 'login-panel',
