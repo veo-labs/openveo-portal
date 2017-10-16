@@ -32,18 +32,6 @@ var HTTP_ERRORS = {
   },
 
   /**
-   * A server error occurring when routes has not been found.
-   *
-   * @property PATH_NOT_FOUND
-   * @type Object
-   * @final
-   */
-  PATH_NOT_FOUND: {
-    code: 0x002,
-    httpCode: 404
-  },
-
-  /**
    * A server error occurring when server configuration is not valid.
    *
    * @property CONF_ERROR
@@ -51,33 +39,45 @@ var HTTP_ERRORS = {
    * @final
    */
   CONF_ERROR: {
-    code: 0x003,
+    code: 0x002,
     httpCode: 500,
     message: 'Portal configuration error'
   },
 
   /**
-   * A server error occurring when authenticating to external provider with wrong parameters.
+   * A server error occurring when searching for videos, using the Web Service, failed.
    *
-   * @property AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS
+   * @property SEARCH_ERROR
    * @type Object
    * @final
    */
-  AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS: {
-    code: 0x004,
-    httpCode: 400
+  SEARCH_ERROR: {
+    code: 0x003,
+    httpCode: 500
   },
 
   /**
-   * A server error occurring when authenticating to internal provider with wrong parameters.
+   * A server error occurring when authenticating the user to the back end.
    *
-   * @property AUTHENTICATE_INTERNAL_WRONG_PARAMETERS
+   * @property BACK_END_AUTHENTICATION_ERROR
    * @type Object
    * @final
    */
-  AUTHENTICATE_INTERNAL_WRONG_PARAMETERS: {
+  BACK_END_AUTHENTICATION_ERROR: {
+    code: 0x004,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when authenticating using an external provider (which require redirection).
+   *
+   * @property BACK_END_EXTERNAL_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  BACK_END_EXTERNAL_AUTHENTICATION_ERROR: {
     code: 0x005,
-    httpCode: 400
+    httpCode: 500
   },
 
   /**
@@ -93,18 +93,6 @@ var HTTP_ERRORS = {
   },
 
   /**
-   * A server error occurring when user authentication to CAS failed.
-   *
-   * @property CAS_AUTHENTICATION_FAILED
-   * @type Object
-   * @final
-   */
-  CAS_AUTHENTICATION_FAILED: {
-    code: 0x007,
-    httpCode: 401
-  },
-
-  /**
    * A server error occurring when authenticating the user to LDAP.
    *
    * @property LDAP_AUTHENTICATION_ERROR
@@ -112,8 +100,60 @@ var HTTP_ERRORS = {
    * @final
    */
   LDAP_AUTHENTICATION_ERROR: {
+    code: 0x007,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a video from Web Service failed.
+   *
+   * @property GET_VIDEO_UNKNOWN
+   * @type Object
+   * @final
+   */
+  GET_VIDEO_UNKNOWN: {
     code: 0x008,
     httpCode: 500
+  },
+
+  // Not found errors
+
+  /**
+   * A server error occurring when routes has not been found.
+   *
+   * @property PATH_NOT_FOUND
+   * @type Object
+   * @final
+   */
+  PATH_NOT_FOUND: {
+    code: 0x100,
+    httpCode: 404
+  },
+
+  // Authentication errors
+
+  /**
+   * A server error occurring when user authentication to CAS failed.
+   *
+   * @property CAS_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  CAS_AUTHENTICATION_FAILED: {
+    code: 0x200,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when user authentication to the back end failed using an external provider.
+   *
+   * @property BACK_END_EXTERNAL_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  BACK_END_EXTERNAL_AUTHENTICATION_FAILED: {
+    code: 0x201,
+    httpCode: 401
   },
 
   /**
@@ -124,7 +164,7 @@ var HTTP_ERRORS = {
    * @final
    */
   LDAP_AUTHENTICATION_FAILED: {
-    code: 0x009,
+    code: 0x202,
     httpCode: 401
   },
 
@@ -136,22 +176,8 @@ var HTTP_ERRORS = {
    * @final
    */
   BACK_END_AUTHENTICATION_FAILED: {
-    code: 0x00a,
+    code: 0x203,
     httpCode: 401
-  },
-
-  // VIDEO errors
-
-  /**
-   * A server error occurring when getting a video from Web Service failed.
-   *
-   * @property GET_VIDEO_UNKNOWN
-   * @type Object
-   * @final
-   */
-  GET_VIDEO_UNKNOWN: {
-    code: 0x101,
-    httpCode: 500
   },
 
   /**
@@ -162,59 +188,36 @@ var HTTP_ERRORS = {
    * @final
    */
   GET_VIDEO_NOT_ALLOWED: {
-    code: 0x102,
+    code: 0x204,
     httpCode: 403
   },
 
-  // SEARCH
+  // Wrong parameters
 
   /**
-   * A server error occurring when searching for videos, using the Web Service, failed.
+   * A server error occurring when authenticating to external provider with wrong parameters.
    *
-   * @property SEARCH_ERROR
+   * @property AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS
    * @type Object
    * @final
    */
-  SEARCH_ERROR: {
-    code: 0x201,
-    httpCode: 500
+  AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS: {
+    code: 0x300,
+    httpCode: 400
   },
 
   /**
-   * A server error occurring when authenticating the user to the back end.
+   * A server error occurring when authenticating to internal provider with wrong parameters.
    *
-   * @property BACK_END_AUTHENTICATION_ERROR
+   * @property AUTHENTICATE_INTERNAL_WRONG_PARAMETERS
    * @type Object
    * @final
    */
-  BACK_END_AUTHENTICATION_ERROR: {
-    code: 0x202,
-    httpCode: 500
-  },
-
-  /**
-   * A server error occurring when authenticating using an external provider (which require redirection).
-   *
-   * @property BACK_END_EXTERNAL_AUTHENTICATION_ERROR
-   * @type Object
-   * @final
-   */
-  BACK_END_EXTERNAL_AUTHENTICATION_ERROR: {
-    code: 0x203,
-    httpCode: 500
-  },
-
-  /**
-   * A server error occurring when user authentication to the back end failed using an external provider.
-   *
-   * @property BACK_END_EXTERNAL_AUTHENTICATION_FAILED
-   * @type Object
-   * @final
-   */
-  BACK_END_EXTERNAL_AUTHENTICATION_FAILED: {
-    code: 0x207,
-    httpCode: 401
+  AUTHENTICATE_INTERNAL_WRONG_PARAMETERS: {
+    code: 0x301,
+    httpCode: 400
   }
+
 };
 
 Object.freeze(HTTP_ERRORS);
