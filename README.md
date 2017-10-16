@@ -8,7 +8,7 @@ It includes the following features:
 
 - An home page to present the most seen medias
 - A search engine
-- Support for authentication using [CAS](https://www.apereo.org/projects/cas) or [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
+- Support for authentication using local database, [CAS](https://www.apereo.org/projects/cas) or [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
 - Themes
 - Statistics with support for [Piwik](http://piwik.org/)
 

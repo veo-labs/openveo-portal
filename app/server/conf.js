@@ -5,5 +5,6 @@ module.exports = {
   loggerConf: null,
   serverConf: null,
   databaseConf: null,
-  webservicesConf: null
+  webservicesConf: null,
+  superAdminId: '0'
 };

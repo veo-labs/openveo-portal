@@ -13,6 +13,7 @@
 
 const path = require('path');
 const cons = require('consolidate');
+const openVeoApi = require('@openveo/api');
 const portalConf = process.require('app/server/conf.js');
 const applicationConf = process.require('conf.json');
 const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
@@ -31,6 +32,8 @@ const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
  * @param {Function} next Function to defer execution to the next registered middleware
  */
 module.exports.defaultAction = (request, response) => {
+  const authConf = portalConf.serverConf.auth;
+  const configuredAuth = (authConf && Object.keys(authConf)) || [];
 
   // Retrieve the list of scripts and css files from configuration
   response.locals.librariesScriptsBase = applicationConf['scriptLibFiles']['base'] || [];
@@ -43,13 +46,9 @@ module.exports.defaultAction = (request, response) => {
   response.locals.languages = ['"en"', '"fr"'];
   response.locals.theme = portalConf.conf.theme;
   response.locals.useDialog = portalConf.conf.useDialog;
-
-  // Add user information
   response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
-
-  // Add available authentication mechanisms
-  const authConf = portalConf.serverConf.auth;
-  response.locals.authenticationMechanisms = authConf && JSON.stringify(Object.keys(authConf));
+  response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
+  response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
 
   // Add theme css file
   response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);

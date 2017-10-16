@@ -7,6 +7,7 @@
   - Footer links are now accent hue 3
   - Theme inverse has been removed, only default theme is used now
   - Menu and links backgrounds are now background 100
+- CAS configuration now expects the following attributes to be set: userIdAttribute and userNameAttribute
 
 ## BUG FIXES
 
@@ -22,6 +23,8 @@
 - Connection / deconnection button on mobile devices has been moved next to the logotype
 - To be able to connect with multiple authentication providers, a connection dialog (and page) is now available instead of a simple button
 - Add authentication using LDAP
+- Add authentication using CAS
+- Add authentication using local database
 
 ## BUG FIXES
 

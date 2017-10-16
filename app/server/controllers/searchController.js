@@ -24,9 +24,29 @@ const videoCache = process.require('/app/server/serverCache/VideoCache');
 const filterCache = process.require('/app/server/serverCache/FilterCache');
 const VIDEO_PUBLISH_STATES = 12;
 
+/**
+ * Searches OpenVeo Publish videos.
+ *
+ * @method searchAction
+ * @static
+ * @async
+ * @param {Request} request ExpressJS HTTP Request
+ * @param {Object} request.body Request's body
+ * @param {Object} request.body.filter Web service endpoint filters
+ * @param {String} [request.body.filter.query] Filter to get only videos which contain the query
+ * inside the title or description
+ * @param {String} [request.body.filter.dateStart] Filter to get only videos after a particular date
+ * @param {String} [request.body.filter.dateEnd] Filter to get only videos before a particular date
+ * @param {String} [request.body.filter.sortBy] The name of the property to sort by (either "views" or "date")
+ * @param {String} [request.body.filter.sortOrder] The order of the sort (either "asc" or "desc")
+ * @param {Object} request.body.pagination Pagination to set limit and page
+ * @param {Object} [request.body.pagination.limit] Maximum number of videos to retreive
+ * @param {Object} [request.body.pagination.page] The number of the page to retrieve
+ * @param {Response} response ExpressJS HTTP Response
+ * @param {Function} next Function to defer execution to the next registered middleware
+ */
 module.exports.searchAction = (request, response, next) => {
   const body = request.body || {};
-  const orderedProperties = ['views', 'date'];
   const openVeoClient = webserviceClient.get();
   let params;
   let paginate;
@@ -37,8 +57,7 @@ module.exports.searchAction = (request, response, next) => {
       query: {type: 'string'},
       dateStart: {type: 'string'},
       dateEnd: {type: 'string'},
-      categories: {type: 'array<string>'},
-      sortBy: {type: 'string', in: orderedProperties, default: 'date'},
+      sortBy: {type: 'string', in: ['views', 'date'], default: 'date'},
       sortOrder: {type: 'string', in: ['asc', 'desc'], default: 'desc'}
     });
   } catch (error) {
@@ -50,24 +69,30 @@ module.exports.searchAction = (request, response, next) => {
   }
 
   // Public group filter not defined
-  if (!portalConf.conf.publicFilter.length || portalConf.conf.publicFilter[0] == '') {
+  if (!portalConf.conf.publicFilter.length) {
     process.logger.error(errors.CONF_ERROR.message, {error: errors.CONF_ERROR, method: 'searchAction'});
     return next(errors.CONF_ERROR);
   }
 
   // Add group filter
+  if (!request.isAuthenticated()) {
 
-  // Add public groups
-  params['groups'] = portalConf.conf.publicFilter || [];
+    // Anonymous user (not authenticated)
+    // Add public groups
+    params['groups'] = portalConf.conf.publicFilter || [];
 
-  if (request.isAuthenticated()) {
+  } else if (request.user.id !== portalConf.superAdminId) {
+
+    // User authenticated and not the super administrator
+    // Add public groups
+    params['groups'] = portalConf.conf.publicFilter || [];
 
     // Add private groups
     if (portalConf.conf.privateFilter)
       params['groups'] = params['groups'].concat(portalConf.conf.privateFilter);
 
     // Add user groups
-    if (request.user.groups.length)
+    if (request.user.groups && request.user.groups.length)
       params['groups'] = params['groups'].concat(request.user.groups);
 
   }
@@ -158,23 +183,33 @@ module.exports.getCategoriesAction = (request, response, next) => {
   });
 };
 
+/**
+ * Searches for an OpenVeo Publish video.
+ *
+ * @method getVideoAction
+ * @static
+ * @async
+ * @param {Request} request ExpressJS HTTP Request
+ * @param {Object} request.params Request's parameters
+ * @param {Object} request.params.id The id of the video to fetch
+ * @param {Response} response ExpressJS HTTP Response
+ * @param {Function} next Function to defer execution to the next registered middleware
+ */
 module.exports.getVideoAction = (request, response, next) => {
   const videoCacheInstance = videoCache.getVideoCache();
-  videoCacheInstance.getVideo(request.params.id, (error, res) => {
-    if (error) {
-      next(error);
-      return;
-    }
+
+  videoCacheInstance.getVideo(request.params.id, (error, video) => {
+    if (error) return next(error);
 
     const isInPublicGroups = openVeoApi.util.intersectArray(
-      res.entity.metadata.groups,
+      video.entity.metadata.groups,
       portalConf.conf.publicFilter
     ).length;
 
     if (isInPublicGroups) {
 
       // Video is public
-      response.send(res);
+      response.send(video);
 
     } else if (!request.isAuthenticated()) {
 
@@ -185,17 +220,21 @@ module.exports.getVideoAction = (request, response, next) => {
     } else {
 
       // User is authenticated
+
+      // Super administrator can see all videos
+      if (request.user.id === portalConf.superAdminId)
+        return response.send(video);
+
       // Find out if video is part of private groups or its groups
       // If video is part of these groups user is allowed to access the video
-
       const isInPrivateGroups = openVeoApi.util.intersectArray(
-        res.entity.metadata.groups, portalConf.conf.privateFilter
+        video.entity.metadata.groups, portalConf.conf.privateFilter
       ).length;
       const isInUserGroups = openVeoApi.util.intersectArray(
-        res.entity.metadata.groups, request.user.groups
+        video.entity.metadata.groups, request.user.groups
       ).length;
 
-      if (isInPrivateGroups || isInUserGroups) response.send(res);
+      if (isInPrivateGroups || isInUserGroups) response.send(video);
       else next(errors.GET_VIDEO_NOT_ALLOWED);
     }
   });

@@ -13,7 +13,7 @@
     </md-button>
   </div>
 
-  <form name="loginForm" ng-if="loginCtrl.hasLdap">
+  <form name="loginForm" ng-if="loginCtrl.hasInternal">
     <div layout="column" layout-align="center stretch">
       <p class="md-caption" ng-bind="'LOGIN.CONNECT_OR' | translate" ng-if="loginCtrl.hasExternal"></p>
 

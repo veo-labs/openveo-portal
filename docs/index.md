@@ -8,9 +8,15 @@ It includes the following features:
 
 - An home page to present the most seen medias
 - A search engine
-- Support for authentication using [CAS](https://www.apereo.org/projects/cas) or [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
 - Themes
 - Statistics with support for [Piwik](http://piwik.org/)
+
+## Authentication
+
+OpenVeo Portal supports the following SSO (Single Sign On) providers:
+
+- [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
+- [CAS](https://www.apereo.org/projects/cas)
 
 ## Compatibility
 

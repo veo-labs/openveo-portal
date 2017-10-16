@@ -128,6 +128,18 @@ var HTTP_ERRORS = {
     httpCode: 401
   },
 
+  /**
+   * A server error occurring when user authentication to the back end failed.
+   *
+   * @property BACK_END_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  BACK_END_AUTHENTICATION_FAILED: {
+    code: 0x00a,
+    httpCode: 401
+  },
+
   // VIDEO errors
 
   /**
@@ -166,6 +178,42 @@ var HTTP_ERRORS = {
   SEARCH_ERROR: {
     code: 0x201,
     httpCode: 500
+  },
+
+  /**
+   * A server error occurring when authenticating the user to the back end.
+   *
+   * @property BACK_END_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  BACK_END_AUTHENTICATION_ERROR: {
+    code: 0x202,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when authenticating using an external provider (which require redirection).
+   *
+   * @property BACK_END_EXTERNAL_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  BACK_END_EXTERNAL_AUTHENTICATION_ERROR: {
+    code: 0x203,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when user authentication to the back end failed using an external provider.
+   *
+   * @property BACK_END_EXTERNAL_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  BACK_END_EXTERNAL_AUTHENTICATION_FAILED: {
+    code: 0x207,
+    httpCode: 401
   }
 };
 

@@ -50,6 +50,7 @@
   $location, $filter, $window, $analytics, searchService, authenticationService) {
     var self = this;
     var urlParams = $location.search();
+    var authenticationStrategies = openVeoPortalSettings.authenticationStrategies;
     this.currentNavItem = null;
     this.isLoggingOut = false;
     $scope.context = {keepContext: false};
@@ -231,10 +232,11 @@
      */
     this.logout = function() {
       var self = this;
+
       if ($scope.user) {
         $analytics.eventTrack('Logout');
 
-        if ($scope.user.strategy === 'cas') {
+        if ($scope.user.origin === authenticationStrategies.CAS) {
 
           // CAS strategy needs a redirection
           $window.location.href = '/logout';

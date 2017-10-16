@@ -7,10 +7,12 @@
    */
   function LoginFormController($scope, $location, $window, $analytics, authenticationService) {
     var self = this;
+    var authenticationStrategies = openVeoPortalSettings.authenticationStrategies;
     this.theme = openVeoPortalSettings.theme;
-    this.hasCas = openVeoPortalSettings.authenticationMechanisms.indexOf('cas') >= 0;
-    this.hasLdap = openVeoPortalSettings.authenticationMechanisms.indexOf('ldapauth') >= 0;
+    this.hasCas = openVeoPortalSettings.authenticationMechanisms.indexOf(authenticationStrategies.CAS) >= 0;
     this.hasExternal = this.hasCas;
+    this.hasInternal = openVeoPortalSettings.authenticationMechanisms.indexOf(authenticationStrategies.LDAP) >= 0 ||
+      openVeoPortalSettings.authenticationMechanisms.indexOf(authenticationStrategies.LOCAL) >= 0;
     this.hasError = false;
     this.isLogging = false;
 
@@ -23,7 +25,7 @@
         this.isLogging = true;
         $analytics.eventTrack('Login');
 
-        authenticationService.login('ldapauth', this.login, this.password).then(function(result) {
+        authenticationService.login(this.login, this.password).then(function(result) {
           authenticationService.setUserInfo(result.data);
           self.isLogging = false;
           self.hasError = false;

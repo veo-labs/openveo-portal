@@ -8,6 +8,8 @@ const fs = require('fs');
 const os = require('os');
 const async = require('async');
 const openVeoApi = require('@openveo/api');
+const storage = process.require('app/server/storage.js');
+const UserProvider = process.require('app/server/providers/UserProvider.js');
 const confDir = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const exit = process.exit;
 
@@ -78,6 +80,7 @@ function createLoggerDir(callback) {
 function createConf(callback) {
   const confFile = path.join(confDir, 'conf.json');
   const conf = {
+    passwordHashKey: getRandomHash(10),
     theme: 'default',
     exposedFilter: [],
     categoriesFilter: '',
@@ -101,6 +104,17 @@ function createConf(callback) {
         else
           callback();
       });
+    },
+
+    // Ask for password hash key
+    (callback) => {
+      rl.question(
+        `Enter a secret key used to encrypt users passwords (default: ${conf.passwordHashKey}) :\n`,
+        (answer) => {
+          if (answer) conf.passwordHashKey = answer;
+          callback();
+        }
+      );
     },
 
     // Ask for theme
@@ -371,11 +385,44 @@ ${conf.version}) :\n`, (answer) => {
 
     // Ask for certificate
     (callback) => {
-      rl.question('Enter the complete path to the cas certificate :\n', (answer) => {
-        conf.certificate = answer;
+      rl.question('Enter the complete path to the cas certificate:\n', (answer) => {
+        if (answer) conf.certificate = answer;
+        callback();
+      });
+    },
+
+    // Ask for attribute holding the user group
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user group:\n', (answer) => {
+        if (answer) conf.userGroupAttribute = answer;
+        callback();
+      });
+    },
+
+    // Ask for attribute holding the user id
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user unique id:\n', (answer) => {
+        if (answer) conf.userIdAttribute = answer;
+        callback();
+      });
+    },
+
+    // Ask for attribute holding the user name
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user name id:\n', (answer) => {
+        if (answer) conf.userNameAttribute = answer;
+        callback();
+      });
+    },
+
+    // Ask for attribute holding the user name
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user email:\n', (answer) => {
+        if (answer) conf.userEmailAttribute = answer;
         callback();
       });
     }
+
   ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
@@ -458,7 +505,15 @@ function askForLdapAuthConf(callback) {
     // Group attribute
     (callback) => {
       rl.question('Enter the name of the attribute holding the user group:\n', (answer) => {
-        if (answer) conf.groupAttribute = answer;
+        if (answer) conf.userGroupAttribute = answer;
+        callback();
+      });
+    },
+
+    // User id attribute
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user unique id:\n', (answer) => {
+        if (answer) conf.userIdAttribute = answer;
         callback();
       });
     },
@@ -471,6 +526,14 @@ function askForLdapAuthConf(callback) {
       });
     },
 
+    // User name attribute
+    (callback) => {
+      rl.question('Enter the name of the attribute holding the user email:\n', (answer) => {
+        if (answer) conf.userEmailAttribute = answer;
+        callback();
+      });
+    },
+
     // Certificate
     (callback) => {
       rl.question('Enter the complete path to the LDAP certificate:\n', (answer) => {
@@ -478,6 +541,7 @@ function askForLdapAuthConf(callback) {
         callback();
       });
     }
+
   ], (error, results) => {
     if (error) {
       process.stdout.write(error.message);
@@ -535,6 +599,17 @@ function createServerConf(callback) {
         if (answer === 'y') authConf = {};
         callback();
       });
+    },
+
+    // Local
+    (callback) => {
+      if (!authConf) return callback();
+
+      rl.question('Do you want to add local authentication to the portal? (y/N) :\n', (answer) => {
+        if (answer === 'y') authConf.local = true;
+        callback();
+      });
+
     },
 
     // CAS
@@ -661,7 +736,63 @@ function verifyDatabaseConf(callback) {
       exit();
     }
 
+    storage.setDatabase(db);
     callback();
+  });
+}
+
+/**
+ * Creates super administrator if it does not exist.
+ */
+function createSuperAdmin(callback) {
+  const userProvider = new UserProvider(storage.getDatabase());
+  const conf = require(path.join(confDir, 'conf.json'));
+  const user = {
+    id: '0',
+    locked: true,
+    origin: openVeoApi.passport.STRATEGIES.LOCAL
+  };
+
+  async.series([
+    (callback) => {
+
+      // Verify if the super admin does not exist
+      userProvider.getOne('0', null, (error, user) => {
+        if (user)
+          callback(new Error('A super admin user already exists\n'));
+        else
+          callback(error);
+      });
+    },
+    (callback) => {
+      rl.question('Enter the name of the OpenVeo Portal super admin to create:\n', (answer) => {
+        if (!answer) return callback(new Error('Invalid name, aborting\n'));
+        user.name = answer;
+        callback();
+      });
+    },
+    (callback) => {
+      secureQuestion('Enter the password of the OpenVeo super admin to create:\n', (answer) => {
+        if (!answer) return callback(new Error('Invalid password, aborting\n'));
+        user.password = crypto.createHmac('sha256', conf.passwordHashKey).update(answer).digest('hex');
+        callback();
+      });
+    },
+    (callback) => {
+      rl.question('Enter the email of the OpenVeo Portal super admin to create:\n', (answer) => {
+        if (!answer || !openVeoApi.util.isEmailValid(answer)) return callback(Error('Invalid email, aborting\n'));
+        user.email = answer;
+        callback();
+      });
+    }
+  ], (error, results) => {
+    if (error) {
+      process.stdout.write(error.message);
+      callback();
+    } else
+      userProvider.add(user, (error) => {
+        callback(error);
+      });
   });
 }
 
@@ -674,7 +805,8 @@ async.series([
   createLoggerDir,
   createServerConf,
   createWebservicesConf,
-  verifyDatabaseConf
+  verifyDatabaseConf,
+  createSuperAdmin
 ], (error, results) => {
   if (error)
     throw error;

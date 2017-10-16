@@ -24,10 +24,12 @@ const errorController = process.require('app/server/controllers/errorController.
 const searchController = process.require('app/server/controllers/searchController.js');
 const statisticsController = process.require('app/server/controllers/statisticsController.js');
 const authenticationController = process.require('app/server/controllers/authenticationController.js');
-const passportStrategies = process.require('app/server/passport/strategies.js');
 const portalConf = process.require('app/server/conf.js');
+const authenticator = process.require('app/server/authenticator.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
+const UserProvider = process.require('app/server/providers/UserProvider.js');
+const strategyFactory = openVeoApi.passport.strategyFactory;
 
 const OPENVEO_URL = webservicesConf.path;
 
@@ -39,18 +41,88 @@ const staticServerOptions = {
   }
 };
 
+/**
+ * Initializes passport strategies to manage user authentication.
+ *
+ * @method initializePassport
+ * @private
+ */
+function initializePassport() {
+  if (!this.configuration.auth) return;
+
+  this.app.use(passport.initialize());
+  this.app.use(passport.session());
+
+  // Instantiate passport strategies
+  Object.keys(this.configuration.auth).forEach((strategy) => {
+    let strategyConf = this.configuration.auth[strategy];
+    if (Object.prototype.toString.call(strategyConf) !== '[object Object]')
+      strategyConf = {};
+
+    strategyConf.usernameField = 'login';
+    strategyConf.passwordField = 'password';
+    strategyConf.logoutUri = 'be';
+
+    if (strategy === openVeoApi.passport.STRATEGIES.LOCAL) {
+
+      // Local strategy does not work like the other strategies, the passport verify callback is used to
+      // retrieve the user instead of verifying it
+      passport.use(strategyFactory.get(
+        openVeoApi.passport.STRATEGIES.LOCAL,
+        strategyConf,
+        (login, password, callback) => {
+          authenticator.verifyUserByCredentials(login, password, (error, user) => {
+            if (error) {
+              process.logger.error(error.message, {error: error, method: 'verify'});
+              callback(null, false);
+            } else
+              callback(null, user);
+          });
+        }
+      ));
+
+    } else {
+      passport.use(strategyFactory.get(strategy, strategyConf, (user, callback) => {
+        authenticator.verifyUserAuthentication(user, strategy, (error, verifiedUser) => {
+          if (error) {
+            process.logger.error(error.message, {error: error, method: 'verify'});
+            callback(null, false);
+          } else
+            callback(null, verifiedUser);
+        });
+      }));
+    }
+
+  });
+
+  // In order to support login sessions, Passport serializes and
+  // deserializes user instances to and from the session
+  passport.serializeUser(authenticator.serializeUser);
+
+  // When subsequent requests are received, the serialized datas are used to find
+  // the user, which will be restored to req.user
+  passport.deserializeUser((id, callback) => {
+    authenticator.deserializeUser(id, (error, user) => {
+      if (error) {
+        process.logger.error(error.message, {error: error, method: 'deserializeUser'});
+        callback(null, false);
+      } else
+        callback(null, user);
+    });
+  });
+}
+
 class Server {
 
   /**
    * Creates a new Portal HTTP server.
    *
    * @example
-   *     var Server = process.require('app/server/Server.js');
-   *     var serv = new Server({
+   *     const Server = process.require('app/server/Server.js');
+   *     const serv = new Server({
    *        port: 3003,
    *        sessionSecret: '123456789',
    *        auth: {
-   *          type: 'cas',
    *          cas: {
    *            ...
    *          }
@@ -96,8 +168,10 @@ class Server {
    *
    * @method onDatabaseAvailable
    * @param {Database} database Project's database
+   * @param {Function} callback Function to call when its done with:
+   *  - **Error** An error if something went wrong
    */
-  onDatabaseAvailable(database) {
+  onDatabaseAvailable(database, callback) {
 
     // Remove x-powered-by http header
     this.app.set('x-powered-by', false);
@@ -135,30 +209,8 @@ class Server {
 
     this.app.use(session(sessionOptions));
 
-    // Authentication is activated
-    if (this.configuration.auth) {
-
-      // Initialize passport
-      this.app.use(passport.initialize());
-      this.app.use(passport.session());
-
-      // Initialize passport strategy depending on the configuration
-      const auth = this.configuration.auth;
-
-      // Load passport strategies
-      for (var type in auth)
-        passport.use(passportStrategies.get(type, auth[type]));
-
-      // Serialize user into passport session
-      passport.serializeUser((user, done) => {
-        done(null, user);
-      });
-
-      // Deserialize user from passport session
-      passport.deserializeUser((user, done) => {
-        done(null, user);
-      });
-    }
+    // Initialize authentication mechanisms
+    initializePassport.call(this);
 
     // for thumbnail only, set server as proxy to webservice server
     // path : /*/*.jpg, /*/*.jpeg, /*/*.jpg?thumb=small, /*/*.jpeg?thumb=small
@@ -239,6 +291,7 @@ class Server {
     this.app.use(openVeoApi.middlewares.logRequestMiddleware);
 
     this.mountRoutes();
+    this.createIndexes(database, callback);
   }
 
   /**
@@ -269,6 +322,19 @@ class Server {
 
     // Handle errors
     this.app.use(errorController.errorAction);
+  }
+
+  /**
+   * Creates database indexes.
+   *
+   * @method createIndexes
+   * @param {Database} database The database instance
+   * @param {Function} callback Function to call when its done with:
+   *  - **Error** An error if something went wrong
+   */
+  createIndexes(database, callback) {
+    const userProvider = new UserProvider(database);
+    userProvider.createIndexes(callback);
   }
 
   /**

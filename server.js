@@ -4,9 +4,9 @@ require('./processRequire.js');
 const path = require('path');
 const nopt = require('nopt');
 const openVeoApi = require('@openveo/api');
-
 const conf = process.require('app/server/conf.js');
 const Server = process.require('app/server/Server.js');
+const storage = process.require('app/server/storage.js');
 const WebserviceClient = process.require('app/server/WebserviceClient.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const loggerConfPath = path.join(configurationDirectoryPath, 'loggerConf.json');
@@ -57,6 +57,13 @@ db.connect((error) => {
     throw new Error(error);
   }
 
-  server.onDatabaseAvailable(db);
-  server.start();
+  storage.setDatabase(db);
+  server.onDatabaseAvailable(db, (error) => {
+    if (error) {
+      process.logger.error(error && error.message);
+      throw new Error(error);
+    }
+
+    server.start();
+  });
 });

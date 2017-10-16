@@ -16,6 +16,7 @@ Open **~/.openveo/portal/conf.json**
 
 ```json
 {
+  "passwordHashKey" : "KEY", // Replace KEY by a secret key used to encrypt users passwords
   "theme": "default", // The name of the theme to use (this is the name of the directory in assets/themes)
   "exposedFilter": [ // A list of custom properties' ids defined in OpenVeo Publish to add as search engine filters
     "VJWL6-0Cx",
@@ -76,22 +77,41 @@ Open **~/.openveo/core/serverConf.json**
   "auth": {
     "cas": { // CAS configuration
       "version": "3", // The version of the CAS server
-      "service": "https://my-openveo-portal.com", // The service to use to authenticate to the CAS server
-      "url": "https://my-cas-server.com:8443/cas", // The url of the CAS server
-      "certificate": "cas.crt" // The absolute path of the CAS server certificate if root CA is not in the Node.JS well known CAs
+      "service": "https://my-openveo-portal.test", // The service to use to authenticate to the CAS server
+      "url": "https://my-cas-server.test:8443/cas", // The url of the CAS server
+      "userGroupAttribute": "group", // The name of the CAS attribute holding the group name of a user
+      "userIdAttribute": "id", // The name of the CAS attribute holding the unique id of a user
+      "userNameAttribute": "name", // The name of the CAS attribute holding the name of a user
+      "userEmailAttribute": "name", // The name of the CAS attribute holding the email of a user
+      "certificate": "/etc/ssl/certs/cas.crt", // The absolute path of the CAS server certificate if root CA is not in the Node.JS well known CAs
+      "groupAssociations": [ // Matches between LDAP groups and OpenVeo groups of contents
+        {
+          "group": "my-cas-group", // CAS group to associate
+          "groups": ["Ef5erF", "89erFgbG"] // Authorized OpenVeo group ids for the CAS group
+        }
+      ]
     },
     "ldapauth": { // LDAP configuration
       "url": "ldaps://my-ldap.test", // The url of the LDAP server
       "bindAttribute": "dn", // The LDAP attribute used by "bindDn" (default to "dn")
-      "bindDn": "cn=my-user,dc=my-ldap,dc=test", // The value of the "bindAttribute" associated to the entry used to connect to the server
-      "bindPassword": "qT5gvobG2ZxYSiY2r4mt", // The password of the entry used to connect to the server
+      "bindDn": "cn=my-user,dc=my-ldap,dc=test", // The value of the "bindAttribute" associated to the entry used to connect to the server API
+      "bindPassword": "qT5gvobG2ZxYSiY2r4mt", // The password of the entry used to connect to the server API
       "searchBase": "ou=user,dc=my-ldap,dc=test", // The search base when looking for users
       "searchScope": "sub", // The search scope when looking for users (default to "sub")
       "searchFilter": "(&(objectclass=person)(cn={{username}}))", // The search filter to find user by name, use placeholder "{{username}}" which will be replaced by the user name when searching
-      "groupAttribute": "group", // The name of the LDAP attribute holding the group name of a user
+      "userGroupAttribute": "group", // The name of the LDAP attribute holding the group name of a user
+      "userIdAttribute": "dn", // The name of the LDAP attribute holding the unique id of a user
       "userNameAttribute": "cn", // The name of the LDAP attribute holding the name of a user
-      "certificate": "/absolute/path/to/cert/ldap.crt" // The absolute path of the LDAP server certificate full chain if root CA is not in the Node.JS well known CAs
+      "userEmailAttribute": "email", // The name of the LDAP attribute holding the email of a user
+      "certificate": "/etc/ssl/certs/ldap.crt", // The absolute path of the LDAP server certificate full chain if root CA is not in the Node.JS well known CAs
+      "groupAssociations": [ // Matches between LDAP groups and OpenVeo groups of contents
+        {
+          "group": "my-ldap-group", // LDAP group to associate
+          "groups": ["Ef5erF", "89erFgbG"] // Authorized OpenVeo group ids for the LDAP group
+        }
+      ]
     }
+    "local": true // Activate local authentication (WARNING: settings this to false won't remove the local authentication, to remove local authentication remove the property)
   }
 }
 ```
