@@ -9,6 +9,7 @@
   - Menu and links backgrounds are now background 100
 - CAS configuration now expects the following attributes to be set: userIdAttribute and userNameAttribute
 - Error codes have changed please (see app/server/httpErrors.js)
+- Remove accent on footer links
 
 ## BUG FIXES
 
