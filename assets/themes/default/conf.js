@@ -114,10 +114,31 @@ app.config(['$mdThemingProvider', function($mdThemingProvider) {
     contrastLightColors: ['600', '700', '800', '900', 'A200', 'A400', 'A700']
   }));
 
+  // Define a new color palette based on deep-orange palette
+  $mdThemingProvider.definePalette('warn', $mdThemingProvider.extendPalette('deep-orange', {
+    50: '#fbe9e7', // [Default color]: Not used
+    100: '#ffccbc', // [Default color]: Not used
+    200: '#ffab91', // [Default color]: Not used
+    300: '#ff8a65', // [Default color]: Not used
+    400: '#ff7043', // [Default color]: Not used
+    500: '#ff5722', // [Default color]: Not used
+    600: '#f4511e', // [Default color]: Not used
+    700: '#e64a19', // [Default color]: Not used
+    800: '#d84315', // [Default color]: Not used
+    900: '#bf360c', // [Default color]: Not used
+    A100: '#ff9e80', // [Default color]: Not used
+    A200: '#ff6e40', // [Default color]: Not used
+    A400: '#ff3d00', // [Default color]: Not used
+    A700: '#dd2c00', // [Default color]: Login error message color
+    contrastDefaultColor: 'dark',
+    contrastLightColors: ['600', '700', '800', '900', 'A200', 'A400', 'A700']
+  }));
+
   // Specify "default" theme
   $mdThemingProvider.theme('default')
   .primaryPalette('primary')
   .accentPalette('accent')
+  .warnPalette('warn')
   .backgroundPalette('background');
 
   $mdThemingProvider.setDefaultTheme('default');
