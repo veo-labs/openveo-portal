@@ -44,7 +44,7 @@ app.config(['$mdThemingProvider', function($mdThemingProvider) {
     contrastDarkColors: ['50', '100', '200', '300', '400', 'A100']
   }));
 
-  // Define a new color palette based on green palette
+  // Define a new color palette based on blue palette
   $mdThemingProvider.definePalette('accent', $mdThemingProvider.extendPalette('blue', {
     50: '#e3f2fd', // [Default color]: Not used
     100: '#bbdefb', // [Default color]: Not used
@@ -72,7 +72,7 @@ app.config(['$mdThemingProvider', function($mdThemingProvider) {
     contrastDarkColors: ['50', '100', '200', '300', '400', 'A100']
   }));
 
-  // Define a new color palette based on pink palette
+  // Define a new color palette based on grey palette
   $mdThemingProvider.definePalette('background', $mdThemingProvider.extendPalette('grey', {
     50: '#fafafa', // [Default color]: Page and buttons background color
     100: '#f5f5f5', // [Default color]: Not used
