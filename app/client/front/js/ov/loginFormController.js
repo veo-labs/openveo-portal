@@ -8,7 +8,6 @@
   function LoginFormController($scope, $location, $window, $analytics, authenticationService) {
     var self = this;
     var authenticationStrategies = openVeoPortalSettings.authenticationStrategies;
-    this.theme = openVeoPortalSettings.theme;
     this.hasCas = openVeoPortalSettings.authenticationMechanisms.indexOf(authenticationStrategies.CAS) >= 0;
     this.hasExternal = this.hasCas;
     this.hasInternal = openVeoPortalSettings.authenticationMechanisms.indexOf(authenticationStrategies.LDAP) >= 0 ||
