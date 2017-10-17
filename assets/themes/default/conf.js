@@ -55,7 +55,7 @@ app.config(['$mdThemingProvider', function($mdThemingProvider) {
     600: '#1e88e5', // [Default color]: Not used
     700: '#1976d2', // [Default color]: Not used
     800: '#1565c0', // [Default color]: Not used
-    900: '#ff0000', // [Default color]: Not used
+    900: '#0d47a1', // [Default color]: Not used
     A100: '#22bbea', // [OpenVeo color]: Ink bar in pagination / pagination button effect
 
     /*
