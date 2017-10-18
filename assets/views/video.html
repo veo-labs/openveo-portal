@@ -33,7 +33,7 @@
                          ng-mouseleave="vctl.dialIsOpen=false">
         <md-fab-trigger>
           <md-button aria-label="{{'UI.SHARE' | translate}}" class="md-fab">
-            <md-tooltip md-direction="bottom">{{'UI.SHARE' | translate}}</md-tooltip>
+            <md-tooltip md-direction="bottom" md-z-index="1">{{'UI.SHARE' | translate}}</md-tooltip>
             <md-icon material-icons md-light md-32>share</md-icon>
           </md-button>
         </md-fab-trigger>
@@ -43,7 +43,7 @@
             <md-button aria-label="{{item.name | translate}}"
                        class="md-fab md-raised md-mini"
                        ng-click="item.action(video)">
-              <md-tooltip md-direction="{{item.direction}}" md-autohide="false">
+              <md-tooltip md-direction="{{item.direction}}" md-autohide="false" md-z-index="1">
                 {{item.name | translate}}
               </md-tooltip>
               <md-icon material-icons md-light md-32 aria-label="{{item.name | translate}}">{{item.icon}}</md-icon>
@@ -67,12 +67,12 @@
     <!-- Video info -->
     <md-content layout-margin class="collapse" layout="row" layout-align="left center">
       <div ng-show="video.title" layout="row" layout-align="center center">
-        <md-tooltip md-direction="bottom">{{'UI.TITLE' | translate}}</md-tooltip>
+        <md-tooltip md-direction="bottom" md-z-index="1">{{'UI.TITLE' | translate}}</md-tooltip>
         <md-icon layout-margin flex material-icons md-light md-32>title</md-icon>
         <span class="title">{{video.title}}</span>
       </div>
       <div ng-show="video.speaker" layout="row" layout-align="center center">
-        <md-tooltip md-direction="bottom">{{'SEARCH.NAME_FILTER' | translate}}</md-tooltip>
+        <md-tooltip md-direction="bottom" md-z-index="1">{{'SEARCH.NAME_FILTER' | translate}}</md-tooltip>
         <md-icon layout-margin flex material-icons md-light md-32>record_voice_over</md-icon>
         <span>{{video.speaker}}</span>
       </div>

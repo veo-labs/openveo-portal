@@ -27,7 +27,7 @@
       }},
       {name: 'UI.CODE',
         icon: 'code',
-        direction: 'left',
+        direction: 'bottom',
         action: function(video) {
           delete $scope.shareLink;
           var port = ($location.port() != 80 && $location.port() != 443) ? ':' + $location.port() : '';
