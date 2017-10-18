@@ -74,10 +74,8 @@ async.series([
     });
   }
 ], (error, results) => {
-  if (error) {
-    process.stdout.write(error.message);
+  if (error)
     throw error;
-  }
 
   exit();
 });
