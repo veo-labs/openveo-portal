@@ -57,6 +57,7 @@ module.exports.searchAction = (request, response, next) => {
       query: {type: 'string'},
       dateStart: {type: 'string'},
       dateEnd: {type: 'string'},
+      categories: {type: 'array<string>'},
       sortBy: {type: 'string', in: ['views', 'date'], default: 'date'},
       sortOrder: {type: 'string', in: ['asc', 'desc'], default: 'desc'}
     });
