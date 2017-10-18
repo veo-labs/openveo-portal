@@ -68,7 +68,7 @@ async.series([
       locked: true
     }, (error) => {
       if (!error)
-        process.stdout.write('User successfully added');
+        process.stdout.write('User successfully added\n');
 
       callback(error);
     });
