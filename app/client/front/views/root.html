@@ -73,22 +73,26 @@
       <!-- Menu -->
       <nav layout="column" layout-fill md-colors="::{background: 'default-background-100'}" ng-if="page.path !== '/login'">
 
-        <!-- Menu as tabs for large devices -->
-        <md-nav-bar hide-xs
-                    class="menu container"
-                    nav-bar-aria-label="{{'MENU.ARIA_DESCRIPTION' | translate}}"
-                    md-selected-nav-item="mainCtrl.currentNavItem">
-          <md-nav-item name="home"
-                       md-nav-click="onTabSelected('/')"
-                       aria-label="{{'MENU.HOME' | translate}}">
-            {{'MENU.HOME'|translate}}
-          </md-nav-item>
-          <md-nav-item name="search"
-                       md-nav-click="onTabSelected('/search')"
-                       aria-label="{{'MENU.ALL_VIDEOS' | translate}}">
-            {{'MENU.ALL_VIDEOS'|translate}}
-          </md-nav-item>
-        </md-nav-bar>
+        <div class="container">
+
+          <!-- Menu as tabs for large devices -->
+          <md-nav-bar hide-xs
+                      class="menu"
+                      nav-bar-aria-label="{{'MENU.ARIA_DESCRIPTION' | translate}}"
+                      md-selected-nav-item="mainCtrl.currentNavItem">
+            <md-nav-item name="home"
+                         md-nav-click="onTabSelected('/')"
+                         aria-label="{{'MENU.HOME' | translate}}">
+              {{'MENU.HOME'|translate}}
+            </md-nav-item>
+            <md-nav-item name="search"
+                         md-nav-click="onTabSelected('/search')"
+                         aria-label="{{'MENU.ALL_VIDEOS' | translate}}">
+              {{'MENU.ALL_VIDEOS'|translate}}
+            </md-nav-item>
+          </md-nav-bar>
+
+        </div>
 
         <!-- Menu as dialog for extra small devices -->
         <div hide-gt-xs>
