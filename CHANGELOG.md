@@ -10,6 +10,7 @@
 - CAS configuration now expects the following attributes to be set: userIdAttribute and userNameAttribute
 - Error codes have changed please (see app/server/httpErrors.js)
 - Remove accent on footer links
+- passwordHashKey is now required in conf.json and must be added before updating OpenVeo Portal
 
 ## BUG FIXES
 
