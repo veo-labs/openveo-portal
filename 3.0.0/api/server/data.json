@@ -1,0 +1,1776 @@
+{
+    "project": {
+        "name": "OpenVeo Portal server",
+        "description": "OpenVeo Portal server side documentation",
+        "version": "3.0.0"
+    },
+    "files": {
+        "F:\\projects\\openveo-portal\\app\\server\\controllers\\authenticationController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\controllers\\authenticationController.js",
+            "modules": {},
+            "classes": {
+                "authenticationController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\controllers\\defaultController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\controllers\\defaultController.js",
+            "modules": {},
+            "classes": {
+                "defaultController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\controllers\\doc.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\controllers\\doc.js",
+            "modules": {
+                "controllers": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\controllers\\errorController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\controllers\\errorController.js",
+            "modules": {},
+            "classes": {
+                "errorController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\controllers\\searchController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\controllers\\searchController.js",
+            "modules": {},
+            "classes": {
+                "searchController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js",
+            "modules": {},
+            "classes": {
+                "statisticsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "modules": {},
+            "classes": {
+                "UserModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\models\\doc.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\models\\doc.js",
+            "modules": {
+                "models": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "modules": {},
+            "classes": {
+                "UserProvider": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\providers\\doc.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\providers\\doc.js",
+            "modules": {
+                "providers": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\serverCache\\FilterCache.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\serverCache\\FilterCache.js",
+            "modules": {
+                "cache": 1
+            },
+            "classes": {
+                "FilterCache": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\serverCache\\VideoCache.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\serverCache\\VideoCache.js",
+            "modules": {},
+            "classes": {
+                "VideoCache": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\Server.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "modules": {
+                "portal": 1
+            },
+            "classes": {
+                "Server": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\WebserviceClient.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\WebserviceClient.js",
+            "modules": {},
+            "classes": {
+                "WebserviceClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\authenticator.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\authenticator.js",
+            "modules": {},
+            "classes": {
+                "authenticator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "modules": {},
+            "classes": {
+                "HTTP_ERRORS": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "F:\\projects\\openveo-portal\\app\\server\\storage.js": {
+            "name": "F:\\projects\\openveo-portal\\app\\server\\storage.js",
+            "modules": {},
+            "classes": {
+                "storage": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "controllers": {
+            "name": "controllers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "authenticationController": 1,
+                "defaultController": 1,
+                "errorController": 1,
+                "searchController": 1,
+                "statisticsController": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js",
+            "line": 7,
+            "description": "Controllers provide all server route actions.",
+            "itemtype": "main"
+        },
+        "models": {
+            "name": "models",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "UserModel": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "line": 17,
+            "description": "Models module includes all portal models.",
+            "itemtype": "main"
+        },
+        "providers": {
+            "name": "providers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "UserProvider": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 11,
+            "description": "Providers module includes all portal providers.",
+            "itemtype": "main"
+        },
+        "cache": {
+            "name": "cache",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "FilterCache": 1,
+                "VideoCache": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\serverCache\\VideoCache.js",
+            "line": 17
+        },
+        "portal": {
+            "name": "portal",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Server": 1,
+                "WebserviceClient": 1,
+                "authenticator": 1,
+                "HTTP_ERRORS": 1,
+                "storage": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\storage.js",
+            "line": 7,
+            "description": "Defines Portal HTTP Server.",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "authenticationController": {
+            "name": "authenticationController",
+            "shortname": "authenticationController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\authenticationController.js",
+            "line": 7,
+            "description": "Provides route action to deal with user authentication.",
+            "static": 1
+        },
+        "defaultController": {
+            "name": "defaultController",
+            "shortname": "defaultController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\defaultController.js",
+            "line": 7,
+            "description": "Provides default route action to deal with angularJS single page application.",
+            "static": 1
+        },
+        "errorController": {
+            "name": "errorController",
+            "shortname": "errorController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\errorController.js",
+            "line": 7,
+            "description": "Provides route actions to deal with errors.",
+            "static": 1
+        },
+        "searchController": {
+            "name": "searchController",
+            "shortname": "searchController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\searchController.js",
+            "line": 7,
+            "description": "Provides route actions for the search engine.",
+            "static": 1
+        },
+        "statisticsController": {
+            "name": "statisticsController",
+            "shortname": "statisticsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js",
+            "line": 7,
+            "description": "Provides route actions for all requests relative to statistics.",
+            "static": 1
+        },
+        "UserModel": {
+            "name": "UserModel",
+            "shortname": "UserModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "models",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "line": 17,
+            "description": "Defines a UserModel to manipulate back end users.",
+            "extends": "EntityModel",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "provider",
+                    "description": "The entity provider",
+                    "type": "UserProvider"
+                }
+            ]
+        },
+        "UserProvider": {
+            "name": "UserProvider",
+            "shortname": "UserProvider",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "providers",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 11,
+            "description": "Defines a UserProvider to get and save back end users.",
+            "extends": "EntityProvider",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "database",
+                    "description": "The database to interact with",
+                    "type": "Database"
+                }
+            ]
+        },
+        "FilterCache": {
+            "name": "FilterCache",
+            "shortname": "FilterCache",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cache",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\serverCache\\FilterCache.js",
+            "line": 20,
+            "description": "Provides all caches relative to filter.",
+            "is_constructor": 1
+        },
+        "VideoCache": {
+            "name": "VideoCache",
+            "shortname": "VideoCache",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cache",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\serverCache\\VideoCache.js",
+            "line": 17,
+            "description": "Provides all caches relative to videos.",
+            "is_constructor": 1
+        },
+        "Server": {
+            "name": "Server",
+            "shortname": "Server",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 117,
+            "description": "Creates a new Portal HTTP server.",
+            "example": [
+                "\n    const Server = process.require('app/server/Server.js');\n    const serv = new Server({\n       port: 3003,\n       sessionSecret: '123456789',\n       auth: {\n         cas: {\n           ...\n         }\n       }\n    });"
+            ],
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "configuration",
+                    "description": "Server configuration",
+                    "type": "Object"
+                }
+            ]
+        },
+        "WebserviceClient": {
+            "name": "WebserviceClient",
+            "shortname": "WebserviceClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\WebserviceClient.js",
+            "line": 18,
+            "description": "Defines a unique OpenVeo Web Service client.",
+            "static": 1
+        },
+        "authenticator": {
+            "name": "authenticator",
+            "shortname": "authenticator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\authenticator.js",
+            "line": 14,
+            "description": "The authenticator helps manipulate users authenticated by passport strategies.\n\nUsers returned by passport are not necessary OpenVeo Portal users. It could be users from a third party\nauthentication server. The authenticator helps making sure that the authenticated user is a ready to\nuse OpenVeo Portal user.",
+            "static": 1
+        },
+        "HTTP_ERRORS": {
+            "name": "HTTP_ERRORS",
+            "shortname": "HTTP_ERRORS",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 7,
+            "description": "The list of HTTP errors with, for each error, its associated hexadecimal code and HTTP return code.\nHTTP errors are sent by {{#crossLinkModule 'controllers'}}{{/crossLinkModule}}.",
+            "example": [
+                "\n    var httpErrors = process.require('app/server/httpErrors.js');\n    console.log(httpErrors.UNKNOWN_ERROR);"
+            ],
+            "static": 1
+        },
+        "storage": {
+            "name": "storage",
+            "shortname": "storage",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "F:\\projects\\openveo-portal\\app\\server\\storage.js",
+            "line": 7,
+            "description": "Storage is a global context for OpenVeo Portal.",
+            "static": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\authenticationController.js",
+            "line": 18,
+            "description": "Handles user authentication using internal providers (which do not require a redirection to a third party site).",
+            "itemtype": "method",
+            "name": "authenticateInternalAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "body",
+                            "description": "Request's body",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "login",
+                                    "description": "The login",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "password",
+                                    "description": "The password",
+                                    "type": "String"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticationController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\authenticationController.js",
+            "line": 76,
+            "description": "Handles user authentication using external providers (which require a redirection on third party site).",
+            "itemtype": "method",
+            "name": "authenticateExternalAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "params",
+                            "description": "Request's parameters",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "type",
+                                    "description": "The authentication provider to use",
+                                    "type": "String"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticationController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\authenticationController.js",
+            "line": 124,
+            "description": "Logs out user.",
+            "itemtype": "method",
+            "name": "logoutAction",
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticationController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\defaultController.js",
+            "line": 21,
+            "description": "Handles default action to display main HTML.\n\nIf no other action were performed display the main template.\nMain template loads libraries JavaScript files, Bootstrap CSS file and CSS file from the configured theme.",
+            "itemtype": "method",
+            "name": "defaultAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "defaultController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\errorController.js",
+            "line": 17,
+            "description": "Handles requests which does not correspond to anything.",
+            "itemtype": "method",
+            "name": "notFoundAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "errorController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\errorController.js",
+            "line": 31,
+            "description": "Handles all errors.",
+            "example": [
+                "\n    {\n      \"code\" : 1,\n      \"httpCode\" : 500\n    }"
+            ],
+            "itemtype": "method",
+            "name": "errorAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "error",
+                    "description": "An error object with error code, HTTP code and error message",
+                    "type": "Object"
+                },
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "errorController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\searchController.js",
+            "line": 27,
+            "description": "Searches OpenVeo Publish videos.",
+            "itemtype": "method",
+            "name": "searchAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "body",
+                            "description": "Request's body",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "filter",
+                                    "description": "Web service endpoint filters",
+                                    "type": "Object"
+                                },
+                                {
+                                    "name": "filter.query",
+                                    "description": "Filter to get only videos which contain the query\ninside the title or description",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.dateStart",
+                                    "description": "Filter to get only videos after a particular date",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.dateEnd",
+                                    "description": "Filter to get only videos before a particular date",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.sortBy",
+                                    "description": "The name of the property to sort by (either \"views\" or \"date\")",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.sortOrder",
+                                    "description": "The order of the sort (either \"asc\" or \"desc\")",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "pagination",
+                                    "description": "Pagination to set limit and page",
+                                    "type": "Object"
+                                },
+                                {
+                                    "name": "pagination.limit",
+                                    "description": "Maximum number of videos to retreive",
+                                    "type": "Object",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "pagination.page",
+                                    "description": "The number of the page to retrieve",
+                                    "type": "Object",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "searchController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\searchController.js",
+            "line": 187,
+            "description": "Searches for an OpenVeo Publish video.",
+            "itemtype": "method",
+            "name": "getVideoAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "params",
+                            "description": "Request's parameters",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "id",
+                                    "description": "The id of the video to fetch",
+                                    "type": "Object"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "searchController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js",
+            "line": 16,
+            "description": "Verify that a user has not seen the video more than one time during the video duration",
+            "class": "statisticsController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js",
+            "line": 37,
+            "description": "Increase video count when needed",
+            "class": "statisticsController",
+            "module": "controllers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "line": 29,
+            "description": "Gets a local user by credentials.",
+            "itemtype": "method",
+            "name": "getUserByCredentials",
+            "async": 1,
+            "params": [
+                {
+                    "name": "email",
+                    "description": "The email of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "The password of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserModel",
+            "module": "models"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "line": 45,
+            "description": "Adds a new user.",
+            "itemtype": "method",
+            "name": "add",
+            "async": 1,
+            "params": [
+                {
+                    "name": "data",
+                    "description": "A user object",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "User's name",
+                            "type": "String"
+                        },
+                        {
+                            "name": "email",
+                            "description": "User's email",
+                            "type": "String"
+                        },
+                        {
+                            "name": "password",
+                            "description": "User's password",
+                            "type": "String"
+                        },
+                        {
+                            "name": "passwordValidate",
+                            "description": "User's password validation",
+                            "type": "String"
+                        },
+                        {
+                            "name": "id",
+                            "description": "User's id, if not specified an id will be generated",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "origin",
+                            "description": "User's origin, default to local",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "groups",
+                            "description": "User's group ids",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "locked",
+                            "description": "true to lock user from modifications",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The total amount of items inserted\n  - **Object** The inserted user",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserModel",
+            "module": "models"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "line": 109,
+            "description": "Updates a user.",
+            "itemtype": "method",
+            "name": "update",
+            "async": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the user to update",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "A user object",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "email",
+                            "description": "User's email",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "password",
+                            "description": "User's password",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "passwordValidate",
+                            "description": "User's password validation",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "locked",
+                            "description": "true to lock user from edition",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The number of updated items",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserModel",
+            "module": "models"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "line": 172,
+            "description": "Adds a third party provider user.",
+            "itemtype": "method",
+            "name": "addThirdPartyUser",
+            "async": 1,
+            "params": [
+                {
+                    "name": "data",
+                    "description": "A user object",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "User's name",
+                            "type": "String"
+                        },
+                        {
+                            "name": "email",
+                            "description": "User's email",
+                            "type": "String"
+                        },
+                        {
+                            "name": "id",
+                            "description": "User's id, if not specified an id will be generated",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "groups",
+                            "description": "User's group ids",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "origin",
+                    "description": "Id of the third party provider system",
+                    "type": "String"
+                },
+                {
+                    "name": "originId",
+                    "description": "The user id in third party provider system",
+                    "type": "String"
+                },
+                {
+                    "name": "originGroups",
+                    "description": "The user groups in third party provider system",
+                    "type": "Array",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The total amount of items inserted\n  - **Object** The inserted user",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserModel",
+            "module": "models"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\models\\UserModel.js",
+            "line": 213,
+            "description": "Updates a third party provider user.",
+            "itemtype": "method",
+            "name": "updateThirdPartyUser",
+            "async": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "User id in OpenVeo",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "A user object",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "User's name",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "email",
+                            "description": "User's email",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "originGroups",
+                            "description": "User's groups in third party provider system",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "groups",
+                            "description": "User's group ids",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "origin",
+                    "description": "The user origin (see openVeoApi.passport.STRATEGIES)",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The total amount of items updates",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserModel",
+            "module": "models"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 23,
+            "description": "Gets a local user by its credentials.",
+            "itemtype": "method",
+            "name": "getUserByCredentials",
+            "async": 1,
+            "params": [
+                {
+                    "name": "email",
+                    "description": "The email of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "The password of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 58,
+            "description": "Gets a local user by its email.",
+            "itemtype": "method",
+            "name": "getUserByEmail",
+            "async": 1,
+            "params": [
+                {
+                    "name": "email",
+                    "description": "The email of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 91,
+            "description": "Gets a user without its paswword.",
+            "itemtype": "method",
+            "name": "getOne",
+            "async": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The user id",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "A MongoDB filter",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 119,
+            "description": "Updates a local user.\n\nIf the entity has the property \"locked\", it won't be updated.",
+            "itemtype": "method",
+            "name": "update",
+            "async": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the user to update",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The information about the user",
+                    "type": "Object"
+                },
+                {
+                    "name": "origin",
+                    "description": "The user origin (see openVeoApi.passport.STRATEGIES)",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The number of updated items",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 143,
+            "description": "Updates a locked user.",
+            "itemtype": "method",
+            "name": "updateLocked",
+            "async": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the user to update",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The information about the user",
+                    "type": "Object"
+                },
+                {
+                    "name": "origin",
+                    "description": "The user origin (see openVeoApi.passport.STRATEGIES)",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The number of updated items",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\providers\\UserProvider.js",
+            "line": 162,
+            "description": "Creates users indexes.",
+            "itemtype": "method",
+            "name": "createIndexes",
+            "async": 1,
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done with:\n - **Error** An error if something went wrong, null otherwise",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\serverCache\\FilterCache.js",
+            "line": 39,
+            "description": "FilterCache singleton getter.",
+            "return": {
+                "description": "filterCacheInstance the FilterCache Singleton",
+                "type": "FilterCache"
+            },
+            "class": "FilterCache",
+            "module": "cache"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\serverCache\\VideoCache.js",
+            "line": 69,
+            "description": "VideoCache singleton getter.",
+            "return": {
+                "description": "videoCacheInstance the VideoCache Singleton",
+                "type": "VideoCache"
+            },
+            "class": "VideoCache",
+            "module": "cache"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 44,
+            "description": "Initializes passport strategies to manage user authentication.",
+            "itemtype": "method",
+            "name": "initializePassport",
+            "access": "private",
+            "tagname": "",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 140,
+            "description": "Express application.",
+            "itemtype": "property",
+            "name": "app",
+            "type": "Application",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 151,
+            "description": "Server configuration object.",
+            "itemtype": "property",
+            "name": "configuration",
+            "type": "Object",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 166,
+            "description": "Prepares server after being sure that the connection to the database is established.",
+            "itemtype": "method",
+            "name": "onDatabaseAvailable",
+            "params": [
+                {
+                    "name": "database",
+                    "description": "Project's database",
+                    "type": "Database"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done with:\n - **Error** An error if something went wrong",
+                    "type": "Function"
+                }
+            ],
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 297,
+            "description": "Mounts server routes.",
+            "itemtype": "method",
+            "name": "mountRoutes",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 327,
+            "description": "Creates database indexes.",
+            "itemtype": "method",
+            "name": "createIndexes",
+            "params": [
+                {
+                    "name": "database",
+                    "description": "The database instance",
+                    "type": "Database"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done with:\n - **Error** An error if something went wrong",
+                    "type": "Function"
+                }
+            ],
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\Server.js",
+            "line": 340,
+            "description": "Starts the server.",
+            "itemtype": "method",
+            "name": "start",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\WebserviceClient.js",
+            "line": 9,
+            "description": "OpenVeo Web Service client singleton.",
+            "itemtype": "property",
+            "name": "openVeoClient",
+            "type": "OpenVeoClient",
+            "access": "private",
+            "tagname": "",
+            "class": "WebserviceClient",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\WebserviceClient.js",
+            "line": 25,
+            "description": "Creates an OpenVeo Web Service client singleton.",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "webservicesConf",
+                    "description": "Web Service configuration",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "path",
+                            "description": "Web Service url",
+                            "type": "String"
+                        },
+                        {
+                            "name": "clientID",
+                            "description": "Web Service client id",
+                            "type": "String"
+                        },
+                        {
+                            "name": "secretID",
+                            "description": "Web Service secret id",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "WebserviceClient",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\WebserviceClient.js",
+            "line": 45,
+            "description": "Gets OpenVeo Web Service client singleton.",
+            "itemtype": "method",
+            "name": "get",
+            "return": {
+                "description": "The Web Service client or null if not created yet",
+                "type": "OpenVeoClient|Null"
+            },
+            "class": "WebserviceClient",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\authenticator.js",
+            "line": 25,
+            "description": "Serializes only essential user information required to retrieve it later.",
+            "itemtype": "method",
+            "name": "serializeUser",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "user",
+                    "description": "The user to serialize",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **String** The serialized user information",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\authenticator.js",
+            "line": 43,
+            "description": "Fetches a user from serialized data.",
+            "itemtype": "method",
+            "name": "deserializeUser",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "data",
+                    "description": "Serialized data as serialized by serializeUser(), the id of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user with its permissions",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\authenticator.js",
+            "line": 64,
+            "description": "Verifies a user as returned by the passport local strategy.",
+            "itemtype": "method",
+            "name": "verifyUserByCredentials",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "email",
+                    "description": "User's email",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "User's password",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done\n - **Error** An error if something went wrong, null otherwise\n - **Object** The user with its permissions",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\authenticator.js",
+            "line": 86,
+            "description": "Verifies user as returned by third party providers.\n\nOpenVeo Portal trusts users from third party providers, if the user does not exist in OpenVeo Portal\nit is created with minimum information.",
+            "itemtype": "method",
+            "name": "verifyUserAuthentication",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "thirdPartyUser",
+                    "description": "The user from the third party provider",
+                    "type": "Object"
+                },
+                {
+                    "name": "strategy",
+                    "description": "The id of the strategy",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done\n - **Error** An error if something went wrong, null otherwise\n - **Object** The user with its permissions",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 22,
+            "description": "A server error occurring when no error were specified.",
+            "itemtype": "property",
+            "name": "UNKNOWN_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 34,
+            "description": "A server error occurring when server configuration is not valid.",
+            "itemtype": "property",
+            "name": "CONF_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 47,
+            "description": "A server error occurring when searching for videos, using the Web Service, failed.",
+            "itemtype": "property",
+            "name": "SEARCH_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 59,
+            "description": "A server error occurring when authenticating the user to the back end.",
+            "itemtype": "property",
+            "name": "BACK_END_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 71,
+            "description": "A server error occurring when authenticating using an external provider (which require redirection).",
+            "itemtype": "property",
+            "name": "BACK_END_EXTERNAL_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 83,
+            "description": "A server error occurring when authenticating the user to CAS.",
+            "itemtype": "property",
+            "name": "CAS_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 95,
+            "description": "A server error occurring when authenticating the user to LDAP.",
+            "itemtype": "property",
+            "name": "LDAP_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 107,
+            "description": "A server error occurring when getting a video from Web Service failed.",
+            "itemtype": "property",
+            "name": "GET_VIDEO_UNKNOWN",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 121,
+            "description": "A server error occurring when routes has not been found.",
+            "itemtype": "property",
+            "name": "PATH_NOT_FOUND",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 135,
+            "description": "A server error occurring when user authentication to CAS failed.",
+            "itemtype": "property",
+            "name": "CAS_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 147,
+            "description": "A server error occurring when user authentication to the back end failed using an external provider.",
+            "itemtype": "property",
+            "name": "BACK_END_EXTERNAL_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 159,
+            "description": "A server error occurring when user authentication to LDAP failed.",
+            "itemtype": "property",
+            "name": "LDAP_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 171,
+            "description": "A server error occurring when user authentication to the back end failed.",
+            "itemtype": "property",
+            "name": "BACK_END_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 183,
+            "description": "A server error occurring when user is not allowed to get a video.",
+            "itemtype": "property",
+            "name": "GET_VIDEO_NOT_ALLOWED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 197,
+            "description": "A server error occurring when authenticating to external provider with wrong parameters.",
+            "itemtype": "property",
+            "name": "AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\httpErrors.js",
+            "line": 209,
+            "description": "A server error occurring when authenticating to internal provider with wrong parameters.",
+            "itemtype": "property",
+            "name": "AUTHENTICATE_INTERNAL_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\storage.js",
+            "line": 16,
+            "description": "Gets the current database instance.",
+            "itemtype": "method",
+            "name": "getDatabase",
+            "static": 1,
+            "return": {
+                "description": "A Database object",
+                "type": "Database"
+            },
+            "class": "storage",
+            "module": "portal"
+        },
+        {
+            "file": "F:\\projects\\openveo-portal\\app\\server\\storage.js",
+            "line": 27,
+            "description": "Sets a new database instance as the current database.",
+            "itemtype": "method",
+            "name": "setDatabase",
+            "static": 1,
+            "params": [
+                {
+                    "name": "newDatabase",
+                    "description": "The new database of the application",
+                    "type": "Database"
+                }
+            ],
+            "class": "storage",
+            "module": "portal"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nVerify that a user has not seen the video more than one time during the video duration",
+            "line": " F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js:16"
+        },
+        {
+            "message": "Missing item type\nIncrease video count when needed",
+            "line": " F:\\projects\\openveo-portal\\app\\server\\controllers\\statisticsController.js:37"
+        },
+        {
+            "message": "Missing item type\nFilterCache singleton getter.",
+            "line": " F:\\projects\\openveo-portal\\app\\server\\serverCache\\FilterCache.js:39"
+        },
+        {
+            "message": "Missing item type\nVideoCache singleton getter.",
+            "line": " F:\\projects\\openveo-portal\\app\\server\\serverCache\\VideoCache.js:69"
+        }
+    ]
+}
