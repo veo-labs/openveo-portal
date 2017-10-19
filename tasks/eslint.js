@@ -14,7 +14,7 @@ module.exports = {
       'tasks/**/*.js',
       'tests/**/*.js',
       'app/**/*.js',
-      'assets/themes/**/*.js'
+      'assets/themes/default/**/*.js'
     ]
   }
 
