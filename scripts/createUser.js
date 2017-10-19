@@ -6,7 +6,8 @@
  * Usage:
  *
  * # Create an Openveo Portal user
- * node scripts/createUser.js --name="USER_NAME" --email="USER_EMAIL" --password="USER_PASSWORD" --groups="GROUP1,GROUP2"
+ * node scripts/createUser.js --name="USER_NAME" --email="USER_EMAIL"\
+ * --password="USER_PASSWORD" --groups="GROUP1,GROUP2"
  *
  * # --name [required] The user's name as it will be displayed when connected
  * # --email [required] The user's email as it will uses when authenticating
@@ -15,7 +16,6 @@
  */
 
 require('../processRequire.js');
-const crypto = require('crypto');
 const path = require('path');
 const async = require('async');
 const nopt = require('nopt');
@@ -23,7 +23,6 @@ const openVeoApi = require('@openveo/api');
 const UserModel = process.require('app/server/models/UserModel.js');
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const confDir = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
-const conf = require(path.join(confDir, 'conf.json'));
 const databaseConf = require(path.join(confDir, 'databaseConf.json'));
 const exit = process.exit;
 let database;
