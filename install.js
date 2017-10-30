@@ -161,9 +161,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     // Ask for public group filter
     (callback) => {
       const ask = () => {
-        const alert = conf.publicFilter.length ? '' :
-        'If you do not specify any group, all videos without group will be shown.';
-        rl.question(`Enter the video group IDs that anonymous user will see. ${alert}
+        rl.question(`Enter the video group IDs that anonymous user will see.
 (Enter empty value to skip or finish):\n`, (answer) => {
           if (answer) {
             conf.publicFilter.push(answer);
