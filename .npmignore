@@ -62,3 +62,6 @@ ehthumbs.db
 
 # Eslint
 .eslintrc
+
+# Nodemon
+/nodemon.json
