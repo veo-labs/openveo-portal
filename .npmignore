@@ -37,6 +37,7 @@ ehthumbs.db
 # Front JavaScript files
 /app/client/admin
 /app/client/front/js
+/app/client/front/compass
 
 # Documentation
 /docs
