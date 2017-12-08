@@ -53,9 +53,6 @@ ehthumbs.db
 /assets/themes/*
 !/assets/themes/default
 
-# Temporary directory for video packages
-/tmp
-
 # Git
 .gitignore
 .gitattributes
