@@ -4,6 +4,10 @@
 
 - Add a back office to OpenVeo Portal accessible by navigating to /be URI when connected with the super administrator. Only the super administrator can access the back office. Actually the back office contains only one page: the dashboard which indicates the version of OpenVeo Portal and warns you if a new version is available. The back office observes the Material specification and is responsive.
 
+## DEPENDENCIES
+
+- **angular-material** has been upgraded from 1.1.4 to **1.1.5**
+
 # 3.0.0 / 2017-10-19
 
 ## BREAKING CHANGES
