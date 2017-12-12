@@ -18,7 +18,7 @@ module.exports = {
   },
 
   // Generate yuidoc for the client part
-  client: {
+  front: {
     name: 'OpenVeo Portal client',
     description: 'AngularJS OpenVeo Portal client side documentation',
     version: '<%= pkg.version %>',
