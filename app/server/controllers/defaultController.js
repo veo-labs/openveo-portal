@@ -63,3 +63,19 @@ module.exports.defaultAction = (request, response) => {
     }
   });
 };
+
+/**
+ * Handles administration default action to display root HTML.
+ *
+ * @method defaultBackOfficeAction
+ * @static
+ * @async
+ * @param {Request} request ExpressJS HTTP Request
+ * @param {Object} request.user The connected user
+ * @param {Response} response ExpressJS HTTP Response
+ * @param {Function} next Function to defer execution to the next registered middleware
+ */
+module.exports.defaultBackOfficeAction = (request, response) => {
+  response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
+  response.render('index', response.locals);
+};

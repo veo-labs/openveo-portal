@@ -7,7 +7,7 @@ module.exports = {
   // Launch project's end to end tests
   portal: {
     options: {
-      configFile: '<%= project.tests %>/client/protractorConf.js',
+      configFile: '<%= project.clientTestSourcesPath %>/protractorConf.js',
       debug: false
     }
   }

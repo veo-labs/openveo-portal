@@ -43,38 +43,53 @@
     "nopt": "4.0.1",
     "passport": "0.4.0",
     "serve-favicon": "2.3.2",
-    "shortid": "2.2.6"
+    "shortid": "2.2.6",
+    "semver": "5.4.1"
   },
   "devDependencies": {
     "@openveo/test": "4.*",
     "chai": "4.0.2",
     "chai-as-promised": "7.1.1",
+    "chai-spies": "0.7.1",
     "grunt": "1.0.1",
+    "grunt-angular-templates": "1.1.0",
     "grunt-cli": "1.2.0",
     "grunt-contrib-compass": "1.1.1",
     "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-uglify": "2.0.0",
     "grunt-contrib-watch": "1.0.0",
     "grunt-contrib-yuidoc": "1.0.0",
-    "grunt-gh-pages": "2.0.0",
     "grunt-eslint": "19.0.0",
+    "grunt-gh-pages": "2.0.0",
     "grunt-mkdocs": "0.2.0",
     "grunt-mocha-test": "0.13.2",
     "grunt-protractor-runner": "5.0.0",
+    "grunt-replace": "1.0.1",
+    "grunt-karma": "2.0.0",
+    "karma": "1.3.0",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-firefox-launcher": "1.0.0",
+    "karma-ie-launcher": "1.0.0",
+    "karma-mocha": "1.3.0",
+    "karma-ng-html2js-preprocessor": "1.0.0",
     "mocha": "3.2.0",
     "nodemon": "1.11.0",
     "pre-commit": "1.2.2",
     "yuidoc-theme-blue": "0.1.9"
   },
   "scripts": {
-    "prepublish": "grunt dist",
+    "prepublish": "grunt dist --production",
     "postinstall": "bower install && node install.js",
     "eslint": "grunt eslint",
-    "mocha": "grunt mochaTest"
+    "mocha": "grunt mochaTest",
+    "karma": "grunt karma:backOffice"
   },
   "precommit": [
     "eslint",
-    "mocha"
+    "mocha",
+    "karma"
   ],
   "engines": {
     "node": ">=7.4.0",

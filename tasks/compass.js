@@ -8,12 +8,12 @@ module.exports = {
   dev: {
     options: {
       sourcemap: true,
-      sassDir: '<%= project.sass %>',
-      cssDir: '<%= project.assets %>/css',
-      fontsDir: '<%= project.fonts %>',
-      httpFontsPath: '<%= project.fontHttpPath %>',
+      sassDir: '<%= project.frontScssSourcesPath %>',
+      cssDir: '<%= project.frontDeployCssPath %>',
+      fontsDir: '<%= project.bootstrapFontsPath %>',
+      httpFontsPath: '<%= project.bootstrapFontsHttpPath %>',
       environment: 'development',
-      specify: '<%= project.sass %>/style.scss',
+      specify: '<%= project.frontScssSourcesPath %>/style.scss',
       force: true
     }
   },
@@ -22,13 +22,28 @@ module.exports = {
   dist: {
     options: {
       sourcemap: false,
-      sassDir: '<%= project.sass %>',
-      cssDir: '<%= project.assets %>/css',
-      fontsDir: '<%= project.fonts %>',
-      httpFontsPath: '<%= project.fontHttpPath %>',
+      sassDir: '<%= project.frontScssSourcesPath %>',
+      cssDir: '<%= project.frontDeployCssPath %>',
+      fontsDir: '<%= project.bootstrapFontsPath %>',
+      httpFontsPath: '<%= project.bootstrapFontsHttpPath %>',
       environment: 'production',
       outputStyle: 'compressed',
-      specify: '<%= project.sass %>/style.scss',
+      specify: '<%= project.frontScssSourcesPath %>/style.scss',
+      force: true
+    }
+  },
+
+  // Build the administration interface stylesheet
+  // Use grunt compass:admin --production to skip source maps generation
+  admin: {
+    options: {
+      sourcemap: !process.production,
+      sassDir: '<%= project.compassBuildPath %>',
+      cssDir: '<%= project.compassBuildPath %>',
+      httpFontsPath: '<%= project.bootstrapFontsHttpPath %>',
+      environment: 'production',
+      outputStyle: 'compressed',
+      specify: '<%= project.compassBuildPath %>/index.scss',
       force: true
     }
   }

@@ -1,0 +1,41 @@
+<div class="opa-about" layout="row">
+  <div layout="column" ng-show="$ctrl.isLoaded">
+    <header layout="row" layout-align="none center">
+      <h1 ng-bind="'DASHBOARD.ABOUT.TITLE' | opaTranslate" flex="auto"></h1>
+      <md-icon
+               ng-if="$ctrl.information.version && !$ctrl.information.updateAvailable"
+               aria-label="'DASHBOARD.ABOUT.UP_TO_DATE' | opaTranslate"
+               class="opa-up-to-date"
+      >
+        check_circle
+        <md-tooltip>{{'DASHBOARD.ABOUT.UP_TO_DATE_TOOLTIP' | opaTranslate}}</md-tooltip>
+      </md-icon>
+      <md-icon
+               ng-if="$ctrl.information.version && $ctrl.information.updateAvailable"
+               aria-label="'DASHBOARD.ABOUT.NEED_UPGRADE' | opaTranslate"
+               md-colors="::{color: 'warn-A400'}"
+      >new_releases</md-icon>
+      <md-button class="md-icon-button" aria-label="'DASHBOARD.ABOUT.SHOW_INFO' | opaTranslate" opa-info="'DASHBOARD.ABOUT.INFO' | opaTranslate">
+        <md-icon>info</md-icon>
+        <md-tooltip>{{'DASHBOARD.ABOUT.SHOW_INFO_TOOLTIP' | opaTranslate}}</md-tooltip>
+      </md-button>
+    </header>
+    <section flex="auto">
+      <p ng-bind-html="$ctrl.message" ng-if="$ctrl.message"></p>
+      <p ng-bind="'DASHBOARD.ABOUT.ERROR' | opaTranslate" ng-if="!$ctrl.message"></p>
+    </section>
+    <footer>
+      <md-button
+                 ng-if="$ctrl.information.version"
+                 ng-href="{{$ctrl.information.versionSourcesUrl}}"
+                 ng-bind="'DASHBOARD.ABOUT.VIEW_SOURCE' | opaTranslate"
+                 aria-label="'DASHBOARD.ABOUT.VIEW_SOURCE' | opaTranslate"
+                 target="_blank"
+                 class="md-primary"
+      ></md-button>
+    </footer>
+  </div>
+  <div layout="row" layout-align="center center" ng-show="!$ctrl.isLoaded" flex="auto" class="opa-loader">
+    <md-progress-circular md-mode="indeterminate" md-diameter="30px"></md-progress-circular>
+  </div>
+</div>

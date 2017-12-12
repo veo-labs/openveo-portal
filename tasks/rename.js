@@ -6,8 +6,8 @@ module.exports = {
 
   // Rename project documentation directory into project version
   doc: {
-    src: '<%= project.root %>/site/version',
-    dest: '<%= project.root %>/site/<%= pkg.version %>'
+    src: '<%= project.documentationDeployPath %>/version',
+    dest: '<%= project.documentationDeployPath %>/<%= pkg.version %>'
   }
 
 };

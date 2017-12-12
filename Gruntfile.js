@@ -33,6 +33,9 @@ module.exports = function(grunt) {
     env: process.env
   };
 
+  // Set "production" property which will be used by grunt tasks to set appropriate configuration
+  process.production = (process.argv.length > 3 && process.argv[3] === '--production') ? true : false;
+
   grunt.initConfig(config);
 
   // Load tasks definitions
@@ -49,9 +52,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mkdocs');
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-protractor-runner');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-replace');
+  grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerMultiTask('rename', openVeoApi.grunt.renameTask(grunt));
   grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
+  grunt.registerMultiTask('ngDp', openVeoApi.grunt.ngDpTask(grunt));
 
   // Listen to changes on SCSS files and generate CSS files
   grunt.registerTask('default', ['compass:dev', 'watch']);
@@ -69,8 +77,42 @@ module.exports = function(grunt) {
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
 
   // Prepare project for production
-  grunt.registerTask('dist', ['compass:dist', 'compile-js']);
+  grunt.registerTask('dist', ['compass:dist', 'compile-js', 'build-admin']);
 
   // Deploy documentation to github pages
   grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
+
+  // Dynamically set src property of the concat:admin task
+  // The list of sources is built dynamically by the ngDp:backOffice task
+  grunt.registerTask('admin-set-concat-src', 'Set src of concat:admin task', () => {
+
+    // Get the list of sources to concat from the results of ngDp:backOffice task
+    const resources = process.require('build/ng-admin-files.json');
+    var concat = grunt.config('concat');
+    concat.admin.src = [];
+
+    resources.js.forEach((resourcePath) => {
+      concat.admin.src.push(`<%= project.adminSourcesPath %>/${resourcePath}`);
+    });
+
+    grunt.config('concat', concat);
+  });
+
+  // Build the administration interface
+  grunt.registerTask('build-admin', [
+    'ngDp:backOffice',
+    'replace:admin-inject-scss',
+    'replace:admin-inject-scripts',
+    'compass:admin',
+    'replace:admin-font-paths',
+    'admin-set-concat-src',
+    'concat:admin',
+    'uglify:admin',
+    'copy:admin-html-root',
+    'ngtemplates:admin'
+  ]);
+
+  // Launch back office unit tests
+  grunt.registerTask('unit-tests', ['ngDp:backOffice', 'karma:backOffice']);
+
 };

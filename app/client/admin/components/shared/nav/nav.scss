@@ -1,0 +1,29 @@
+.opa-nav {
+  ul {
+    margin: 0;
+    padding: 0 16px 0 8px;
+  }
+
+  a {
+    cursor: pointer;
+    @include user-select(none);
+    height: 48px;
+    outline: none;
+    text-decoration: none;
+
+    span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  md-icon {
+    margin: 0 16px 0 8px;
+  }
+
+  md-divider {
+    margin: 8px 0;
+  }
+
+}

@@ -1,0 +1,14 @@
+<md-toast class="opa-notification">
+  <div class="md-toast-content" ng-class="{'opa-large': ctrl.$mdMedia('gt-sm')}">
+    <div layout="row" layout-align="start center">
+      <span flex="grow" ng-bind="ctrl.message"></span>
+      <md-button
+                 ng-if="ctrl.closeButton"
+                 ng-click="ctrl.hide()"
+                 ng-bind="'NOTIFICATION.CLOSE' | opaTranslate"
+                 aria-label="'NOTIFICATION.CLOSE' | opaTranslate"
+                 md-colors="::{color: 'accent'}"
+      ></md-button>
+    </div>
+  </div>
+</md-toast>

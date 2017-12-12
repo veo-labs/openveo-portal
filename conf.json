@@ -51,5 +51,15 @@
     "/lib/openveo-player/dist/openveo-player.css",
     "/lib/video.js/dist/video-js.min.css",
     "/css/style.css"
-  ]
+  ],
+  "be": {
+    "scriptLibFiles": [
+      "/lib/angular/angular.min.js",
+      "/lib/angular-animate/angular-animate.min.js",
+      "/lib/angular-route/angular-route.min.js",
+      "/lib/angular-aria/angular-aria.min.js",
+      "/lib/angular-cookies/angular-cookies.min.js",
+      "/lib/angular-material/angular-material.min.js"
+    ]
+  }
 }

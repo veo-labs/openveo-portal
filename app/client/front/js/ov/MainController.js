@@ -239,7 +239,7 @@
         if ($scope.user.origin === authenticationStrategies.CAS) {
 
           // CAS strategy needs a redirection
-          $window.location.href = '/logout';
+          $window.location.href = '/be/logout';
 
         } else {
           this.isLoggingOut = true;

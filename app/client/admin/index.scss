@@ -1,0 +1,127 @@
+// INJECT_FONT_SCSS
+
+/*
+ * OpenVeo Portal back office colors used in SASS. Most part of OpenVeo Portal back office colors can be found in
+ * the JavaScript code (cf. index.module.js).
+ */
+$COLOR_BLUE_500: #1a91d1;
+$COLOR_PINK_500: #e6007e;
+
+/*
+ * The following media query targets IE 10+ even if most issue corrected here belong to IE 11 only but
+ * we can't only target IE 11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+  /*
+   * IE 11 has an issue when using box-shadow. Depending on the blur radius value, nested HTML elements
+   * can be impacted and also have a blur applied. Consequently the element seems to move.
+   * For example a shadow with a blur radius of 5px and every next odd values, will reproduce the issue.
+   * As AngularJS Material uses 5px blur radius for its whiteframe shadows, we have to override it.
+   * The following media query target IE 10+ (the bug is only on IE 11 but we can't make a rule only for this browser)
+   */
+  .md-whiteframe-4dp, .md-whiteframe-z2 {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 4px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+  }
+
+  /*
+   * IE 11 has an issue when customizing buttons, when clicked, elements within the button move slightly.
+   * A solution is to make nested elements of the button relative.
+   */
+  button {
+    * {
+      position: relative;
+    }
+  }
+
+}
+
+/*
+ * The following code fragments load the Material Icons font as defined in Material specification
+ * (cf. http://google.github.io/material-design-icons/)
+ */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../lib/material-design-icons/iconfont/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url('../../lib/material-design-icons/iconfont/MaterialIcons-Regular.woff2') format('woff2'),
+       url('../../lib/material-design-icons/iconfont/MaterialIcons-Regular.woff') format('woff'),
+       url('../../lib/material-design-icons/iconfont/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*
+ * Cross browser user-select mixin.
+ *
+ * Usage:
+ * @include user-select(none);
+ */
+@mixin user-select($select-mode: initial) {
+  -webkit-user-select: $select-mode;
+  -moz-user-select: $select-mode;
+  -ms-user-select: $select-mode;
+  user-select: $select-mode;
+}
+
+body {
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+}
+
+.opa-wrapper {
+
+  /* Left side navigation is relative to the wrapper, not the body */
+  position: relative;
+
+}
+
+/* ng-view preloader */
+.opa-loader {
+  height: 100%;
+}
+
+/* Links */
+a {
+  color: $COLOR_BLUE_500;
+  text-decoration: none;
+
+  &:hover {
+    color: $COLOR_PINK_500;
+  }
+}
+
+/* Add motion on buttons */
+.md-button {
+  transition: background-color 0.3s ease-in;
+}
+
+// INJECT_SCSS

@@ -1,0 +1,14 @@
+$INFO_BACKGROUND_COLOR: #ffffff;
+
+.opa-info {
+  max-width: 250px;
+  max-height: 300px;
+  padding: 24px 0 0 0;
+  background-color: $INFO_BACKGROUND_COLOR;
+
+  & > p {
+    overflow: hidden;
+    margin: 0 24px 24px 24px;
+    margin-height: 252px;
+  }
+}

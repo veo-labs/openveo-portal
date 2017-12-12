@@ -10,8 +10,8 @@ module.exports = {
     description: 'OpenVeo Portal server side documentation',
     version: '<%= pkg.version %>',
     options: {
-      paths: '<%= project.root %>/app/server',
-      outdir: '<%= project.root %>/site/version/api/server',
+      paths: '<%= project.serverSourcesPath %>',
+      outdir: '<%= project.documentationServerApiDeployPath %>',
       linkNatives: true,
       themedir: 'node_modules/yuidoc-theme-blue'
     }
@@ -20,11 +20,24 @@ module.exports = {
   // Generate yuidoc for the client part
   front: {
     name: 'OpenVeo Portal client',
-    description: 'AngularJS OpenVeo Portal client side documentation',
+    description: 'AngularJS OpenVeo Portal front documentation',
     version: '<%= pkg.version %>',
     options: {
-      paths: '<%= project.root %>/app/client',
-      outdir: '<%= project.root %>/site/version/api/client',
+      paths: '<%= project.frontJsSourcesPath %>',
+      outdir: '<%= project.documentationFrontApiDeployPath %>',
+      linkNatives: true,
+      themedir: 'node_modules/yuidoc-theme-blue'
+    }
+  },
+
+  // Generate yuidoc for the administration part
+  admin: {
+    name: 'OpenVeo Portal administration interface',
+    description: 'AngularJS OpenVeo Portal administration interface documentation',
+    version: '<%= pkg.version %>',
+    options: {
+      paths: '<%= project.adminSourcesPath %>',
+      outdir: '<%= project.documentationAdminApiDeployPath %>',
       linkNatives: true,
       themedir: 'node_modules/yuidoc-theme-blue'
     }

@@ -7,7 +7,7 @@ module.exports = {
   // Remove project's compiled documentation
   doc: {
     dirList: [
-      '<%= project.root %>/site'
+      '<%= project.documentationDeployPath %>'
     ]
   }
 

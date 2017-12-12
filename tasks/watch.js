@@ -10,6 +10,19 @@ module.exports = {
     tasks: [
       'compass:dev'
     ]
+  },
+
+  // Automatically rebuild administration interface when a file is modified
+  admin: {
+    files: [
+      '<%= project.adminSourcesPath %>/**/*',
+      '!<%= project.adminSourcesPath %>/**/*.spec.js',
+      '<%= project.adminI18nSourcesPath %>/*.js',
+      '<%= project.root %>/conf.json'
+    ],
+    tasks: [
+      'build-admin'
+    ]
   }
 
 };

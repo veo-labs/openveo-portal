@@ -1,0 +1,12 @@
+$DASHBOARD_TILES_BACKGROUND_COLOR: #ffffff;
+
+.opa-dashboard {
+  md-grid-tile {
+    background-color: $DASHBOARD_TILES_BACKGROUND_COLOR;
+
+    /* Force AngularJS Material tiles to use display block instead of flex */
+    figure {
+      display: block;
+    }
+  }
+}

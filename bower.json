@@ -16,7 +16,9 @@
     "video.js": "5.9.2",
     "dashjs": "2.1.1",
     "videojs-contrib-dash": "https://github.com/videojs/videojs-contrib-dash/releases/download/v2.4.0/videojs-dash.min.js",
-    "videojs-contrib-hls": "https://github.com/videojs/videojs-contrib-hls/releases/download/v1.3.11/videojs.hls.min.js"
+    "videojs-contrib-hls": "https://github.com/videojs/videojs-contrib-hls/releases/download/v1.3.11/videojs.hls.min.js",
+    "roboto-fontface": "0.8.0",
+    "material-design-icons": "3.0.1"
   },
   "devDependencies": {
     "angular-mocks": "1.6.4"

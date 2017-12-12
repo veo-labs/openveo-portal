@@ -4,4 +4,5 @@
 
 # Client side API (AngularJS)
 
-[OpenVeo Portal client API](/api/client) is the generated version of the AngularJS code documentation.
+- [OpenVeo Portal front API](/api/client/front) is the generated version of the documentation for the front AngularJS application.
+- [OpenVeo Portal admin API](/api/client/admin) is the generated version of the documentation for the administration AngularJS application.

@@ -17,11 +17,11 @@ module.exports = {
     src: (() => {
       const files = [];
       libFile.forEach((filePath) => {
-        files.push(`<%= project.uglify %>/lib/${filePath.replace('js', 'min.js')}`);
+        files.push(`<%= project.uglifyBuildPath %>/lib/${filePath.replace('js', 'min.js')}`);
       });
       return files;
     })(),
-    dest: '<%= project.jsAssets %>/openveo-portal-lib.js'
+    dest: '<%= project.frontDeployJsPath %>/openveo-portal-lib.js'
   },
 
   // Concatenate compiled JavaScript files
@@ -29,10 +29,22 @@ module.exports = {
     src: (() => {
       const files = [];
       jsFile.forEach((filePath) => {
-        files.push(`<%= project.uglify %>/${filePath.replace('js', 'min.js')}`);
+        files.push(`<%= project.uglifyBuildPath %>/${filePath.replace('js', 'min.js')}`);
       });
       return files;
     })(),
-    dest: '<%= project.jsAssets %>/openveo-portal.js'
+    dest: '<%= project.frontDeployJsPath %>/openveo-portal.js'
+  },
+
+  // Concatenate JavaScript files of the administration interface
+  // Use grunt concat:admin --production to skip source maps generation
+  // Not that src property is empty because it is filled by the admin-set-concat-src task
+  // Consequently using this task directly won't have any effect
+  admin: {
+    options: {
+      sourceMap: !process.production
+    },
+    src: [],
+    dest: '<%= project.buildPath %>/openveo-portal-admin.js'
   }
 };

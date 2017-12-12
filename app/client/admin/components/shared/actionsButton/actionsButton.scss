@@ -1,0 +1,54 @@
+.opa-actions-button {
+
+  button {
+    cursor: pointer;
+    @include user-select(none);
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    text-transform: none;
+    font-size: inherit;
+    text-align: left;
+
+    &.md-button:not([disabled]):hover {
+      background: none;
+    }
+
+    span {
+
+      /* On IE 10 a flex child need to be in display flex to grow or shrink */
+      display: flex;
+
+    }
+
+    /* Up / down arrow */
+    & > md-icon:last-child {
+      margin: 0;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  .opa-actions-wrapper {
+    overflow: hidden;
+    height: 0px;
+    margin-left: 30px;
+    transition: all 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+
+    a {
+      cursor: pointer;
+      @include user-select(none);
+    }
+  }
+
+  &.opa-opened {
+
+    /* Up / down arrow */
+    & > button > md-icon:last-child {
+      transform: rotate(180deg);
+    }
+
+  }
+
+}

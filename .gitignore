@@ -23,21 +23,27 @@ ehthumbs.db
 nbproject/
 .idea/
 
-# Any log file
+# Logs
 *.log
 
 # Build
 /build
-/assets/js/*
-/assets/css/*
-/assets/themes/*
-!/assets/themes/default
+/assets/be/*
+!/assets/be/js/
+/assets/be/js/*
+!/assets/be/js/i18n
+/assets/js
+/assets/css
 
-# Sass
-.sass-cache
+# External themes
+/assets/themes
+!/assets/themes/default
 
 # Documentation
 /site
 
-# Grunt
+# SASS
+.sass-cache
+
+#  Grunt
 /.grunt

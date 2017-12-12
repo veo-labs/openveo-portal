@@ -11,6 +11,7 @@ It includes the following features:
 - Support for authentication using local database, [CAS](https://www.apereo.org/projects/cas) or [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
 - Themes
 - Statistics with support for [Piwik](http://piwik.org/)
+- An administration interface
 
 # Documentation
 

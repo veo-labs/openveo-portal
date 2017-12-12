@@ -1,0 +1,23 @@
+.opa-toolbar {
+
+  .opa-toolbar-left-actions {
+
+    /*
+     * Usually AngularJS Material structure of a toolbar places the first button right below the element with the class "md-toolbar-tools",
+     * and places a negative left margin on the first button. In our structure the button is wrapped into other HTML elements and thus looses
+     * its negative margin, marking the first element of the toolbar further away.
+     * This is corrected by applying the same margin on the first wrapped button.
+     */
+    & > div:first-child {
+      & .md-button {
+        margin-left: -8px;
+      }
+    }
+
+  }
+
+  h2 {
+    @include user-select(none);
+  }
+
+}

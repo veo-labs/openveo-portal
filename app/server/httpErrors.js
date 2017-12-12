@@ -192,6 +192,30 @@ var HTTP_ERRORS = {
     httpCode: 403
   },
 
+  /**
+   * A server error occurring when a back office authentication is needed to perform the action.
+   *
+   * @property BACK_END_UNAUTHORIZED
+   * @type Object
+   * @final
+   */
+  BACK_END_UNAUTHORIZED: {
+    code: 0x205,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when user connected to the back office is not authorized to perform an action.
+   *
+   * @property BACK_END_FORBIDDEN
+   * @type Object
+   * @final
+   */
+  BACK_END_FORBIDDEN: {
+    code: 0x206,
+    httpCode: 403
+  },
+
   // Wrong parameters
 
   /**

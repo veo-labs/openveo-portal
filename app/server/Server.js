@@ -24,6 +24,7 @@ const errorController = process.require('app/server/controllers/errorController.
 const searchController = process.require('app/server/controllers/searchController.js');
 const statisticsController = process.require('app/server/controllers/statisticsController.js');
 const authenticationController = process.require('app/server/controllers/authenticationController.js');
+const versionController = process.require('app/server/controllers/versionController.js');
 const portalConf = process.require('app/server/conf.js');
 const authenticator = process.require('app/server/authenticator.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
@@ -179,7 +180,10 @@ class Server {
     // Set mustache as the template engine and set views directory
     this.app.engine('html', consolidate.mustache);
     this.app.set('view engine', 'html');
-    this.app.set('views', path.join(process.root, 'app/client/front/views'));
+    this.app.set('views', [
+      path.join(process.root, 'app/client/front/views'),
+      path.join(process.root, 'assets/be/views')
+    ]);
 
     // Parse Cookie header
     this.app.use(cookieParser());
@@ -303,19 +307,27 @@ class Server {
     if (this.configuration.auth) {
       this.app.get('/authenticate/:type', authenticationController.authenticateExternalAction);
       this.app.post('/authenticate', authenticationController.authenticateInternalAction);
-      this.app.get('/logout', authenticationController.logoutAction);
-      this.app.post('/logout', authenticationController.logoutAction);
     }
 
     this.app.post('/statistics/:entity/:type/:id', statisticsController.statisticsAction);
-
     this.app.get('/getvideo/:id', searchController.getVideoAction);
-
     this.app.get('/categories', searchController.getCategoriesAction);
-
     this.app.get('/filters', searchController.getSearchFiltersAction);
-
     this.app.post('/search', searchController.searchAction);
+
+    // Restrict access to the back office
+    this.app.all('/be*', authenticationController.restrictAction);
+
+    if (this.configuration.auth) {
+      this.app.get('/be/logout', authenticationController.logoutAction);
+      this.app.post('/be/logout', authenticationController.logoutAction);
+    }
+
+    // Back office routes
+    this.app.get('/be/version', versionController.getVersionAction);
+
+    // Handle admin not found routes
+    this.app.all('/be*', defaultController.defaultBackOfficeAction);
 
     // Handle not found routes
     this.app.all('*', defaultController.defaultAction);

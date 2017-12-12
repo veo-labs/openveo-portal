@@ -1,0 +1,28 @@
+.opa-notification {
+  width: 100%;
+  bottom: 0;
+
+  .md-toast-content {
+    border-radius: 0;
+
+    &.opa-large {
+      min-width: 288px;
+      max-width: 568px;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    & > div {
+      width: 100%;
+    }
+
+    /* Notification message */
+    span {
+      margin: 14px 0;
+
+      /* On IE 10 a flex child need to be in display flex to grow or shrink */
+      display: flex;
+
+    }
+  }
+}

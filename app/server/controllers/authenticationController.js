@@ -14,6 +14,7 @@
 const passport = require('passport');
 const openVeoApi = require('@openveo/api');
 const errors = process.require('app/server/httpErrors.js');
+const portalConf = process.require('app/server/conf.js');
 
 /**
  * Handles user authentication using internal providers (which do not require a redirection to a third party site).
@@ -152,4 +153,38 @@ module.exports.logoutAction = (request, response, next) => {
     else
       response.status(200).send();
   });
+};
+
+/**
+ * Checks if current request is authenticated.
+ *
+ * If not send back an HTTP code 401 with appropriate page.
+ * It just go to the next route action if permission is granted.
+ *
+ * @method restrictAction
+ * @static
+ * @param {Request} request ExpressJS HTTP Request
+ * @param {String} request.url Request's url
+ * @param {Object} request.user The connected user
+ * @param {String} request.user.id The connected user id
+ * @param {Response} response ExpressJS HTTP Response
+ * @param {Function} next Function to defer execution to the next registered middleware
+ */
+module.exports.restrictAction = (request, response, next) => {
+  var error = errors.BACK_END_UNAUTHORIZED;
+
+  // User is authenticated
+  if (request.isAuthenticated()) {
+    var superAdminId = portalConf.superAdminId;
+    error = errors.BACK_END_FORBIDDEN;
+
+    // Only the super administrator can access the back office
+    if (request.user.id === superAdminId || /^\/be\/logout.*/.test(request.path))
+      return next();
+
+  }
+
+  // Not authenticated
+  return next(error);
+
 };

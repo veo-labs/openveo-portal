@@ -10,6 +10,7 @@ It includes the following features:
 - A search engine
 - Themes
 - Statistics with support for [Piwik](http://piwik.org/)
+- An administration interface
 
 ## Authentication
 
@@ -47,3 +48,6 @@ OpenVeo has been tested on the following:
 
 ### Video player
 ![Video player](images/screenshots/video-player.jpg)
+
+### Back office dashboard
+![Back office dashboard](images/screenshots/back-office-dashboard.jpg)

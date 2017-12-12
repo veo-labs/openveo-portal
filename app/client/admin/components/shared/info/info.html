@@ -1,0 +1,12 @@
+<div class="opa-info menu-panel" md-whiteframe="4" layout="column" ng-if="ctrl.message">
+  <p ng-bind-html="ctrl.message" flex="noshrink"></p>
+  <footer layout="row" layout-align="end none" flex="none">
+    <md-button
+               target="_blank"
+               class="md-primary"
+               ng-click="ctrl.close()"
+               ng-bind="'INFO.CLOSE' | opaTranslate"
+               aria-label="'INFO.CLOSE' | opaTranslate"
+    ></md-button>
+  </footer>
+</div>

@@ -1,0 +1,34 @@
+<script type="text/ng-template" id="opa-toolbar-action.html">
+  <md-button ng-if="action.icon && action.action" class="md-icon-button" aria-label="action.label | opaTranslate" ng-click="action.action()">
+    <md-icon>{{action.icon}}</md-icon>
+    <md-tooltip ng-if="action.help">{{action.help | opaTranslate}}</md-tooltip>
+  </md-button>
+
+  <md-menu ng-if="action.icon && action.menu">
+    <md-button class="md-icon-button" aria-label="action.label | opaTranslate" ng-click="$mdMenu.open($event)">
+      <md-icon>{{action.icon}}</md-icon>
+      <md-tooltip ng-if="action.help">{{action.help | opaTranslate}}</md-tooltip>
+    </md-button>
+    <md-menu-content class="opa-toolbar-menu">
+      <md-menu-item ng-repeat="menuAction in action.menu" ng-class="{'opa-selected': menuAction.selected}" md-colors="menuAction.selected ? {color: 'accent-500'} : {color: 'background-900'}">
+        <md-button ng-click="menuAction.action(menuAction)" ng-bind="menuAction.label | opaTranslate" aria-label="{{menuAction.label | opaTranslate}}"></md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+</script>
+
+<md-toolbar class="opa-toolbar">
+  <header class="md-toolbar-tools">
+
+    <div ng-if="$ctrl.opaLeftActions && $ctrl.opaLeftActions.length" layout="row" flew="no" class="opa-toolbar-left-actions">
+      <div ng-repeat="action in $ctrl.opaLeftActions" layout="row" ng-include="'opa-toolbar-action.html'"></div>
+    </div>
+
+    <h2 flex="auto" ng-bind="$ctrl.opaTitle | opaTranslate"></h2>
+
+    <div ng-if="$ctrl.opaRightActions && $ctrl.opaRightActions.length" layout="row" class="opa-toolbar-right-actions">
+      <div ng-repeat="action in $ctrl.opaRightActions" layout="row" ng-include="'opa-toolbar-action.html'"></div>
+    </div>
+
+  </header>
+</md-toolbar>

@@ -1,0 +1,55 @@
+$ABOUT_UP_TO_DATE_COLOR: #95c11f;
+$ABOUT_INFO_OVER_COLOR: #e6007e;
+
+.opa-about {
+  height: 100%;
+
+  & > div {
+    width: 100%;
+  }
+
+  header {
+    padding: 0 2px 16px 16px;
+
+    h1 {
+      margin: 24px 0 0 0;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    /* Version information icon */
+    & > md-icon {
+      @include user-select(none);
+      margin-top: 16px;
+    }
+
+    /* Information button */
+    & > .md-button {
+      margin-top: 8px;
+
+      md-icon {
+        transition: color 0.3s cubic-bezier(0, 0, 0, 1);
+      }
+
+      md-icon:hover {
+        color: $ABOUT_INFO_OVER_COLOR;
+      }
+    }
+
+    .opa-up-to-date {
+      color: $ABOUT_UP_TO_DATE_COLOR;
+    }
+
+  }
+
+  section {
+    padding: 0 16px;
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 0 8px;
+    margin-bottom: 2px;
+  }
+
+}

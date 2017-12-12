@@ -4,16 +4,31 @@ const path = require('path');
 
 module.exports = {
   root: path.join(__dirname, '..'),
-  client: '<%= project.root %>/app/client',
-  server: '<%= project.root %>/app/server',
-  assets: '<%= project.root %>/assets',
-  defaultTheme: '<%= project.assets %>/themes/default',
-  uglify: '<%= project.root %>/build/uglify',
-  tests: '<%= project.root %>/tests',
-  sass: '<%= project.client %>/front/compass/sass',
-  frontJS: '<%= project.client %>/front/js',
-  fonts: '<%= project.assets %>/lib/bootstrap-sass/assets/fonts',
-  fontHttpPath: '/lib/bootstrap-sass/assets/fonts',
-  cssAssets: '<%= project.assets %>/css',
-  jsAssets: '<%= project.assets %>/js'
+  buildPath: '<%= project.root %>/build',
+  uglifyBuildPath: '<%= project.buildPath %>/uglify',
+  compassBuildPath: '<%= project.buildPath %>/compass',
+
+  adminSourcesPath: '<%= project.root %>/app/client/admin',
+  adminI18nSourcesPath: '<%= project.root %>/assets/be/js/i18n',
+  adminDeployJsPath: '<%= project.root %>/assets/be/js',
+  adminDeployCssPath: '<%= project.root %>/assets/be/css',
+  adminDeployViewsPath: '<%= project.root %>/assets/be/views',
+
+  frontDeployCssPath: '<%= project.root %>/assets/css',
+  frontScssSourcesPath: '<%= project.root %>/app/client/front/compass/sass',
+  frontJsSourcesPath: '<%= project.root %>/app/client/front/js',
+  frontDeployJsPath: '<%= project.root %>/assets/js',
+
+  serverSourcesPath: '<%= project.root %>/app/server',
+
+  bootstrapFontsPath: '<%= project.root %>/assets/lib/bootstrap-sass/assets/fonts',
+  bootstrapFontsHttpPath: '/lib/bootstrap-sass/assets/fonts',
+
+  clientTestSourcesPath: '<%= project.tests %>/client',
+  clientLibrariesPath: '<%= project.root %>/assets/lib',
+
+  documentationDeployPath: '<%= project.root %>/site',
+  documentationServerApiDeployPath: '<%= project.documentationDeployPath %>/version/api/server',
+  documentationFrontApiDeployPath: '<%= project.documentationDeployPath %>/version/api/client/front',
+  documentationAdminApiDeployPath: '<%= project.documentationDeployPath %>/version/api/client/admin'
 };
