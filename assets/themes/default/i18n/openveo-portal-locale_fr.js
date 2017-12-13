@@ -19,7 +19,8 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       LINK: 'Lien',
       CODE: 'Code HTML',
       TITLE: 'Titre',
-      ARIA_USER_MENU: 'Ouvrir le menu utilisateur'
+      ARIA_USER_MENU: 'Ouvrir le menu utilisateur',
+      BACK_OFFICE: 'Administration'
     },
     HOME: {
       PAGE_TITLE: 'Portail - Accueil',

@@ -64,6 +64,7 @@
     };
     $scope.user = openVeoPortalSettings.user || authenticationService.getUserInfo() || null;
     $scope.isAuth = openVeoPortalSettings.authenticationMechanisms.length ? true : false;
+    $scope.isAdmin = $scope.user && $scope.user.id === openVeoPortalSettings.superAdminId;
     $scope.theme = openVeoPortalSettings.theme;
     $scope.useDialog = openVeoPortalSettings.useDialog;
 
@@ -251,6 +252,17 @@
           });
         }
       }
+    };
+
+    /**
+     * Navigates to administration interface (/be).
+     *
+     * This will leave this single page application.
+     *
+     * @method goToBackOffice
+     */
+    this.goToBackOffice = function() {
+      $window.location.href = '/be';
     };
   }
 

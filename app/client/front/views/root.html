@@ -22,7 +22,8 @@
         authenticationMechanisms: [[& authenticationMechanisms]],
         authenticationStrategies: [[& authenticationStrategies]],
         theme: '[[theme]]',
-        useDialog: [[useDialog]]
+        useDialog: [[useDialog]],
+        superAdminId: '[[superAdminId]]'
       };
     </script>
   </head>
@@ -47,6 +48,15 @@
                 <md-icon class="material-icons">arrow_drop_down</md-icon>
               </md-button>
               <md-menu-content class="user-menu">
+                <md-menu-item ng-if="isAdmin">
+                  <md-button
+                             aria-label="{{'UI.BACK_OFFICE' | translate}}"
+                             ng-click="mainCtrl.goToBackOffice();"
+                  >
+                    <md-icon class="material-icons">settings</md-icon>
+                    {{'UI.BACK_OFFICE' | translate}}
+                  </md-button>
+                </md-menu-item>
                 <md-menu-item>
                   <md-button aria-label="{{'UI.LOGOUT' | translate}}"
                              ng-click="mainCtrl.logout();"

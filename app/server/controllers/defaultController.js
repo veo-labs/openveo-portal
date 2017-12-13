@@ -49,6 +49,7 @@ module.exports.defaultAction = (request, response) => {
   response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
   response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
   response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
+  response.locals.superAdminId = portalConf.superAdminId;
 
   // Add theme css file
   response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);
