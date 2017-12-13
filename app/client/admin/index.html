@@ -54,8 +54,8 @@
         ></opa-nav>
       </md-sidenav>
 
-      <md-content flex layout-padding layout="column">
-        <div ng-view ng-show="ctrl.isViewLoaded"></div>
+      <md-content flex layout="row">
+        <div ng-view ng-show="ctrl.isViewLoaded" layout="row" flex></div>
 
         <div layout="row" layout-align="center center" ng-show="!ctrl.isViewLoaded" class="opa-loader">
           <md-progress-circular md-mode="indeterminate"></md-progress-circular>

@@ -29,7 +29,7 @@
 
       // Register dashboard page route
       $routeProvider.when('/', {
-        template: '<opa-dashboard></opa-dashboard>',
+        template: '<opa-dashboard flex layout="row"></opa-dashboard>',
         pageTitle: 'DASHBOARD.PAGE_TITLE',
         title: 'DASHBOARD.TITLE'
       }).otherwise('/');
