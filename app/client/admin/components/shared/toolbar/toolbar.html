@@ -24,7 +24,7 @@
       <div ng-repeat="action in $ctrl.opaLeftActions" layout="row" ng-include="'opa-toolbar-action.html'"></div>
     </div>
 
-    <h2 flex="auto" ng-bind="$ctrl.opaTitle | opaTranslate"></h2>
+    <h1 flex="auto" ng-bind="$ctrl.opaTitle | opaTranslate"></h1>
 
     <div ng-if="$ctrl.opaRightActions && $ctrl.opaRightActions.length" layout="row" class="opa-toolbar-right-actions">
       <div ng-repeat="action in $ctrl.opaRightActions" layout="row" ng-include="'opa-toolbar-action.html'"></div>
