@@ -109,6 +109,20 @@ body {
   height: 100%;
 }
 
+/* ng-view */
+.opa-view {
+
+  &.ng-hide-remove {
+    transition: opacity 0.2s linear;
+    opacity: 0;
+  }
+
+  &.ng-hide-remove.ng-ng-hide-remove-active {
+    opacity: 1;
+  }
+
+}
+
 /* Links */
 a {
   color: $COLOR_BLUE_500;
