@@ -9,13 +9,13 @@
  * HTTP errors are sent by {{#crossLinkModule 'controllers'}}{{/crossLinkModule}}.
  *
  * @example
- *     var httpErrors = process.require('app/server/httpErrors.js');
+ *     const httpErrors = process.require('app/server/httpErrors.js');
  *     console.log(httpErrors.UNKNOWN_ERROR);
  *
  * @class HTTP_ERRORS
  * @static
  */
-var HTTP_ERRORS = {
+const HTTP_ERRORS = {
 
   // General errors
 

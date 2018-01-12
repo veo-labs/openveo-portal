@@ -171,11 +171,11 @@ module.exports.logoutAction = (request, response, next) => {
  * @param {Function} next Function to defer execution to the next registered middleware
  */
 module.exports.restrictAction = (request, response, next) => {
-  var error = errors.BACK_END_UNAUTHORIZED;
+  let error = errors.BACK_END_UNAUTHORIZED;
 
   // User is authenticated
   if (request.isAuthenticated()) {
-    var superAdminId = portalConf.superAdminId;
+    const superAdminId = portalConf.superAdminId;
     error = errors.BACK_END_FORBIDDEN;
 
     // Only the super administrator can access the back office
