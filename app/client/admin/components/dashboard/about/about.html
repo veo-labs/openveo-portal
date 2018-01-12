@@ -4,7 +4,7 @@
       <h1 ng-bind="'DASHBOARD.ABOUT.TITLE' | opaTranslate" flex="auto"></h1>
       <md-icon
                ng-if="$ctrl.information.version && !$ctrl.information.updateAvailable"
-               aria-label="'DASHBOARD.ABOUT.UP_TO_DATE' | opaTranslate"
+               aria-label="{{'DASHBOARD.ABOUT.UP_TO_DATE' | opaTranslate}}"
                class="opa-up-to-date"
       >
         check_circle
@@ -12,7 +12,7 @@
       </md-icon>
       <md-icon
                ng-if="$ctrl.information.version && $ctrl.information.updateAvailable"
-               aria-label="'DASHBOARD.ABOUT.NEED_UPGRADE' | opaTranslate"
+               aria-label="{{'DASHBOARD.ABOUT.NEED_UPGRADE' | opaTranslate}}"
                md-colors="::{color: 'warn-A400'}"
       >new_releases</md-icon>
       <md-button class="md-icon-button" aria-label="'DASHBOARD.ABOUT.SHOW_INFO' | opaTranslate" opa-info="'DASHBOARD.ABOUT.INFO' | opaTranslate">
@@ -29,7 +29,7 @@
                  ng-if="$ctrl.information.version"
                  ng-href="{{$ctrl.information.versionSourcesUrl}}"
                  ng-bind="'DASHBOARD.ABOUT.VIEW_SOURCE' | opaTranslate"
-                 aria-label="'DASHBOARD.ABOUT.VIEW_SOURCE' | opaTranslate"
+                 aria-label="{{'DASHBOARD.ABOUT.VIEW_SOURCE' | opaTranslate}}"
                  target="_blank"
                  class="md-primary"
       ></md-button>

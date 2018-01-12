@@ -1,11 +1,11 @@
 <script type="text/ng-template" id="opa-toolbar-action.html">
-  <md-button ng-if="action.icon && action.action" class="md-icon-button" aria-label="action.label | opaTranslate" ng-click="action.action()">
+  <md-button ng-if="action.icon && action.action" class="md-icon-button" aria-label="{{action.label | opaTranslate}}" ng-click="action.action()">
     <md-icon>{{action.icon}}</md-icon>
     <md-tooltip ng-if="action.help">{{action.help | opaTranslate}}</md-tooltip>
   </md-button>
 
   <md-menu ng-if="action.icon && action.menu">
-    <md-button class="md-icon-button" aria-label="action.label | opaTranslate" ng-click="$mdMenu.open($event)">
+    <md-button class="md-icon-button" aria-label="{{action.label | opaTranslate}}" ng-click="$mdMenu.open($event)">
       <md-icon>{{action.icon}}</md-icon>
       <md-tooltip ng-if="action.help">{{action.help | opaTranslate}}</md-tooltip>
     </md-button>
