@@ -61,7 +61,7 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       ERROR: 'Login and / or password incorrect'
     },
     MENU: {
-      HOME: 'HOME',
+      HOME: 'Home',
       ALL_VIDEOS: 'All videos',
       ARIA_DESCRIPTION: 'Navigation links'
     },
