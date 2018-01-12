@@ -1,5 +1,4 @@
 $ABOUT_UP_TO_DATE_COLOR: #95c11f;
-$ABOUT_INFO_OVER_COLOR: #e6007e;
 
 .opa-about {
   height: 100%;
@@ -24,16 +23,8 @@ $ABOUT_INFO_OVER_COLOR: #e6007e;
     }
 
     /* Information button */
-    & > .md-button {
+    & .md-button {
       margin-top: 8px;
-
-      md-icon {
-        transition: color 0.3s cubic-bezier(0, 0, 0, 1);
-      }
-
-      md-icon:hover {
-        color: $ABOUT_INFO_OVER_COLOR;
-      }
     }
 
     .opa-up-to-date {

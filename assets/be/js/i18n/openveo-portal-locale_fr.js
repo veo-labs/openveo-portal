@@ -36,15 +36,13 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       ABOUT: {
         TITLE: 'A propos',
         UP_TO_DATE: 'OpenVeo Portal est à jour',
-        UP_TO_DATE_TOOLTIP: 'OpenVeo Portal est à jour',
         UP_TO_DATE_DESCRIPTION: 'Vous utilisez la dernière version (<a href="%versionUrl%" target="_blank" title="Version actuelle">%version%</a>).<br/>Aucune mise à jour disponible.',
         NEED_UPGRADE: 'Une nouvelle version d\'OpenVeo Portal est disponible',
         NEED_UPGRADE_DESCRIPTION: 'Vous utilisez la version <a href="%versionUrl%" target="_blank" title="Version actuelle">%version%</a> d\'OpenVeo Portal. La version <a href="%latestVersionUrl%" target="_blank" title="Dernière version">%latestVersion%</a> est maintenant disponible.<br/><br/>Merci d\'en informer l\'administrateur.',
         VIEW_SOURCE: 'Voir les sources',
+        INFO_BUTTON_DESCRIPTION: 'Afficher plus d\'informations sur "à propos"',
         ERROR: 'Information non disponible',
-        INFO: '"<strong>A propos</strong>" vous donne des informations concernant la version d\'OpenVeo Portal que vous utilisez. Il vous prévient lorsqu\'une nouvelle version est disponible et vous indique ou se trouve le code source.',
-        SHOW_INFO: "Afficher plus d'information",
-        SHOW_INFO_TOOLTIP: "Afficher plus d'information sur le bloc \"à propos\""
+        INFO: '"<strong>A propos</strong>" vous donne des informations concernant la version d\'OpenVeo Portal que vous utilisez. Il vous prévient lorsqu\'une nouvelle version est disponible et vous indique ou se trouve le code source.'
       }
     },
     ERRORS: {
@@ -56,7 +54,8 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       CLOSE: 'Fermer'
     },
     INFO: {
-      CLOSE: 'Ok !'
+      CLOSE: 'Ok !',
+      INFO_BUTTON_DESCRIPTION: 'Plus d\'informations'
     }
   });
 }]);

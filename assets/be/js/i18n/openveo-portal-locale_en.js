@@ -36,15 +36,13 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       ABOUT: {
         TITLE: 'About',
         UP_TO_DATE: 'OpenVeo Portal is up to date',
-        UP_TO_DATE_TOOLTIP: 'OpenVeo Portal is up to date',
         UP_TO_DATE_DESCRIPTION: 'You are using the latest version (<a href="%versionUrl%" target="_blank" title="Actual version">%version%</a>).<br/>No updates available.',
         NEED_UPGRADE: 'A new version of OpenVeo Portal is available',
         NEED_UPGRADE_DESCRIPTION: 'You are using OpenVeo Portal <a href="%versionUrl%" target="_blank" title="Actual version">%version%</a>.<br/>Version <a href="%latestVersionUrl%" target="_blank" title="Latest version">%latestVersion%</a> is now available.<br/><br/>Please notify the administrator.',
         VIEW_SOURCE: 'View sources',
+        INFO_BUTTON_DESCRIPTION: 'Show "about" information',
         ERROR: 'Information not available',
-        INFO: '"<strong>About</strong>" gives you information regarding your version of OpenVeo Portal. It informs you when a new version is available and where you can find the sources.',
-        SHOW_INFO: "Show information",
-        SHOW_INFO_TOOLTIP: "Show information on \"about\" block"
+        INFO: '"<strong>About</strong>" gives you information regarding your version of OpenVeo Portal. It informs you when a new version is available and where you can find the sources.'
       }
     },
     ERRORS: {
@@ -56,7 +54,8 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       CLOSE: 'Close'
     },
     INFO: {
-      CLOSE: 'Got it!'
+      CLOSE: 'Got it!',
+      INFO_BUTTON_DESCRIPTION: 'More information'
     }
   });
 }]);

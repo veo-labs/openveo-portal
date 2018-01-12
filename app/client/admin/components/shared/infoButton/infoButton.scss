@@ -1,0 +1,13 @@
+$OPA_INFO_BUTTON_OVER_COLOR: #e6007e;
+
+/* Information button */
+.opa-info-button {
+
+  md-icon {
+    transition: color 0.3s cubic-bezier(0, 0, 0, 1);
+  }
+
+  md-icon:hover {
+    color: $OPA_INFO_BUTTON_OVER_COLOR;
+  }
+}
