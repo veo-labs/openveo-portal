@@ -14,9 +14,10 @@
    * @param {Object} $scope Directive isolated scope
    * @param {Object} $element JQLite element of the directive
    * @param {Object} $document JQLite element of the document
+   * @param {Object} $timeout AngularJS $timeout service
    * @param {Object} $mdPanel AngularJS Material service to create panels
    */
-  function OpaInfoController($scope, $element, $document, $mdPanel) {
+  function OpaInfoController($scope, $element, $document, $timeout, $mdPanel) {
     var ctrl = this;
     var panelReference = null;
     var panelPromise = null;
@@ -49,10 +50,19 @@
             position: panelPosition,
             onCloseSuccess: function() {
               panelReference = null;
+              $element[0].focus();
             }
           }).then(function(reference) {
             panelPromise = null;
             panelReference = reference;
+
+            $timeout(function() {
+
+              // Set focus on button
+              $document[0].querySelector('.opa-info button').focus();
+
+            }, 1);
+
           });
         }
       },
@@ -98,6 +108,6 @@
   }
 
   app.controller('OpaInfoController', OpaInfoController);
-  OpaInfoController.$inject = ['$scope', '$element', '$document', '$mdPanel'];
+  OpaInfoController.$inject = ['$scope', '$element', '$document', '$timeout', '$mdPanel'];
 
 })(angular.module('opa'));

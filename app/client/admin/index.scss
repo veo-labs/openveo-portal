@@ -113,8 +113,9 @@ body {
 a {
   color: $COLOR_BLUE_500;
   text-decoration: none;
+  outline: none;
 
-  &:hover {
+  &:hover, &:focus {
     color: $COLOR_PINK_500;
   }
 }

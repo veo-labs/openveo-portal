@@ -1,3 +1,8 @@
+$OPA_NAV_LINK_ICON_COLOR: #616161;
+$OPA_NAV_LINK_NAME_COLOR: #212121;
+$OPA_NAV_LINK_SELECTED_COLOR: #e6007e;
+$OPA_NAV_LINK_FOCUSED_COLOR: #008bd6;
+
 .opa-nav {
   ul {
     margin: 0;
@@ -8,13 +13,29 @@
     cursor: pointer;
     @include user-select(none);
     height: 48px;
-    outline: none;
     text-decoration: none;
 
     span {
+      color: $OPA_NAV_LINK_NAME_COLOR;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    md-icon {
+      color: $OPA_NAV_LINK_ICON_COLOR;
+    }
+
+    &.opa-selected {
+      md-icon, span {
+        color: $OPA_NAV_LINK_SELECTED_COLOR;
+      }
+    }
+
+    &:focus {
+      md-icon, span {
+        color: $OPA_NAV_LINK_FOCUSED_COLOR;
+      }
     }
   }
 
