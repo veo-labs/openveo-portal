@@ -311,7 +311,7 @@
       setLanguage: {
         value: function(language) {
           opaUserFactory.setLanguage(language.code);
-          $window.location.href = './';
+          $window.location.href = '/be' + $location.path();
         }
       },
 

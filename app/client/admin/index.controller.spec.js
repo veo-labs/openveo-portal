@@ -188,7 +188,7 @@ describe('OpaIndexController', function() {
       scope.$digest();
 
       opaUserFactory.setLanguage.should.have.been.called.exactly(1);
-      assert.equal(windowMock.location.href, './', 'Expected page to be reloaded');
+      assert.equal(windowMock.location.href, '/be/', 'Expected page to be reloaded');
     });
 
   });
