@@ -17,7 +17,8 @@ ehthumbs.db
 /node_modules
 
 # Bower dependencies
-/assets/lib
+/assets/lib/*
+!/assets/lib/wowza-player
 
 # IDE
 nbproject/

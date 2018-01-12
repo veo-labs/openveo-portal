@@ -116,6 +116,66 @@ const HTTP_ERRORS = {
     httpCode: 500
   },
 
+  /**
+   * A server error occurring when updating settings.
+   *
+   * @property UPDATE_SETTINGS_ERROR
+   * @type Object
+   * @final
+   */
+  UPDATE_SETTINGS_ERROR: {
+    code: 0x009,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a setting.
+   *
+   * @property GET_SETTING_ERROR
+   * @type Object
+   * @final
+   */
+  GET_SETTING_ERROR: {
+    code: 0x00a,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting OpenVeo groups.
+   *
+   * @property GET_GROUPS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_GROUPS_ERROR: {
+    code: 0x00b,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a setting while processing default action.
+   *
+   * @property DEFAULT_GET_SETTING_ERROR
+   * @type Object
+   * @final
+   */
+  DEFAULT_GET_SETTING_ERROR: {
+    code: 0x00c,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a setting while processing live action.
+   *
+   * @property LIVE_GET_SETTING_ERROR
+   * @type Object
+   * @final
+   */
+  LIVE_GET_SETTING_ERROR: {
+    code: 0x00d,
+    httpCode: 500
+  },
+
   // Not found errors
 
   /**
@@ -216,6 +276,18 @@ const HTTP_ERRORS = {
     httpCode: 403
   },
 
+  /**
+   * A server error occurring when connected user is not authorized to access live.
+   *
+   * @property LIVE_FORBIDDEN
+   * @type Object
+   * @final
+   */
+  LIVE_FORBIDDEN: {
+    code: 0x207,
+    httpCode: 403
+  },
+
   // Wrong parameters
 
   /**
@@ -239,6 +311,42 @@ const HTTP_ERRORS = {
    */
   AUTHENTICATE_INTERNAL_WRONG_PARAMETERS: {
     code: 0x301,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when getting a setting with missing parameters.
+   *
+   * @property GET_SETTING_MISSING_PARAMETERS
+   * @type Object
+   * @final
+   */
+  GET_SETTING_MISSING_PARAMETERS: {
+    code: 0x302,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when updating settings with missing parameters.
+   *
+   * @property UPDATE_SETTINGS_MISSING_PARAMETERS
+   * @type Object
+   * @final
+   */
+  UPDATE_SETTINGS_MISSING_PARAMETERS: {
+    code: 0x303,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when updating settings with wrong parameters.
+   *
+   * @property UPDATE_SETTINGS_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  UPDATE_SETTINGS_WRONG_PARAMETERS: {
+    code: 0x304,
     httpCode: 400
   }
 

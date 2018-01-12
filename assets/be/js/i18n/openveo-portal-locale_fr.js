@@ -22,6 +22,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
     },
     NAV: {
       DASHBOARD: 'Tableau de bord',
+      SETTINGS: 'Configuration',
       VIEW_PORTAL: 'Afficher le portail',
       LANGUAGE: 'Choisir la language',
       LANGUAGES: {
@@ -44,6 +45,35 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         ERROR: 'Information non disponible',
         INFO: '"<strong>A propos</strong>" vous donne des informations concernant la version d\'OpenVeo Portal que vous utilisez. Il vous prévient lorsqu\'une nouvelle version est disponible et vous indique ou se trouve le code source.'
       }
+    },
+    SETTINGS: {
+      PAGE_TITLE: 'OpenVeo Portal - Configuration',
+      TITLE: 'Configuration',
+      LIVE: {
+        TITLE: 'Live',
+        INFO_BUTTON_DESCRIPTION: 'Afficher plus d\'informations sur la configuration du live',
+        INFO: '<strong>Live</strong> peut-être désactivé, la page live est alors inaccessible.<br/><br/><strong>Privé</strong> indique que le live n\'est accessible que pour une liste de groupes OpenVeo.',
+        ACTIVATED_LABEL: 'Live activée',
+        DEACTIVATED_LABEL: 'Live désactivé',
+        ACTIVATED_DESCRIPTION: 'Activer / désactiver la page live',
+        PLAYER_TYPE_LABEL: 'Player',
+        URL_LABEL: 'URL',
+        URL_EMPTY_ERROR: 'Erreur : vous devez préciser une URL de streaming live',
+        URL_YOUTUBE_ERROR: 'Erreur : URL Youtube de streaming live invalide (ex : https://www.youtube.com/watch?v=123456)',
+        URL_WOWZA_ERROR: 'Erreur : URL Wowza de streaming live invalide (ex : https://wowza-example.local:1935/application-example/stream-example/playlist.m3u8)',
+        PRIVATE_LABEL: 'Privé',
+        PRIVATE_DESCRIPTION: 'Restreindre l\'accès au live',
+        GROUPS_LABEL: 'Groupes OpenVeo',
+        GROUPS_EMPTY_ERROR: 'Erreur : vous devez ajouter au moins un groupe pour un live privé',
+        PLAYER_LICENSE_LABEL: 'Licence du player',
+        PLAYER_LICENSE_EMPTY_ERROR: 'Erreur : vous devez préciser le numéro de licence du player Wowza (disponible sur https://player.wowza.com)',
+        PLAYER_LICENSE_ERROR: 'Erreur : numéro de license invalide (ex : xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx)',
+        WOWZA: 'Wowza',
+        YOUTUBE: 'Youtube'
+      },
+      SUBMIT_BUTTON: 'Enregistrer',
+      SAVE_SUCCESS: 'Configuration enregistrée',
+      ERROR_MESSAGE: 'Impossible d\'afficher la configuration'
     },
     ERRORS: {
       CLIENT: 'Une erreur applicative est survenue, veuillez contacter l\'administrateur',

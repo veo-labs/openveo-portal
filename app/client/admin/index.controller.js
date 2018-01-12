@@ -224,6 +224,12 @@
               icon: 'dashboard',
               action: ctrl.goTo,
               href: '/'
+            },
+            {
+              label: 'NAV.SETTINGS',
+              icon: 'settings',
+              action: ctrl.goTo,
+              href: '/settings'
             }
           );
 
@@ -233,6 +239,12 @@
               icon: 'dashboard',
               action: ctrl.goTo,
               href: '/'
+            },
+            {
+              label: 'NAV.SETTINGS',
+              icon: 'settings',
+              action: ctrl.goTo,
+              href: '/settings'
             },
             {
               divider: true

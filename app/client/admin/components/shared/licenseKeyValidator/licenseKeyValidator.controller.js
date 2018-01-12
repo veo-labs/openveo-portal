@@ -1,0 +1,65 @@
+'use strict';
+
+/**
+ * @module opa
+ */
+
+(function(app) {
+
+  /**
+   * Manages opaLicenseKeyValidator directive.
+   *
+   * @class OpaLicenseKeyValidatorController
+   * @constructor
+   * @param {Object} $element JQLite element of the directive
+   */
+  function OpaLicenseKeyValidatorController($element) {
+    var ctrl = this;
+    var ngModelController = $element.controller('ngModel');
+
+    Object.defineProperties(this, {
+
+      /**
+       * Validates that the given value is a license key.
+       *
+       * Expected format only allows series of 5 characters separated by dashes.
+       * Only alphanumeric characters are allowed between dashes.
+       * e.g. PLAY1-cerPw-zxezN-eMvje-9jHAD-8xA3j
+       *
+       * @method isValid
+       * @param {String} value The license key to validate
+       * @return {Boolean} true if valid, false otherwise
+       * @final
+       */
+      isValid: {
+        value: function(value) {
+          return /^([a-zA-Z0-9]{5}-)*[a-zA-Z0-9]{5}$/.test(value);
+        }
+      },
+
+      /**
+       * Handles one-way binding properties changes and force model validation.
+       *
+       * @method $onChanges
+       * @final
+       */
+      $onChanges: {
+        value: function() {
+          ngModelController.$validate();
+        }
+      }
+
+    });
+
+    // Add the "opaLicenseKey" validator to the model
+    ngModelController.$validators.opaLicenseKey = function(modelValue, viewValue) {
+      if (!modelValue) return true;
+      if (!ctrl.opaLicenseKeyValidator) return true;
+      return ctrl.isValid(modelValue);
+    };
+  }
+
+  app.controller('OpaLicenseKeyValidatorController', OpaLicenseKeyValidatorController);
+  OpaLicenseKeyValidatorController.$inject = ['$element'];
+
+})(angular.module('opa'));

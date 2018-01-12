@@ -6,6 +6,8 @@
 
 const async = require('async');
 const openVeoApi = require('@openveo/api');
+const SettingsModel = process.require('app/server/models/SettingsModel.js');
+const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
 const UserModel = process.require('app/server/models/UserModel.js');
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const conf = process.require('app/server/conf.js');
@@ -21,6 +23,34 @@ const storage = process.require('app/server/storage.js');
  * @class authenticator
  * @static
  */
+
+/**
+ * Populates user with permissions.
+ *
+ * @method populateUser
+ * @private
+ * @async
+ * @param {Object} user The user to populate
+ * @param {Array} [user.id] The user id
+ * @param {Function} callback The function to call when it's done
+ *   - **Error** The error if an error occurred, null otherwise
+ *   - **Object** The populated user
+ */
+function populateUser(user, callback) {
+  if (user.id === conf.superAdminId) user.hasLiveAccess = true;
+  if (!user.groups || !user.groups.length) return callback(null, user);
+
+  // Get live settings
+  const settingsModel = new SettingsModel(new SettingsProvider(storage.getDatabase()));
+  settingsModel.getOne('live', null, (error, settings) => {
+    if (error) return callback(error);
+    user.hasLiveAccess = openVeoApi.util.intersectArray(
+      user.groups, settings.value.groups
+    ).length ? true : false;
+
+    callback(null, user);
+  });
+}
 
 /**
  * Serializes only essential user information required to retrieve it later.
@@ -57,7 +87,7 @@ module.exports.deserializeUser = (data, callback) => {
   userModel.getOne(data, null, (error, user) => {
     if (error) return callback(error);
     if (!user) return callback(new Error(`Unkown user "${data}"`));
-    callback(null, user);
+    populateUser(user, callback);
   });
 };
 
@@ -79,7 +109,7 @@ module.exports.verifyUserByCredentials = (email, password, callback) => {
   userModel.getUserByCredentials(email, password, (error, user) => {
     if (error) return callback(error);
     if (!user) return callback(new Error(`Email and / or password incorrect for "${email}"`));
-    callback(null, user);
+    populateUser(user, callback);
   });
 };
 
@@ -188,6 +218,11 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
         }, strategy, callback);
       } else
         callback();
+    },
+
+    // Populate user with permissions
+    (callback) => {
+      populateUser(user, callback);
     }
 
   ], (error, results) => {

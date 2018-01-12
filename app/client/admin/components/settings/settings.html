@@ -1,0 +1,31 @@
+<div layout="row" flex class="opa-settings" ng-class="{'opa-error' : $ctrl.isError}">
+  <div layout="column" flex layout-padding class="opa-form" ng-if="!$ctrl.isError">
+    <div layout="row" flex>
+      <div layout="column" flex flex-gt-xs="50" flex-gt-md="33">
+
+        <!-- Live settings -->
+        <opa-live-settings opa-groups="$ctrl.availableGroups" opa-settings="$ctrl.liveSettings" opa-on-update="$ctrl.updateLiveSettings(settings)"></opa-live-settings>
+
+        <!-- Submit button -->
+        <div flex="none">
+          <md-button
+                     ng-click="$ctrl.save()"
+                     ng-disabled="$ctrl.isSaving || !$ctrl.isValid()"
+                     aria-label="{{'SETTINGS.SUBMIT_BUTTON' | opaTranslate}}"
+                     class="opa-submit md-raised md-primary md-whiteframe-1dp opa-submit-button"
+                     tabindex="0"
+           >
+            <span ng-bind="'SETTINGS.SUBMIT_BUTTON' | opaTranslate" ng-if="!$ctrl.isSaving"></span>
+            <md-progress-circular md-mode="indeterminate" md-diameter="20" ng-if="$ctrl.isSaving"></md-progress-circular>
+          </md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error -->
+  <div layout="column" layout-align="center center" flex="auto" class="opa-error-message" ng-if="$ctrl.isError">
+    <md-icon>settings</md-icon>
+    <span ng-bind="'SETTINGS.ERROR_MESSAGE' | opaTranslate"></span>
+  </div>
+</div>

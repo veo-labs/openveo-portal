@@ -38,7 +38,8 @@
       "/ov/SearchService.js",
       "/ov/SearchController.js",
       "/ov/LoginFormController.js",
-      "/ov/VideoService.js"
+      "/ov/VideoService.js",
+      "/ov/LiveController.js"
     ],
     "prod" : [
       "/js/openveo-portal.js"
@@ -59,7 +60,8 @@
       "/lib/angular-route/angular-route.min.js",
       "/lib/angular-aria/angular-aria.min.js",
       "/lib/angular-cookies/angular-cookies.min.js",
-      "/lib/angular-material/angular-material.min.js"
+      "/lib/angular-material/angular-material.min.js",
+      "/lib/angular-messages/angular-messages.min.js"
     ]
   }
 }

@@ -1,0 +1,24 @@
+<div class="opa-tags">
+  <input type="text"
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"
+         ng-keydown="$ctrl.handleInputKeys($event);"
+         ng-model="$ctrl.tag"
+         ng-change="$ctrl.autoComplete()"
+         class="form-control">
+  <ul>
+    <li ng-repeat="item in $ctrl.tags track by $index" class="opa-tag">
+      <div ng-bind="item"></div>
+      <button ng-click="$ctrl.removeTag($event, $index)">
+        <md-icon>cancel</md-icon>
+      </button>
+    </li>
+  </ul>
+  <ul class="ov-field-tags-auto-complete" ng-show="$ctrl.autoCompleteValues.length && $ctrl.isAutoCompleteDisplayed" tabindex="-1">
+    <li ng-repeat="tag in $ctrl.autoCompleteValues track by $index" ng-click="$ctrl.addTag(tag.name)" ng-keypress="$ctrl.handleAutoCompleteKeys($event, tag.name)" tabindex="-1">
+      <div ng-bind="tag.name"></div>
+    </li>
+  </ul>
+</div>

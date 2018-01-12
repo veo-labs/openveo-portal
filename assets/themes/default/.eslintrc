@@ -2,7 +2,10 @@
   "globals": {
 
     // Add angular to environment globals but do not authorize to overwrite it
-    angular: false
+    angular: false,
+
+    // Add translations to environment globals but do not authorize to overwrite it
+    translations: true
 
   }
 }

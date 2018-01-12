@@ -1,0 +1,13 @@
+.op-live {
+
+  .op-live-player {
+    overflow: hidden;
+
+    iframe {
+      max-width: 640px;
+      min-height: 360px;
+      border: 0;
+    }
+  }
+
+}

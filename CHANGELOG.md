@@ -2,7 +2,8 @@
 
 ## NEW FEATURES
 
-- Add a back office to OpenVeo Portal accessible by navigating to /be URI when connected with the super administrator. Only the super administrator can access the back office. Actually the back office contains only one page: the dashboard which indicates the version of OpenVeo Portal and warns you if a new version is available. The back office observes the Material specification and is responsive.
+- A live page has been added to present a live stream from Wowza or Youtube. Live page can be activated or deactivated and access can be restricted using user groups. Live can be configured through the new back office interface.
+- Add a back office to OpenVeo Portal accessible by navigating to /be URI when connected with the super administrator. Only the super administrator can access the back office. Actually the back office contains two pages: the dashboard which indicates the version of OpenVeo Portal and warns you if a new version is available, and the settings page to configure a live. The back office observes the Material specification and is responsive.
 
 ## DEPENDENCIES
 

@@ -1,0 +1,59 @@
+$OPA_LIVE_SETTINGS_LIVE_INFO_OVER_COLOR: #e6007e;
+
+.opa-live-settings {
+
+  /* Information button */
+  /*.opa-info {
+
+    md-icon {
+      transition: color 0.3s cubic-bezier(0, 0, 0, 1);
+    }
+
+    md-icon:hover {
+      color: $OPA_LIVE_SETTINGS_LIVE_INFO_OVER_COLOR;
+    }
+  }*/
+
+  form {
+
+    /*
+     * Default margin on md-input-container is 18px. As there isn't only md-input-container
+     * elements, replace default margin by constant margin between all form elements.
+     */
+    md-input-container {
+      margin: 0 0 8px 0;
+    }
+
+    md-checkbox, md-switch, .opa-live-groups, .opa-live-player {
+      margin-bottom: 32px;
+    }
+
+    .opa-live-sub-settings, .opa-live-private-settings, .opa-live-wowza-settings {
+      position: relative;
+
+      &.ng-hide-remove {
+        top: -30px;
+        transition: all 0.1s linear;
+        opacity: 0;
+      }
+
+      &.ng-hide-remove.ng-hide-remove-active {
+        top: 0;
+        opacity: 1;
+      }
+
+      &.ng-hide-add {
+        top: 0px;
+        transition: all 0.1s linear;
+        opacity: 1;
+      }
+
+      &.ng-hide-add.ng-hide-add-active {
+        top: -30px;
+        opacity: 0;
+      }
+    }
+
+  }
+
+}

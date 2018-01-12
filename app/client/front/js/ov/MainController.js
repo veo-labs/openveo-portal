@@ -65,6 +65,7 @@
     $scope.user = openVeoPortalSettings.user || authenticationService.getUserInfo() || null;
     $scope.isAuth = openVeoPortalSettings.authenticationMechanisms.length ? true : false;
     $scope.isAdmin = $scope.user && $scope.user.id === openVeoPortalSettings.superAdminId;
+    $scope.isLive = openVeoPortalSettings.live;
     $scope.theme = openVeoPortalSettings.theme;
     $scope.useDialog = openVeoPortalSettings.useDialog;
 
@@ -87,6 +88,7 @@
       // Set current navigation item depending on the displayed page
       if ($scope.page.path === '/') self.currentNavItem = 'home';
       else if ($scope.page.path === '/search') self.currentNavItem = 'search';
+      else if ($scope.page.path === '/live') self.currentNavItem = 'live';
       else self.currentNavItem = null;
 
       $analytics.pageTrack($scope.page.path);

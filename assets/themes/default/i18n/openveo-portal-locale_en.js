@@ -49,6 +49,10 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       ORDER_ASC: 'Ascending or descending',
       NO_FILTER: 'None'
     },
+    LIVE: {
+      PAGE_TITLE: 'Portal - Live',
+      TITLE: 'Live'
+    },
     LOGIN: {
       PAGE_TITLE: 'Portal - Login',
       TITLE: 'Login',
@@ -63,6 +67,7 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     MENU: {
       HOME: 'Home',
       ALL_VIDEOS: 'All videos',
+      LIVE: 'Live',
       ARIA_DESCRIPTION: 'Navigation links'
     },
     LINKS: {

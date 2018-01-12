@@ -15,6 +15,10 @@ const path = require('path');
 const cons = require('consolidate');
 const openVeoApi = require('@openveo/api');
 const portalConf = process.require('app/server/conf.js');
+const SettingsModel = process.require('app/server/models/SettingsModel.js');
+const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
+const storage = process.require('app/server/storage.js');
+const errors = process.require('app/server/httpErrors.js');
 const applicationConf = process.require('conf.json');
 const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
 
@@ -31,38 +35,53 @@ const env = (process.env.NODE_ENV == 'production') ? 'prod' : 'dev';
  * @param {Response} response ExpressJS HTTP Response
  * @param {Function} next Function to defer execution to the next registered middleware
  */
-module.exports.defaultAction = (request, response) => {
+module.exports.defaultAction = (request, response, next) => {
   const authConf = portalConf.serverConf.auth;
   const configuredAuth = (authConf && Object.keys(authConf)) || [];
+  const settingsModel = new SettingsModel(new SettingsProvider(storage.getDatabase()));
 
-  // Retrieve the list of scripts and css files from configuration
-  response.locals.librariesScriptsBase = applicationConf['scriptLibFiles']['base'] || [];
-  response.locals.librariesScripts = applicationConf['scriptLibFiles'][env] || [];
-  response.locals.librariesScripts = response.locals.librariesScriptsBase.concat(response.locals.librariesScripts);
-  response.locals.scriptsBase = applicationConf['scriptFiles']['base'] || [];
-  response.locals.scripts = applicationConf['scriptFiles'][env] || [];
-  response.locals.scripts = response.locals.scriptsBase.concat(response.locals.scripts);
-  response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
-  response.locals.languages = ['"en"', '"fr"'];
-  response.locals.theme = portalConf.conf.theme;
-  response.locals.useDialog = portalConf.conf.useDialog;
-  response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
-  response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
-  response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
-  response.locals.superAdminId = portalConf.superAdminId;
-
-  // Add theme css file
-  response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);
-
-  // Retrieve analytics template and render root with analytics
-  const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.conf.theme, 'analytics.html');
-  cons.mustache(analyticsPath, {}, (err, html) => {
-    if (err) response.render('root', response.locals);
-    else {
-      response.locals.analytics = html;
-      response.render('root', response.locals);
+  // Get live settings
+  settingsModel.getOne('live', null, (error, settings) => {
+    if (error) {
+      process.logger.error(error.message, {error: error, method: 'defaultAction'});
+      return next(errors.DEFAULT_GET_SETTING_ERROR);
     }
+
+    // Retrieve the list of scripts and css files from configuration
+    response.locals.librariesScriptsBase = applicationConf['scriptLibFiles']['base'] || [];
+    response.locals.librariesScripts = applicationConf['scriptLibFiles'][env] || [];
+    response.locals.librariesScripts = response.locals.librariesScriptsBase.concat(response.locals.librariesScripts);
+    response.locals.scriptsBase = applicationConf['scriptFiles']['base'] || [];
+    response.locals.scripts = applicationConf['scriptFiles'][env] || [];
+    response.locals.scripts = response.locals.scriptsBase.concat(response.locals.scripts);
+    response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
+    response.locals.languages = ['"en"', '"fr"'];
+    response.locals.theme = portalConf.conf.theme;
+    response.locals.useDialog = portalConf.conf.useDialog;
+    response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
+    response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
+    response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
+    response.locals.superAdminId = portalConf.superAdminId;
+    response.locals.live = settings.value.activated &&
+      (
+        !settings.value.private ||
+        ((request.user && request.user.hasLiveAccess) || false)
+      );
+
+    // Add theme css file
+    response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);
+
+    // Retrieve analytics template and render root with analytics
+    const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.conf.theme, 'analytics.html');
+    cons.mustache(analyticsPath, {}, (err, html) => {
+      if (err) response.render('root', response.locals);
+      else {
+        response.locals.analytics = html;
+        response.render('root', response.locals);
+      }
+    });
   });
+
 };
 
 /**

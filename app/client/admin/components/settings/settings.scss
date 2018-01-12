@@ -1,0 +1,46 @@
+$OPA_SETTINGS_BACKGROUND_COLOR: #ffffff;
+$OPA_SETTINGS_SUBMIT_BUTTON_FOCUSED_COLOR: #1a6c99;
+$OPA_SETTINGS_ERROR_VISUAL_COLOR: #eeeeee;
+$OPA_SETTINGS_ERROR_MESSAGE_COLOR: #bdbdbd;
+
+.opa-settings {
+  background-color: $OPA_SETTINGS_BACKGROUND_COLOR;
+
+  /* Settings page is on error */
+  &.opa-error {
+    background: none;
+
+    .opa-error-message {
+      user-select: none;
+
+      /* Error visual */
+      md-icon {
+        width: 270px;
+        height: 270px;
+        margin: 0;
+        font-size: 270px;
+        color: $OPA_SETTINGS_ERROR_VISUAL_COLOR;
+      }
+
+      /* Error message */
+      span {
+        color: $OPA_SETTINGS_ERROR_MESSAGE_COLOR;
+      }
+    }
+  }
+
+  /* Submit button */
+  .opa-submit {
+
+    /* Align preloader inside the submit button */
+    md-progress-circular {
+      margin: 0 auto;
+    }
+
+    /* Set a darker primary color on the button when focused */
+    &:not([disabled]).md-raised.md-focused {
+      background-color: $OPA_SETTINGS_SUBMIT_BUTTON_FOCUSED_COLOR;
+    }
+  }
+
+}

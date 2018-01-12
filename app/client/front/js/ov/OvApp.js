@@ -138,6 +138,15 @@
         }
       });
 
+      // Register live page route
+      if (openVeoPortalSettings.live) {
+        $routeProvider.when('/live', {
+          templateUrl: 'views/live.html',
+          controller: 'LiveController',
+          title: 'LIVE.PAGE_TITLE'
+        });
+      }
+
       // Register login page route
       $routeProvider.when('/login', {
         templateUrl: 'views/login.html',

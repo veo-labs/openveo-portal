@@ -19,6 +19,7 @@
       var ovPlayerDirectory = "/lib/openveo-player/";
       var openVeoPortalSettings = {
         user: [[& user]],
+        live: [[live]],
         authenticationMechanisms: [[& authenticationMechanisms]],
         authenticationStrategies: [[& authenticationStrategies]],
         theme: '[[theme]]',
@@ -95,6 +96,12 @@
                          aria-label="{{'MENU.HOME' | translate}}">
               {{'MENU.HOME'|translate}}
             </md-nav-item>
+            <md-nav-item name="live"
+                         ng-if="isLive"
+                         md-nav-click="onTabSelected('/live')"
+                         aria-label="{{'MENU.LIVE' | translate}}">
+              {{'MENU.LIVE' | translate}}
+            </md-nav-item>
             <md-nav-item name="search"
                          md-nav-click="onTabSelected('/search')"
                          aria-label="{{'MENU.ALL_VIDEOS' | translate}}">
@@ -115,6 +122,13 @@
                 <md-button ng-href="/"
                            aria-label="{{'MENU.HOME' | translate}}"
                            ng-bind="'MENU.HOME' | translate"
+                           class="menu-item">
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-href="/live"
+                           aria-label="{{'MENU.LIVE' | translate}}"
+                           ng-bind="'MENU.LIVE' | translate"
                            class="menu-item">
                 </md-button>
               </md-menu-item>

@@ -1,0 +1,98 @@
+$OPA_TAGS_REMOVE_OVER_COLOR: #e6007e;
+$OPA_TAGS_TAG_BACKGROUND_COLOR: #eeeeee;
+$OPA_TAGS_TAG_COLOR: #424242;
+$OPA_TAGS_AUTOCOMPLETE_BACKGROUND_COLOR: #ffffff;
+
+.opa-tags {
+  position: relative;
+
+  ul {
+    padding: 0 20px 0 0;
+    margin: 0 0 10px 0;
+    white-space: normal;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  /* Added tags */
+  .opa-tag {
+    position: relative;
+    display: inline-block;
+    height: 32px;
+    padding: 0 40px 0 12px;
+    margin: 3px 0 3px 5px;
+    line-height: 32px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: $OPA_TAGS_TAG_BACKGROUND_COLOR;
+    color: $OPA_TAGS_TAG_COLOR;
+
+    /* Remove tag button */
+    button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      box-shadow: none;
+      outline: none;
+      border-radius: 50%;
+
+      & > md-icon {
+        transition: color 0.15s linear;
+      }
+
+      &:hover > md-icon {
+        color: $OPA_TAGS_REMOVE_OVER_COLOR;
+      }
+
+      &:focus {
+        background-color: rgba(26, 145, 209, 0.26);
+        transition: all .5s;
+
+        & > md-icon {
+          color: rgba(26, 145, 209, 0.87);
+        }
+      }
+    }
+  }
+
+  .ov-field-tags-auto-complete {
+    position: absolute;
+    overflow: auto;
+    z-index: 2;
+    top: 30px;
+    width: 100%;
+    max-height: 192px;
+    padding: 0;
+    background-color: $OPA_TAGS_AUTOCOMPLETE_BACKGROUND_COLOR;
+    border: 1px solid #e3e3e3;
+
+    li {
+      height: 48px;
+      line-height: 48px;
+      padding: 0 15px;
+      color: #212121;
+
+      &:hover, &:focus {
+        cursor: pointer;
+        background-color: #F5F5F5;
+      }
+
+      div {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
+}

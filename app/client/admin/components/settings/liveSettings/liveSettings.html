@@ -1,0 +1,96 @@
+<div class="opa-live-settings" layout="column" flex>
+  <form name="opaLiveSettings">
+
+    <!-- Title -->
+    <div layout="row" layout-align="start center" flex="none">
+      <h2 class="md-title" ng-bind="'SETTINGS.LIVE.TITLE' | opaTranslate"></h2>
+      <opa-info-button opa-label="'SETTINGS.LIVE.INFO_BUTTON_DESCRIPTION' | opaTranslate" opa-message="'SETTINGS.LIVE.INFO' | opaTranslate"></opa-info-button>
+    </div>
+
+    <!-- Live activation / deactivation switch -->
+    <md-switch
+               ng-model="$ctrl.opaSettings.activated"
+               ng-change="$ctrl.updateLiveSwitchMessage($ctrl.opaSettings.activated)"
+               aria-label="{{'SETTINGS.LIVE.ACTIVATED_DESCRIPTION' | opaTranslate}}"
+               class="md-primary"
+               flex="none"
+    >
+      {{$ctrl.liveSwitchMessage | opaTranslate}}
+    </md-switch>
+
+    <!-- Live settings -->
+    <div layout="column" flex="none" ng-show="$ctrl.opaSettings.activated" class="opa-live-sub-settings">
+
+      <!-- Player type -->
+      <md-input-container flex="none" class="opa-live-player">
+        <label ng-bind="'SETTINGS.LIVE.PLAYER_TYPE_LABEL' | opaTranslate"></label>
+        <md-select ng-model="$ctrl.opaSettings.playerType" ng-change="$ctrl.updateUrlErrorMessage($ctrl.opaSettings.playerType); $ctrl.opaSettings.url = null;" ng-required="true">
+          <md-option ng-repeat="playerType in $ctrl.availablePlayers" ng-bind="playerType.name | opaTranslate" ng-value="playerType.id"></md-option>
+        </md-select>
+      </md-input-container>
+
+      <!-- URL -->
+      <md-input-container flex="none" class="opa-live-url">
+        <label ng-bind="'SETTINGS.LIVE.URL_LABEL' | opaTranslate"></label>
+        <input
+               type="text"
+               ng-model="$ctrl.opaSettings.url"
+               ng-required="$ctrl.opaSettings.activated"
+               opa-stream-url-validator="$ctrl.opaSettings.activated"
+               opa-type="$ctrl.opaSettings.playerType"
+               name="liveUrl"
+        />
+        <div ng-messages="opaLiveSettings.liveUrl.$error">
+          <div ng-message="required" ng-bind="'SETTINGS.LIVE.URL_EMPTY_ERROR' | opaTranslate"></div>
+          <div ng-message="opaStreamUrl" ng-bind="$ctrl.urlErrorMessage | opaTranslate"></div>
+        </div>
+      </md-input-container>
+
+      <!-- Wowza specific settings -->
+      <div layout="column" flex="none" ng-show="$ctrl.opaSettings.playerType === 'wowza'" class="opa-live-wowza-settings">
+
+        <!-- Player license key -->
+        <md-input-container flex="none" class="opa-live-wowza-license">
+          <label ng-bind="'SETTINGS.LIVE.PLAYER_LICENSE_LABEL' | opaTranslate"></label>
+          <input
+                 type="text"
+                 ng-model="$ctrl.opaSettings.wowza.playerLicenseKey"
+                 ng-required="$ctrl.opaSettings.activated && $ctrl.opaSettings.playerType === 'wowza'"
+                 opa-license-key-validator="$ctrl.opaSettings.activated && $ctrl.opaSettings.playerType === 'wowza'"
+                 name="wowzaPlayerLicenseKey"
+          />
+          <div ng-messages="opaLiveSettings.wowzaPlayerLicenseKey.$error">
+            <div ng-message="required" ng-bind="'SETTINGS.LIVE.PLAYER_LICENSE_EMPTY_ERROR' | opaTranslate"></div>
+            <div ng-message="opaLicenseKey" ng-bind="'SETTINGS.LIVE.PLAYER_LICENSE_ERROR' | opaTranslate"></div>
+          </div>
+        </md-input-container>
+
+      </div>
+
+      <!-- Private -->
+      <md-checkbox ng-model="$ctrl.opaSettings.private" aria-label="{{'SETTINGS.LIVE.PRIVATE_DESCRIPTION' | opaTranslate}}" class="md-primary" flex="none">
+        <span ng-bind="'SETTINGS.LIVE.PRIVATE_LABEL' | opaTranslate"></span>
+      </md-checkbox>
+
+      <!-- Private settings -->
+      <div layout="column" flex="none" ng-show="$ctrl.opaSettings.private" class="opa-live-private-settings">
+
+        <!-- Groups -->
+        <md-input-container flex="none" class="opa-live-groups">
+          <label ng-bind="'SETTINGS.LIVE.GROUPS_LABEL' | opaTranslate"></label>
+          <opa-tags
+                    name="liveGroups"
+                    ng-model="$ctrl.opaSettings.groups"
+                    opa-available-tags="$ctrl.opaGroups"
+                    ng-required="$ctrl.opaSettings.activated && $ctrl.opaSettings.private"
+          ></opa-tags>
+          <div ng-messages="opaLiveSettings.liveGroups.$error">
+            <div ng-message="required" ng-bind="'SETTINGS.LIVE.GROUPS_EMPTY_ERROR' | opaTranslate"></div>
+          </div>
+        </md-input-container>
+
+      </div>
+    </div>
+  </form>
+
+</div>

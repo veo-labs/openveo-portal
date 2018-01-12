@@ -25,6 +25,9 @@ const searchController = process.require('app/server/controllers/searchControlle
 const statisticsController = process.require('app/server/controllers/statisticsController.js');
 const authenticationController = process.require('app/server/controllers/authenticationController.js');
 const versionController = process.require('app/server/controllers/versionController.js');
+const settingsController = process.require('app/server/controllers/settingsController.js');
+const groupsController = process.require('app/server/controllers/groupsController.js');
+const liveController = process.require('app/server/controllers/liveController.js');
 const portalConf = process.require('app/server/conf.js');
 const authenticator = process.require('app/server/authenticator.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
@@ -314,6 +317,8 @@ class Server {
     this.app.get('/categories', searchController.getCategoriesAction);
     this.app.get('/filters', searchController.getSearchFiltersAction);
     this.app.post('/search', searchController.searchAction);
+    this.app.get('/settings/:id', settingsController.getEntityAction);
+    this.app.get('/live-player', liveController.defaultAction);
 
     // Restrict access to the back office
     this.app.all('/be*', authenticationController.restrictAction);
@@ -325,6 +330,9 @@ class Server {
 
     // Back office routes
     this.app.get('/be/version', versionController.getVersionAction);
+    this.app.get('/be/settings/:id', settingsController.getEntityAction);
+    this.app.post('/be/settings/:id', settingsController.updateEntityAction);
+    this.app.get('/be/groups', groupsController.getGroupsAction);
 
     // Handle admin not found routes
     this.app.all('/be*', defaultController.defaultBackOfficeAction);

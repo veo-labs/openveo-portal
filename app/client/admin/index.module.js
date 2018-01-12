@@ -20,6 +20,7 @@
     'ngMaterial',
     'ngAria',
     'ngCookies',
+    'ngMessages',
     'opa.i18n',
     'opa.locale'
   ]);
@@ -33,6 +34,13 @@
         pageTitle: 'DASHBOARD.PAGE_TITLE',
         title: 'DASHBOARD.TITLE'
       }).otherwise('/');
+
+      // Register settings page route
+      $routeProvider.when('/settings', {
+        template: '<opa-settings flex layout="row"></opa-settings>',
+        pageTitle: 'SETTINGS.PAGE_TITLE',
+        title: 'SETTINGS.TITLE'
+      });
 
       $locationProvider.html5Mode(true);
       $logProvider.debugEnabled(false);
