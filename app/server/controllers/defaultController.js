@@ -62,11 +62,12 @@ module.exports.defaultAction = (request, response, next) => {
     response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
     response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
     response.locals.superAdminId = portalConf.superAdminId;
-    response.locals.live = settings.value.activated &&
+    response.locals.live = settings && settings.value.activated &&
       (
         !settings.value.private ||
         ((request.user && request.user.hasLiveAccess) || false)
       );
+    response.locals.live = response.locals.live || false;
 
     // Add theme css file
     response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);
