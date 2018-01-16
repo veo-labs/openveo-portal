@@ -24,10 +24,10 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       DASHBOARD: 'Tableau de bord',
       SETTINGS: 'Configuration',
       VIEW_PORTAL: 'Afficher le portail',
-      LANGUAGE: 'Choisir la language',
+      LANGUAGE: 'Choisir la langue',
       LANGUAGES: {
-        EN: 'English',
-        FR: 'French'
+        EN: 'Anglais',
+        FR: 'Français'
       },
       LOGOUT: 'Déconnexion'
     },
