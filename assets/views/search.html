@@ -178,7 +178,7 @@
         <div flex layout="column" layout-align="space-between none" class="details">
           <div class="md-body-2">{{video.title}}</div>
           <div  layout="row" layout-align="space-between center">
-            <div class="md-caption">{{video.date | date : 'd MMMM yyyy'}}</div>
+            <div class="md-caption">{{video.date | date : 'longDate'}}</div>
             <div class="md-caption nb-views"><span class="number">{{video.views ? video.views : 0}}</span> <span ng-bind="'UI.VIEW' | translate:video.views?video.views:0"></span></div>
           </div>
         </div>
