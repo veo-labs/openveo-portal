@@ -1,7 +1,12 @@
 $OPA_TAGS_REMOVE_OVER_COLOR: #e6007e;
+$OPA_TAGS_REMOVE_FOCUS_COLOR: rgba(26, 145, 209, 0.87);
+$OPA_TAGS_REMOVE_FOCUS_HALO_COLOR: rgba(26, 145, 209, 0.26);
 $OPA_TAGS_TAG_BACKGROUND_COLOR: #eeeeee;
 $OPA_TAGS_TAG_COLOR: #424242;
+$OPA_TAGS_AUTOCOMPLETE_COLOR: #212121;
 $OPA_TAGS_AUTOCOMPLETE_BACKGROUND_COLOR: #ffffff;
+$OPA_TAGS_AUTOCOMPLETE_BORDER_COLOR: #e3e3e3;
+$OPA_TAGS_AUTOCOMPLETE_OVER_BACKGROUND_COLOR: #f5f5f5;
 
 .opa-tags {
   position: relative;
@@ -57,11 +62,11 @@ $OPA_TAGS_AUTOCOMPLETE_BACKGROUND_COLOR: #ffffff;
       }
 
       &:focus {
-        background-color: rgba(26, 145, 209, 0.26);
+        background-color: $OPA_TAGS_REMOVE_FOCUS_HALO_COLOR;
         transition: all .5s;
 
         & > md-icon {
-          color: rgba(26, 145, 209, 0.87);
+          color: $OPA_TAGS_REMOVE_FOCUS_COLOR;
         }
       }
     }
@@ -76,17 +81,17 @@ $OPA_TAGS_AUTOCOMPLETE_BACKGROUND_COLOR: #ffffff;
     max-height: 192px;
     padding: 0;
     background-color: $OPA_TAGS_AUTOCOMPLETE_BACKGROUND_COLOR;
-    border: 1px solid #e3e3e3;
+    border: 1px solid $OPA_TAGS_AUTOCOMPLETE_BORDER_COLOR;
 
     li {
       height: 48px;
       line-height: 48px;
       padding: 0 16px;
-      color: #212121;
+      color: $OPA_TAGS_AUTOCOMPLETE_COLOR;
 
       &:hover, &:focus {
         cursor: pointer;
-        background-color: #F5F5F5;
+        background-color: $OPA_TAGS_AUTOCOMPLETE_OVER_BACKGROUND_COLOR;
       }
 
       div {
