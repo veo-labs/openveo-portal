@@ -61,6 +61,17 @@
       },
 
       /**
+       * Live settings.
+       *
+       * @property settings
+       * @type Object
+       */
+      settings: {
+        value: {},
+        writable: true
+      },
+
+      /**
        * Handles one-way binding properties changes.
        *
        * Validate settings and set default values.
@@ -74,20 +85,20 @@
       $onChanges: {
         value: function(changedProperties) {
           if (changedProperties.opaSettings && changedProperties.opaSettings.currentValue) {
-            var settings = changedProperties.opaSettings.currentValue;
-            ctrl.opaSettings.activated = settings.activated === undefined ? false : settings.activated;
-            ctrl.opaSettings.playerType = settings.playerType || ctrl.availablePlayers[0].id;
-            ctrl.opaSettings.url = settings.url || null;
-            ctrl.opaSettings.wowza = settings.wowza || {};
-            ctrl.opaSettings.wowza.playerLicenseKey = (settings.wowza && settings.wowza.playerLicenseKey) || null;
-            ctrl.opaSettings.private = settings.private === undefined ? false : settings.private;
-            ctrl.opaSettings.groups = settings.groups || [];
+            var settings = angular.copy(changedProperties.opaSettings.currentValue);
+            ctrl.settings.activated = settings.activated === undefined ? false : settings.activated;
+            ctrl.settings.playerType = settings.playerType || ctrl.availablePlayers[0].id;
+            ctrl.settings.url = settings.url || null;
+            ctrl.settings.wowza = settings.wowza || {};
+            ctrl.settings.wowza.playerLicenseKey = (settings.wowza && settings.wowza.playerLicenseKey) || null;
+            ctrl.settings.private = settings.private === undefined ? false : settings.private;
+            ctrl.settings.groups = settings.groups || [];
 
             // Update live switch message
-            ctrl.updateLiveSwitchMessage(ctrl.opaSettings.activated);
+            ctrl.updateLiveSwitchMessage(ctrl.settings.activated);
 
             // Update live url error message
-            ctrl.updateUrlErrorMessage(ctrl.opaSettings.playerType);
+            ctrl.updateUrlErrorMessage(ctrl.settings.playerType);
 
             ctrl.callUpdate();
           }
@@ -115,7 +126,7 @@
       callUpdate: {
         value: function() {
           if (ctrl.isValid() && ctrl.opaOnUpdate)
-            ctrl.opaOnUpdate({settings: ctrl.opaSettings});
+            ctrl.opaOnUpdate({settings: ctrl.settings});
         }
       },
 

@@ -64,7 +64,7 @@
        * @final
        */
       liveSettings: {
-        value: {},
+        value: null,
         writable: true
       },
 
@@ -81,7 +81,7 @@
             opaGroupsFactory.getGroups()
           ]).then(function(results) {
             var groups = results[1].data && results[1].data.entities;
-            ctrl.liveSettings = results[0].data && results[0].data.entity && results[0].data.entity.value;
+            ctrl.liveSettings = results[0].data && results[0].data.entity && results[0].data.entity.value || {};
 
             // Build the list of available groups
             if (groups) {
@@ -140,7 +140,7 @@
        */
       updateLiveSettings: {
         value: function(settings) {
-          if (!ctrl.liveSettings) return;
+          if (!settings || !ctrl.liveSettings) return;
           ctrl.liveSettings.activated = settings.activated;
           ctrl.liveSettings.playerType = settings.playerType;
           ctrl.liveSettings.url = settings.url;

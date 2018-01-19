@@ -9,8 +9,8 @@
 
     <!-- Live activation / deactivation switch -->
     <md-switch
-               ng-model="$ctrl.opaSettings.activated"
-               ng-change="$ctrl.updateLiveSwitchMessage($ctrl.opaSettings.activated)"
+               ng-model="$ctrl.settings.activated"
+               ng-change="$ctrl.callUpdate(); $ctrl.updateLiveSwitchMessage($ctrl.settings.activated)"
                aria-label="{{'SETTINGS.LIVE.ACTIVATED_DESCRIPTION' | opaTranslate}}"
                class="md-primary"
                flex="none"
@@ -19,12 +19,16 @@
     </md-switch>
 
     <!-- Live settings -->
-    <div layout="column" flex="none" ng-show="$ctrl.opaSettings.activated" class="opa-live-sub-settings">
+    <div layout="column" flex="none" ng-show="$ctrl.settings.activated" class="opa-live-sub-settings">
 
       <!-- Player type -->
       <md-input-container flex="none" class="opa-live-player">
         <label ng-bind="'SETTINGS.LIVE.PLAYER_TYPE_LABEL' | opaTranslate"></label>
-        <md-select ng-model="$ctrl.opaSettings.playerType" ng-change="$ctrl.updateUrlErrorMessage($ctrl.opaSettings.playerType); $ctrl.opaSettings.url = null;" ng-required="true">
+        <md-select
+                   ng-model="$ctrl.settings.playerType"
+                   ng-change="$ctrl.callUpdate(); $ctrl.updateUrlErrorMessage($ctrl.settings.playerType); $ctrl.settings.url = null;"
+                   ng-required="true"
+        >
           <md-option ng-repeat="playerType in $ctrl.availablePlayers" ng-bind="playerType.name | opaTranslate" ng-value="playerType.id"></md-option>
         </md-select>
       </md-input-container>
@@ -34,10 +38,11 @@
         <label ng-bind="'SETTINGS.LIVE.URL_LABEL' | opaTranslate"></label>
         <input
                type="text"
-               ng-model="$ctrl.opaSettings.url"
-               ng-required="$ctrl.opaSettings.activated"
-               opa-stream-url-validator="$ctrl.opaSettings.activated"
-               opa-type="$ctrl.opaSettings.playerType"
+               ng-model="$ctrl.settings.url"
+               ng-change="$ctrl.callUpdate();"
+               ng-required="$ctrl.settings.activated"
+               opa-stream-url-validator="$ctrl.settings.activated"
+               opa-type="$ctrl.settings.playerType"
                name="liveUrl"
         />
         <div ng-messages="opaLiveSettings.liveUrl.$error">
@@ -47,16 +52,17 @@
       </md-input-container>
 
       <!-- Wowza specific settings -->
-      <div layout="column" flex="none" ng-show="$ctrl.opaSettings.playerType === 'wowza'" class="opa-live-wowza-settings">
+      <div layout="column" flex="none" ng-show="$ctrl.settings.playerType === 'wowza'" class="opa-live-wowza-settings">
 
         <!-- Player license key -->
         <md-input-container flex="none" class="opa-live-wowza-license">
           <label ng-bind="'SETTINGS.LIVE.PLAYER_LICENSE_LABEL' | opaTranslate"></label>
           <input
                  type="text"
-                 ng-model="$ctrl.opaSettings.wowza.playerLicenseKey"
-                 ng-required="$ctrl.opaSettings.activated && $ctrl.opaSettings.playerType === 'wowza'"
-                 opa-license-key-validator="$ctrl.opaSettings.activated && $ctrl.opaSettings.playerType === 'wowza'"
+                 ng-model="$ctrl.settings.wowza.playerLicenseKey"
+                 ng-change="$ctrl.callUpdate();"
+                 ng-required="$ctrl.settings.activated && $ctrl.settings.playerType === 'wowza'"
+                 opa-license-key-validator="$ctrl.settings.activated && $ctrl.settings.playerType === 'wowza'"
                  name="wowzaPlayerLicenseKey"
           />
           <div ng-messages="opaLiveSettings.wowzaPlayerLicenseKey.$error">
@@ -68,21 +74,28 @@
       </div>
 
       <!-- Private -->
-      <md-checkbox ng-model="$ctrl.opaSettings.private" aria-label="{{'SETTINGS.LIVE.PRIVATE_DESCRIPTION' | opaTranslate}}" class="md-primary" flex="none">
+      <md-checkbox
+                   ng-model="$ctrl.settings.private"
+                   ng-change="$ctrl.callUpdate();"
+                   aria-label="{{'SETTINGS.LIVE.PRIVATE_DESCRIPTION' | opaTranslate}}"
+                   class="md-primary"
+                   flex="none"
+      >
         <span ng-bind="'SETTINGS.LIVE.PRIVATE_LABEL' | opaTranslate"></span>
       </md-checkbox>
 
       <!-- Private settings -->
-      <div layout="column" flex="none" ng-show="$ctrl.opaSettings.private" class="opa-live-private-settings">
+      <div layout="column" flex="none" ng-show="$ctrl.settings.private" class="opa-live-private-settings">
 
         <!-- Groups -->
         <md-input-container flex="none" class="opa-live-groups">
           <label ng-bind="'SETTINGS.LIVE.GROUPS_LABEL' | opaTranslate"></label>
           <opa-tags
                     name="liveGroups"
-                    ng-model="$ctrl.opaSettings.groups"
+                    ng-model="$ctrl.settings.groups"
+                    ng-change="$ctrl.callUpdate();"
                     opa-available-tags="$ctrl.opaGroups"
-                    ng-required="$ctrl.opaSettings.activated && $ctrl.opaSettings.private"
+                    ng-required="$ctrl.settings.activated && $ctrl.settings.private"
           ></opa-tags>
           <div ng-messages="opaLiveSettings.liveGroups.$error">
             <div ng-message="required" ng-bind="'SETTINGS.LIVE.GROUPS_EMPTY_ERROR' | opaTranslate"></div>

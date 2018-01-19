@@ -34,28 +34,11 @@ describe('OpaLiveSettingsController', function() {
     handleEvent.should.have.been.called.exactly(1);
   });
 
-  it('should call function registered by opa-on-update attribute when settings change', function() {
-    const ctrl = $componentController('opaLiveSettings');
-    ctrl.opaSettings = {
-      activated: true
-    };
-    ctrl.opaOnUpdate = chai.spy(() => {});
-    $rootScope.$digest();
-
-    ctrl.opaSettings.activated = false;
-    $rootScope.$digest();
-
-    ctrl.opaSettings.playerType = true;
-    $rootScope.$digest();
-
-    ctrl.opaOnUpdate.should.have.been.called.exactly(3);
-  });
-
   describe('settings validation', function() {
 
     it('should set default value for undefined settings', function() {
       const ctrl = $componentController('opaLiveSettings');
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
 
       ctrl.$onChanges({
         opaSettings: {
@@ -63,19 +46,19 @@ describe('OpaLiveSettingsController', function() {
         }
       });
 
-      assert.isNotOk(ctrl.opaSettings.activated, 'Expected live to be deactivated by default');
-      assert.equal(ctrl.opaSettings.playerType, 'wowza', 'Expected wowza player by default');
-      assert.isNull(ctrl.opaSettings.url, 'Expected stream url to be null by default');
-      assert.isDefined(ctrl.opaSettings.wowza, 'Expected wowza property to be defined by default');
-      assert.isNull(ctrl.opaSettings.wowza.playerLicenseKey, 'Expected wowza player license to be null by default');
-      assert.isNotOk(ctrl.opaSettings.private, 'Expected live to be private by default');
-      assert.isArray(ctrl.opaSettings.groups, 'Expected groups to be an array by default');
-      assert.isEmpty(ctrl.opaSettings.groups, 'No groups expected by default');
+      assert.isNotOk(ctrl.settings.activated, 'Expected live to be deactivated by default');
+      assert.equal(ctrl.settings.playerType, 'wowza', 'Expected wowza player by default');
+      assert.isNull(ctrl.settings.url, 'Expected stream url to be null by default');
+      assert.isDefined(ctrl.settings.wowza, 'Expected wowza property to be defined by default');
+      assert.isNull(ctrl.settings.wowza.playerLicenseKey, 'Expected wowza player license to be null by default');
+      assert.isNotOk(ctrl.settings.private, 'Expected live to be private by default');
+      assert.isArray(ctrl.settings.groups, 'Expected groups to be an array by default');
+      assert.isEmpty(ctrl.settings.groups, 'No groups expected by default');
     });
 
     it('should update live switch message with activated message if live is activated', function() {
       const ctrl = $componentController('opaLiveSettings');
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
 
       ctrl.$onChanges({
         opaSettings: {
@@ -90,7 +73,7 @@ describe('OpaLiveSettingsController', function() {
 
     it('should update live switch message with activated message if live is deactivated', function() {
       const ctrl = $componentController('opaLiveSettings');
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
 
       ctrl.$onChanges({
         opaSettings: {
@@ -105,7 +88,7 @@ describe('OpaLiveSettingsController', function() {
 
     it('should update url error message with wowza message if player is wowza', function() {
       const ctrl = $componentController('opaLiveSettings');
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
 
       ctrl.$onChanges({
         opaSettings: {
@@ -120,7 +103,7 @@ describe('OpaLiveSettingsController', function() {
 
     it('should update url error message with youtube message if player is youtube', function() {
       const ctrl = $componentController('opaLiveSettings');
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
 
       ctrl.$onChanges({
         opaSettings: {
@@ -141,7 +124,7 @@ describe('OpaLiveSettingsController', function() {
         $scope
       });
       ctrl.opaOnUpdate = chai.spy(() => {});
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
 
       ctrl.$onChanges({
         opaSettings: {
@@ -215,9 +198,9 @@ describe('OpaLiveSettingsController', function() {
 
     it('should call the function registered using opa-on-update attribute with settings', function() {
       const ctrl = $componentController('opaLiveSettings');
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
       ctrl.opaOnUpdate = chai.spy((data) => {
-        assert.strictEqual(data.settings, ctrl.opaSettings, 'Wrong settings');
+        assert.strictEqual(data.settings, ctrl.settings, 'Wrong settings');
       });
       ctrl.callUpdate();
 
@@ -239,7 +222,7 @@ describe('OpaLiveSettingsController', function() {
 
     it('should not throw an error if opa-on-update is not defined', function() {
       const ctrl = $componentController('opaLiveSettings');
-      ctrl.opaSettings = {};
+      ctrl.settings = {};
 
       assert.doesNotThrow(() => {
         ctrl.callUpdate();
