@@ -17,6 +17,7 @@
   app.component('opaSettings', {
     templateUrl: 'opa-settings.html',
     controller: 'OpaSettingsController',
+    require: ['?^mdContent'],
     bindings: {}
   });
 

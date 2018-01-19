@@ -30,6 +30,7 @@
   ) {
     var ctrl = this;
     var liveSettingsController;
+    var mdContentController = $element.controller && $element.controller('mdContent');
 
     Object.defineProperties(ctrl, {
 
@@ -102,6 +103,16 @@
           $scope.$on('opaLiveSettingsLinked', function(event, data) {
             liveSettingsController = data.controller;
           });
+
+          // If the component is inside an md-content element the only way to have a background color
+          // which spread all along the height of the md-content is to set the background color
+          // on the md-content itself. This is due to flexbox behaviour when having a flex container with
+          // stretch items, if items haven't an intrinsic height they shrink. As we want the child to
+          // stretch to an indeterminated height (the height of the container) it is not possible to specify
+          // the child height. A way to solve the problem will be to use experimental features such as
+          // "width: fit-content;". Instead we add a class on the md-content parent element.
+          if (mdContentController)
+            mdContentController.$element.addClass('opa-settings-wrapper');
         }
 
       },
