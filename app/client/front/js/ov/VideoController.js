@@ -39,6 +39,13 @@
           $scope.shareOpen = !$scope.shareOpen;
         }}
     ];
+    $scope.showFullInfos = false;
+    $scope.toggleFullInfosLabel = 'UI.MORE';
+
+    $scope.toggleFullInfos = function() {
+      $scope.showFullInfos = !$scope.showFullInfos;
+      $scope.toggleFullInfosLabel = $scope.showFullInfos ? 'UI.LESS' : 'UI.MORE';
+    };
 
     var myPlayer = document.getElementById('openveo-player');
     var playerController;

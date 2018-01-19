@@ -20,7 +20,9 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       CODE: 'Code HTML',
       TITLE: 'Titre',
       ARIA_USER_MENU: 'Ouvrir le menu utilisateur',
-      BACK_OFFICE: 'Administration'
+      BACK_OFFICE: 'Administration',
+      LESS: 'Moins',
+      MORE: 'Plus'
     },
     HOME: {
       PAGE_TITLE: 'Portail - Accueil',

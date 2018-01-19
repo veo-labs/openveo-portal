@@ -58,9 +58,45 @@ md-dialog.dialog-video {
   outline: none;
 }
 
-.video-info {
-  .title {
-    width: 100%;
-    padding-left: 24px;
+.video-infos {
+  margin: 1em 0;
+
+  label {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-right: 7px;
+  }
+
+  .subtitle-infos > span:not(:last-child) {
+    padding-right: 7px;
+  }
+
+  .subtitle-infos > span:not(:first-child) {
+    padding-left: 7px;
+    border-left: 1px solid;
+    border-color: inherit;
+  }
+
+  .share-code {
+    margin: 10px 0;
+    text-align: right;
+
+    & > div {
+      margin: 7px 0;
+    }
+  }
+
+  .toggle-btn {
+    & > md-icon {
+      transition: transform linear 0.25s;
+    }
+
+    &.closed > md-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  p {
+    margin: 1em 0;
   }
 }

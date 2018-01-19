@@ -10,78 +10,66 @@
     </ov-player>
   </div>
 
-  <div ng-if="!hideDetailVideo" class="video-info md-dialog-content">
-    <div layout="row" layout-align="space-between center">
+  <div ng-if="!hideDetailVideo" class="video-infos md-dialog-content">
 
-      <!-- Date and number of views -->
-      <div flex layout="column" layout-align="center start">
-        <div layout="row" layout-align="center center">
-          <md-icon material-icons md-light md-48 class="md-accent">today</md-icon>
-          <div>{{video.date  | date : 'longDate'}}</div>
-        </div>
-        <div layout="row" layout-align="center center">
-          <md-icon material-icons md-light md-48>visibility</md-icon>
-          <div>{{video.views ? video.views : 0}}</div>
+    <!-- Main video informations (title, date…) -->
+    <div layout="row" layout-align="space-between center">
+      <div layout="column">
+        <span class="md-headline">{{video.title}}</span>
+        <div flex class="md-caption subtitle-infos" md-colors="::{color: 'default-background-600', 'border-color': 'default-background-600'}">
+          <span>{{video.date| date: 'longDate'}}</span>
+          <span>{{video.views ? video.views : 0}} {{ (video.views > 1 ? 'UI.VIEW.PLURAL':'UI.VIEW.SINGLE')|translate }}</span>
         </div>
       </div>
-
-      <!-- Share link -->
-      <md-fab-speed-dial md-open="vctl.dialIsOpen"
-                         class="md-scale"
-                         md-direction="left"
-                         ng-mouseenter="vctl.dialIsOpen=true"
-                         ng-mouseleave="vctl.dialIsOpen=false">
+      <md-fab-speed-dial md-direction="left" class="md-scale" md-open="vctl.dialIsOpen" ng-mouseenter="vctl.dialIsOpen=true" ng-mouseleave="vctl.dialIsOpen=false">
         <md-fab-trigger>
-          <md-button aria-label="{{'UI.SHARE' | translate}}" class="md-fab">
+          <md-button aria-label="{{'UI.SHARE' | translate}}" class="md-fab md-mini">
             <md-tooltip md-direction="bottom" md-z-index="1">{{'UI.SHARE' | translate}}</md-tooltip>
-            <md-icon material-icons md-light md-32>share</md-icon>
+            <md-icon>share</md-icon>
           </md-button>
         </md-fab-trigger>
-
         <md-fab-actions>
-          <div ng-repeat="item in shareItems">
-            <md-button aria-label="{{item.name | translate}}"
-                       class="md-fab md-raised md-mini"
-                       ng-click="item.action(video)">
-              <md-tooltip md-direction="{{item.direction}}" md-autohide="false" md-z-index="1">
-                {{item.name | translate}}
-              </md-tooltip>
-              <md-icon material-icons md-light md-32 aria-label="{{item.name | translate}}">{{item.icon}}</md-icon>
-            </md-button>
-          </div>
+          <md-button aria-label="{{item.name | translate}}"
+                     class="md-fab md-raised md-mini"
+                     ng-click="item.action(video)"
+                     ng-repeat="item in shareItems">
+            <md-tooltip md-direction="{{item.direction}}" md-autohide="false" md-z-index="1">
+              {{item.name | translate}}
+            </md-tooltip>
+            <md-icon aria-label="{{item.name | translate}}">{{item.icon}}</md-icon>
+          </md-button>
         </md-fab-actions>
-
       </md-fab-speed-dial>
     </div>
 
-    <!-- Share content -->
-    <md-content>
+    <div ng-show="shareOpen" class="share-code collapse ng-hide">
       <md-divider ng-show="shareOpen"></md-divider>
-      <div ng-show="shareOpen" layout="column" layout-margin class="share-code collapse ng-hide">
+      <div>
         <code ng-if="shareLink">{{shareLink}}</code>
         <code ng-if="shareText">{{shareText}}</code>
       </div>
       <md-divider ng-show="shareOpen"></md-divider>
-    </md-content>
+    </div>
 
-    <!-- Video info -->
-    <md-content layout-margin class="collapse" layout="row" layout-align="left center">
-      <div ng-show="video.title" layout="row" layout-align="center center">
-        <md-tooltip md-direction="bottom" md-z-index="1">{{'UI.TITLE' | translate}}</md-tooltip>
-        <md-icon layout-margin flex material-icons md-light md-32>title</md-icon>
-        <span class="title">{{video.title}}</span>
+    <!-- Video short description -->
+    <div class="description md-body-1" ng-if="video.shortDescription && video.shortDescription.length > 0" ng-bind-html="trustedHTML(video.shortDescription)"></div>
+
+    <!-- Collapsed video informations -->
+    <div ng-show="showFullInfos" class="video-full-infos collapse">
+      <div class="description md-body-1" ng-if="video.description && video.description.length > 0" ng-bind-html="trustedHTML(video.description)"></div>
+      <div flex layout="row" layout-align="left center" ng-if="categoryName.length > 0">
+        <label class="md-caption" ng-bind="'SEARCH.CATEGORY_FILTER' | translate" md-colors="::{color: 'default-background-400'}"></label>
+        <p class="md-caption" ng-bind="categoryName"></p>
       </div>
-      <div ng-show="video.speaker" layout="row" layout-align="center center">
-        <md-tooltip md-direction="bottom" md-z-index="1">{{'SEARCH.NAME_FILTER' | translate}}</md-tooltip>
-        <md-icon layout-margin flex material-icons md-light md-32>record_voice_over</md-icon>
-        <span>{{video.speaker}}</span>
-      </div>
-      <div ng-show="video.category" layout="row" layout-align="center center">
-        <span layout-margin ng-bind="'SEARCH.CATEGORY_FILTER' | translate"></span>
-        <span>: {{categoryName}}</span>
-      </div>
-    </md-content>
-    <div class="description" ng-if="video.description && video.description != ''" ng-bind-html="trustedHTML(video.description)"></div>
+    </div>
+
+    <!-- Toggle collapsed video informations button -->
+    <div flex layout="row" layout-align="center center">
+      <md-button class="toggle-btn md-fab md-mini" ng-if="(video.description && video.description.length > 0) || categoryName.length > 0" ng-class="showFullInfos ? 'opened':'closed'" ng-click="toggleFullInfos()" aria-label="{{toggleFullInfosLabel|translate}}">
+        <md-tooltip md-autohide="true" md-direction="right" ng-bind="toggleFullInfosLabel|translate"></md-tooltip>
+        <md-icon>keyboard_arrow_up</md-icon>
+      </md-button>
+    </div>
 
   </div>
 </md-content>
