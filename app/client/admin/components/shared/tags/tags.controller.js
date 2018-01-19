@@ -17,7 +17,7 @@
   function OpaTagsController($element, $scope) {
     var ctrl = this;
     var ngModelController = $element.controller('ngModel');
-    var mdInputContainerController;
+    var mdInputContainerController = $element.controller('mdInputContainer');
     var inputNgModelController;
     var autoCompleteElement;
     var inputElement;
@@ -203,8 +203,14 @@
             isRequired = changedProperties.ngRequired.currentValue ? true : false;
 
           var isEmpty = !ctrl.tags || ctrl.tags.length === 0;
-          if (mdInputContainerController)
-            mdInputContainerController.setInvalid(isRequired && isEmpty && inputNgModelController.$touched);
+          if (mdInputContainerController) {
+            mdInputContainerController.setInvalid(
+              isRequired &&
+              isEmpty &&
+              inputNgModelController &&
+              inputNgModelController.$touched
+            );
+          }
         }
       },
 
@@ -427,7 +433,12 @@
     ngModelController.$isEmpty = function(values) {
       var isEmpty = !values || values.length === 0;
       if (mdInputContainerController)
-        mdInputContainerController.setInvalid(isRequired && isEmpty && inputNgModelController.$touched);
+        mdInputContainerController.setInvalid(
+          isRequired &&
+          isEmpty &&
+          inputNgModelController &&
+          inputNgModelController.$touched
+        );
       return isEmpty;
     };
 
