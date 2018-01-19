@@ -7,6 +7,7 @@
          ng-keydown="$ctrl.handleInputKeys($event);"
          ng-model="$ctrl.tag"
          ng-change="$ctrl.autoComplete()"
+         ng-model-options="{allowInvalid: true}"
          class="form-control">
   <ul>
     <li ng-repeat="item in $ctrl.tags track by $index" class="opa-tag">
