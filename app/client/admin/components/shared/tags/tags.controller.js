@@ -199,8 +199,12 @@
        */
       $onChanges: {
         value: function(changedProperties) {
-          if (changedProperties.ngRequired)
+          if (changedProperties.ngRequired) {
             isRequired = changedProperties.ngRequired.currentValue ? true : false;
+
+            if (mdInputContainerController && mdInputContainerController.label)
+              mdInputContainerController.label.toggleClass('md-required', isRequired);
+          }
 
           var isEmpty = !ctrl.tags || ctrl.tags.length === 0;
           if (mdInputContainerController) {
