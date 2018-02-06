@@ -18,6 +18,10 @@
    * - [Object] **opa-info**: The wrapped version of the message that can be used as a trusted
    * variant in $sce.HTML context
    *
+   * Requires:
+   * - **ngMaterial** AngularJS Material module
+   * - **opaTranslate** Internationalization translate filter
+   *
    * @class opaInfo
    */
   function opaInfo() {

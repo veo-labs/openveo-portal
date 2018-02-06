@@ -9,6 +9,10 @@
   /**
    * Creates toasts notifications.
    *
+   * Requires:
+   * - **ngMaterial** AngularJS Material module
+   * - **opaTranslate** Internationalization translate filter
+   *
    * @class OpaNotificationFactory
    * @param {Object} $mdToast AngularJS Material media query service
    */

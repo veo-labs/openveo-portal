@@ -55,6 +55,11 @@
  *       - [String] **[icon]**: An icon to place before the label, it must be an AngularJS Material icon id
  *       - [Boolean] **[selected]**: A boolean indicating if the action must appear as selected
  *
+ * Requires:
+ * - **ngMaterial** AngularJS Material module
+ * - **opaActionsButton** Component creating a collapsable button with a list of actions
+ * - **opaTranslate** Internationalization translate filter
+ *
  * @class opaNav
  */
 
