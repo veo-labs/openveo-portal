@@ -9,15 +9,19 @@
  *
  * It uses opa-info directive to display the message.
  *
+ *     $scope.message = 'Message which may contain HTML';
+ *
  *     <opa-info-button
- *       opa-message="'MESSAGE_TRANSLATION_ID' | opaTranslate"
- *       opa-label="LABEL_TRANSLATION_ID' | opaTranslate"
+ *       opa-message="message"
+ *       opa-label="Info button ARIA label"
+ *       opa-help="Info button tooltip text"
  *     ></opa-info-button>
  *
  * Available attributes are:
- *   - [String] **opa-message**: The wrapped version of the message that can be used as a trusted
- *     variant in $sce.HTML context
- *   - [String] **opa-label**: An AngularJS expression evaluating to a string containing the button accessibility text
+ *   - [String] **opa-message**: An AngularJS expression evaluating to a wrapped version of the message that can be
+ *     used as a trusted variant in $sce.HTML context
+ *   - [String] **[opa-label]**: The button accessibility text
+ *   - [String] **[opa-help]**: The tooltip text
  *
  * Requires:
  * - **ngMaterial** AngularJS Material module
@@ -33,7 +37,8 @@
     controller: 'OpaInfoButtonController',
     bindings: {
       opaMessage: '<',
-      opaLabel: '<'
+      opaLabel: '@',
+      opaHelp: '@'
     }
   });
 

@@ -42,6 +42,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         NEED_UPGRADE_DESCRIPTION: 'Vous utilisez la version <a href="%versionUrl%" target="_blank" title="Version actuelle">%version%</a> d\'OpenVeo Portal. La version <a href="%latestVersionUrl%" target="_blank" title="Dernière version">%latestVersion%</a> est maintenant disponible.<br/><br/>Merci d\'en informer l\'administrateur.',
         VIEW_SOURCE: 'Voir les sources',
         INFO_BUTTON_DESCRIPTION: 'Afficher plus d\'informations sur "à propos"',
+        INFO_BUTTON_TOOLTIP: 'Afficher plus d\'informations sur "à propos"',
         ERROR: 'Information non disponible',
         INFO: '"<strong>A propos</strong>" vous donne des informations concernant la version d\'OpenVeo Portal que vous utilisez. Il vous prévient lorsqu\'une nouvelle version est disponible et vous indique ou se trouve le code source.'
       }
@@ -52,6 +53,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       LIVE: {
         TITLE: 'Live',
         INFO_BUTTON_DESCRIPTION: 'Afficher plus d\'informations sur la configuration du live',
+        INFO_BUTTON_TOOLTIP: 'Afficher plus d\'informations sur la configuration du live',
         INFO: '<strong>Live</strong> peut-être désactivé, la page live est alors inaccessible.<br/><br/><strong>Privé</strong> indique que le live n\'est accessible que pour une liste de groupes OpenVeo.',
         ACTIVATED_LABEL: 'Live activée',
         DEACTIVATED_LABEL: 'Live désactivé',
@@ -84,8 +86,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       CLOSE: 'Fermer'
     },
     INFO: {
-      CLOSE: 'Ok !',
-      INFO_BUTTON_DESCRIPTION: 'Plus d\'informations'
+      CLOSE: 'Ok !'
     }
   });
 }]);
