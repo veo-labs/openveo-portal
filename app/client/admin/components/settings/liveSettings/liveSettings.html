@@ -4,7 +4,11 @@
     <!-- Title -->
     <div layout="row" layout-align="start center" flex="none">
       <h2 class="md-title" ng-bind="'SETTINGS.LIVE.TITLE' | opaTranslate"></h2>
-      <opa-info-button opa-label="'SETTINGS.LIVE.INFO_BUTTON_DESCRIPTION' | opaTranslate" opa-message="'SETTINGS.LIVE.INFO' | opaTranslate"></opa-info-button>
+      <opa-info-button
+                       opa-message="'SETTINGS.LIVE.INFO' | opaTranslate"
+                       opa-label="{{'SETTINGS.LIVE.INFO_BUTTON_DESCRIPTION' | opaTranslate}}"
+                       opa-help="{{'SETTINGS.LIVE.INFO_BUTTON_TOOLTIP' | opaTranslate}}"
+      ></opa-info-button>
     </div>
 
     <!-- Live activation / deactivation switch -->

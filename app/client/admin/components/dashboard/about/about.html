@@ -15,7 +15,11 @@
                aria-label="{{'DASHBOARD.ABOUT.NEED_UPGRADE' | opaTranslate}}"
                md-colors="::{color: 'warn-A400'}"
       >new_releases</md-icon>
-      <opa-info-button opa-label="'DASHBOARD.ABOUT.INFO_BUTTON_DESCRIPTION' | opaTranslate" opa-message="'DASHBOARD.ABOUT.INFO' | opaTranslate"></opa-info-button>
+      <opa-info-button
+                       opa-message="'DASHBOARD.ABOUT.INFO' | opaTranslate"
+                       opa-label="{{'DASHBOARD.ABOUT.INFO_BUTTON_DESCRIPTION' | opaTranslate}}"
+                       opa-help="{{'DASHBOARD.ABOUT.INFO_BUTTON_TOOLTIP' | opaTranslate}}"
+      ></opa-info-button>
     </header>
     <section flex="auto">
       <p ng-bind-html="$ctrl.message" ng-if="$ctrl.message"></p>

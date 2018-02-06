@@ -42,6 +42,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         NEED_UPGRADE_DESCRIPTION: 'You are using OpenVeo Portal <a href="%versionUrl%" target="_blank" title="Actual version">%version%</a>.<br/>Version <a href="%latestVersionUrl%" target="_blank" title="Latest version">%latestVersion%</a> is now available.<br/><br/>Please notify the administrator.',
         VIEW_SOURCE: 'View sources',
         INFO_BUTTON_DESCRIPTION: 'Show "about" information',
+        INFO_BUTTON_TOOLTIP: 'Show "about" information',
         ERROR: 'Information not available',
         INFO: '"<strong>About</strong>" gives you information regarding your version of OpenVeo Portal. It informs you when a new version is available and where you can find the sources.'
       }
@@ -52,6 +53,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       LIVE: {
         TITLE: 'Live',
         INFO_BUTTON_DESCRIPTION: 'Show more information about live configuration',
+        INFO_BUTTON_TOOLTIP: 'Show more information about live configuration',
         INFO: '<strong>Live</strong> can be deactivated, if so live page is not accessible.<br/><br/><strong>Private</strong> indicates that the live is accessible only for a list of OpenVeo groups.',
         ACTIVATED_LABEL: 'Live activated',
         DEACTIVATED_LABEL: 'Live deactivated',
@@ -84,8 +86,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       CLOSE: 'Close'
     },
     INFO: {
-      CLOSE: 'Got it!',
-      INFO_BUTTON_DESCRIPTION: 'More information'
+      CLOSE: 'Got it!'
     }
   });
 }]);
