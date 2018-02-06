@@ -39,7 +39,7 @@ describe('OpaActionsButtonController', function() {
         }
       ];
       let element = angular.element(
-        '<opa-actions-button opa-label="label" opa-actions="actions"></opa-actions-button>'
+        '<opa-actions-button opa-label="{{label}}" opa-actions="actions"></opa-actions-button>'
       );
       element = $compile(element)(scope);
       scope.$digest();
