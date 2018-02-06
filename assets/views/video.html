@@ -52,7 +52,7 @@
     </div>
 
     <!-- Video short description -->
-    <div class="description md-body-1" ng-if="video.shortDescription && video.shortDescription.length > 0" ng-bind-html="trustedHTML(video.shortDescription)"></div>
+    <div class="description md-body-1" ng-if="video.leadParagraph && video.leadParagraph.length > 0" ng-bind-html="trustedHTML(video.leadParagraph)"></div>
 
     <!-- Collapsed video informations -->
     <div ng-show="showFullInfos" class="video-full-infos collapse">
