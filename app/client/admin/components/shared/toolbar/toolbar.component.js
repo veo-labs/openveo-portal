@@ -66,6 +66,10 @@
  *      - [Boolean] **[selected]**: A boolean indicating if the action should be selected by default
  * - [Array] **[opa-right-actions]**: Same as left actions
  *
+ * Requires:
+ * - **ngMaterial** The AngularJS Material module
+ * - **opaTranslate** The internationalization translate filter
+ *
  * @class opaToolbar
  */
 (function(app) {

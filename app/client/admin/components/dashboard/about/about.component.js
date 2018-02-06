@@ -9,6 +9,11 @@
  *
  *     <opa-about></opa-about>
  *
+ * Requires:
+ * - **ngMaterial** AngularJS Material module
+ * - **opaTranslate** Internationalization translate filter
+ * - **opaInfoButton** Component used to display info actions
+ *
  * @class opaAbout
  */
 

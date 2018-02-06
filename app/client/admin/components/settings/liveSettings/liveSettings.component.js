@@ -19,6 +19,14 @@
  *   - [Object] **[opa-groups]**: The list of available groups
  *   - [Function] **[opa-on-update]**: Function to call when live settings have been modified
  *
+ * Requires:
+ * - **ngMaterial** AngularJS Material module
+ * - **opaTranslate** Internationalization translate filter
+ * - **opaInfoButton** Component used to display info actions
+ * - **opaStreamUrlValidator** Stream URL validator
+ * - **opaLicenseKeyValidator** License key validator
+ * - **opaTags** Form element to enter a list of tags
+ *
  * @class opaLiveSettings
  */
 

@@ -13,6 +13,16 @@
 
   /**
    * Main module of the OpenVeo Portal administration interface.
+   *
+   * Requires:
+   * - **ngRoute** AngularJS route module
+   * - **ngAnimate** AngularJS animate module
+   * - **ngAria** AngularJS ARIA module
+   * - **ngCookies** AngularJS Cookies module
+   * - **ngMessages** AngularJS Messages module
+   * - **ngMaterial** AngularJS Material module
+   * - **opa.i18n** OpenVeo Portal internationalization module
+   * - **opa.locale** OpenVeo Portal translations
    */
   var app = angular.module('opa', [
     'ngRoute',

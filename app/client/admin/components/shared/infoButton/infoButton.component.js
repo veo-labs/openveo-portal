@@ -19,6 +19,10 @@
  *     variant in $sce.HTML context
  *   - [String] **opa-label**: An AngularJS expression evaluating to a string containing the button accessibility text
  *
+ * Requires:
+ * - **ngMaterial** AngularJS Material module
+ * - **opaInfo** Directive opening a panel with a message and a close button
+ *
  * @class opa
  */
 

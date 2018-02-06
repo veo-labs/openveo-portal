@@ -9,6 +9,10 @@
  *
  *     <opa-dashboard></opa-dashboard>
  *
+ * Requires:
+ * - **ngMaterial** AngularJS Material module
+ * - **opaAbout** Component presenting information about Portal
+ *
  * @class opaDashboard
  */
 

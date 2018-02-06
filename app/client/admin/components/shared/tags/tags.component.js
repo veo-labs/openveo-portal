@@ -67,6 +67,9 @@
  *     - [String] **name**: The label of the tag to display in autocomplete and validated tags
  *     - [String] **value**: The unique value of the tag, two tags can't have the same value
  *
+ * Requires:
+ * - **ngMaterial** AngularJS Material module
+ *
  * @class opaTags
  */
 (function(app) {
