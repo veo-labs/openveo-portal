@@ -13,15 +13,15 @@
          tabindex="0"
       >
         <md-icon flex="nogrow" ng-if="item.icon">{{item.icon}}</md-icon>
-        <span flex="auto" ng-bind="item.label | opaTranslate"></span>
+        <span flex="auto" ng-bind="item.label"></span>
       </a>
 
       <md-divider ng-if="item.divider"></md-divider>
 
       <opa-actions-button
                           ng-if="item.actions && item.label"
-                          opa-label="item.label"
-                          opa-icon="item.icon"
+                          opa-label="{{item.label}}"
+                          opa-icon="{{item.icon}}"
                           opa-actions="item.actions"
       ></opa-actions-button>
     </li>

@@ -40,7 +40,9 @@ describe('opaActionsButton', function() {
         action: () => {}
       }
     ];
-    let element = angular.element('<opa-actions-button opa-label="label" opa-actions="actions"></opa-actions-button>');
+    let element = angular.element(
+      '<opa-actions-button opa-label="{{label}}" opa-actions="actions"></opa-actions-button>'
+    );
     element = $compile(element)(scope);
     scope.$digest();
 
@@ -96,7 +98,7 @@ describe('opaActionsButton', function() {
       }
     ];
     let element = angular.element(
-      '<opa-actions-button opa-label="label" opa-actions="actions" opa-icon="icon"></opa-actions-button>'
+      '<opa-actions-button opa-label="{{label}}" opa-actions="actions" opa-icon="{{icon}}"></opa-actions-button>'
     );
     element = $compile(element)(scope);
     scope.$digest();
@@ -114,7 +116,9 @@ describe('opaActionsButton', function() {
         action: () => {}
       }
     ];
-    let element = angular.element('<opa-actions-button opa-label="label" opa-actions="actions"></opa-actions-button>');
+    let element = angular.element(
+      '<opa-actions-button opa-label="{{label}}" opa-actions="actions"></opa-actions-button>'
+    );
     element = $compile(element)(scope);
     scope.$digest();
 
@@ -130,7 +134,9 @@ describe('opaActionsButton', function() {
         icon: 'some_icon_id'
       }
     ];
-    let element = angular.element('<opa-actions-button opa-label="label" opa-actions="actions"></opa-actions-button>');
+    let element = angular.element(
+      '<opa-actions-button opa-label="{{label}}" opa-actions="actions"></opa-actions-button>'
+    );
     element = $compile(element)(scope);
     scope.$digest();
 
@@ -162,7 +168,9 @@ describe('opaActionsButton', function() {
         action: () => {}
       }
     ];
-    let element = angular.element('<opa-actions-button opa-label="label" opa-actions="actions"></opa-actions-button>');
+    let element = angular.element(
+      '<opa-actions-button opa-label="{{label}}" opa-actions="actions"></opa-actions-button>'
+    );
     element = $compile(element)(scope);
     scope.$digest();
 
@@ -178,7 +186,9 @@ describe('opaActionsButton', function() {
         label: 'first action label'
       }
     ];
-    let element = angular.element('<opa-actions-button opa-label="label" opa-actions="actions"></opa-actions-button>');
+    let element = angular.element(
+      '<opa-actions-button opa-label="{{label}}" opa-actions="actions"></opa-actions-button>'
+    );
     element = $compile(element)(scope);
     scope.$digest();
 
@@ -196,7 +206,9 @@ describe('opaActionsButton', function() {
         selected: true
       }
     ];
-    let element = angular.element('<opa-actions-button opa-label="label" opa-actions="actions"></opa-actions-button>');
+    let element = angular.element(
+      '<opa-actions-button opa-label="{{label}}" opa-actions="actions"></opa-actions-button>'
+    );
     element = $compile(element)(scope);
     scope.$digest();
 

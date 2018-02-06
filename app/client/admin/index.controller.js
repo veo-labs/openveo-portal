@@ -15,6 +15,7 @@
    * @param {Object} $route AngularJS $route service
    * @param {Object} $window AngularJS $window service
    * @param {Object} $location AngularJS $location service
+   * @param {Object} $filter AngularJS $filter service
    * @param {Object} $mdMedia AngularJS Material service to evaluate media queries
    * @param {Object} $mdSidenav AngularJS Material service to manipulate sidenav directives
    * @param {Object} opaUserFactory User factory to deal with the authenticated user
@@ -26,6 +27,7 @@
     $route,
     $window,
     $location,
+    $filter,
     $mdMedia,
     $mdSidenav,
     opaUserFactory,
@@ -33,6 +35,7 @@
     opaNotificationFactory
   ) {
     var ctrl = this;
+    var translateFilter = $filter('opaTranslate');
 
     Object.defineProperties(ctrl, {
 
@@ -176,7 +179,7 @@
               selected: language === ctrl.userLanguage
             });
             navLanguagesActions.push({
-              label: 'NAV.LANGUAGES.' + language,
+              label: translateFilter('NAV.LANGUAGES.' + language),
               code: language,
               action: ctrl.setLanguage,
               selected: language === ctrl.userLanguage
@@ -220,13 +223,13 @@
 
           ctrl.navMenu.push(
             {
-              label: 'NAV.DASHBOARD',
+              label: translateFilter('NAV.DASHBOARD'),
               icon: 'dashboard',
               action: ctrl.goTo,
               href: '/'
             },
             {
-              label: 'NAV.SETTINGS',
+              label: translateFilter('NAV.SETTINGS'),
               icon: 'settings',
               action: ctrl.goTo,
               href: '/settings'
@@ -235,13 +238,13 @@
 
           ctrl.advancedNavMenu.push(
             {
-              label: 'NAV.DASHBOARD',
+              label: translateFilter('NAV.DASHBOARD'),
               icon: 'dashboard',
               action: ctrl.goTo,
               href: '/'
             },
             {
-              label: 'NAV.SETTINGS',
+              label: translateFilter('NAV.SETTINGS'),
               icon: 'settings',
               action: ctrl.goTo,
               href: '/settings'
@@ -250,12 +253,12 @@
               divider: true
             },
             {
-              label: 'NAV.VIEW_PORTAL',
+              label: translateFilter('NAV.VIEW_PORTAL'),
               icon: 'visibility',
               action: ctrl.goToPortal
             },
             {
-              label: 'NAV.LANGUAGE',
+              label: translateFilter('NAV.LANGUAGE'),
               icon: 'language',
               actions: navLanguagesActions
             },
@@ -263,7 +266,7 @@
               divider: true
             },
             {
-              label: 'NAV.LOGOUT',
+              label: translateFilter('NAV.LOGOUT'),
               icon: 'power_settings_new',
               action: ctrl.logout
             }
@@ -415,6 +418,7 @@
     '$route',
     '$window',
     '$location',
+    '$filter',
     '$mdMedia',
     '$mdSidenav',
     'opaUserFactory',
