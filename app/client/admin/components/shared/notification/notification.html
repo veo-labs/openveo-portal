@@ -5,8 +5,8 @@
       <md-button
                  ng-if="ctrl.closeButton"
                  ng-click="ctrl.hide()"
-                 ng-bind="'NOTIFICATION.CLOSE' | opaTranslate"
-                 aria-label="{{'NOTIFICATION.CLOSE' | opaTranslate}}"
+                 ng-bind="ctrl.closeLabel"
+                 aria-label="{{ctrl.closeAriaLabel}}"
                  md-colors="::{color: 'accent'}"
                  tabindex="-1"
       ></md-button>

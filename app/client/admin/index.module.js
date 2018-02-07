@@ -111,12 +111,22 @@
 
     }]);
 
-  app.run(['$filter', 'opaInfoConfiguration', function($filter, opaInfoConfiguration) {
-    opaInfoConfiguration.setOptions({
-      closeLabel: $filter('opaTranslate')('INFO.CLOSE'),
-      closeAriaLabel: $filter('opaTranslate')('INFO.CLOSE_ACCESSIBILITY')
-    });
-  }]);
+  app.run([
+    '$filter',
+    'opaInfoConfiguration',
+    'opaNotificationConfiguration',
+    function($filter, opaInfoConfiguration, opaNotificationConfiguration) {
+      opaInfoConfiguration.setOptions({
+        closeLabel: $filter('opaTranslate')('INFO.CLOSE'),
+        closeAriaLabel: $filter('opaTranslate')('INFO.CLOSE_ACCESSIBILITY')
+      });
+
+      opaNotificationConfiguration.setOptions({
+        closeLabel: $filter('opaTranslate')('NOTIFICATION.CLOSE'),
+        closeAriaLabel: $filter('opaTranslate')('NOTIFICATION.CLOSE_ACCESSIBILITY')
+      });
+    }
+  ]);
 
   angular.element(document).ready(function() {
     angular.bootstrap(document, ['opa'], {strictDi: true});
