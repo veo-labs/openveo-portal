@@ -11,10 +11,24 @@ describe('OpaInfoController', function() {
   let scope;
   let element;
   let ctrl;
+  let opaInfoConfiguration;
 
   // Load modules
   beforeEach(function() {
-    module('opa');
+    opaInfoConfiguration = {
+      getOptions: () => {
+        return {};
+      },
+      setOptions: () => {}
+    };
+    module('opa', function($provide) {
+
+      // Mock controller
+      $provide.factory('opaInfoConfiguration', function() {
+        return opaInfoConfiguration;
+      });
+
+    });
     module('templates');
   });
 
@@ -31,15 +45,17 @@ describe('OpaInfoController', function() {
     scope = $rootScope.$new();
     expectedMessage = $sce.trustAsHtml('Expected message');
     scope.message = expectedMessage;
-
-    element = angular.element('<p opa-info="message"></p>');
-    element = $compile(element)(scope);
-    scope.$digest();
-
-    ctrl = element.controller('opaInfo');
   });
 
   describe('open', function() {
+
+    beforeEach(function() {
+      element = angular.element('<p opa-info="message"></p>');
+      element = $compile(element)(scope);
+      scope.$digest();
+
+      ctrl = element.controller('opaInfo');
+    });
 
     it('should be able to open a panel with the message', function() {
       assert.equal(ctrl.message, expectedMessage);
@@ -70,6 +86,14 @@ describe('OpaInfoController', function() {
 
   describe('close', function() {
 
+    beforeEach(function() {
+      element = angular.element('<p opa-info="message"></p>');
+      element = $compile(element)(scope);
+      scope.$digest();
+
+      ctrl = element.controller('opaInfo');
+    });
+
     it('should be able to close the panel', function() {
       ctrl.open();
       $rootScope.$digest();
@@ -84,6 +108,40 @@ describe('OpaInfoController', function() {
       assert.isNull($document[0].body.querySelector('.opa-info'), 'Unexpected panel');
     });
 
+  });
+
+  it('should be able to set close button labels', function() {
+    scope.expectedCloseLabel = 'Close label';
+    scope.expectedCloseAriaLabel = 'Close ARIA label';
+    element = angular.element(
+      '<p opa-info="message" opa-close="{{expectedCloseLabel}}" opa-close-aria="{{expectedCloseAriaLabel}}"></p>'
+    );
+    element = $compile(element)(scope);
+    scope.$digest();
+
+    ctrl = element.controller('opaInfo');
+
+    assert.equal(ctrl.closeLabel, scope.expectedCloseLabel, 'Wrong close label');
+    assert.equal(ctrl.closeAriaLabel, scope.expectedCloseAriaLabel, 'Wrong close ARIA label');
+  });
+
+  it('should use configuration to get close button labels if not specified', function() {
+    const expectedOptions = {
+      closeLabel: 'Default close label',
+      closeAriaLabel: 'Default close ARIA label'
+    };
+    opaInfoConfiguration.getOptions = () => {
+      return expectedOptions;
+    };
+
+    element = angular.element('<p opa-info="message"></p>');
+    element = $compile(element)(scope);
+    scope.$digest();
+
+    ctrl = element.controller('opaInfo');
+
+    assert.equal(ctrl.closeLabel, expectedOptions.closeLabel, 'Wrong close label');
+    assert.equal(ctrl.closeAriaLabel, expectedOptions.closeAriaLabel, 'Wrong close ARIA label');
   });
 
 });

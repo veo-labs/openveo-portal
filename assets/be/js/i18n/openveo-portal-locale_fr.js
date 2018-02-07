@@ -86,7 +86,8 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       CLOSE: 'Fermer'
     },
     INFO: {
-      CLOSE: 'Ok !'
+      CLOSE: 'Ok !',
+      CLOSE_ACCESSIBILITY: 'Ok !'
     }
   });
 }]);
