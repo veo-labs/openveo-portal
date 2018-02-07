@@ -83,7 +83,8 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       FORBIDDEN: 'You don\'t have permission for this action'
     },
     NOTIFICATION: {
-      CLOSE: 'Close'
+      CLOSE: 'Close',
+      CLOSE_ACCESSIBILITY: 'Close'
     },
     INFO: {
       CLOSE: 'Got it!',
