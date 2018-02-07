@@ -111,6 +111,13 @@
 
     }]);
 
+  app.run(['$filter', 'opaInfoConfiguration', function($filter, opaInfoConfiguration) {
+    opaInfoConfiguration.setOptions({
+      closeLabel: $filter('opaTranslate')('INFO.CLOSE'),
+      closeAriaLabel: $filter('opaTranslate')('INFO.CLOSE_ACCESSIBILITY')
+    });
+  }]);
+
   angular.element(document).ready(function() {
     angular.bootstrap(document, ['opa'], {strictDi: true});
   });

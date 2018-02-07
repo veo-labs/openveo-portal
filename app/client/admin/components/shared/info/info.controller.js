@@ -16,12 +16,14 @@
    * @param {Object} $document JQLite element of the document
    * @param {Object} $timeout AngularJS $timeout service
    * @param {Object} $mdPanel AngularJS Material service to create panels
+   * @param {Object} opaInfoConfiguration opa-info configuration service
    */
-  function OpaInfoController($scope, $element, $document, $timeout, $mdPanel) {
+  function OpaInfoController($scope, $element, $document, $timeout, $mdPanel, opaInfoConfiguration) {
     var ctrl = this;
     var panelReference = null;
     var panelPromise = null;
     var panelPosition = $mdPanel.newPanelPosition();
+    var defaultOptions = opaInfoConfiguration.getOptions();
 
     Object.defineProperties(ctrl, {
 
@@ -42,7 +44,9 @@
             },
             controllerAs: 'ctrl',
             locals: {
-              message: ctrl.message
+              message: ctrl.message,
+              closeLabel: ctrl.closeLabel,
+              closeAriaLabel: ctrl.closeAriaLabel
             },
             attachTo: $document[0].body,
             escapeToClose: true,
@@ -93,6 +97,29 @@
             $mdPanel.yPosition.BELOW
           );
         }
+      },
+
+      /**
+       * Handles attributes changes.
+       *
+       * Validate attributes.
+       *
+       * @method $onChanges
+       * @param {Object} changedProperties Properties which have changed since last digest loop
+       * @param {Object} [changedProperties.closeLabel] opa-close attribute old and new value
+       * @param {String} [changedProperties.closeLabel.currentValue] opa-close new value
+       * @param {Object} [changedProperties.closeAriaLabel] opa-close-aria attribute old and new value
+       * @param {String} [changedProperties.closeAriaLabel.currentValue] opa-close-aria new value
+       * @final
+       */
+      $onChanges: {
+        value: function(changedProperties) {
+          if (changedProperties.closeLabel)
+            ctrl.closeLabel = changedProperties.closeLabel.currentValue || defaultOptions.closeLabel;
+
+          if (changedProperties.closeAriaLabel)
+            ctrl.closeAriaLabel = changedProperties.closeAriaLabel.currentValue || defaultOptions.closeAriaLabel;
+        }
       }
 
     });
@@ -108,6 +135,6 @@
   }
 
   app.controller('OpaInfoController', OpaInfoController);
-  OpaInfoController.$inject = ['$scope', '$element', '$document', '$timeout', '$mdPanel'];
+  OpaInfoController.$inject = ['$scope', '$element', '$document', '$timeout', '$mdPanel', 'opaInfoConfiguration'];
 
 })(angular.module('opa'));

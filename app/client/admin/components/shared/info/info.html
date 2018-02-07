@@ -5,8 +5,8 @@
                target="_blank"
                class="md-primary"
                ng-click="ctrl.close()"
-               ng-bind="'INFO.CLOSE' | opaTranslate"
-               aria-label="{{'INFO.CLOSE' | opaTranslate}}"
+               ng-bind="ctrl.closeLabel"
+               aria-label="{{ctrl.closeAriaLabel}}"
                tabindex="-1"
     ></md-button>
   </footer>

@@ -43,8 +43,12 @@ describe('opaInfo', function() {
   });
 
   it('should display a button to close the panel', function() {
+    scope.expectedCloseLabel = 'Close label';
+    scope.expectedCloseAriaLabel = 'Close ARIA label';
     scope.message = $sce.trustAsHtml('Expected message');
-    element = angular.element('<p opa-info="message"></p>');
+    element = angular.element(
+      '<p opa-info="message" opa-close="{{expectedCloseLabel}}" opa-close-aria="{{expectedCloseAriaLabel}}"></p>'
+    );
     element = $compile(element)(scope);
     scope.$digest();
 
@@ -53,7 +57,10 @@ describe('opaInfo', function() {
     scope.$digest();
 
     const buttonElement = $document[0].body.querySelector('.opa-info button');
+    const buttonJqLiteElement = angular.element(buttonElement);
     assert.isNotNull(buttonElement, 'Missing button');
+    assert.equal(buttonJqLiteElement.text(), scope.expectedCloseLabel, 'Wrong button label');
+    assert.equal(buttonJqLiteElement.attr('aria-label'), scope.expectedCloseAriaLabel, 'Wrong button ARIA label');
 
     angular.element(buttonElement).triggerHandler({type: 'click'});
 
