@@ -4,20 +4,23 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
   $provide.value('opaTranslations', {
     HEADER: {
       TITLE: 'Administration',
-      TOGGLE_MENU_BUTTON: 'Afficher/masquer le menu de navigation',
+      TOGGLE_MENU_ACCESSIBILITY: 'Afficher/masquer le menu de navigation',
       TOGGLE_MENU_TOOLTIP: 'Afficher/masquer le menu',
-      VIEW_PORTAL_BUTTON: 'Afficher le portail',
+      VIEW_PORTAL_ACCESSIBILITY: 'Afficher le portail',
       VIEW_PORTAL_TOOLTIP: 'Afficher le portail',
-      TOGGLE_LANGUAGES_BUTTON: 'Afficher/masquer le menu des langues',
+      TOGGLE_LANGUAGES_ACCESSIBILITY: 'Afficher/masquer le menu des langues',
       TOGGLE_LANGUAGES_TOOLTIP: 'Changer de langue',
-      TOGGLE_USER_ACTIONS_BUTTON: 'Afficher/masquer les actions utilisateur',
+      TOGGLE_USER_ACTIONS_ACCESSIBILITY: 'Afficher/masquer les actions utilisateur',
       TOGGLE_USER_ACTIONS_TOOLTIP: 'Afficher le menu utilisateur',
       USER_ACTIONS: {
-        DISCONNECT: 'Déconnexion'
+        DISCONNECT: 'Déconnexion',
+        DISCONNECT_ACCESSIBILITY: 'Se déconnecter de l\'interface d\'administration'
       },
       LANGUAGES: {
         EN: 'Anglais',
-        FR: 'Français'
+        EN_ACCESSIBILITY: 'Afficher l\'interface d\'administration en anglais',
+        FR: 'Français',
+        FR_ACCESSIBILITY: 'Afficher l\'interface d\'administration en français'
       }
     },
     NAV: {

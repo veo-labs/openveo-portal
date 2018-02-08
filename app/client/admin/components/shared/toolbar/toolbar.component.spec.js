@@ -50,13 +50,13 @@ describe('opaToolbar', function() {
         scope.actions = [
           {
             type: 'icon',
-            label: 'First icon action',
+            accessibility: 'First icon action accessibility message',
             icon: 'first_action_icon_id',
             action: chai.spy(() => {})
           },
           {
             type: 'icon',
-            label: 'Second icon action label',
+            accessibility: 'Second icon action accessibility message',
             icon: 'second_action_icon_id',
             action: chai.spy(() => {})
           }
@@ -85,6 +85,12 @@ describe('opaToolbar', function() {
             scope.actions[i].icon,
             'Unexpected button(s)'
           );
+
+          assert.equal(
+            angular.element(buttons[i]).attr('aria-label'),
+            scope.actions[i].accessibility,
+            'Wrong accessibility message'
+          );
         }
       });
 
@@ -93,13 +99,13 @@ describe('opaToolbar', function() {
           {
             type: 'text',
             label: 'First text action label',
-            help: 'First text action accessibility message',
+            accessibility: 'First text action accessibility message',
             action: chai.spy(() => {})
           },
           {
             type: 'text',
             label: 'Second text action label',
-            help: 'Second text action accessibility message',
+            accessibility: 'Second text action accessibility message',
             action: chai.spy(() => {})
           }
         ];
@@ -130,7 +136,7 @@ describe('opaToolbar', function() {
 
           assert.equal(
             angular.element(buttons[i]).attr('aria-label'),
-            scope.actions[i].help,
+            scope.actions[i].accessibility,
             'Wrong button accessibility label'
           );
         }
@@ -140,15 +146,17 @@ describe('opaToolbar', function() {
         scope.actions = [
           {
             type: 'list',
-            label: 'First list action label',
+            accessibility: 'First list action accessibility message',
             icon: 'first_action_icon_id',
             menu: [
               {
                 label: 'First sub action label',
+                accessibility: 'First sub action accessibility message',
                 action: chai.spy(() => {})
               },
               {
                 label: 'Second sub action label',
+                accessibility: 'Second sub action accessibility message',
                 action: chai.spy(() => {})
               }
             ]
@@ -167,6 +175,12 @@ describe('opaToolbar', function() {
           'Unexpected icon'
         );
 
+        assert.equal(
+          angular.element(button).attr('aria-label'),
+          scope.actions[0].accessibility,
+          'Wrong accessibility message'
+        );
+
         // Open sub menu
         angular.element(button).triggerHandler({type: 'click'});
         $animate.flush();
@@ -180,6 +194,12 @@ describe('opaToolbar', function() {
         );
 
         for (let i = 0; i < subButtons.length; i++) {
+
+          assert.equal(
+            angular.element(subButtons[i]).attr('aria-label'),
+            scope.actions[0].menu[i].accessibility,
+            'Wrong accessibility message'
+          );
 
           // Click on sub action
           angular.element(subButtons[i]).triggerHandler({type: 'click'});
@@ -203,7 +223,7 @@ describe('opaToolbar', function() {
         scope.actions = [
           {
             type: 'list',
-            label: 'First list action label',
+            accessibility: 'First list action accessibility message',
             icon: 'first_action_icon_id',
             menu: [
               {
@@ -249,7 +269,7 @@ describe('opaToolbar', function() {
         scope.actions = [
           {
             type: 'icon',
-            label: 'First icon action label',
+            accessibility: 'First icon action accessibility message',
             icon: 'first_action_icon_id'
           }
         ];
