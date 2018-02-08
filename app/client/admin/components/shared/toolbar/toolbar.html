@@ -1,21 +1,26 @@
 <script type="text/ng-template" id="opa-toolbar-action.html">
 
-  <!-- Simple action icon -->
-  <md-button ng-if="action.icon && action.action" class="md-icon-button" aria-label="{{action.label}}" ng-click="action.action()">
+  <!-- Icon action -->
+  <md-button
+             ng-if="action.type === 'icon' && action.icon && action.action"
+             ng-click="action.action()"
+             class="md-icon-button"
+             aria-label="{{action.label}}"
+  >
     <md-icon>{{action.icon}}</md-icon>
     <md-tooltip ng-if="action.help">{{action.help}}</md-tooltip>
   </md-button>
 
-  <!-- Simple action label button -->
+  <!-- Text action -->
   <md-button
-             ng-if="!action.icon && action.label && action.action"
+             ng-if="action.type === 'text' && action.label && action.action"
              ng-click="action.action()"
              ng-bind="action.label"
              aria-label="{{action.help}}"
   ></md-button>
 
-  <!-- Button icon action with list -->
-  <md-menu ng-if="action.icon && action.menu">
+  <!-- List action -->
+  <md-menu ng-if="action.type === 'list' && action.icon && action.menu">
     <md-button class="md-icon-button" aria-label="{{action.label}}" ng-click="$mdMenu.open($event)">
       <md-icon>{{action.icon}}</md-icon>
       <md-tooltip ng-if="action.help">{{action.help}}</md-tooltip>

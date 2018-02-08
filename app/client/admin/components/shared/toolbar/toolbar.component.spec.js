@@ -46,15 +46,17 @@ describe('opaToolbar', function() {
 
     describe(actionGroup.name, function() {
 
-      it('should be able to add a list of simple actions', function() {
+      it('should be able to add a list of icon actions', function() {
         scope.actions = [
           {
-            label: 'First action label',
+            type: 'icon',
+            label: 'First icon action',
             icon: 'first_action_icon_id',
             action: chai.spy(() => {})
           },
           {
-            label: 'Second action label',
+            type: 'icon',
+            label: 'Second icon action label',
             icon: 'second_action_icon_id',
             action: chai.spy(() => {})
           }
@@ -86,16 +88,18 @@ describe('opaToolbar', function() {
         }
       });
 
-      it('should be able to add a list of simple label actions', function() {
+      it('should be able to add a list of text actions', function() {
         scope.actions = [
           {
-            label: 'First action label',
-            help: 'First action accessibility label',
+            type: 'text',
+            label: 'First text action label',
+            help: 'First text action accessibility message',
             action: chai.spy(() => {})
           },
           {
-            label: 'Second action label',
-            help: 'Second action accessibility label',
+            type: 'text',
+            label: 'Second text action label',
+            help: 'Second text action accessibility message',
             action: chai.spy(() => {})
           }
         ];
@@ -132,10 +136,11 @@ describe('opaToolbar', function() {
         }
       });
 
-      it('should be able to add a list of advanced actions', function() {
+      it('should be able to add a list action', function() {
         scope.actions = [
           {
-            label: 'First action label',
+            type: 'list',
+            label: 'First list action label',
             icon: 'first_action_icon_id',
             menu: [
               {
@@ -194,10 +199,11 @@ describe('opaToolbar', function() {
         $animate.flush();
       });
 
-      it('should be able to select an advanced sub action', function() {
+      it('should be able to select a list sub action', function() {
         scope.actions = [
           {
-            label: 'First action label',
+            type: 'list',
+            label: 'First list action label',
             icon: 'first_action_icon_id',
             menu: [
               {
@@ -242,7 +248,8 @@ describe('opaToolbar', function() {
       it('should be ignored if no action function specified', function() {
         scope.actions = [
           {
-            label: 'First action label',
+            type: 'icon',
+            label: 'First icon action label',
             icon: 'first_action_icon_id'
           }
         ];
@@ -257,7 +264,7 @@ describe('opaToolbar', function() {
         );
       });
 
-      it('should not be displayed if no actions', function() {
+      it('should not be displayed if no left nor right actions', function() {
         let element = angular.element('<opa-toolbar></opa-toolbar>');
         element = $compile(element)(scope);
         scope.$digest();
