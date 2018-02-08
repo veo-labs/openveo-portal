@@ -84,7 +84,7 @@
       },
 
       /**
-       * The list of left actions for opa-toolbar component.
+       * The list of left actions for the toolbar.
        *
        * @property toolbarLeftActions
        * @type Array
@@ -95,24 +95,24 @@
       },
 
       /**
-       * The list of right actions for opa-toolbar component.
+       * The list of right actions for the advanced toolbar.
        *
-       * @property toolbarRightActions
+       * @property advancedToolbarRightActions
        * @type Array
        * @final
        */
-      toolbarRightActions: {
+      advancedToolbarRightActions: {
         value: []
       },
 
       /**
-       * Languages actions for opa-toolbar component.
+       * Languages actions for the advanced toolbar.
        *
-       * @property toolbarLanguageActions
+       * @property advancedToolbarLanguageActions
        * @type Array
        * @final
        */
-      toolbarLanguageActions: {
+      advancedToolbarLanguageActions: {
         value: []
       },
 
@@ -172,7 +172,7 @@
         value: function() {
           var navLanguagesActions = [];
           opaI18nFactory.getLanguages().forEach(function(language) {
-            ctrl.toolbarLanguageActions.push({
+            ctrl.advancedToolbarLanguageActions.push({
               label: translateFilter('HEADER.LANGUAGES.' + language),
               accessibility: translateFilter('HEADER.LANGUAGES.' + language + '_ACCESSIBILITY'),
               code: language,
@@ -197,7 +197,7 @@
             }
           );
 
-          ctrl.toolbarRightActions.push(
+          ctrl.advancedToolbarRightActions.push(
             {
               type: 'icon',
               accessibility: translateFilter('HEADER.VIEW_PORTAL_ACCESSIBILITY'),
@@ -210,7 +210,7 @@
               accessibility: translateFilter('HEADER.TOGGLE_LANGUAGES_ACCESSIBILITY'),
               help: translateFilter('HEADER.TOGGLE_LANGUAGES_TOOLTIP'),
               icon: 'language',
-              menu: ctrl.toolbarLanguageActions
+              menu: ctrl.advancedToolbarLanguageActions
             },
             {
               type: 'list',
