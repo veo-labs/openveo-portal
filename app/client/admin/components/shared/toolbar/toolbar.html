@@ -36,6 +36,14 @@
       </md-menu-item>
     </md-menu-content>
   </md-menu>
+
+  <!-- Info action -->
+  <opa-info-button
+                   ng-if="action.type === 'info' && action.message"
+                   opa-message="action.message"
+                   opa-accessibility="{{action.accessibility}}"
+                   opa-help="{{action.help}}"
+  ></opa-info-button>
 </script>
 
 <md-toolbar class="opa-toolbar">

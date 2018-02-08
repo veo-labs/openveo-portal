@@ -78,9 +78,15 @@
 *      - [String] **[accessibility]**: The item accessibility message
  *     - [Boolean] **[selected]**: A boolean indicating if the item should be selected by default
  *   - [String] **[accessibility]**: The action accessibility message
+ * - **info**, an icon button opening an information dialog with a close button which may have:
+ *   - [String] **message**: An AngularJS expression evaluating to a wrapped version of the message that can be
+ *     used as a trusted variant in $sce.HTML context
+ *   - [String] **[help]**: Tooltip message about the action
+ *   - [String] **[accessibility]**: The action accessibility message
  *
  * Requires:
  * - **ngMaterial** The AngularJS Material module
+ * - **opaInfoButton** Component used to display info actions
  *
  * @class opaToolbar
  */
