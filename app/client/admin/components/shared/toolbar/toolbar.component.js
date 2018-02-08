@@ -55,7 +55,7 @@
  *   - a simple action with:
  *     - [String] **label**: The action name (used for accessibility)
  *     - [Function] **action**: The function to execute when the icon is clicked
- *     - [String] **[icon]**: An icon representing the action as an Angular Materia icon id
+ *     - [String] **icon**: An icon representing the action as an Angular Materia icon id
  *     - [String] **[help]**: Tooltip message about the action
  *   - a list of actions with for each action:
  *    - [String] **label**: The action name (used for accessibility)
