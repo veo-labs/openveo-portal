@@ -265,6 +265,49 @@ describe('opaToolbar', function() {
         $animate.flush();
       });
 
+      it('should be able to add a list of info actions', function() {
+        scope.actions = [
+          {
+            type: 'info',
+            message: 'First info message',
+            accessibility: 'First info action accessibility message',
+            help: 'First info action help message'
+          },
+          {
+            type: 'info',
+            message: 'Second info message',
+            accessibility: 'Second info action accessibility message',
+            help: 'Second info action help message'
+          }
+        ];
+
+        let element = angular.element(`<opa-toolbar ${actionGroup.attribute}="actions"></opa-toolbar>`);
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        const buttons = element[0].querySelectorAll(`.${actionGroup.class} opa-info-button`);
+
+        assert.equal(
+          buttons.length,
+          scope.actions.length,
+          'Wrong number of buttons'
+        );
+
+        for (let i = 0; i < buttons.length; i++) {
+          assert.equal(
+            angular.element(buttons[i]).attr('opa-accessibility'),
+            scope.actions[i].accessibility,
+            'Wrong button accessibility message'
+          );
+
+          assert.equal(
+            angular.element(buttons[i]).attr('opa-help'),
+            scope.actions[i].help,
+            'Wrong button help message'
+          );
+        }
+      });
+
       it('should ignore a text action without action', function() {
         scope.actions = [
           {
