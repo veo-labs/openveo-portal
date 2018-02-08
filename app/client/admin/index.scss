@@ -139,4 +139,9 @@ a {
   transition: background-color 0.3s ease-in;
 }
 
+/* Remove border radius on AngularJS Material tooltips */
+.md-tooltip {
+  border-radius: 0;
+}
+
 // INJECT_SCSS
