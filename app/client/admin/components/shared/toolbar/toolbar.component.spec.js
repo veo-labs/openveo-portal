@@ -356,6 +356,32 @@ describe('opaToolbar', function() {
         );
       });
 
+      it('should ignore a list sub action without label or action', function() {
+        scope.actions = [
+          {
+            type: 'list',
+            label: 'List action label',
+            menu: [
+              {
+                label: 'Sub action label'
+              },
+              {
+                action: () => {}
+              }
+            ]
+          }
+        ];
+
+        let element = angular.element(`<opa-toolbar ${actionGroup.attribute}="actions"></opa-toolbar>`);
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        assert.isNotOk(
+          element[0].querySelectorAll(`.${actionGroup.class} button`).length,
+          'Unexpected button(s)'
+        );
+      });
+
       it('should not be displayed if no left nor right actions', function() {
         let element = angular.element('<opa-toolbar></opa-toolbar>');
         element = $compile(element)(scope);
