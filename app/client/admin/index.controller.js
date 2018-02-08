@@ -188,6 +188,7 @@
 
           ctrl.toolbarLeftActions.push(
             {
+              type: 'icon',
               label: translateFilter('HEADER.TOGGLE_MENU_BUTTON'),
               help: translateFilter('HEADER.TOGGLE_MENU_TOOLTIP'),
               icon: 'menu',
@@ -197,18 +198,21 @@
 
           ctrl.toolbarRightActions.push(
             {
+              type: 'icon',
               label: translateFilter('HEADER.VIEW_PORTAL_BUTTON'),
               help: translateFilter('HEADER.VIEW_PORTAL_TOOLTIP'),
               icon: 'visibility',
               action: ctrl.goToPortal
             },
             {
+              type: 'list',
               label: translateFilter('HEADER.TOGGLE_LANGUAGES_BUTTON'),
               help: translateFilter('HEADER.TOGGLE_LANGUAGES_TOOLTIP'),
               icon: 'language',
               menu: ctrl.toolbarLanguageActions
             },
             {
+              type: 'list',
               label: translateFilter('HEADER.TOGGLE_USER_ACTIONS_BUTTON'),
               help: translateFilter('HEADER.TOGGLE_USER_ACTIONS_TOOLTIP'),
               icon: 'account_circle',
