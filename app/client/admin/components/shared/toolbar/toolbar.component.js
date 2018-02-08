@@ -11,9 +11,9 @@
  *     $scope.toolbarLeftActions = [
  *       {
  *         type: 'icon',
- *         label: 'Icon action accessibility message',
  *         icon: 'icon_action_icon_id',
  *         help: 'Icon action tooltip message',
+ *         accessibility: 'Icon action accessibility message',
  *         action: function() {
  *           console.log('Do something');
  *         }
@@ -23,13 +23,14 @@
  *     $scope.toolbarRightActions = [
  *       {
  *         type: 'list',
- *         label: 'List action accessibility message',
  *         icon: 'list_action_icon_id',
  *         help: 'List action tooltip message',
+ *         accessibility: 'List action accessibility message',
  *         menu: [
  *           {
  *             label: 'Sub action label',
  *             selected: true,
+ *             accessibility: 'Sub action accessibility message',
  *             action: function() {
  *               console.log('Do something');
  *             }
@@ -39,7 +40,7 @@
  *       {
  *         type: 'text',
  *         label: 'Text action label',
- *         help: 'Text action accessibility message',
+ *         accessibility: 'Text action accessibility message',
  *         action: function() {
  *           console.log('Do something');
  *         }
@@ -63,19 +64,20 @@
  * - **text**, a simple text button which may have:
  *   - [String] **label**: The action button label
  *   - [Function] **action**: The function to execute when the button is clicked
- *   - [String] **[help]**: The action accessibility label
+ *   - [String] **[accessibility]**: The action accessibility message
  * - **icon**, a simple icon button which may have:
- *   - [String] **label**: The action name (used for accessibility)
  *   - [Function] **action**: The function to execute when the icon is clicked
  *   - [String] **icon**: An icon representing the action as an Angular Materia icon id
  *   - [String] **[help]**: Tooltip message about the action
+ *   - [String] **[accessibility]**: The action accessibility message
  * - **list**, an icon button opening a list of textual actions which may have:
- *   - [String] **label**: The action name (used for accessibility)
  *   - [String] **icon**: An icon representing the action as an Angular Materia icon id
  *   - [Array] **menu**: A list of simple actions with for each action:
- *     - [String] **label**: The action name (used for menu item name and accessibility)
+ *     - [String] **label**: The item name
  *     - [Function] **action**: The function to execute when the item is clicked
- *     - [Boolean] **[selected]**: A boolean indicating if the action should be selected by default
+*      - [String] **[accessibility]**: The item accessibility message
+ *     - [Boolean] **[selected]**: A boolean indicating if the item should be selected by default
+ *   - [String] **[accessibility]**: The action accessibility message
  *
  * Requires:
  * - **ngMaterial** The AngularJS Material module

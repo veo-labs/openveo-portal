@@ -174,6 +174,7 @@
           opaI18nFactory.getLanguages().forEach(function(language) {
             ctrl.toolbarLanguageActions.push({
               label: translateFilter('HEADER.LANGUAGES.' + language),
+              accessibility: translateFilter('HEADER.LANGUAGES.' + language + '_ACCESSIBILITY'),
               code: language,
               action: ctrl.setLanguage,
               selected: language === ctrl.userLanguage
@@ -189,7 +190,7 @@
           ctrl.toolbarLeftActions.push(
             {
               type: 'icon',
-              label: translateFilter('HEADER.TOGGLE_MENU_BUTTON'),
+              accessibility: translateFilter('HEADER.TOGGLE_MENU_ACCESSIBILITY'),
               help: translateFilter('HEADER.TOGGLE_MENU_TOOLTIP'),
               icon: 'menu',
               action: ctrl.toggleSideNavigation
@@ -199,26 +200,27 @@
           ctrl.toolbarRightActions.push(
             {
               type: 'icon',
-              label: translateFilter('HEADER.VIEW_PORTAL_BUTTON'),
+              accessibility: translateFilter('HEADER.VIEW_PORTAL_ACCESSIBILITY'),
               help: translateFilter('HEADER.VIEW_PORTAL_TOOLTIP'),
               icon: 'visibility',
               action: ctrl.goToPortal
             },
             {
               type: 'list',
-              label: translateFilter('HEADER.TOGGLE_LANGUAGES_BUTTON'),
+              accessibility: translateFilter('HEADER.TOGGLE_LANGUAGES_ACCESSIBILITY'),
               help: translateFilter('HEADER.TOGGLE_LANGUAGES_TOOLTIP'),
               icon: 'language',
               menu: ctrl.toolbarLanguageActions
             },
             {
               type: 'list',
-              label: translateFilter('HEADER.TOGGLE_USER_ACTIONS_BUTTON'),
+              accessibility: translateFilter('HEADER.TOGGLE_USER_ACTIONS_ACCESSIBILITY'),
               help: translateFilter('HEADER.TOGGLE_USER_ACTIONS_TOOLTIP'),
               icon: 'account_circle',
               menu: [
                 {
                   label: translateFilter('HEADER.USER_ACTIONS.DISCONNECT'),
+                  accessibility: translateFilter('HEADER.USER_ACTIONS.DISCONNECT_ACCESSIBILITY'),
                   action: ctrl.logout
                 }
               ]
