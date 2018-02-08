@@ -27,14 +27,14 @@
     <!-- Large screen toolbar -->
     <opa-toolbar
                  ng-if="ctrl.$mdMedia('gt-sm')"
-                 opa-title="ctrl.adminTitle"
+                 opa-title="{{ctrl.adminTitle | opaTranslate}}"
                  opa-right-actions="ctrl.toolbarRightActions"
     ></opa-toolbar>
 
     <!-- Small screen toolbar -->
     <opa-toolbar
                  ng-if="!ctrl.$mdMedia('gt-sm')"
-                 opa-title="ctrl.page.title"
+                 opa-title="{{ctrl.page.title | opaTranslate}}"
                  opa-left-actions="ctrl.toolbarLeftActions"
     ></opa-toolbar>
 
