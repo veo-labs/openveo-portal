@@ -86,6 +86,52 @@ describe('opaToolbar', function() {
         }
       });
 
+      it('should be able to add a list of simple label actions', function() {
+        scope.actions = [
+          {
+            label: 'First action label',
+            help: 'First action accessibility label',
+            action: chai.spy(() => {})
+          },
+          {
+            label: 'Second action label',
+            help: 'Second action accessibility label',
+            action: chai.spy(() => {})
+          }
+        ];
+
+        let element = angular.element(`<opa-toolbar ${actionGroup.attribute}="actions"></opa-toolbar>`);
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        const buttons = element[0].querySelectorAll(`.${actionGroup.class} button`);
+
+        assert.equal(
+          buttons.length,
+          scope.actions.length,
+          'Wrong number of buttons'
+        );
+
+        for (let i = 0; i < buttons.length; i++) {
+          angular.element(buttons[i]).triggerHandler({type: 'click'});
+          scope.$digest();
+
+          scope.actions[i].action.should.have.been.called.exactly(1);
+
+          assert.equal(
+            angular.element(buttons[i]).text(),
+            scope.actions[i].label,
+            'Wrong button label'
+          );
+
+          assert.equal(
+            angular.element(buttons[i]).attr('aria-label'),
+            scope.actions[i].help,
+            'Wrong button accessibility label'
+          );
+        }
+      });
+
       it('should be able to add a list of advanced actions', function() {
         scope.actions = [
           {
