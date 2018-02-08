@@ -8,7 +8,7 @@
              aria-label="{{action.accessibility}}"
   >
     <md-icon>{{action.icon}}</md-icon>
-    <md-tooltip ng-if="action.help">{{action.help}}</md-tooltip>
+    <md-tooltip ng-if="action.help" md-delay="800">{{action.help}}</md-tooltip>
   </md-button>
 
   <!-- Text action -->
@@ -23,7 +23,7 @@
   <md-menu ng-if="action.type === 'list' && action.icon && action.menu">
     <md-button class="md-icon-button" aria-label="{{action.accessibility}}" ng-click="$mdMenu.open($event)">
       <md-icon>{{action.icon}}</md-icon>
-      <md-tooltip ng-if="action.help">{{action.help}}</md-tooltip>
+      <md-tooltip ng-if="action.help" md-delay="800">{{action.help}}</md-tooltip>
     </md-button>
     <md-menu-content class="opa-toolbar-menu">
       <md-menu-item
