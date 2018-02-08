@@ -265,12 +265,84 @@ describe('opaToolbar', function() {
         $animate.flush();
       });
 
-      it('should be ignored if no action function specified', function() {
+      it('should ignore a text action without action', function() {
+        scope.actions = [
+          {
+            type: 'text',
+            label: 'Text action label'
+          }
+        ];
+
+        let element = angular.element(`<opa-toolbar ${actionGroup.attribute}="actions"></opa-toolbar>`);
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        assert.isNotOk(
+          element[0].querySelectorAll(`.${actionGroup.class} button`).length,
+          'Unexpected button(s)'
+        );
+      });
+
+      it('should ignore a text action without label', function() {
+        scope.actions = [
+          {
+            type: 'text',
+            action: () => {}
+          }
+        ];
+
+        let element = angular.element(`<opa-toolbar ${actionGroup.attribute}="actions"></opa-toolbar>`);
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        assert.isNotOk(
+          element[0].querySelectorAll(`.${actionGroup.class} button`).length,
+          'Unexpected button(s)'
+        );
+      });
+
+      it('should ignore an icon action without action', function() {
         scope.actions = [
           {
             type: 'icon',
-            accessibility: 'First icon action accessibility message',
-            icon: 'first_action_icon_id'
+            icon: 'icon_id'
+          }
+        ];
+
+        let element = angular.element(`<opa-toolbar ${actionGroup.attribute}="actions"></opa-toolbar>`);
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        assert.isNotOk(
+          element[0].querySelectorAll(`.${actionGroup.class} button`).length,
+          'Unexpected button(s)'
+        );
+      });
+
+      it('should ignore an icon action without icon', function() {
+        scope.actions = [
+          {
+            type: 'icon',
+            action: () => {}
+          }
+        ];
+
+        let element = angular.element(`<opa-toolbar ${actionGroup.attribute}="actions"></opa-toolbar>`);
+        element = $compile(element)(scope);
+        scope.$digest();
+
+        assert.isNotOk(
+          element[0].querySelectorAll(`.${actionGroup.class} button`).length,
+          'Unexpected button(s)'
+        );
+      });
+
+      it('should ignore a list action without icon', function() {
+        scope.actions = [
+          {
+            type: 'list',
+            label: 'List action label',
+            menu: []
           }
         ];
 
