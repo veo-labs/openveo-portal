@@ -173,7 +173,7 @@
           var navLanguagesActions = [];
           opaI18nFactory.getLanguages().forEach(function(language) {
             ctrl.toolbarLanguageActions.push({
-              label: 'HEADER.LANGUAGES.' + language,
+              label: translateFilter('HEADER.LANGUAGES.' + language),
               code: language,
               action: ctrl.setLanguage,
               selected: language === ctrl.userLanguage
@@ -188,8 +188,8 @@
 
           ctrl.toolbarLeftActions.push(
             {
-              label: 'HEADER.TOGGLE_MENU_BUTTON',
-              help: 'HEADER.TOGGLE_MENU_TOOLTIP',
+              label: translateFilter('HEADER.TOGGLE_MENU_BUTTON'),
+              help: translateFilter('HEADER.TOGGLE_MENU_TOOLTIP'),
               icon: 'menu',
               action: ctrl.toggleSideNavigation
             }
@@ -197,24 +197,24 @@
 
           ctrl.toolbarRightActions.push(
             {
-              label: 'HEADER.VIEW_PORTAL_BUTTON',
-              help: 'HEADER.VIEW_PORTAL_TOOLTIP',
+              label: translateFilter('HEADER.VIEW_PORTAL_BUTTON'),
+              help: translateFilter('HEADER.VIEW_PORTAL_TOOLTIP'),
               icon: 'visibility',
               action: ctrl.goToPortal
             },
             {
-              label: 'HEADER.TOGGLE_LANGUAGES_BUTTON',
-              help: 'HEADER.TOGGLE_LANGUAGES_TOOLTIP',
+              label: translateFilter('HEADER.TOGGLE_LANGUAGES_BUTTON'),
+              help: translateFilter('HEADER.TOGGLE_LANGUAGES_TOOLTIP'),
               icon: 'language',
               menu: ctrl.toolbarLanguageActions
             },
             {
-              label: 'HEADER.TOGGLE_USER_ACTIONS_BUTTON',
-              help: 'HEADER.TOGGLE_USER_ACTIONS_TOOLTIP',
+              label: translateFilter('HEADER.TOGGLE_USER_ACTIONS_BUTTON'),
+              help: translateFilter('HEADER.TOGGLE_USER_ACTIONS_TOOLTIP'),
               icon: 'account_circle',
               menu: [
                 {
-                  label: 'HEADER.USER_ACTIONS.DISCONNECT',
+                  label: translateFilter('HEADER.USER_ACTIONS.DISCONNECT'),
                   action: ctrl.logout
                 }
               ]
