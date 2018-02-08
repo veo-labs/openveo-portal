@@ -70,12 +70,12 @@ describe('OpaIndexController', function() {
       };
 
       assert.equal(
-        ctrl.toolbarRightActions[1].menu.length,
+        ctrl.advancedToolbarRightActions[1].menu.length,
         opaI18nFactory.getLanguages().length,
         'Wrong number of languages in toolbar actions'
       );
 
-      ctrl.toolbarRightActions[1].menu.forEach(validateLanguage);
+      ctrl.advancedToolbarRightActions[1].menu.forEach(validateLanguage);
 
       assert.equal(
         ctrl.advancedNavMenu[4].actions.length,
