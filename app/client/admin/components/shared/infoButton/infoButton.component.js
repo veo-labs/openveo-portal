@@ -13,14 +13,14 @@
  *
  *     <opa-info-button
  *       opa-message="message"
- *       opa-label="Info button ARIA label"
+ *       opa-accessibility="Info button accessibility message"
  *       opa-help="Info button tooltip text"
  *     ></opa-info-button>
  *
  * Available attributes are:
  *   - [String] **opa-message**: An AngularJS expression evaluating to a wrapped version of the message that can be
  *     used as a trusted variant in $sce.HTML context
- *   - [String] **[opa-label]**: The button accessibility text
+ *   - [String] **[opa-accessibility]**: The button accessibility message
  *   - [String] **[opa-help]**: The tooltip text
  *
  * Requires:
@@ -37,7 +37,7 @@
     controller: 'OpaInfoButtonController',
     bindings: {
       opaMessage: '<',
-      opaLabel: '@',
+      opaAccessibility: '@',
       opaHelp: '@'
     }
   });
