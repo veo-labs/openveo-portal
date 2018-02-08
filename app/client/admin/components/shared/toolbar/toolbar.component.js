@@ -41,6 +41,13 @@
  *         action: function() {
  *           console.log('Do something');
  *         }
+ *       },
+ *       {
+ *         label: 'Third right action label',
+ *         help: 'Third right action accessibility message',
+ *         action: function() {
+ *           console.log('Do something');
+ *         }
  *       }
  *     ];
  *     <opa-toolbar
@@ -57,6 +64,10 @@
  *     - [Function] **action**: The function to execute when the icon is clicked
  *     - [String] **icon**: An icon representing the action as an Angular Materia icon id
  *     - [String] **[help]**: Tooltip message about the action
+ *   - a simple label button action with:
+ *     - [String] **label**: The action button label
+ *     - [Function] **action**: The function to execute when the button is clicked
+ *     - [String] **[help]**: The action accessibility label
  *   - a list of actions with for each action:
  *    - [String] **label**: The action name (used for accessibility)
  *    - [String] **icon**: An icon representing the action as an Angular Materia icon id
