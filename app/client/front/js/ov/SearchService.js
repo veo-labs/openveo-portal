@@ -95,7 +95,7 @@
             limit: 9
           }
         };
-        return $http.post(basePath + 'search', params).then(function(response) {
+        return $http.post(basePath + 'videos', params).then(function(response) {
           homeVideos = response.data;
           return response;
         });
@@ -115,7 +115,7 @@
       if (canceller)
         options['timeout'] = canceller;
       var params = {filter: filter, pagination: paginate};
-      return $http.post(basePath + 'search', params, options);
+      return $http.post(basePath + 'videos', params, options);
     }
 
     /**

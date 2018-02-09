@@ -316,7 +316,7 @@ class Server {
     this.app.get('/getvideo/:id', searchController.getVideoAction);
     this.app.get('/categories', searchController.getCategoriesAction);
     this.app.get('/filters', searchController.getSearchFiltersAction);
-    this.app.post('/search', searchController.searchAction);
+    this.app.post('/videos', searchController.searchAction);
     this.app.get('/settings/:id', settingsController.getEntityAction);
     this.app.get('/live', liveController.defaultAction);
 
