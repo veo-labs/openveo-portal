@@ -42,14 +42,16 @@
       $routeProvider.when('/', {
         template: '<opa-dashboard flex layout="row"></opa-dashboard>',
         pageTitle: 'DASHBOARD.PAGE_TITLE',
-        title: 'DASHBOARD.TITLE'
+        title: 'DASHBOARD.TITLE',
+        pageInfo: 'DASHBOARD.INFO'
       }).otherwise('/');
 
       // Register settings page route
       $routeProvider.when('/settings', {
         template: '<opa-settings flex layout="row"></opa-settings>',
         pageTitle: 'SETTINGS.PAGE_TITLE',
-        title: 'SETTINGS.TITLE'
+        title: 'SETTINGS.TITLE',
+        pageInfo: 'SETTINGS.INFO'
       });
 
       $locationProvider.html5Mode(true);

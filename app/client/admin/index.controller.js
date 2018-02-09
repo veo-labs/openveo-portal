@@ -95,6 +95,17 @@
       },
 
       /**
+       * The list of right actions for the toolbar.
+       *
+       * @property toolbarRightActions
+       * @type Array
+       * @final
+       */
+      toolbarRightActions: {
+        value: []
+      },
+
+      /**
        * The list of right actions for the advanced toolbar.
        *
        * @property advancedToolbarRightActions
@@ -114,6 +125,25 @@
        */
       advancedToolbarLanguageActions: {
         value: []
+      },
+
+      /**
+       * Toolbar page info.
+       *
+       * Holds the configuration of the toolbar info action button which presents an information about the actual
+       * page. Information message changes with the router page.
+       *
+       * @property toolbarPageInfo
+       * @type Object
+       * @final
+       */
+      toolbarPageInfo: {
+        value: {
+          type: 'info',
+          message: null,
+          accessibility: translateFilter('HEADER.INFO_ACCESSIBILITY'),
+          help: translateFilter('HEADER.INFO_TOOLTIP')
+        }
       },
 
       /**
@@ -196,6 +226,8 @@
               action: ctrl.toggleSideNavigation
             }
           );
+
+          ctrl.toolbarRightActions.push(ctrl.toolbarPageInfo);
 
           ctrl.advancedToolbarRightActions.push(
             {
@@ -397,6 +429,7 @@
     $scope.$on('$routeChangeSuccess', function(event, route) {
       ctrl.page.title = route && route.title;
       ctrl.page.pageTitle = route && route.pageTitle;
+      ctrl.toolbarPageInfo.message = (route && route.pageInfo) ? translateFilter(route.pageInfo) : null;
       ctrl.selectMenuItem(route.originalPath);
     });
 

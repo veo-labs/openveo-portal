@@ -6,6 +6,7 @@ describe('OpaIndexController', function() {
   let $controller;
   let $rootScope;
   let $q;
+  let $sce;
   let scope;
   let opaI18nFactory = {
     getLanguages: () => ['fr', 'en']
@@ -17,10 +18,11 @@ describe('OpaIndexController', function() {
   });
 
   // Dependencies injections
-  beforeEach(inject(function(_$controller_, _$rootScope_, _$q_) {
+  beforeEach(inject(function(_$controller_, _$rootScope_, _$q_, _$sce_) {
     $controller = _$controller_;
     $rootScope = _$rootScope_;
     $q = _$q_;
+    $sce = _$sce_;
   }));
 
   beforeEach(function() {
@@ -333,6 +335,33 @@ describe('OpaIndexController', function() {
 
       assert.isOk(ctrl.navMenu[0].selected, 'Expected item with path / to be selected');
       assert.isOk(ctrl.navMenu[0].selected, 'Expected advanced item with path / to be selected');
+    });
+
+    it('should update help dialog with new page information', function() {
+      const expectedPageInfo = 'PAGE_INFORMATION_MESSAGE';
+      const ctrl = $controller('OpaIndexController', {
+        $scope: scope,
+        opaI18nFactory: opaI18nFactory
+      });
+
+      scope.$broadcast('$routeChangeSuccess', {pageInfo: expectedPageInfo});
+
+      assert.equal(
+        $sce.getTrustedHtml(ctrl.toolbarPageInfo.message),
+        expectedPageInfo,
+        'Wrong page information message'
+      );
+    });
+
+    it('should remove help message if page has no associated information', function() {
+      const ctrl = $controller('OpaIndexController', {
+        $scope: scope,
+        opaI18nFactory: opaI18nFactory
+      });
+
+      scope.$broadcast('$routeChangeSuccess', {});
+
+      assert.isNull(ctrl.toolbarPageInfo.message, 'Unexpected page information message');
     });
 
   });
