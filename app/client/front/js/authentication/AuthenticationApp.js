@@ -16,8 +16,7 @@
    *
    * @class authenticationService
    */
-  function AuthenticationService($http) {
-    var basePath = '/';
+  function AuthenticationService($http, webServiceBasePath) {
     var userInfo;
 
     /**
@@ -36,7 +35,7 @@
      * @method login
      */
     function login(login, password) {
-      return $http.post(basePath + 'authenticate', {
+      return $http.post(webServiceBasePath + 'authenticate', {
         login: login,
         password: password
       });
@@ -49,7 +48,7 @@
      * @method logout
      */
     function logout() {
-      return $http.post('/be/logout');
+      return $http.post('/be' + webServiceBasePath + 'logout');
     }
 
     /**
@@ -84,6 +83,6 @@
   }
 
   app.factory('authenticationService', AuthenticationService);
-  AuthenticationService.$inject = ['$http'];
+  AuthenticationService.$inject = ['$http', 'webServiceBasePath'];
 
 })(angular);

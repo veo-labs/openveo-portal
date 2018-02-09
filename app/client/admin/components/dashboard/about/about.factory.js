@@ -11,8 +11,9 @@
    *
    * @class OpaAboutFactory
    * @param {Object} $http AngularJS $http service
+   * @param {String} opaWebServiceBasePath Portal web service base path
    */
-  function OpaAboutFactory($http) {
+  function OpaAboutFactory($http, opaWebServiceBasePath) {
 
     /**
      * Gets information about OpenVeo Portal.
@@ -27,7 +28,7 @@
      * @method getInfo
      */
     function getInfo() {
-      return $http.get('version');
+      return $http.get(opaWebServiceBasePath + 'version');
     }
 
     return {
@@ -37,6 +38,6 @@
   }
 
   app.factory('opaAboutFactory', OpaAboutFactory);
-  OpaAboutFactory.$inject = ['$http'];
+  OpaAboutFactory.$inject = ['$http', 'opaWebServiceBasePath'];
 
 })(angular.module('opa'));

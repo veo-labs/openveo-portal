@@ -8,8 +8,7 @@
    * @module ov
    * @class applicationService
    */
-  function SearchService($http, $q) {
-    var basePath = '/';
+  function SearchService($http, $q, webServiceBasePath) {
     var filters;
     var categories;
     var homeVideos;
@@ -22,7 +21,7 @@
      */
     function loadVideo(id) {
       if (!videosCache[id] || videosCache[id].needAuth) {
-        return $http.get(basePath + 'getvideo/' + id).then(function(response) {
+        return $http.get(webServiceBasePath + 'getvideo/' + id).then(function(response) {
           videosCache[id] = response.data.entity;
           return response;
         });
@@ -38,7 +37,7 @@
      */
     function getFilters() {
       if (!filters || !Object.keys(filters).length) {
-        return $http.get(basePath + 'filters').then(function(response) {
+        return $http.get(webServiceBasePath + 'filters').then(function(response) {
           filters = response.data;
           return response;
         });
@@ -54,7 +53,7 @@
      */
     function getCategories() {
       if (!categories || !Object.keys(categories).length) {
-        return $http.get(basePath + 'categories').then(function(response) {
+        return $http.get(webServiceBasePath + 'categories').then(function(response) {
           categories = response.data;
           return response;
         });
@@ -95,7 +94,7 @@
             limit: 9
           }
         };
-        return $http.post(basePath + 'videos', params).then(function(response) {
+        return $http.post(webServiceBasePath + 'videos', params).then(function(response) {
           homeVideos = response.data;
           return response;
         });
@@ -115,7 +114,7 @@
       if (canceller)
         options['timeout'] = canceller;
       var params = {filter: filter, pagination: paginate};
-      return $http.post(basePath + 'videos', params, options);
+      return $http.post(webServiceBasePath + 'videos', params, options);
     }
 
     /**
@@ -165,6 +164,6 @@
   }
 
   app.factory('searchService', SearchService);
-  SearchService.$inject = ['$http', '$q'];
+  SearchService.$inject = ['$http', '$q', 'webServiceBasePath'];
 
 })(angular.module('ov.portal'));

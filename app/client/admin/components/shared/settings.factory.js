@@ -11,8 +11,9 @@
    *
    * @class OpaSettingsFactory
    * @param {Object} $http AngularJS $http service
+   * @param {String} opaWebServiceBasePath Portal web service base path
    */
-  function OpaSettingsFactory($http) {
+  function OpaSettingsFactory($http, opaWebServiceBasePath) {
 
     /**
      * Gets a portal setting.
@@ -22,7 +23,7 @@
      * @method getSetting
      */
     function getSetting(settingId) {
-      return $http.get('settings/' + settingId);
+      return $http.get(opaWebServiceBasePath + 'settings/' + settingId);
     }
 
     /**
@@ -36,7 +37,7 @@
      * @method updateSetting
      */
     function updateSetting(settingId, value) {
-      return $http.post('settings/' + settingId, {
+      return $http.post(opaWebServiceBasePath + 'settings/' + settingId, {
         value: value
       });
     }
@@ -49,6 +50,6 @@
   }
 
   app.factory('opaSettingsFactory', OpaSettingsFactory);
-  OpaSettingsFactory.$inject = ['$http'];
+  OpaSettingsFactory.$inject = ['$http', 'opaWebServiceBasePath'];
 
 })(angular.module('opa'));

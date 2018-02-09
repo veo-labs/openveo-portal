@@ -12,8 +12,9 @@
    * @class OpaUserFactory
    * @param {Object} $http AngularJS $http service
    * @param {Object} $cookies AngularJS $cookies service
+   * @param {String} opaWebServiceBasePath Portal web service base path
    */
-  function OpaUserFactory($http, $cookies) {
+  function OpaUserFactory($http, $cookies, opaWebServiceBasePath) {
     var language = ($cookies.get('language') || navigator.language || navigator.browserLanguage).split('-')[0];
 
     /**
@@ -43,7 +44,7 @@
      * @method logout
      */
     function logout() {
-      return $http.post('logout');
+      return $http.post(opaWebServiceBasePath + 'logout');
     }
 
     /**
@@ -78,6 +79,6 @@
   }
 
   app.factory('opaUserFactory', OpaUserFactory);
-  OpaUserFactory.$inject = ['$http', '$cookies'];
+  OpaUserFactory.$inject = ['$http', '$cookies', 'opaWebServiceBasePath'];
 
 })(angular.module('opa'));

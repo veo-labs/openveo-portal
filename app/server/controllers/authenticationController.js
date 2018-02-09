@@ -179,7 +179,10 @@ module.exports.restrictAction = (request, response, next) => {
     error = errors.BACK_END_FORBIDDEN;
 
     // Only the super administrator can access the back office
-    if (request.user.id === superAdminId || /^\/be\/logout.*/.test(request.path))
+    const webServiceBasePath = portalConf.serverConf.webServiceBasePath;
+    const escapedWebServiceBasePath = webServiceBasePath.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+    const logoutRegExp = new RegExp(`^\/be${escapedWebServiceBasePath}logout.*`);
+    if (request.user.id === superAdminId || logoutRegExp.test(request.path))
       return next();
 
   }

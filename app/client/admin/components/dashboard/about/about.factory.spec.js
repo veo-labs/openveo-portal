@@ -27,7 +27,7 @@ describe('opaAboutFactory', function() {
 
     it('should return a promise resolving with the response from the server', function() {
       const expectedResults = {version: '1.0.0'};
-      $httpBackend.when('GET', '/be/version').respond(200, expectedResults);
+      $httpBackend.when('GET', '/be/ws/version').respond(200, expectedResults);
 
       opaAboutFactory.getInfo().then((results) => {
         assert.deepEqual(results.data, expectedResults);
@@ -39,7 +39,7 @@ describe('opaAboutFactory', function() {
     });
 
     it('should return a promise rejecting if server return an error', function() {
-      $httpBackend.when('GET', '/be/version').respond(500);
+      $httpBackend.when('GET', '/be/ws/version').respond(500);
 
       opaAboutFactory.getInfo().then((results) => {
         assert.ok(false, 'Unexpected result');
