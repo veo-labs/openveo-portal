@@ -318,7 +318,7 @@ class Server {
     this.app.get('/filters', searchController.getSearchFiltersAction);
     this.app.post('/search', searchController.searchAction);
     this.app.get('/settings/:id', settingsController.getEntityAction);
-    this.app.get('/live-player', liveController.defaultAction);
+    this.app.get('/live', liveController.defaultAction);
 
     // Restrict access to the back office
     this.app.all('/be*', authenticationController.restrictAction);
