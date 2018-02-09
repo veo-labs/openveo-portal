@@ -98,7 +98,7 @@
             </md-nav-item>
             <md-nav-item name="live"
                          ng-if="isLive"
-                         md-nav-click="onTabSelected('/live')"
+                         md-nav-click="onTabSelected('/live-event')"
                          aria-label="{{'MENU.LIVE' | translate}}">
               {{'MENU.LIVE' | translate}}
             </md-nav-item>
@@ -126,7 +126,7 @@
                 </md-button>
               </md-menu-item>
               <md-menu-item>
-                <md-button ng-href="/live"
+                <md-button ng-href="/live-event"
                            aria-label="{{'MENU.LIVE' | translate}}"
                            ng-bind="'MENU.LIVE' | translate"
                            class="menu-item">

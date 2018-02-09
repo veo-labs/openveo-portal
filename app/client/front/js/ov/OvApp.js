@@ -140,7 +140,7 @@
 
       // Register live page route
       if (openVeoPortalSettings.live) {
-        $routeProvider.when('/live', {
+        $routeProvider.when('/live-event', {
           templateUrl: 'views/live.html',
           controller: 'LiveController',
           title: 'LIVE.PAGE_TITLE'
