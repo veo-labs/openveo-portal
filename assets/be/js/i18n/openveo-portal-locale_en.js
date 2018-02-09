@@ -12,6 +12,8 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       TOGGLE_LANGUAGES_TOOLTIP: 'Change language',
       TOGGLE_USER_ACTIONS_ACCESSIBILITY: 'Show/hide user actions',
       TOGGLE_USER_ACTIONS_TOOLTIP: 'Show user menu',
+      INFO_ACCESSIBILITY: 'Show information about current page',
+      INFO_TOOLTIP: 'Show page info',
       USER_ACTIONS: {
         DISCONNECT: 'Disconnect',
         DISCONNECT_ACCESSIBILITY: 'Disconnect from back office'
@@ -37,6 +39,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
     DASHBOARD: {
       PAGE_TITLE: 'OpenVeo Portal - Dashboard',
       TITLE: 'Dashboard',
+      INFO: 'The <strong>Dashboard</strong> page gives you a quick overview of your OpenVeo Portal.',
       ABOUT: {
         TITLE: 'About',
         UP_TO_DATE: 'OpenVeo Portal is up to date',
@@ -53,6 +56,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
     SETTINGS: {
       PAGE_TITLE: 'OpenVeo Portal - Settings',
       TITLE: 'Settings',
+      INFO: 'The <strong>Settings</strong> page let\'s you configure how your OpenVeo Portal must behave in general.',
       LIVE: {
         TITLE: 'Live',
         INFO_BUTTON_DESCRIPTION: 'Show more information about live configuration',
