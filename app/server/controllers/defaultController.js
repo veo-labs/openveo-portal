@@ -100,3 +100,19 @@ module.exports.defaultBackOfficeAction = (request, response) => {
   response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
   response.render('index', response.locals);
 };
+
+/**
+ * Handles default web service actions.
+ *
+ * Send back an HTTP code 404.
+ *
+ * @method defaultWebServiceAction
+ * @static
+ * @async
+ * @param {Request} request ExpressJS HTTP Request
+ * @param {Response} response ExpressJS HTTP Response
+ * @param {Function} next Function to defer execution to the next registered middleware
+ */
+module.exports.defaultWebServiceAction = (request, response, next) => {
+  next(errors.PATH_NOT_FOUND);
+};

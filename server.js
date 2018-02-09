@@ -34,6 +34,7 @@ try {
   conf.databaseConf = require(processOptions.databaseConf || databaseConfPath);
   conf.webservicesConf = require(processOptions.webservicesConf || webservicesConfPath);
   conf.conf = require(processOptions.conf || confPath);
+  conf.serverConf.webServiceBasePath = '/ws/';
 } catch (error) {
   throw new Error(`Invalid configuration file : ${error.message}`);
 }

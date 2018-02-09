@@ -8,9 +8,7 @@
    * @module ov
    * @class applicationService
    */
-  function VideoService($http, $cookies) {
-
-    var basePath = '/';
+  function VideoService($http, $cookies, webServiceBasePath) {
 
     /**
      *
@@ -18,7 +16,7 @@
      */
     function increaseVideoView(id, expires) {
       if ($cookies.get(id) || !expires) return;
-      return $http.post(basePath + 'statistics/video/views/' + id).then(function() {
+      return $http.post(webServiceBasePath + 'statistics/video/views/' + id).then(function() {
         var now = new Date();
         var dateExpires = new Date(now.getTime() + expires);
         $cookies.put(id, true, {expires: dateExpires});
@@ -32,6 +30,6 @@
   }
 
   app.factory('videoService', VideoService);
-  VideoService.$inject = ['$http', '$cookies'];
+  VideoService.$inject = ['$http', '$cookies', 'webServiceBasePath'];
 
 })(angular.module('ov.portal'));

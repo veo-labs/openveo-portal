@@ -30,6 +30,8 @@
 
   var app = angular.module('ov.portal', moduleDependencies);
 
+  app.constant('webServiceBasePath', '/ws/');
+
   // Redefine path to not reload when modify is change
   app.run(['$route', '$rootScope', '$location', function($route, $rootScope, $location) {
     var original = $location.path;

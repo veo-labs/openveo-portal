@@ -47,7 +47,7 @@
    * by the main controller.
    */
   function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia, $mdPanel,
-  $location, $filter, $window, $analytics, searchService, authenticationService) {
+  $location, $filter, $window, $analytics, searchService, authenticationService, webServiceBasePath) {
     var self = this;
     var urlParams = $location.search();
     var authenticationStrategies = openVeoPortalSettings.authenticationStrategies;
@@ -242,7 +242,7 @@
         if ($scope.user.origin === authenticationStrategies.CAS) {
 
           // CAS strategy needs a redirection
-          $window.location.href = '/be/logout';
+          $window.location.href = '/be' + webServiceBasePath + 'logout';
 
         } else {
           this.isLoggingOut = true;
@@ -303,7 +303,8 @@
     '$window',
     '$analytics',
     'searchService',
-    'authenticationService'
+    'authenticationService',
+    'webServiceBasePath'
   ];
   DialogController.$inject = ['$scope', '$mdDialog', 'video', '$mdMedia'];
   ToastController.$inject = ['$scope', '$mdToast'];

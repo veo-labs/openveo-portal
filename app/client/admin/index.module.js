@@ -4,6 +4,7 @@
  * OpenVeo Portal AngularJS module to manage administration interface.
  *
  * opa (for OpenVeo Portal Admin) module holds all components of the OpenVeo Portal administration interface.
+ * It also defines opaWebServiceBasePath constant holding the base path of the Web Service.
  *
  * @module opa
  * @main opa
@@ -34,6 +35,8 @@
     'opa.i18n',
     'opa.locale'
   ]);
+
+  app.constant('opaWebServiceBasePath', '/ws/');
 
   app.config(['$routeProvider', '$locationProvider', '$logProvider', '$httpProvider', '$mdThemingProvider',
     function($routeProvider, $locationProvider, $logProvider, $httpProvider, $mdThemingProvider) {

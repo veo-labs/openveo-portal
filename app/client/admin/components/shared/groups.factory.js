@@ -11,8 +11,9 @@
    *
    * @class OpaGroupsFactory
    * @param {Object} $http AngularJS $http service
+   * @param {String} opaWebServiceBasePath Portal web service base path
    */
-  function OpaGroupsFactory($http) {
+  function OpaGroupsFactory($http, opaWebServiceBasePath) {
 
     /**
      * Gets the list of OpenVeo groups.
@@ -21,7 +22,7 @@
      * @method getGroups
      */
     function getGroups() {
-      return $http.get('groups');
+      return $http.get(opaWebServiceBasePath + 'groups');
     }
 
     return {
@@ -31,6 +32,6 @@
   }
 
   app.factory('opaGroupsFactory', OpaGroupsFactory);
-  OpaGroupsFactory.$inject = ['$http'];
+  OpaGroupsFactory.$inject = ['$http', 'opaWebServiceBasePath'];
 
 })(angular.module('opa'));

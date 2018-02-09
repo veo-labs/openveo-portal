@@ -307,37 +307,44 @@ class Server {
    * @method mountRoutes
    */
   mountRoutes() {
-    if (this.configuration.auth) {
-      this.app.get('/authenticate/:type', authenticationController.authenticateExternalAction);
-      this.app.post('/authenticate', authenticationController.authenticateInternalAction);
-    }
+    const webServiceBasePath = this.configuration.webServiceBasePath;
 
-    this.app.post('/statistics/:entity/:type/:id', statisticsController.statisticsAction);
-    this.app.get('/getvideo/:id', searchController.getVideoAction);
-    this.app.get('/categories', searchController.getCategoriesAction);
-    this.app.get('/filters', searchController.getSearchFiltersAction);
-    this.app.post('/videos', searchController.searchAction);
-    this.app.get('/settings/:id', settingsController.getEntityAction);
+    // Routes
     this.app.get('/live', liveController.defaultAction);
 
-    // Restrict access to the back office
-    this.app.all('/be*', authenticationController.restrictAction);
-
+    // Web service routes
     if (this.configuration.auth) {
-      this.app.get('/be/logout', authenticationController.logoutAction);
-      this.app.post('/be/logout', authenticationController.logoutAction);
+      this.app.get(`${webServiceBasePath}authenticate/:type`, authenticationController.authenticateExternalAction);
+      this.app.post(`${webServiceBasePath}authenticate`, authenticationController.authenticateInternalAction);
     }
 
-    // Back office routes
-    this.app.get('/be/version', versionController.getVersionAction);
-    this.app.get('/be/settings/:id', settingsController.getEntityAction);
-    this.app.post('/be/settings/:id', settingsController.updateEntityAction);
-    this.app.get('/be/groups', groupsController.getGroupsAction);
+    this.app.post(`${webServiceBasePath}statistics/:entity/:type/:id`, statisticsController.statisticsAction);
+    this.app.get(`${webServiceBasePath}getvideo/:id`, searchController.getVideoAction);
+    this.app.get(`${webServiceBasePath}categories`, searchController.getCategoriesAction);
+    this.app.get(`${webServiceBasePath}filters`, searchController.getSearchFiltersAction);
+    this.app.post(`${webServiceBasePath}videos`, searchController.searchAction);
+    this.app.get(`${webServiceBasePath}settings/:id`, settingsController.getEntityAction);
 
-    // Handle admin not found routes
+    // Routes security
+    this.app.all('/be*', authenticationController.restrictAction);
+
+    // Web service routes
+    if (this.configuration.auth) {
+      this.app.get(`/be${webServiceBasePath}logout`, authenticationController.logoutAction);
+      this.app.post(`/be${webServiceBasePath}logout`, authenticationController.logoutAction);
+    }
+
+    this.app.get(`/be${webServiceBasePath}version`, versionController.getVersionAction);
+    this.app.get(`/be${webServiceBasePath}settings/:id`, settingsController.getEntityAction);
+    this.app.post(`/be${webServiceBasePath}settings/:id`, settingsController.updateEntityAction);
+    this.app.get(`/be${webServiceBasePath}groups`, groupsController.getGroupsAction);
+
+    // Not found web service routes
+    this.app.all(`/${webServiceBasePath}*`, defaultController.defaultWebServiceAction);
+    this.app.all(`/be${webServiceBasePath}*`, defaultController.defaultWebServiceAction);
+
+    // Not found routes
     this.app.all('/be*', defaultController.defaultBackOfficeAction);
-
-    // Handle not found routes
     this.app.all('*', defaultController.defaultAction);
 
     // Handle errors
