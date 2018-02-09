@@ -201,6 +201,19 @@
       init: {
         value: function() {
           var navLanguagesActions = [];
+          var navDashboardAction = {
+            label: translateFilter('NAV.DASHBOARD'),
+            icon: 'dashboard',
+            action: ctrl.goTo,
+            href: '/'
+          };
+          var navSettingsAction = {
+            label: translateFilter('NAV.SETTINGS'),
+            icon: 'settings',
+            action: ctrl.goTo,
+            href: '/settings'
+          };
+
           opaI18nFactory.getLanguages().forEach(function(language) {
             ctrl.advancedToolbarLanguageActions.push({
               label: translateFilter('HEADER.LANGUAGES.' + language),
@@ -259,34 +272,11 @@
             }
           );
 
-          ctrl.navMenu.push(
-            {
-              label: translateFilter('NAV.DASHBOARD'),
-              icon: 'dashboard',
-              action: ctrl.goTo,
-              href: '/'
-            },
-            {
-              label: translateFilter('NAV.SETTINGS'),
-              icon: 'settings',
-              action: ctrl.goTo,
-              href: '/settings'
-            }
-          );
+          ctrl.navMenu.push(navDashboardAction, navSettingsAction);
 
           ctrl.advancedNavMenu.push(
-            {
-              label: translateFilter('NAV.DASHBOARD'),
-              icon: 'dashboard',
-              action: ctrl.goTo,
-              href: '/'
-            },
-            {
-              label: translateFilter('NAV.SETTINGS'),
-              icon: 'settings',
-              action: ctrl.goTo,
-              href: '/settings'
-            },
+            navDashboardAction,
+            navSettingsAction,
             {
               divider: true
             },
