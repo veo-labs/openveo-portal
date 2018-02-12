@@ -5,17 +5,27 @@
  */
 
 /**
- * Provides route actions for the search engine.
+ * Provides route actions about video filters.
  *
- * @class searchController
+ * @class filtersController
  * @static
  */
 
 const async = require('async');
+const filterCache = process.require('/app/server/serverCache/FilterCache.js');
 const portalConf = process.require('app/server/conf.js');
-const filterCache = process.require('/app/server/serverCache/FilterCache');
 
-module.exports.getSearchFiltersAction = (request, response, next) => {
+/**
+ * Gets the list of available video filters.
+ *
+ * @method getFiltersAction
+ * @static
+ * @async
+ * @param {Request} request ExpressJS HTTP Request
+ * @param {Response} response ExpressJS HTTP Response
+ * @param {Function} next Function to defer execution to the next registered middleware
+ */
+module.exports.getFiltersAction = (request, response, next) => {
   const filterCacheInstance = filterCache.getFilterCache();
   const filters = [];
   const series = [];
@@ -43,7 +53,6 @@ module.exports.getSearchFiltersAction = (request, response, next) => {
   }
 
   async.series(series, () => {
-
     response.send(filters);
   });
 };

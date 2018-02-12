@@ -21,7 +21,6 @@ const favicon = require('serve-favicon');
 const openVeoApi = require('@openveo/api');
 const defaultController = process.require('app/server/controllers/defaultController.js');
 const errorController = process.require('app/server/controllers/errorController.js');
-const searchController = process.require('app/server/controllers/searchController.js');
 const statisticsController = process.require('app/server/controllers/statisticsController.js');
 const authenticationController = process.require('app/server/controllers/authenticationController.js');
 const versionController = process.require('app/server/controllers/versionController.js');
@@ -30,6 +29,7 @@ const groupsController = process.require('app/server/controllers/groupsControlle
 const liveController = process.require('app/server/controllers/liveController.js');
 const videosController = process.require('app/server/controllers/videosController.js');
 const categoriesController = process.require('app/server/controllers/categoriesController.js');
+const filtersController = process.require('app/server/controllers/filtersController.js');
 const portalConf = process.require('app/server/conf.js');
 const authenticator = process.require('app/server/authenticator.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
@@ -323,7 +323,7 @@ class Server {
     this.app.post(`${webServiceBasePath}statistics/:entity/:type/:id`, statisticsController.statisticsAction);
     this.app.get(`${webServiceBasePath}videos/:id`, videosController.getVideoAction);
     this.app.get(`${webServiceBasePath}categories`, categoriesController.getCategoriesAction);
-    this.app.get(`${webServiceBasePath}filters`, searchController.getSearchFiltersAction);
+    this.app.get(`${webServiceBasePath}filters`, filtersController.getFiltersAction);
     this.app.post(`${webServiceBasePath}videos`, videosController.searchAction);
     this.app.get(`${webServiceBasePath}settings/:id`, settingsController.getEntityAction);
 
