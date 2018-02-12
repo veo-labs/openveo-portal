@@ -319,7 +319,7 @@ class Server {
     }
 
     this.app.post(`${webServiceBasePath}statistics/:entity/:type/:id`, statisticsController.statisticsAction);
-    this.app.get(`${webServiceBasePath}getvideo/:id`, searchController.getVideoAction);
+    this.app.get(`${webServiceBasePath}videos/:id`, searchController.getVideoAction);
     this.app.get(`${webServiceBasePath}categories`, searchController.getCategoriesAction);
     this.app.get(`${webServiceBasePath}filters`, searchController.getSearchFiltersAction);
     this.app.post(`${webServiceBasePath}videos`, searchController.searchAction);

@@ -21,7 +21,7 @@
      */
     function loadVideo(id) {
       if (!videosCache[id] || videosCache[id].needAuth) {
-        return $http.get(webServiceBasePath + 'getvideo/' + id).then(function(response) {
+        return $http.get(webServiceBasePath + 'videos/' + id).then(function(response) {
           videosCache[id] = response.data.entity;
           return response;
         });
