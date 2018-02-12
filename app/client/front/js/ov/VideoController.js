@@ -11,9 +11,11 @@
    * @returns {VideoController_L3.VideoController}
    */
   function VideoController($scope, $locale, $timeout, $location, $analytics, videoService, searchService, $sce) {
-    searchService.getCategoryName($scope.video.category).then(function(val) {
-      $scope.categoryName = val;
-    });
+    if ($scope.video.category) {
+      searchService.getCategoryName($scope.video.category).then(function(val) {
+        $scope.categoryName = val;
+      });
+    }
 
     $scope.dialIsOpen = false;
     $scope.language = $locale.id;

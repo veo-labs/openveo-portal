@@ -63,11 +63,17 @@
     }
 
     /**
+     * Gets a category name by its id.
      *
-     * @return categories
+     * @param {String} id The category id
+     * @method getCategoryName
+     * @return {HttpPromise} A promise resolving with the category name
      */
     function getCategoryName(id) {
       var self = this;
+
+      if (!id) return $q.reject(new Error('Category id not defined'));
+
       return self.getCategories().then(function(result) {
         return result.data.values[id];
       });
