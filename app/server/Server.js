@@ -28,6 +28,7 @@ const versionController = process.require('app/server/controllers/versionControl
 const settingsController = process.require('app/server/controllers/settingsController.js');
 const groupsController = process.require('app/server/controllers/groupsController.js');
 const liveController = process.require('app/server/controllers/liveController.js');
+const videosController = process.require('app/server/controllers/videosController.js');
 const portalConf = process.require('app/server/conf.js');
 const authenticator = process.require('app/server/authenticator.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
@@ -319,10 +320,10 @@ class Server {
     }
 
     this.app.post(`${webServiceBasePath}statistics/:entity/:type/:id`, statisticsController.statisticsAction);
-    this.app.get(`${webServiceBasePath}videos/:id`, searchController.getVideoAction);
+    this.app.get(`${webServiceBasePath}videos/:id`, videosController.getVideoAction);
     this.app.get(`${webServiceBasePath}categories`, searchController.getCategoriesAction);
     this.app.get(`${webServiceBasePath}filters`, searchController.getSearchFiltersAction);
-    this.app.post(`${webServiceBasePath}videos`, searchController.searchAction);
+    this.app.post(`${webServiceBasePath}videos`, videosController.searchAction);
     this.app.get(`${webServiceBasePath}settings/:id`, settingsController.getEntityAction);
 
     // Routes security
