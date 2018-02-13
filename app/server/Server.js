@@ -19,17 +19,17 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const openVeoApi = require('@openveo/api');
-const defaultController = process.require('app/server/controllers/defaultController.js');
-const errorController = process.require('app/server/controllers/errorController.js');
-const statisticsController = process.require('app/server/controllers/statisticsController.js');
-const authenticationController = process.require('app/server/controllers/authenticationController.js');
-const versionController = process.require('app/server/controllers/versionController.js');
-const settingsController = process.require('app/server/controllers/settingsController.js');
-const groupsController = process.require('app/server/controllers/groupsController.js');
-const liveController = process.require('app/server/controllers/liveController.js');
-const videosController = process.require('app/server/controllers/videosController.js');
-const categoriesController = process.require('app/server/controllers/categoriesController.js');
-const filtersController = process.require('app/server/controllers/filtersController.js');
+const DefaultController = process.require('app/server/controllers/DefaultController.js');
+const ErrorController = process.require('app/server/controllers/ErrorController.js');
+const StatisticsController = process.require('app/server/controllers/StatisticsController.js');
+const AuthenticationController = process.require('app/server/controllers/AuthenticationController.js');
+const VersionController = process.require('app/server/controllers/VersionController.js');
+const SettingsController = process.require('app/server/controllers/SettingsController.js');
+const GroupsController = process.require('app/server/controllers/GroupsController.js');
+const LiveController = process.require('app/server/controllers/LiveController.js');
+const VideosController = process.require('app/server/controllers/VideosController.js');
+const CategoriesController = process.require('app/server/controllers/CategoriesController.js');
+const FiltersController = process.require('app/server/controllers/FiltersController.js');
 const portalConf = process.require('app/server/conf.js');
 const authenticator = process.require('app/server/authenticator.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
@@ -310,47 +310,121 @@ class Server {
    */
   mountRoutes() {
     const webServiceBasePath = this.configuration.webServiceBasePath;
+    const authenticationController = new AuthenticationController();
+    const categoriesController = new CategoriesController();
+    const defaultController = new DefaultController();
+    const errorController = new ErrorController();
+    const filtersController = new FiltersController();
+    const groupsController = new GroupsController();
+    const liveController = new LiveController();
+    const settingsController = new SettingsController();
+    const statisticsController = new StatisticsController();
+    const versionController = new VersionController();
+    const videosController = new VideosController();
 
     // Routes
-    this.app.get('/live', liveController.defaultAction);
+    this.app.get(
+      '/live',
+      liveController.defaultAction.bind(liveController)
+    );
 
     // Web service routes
     if (this.configuration.auth) {
-      this.app.get(`${webServiceBasePath}authenticate/:type`, authenticationController.authenticateExternalAction);
-      this.app.post(`${webServiceBasePath}authenticate`, authenticationController.authenticateInternalAction);
+      this.app.get(
+        `${webServiceBasePath}authenticate/:type`,
+        authenticationController.authenticateExternalAction.bind(authenticationController)
+      );
+      this.app.post(
+        `${webServiceBasePath}authenticate`,
+        authenticationController.authenticateInternalAction.bind(authenticationController)
+      );
     }
 
-    this.app.post(`${webServiceBasePath}statistics/:entity/:type/:id`, statisticsController.statisticsAction);
-    this.app.get(`${webServiceBasePath}videos/:id`, videosController.getVideoAction);
-    this.app.get(`${webServiceBasePath}categories`, categoriesController.getCategoriesAction);
-    this.app.get(`${webServiceBasePath}filters`, filtersController.getFiltersAction);
-    this.app.post(`${webServiceBasePath}videos`, videosController.searchAction);
-    this.app.get(`${webServiceBasePath}settings/:id`, settingsController.getEntityAction);
+    this.app.post(
+      `${webServiceBasePath}statistics/:entity/:type/:id`,
+      statisticsController.statisticsAction.bind(statisticsController)
+    );
+    this.app.get(
+      `${webServiceBasePath}videos/:id`,
+      videosController.getVideoAction.bind(videosController)
+    );
+    this.app.get(
+      `${webServiceBasePath}categories`,
+      categoriesController.getCategoriesAction.bind(categoriesController)
+    );
+    this.app.get(
+      `${webServiceBasePath}filters`,
+      filtersController.getFiltersAction.bind(filtersController)
+    );
+    this.app.post(
+      `${webServiceBasePath}videos`,
+      videosController.searchAction.bind(videosController)
+    );
+    this.app.get(
+      `${webServiceBasePath}settings/:id`,
+      settingsController.getEntityAction.bind(settingsController)
+    );
 
     // Routes security
-    this.app.all('/be*', authenticationController.restrictAction);
+    this.app.all(
+      '/be*',
+      authenticationController.restrictAction.bind(authenticationController)
+    );
 
     // Web service routes
     if (this.configuration.auth) {
-      this.app.get(`/be${webServiceBasePath}logout`, authenticationController.logoutAction);
-      this.app.post(`/be${webServiceBasePath}logout`, authenticationController.logoutAction);
+      this.app.get(
+        `/be${webServiceBasePath}logout`,
+        authenticationController.logoutAction.bind(authenticationController)
+      );
+      this.app.post(
+        `/be${webServiceBasePath}logout`,
+        authenticationController.logoutAction.bind(authenticationController)
+      );
     }
 
-    this.app.get(`/be${webServiceBasePath}version`, versionController.getVersionAction);
-    this.app.get(`/be${webServiceBasePath}settings/:id`, settingsController.getEntityAction);
-    this.app.post(`/be${webServiceBasePath}settings/:id`, settingsController.updateEntityAction);
-    this.app.get(`/be${webServiceBasePath}groups`, groupsController.getGroupsAction);
+    this.app.get(
+      `/be${webServiceBasePath}version`,
+      versionController.getVersionAction.bind(versionController)
+    );
+    this.app.get(
+      `/be${webServiceBasePath}settings/:id`,
+      settingsController.getEntityAction.bind(settingsController)
+    );
+    this.app.post(
+      `/be${webServiceBasePath}settings/:id`,
+      settingsController.updateEntityAction.bind(settingsController)
+    );
+    this.app.get(
+      `/be${webServiceBasePath}groups`,
+      groupsController.getGroupsAction.bind(groupsController)
+    );
+
+    // this.app.get(`/be${webServiceBasePath}videos/promoted`, .getDetailedVideosSettingsAction);
+    // /ws/be/videos/promoted
 
     // Not found web service routes
-    this.app.all(`/${webServiceBasePath}*`, defaultController.defaultWebServiceAction);
-    this.app.all(`/be${webServiceBasePath}*`, defaultController.defaultWebServiceAction);
+    this.app.all(
+      `/${webServiceBasePath}*`,
+      defaultController.defaultWebServiceAction.bind(defaultController)
+    );
+    this.app.all(
+      `/be${webServiceBasePath}*`,
+      defaultController.defaultWebServiceAction.bind(defaultController)
+    );
 
     // Not found routes
-    this.app.all('/be*', defaultController.defaultBackOfficeAction);
-    this.app.all('*', defaultController.defaultAction);
+    this.app.all(
+      '/be*',
+      defaultController.defaultBackOfficeAction.bind(defaultController)
+    );
+    this.app.all(
+      '*',
+      defaultController.defaultAction.bind(defaultController)
+    );
 
     // Handle errors
-    this.app.use(errorController.errorAction);
+    this.app.use(errorController.errorAction.bind(errorController));
   }
 
   /**
