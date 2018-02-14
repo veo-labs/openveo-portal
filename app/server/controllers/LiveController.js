@@ -8,7 +8,7 @@ const openVeoApi = require('@openveo/api');
 const portalConf = process.require('app/server/conf.js');
 const SettingsModel = process.require('app/server/models/SettingsModel.js');
 const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
-const storage = process.require('app/server/storage.js');
+const context = process.require('app/server/context.js');
 const errors = process.require('app/server/httpErrors.js');
 
 class LiveController extends openVeoApi.controllers.Controller {
@@ -34,7 +34,7 @@ class LiveController extends openVeoApi.controllers.Controller {
    * @param {Function} next Function to defer execution to the next registered middleware
    */
   defaultAction(request, response, next) {
-    const settingsModel = new SettingsModel(new SettingsProvider(storage.getDatabase()));
+    const settingsModel = new SettingsModel(new SettingsProvider(context.database));
 
     // Get live settings
     settingsModel.getOne('live', null, (error, settings) => {

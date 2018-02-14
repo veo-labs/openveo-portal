@@ -8,7 +8,7 @@ const openVeoApi = require('@openveo/api');
 const errors = process.require('app/server/httpErrors.js');
 const SettingsModel = process.require('app/server/models/SettingsModel.js');
 const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
-const storage = process.require('app/server/storage.js');
+const context = process.require('app/server/context.js');
 
 class SettingsController extends openVeoApi.controllers.EntityController {
 
@@ -30,7 +30,7 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    * @return {SettingsModel} The settings model
    */
   getModel() {
-    return new SettingsModel(new SettingsProvider(storage.getDatabase()));
+    return new SettingsModel(new SettingsProvider(context.database));
   }
 
   /**
@@ -85,7 +85,7 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    */
   updateEntityAction(request, response, next) {
     if (request.params.id && request.body && request.body.value) {
-      const model = new SettingsModel(new SettingsProvider(storage.getDatabase()));
+      const model = new SettingsModel(new SettingsProvider(context.database));
       const entityId = request.params.id;
       let value;
 
