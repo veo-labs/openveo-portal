@@ -8,7 +8,7 @@ const fs = require('fs');
 const os = require('os');
 const async = require('async');
 const openVeoApi = require('@openveo/api');
-const storage = process.require('app/server/storage.js');
+const context = process.require('app/server/context.js');
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const confDir = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const exit = process.exit;
@@ -734,7 +734,7 @@ function verifyDatabaseConf(callback) {
       exit();
     }
 
-    storage.setDatabase(db);
+    context.database = db;
     callback();
   });
 }
@@ -743,7 +743,7 @@ function verifyDatabaseConf(callback) {
  * Creates super administrator if it does not exist.
  */
 function createSuperAdmin(callback) {
-  const userProvider = new UserProvider(storage.getDatabase());
+  const userProvider = new UserProvider(context.database);
   const conf = require(path.join(confDir, 'conf.json'));
   const user = {
     id: '0',

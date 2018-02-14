@@ -11,7 +11,7 @@ const SettingsProvider = process.require('app/server/providers/SettingsProvider.
 const UserModel = process.require('app/server/models/UserModel.js');
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const conf = process.require('app/server/conf.js');
-const storage = process.require('app/server/storage.js');
+const context = process.require('app/server/context.js');
 
 /**
  * The authenticator helps manipulate users authenticated by passport strategies.
@@ -41,7 +41,7 @@ function populateUser(user, callback) {
   if (!user.groups || !user.groups.length) return callback(null, user);
 
   // Get live settings
-  const settingsModel = new SettingsModel(new SettingsProvider(storage.getDatabase()));
+  const settingsModel = new SettingsModel(new SettingsProvider(context.database));
   settingsModel.getOne('live', null, (error, settings) => {
     if (error) return callback(error);
     user.hasLiveAccess = openVeoApi.util.intersectArray(
@@ -82,7 +82,7 @@ module.exports.serializeUser = (user, callback) => {
  *   - **Object** The user with its permissions
  */
 module.exports.deserializeUser = (data, callback) => {
-  const userModel = new UserModel(new UserProvider(storage.getDatabase()));
+  const userModel = new UserModel(new UserProvider(context.database));
 
   userModel.getOne(data, null, (error, user) => {
     if (error) return callback(error);
@@ -104,7 +104,7 @@ module.exports.deserializeUser = (data, callback) => {
  *  - **Object** The user with its permissions
  */
 module.exports.verifyUserByCredentials = (email, password, callback) => {
-  const userModel = new UserModel(new UserProvider(storage.getDatabase()));
+  const userModel = new UserModel(new UserProvider(context.database));
 
   userModel.getUserByCredentials(email, password, (error, user) => {
     if (error) return callback(error);
@@ -135,7 +135,7 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
   const thirdPartyNameAttribute = strategyConfiguration.userNameAttribute;
   const thirdPartyEmailAttribute = strategyConfiguration.userEmailAttribute;
   const thirdPartyGroupAttribute = strategyConfiguration.userGroupAttribute;
-  const userModel = new UserModel(new UserProvider(storage.getDatabase()));
+  const userModel = new UserModel(new UserProvider(context.database));
   const originId = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyIdAttribute, thirdPartyUser);
   const thirdPartyUserName = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyNameAttribute, thirdPartyUser);
   const thirdPartyUserEmail = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyEmailAttribute, thirdPartyUser);
