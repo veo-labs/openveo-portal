@@ -1,0 +1,11 @@
+<div class="opa-media-option">
+  <img class="thumbnail" ng-src="{{ ctrl.opaMedia.preview }}">
+  <div class="overlay"></div>
+  <div class="actions" dir="rtl">
+    <md-checkbox aria-label="ctrl.opaMedia.title" ng-model="ctrl.isChecked" ng-change="ctrl.updateSelect()"></md-checkbox>
+  </div>
+  <div class="info" layout="column">
+    <md-truncate class="title" ng-bind="ctrl.opaMedia.title"></md-truncate>
+    <span class="date" ng-bind="ctrl.opaMedia.date | date: 'mediumDate'"></span>
+  </div>
+</div>
