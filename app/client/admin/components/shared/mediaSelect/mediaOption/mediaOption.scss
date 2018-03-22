@@ -1,0 +1,66 @@
+.opa-media-option {
+  position: relative;
+
+  .thumbnail {
+    display: block;
+  }
+
+  .overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  .actions {
+    text-align: right;
+    padding: 15px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    md-checkbox .md-icon {
+      background: #ffffff;
+      border-color: #000000;
+    }
+
+    md-checkbox.md-checked {
+      &.md-focused .md-container:before {
+        background-color: rgba(55, 159, 214, 0.26);
+      }
+
+      .md-icon,
+      .md-icon::after {
+        background: #379fd6;
+        border-color: #ffffff;
+        color: #000000;
+      }
+
+      .md-ink-ripple {
+        color: #379fd6;
+      }
+    }
+  }
+
+  .info {
+    color: #ffffff;
+    line-height: 133%;
+    text-shadow: 1px 1px 1px #000000;
+    padding: 15px;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    .title {
+      font-weight: 700;
+    }
+
+    .date {
+      font-size: 80%;
+    }
+  }
+}
