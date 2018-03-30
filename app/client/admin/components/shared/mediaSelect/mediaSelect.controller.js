@@ -7,7 +7,7 @@
 (function(app) {
 
   /**
-   * Manages opaSelect component.
+   * Manages opaMediaSelect component.
    *
    * @class OpaMediaSelectController
    * @constructor
