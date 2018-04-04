@@ -6,12 +6,11 @@
 
 const async = require('async');
 const openVeoApi = require('@openveo/api');
-const SettingsModel = process.require('app/server/models/SettingsModel.js');
 const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
-const UserModel = process.require('app/server/models/UserModel.js');
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const conf = process.require('app/server/conf.js');
 const context = process.require('app/server/context.js');
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
 
 /**
  * The authenticator helps manipulate users authenticated by passport strategies.
@@ -41,11 +40,11 @@ function populateUser(user, callback) {
   if (!user.groups || !user.groups.length) return callback(null, user);
 
   // Get live settings
-  const settingsModel = new SettingsModel(new SettingsProvider(context.database));
-  settingsModel.getOne('live', null, (error, settings) => {
+  const settingsProvider = new SettingsProvider(context.database);
+  settingsProvider.getOne(new ResourceFilter().equal('id', 'live'), null, (error, setting) => {
     if (error) return callback(error);
     user.hasLiveAccess = openVeoApi.util.intersectArray(
-      user.groups, settings.value.groups
+      user.groups, setting.value.groups
     ).length ? true : false;
 
     callback(null, user);
@@ -82,9 +81,9 @@ module.exports.serializeUser = (user, callback) => {
  *   - **Object** The user with its permissions
  */
 module.exports.deserializeUser = (data, callback) => {
-  const userModel = new UserModel(new UserProvider(context.database));
+  const userProvider = new UserProvider(context.database);
 
-  userModel.getOne(data, null, (error, user) => {
+  userProvider.getOne(new ResourceFilter().equal('id', data), null, (error, user) => {
     if (error) return callback(error);
     if (!user) return callback(new Error(`Unkown user "${data}"`));
     populateUser(user, callback);
@@ -104,9 +103,9 @@ module.exports.deserializeUser = (data, callback) => {
  *  - **Object** The user with its permissions
  */
 module.exports.verifyUserByCredentials = (email, password, callback) => {
-  const userModel = new UserModel(new UserProvider(context.database));
+  const userProvider = new UserProvider(context.database);
 
-  userModel.getUserByCredentials(email, password, (error, user) => {
+  userProvider.getUserByCredentials(email, password, (error, user) => {
     if (error) return callback(error);
     if (!user) return callback(new Error(`Email and / or password incorrect for "${email}"`));
     populateUser(user, callback);
@@ -135,7 +134,7 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
   const thirdPartyNameAttribute = strategyConfiguration.userNameAttribute;
   const thirdPartyEmailAttribute = strategyConfiguration.userEmailAttribute;
   const thirdPartyGroupAttribute = strategyConfiguration.userGroupAttribute;
-  const userModel = new UserModel(new UserProvider(context.database));
+  const userProvider = new UserProvider(context.database);
   const originId = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyIdAttribute, thirdPartyUser);
   const thirdPartyUserName = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyNameAttribute, thirdPartyUser);
   const thirdPartyUserEmail = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyEmailAttribute, thirdPartyUser);
@@ -151,17 +150,21 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
     // Test if user already exists in OpenVeo
     (callback) => {
       if (originId) {
-        userModel.get({
-          origin: strategy,
-          originId: originId
-        }, (error, users) => {
-          if (error) return callback(error);
-          if (users && users.length) {
-            exists = true;
-            user = users[0];
+        userProvider.getAll(
+          new ResourceFilter().equal('origin', strategy).equal('originId', originId),
+          null,
+          {
+            id: 'desc'
+          },
+          (error, users) => {
+            if (error) return callback(error);
+            if (users && users.length) {
+              exists = true;
+              user = users[0];
+            }
+            callback();
           }
-          callback();
-        });
+        );
       } else {
         exists = false;
         callback();
@@ -187,12 +190,14 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
     (callback) => {
       if (exists) return callback();
 
-      userModel.addThirdPartyUser({
-        name: thirdPartyUserName,
-        email: thirdPartyUserEmail,
-        groups: groups
-      }, strategy, originId, originGroups, (error, addedCount, addedUser) => {
-        if (addedUser) user = addedUser;
+      userProvider.addThirdPartyUsers([
+        {
+          name: thirdPartyUserName,
+          email: thirdPartyUserEmail,
+          groups
+        }
+      ], strategy, originId, originGroups, (error, total, addedUsers) => {
+        if (addedUsers) user = addedUsers[0];
         callback(error);
       });
     },
@@ -210,12 +215,17 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
         user.groups = groups;
         user.originGroups = originGroups;
 
-        userModel.updateThirdPartyUser(user.id, {
-          name: user.name,
-          email: user.email,
-          originGroups: user.originGroups,
-          groups: user.groups
-        }, strategy, callback);
+        userProvider.updateThirdPartyUser(
+          new ResourceFilter().equal('id', user.id),
+          {
+            name: user.name,
+            email: user.email,
+            originGroups: user.originGroups,
+            groups: user.groups
+          },
+          strategy,
+          callback
+        );
       } else
         callback();
     },

@@ -49,7 +49,7 @@ WebserviceClient.create(conf.webservicesConf);
 const server = new Server(conf.serverConf);
 
 // Get a Database instance
-const db = openVeoApi.database.factory.get(conf.databaseConf);
+const db = openVeoApi.storages.factory.get(conf.databaseConf.type, conf.databaseConf);
 
 // Establish connection to the database
 db.connect((error) => {

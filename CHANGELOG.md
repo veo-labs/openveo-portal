@@ -8,6 +8,8 @@
 ## DEPENDENCIES
 
 - **angular-material** has been upgraded from 1.1.4 to **1.1.5**
+- **@openveo/api** has been upgraded from 4.\* to **5.\***
+- **@openveo/test** has been upgraded from 5.\* to **6.\***
 
 # 3.0.0 / 2017-10-19
 

@@ -6,9 +6,9 @@
 
 const openVeoApi = require('@openveo/api');
 const errors = process.require('app/server/httpErrors.js');
-const SettingsModel = process.require('app/server/models/SettingsModel.js');
 const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
 const context = process.require('app/server/context.js');
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
 
 class SettingsController extends openVeoApi.controllers.EntityController {
 
@@ -24,17 +24,24 @@ class SettingsController extends openVeoApi.controllers.EntityController {
   }
 
   /**
-   * Gets an instance of the entity model associated to the controller.
+   * Gets an instance of the entity provider associated to the controller.
    *
-   * @method getModel
-   * @return {SettingsModel} The settings model
+   * @method getProvider
+   * @return {SettingsProvider} The provider
    */
-  getModel() {
-    return new SettingsModel(new SettingsProvider(context.database));
+  getProvider() {
+    return new SettingsProvider(context.database);
   }
 
   /**
-   * Handles settings action to get an OpenVeo Portal settings.
+   * Handles settings action to get an OpenVeo Portal setting.
+   *
+   * @example
+   *
+   *     // Response example
+   *     {
+   *       "entity" : { ... }
+   *     }
    *
    * @method getEntityAction
    * @async
@@ -45,22 +52,18 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    */
   getEntityAction(request, response, next) {
     if (request.params.id) {
-      const entityId = request.params.id;
-      const model = this.getModel();
+      const settingId = request.params.id;
+      const provider = this.getProvider();
 
-      model.getOne(entityId, null, function(error, entity) {
+      provider.getOne(new ResourceFilter().equal('id', settingId), null, function(error, setting) {
         if (error) {
-          process.logger.error(error.message, {error: error, method: 'getEntityAction', entity: entityId});
-          next(errors.GET_SETTING_ERROR);
-        } else if (!entity) {
-          response.send({
-            entity: null
-          });
-        } else {
-          response.send({
-            entity: entity
-          });
+          process.logger.error(error.message, {error: error, method: 'getEntityAction', entity: settingId});
+          return next(errors.GET_SETTING_ERROR);
         }
+
+        response.send({
+          entity: (!setting) ? null : setting
+        });
       });
     } else {
 
@@ -72,6 +75,13 @@ class SettingsController extends openVeoApi.controllers.EntityController {
 
   /**
    * Handles settings action to update OpenVeo Portal a setting.
+   *
+   * @example
+   *
+   *     // Response example
+   *     {
+   *       "total": 1
+   *     }
    *
    * @method updateEntityAction
    * @async
@@ -85,12 +95,12 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    */
   updateEntityAction(request, response, next) {
     if (request.params.id && request.body && request.body.value) {
-      const model = new SettingsModel(new SettingsProvider(context.database));
-      const entityId = request.params.id;
+      const provider = new SettingsProvider(context.database);
+      const settingId = request.params.id;
       let value;
 
       // Validate settings value depending on settings name
-      if (entityId === 'live') {
+      if (settingId === 'live') {
         try {
           value = openVeoApi.util.shallowValidateObject(request.body.value, {
             activated: {type: 'boolean', required: true, default: false},
@@ -120,15 +130,18 @@ class SettingsController extends openVeoApi.controllers.EntityController {
         }
       }
 
-      model.update(entityId, {
-        value: value
-      }, function(error, updateCount) {
+      provider.add([
+        {
+          id: settingId,
+          value
+        }
+      ], function(error, total) {
         if (error) {
           process.logger.error((error && error.message) || 'Fail updating',
-                               {method: 'updateEntityAction', entity: entityId});
+                               {method: 'updateEntityAction', entity: settingId});
           next(errors.UPDATE_SETTINGS_ERROR);
         } else {
-          response.send({error: null, status: 'ok'});
+          response.send({total});
         }
       });
     } else {
@@ -137,6 +150,21 @@ class SettingsController extends openVeoApi.controllers.EntityController {
       next(errors.UPDATE_SETTINGS_MISSING_PARAMETERS);
 
     }
+  }
+
+  /**
+   * Adds settings.
+   *
+   * It is not possible to add several settings for now, use update instead.
+   *
+   * @method addEntitiesAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Response} response ExpressJS HTTP Response
+   * @param {Function} next Function to defer execution to the next registered middleware
+   */
+  addEntitiesAction(request, response, next) {
+    throw new Error('addEntitiesAction method not available for settings');
   }
 
 }
