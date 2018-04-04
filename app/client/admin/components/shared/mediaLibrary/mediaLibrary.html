@@ -1,0 +1,22 @@
+<div class="opa-media-library" layout="column">
+  <md-toolbar class="md-whiteframe-4dp" md-colors="{color: 'default-background-500', background: 'default-background-A100'}">
+    <form class="md-toolbar-tools" flex layout="row" layout-align="start center" ng-submit="$ctrl.search()">
+
+      <md-button type="submit" class="md-icon-button">
+        <md-icon md-colors="{color: 'default-background-500'}">search</md-icon>
+      </md-button>
+
+      <md-input-container flex layout="row">
+        <label ng-bind="'MEDIA_LIBRARY.FILTER_TOOLBAR.NAME' | opaTranslate"></label>
+        <input ng-model="$ctrl.keyword" autocomplete="off">
+      </md-input-container>
+
+    </form>
+  </md-toolbar>
+
+  <div class="select-container" layout="column" >
+    <opa-media-select ng-model="$ctrl.ngModel" opa-medias="$ctrl.medias" opa-multiple="$ctrl.multiple"></opa-media-select>
+    <md-progress-linear ng-show="$ctrl.isLoading" md-mode="indeterminate"></md-progress-linear>
+  </div>
+
+</div>

@@ -1,0 +1,38 @@
+.opa-media-library {
+  flex-grow: 1;
+
+  .select-container {
+    overflow: auto;
+    flex-grow: 1;
+
+    opa-media-select {
+      flex-grow: 1;
+    }
+
+    md-progress-linear {
+      position: sticky;
+      bottom: 0;
+    }
+  }
+
+  .md-toolbar-tools {
+    & > * {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    md-input-container.md-input-focused label:not(.md-no-float),
+    md-input-container.md-input-has-placeholder label:not(.md-no-float),
+    md-input-container.md-input-has-value label:not(.md-no-float) {
+      transform: translate3d(0, 14px, 0) scale(0.75);
+    }
+
+    .md-input {
+      border-width: 0;
+    }
+
+    .md-select-value {
+      border-width: 0;
+    }
+  }
+}
