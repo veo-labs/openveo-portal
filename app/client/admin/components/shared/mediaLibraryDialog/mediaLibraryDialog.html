@@ -1,0 +1,17 @@
+<md-dialog class="opa-media-library-dialog" ng-class="$ctrl.dialogSizeClass()">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 ng-bind="'MEDIA_LIBRARY_DIALOG.TITLE' | opaTranslate"></h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+        <md-icon aria-label="{{ 'MEDIA_LIBRARY_DIALOG.CLOSE'| opaTranslate }}">cancel</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content layout="column">
+    <opa-media-library layout="column" ng-model="$ctrl.value" opa-multiple="$ctrl.multiple"></opa-media-library>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button aria-label="{{ 'MEDIA_LIBRARY_DIALOG.VALIDATE' | opaTranslate }}" ng-click="$ctrl.close()" ng-bind="'MEDIA_LIBRARY_DIALOG.VALIDATE' | opaTranslate"></md-button>
+  </md-dialog-actions>
+</md-dialog>
