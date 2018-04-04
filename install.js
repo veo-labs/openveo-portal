@@ -12,6 +12,7 @@ const context = process.require('app/server/context.js');
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const confDir = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const exit = process.exit;
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
 
 // Create a readline interface to interact with the user
 const rl = readline.createInterface({
@@ -726,7 +727,7 @@ function createWebservicesConf(callback) {
  */
 function verifyDatabaseConf(callback) {
   const databaseConf = require(path.join(confDir, 'databaseConf.json'));
-  const db = openVeoApi.database.factory.get(databaseConf);
+  const db = openVeoApi.storages.factory.get(databaseConf.type, databaseConf);
 
   db.connect((error) => {
     if (error) {
@@ -755,7 +756,7 @@ function createSuperAdmin(callback) {
     (callback) => {
 
       // Verify if the super admin does not exist
-      userProvider.getOne('0', null, (error, user) => {
+      userProvider.getOne(new ResourceFilter().equal('id', '0'), null, (error, user) => {
         if (user)
           callback(new Error('A super admin user already exists\n'));
         else
@@ -788,7 +789,7 @@ function createSuperAdmin(callback) {
       process.stdout.write(error.message);
       callback();
     } else
-      userProvider.add(user, (error) => {
+      userProvider.add([user], (error) => {
         callback(error);
       });
   });

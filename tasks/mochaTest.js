@@ -9,7 +9,9 @@ module.exports = {
     options: {
       reporter: 'spec'
     },
-    src: []
+    src: [
+      'tests/server/providers/*.js'
+    ]
   }
 
 };

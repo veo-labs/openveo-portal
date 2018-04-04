@@ -20,7 +20,6 @@ const path = require('path');
 const async = require('async');
 const nopt = require('nopt');
 const openVeoApi = require('@openveo/api');
-const UserModel = process.require('app/server/models/UserModel.js');
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const confDir = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const databaseConf = require(path.join(confDir, 'databaseConf.json'));
@@ -46,7 +45,7 @@ async.series([
 
   // Connect to database
   (callback) => {
-    database = openVeoApi.database.factory.get(databaseConf);
+    database = openVeoApi.storages.factory.get(databaseConf.type, databaseConf);
     database.connect((error) => {
       if (error)
         error.message = `Could not connect to the database with message: ${error.message}`;
@@ -57,15 +56,17 @@ async.series([
 
   // Create user
   (callback) => {
-    let userModel = new UserModel(new UserProvider(database));
-    userModel.add({
-      name: processOptions.name,
-      email: processOptions.email,
-      password: processOptions.password,
-      passwordValidate: processOptions.password,
-      groups: processOptions.groups ? processOptions.groups.split(',') : [],
-      locked: true
-    }, (error) => {
+    let userProvider = new UserProvider(database);
+    userProvider.add([
+      {
+        name: processOptions.name,
+        email: processOptions.email,
+        password: processOptions.password,
+        passwordValidate: processOptions.password,
+        groups: processOptions.groups ? processOptions.groups.split(',') : [],
+        locked: true
+      }
+    ], (error) => {
       if (!error)
         process.stdout.write('User successfully added\n');
 
