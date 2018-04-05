@@ -84,6 +84,16 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       SAVE_SUCCESS: 'Settings saved',
       ERROR_MESSAGE: 'Can\'t load settings'
     },
+    MEDIA_LIBRARY: {
+      FILTER_TOOLBAR: {
+        NAME: 'Search'
+      }
+    },
+    MEDIA_LIBRARY_DIALOG: {
+      TITLE: 'Media library',
+      CLOSE: 'Fermer',
+      VALIDATE: 'Validate'
+    },
     ERRORS: {
       CLIENT: 'An application error occured, please contact the administrator',
       SERVER: 'A server error occured, please contact the administrator',
