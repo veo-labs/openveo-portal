@@ -84,6 +84,16 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       SAVE_SUCCESS: 'Configuration enregistrée',
       ERROR_MESSAGE: 'Impossible d\'afficher la configuration'
     },
+    MEDIA_LIBRARY: {
+      FILTER_TOOLBAR: {
+        NAME: 'Rechercher'
+      }
+    },
+    MEDIA_LIBRARY_DIALOG: {
+      TITLE: 'Bibliothèque de média',
+      CLOSE: 'Fermer',
+      VALIDATE: 'Valider'
+    },
     ERRORS: {
       CLIENT: 'Une erreur applicative est survenue, veuillez contacter l\'administrateur',
       SERVER: 'Une erreur serveur est survenue, veuillez contacter l\'administrateur',
