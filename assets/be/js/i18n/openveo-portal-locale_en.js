@@ -84,6 +84,9 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       SAVE_SUCCESS: 'Settings saved',
       ERROR_MESSAGE: 'Can\'t load settings'
     },
+    MEDIA_CONTAINER: {
+      REMOVE: 'Remove'
+    },
     MEDIA_LIBRARY: {
       FILTER_TOOLBAR: {
         NAME: 'Search'

@@ -1,0 +1,89 @@
+.opa-media-container {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  color: #fff;
+  outline: 0;
+
+  &.hover {
+    cursor: pointer;
+  }
+
+  &.empty {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: #afafaf;
+
+    &:hover {
+      border-color: #e6007e;
+
+      .title {
+        color: #e6007e;
+      }
+    }
+
+    .title {
+      color: #afafaf;
+      margin: auto;
+      font-size: 42px;
+      font-weight: 700;
+    }
+  }
+
+  &:not(.empty) {
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 30px;
+      text-shadow: 1px 1px 1px #000000;
+
+      position: absolute;
+      top: 1px;
+      left: 7px;
+      height: 30px;
+    }
+  }
+
+  .preview {
+    position: absolute;
+  }
+
+  .overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .remove-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 0;
+    padding: 0px;
+    width: 30px;
+    min-height: 30px;
+    height: 30px;
+
+    md-icon {
+      color: #fff;
+      text-shadow: 1px 1px 1px #000000;
+    }
+  }
+
+  .media-info {
+    font-size: 90%;
+    text-shadow: 1px 1px 1px #000000;
+    padding: 7px;
+    position: absolute;
+    bottom: 0;
+
+    .media-title {
+      font-weight: 700;
+    }
+
+    .media-date {
+      font-size: 80%;
+    }
+  }
+}
