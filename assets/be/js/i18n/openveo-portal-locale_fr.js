@@ -84,6 +84,9 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
       SAVE_SUCCESS: 'Configuration enregistrée',
       ERROR_MESSAGE: 'Impossible d\'afficher la configuration'
     },
+    MEDIA_CONTAINER: {
+      REMOVE: 'Supprimer'
+    },
     MEDIA_LIBRARY: {
       FILTER_TOOLBAR: {
         NAME: 'Rechercher'
