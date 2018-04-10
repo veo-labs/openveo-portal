@@ -1,8 +1,30 @@
+$OPA_MEDIA_CONTAINER_EMPTY_COLOR: #afafaf;
+$OPA_MEDIA_CONTAINER_FOCUS_COLOR: #1a91d1;
+$OPA_MEDIA_CONTAINER_OVER_COLOR: #e6007e;
+$OPA_MEDIA_CONTAINER_SHADOW_COLOR: #000;
+$OPA_MEDIA_CONTAINER_TEXT_COLOR: #fff;
+
+$OPA_MEDIA_CONTAINER_OVERLAY_DEFAULT_BG: linear-gradient(
+  rgba(0, 0, 0, .25),
+  rgba(0, 0, 0, 0),
+  rgba(0, 0, 0, .25)
+);
+$OPA_MEDIA_CONTAINER_OVERLAY_FOCUS_BG: linear-gradient(
+  rgba(26, 145, 209, .25),
+  rgba(26, 145, 209, .2),
+  rgba(26, 145, 209, .25)
+);
+$OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
+  rgba(230, 0, 126, .25),
+  rgba(230, 0, 126, .2),
+  rgba(230, 0, 126, .25)
+);
+
 .opa-media-container {
   display: flex;
   position: relative;
   flex-grow: 1;
-  color: #fff;
+  color: $OPA_MEDIA_CONTAINER_TEXT_COLOR;
   outline: 0;
 
   &.hover {
@@ -12,18 +34,26 @@
   &.empty {
     border-width: 2px;
     border-style: dashed;
-    border-color: #afafaf;
+    border-color: $OPA_MEDIA_CONTAINER_EMPTY_COLOR;
 
     &:hover {
-      border-color: #e6007e;
+      border-color: $OPA_MEDIA_CONTAINER_OVER_COLOR;
 
       .title {
-        color: #e6007e;
+        color: $OPA_MEDIA_CONTAINER_OVER_COLOR;
+      }
+    }
+
+    &:focus {
+      border-color: $OPA_MEDIA_CONTAINER_FOCUS_COLOR;
+
+      .title {
+        color: $OPA_MEDIA_CONTAINER_FOCUS_COLOR;
       }
     }
 
     .title {
-      color: #afafaf;
+      color: $OPA_MEDIA_CONTAINER_EMPTY_COLOR;
       margin: auto;
       font-size: 42px;
       font-weight: 700;
@@ -35,7 +65,7 @@
       font-size: 18px;
       font-weight: 700;
       line-height: 30px;
-      text-shadow: 1px 1px 1px #000000;
+      text-shadow: 1px 1px 1px $OPA_MEDIA_CONTAINER_SHADOW_COLOR;
 
       position: absolute;
       top: 1px;
@@ -48,8 +78,20 @@
     position: absolute;
   }
 
+  &:focus {
+    .overlay {
+      background: $OPA_MEDIA_CONTAINER_OVERLAY_FOCUS_BG;
+    }
+  }
+
+  &:hover {
+    .overlay {
+      background: $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG;
+    }
+  }
+
   .overlay {
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+    background: $OPA_MEDIA_CONTAINER_OVERLAY_DEFAULT_BG;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -65,15 +107,19 @@
     min-height: 30px;
     height: 30px;
 
+    &:focus {
+      background-color: rgba(0, 0, 0, .125);
+    }
+
     md-icon {
-      color: #fff;
-      text-shadow: 1px 1px 1px #000000;
+      color: $OPA_MEDIA_CONTAINER_TEXT_COLOR;
+      text-shadow: 1px 1px 1px $OPA_MEDIA_CONTAINER_SHADOW_COLOR;
     }
   }
 
   .media-info {
     font-size: 90%;
-    text-shadow: 1px 1px 1px #000000;
+    text-shadow: 1px 1px 1px $OPA_MEDIA_CONTAINER_SHADOW_COLOR;
     padding: 7px;
     position: absolute;
     bottom: 0;

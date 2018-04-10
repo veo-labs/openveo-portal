@@ -36,10 +36,11 @@
        */
       onRemove: {
         value: function($event) {
-          $event.stopPropagation();
+          $event.stopImmediatePropagation();
           self.opaRemove();
         }
       }
+
     });
   }
 
