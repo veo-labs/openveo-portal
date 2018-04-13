@@ -21,10 +21,18 @@
       margin-bottom: 0;
     }
 
+    md-input-container .md-placeholder,
+    md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+      transition: opacity .4s cubic-bezier(.25,.8,.25,1);
+    }
+
     md-input-container.md-input-focused label:not(.md-no-float),
     md-input-container.md-input-has-placeholder label:not(.md-no-float),
     md-input-container.md-input-has-value label:not(.md-no-float) {
-      transform: translate3d(0, 14px, 0) scale(0.75);
+      transform: translate3d(0,28px,0) scale(1);
+      -webkit-transform: translate3d(0,28px,0) scale(1);
+      transition: opacity .4s cubic-bezier(.25,.8,.25,1);
+      opacity: 0;
     }
 
     .md-input {
