@@ -10,7 +10,7 @@
    *
    * @class OpaMediaOptionController
    */
-  function OpaMediaOptionController() {
+  function OpaMediaOptionController($element) {
     var self = this;
 
     Object.defineProperties(self, {
@@ -39,6 +39,10 @@
         value: function(changedProperties) {
           if (changedProperties.hasOwnProperty('opaChecked'))
             self.isChecked = self.opaChecked;
+
+          if (changedProperties.hasOwnProperty('opaFocus') && self.opaFocus === true) {
+            $element.find('md-checkbox')[0].focus();
+          }
         }
       },
 
@@ -55,6 +59,18 @@
           else
             self.selectCtrl.uncheck(self.opaMedia);
         }
+      },
+
+      /**
+       * Launch opaBlur() binding callback
+       *
+       * @method opaBlur
+       * @final
+       */
+      onBlur: {
+        value: function() {
+          self.opaBlur();
+        }
       }
 
     });
@@ -62,5 +78,6 @@
   }
 
   app.controller('OpaMediaOptionController', OpaMediaOptionController);
+  OpaMediaOptionController.$inject = ['$element'];
 
 })(angular.module('opa'));

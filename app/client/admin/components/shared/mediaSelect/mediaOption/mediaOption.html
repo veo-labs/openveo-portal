@@ -2,7 +2,7 @@
   <img class="thumbnail" ng-src="{{ ctrl.opaMedia.preview }}">
   <div class="overlay"></div>
   <div class="actions" dir="rtl">
-    <md-checkbox aria-label="ctrl.opaMedia.title" ng-model="ctrl.isChecked" ng-change="ctrl.updateSelect()"></md-checkbox>
+    <md-checkbox aria-label="ctrl.opaMedia.title" ng-model="ctrl.isChecked" ng-change="ctrl.updateSelect()" ng-blur="ctrl.onBlur()" tabindex="-1"></md-checkbox>
   </div>
   <div class="info" layout="column">
     <md-truncate class="title" ng-bind="ctrl.opaMedia.title"></md-truncate>
