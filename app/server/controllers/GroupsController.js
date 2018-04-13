@@ -6,7 +6,7 @@
 
 const openVeoApi = require('@openveo/api');
 const errors = process.require('app/server/httpErrors.js');
-const webServiceClient = process.require('/app/server/WebserviceClient');
+const context = process.require('app/server/context.js');
 
 class GroupsController extends openVeoApi.controllers.Controller {
 
@@ -31,15 +31,23 @@ class GroupsController extends openVeoApi.controllers.Controller {
    * @param {Function} next Function to defer execution to the next registered middleware
    */
   getGroupsAction(request, response, next) {
-    const openVeoClient = webServiceClient.get();
+    context.openVeoProvider.getAll(
+      '/groups',
+      null,
+      null,
+      null,
+      null,
+      (error, groups) => {
+        if (error) {
+          process.logger.error(error.message, {error, method: 'getGroupsAction'});
+          return next(errors.GET_GROUPS_ERROR);
+        }
 
-    // Get the list of groups
-    openVeoClient.get('/groups').then((result) => {
-      response.send(result);
-    }).catch((error) => {
-      process.logger.error(error.message, {error, method: 'getGroupsAction'});
-      return next(errors.GET_GROUPS_ERROR);
-    });
+        response.send({
+          entities: groups
+        });
+      }
+    );
   }
 
 }

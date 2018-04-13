@@ -5,6 +5,7 @@
  */
 
 const openVeoApi = require('@openveo/api');
+const OpenVeoProvider = process.require('app/server/providers/OpenVeoProvider.js');
 
 class Context {
 
@@ -23,6 +24,7 @@ class Context {
    */
   constructor() {
     let database;
+    let openVeoProvider;
 
     Object.defineProperties(this, {
 
@@ -38,7 +40,23 @@ class Context {
           return database;
         },
         set: (value) => {
-          if (value instanceof openVeoApi.database.Database) database = value;
+          if (value instanceof openVeoApi.storages.Database) database = value;
+        }
+      },
+
+      /**
+       * An OpenVeoProvider instance.
+       *
+       * @property openVeoProvider
+       * @type OpenVeoProvider
+       */
+      openVeoProvider: {
+        enumerable: true,
+        get: () => {
+          return openVeoProvider;
+        },
+        set: (value) => {
+          if (value instanceof OpenVeoProvider) openVeoProvider = value;
         }
       }
 

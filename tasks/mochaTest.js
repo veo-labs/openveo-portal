@@ -10,7 +10,11 @@ module.exports = {
       reporter: 'spec'
     },
     src: [
-      'tests/server/providers/*.js'
+      'tests/server/init.js',
+      'tests/server/providers/*.js',
+      'tests/server/controllers/*.js',
+      'tests/server/portal/*.js',
+      'tests/server/storages/*.js'
     ]
   }
 

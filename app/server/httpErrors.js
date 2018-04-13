@@ -105,13 +105,13 @@ const HTTP_ERRORS = {
   },
 
   /**
-   * A server error occurring when getting a video from Web Service failed.
+   * A server error occurring when getting a video from OpenVeo failed.
    *
-   * @property GET_VIDEO_UNKNOWN
+   * @property GET_VIDEO_ERROR
    * @type Object
    * @final
    */
-  GET_VIDEO_UNKNOWN: {
+  GET_VIDEO_ERROR: {
     code: 0x008,
     httpCode: 500
   },
@@ -176,6 +176,66 @@ const HTTP_ERRORS = {
     httpCode: 500
   },
 
+  /**
+   * Getting filters failed when getting custom properties.
+   *
+   * @property GET_FILTERS_PROPERTIES_ERROR
+   * @type Object
+   * @final
+   */
+  GET_FILTERS_PROPERTIES_ERROR: {
+    code: 0x00e,
+    httpCode: 500
+  },
+
+  /**
+   * Getting filters failed when getting taxonomy "categories".
+   *
+   * @property GET_FILTERS_CATEGORIES_ERROR
+   * @type Object
+   * @final
+   */
+  GET_FILTERS_CATEGORIES_ERROR: {
+    code: 0x00f,
+    httpCode: 500
+  },
+
+  /**
+   * Getting categories failed.
+   *
+   * @property GET_CATEGORIES_ERROR
+   * @type Object
+   * @final
+   */
+  GET_CATEGORIES_ERROR: {
+    code: 0x010,
+    httpCode: 500
+  },
+
+  /**
+   * Modifying the number of views of a media failed when getting the media.
+   *
+   * @property STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR
+   * @type Object
+   * @final
+   */
+  STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR: {
+    code: 0x011,
+    httpCode: 500
+  },
+
+  /**
+   * Modifying the number of views of a media failed.
+   *
+   * @property STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR
+   * @type Object
+   * @final
+   */
+  STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR: {
+    code: 0x012,
+    httpCode: 500
+  },
+
   // Not found errors
 
   /**
@@ -187,6 +247,18 @@ const HTTP_ERRORS = {
    */
   PATH_NOT_FOUND: {
     code: 0x100,
+    httpCode: 404
+  },
+
+  /**
+   * Getting video failed, video not found.
+   *
+   * @property GET_VIDEO_NOT_FOUND
+   * @type Object
+   * @final
+   */
+  GET_VIDEO_NOT_FOUND: {
+    code: 0x101,
     httpCode: 404
   },
 
@@ -347,6 +419,18 @@ const HTTP_ERRORS = {
    */
   UPDATE_SETTINGS_WRONG_PARAMETERS: {
     code: 0x304,
+    httpCode: 400
+  },
+
+  /**
+   * Search failed, wrong parameters.
+   *
+   * @property SEARCH_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  SEARCH_WRONG_PARAMETERS: {
+    code: 0x305,
     httpCode: 400
   }
 

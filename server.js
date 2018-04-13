@@ -7,7 +7,8 @@ const openVeoApi = require('@openveo/api');
 const conf = process.require('app/server/conf.js');
 const Server = process.require('app/server/Server.js');
 const context = process.require('app/server/context.js');
-const WebserviceClient = process.require('app/server/WebserviceClient.js');
+const OpenVeoProvider = process.require('app/server/providers/OpenVeoProvider.js');
+const OpenVeoStorage = process.require('app/server/storages/OpenVeoStorage.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const loggerConfPath = path.join(configurationDirectoryPath, 'loggerConf.json');
 const serverConfPath = path.join(configurationDirectoryPath, 'serverConf.json');
@@ -42,14 +43,14 @@ try {
 // Create logger
 process.logger = openVeoApi.logger.add('portal', conf.loggerConf);
 
-// Create Web Service client
-WebserviceClient.create(conf.webservicesConf);
-
 // Instanciate a Server
 const server = new Server(conf.serverConf);
 
 // Get a Database instance
 const db = openVeoApi.storages.factory.get(conf.databaseConf.type, conf.databaseConf);
+
+// Create OpenVeo provider
+context.openVeoProvider = new OpenVeoProvider(new OpenVeoStorage(conf.webservicesConf));
 
 // Establish connection to the database
 db.connect((error) => {
