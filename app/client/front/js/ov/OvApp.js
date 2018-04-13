@@ -93,6 +93,8 @@
                 else if (result.data.needAuth)
                   deferred.reject({redirect: '/login', needAuth: true});
 
+                else deferred.reject({redirect: '/'});
+
               }, function(error) {
 
                 // error on call
