@@ -11,7 +11,7 @@ describe('OpaMediaOptionController', function() {
   });
 
   // Dependencies injections
-  beforeEach(inject(function(_$compile_, _$rootScope_, _$componentController_) {
+  beforeEach(inject(function(_$componentController_) {
     $componentController = _$componentController_;
   }));
 
@@ -19,6 +19,7 @@ describe('OpaMediaOptionController', function() {
     const bindings = {
       opaChecked: undefined,
       opaMedia: {},
+      opaFocus: false,
       selectCtrl: {
         check: (media) => {},
         uncheck: (media) => {}
@@ -27,7 +28,7 @@ describe('OpaMediaOptionController', function() {
 
     it('should call OpaMediaSelectController.check when checkbox is checked', function() {
       bindings.opaChecked = true;
-      const ctrl = $componentController('opaMediaOption', {}, bindings);
+      const ctrl = $componentController('opaMediaOption', {$element: {}}, bindings);
       const spy = chai.spy.on(bindings.selectCtrl, 'check');
 
       ctrl.$onChanges({opaChecked: {currentValue: bindings.opaChecked, previousValue: undefined}});
@@ -38,7 +39,7 @@ describe('OpaMediaOptionController', function() {
 
     it('should call OpaMediaSelectController.uncheck when checkbox is unchecked', function() {
       bindings.opaChecked = false;
-      const ctrl = $componentController('opaMediaOption', {}, bindings);
+      const ctrl = $componentController('opaMediaOption', {$element: {}}, bindings);
       const spy = chai.spy.on(bindings.selectCtrl, 'uncheck');
 
       ctrl.$onChanges({opaChecked: {currentValue: bindings.opaChecked, previousValue: undefined}});

@@ -1,3 +1,18 @@
+$OPA_MEDIA_OPTION_OVERLAY_DEFAULT_BG: linear-gradient(
+  rgba(0, 0, 0, 0.25),
+  rgba(0, 0, 0, 0),
+  rgba(0, 0, 0, 0.25)
+);
+$OPA_MEDIA_OPTION_INFO_COLOR: #ffffff;
+$OPA_MEDIA_OPTION_INFO_SHADOW: #000000;
+$OPA_MEDIA_OPTION_FOCUS_BG: rgba(255, 255, 255, .3);
+$OPA_MEDIA_OPTION_FOCUS_CHECKED_BG: rgba(55, 159, 214, .26);
+$OPA_MEDIA_OPTION_CHECKED_BG: #379fd6;
+$OPA_MEDIA_OPTION_CHECKED_BORDER: #ffffff;
+$OPA_MEDIA_OPTION_CHECKED_COLOR: #000000;
+$OPA_MEDIA_OPTION_UNCHECKED_BG: $OPA_MEDIA_OPTION_CHECKED_BORDER;
+$OPA_MEDIA_OPTION_UNCHECKED_BORDER: $OPA_MEDIA_OPTION_CHECKED_COLOR;
+
 .opa-media-option {
   position: relative;
 
@@ -6,7 +21,7 @@
   }
 
   .overlay {
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+    background: $OPA_MEDIA_OPTION_OVERLAY_DEFAULT_BG;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -21,33 +36,43 @@
     top: 0;
     right: 0;
 
-    md-checkbox .md-icon {
-      background: #ffffff;
-      border-color: #000000;
-    }
+    md-checkbox {
+      &.md-checked {
+        .md-icon,
+        .md-icon::after {
+          background: $OPA_MEDIA_OPTION_CHECKED_BG;
+          border-color: $OPA_MEDIA_OPTION_CHECKED_BORDER;
+          color: $OPA_MEDIA_OPTION_CHECKED_COLOR;
+        }
 
-    md-checkbox.md-checked {
-      &.md-focused .md-container:before {
-        background-color: rgba(55, 159, 214, 0.26);
+        .md-ink-ripple {
+          color: $OPA_MEDIA_OPTION_CHECKED_BG;
+        }
       }
 
-      .md-icon,
-      .md-icon::after {
-        background: #379fd6;
-        border-color: #ffffff;
-        color: #000000;
+      &.md-focused:not([disabled]):not(.md-checked) {
+        .md-container:before {
+          background-color: $OPA_MEDIA_OPTION_FOCUS_BG;
+        }
       }
 
-      .md-ink-ripple {
-        color: #379fd6;
+      &.md-focused:not([disabled]).md-checked {
+        .md-container:before {
+          background-color: $OPA_MEDIA_OPTION_FOCUS_CHECKED_BG;
+        }
+      }
+
+      .md-icon {
+        background: $OPA_MEDIA_OPTION_UNCHECKED_BG;
+        border-color: $OPA_MEDIA_OPTION_UNCHECKED_BORDER;
       }
     }
   }
 
   .info {
-    color: #ffffff;
+    color: $OPA_MEDIA_OPTION_INFO_COLOR;
     line-height: 133%;
-    text-shadow: 1px 1px 1px #000000;
+    text-shadow: 1px 1px 1px $OPA_MEDIA_OPTION_INFO_SHADOW;
     padding: 15px;
 
     position: absolute;
