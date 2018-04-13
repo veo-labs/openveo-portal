@@ -3,10 +3,10 @@
 /**
  * Media option component presents the thumbnail of a media with a checkbox to select it.
  *
- * <opa-media-option ng-model="ngModel" opa-media="media"></opa-media-option>
+ * <opa-media-option opa-checked="value" opa-media="media"></opa-media-option>
  *
  * Available attributes are:
- * - [Boolean] **ng-model**: The state of the checkbox
+ * - [Boolean] **opa-checked**: The state of the checkbox
  * - [Object] **opa-media**: The media to represent
  *
  * Requires
