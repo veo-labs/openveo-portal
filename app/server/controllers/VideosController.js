@@ -4,12 +4,11 @@
  * @module controllers
  */
 
-const querystring = require('querystring');
 const openVeoApi = require('@openveo/api');
-const webServiceClient = process.require('/app/server/WebserviceClient.js');
 const errors = process.require('app/server/httpErrors.js');
-const videoCache = process.require('/app/server/serverCache/VideoCache.js');
 const portalConf = process.require('app/server/conf.js');
+const context = process.require('app/server/context.js');
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
 
 class VideosController extends openVeoApi.controllers.Controller {
 
@@ -47,7 +46,7 @@ class VideosController extends openVeoApi.controllers.Controller {
   searchAction(request, response, next) {
     const VIDEO_PUBLISH_STATES = 12;
     const body = request.body || {};
-    const openVeoClient = webServiceClient.get();
+    const filter = new ResourceFilter();
     let params;
     let paginate;
 
@@ -61,12 +60,12 @@ class VideosController extends openVeoApi.controllers.Controller {
         sortBy: {type: 'string', in: ['views', 'date'], default: 'date'},
         sortOrder: {type: 'string', in: ['asc', 'desc'], default: 'desc'}
       });
-    } catch (error) {
-      return response.status(500).send({
-        error: {
-          message: error.message
-        }
+      paginate = openVeoApi.util.shallowValidateObject(body.pagination, {
+        limit: {type: 'number', gt: 0, default: 9},
+        page: {type: 'number', gte: 0, default: 0}
       });
+    } catch (error) {
+      return next(errors.SEARCH_WRONG_PARAMETERS);
     }
 
     // Public group filter not defined
@@ -80,63 +79,68 @@ class VideosController extends openVeoApi.controllers.Controller {
 
       // Anonymous user (not authenticated)
       // Add public groups
-      params['groups'] = portalConf.conf.publicFilter || [];
+      filter.in('groups', portalConf.conf.publicFilter || []);
 
     } else if (request.user.id !== portalConf.superAdminId) {
 
       // User authenticated and not the super administrator
       // Add public groups
-      params['groups'] = portalConf.conf.publicFilter || [];
+      let groups = portalConf.conf.publicFilter || [];
 
       // Add private groups
       if (portalConf.conf.privateFilter)
-        params['groups'] = params['groups'].concat(portalConf.conf.privateFilter);
+        groups = groups.concat(portalConf.conf.privateFilter);
 
       // Add user groups
       if (request.user.groups && request.user.groups.length)
-        params['groups'] = params['groups'].concat(request.user.groups);
+        groups = groups.concat(request.user.groups);
 
+      filter.in('groups', groups);
     }
 
     // Add published states
-    params['states'] = VIDEO_PUBLISH_STATES;
+    filter.equal('states', VIDEO_PUBLISH_STATES);
 
     // Add properties
     Object.keys(body.filter).forEach((key) => {
-      // if filter key is allready set thanks to shallowValidateObject
-      if (!params[key] && params[key] !== '') {
-        params[`properties[${key}]`] = body.filter[key];
-      }
+      if (!params[key] && params[key] !== '')
+        filter.equal(`properties[${key}]`, body.filter[key]);
     });
 
-    // Parse pagination
-    try {
-      paginate = openVeoApi.util.shallowValidateObject(body.pagination, {
-        limit: {type: 'number', gt: 0, default: 9},
-        page: {type: 'number', gte: 0, default: 0}
-      });
-    } catch (error) {
-      return response.status(500).send({
-        error: {
-          message: error.message
+    // Search query
+    if (params['query']) filter.search(params['query']);
+
+    // Date
+    if (params['dateStart']) filter.equal('dateStart', params['dateStart']);
+    if (params['dateEnd']) filter.equal('dateEnd', params['dateEnd']);
+
+    // Category
+    if (params['categories']) filter.in('categories', params['categories']);
+
+    // Sort
+    const sort = {};
+    if (params['sortBy'] && params['sortOrder']) sort[params['sortBy']] = params['sortOrder'];
+
+    context.openVeoProvider.get(
+      '/publish/videos',
+      filter,
+      null,
+      paginate['limit'],
+      paginate['page'],
+      sort,
+      portalConf.conf.cache.videoTTL,
+      (error, videos, pagination) => {
+        if (error) {
+          process.logger.error(error.message, {error, method: 'searchAction'});
+          return next(errors.SEARCH_ERROR);
         }
-      });
-    }
 
-    // Add pagination
-    Object.keys(paginate).forEach((key) => {
-      params[key] = paginate[key];
-    });
-
-    const query = querystring.stringify(params);
-
-    // Get the list of videos
-    openVeoClient.get(`/publish/videos?${query}`).then((result) => {
-      response.send(result);
-    }).catch((error) => {
-      process.logger.error(error.message, {error, method: 'searchAction'});
-      return next(errors.SEARCH_ERROR);
-    });
+        response.send({
+          entities: videos,
+          pagination
+        });
+      }
+    );
   }
 
   /**
@@ -151,48 +155,57 @@ class VideosController extends openVeoApi.controllers.Controller {
    * @param {Function} next Function to defer execution to the next registered middleware
    */
   getVideoAction(request, response, next) {
-    const videoCacheInstance = videoCache.getVideoCache();
+    context.openVeoProvider.getOne(
+      '/publish/videos',
+      request.params.id,
+      null,
+      portalConf.conf.cache.videoTTL,
+      (error, video) => {
+        if (error) {
+          process.logger.error(error.message, {error, method: 'getVideoAction'});
+          return next(errors.GET_VIDEO_ERROR);
+        }
 
-    videoCacheInstance.getVideo(request.params.id, (error, video) => {
-      if (error) return next(error);
+        if (!video) return next(errors.GET_VIDEO_NOT_FOUND);
 
-      const isInPublicGroups = openVeoApi.util.intersectArray(
-        video.entity.metadata.groups,
-        portalConf.conf.publicFilter
-      ).length;
-
-      if (isInPublicGroups) {
-
-        // Video is public
-        response.send(video);
-
-      } else if (!request.isAuthenticated()) {
-
-        // User is not authenticated
-        // Send need authent
-        response.send({needAuth: true});
-
-      } else {
-
-        // User is authenticated
-
-        // Super administrator can see all videos
-        if (request.user.id === portalConf.superAdminId)
-          return response.send(video);
-
-        // Find out if video is part of private groups or its groups
-        // If video is part of these groups user is allowed to access the video
-        const isInPrivateGroups = openVeoApi.util.intersectArray(
-          video.entity.metadata.groups, portalConf.conf.privateFilter
-        ).length;
-        const isInUserGroups = openVeoApi.util.intersectArray(
-          video.entity.metadata.groups, request.user.groups
+        const isInPublicGroups = video.metadata.groups && openVeoApi.util.intersectArray(
+          video.metadata.groups,
+          portalConf.conf.publicFilter
         ).length;
 
-        if (isInPrivateGroups || isInUserGroups) response.send(video);
-        else next(errors.GET_VIDEO_NOT_ALLOWED);
+        if (isInPublicGroups) {
+
+          // Video is public
+          response.send({entity: video});
+
+        } else if (!request.isAuthenticated()) {
+
+          // User is not authenticated
+          // Send need authent
+          response.send({needAuth: true});
+
+        } else {
+
+          // User is authenticated
+
+          // Super administrator can see all videos
+          if (request.user.id === portalConf.superAdminId)
+            return response.send({entity: video});
+
+          // Find out if video is part of private groups or user groups
+          // If video is part of these groups user is allowed to access the video
+          const isInPrivateGroups = openVeoApi.util.intersectArray(
+            video.metadata.groups, portalConf.conf.privateFilter
+          ).length;
+          const isInUserGroups = openVeoApi.util.intersectArray(
+            video.metadata.groups, request.user.groups
+          ).length;
+
+          if (isInPrivateGroups || isInUserGroups) response.send({entity: video});
+          else next(errors.GET_VIDEO_NOT_ALLOWED);
+        }
       }
-    });
+    );
   }
 
 }

@@ -4,9 +4,11 @@
  * @module controllers
  */
 
+const JSONPath = require('jsonpath-plus');
 const openVeoApi = require('@openveo/api');
-const filterCache = process.require('app/server/serverCache/FilterCache.js');
 const portalConf = process.require('app/server/conf.js');
+const context = process.require('app/server/context.js');
+const HTTP_ERRORS = process.require('app/server/httpErrors.js');
 
 class CategoriesController extends openVeoApi.controllers.Controller {
 
@@ -31,15 +33,30 @@ class CategoriesController extends openVeoApi.controllers.Controller {
    * @param {Function} next Function to defer execution to the next registered middleware
    */
   getCategoriesAction(request, response, next) {
-    const filterCacheInstance = filterCache.getFilterCache();
-    filterCacheInstance.getCategories(portalConf.conf.categoriesFilter, (error, categories) => {
-      if (error) {
-        next(error);
-        return;
-      } else {
+    context.openVeoProvider.getOne(
+      '/taxonomies',
+      portalConf.conf.categoriesFilter,
+      null,
+      portalConf.conf.cache.filterTTL,
+      (error, taxonomy) => {
+        if (error) {
+          process.logger.error(error.message, {error, method: 'getCategoriesAction'});
+          return next(HTTP_ERRORS.GET_CATEGORIES_ERROR);
+        }
+
+        const categories = {};
+        if (taxonomy) {
+          const categoriesIds = JSONPath({json: taxonomy, path: '$..*[?(@.id)]'});
+          if (categoriesIds && categoriesIds.length) {
+            categoriesIds.map((obj) => {
+              categories[obj.id] = obj.title;
+              return obj;
+            });
+          }
+        }
         response.send(categories);
       }
-    });
+    );
   }
 
 }

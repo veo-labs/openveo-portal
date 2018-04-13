@@ -12,40 +12,10 @@
  */
 
 const openVeoApi = require('@openveo/api');
-const videoCache = process.require('/app/server/serverCache/VideoCache.js');
-
-/**
- * Verify that a user has not seen the video more than one time during the video duration
- */
-function userCanIncrease(sesionID, entity, callback) {
-  const videoCacheInstance = videoCache.getVideoCache();
-  videoCacheInstance.getVideoViewByUser(sesionID, entity.id, (error, value) => {
-
-    if (error || value) {
-      callback(false);
-      return;
-    }
-
-    const duration = entity.metadata && entity.metadata.duration ? entity.metadata.duration : 7200;
-
-    // user has not view this video
-    // This user will not be allowed to increase view number during video duration or at least 2hours
-    videoCacheInstance.setVideoViewByUser(sesionID, entity.id, duration);
-    callback(true);
-  });
-}
-
-/**
- * Increase video count when needed
- */
-function increaseViews(video, sesionID, callback) {
-  const videoCacheInstance = videoCache.getVideoCache();
-  userCanIncrease(sesionID, video, (canIncrease) => {
-    if (canIncrease)
-      videoCacheInstance.addVideoView(video.id);
-    callback();
-  });
-}
+const HTTP_ERRORS = process.require('app/server/httpErrors.js');
+const context = process.require('/app/server/context.js');
+const portalConf = process.require('app/server/conf.js');
+const Cache = process.require('app/server/Cache.js');
 
 class StatisticsController extends openVeoApi.controllers.Controller {
 
@@ -58,29 +28,100 @@ class StatisticsController extends openVeoApi.controllers.Controller {
    */
   constructor() {
     super();
+
+    Object.defineProperties(this, {
+
+      /**
+       * The cache holding the number of views by user and media.
+       *
+       * @property viewsCache
+       * @type Cache
+       * @final
+       */
+      viewsCache: {
+        value: new Cache({checkperiod: 0})
+      }
+
+    });
+
+    this.viewsCache.on('expired', (key, value) => {
+      this.viewsCache.del(key);
+    });
+
   }
 
+  /**
+   * Sends statistics to OpenVeo.
+   *
+   * @method statisticsAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Object} request.params Requests parameters
+   * @param {String} request.params.entity The name of the OpenVeo entity receiving statistics
+   * @param {String} request.params.type The type of statistic to update
+   * @param {String} request.params.id The id of the entity
+   * @param {Response} response ExpressJS HTTP Response
+   * @param {Function} next Function to defer execution to the next registered middleware
+   */
   statisticsAction(request, response, next) {
-    const videoCacheInstance = videoCache.getVideoCache();
     switch (request.params.entity) {
+
+      // video
       case 'video':
         switch (request.params.type) {
+
+          // views
           case 'views':
-            videoCacheInstance.getVideo(request.params.id, (error, video) => {
-              if (error) {
-                next(error);
-              } else if (video.entity.private && !request.isAuthenticated())
-                next();
-              else
-                increaseViews(video.entity, request.sessionID, () => {
-                  response.send();
-                });
-            });
+            context.openVeoProvider.getOne(
+              '/publish/videos',
+              request.params.id,
+              null,
+              portalConf.conf.cache.videoTTL,
+              (error, media) => {
+                if (error) {
+                  process.logger.error(error.message, {error, method: 'statisticsAction'});
+                  next(HTTP_ERRORS.STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR);
+                }
+
+                if (media.private && !request.isAuthenticated())
+                  next();
+                else {
+
+                  const duration = media.metadata && media.metadata.duration ? media.metadata.duration : 7200;
+                  const cacheId = `${request.sessionID}-${media.id}`;
+
+                  // Increment the number of views only once for the time of the media and for a user
+                  if (this.viewsCache.get(cacheId)) return response.send();
+
+                  // Increment the number of views
+                  this.viewsCache.set(cacheId, true, duration);
+
+                  context.openVeoProvider.updateOne(
+                    '/publish/statistics/video/views',
+                    media.id,
+                    {
+                      count: 1
+                    },
+                    (error, total) => {
+                      if (error) {
+                        process.logger.error(error.message, {error, method: 'statisticsAction'});
+                        next(HTTP_ERRORS.STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR);
+                      }
+                      context.openVeoProvider.deleteDocumentCache('/publish/videos', media.id, true);
+                      response.send();
+                    }
+                  );
+                }
+              }
+            );
             break;
+
           default:
             next();
         }
+
         break;
+
       default:
         next();
     }

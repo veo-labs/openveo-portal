@@ -75,7 +75,7 @@
       if (!id) return $q.reject(new Error('Category id not defined'));
 
       return self.getCategories().then(function(result) {
-        return result.data.values[id];
+        return result.data[id];
       });
     }
 

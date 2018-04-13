@@ -1,4 +1,9 @@
-# 3.1.0 / YYYY-MM-DD
+# 4.0.0 / YYYY-MM-DD
+
+## BREAKING CHANGES
+
+- Drop support for OpenVeo &lt; 5.0.0
+- All requests to OpenVeo are now cached with a default cache to 10 seconds still customizable through conf.json configuration file
 
 ## NEW FEATURES
 
