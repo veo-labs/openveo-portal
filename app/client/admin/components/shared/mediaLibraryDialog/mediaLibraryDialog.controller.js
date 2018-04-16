@@ -61,16 +61,16 @@
       dialogSizeClass: {
         value: function() {
           if ($mdMedia('xs'))
-            return 'dialog-100';
+            return 'opa-dialog-100';
 
           if ($mdMedia('sm'))
-            return 'dialog-80';
+            return 'opa-dialog-80';
 
           if ($mdMedia('md'))
-            return 'dialog-55';
+            return 'opa-dialog-55';
 
           if ($mdMedia('gt-md'))
-            return 'dialog-40';
+            return 'opa-dialog-40';
 
           return;
         }

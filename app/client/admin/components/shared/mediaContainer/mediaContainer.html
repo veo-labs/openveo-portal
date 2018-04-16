@@ -1,12 +1,12 @@
-<div class="opa-media-container" ng-class="{'empty': !ctrl.opaMedia}" ng-click="ctrl.onClick()" tabindex="0">
-  <img class="preview" ng-if-start="ctrl.opaMedia" ng-src="{{ ctrl.opaMedia.preview }}">
-  <div class="overlay"></div>
-  <md-button class="remove-btn md-icon-button" ng-click="ctrl.onRemove($event)" ng-keydown="$event.stopImmediatePropagation()" tabindex="0">
+<div class="opa-media-container" ng-class="{'opa-empty': !ctrl.opaMedia}" ng-click="ctrl.onClick()" tabindex="0">
+  <img class="opa-preview" ng-if-start="ctrl.opaMedia" ng-src="{{ ctrl.opaMedia.preview }}">
+  <div class="opa-overlay"></div>
+  <md-button class="opa-remove-btn md-icon-button" ng-click="ctrl.onRemove($event)" ng-keydown="$event.stopImmediatePropagation()" tabindex="0">
     <md-icon aria-label="{{ 'MEDIA_CONTAINER.REMOVE' | opaTranslate }}">close</md-icon>
   </md-button>
-  <div ng-if-end class="media-info" layout="column" layout-align="end none">
-    <md-truncate class="media-title" ng-bind="ctrl.opaMedia.title"></md-truncate>
-    <span class="media-date" ng-bind="ctrl.opaMedia.date | date: 'mediumDate'"></span>
+  <div ng-if-end class="opa-media-info" layout="column" layout-align="end none">
+    <md-truncate class="opa-media-title" ng-bind="ctrl.opaMedia.title"></md-truncate>
+    <span class="opa-media-date" ng-bind="ctrl.opaMedia.date | date: 'mediumDate'"></span>
   </div>
-  <span class="title" ng-bind="ctrl.opaTitle"></span>
+  <span class="opa-title" ng-bind="ctrl.opaTitle"></span>
 </div>

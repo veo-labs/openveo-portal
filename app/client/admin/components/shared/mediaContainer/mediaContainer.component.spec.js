@@ -48,7 +48,7 @@ describe('opaMediaContainer', function() {
     element = $compile(element)(scope);
     scope.$digest();
 
-    assert.isOk(element.children().hasClass('empty'));
+    assert.isOk(element.children().hasClass('opa-empty'));
     assert.equal(element.children().children().length, 1);
   });
 
