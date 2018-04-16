@@ -399,6 +399,14 @@ class Server {
       `/be${webServiceBasePath}groups`,
       groupsController.getGroupsAction.bind(groupsController)
     );
+    this.app.get(
+      `/be${webServiceBasePath}videos/:id`,
+      videosController.getVideoAction.bind(videosController)
+    );
+    this.app.post(
+      `/be${webServiceBasePath}videos`,
+      videosController.searchAction.bind(videosController)
+    );
 
     // this.app.get(`/be${webServiceBasePath}videos/promoted`, .getDetailedVideosSettingsAction);
     // /ws/be/videos/promoted
