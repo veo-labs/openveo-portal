@@ -223,7 +223,7 @@
           if ($event.keyCode === 9) {
             self.keepFocus = true;
             self.focusStates[0] = true;
-            $element.children().addClass('focused');
+            $element.children().addClass('opa-focused');
           } else {
             var curIndex = self.focusStates.indexOf(true);
             var newIndex;
@@ -274,7 +274,7 @@
             if (index !== -1)
               self.focusStates[index] = false;
 
-            $element.children().removeClass('focused');
+            $element.children().removeClass('opa-focused');
           }
         }
       }

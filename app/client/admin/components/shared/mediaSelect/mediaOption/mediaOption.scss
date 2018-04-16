@@ -16,11 +16,11 @@ $OPA_MEDIA_OPTION_UNCHECKED_BORDER: $OPA_MEDIA_OPTION_CHECKED_COLOR;
 .opa-media-option {
   position: relative;
 
-  .thumbnail {
+  .opa-thumbnail {
     display: block;
   }
 
-  .overlay {
+  .opa-overlay {
     background: $OPA_MEDIA_OPTION_OVERLAY_DEFAULT_BG;
     height: 100%;
     width: 100%;
@@ -28,7 +28,7 @@ $OPA_MEDIA_OPTION_UNCHECKED_BORDER: $OPA_MEDIA_OPTION_CHECKED_COLOR;
     top: 0;
   }
 
-  .actions {
+  .opa-actions {
     text-align: right;
     padding: 15px;
 
@@ -69,7 +69,7 @@ $OPA_MEDIA_OPTION_UNCHECKED_BORDER: $OPA_MEDIA_OPTION_CHECKED_COLOR;
     }
   }
 
-  .info {
+  .opa-media-info {
     color: $OPA_MEDIA_OPTION_INFO_COLOR;
     line-height: 133%;
     text-shadow: 1px 1px 1px $OPA_MEDIA_OPTION_INFO_SHADOW;
@@ -80,11 +80,11 @@ $OPA_MEDIA_OPTION_UNCHECKED_BORDER: $OPA_MEDIA_OPTION_CHECKED_COLOR;
     left: 0;
     right: 0;
 
-    .title {
+    .opa-media-title {
       font-weight: 700;
     }
 
-    .date {
+    .opa-media-date {
       font-size: 80%;
     }
   }

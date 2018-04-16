@@ -27,11 +27,7 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
   color: $OPA_MEDIA_CONTAINER_TEXT_COLOR;
   outline: 0;
 
-  &.hover {
-    cursor: pointer;
-  }
-
-  &.empty {
+  &.opa-empty {
     border-width: 2px;
     border-style: dashed;
     border-color: $OPA_MEDIA_CONTAINER_EMPTY_COLOR;
@@ -39,7 +35,7 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
     &:hover {
       border-color: $OPA_MEDIA_CONTAINER_OVER_COLOR;
 
-      .title {
+      .opa-title {
         color: $OPA_MEDIA_CONTAINER_OVER_COLOR;
       }
     }
@@ -47,12 +43,12 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
     &:focus {
       border-color: $OPA_MEDIA_CONTAINER_FOCUS_COLOR;
 
-      .title {
+      .opa-title {
         color: $OPA_MEDIA_CONTAINER_FOCUS_COLOR;
       }
     }
 
-    .title {
+    .opa-title {
       color: $OPA_MEDIA_CONTAINER_EMPTY_COLOR;
       margin: auto;
       font-size: 42px;
@@ -60,8 +56,8 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
     }
   }
 
-  &:not(.empty) {
-    .title {
+  &:not(.opa-empty) {
+    .opa-title {
       font-size: 18px;
       font-weight: 700;
       line-height: 30px;
@@ -74,30 +70,30 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
     }
   }
 
-  .preview {
+  .opa-preview {
     position: absolute;
   }
 
   &:focus {
-    .overlay {
+    .opa-overlay {
       background: $OPA_MEDIA_CONTAINER_OVERLAY_FOCUS_BG;
     }
   }
 
   &:hover {
-    .overlay {
+    .opa-overlay {
       background: $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG;
     }
   }
 
-  .overlay {
+  .opa-overlay {
     background: $OPA_MEDIA_CONTAINER_OVERLAY_DEFAULT_BG;
     position: absolute;
     width: 100%;
     height: 100%;
   }
 
-  .remove-btn {
+  .opa-remove-btn {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -117,18 +113,18 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
     }
   }
 
-  .media-info {
+  .opa-media-info {
     font-size: 90%;
     text-shadow: 1px 1px 1px $OPA_MEDIA_CONTAINER_SHADOW_COLOR;
     padding: 7px;
     position: absolute;
     bottom: 0;
 
-    .media-title {
+    .opa-media-title {
       font-weight: 700;
     }
 
-    .media-date {
+    .opa-media-date {
       font-size: 80%;
     }
   }
