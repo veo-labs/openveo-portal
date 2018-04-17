@@ -11,6 +11,12 @@
    * @returns {VideoController_L3.VideoController}
    */
   function VideoController($scope, $locale, $timeout, $location, $analytics, videoService, searchService, $sce) {
+    $scope.defaultMode = 'both';
+    if ($scope.video.metadata) {
+      var template = $scope.video.metadata.template || '';
+      if (template.match(/^mix-/))
+        $scope.defaultMode = 'media';
+    }
     if ($scope.video.category) {
       searchService.getCategoryName($scope.video.category).then(function(val) {
         $scope.categoryName = val;
