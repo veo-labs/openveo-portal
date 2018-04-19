@@ -11,7 +11,7 @@
   function SearchService($http, $q, webServiceBasePath) {
     var filters;
     var categories;
-    var homeVideos;
+    var promotedVideos;
     var videosCache = {};
 
     /**
@@ -80,33 +80,24 @@
     }
 
     /**
-     * Loads the list of videos for Homepage
+     * Gets the list of promoted videos.
      *
-     * @return {Promise} The Http promise
-     * @method loadScopes
-     * @return data
+     * @method getPromotedVideos
+     * @return {Promise} A promise resolving with the list of promoted videos
      */
-    function searchHomeVideos() {
-
-      if (!homeVideos || !Object.keys(homeVideos).length) {
-
-        var params = {
-          filter: {
-            sortBy: 'date',
-            sortOrder: 'desc'
-          },
-          pagination: {
-            page: 0,
-            limit: 9
+    function getPromotedVideos() {
+      if (!promotedVideos || !Object.keys(promotedVideos).length) {
+        return $http.get(webServiceBasePath + 'videos/promoted', {
+          params: {
+            auto: true
           }
-        };
-        return $http.post(webServiceBasePath + 'videos', params).then(function(response) {
-          homeVideos = response.data;
+        }).then(function(response) {
+          promotedVideos = response.data;
           return response;
         });
       }
 
-      return $q.when({data: homeVideos});
+      return $q.when({data: promotedVideos});
     }
 
     /**
@@ -134,7 +125,7 @@
       videosCache = {};
       filters = {};
       categories = {};
-      homeVideos = {};
+      promotedVideos = {};
     }
 
     /**
@@ -162,7 +153,7 @@
       getFilters: getFilters,
       getCategories: getCategories,
       getCategoryName: getCategoryName,
-      searchHomeVideos: searchHomeVideos,
+      getPromotedVideos: getPromotedVideos,
       search: search,
       cleanSearch: cleanSearch
     };

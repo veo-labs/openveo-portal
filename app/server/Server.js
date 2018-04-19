@@ -345,6 +345,10 @@ class Server {
       statisticsController.statisticsAction.bind(statisticsController)
     );
     this.app.get(
+      `${webServiceBasePath}videos/promoted`,
+      videosController.getPromotedVideosAction.bind(videosController)
+    );
+    this.app.get(
       `${webServiceBasePath}videos/:id`,
       videosController.getVideoAction.bind(videosController)
     );
@@ -400,6 +404,10 @@ class Server {
       groupsController.getGroupsAction.bind(groupsController)
     );
     this.app.get(
+      `/be${webServiceBasePath}videos/promoted`,
+      videosController.getPromotedVideosAction.bind(videosController)
+    );
+    this.app.get(
       `/be${webServiceBasePath}videos/:id`,
       videosController.getVideoAction.bind(videosController)
     );
@@ -407,9 +415,6 @@ class Server {
       `/be${webServiceBasePath}videos`,
       videosController.searchAction.bind(videosController)
     );
-
-    // this.app.get(`/be${webServiceBasePath}videos/promoted`, .getDetailedVideosSettingsAction);
-    // /ws/be/videos/promoted
 
     // Not found web service routes
     this.app.all(

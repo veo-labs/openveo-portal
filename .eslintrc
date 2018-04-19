@@ -1,6 +1,7 @@
 {
 
   "parserOptions": {
+    "ecmaVersion": 8,
     "ecmaFeatures": {
 
       // Give ESLint the ability to read let and const variables

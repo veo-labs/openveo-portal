@@ -27,6 +27,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
     },
     NAV: {
       DASHBOARD: 'Dashboard',
+      PROMOTED_VIDEOS: 'Promoted videos',
       SETTINGS: 'Settings',
       VIEW_PORTAL: 'Display the portal',
       LANGUAGE: 'Select language',
@@ -52,6 +53,14 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         ERROR: 'Information not available',
         INFO: '"<strong>About</strong>" gives you information regarding your version of OpenVeo Portal. It informs you when a new version is available and where you can find the sources.'
       }
+    },
+    PROMOTED_VIDEOS: {
+      PAGE_TITLE: 'OpenVeo Portal - Promoted videos',
+      TITLE: 'Promoted videos',
+      INFO: 'The <strong>Promoted videos</strong> page gives you the possibility to choose your promoted videos.',
+      ERROR_MESSAGE: 'Can\'t load promoted videos',
+      SAVE_SUCCESS: 'Promoted videos saved',
+      SUBMIT_BUTTON: 'Save'
     },
     SETTINGS: {
       PAGE_TITLE: 'OpenVeo Portal - Settings',

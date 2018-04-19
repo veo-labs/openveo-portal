@@ -213,6 +213,12 @@
             action: ctrl.goTo,
             href: '/settings'
           };
+          var navPromotedVideosAction = {
+            label: translateFilter('NAV.PROMOTED_VIDEOS'),
+            icon: 'view_quilt',
+            action: ctrl.goTo,
+            href: '/promoted-videos'
+          };
 
           opaI18nFactory.getLanguages().forEach(function(language) {
             ctrl.advancedToolbarLanguageActions.push({
@@ -272,10 +278,11 @@
             }
           );
 
-          ctrl.navMenu.push(navDashboardAction, navSettingsAction);
+          ctrl.navMenu.push(navDashboardAction, navPromotedVideosAction, navSettingsAction);
 
           ctrl.advancedNavMenu.push(
             navDashboardAction,
+            navPromotedVideosAction,
             navSettingsAction,
             {
               divider: true

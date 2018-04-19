@@ -236,6 +236,66 @@ const HTTP_ERRORS = {
     httpCode: 500
   },
 
+  /**
+   * Getting promoted videos failed when getting promoted videos setting.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR: {
+    code: 0x013,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed when getting promoted videos.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_ONE_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_ONE_ERROR: {
+    code: 0x014,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed.
+   *
+   * @property GET_PROMOTED_VIDEOS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_ERROR: {
+    code: 0x015,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed when getting videos to fulfill empty slots.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR: {
+    code: 0x016,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed when getting a video.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR: {
+    code: 0x017,
+    httpCode: 500
+  },
+
   // Not found errors
 
   /**
@@ -431,6 +491,18 @@ const HTTP_ERRORS = {
    */
   SEARCH_WRONG_PARAMETERS: {
     code: 0x305,
+    httpCode: 400
+  },
+
+  /**
+   * Getting promoted videos failed, wrong parameters.
+   *
+   * @property GET_PROMOTED_VIDEOS_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_WRONG_PARAMETERS: {
+    code: 0x306,
     httpCode: 400
   }
 

@@ -8,6 +8,7 @@ const openVeoApi = require('@openveo/api');
 const errors = process.require('app/server/httpErrors.js');
 const portalConf = process.require('app/server/conf.js');
 const context = process.require('app/server/context.js');
+const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
 const ResourceFilter = openVeoApi.storages.ResourceFilter;
 
 class VideosController extends openVeoApi.controllers.Controller {
@@ -21,6 +22,90 @@ class VideosController extends openVeoApi.controllers.Controller {
    */
   constructor() {
     super();
+  }
+
+  /**
+   * Checks if a user is authorized to see a video.
+   *
+   * @method isUserAuthorized
+   * @param {Object} [user] The user to test
+   * @param {String} user.id The user id
+   * @param {Array} user.groups The user groups
+   * @param {Object} video The video to test
+   * @param {Object} video.metadata Metadata of the video
+   * @param {Array} video.metadata.groups The list of groups the video belongs to
+   * @return {Boolean} true if the user if authorized, false otherwise
+   */
+  isUserAuthorized(user, video) {
+    const isInPublicGroups = video.metadata.groups && openVeoApi.util.intersectArray(
+      video.metadata.groups,
+      portalConf.conf.publicFilter
+    ).length;
+
+    if (isInPublicGroups) {
+
+      // Video is public
+      return true;
+
+    } else if (!user) {
+      return false;
+    } else {
+
+      // User is authenticated
+
+      // Super administrator can see all videos
+      if (user.id === portalConf.superAdminId)
+        return true;
+
+      // Find out if video is part of private groups or user groups
+      // If video is part of these groups user is allowed to access the video
+      const isInPrivateGroups = openVeoApi.util.intersectArray(
+        video.metadata.groups, portalConf.conf.privateFilter
+      ).length;
+      const isInUserGroups = openVeoApi.util.intersectArray(
+        video.metadata.groups, user.groups
+      ).length;
+
+      return (isInPrivateGroups || isInUserGroups);
+    }
+  }
+
+  /**
+   * Adds operations to limit access to videos.
+   *
+   * @method addAccessFilter
+   * @param {ResourceFilter} [filter] The filter to add access operations to, generated if not specified
+   * @param {Object} [user] The user to limit
+   * @param {Array} [user.groups] The user groups
+   * @return {ResourceFilter} The filter
+   */
+  addAccessFilter(filter, user) {
+    if (!filter) filter = new ResourceFilter();
+
+    if (!user) {
+
+      // Anonymous user (not authenticated)
+      // Add public groups
+      filter.in('groups', portalConf.conf.publicFilter || []);
+
+    } else if (user.id !== portalConf.superAdminId) {
+
+      // User authenticated and not the super administrator
+      // Add public groups
+      let groups = portalConf.conf.publicFilter || [];
+
+      // Add private groups
+      if (portalConf.conf.privateFilter)
+        groups = groups.concat(portalConf.conf.privateFilter);
+
+      // Add user groups
+      if (user.groups && user.groups.length)
+        groups = groups.concat(user.groups);
+
+      filter.in('groups', groups);
+    }
+
+    return filter;
   }
 
   /**
@@ -79,29 +164,7 @@ class VideosController extends openVeoApi.controllers.Controller {
       return next(errors.CONF_ERROR);
     }
 
-    // Add group filter
-    if (!request.isAuthenticated()) {
-
-      // Anonymous user (not authenticated)
-      // Add public groups
-      filter.in('groups', portalConf.conf.publicFilter || []);
-
-    } else if (request.user.id !== portalConf.superAdminId) {
-
-      // User authenticated and not the super administrator
-      // Add public groups
-      let groups = portalConf.conf.publicFilter || [];
-
-      // Add private groups
-      if (portalConf.conf.privateFilter)
-        groups = groups.concat(portalConf.conf.privateFilter);
-
-      // Add user groups
-      if (request.user.groups && request.user.groups.length)
-        groups = groups.concat(request.user.groups);
-
-      filter.in('groups', groups);
-    }
+    this.addAccessFilter(filter, request.isAuthenticated() && request.user);
 
     // Add published states
     filter.equal('states', VIDEO_PUBLISH_STATES);
@@ -192,28 +255,154 @@ class VideosController extends openVeoApi.controllers.Controller {
           // Send need authent
           response.send({needAuth: true});
 
-        } else {
+        } else if (this.isUserAuthorized(request.user, video)) {
 
           // User is authenticated
+          response.send({entity: video});
 
-          // Super administrator can see all videos
-          if (request.user.id === portalConf.superAdminId)
-            return response.send({entity: video});
-
-          // Find out if video is part of private groups or user groups
-          // If video is part of these groups user is allowed to access the video
-          const isInPrivateGroups = openVeoApi.util.intersectArray(
-            video.metadata.groups, portalConf.conf.privateFilter
-          ).length;
-          const isInUserGroups = openVeoApi.util.intersectArray(
-            video.metadata.groups, request.user.groups
-          ).length;
-
-          if (isInPrivateGroups || isInUserGroups) response.send({entity: video});
-          else next(errors.GET_VIDEO_NOT_ALLOWED);
-        }
+        } else
+            next(errors.GET_VIDEO_NOT_ALLOWED);
       }
     );
+  }
+
+  /**
+   * Fetches promoted videos.
+   *
+   * @method getPromotedVideosAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Object} request.query Request query parameters
+   * @param {Boolean} [request.query.auto=false] true to automatically fulfill empty slots when possible
+   * @param {Response} response ExpressJS HTTP Response
+   * @param {Function} next Function to defer execution to the next registered middleware
+   */
+  async getPromotedVideosAction(request, response, next) {
+    const VIDEO_PUBLISH_STATES = 12;
+    const NUMBER_OF_VIDEOS = 9;
+    const settingsProvider = new SettingsProvider(context.database);
+    let queryParameters;
+
+    // Validate parameters
+    try {
+      queryParameters = openVeoApi.util.shallowValidateObject(request.query, {
+        auto: {type: 'boolean'}
+      });
+    } catch (error) {
+      return next(errors.GET_PROMOTED_VIDEOS_WRONG_PARAMETERS);
+    }
+
+    try {
+
+      // Get ids of promoted videos which have been configured
+      const videoIds = await new Promise((resolve, reject) => {
+        settingsProvider.getOne(new ResourceFilter().equal('id', 'promoted-videos'), null, (error, setting) => {
+          if (error) {
+            process.logger.error(error.message, {error, method: 'getPromotedVideosAction'});
+            return reject(errors.GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR);
+          }
+
+          resolve((setting && setting.value) || new Array(NUMBER_OF_VIDEOS));
+        });
+      });
+
+      // Get information about promoted videos
+      const promotedVideos = new Array(NUMBER_OF_VIDEOS);
+
+      for (let i = 0; i < videoIds.length; i++) {
+        const videoId = videoIds[i];
+        if (!videoId) continue;
+
+        const promotedVideo = await new Promise((resolve, reject) => {
+          context.openVeoProvider.getOne(
+            '/publish/videos',
+            videoIds[i],
+            {
+              include: ['id', 'title', 'date', 'thumbnail']
+            },
+            portalConf.conf.cache.videoTTL,
+            (error, video) => {
+              if (error) {
+                if (error.httpCode === 404) {
+
+                  // The video couldn't be fetched, maybe the video has been removed from OpenVeo
+                  // Simply log the error
+                  process.logger.error(error.message, {error, method: 'getPromotedVideosAction'});
+
+                } else
+                  return reject(errors.GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR);
+              }
+
+              resolve(video);
+            }
+          );
+        });
+
+        if (promotedVideo && this.isUserAuthorized(request.user, promotedVideo))
+          promotedVideos[i] = promotedVideo;
+        else
+          promotedVideos[i] = undefined;
+      }
+
+      if (!queryParameters.auto) return response.send(promotedVideos);
+
+      // Some slots are empty, get videos to fulfill slots
+      // Find the number of empty slots
+      let emptySlotsNumbers = 0;
+      for (let slot of promotedVideos) {
+        if (!slot) emptySlotsNumbers++;
+      }
+
+      if (!emptySlotsNumbers) return response.send(promotedVideos);
+
+      // Make sure user can access returned videos
+      const filter = new ResourceFilter();
+      this.addAccessFilter(filter, request.isAuthenticated() && request.user);
+      filter.equal('states', VIDEO_PUBLISH_STATES);
+
+      // Get as many videos as the number of promoted videos to be sure to have enough
+      let extraVideos = await new Promise((resolve, reject) => {
+        context.openVeoProvider.get(
+          '/publish/videos',
+          filter,
+          {
+            include: ['id', 'title', 'date', 'thumbnail']
+          },
+          NUMBER_OF_VIDEOS,
+          0,
+          {
+            date: 'desc'
+          },
+          portalConf.conf.cache.videoTTL,
+          (error, videos, pagination) => {
+            if (error) return reject(errors.GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR);
+            resolve(videos);
+          }
+        );
+      });
+
+      // Remove promotedVideos from extraVideos if any
+      extraVideos = extraVideos.filter((video) => {
+        for (let promotedVideo of promotedVideos) {
+          if (promotedVideo && video.id === promotedVideo.id) return false;
+        }
+        return true;
+      });
+
+      // Fill empty slots with extra videos
+      const extraVideosIterator = extraVideos[Symbol.iterator]();
+
+      for (let i = 0; i < promotedVideos.length; i++) {
+        const promotedVideo = promotedVideos[i];
+        if (!promotedVideo)
+          promotedVideos[i] = extraVideosIterator.next().value;
+      }
+
+      response.send(promotedVideos);
+    } catch (error) {
+      process.logger.error(error.message, {error, method: 'getPromotedVideosAction'});
+      next(error);
+    }
   }
 
 }

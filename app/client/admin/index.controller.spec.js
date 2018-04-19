@@ -80,12 +80,12 @@ describe('OpaIndexController', function() {
       ctrl.advancedToolbarRightActions[1].menu.forEach(validateLanguage);
 
       assert.equal(
-        ctrl.advancedNavMenu[4].actions.length,
+        ctrl.advancedNavMenu[5].actions.length,
         opaI18nFactory.getLanguages().length,
         'Wrong number of languages in side navigation'
       );
 
-      ctrl.advancedNavMenu[4].actions.forEach(validateLanguage);
+      ctrl.advancedNavMenu[5].actions.forEach(validateLanguage);
     });
 
   });
