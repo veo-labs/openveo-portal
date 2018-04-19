@@ -9,7 +9,6 @@ const os = require('os');
 const async = require('async');
 const openVeoApi = require('@openveo/api');
 const context = process.require('app/server/context.js');
-const UserProvider = process.require('app/server/providers/UserProvider.js');
 const confDir = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const exit = process.exit;
 const ResourceFilter = openVeoApi.storages.ResourceFilter;
@@ -744,6 +743,7 @@ function verifyDatabaseConf(callback) {
  * Creates super administrator if it does not exist.
  */
 function createSuperAdmin(callback) {
+  const UserProvider = process.require('app/server/providers/UserProvider.js');
   const userProvider = new UserProvider(context.database);
   const conf = require(path.join(confDir, 'conf.json'));
   const user = {
