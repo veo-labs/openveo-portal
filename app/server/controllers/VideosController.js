@@ -40,6 +40,9 @@ class VideosController extends openVeoApi.controllers.Controller {
    * @param {Object} request.body.pagination Pagination to set limit and page
    * @param {Object} [request.body.pagination.limit] Maximum number of videos to retreive
    * @param {Object} [request.body.pagination.page] The number of the page to retrieve
+   * @param {String|Array} [request.body.include] The list of fields to include from returned videos
+   * @param {String|Array} [request.body.exclude] The list of fields to exclude from returned videos. Ignored if
+   * include is also specified.
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware
    */
@@ -58,7 +61,9 @@ class VideosController extends openVeoApi.controllers.Controller {
         dateEnd: {type: 'string'},
         categories: {type: 'array<string>'},
         sortBy: {type: 'string', in: ['views', 'date'], default: 'date'},
-        sortOrder: {type: 'string', in: ['asc', 'desc'], default: 'desc'}
+        sortOrder: {type: 'string', in: ['asc', 'desc'], default: 'desc'},
+        include: {type: 'array<string>'},
+        exclude: {type: 'array<string>'}
       });
       paginate = openVeoApi.util.shallowValidateObject(body.pagination, {
         limit: {type: 'number', gt: 0, default: 9},
@@ -124,7 +129,10 @@ class VideosController extends openVeoApi.controllers.Controller {
     context.openVeoProvider.get(
       '/publish/videos',
       filter,
-      null,
+      {
+        exclude: params.exclude,
+        include: params.include
+      },
       paginate['limit'],
       paginate['page'],
       sort,
