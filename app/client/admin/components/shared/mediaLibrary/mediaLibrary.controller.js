@@ -11,8 +11,9 @@
    *
    * @class OpaMediaLibraryController
    * @constructor
+   * @param {Object} opaUrlFactory URL factory to manipulate URLs
    */
-  function OpaMediaLibraryController($element, $http, opaWebServiceBasePath) {
+  function OpaMediaLibraryController($element, $http, opaWebServiceBasePath, opaUrlFactory) {
     var self = this;
 
     Object.defineProperties(self, {
@@ -215,9 +216,7 @@
               self.isLoading = false;
 
               response.data.entities.forEach(function(entity) {
-                var preview = new URL(entity.thumbnail);
-                preview.searchParams.append('style', 'publish-square-142');
-                entity.preview = preview.href;
+                entity.preview = opaUrlFactory.setUrlParameter(entity.thumbnail, 'style', 'publish-square-142');
               });
 
               return callback(response);
@@ -229,6 +228,6 @@
   }
 
   app.controller('OpaMediaLibraryController', OpaMediaLibraryController);
-  OpaMediaLibraryController.$inject = ['$element', '$http', 'opaWebServiceBasePath'];
+  OpaMediaLibraryController.$inject = ['$element', '$http', 'opaWebServiceBasePath', 'opaUrlFactory'];
 
 })(angular.module('opa'));
