@@ -97,7 +97,8 @@ describe('OpaMediaLibrary', function() {
       const expectedData = {
         filter: {
           sortBy: ctrl.sortField,
-          sortOrder: ctrl.sortDirection
+          sortOrder: ctrl.sortDirection,
+          include: ['id', 'title', 'date', 'thumbnail']
         },
         pagination: {
           limit: ctrl.limit
@@ -130,7 +131,8 @@ describe('OpaMediaLibrary', function() {
       filter: {
         query: 'TEST',
         sortBy: ctrl.sortField,
-        sortOrder: ctrl.sortDirection
+        sortOrder: ctrl.sortDirection,
+        include: ['id', 'title', 'date', 'thumbnail']
       },
       pagination: {
         limit: ctrl.limit
@@ -161,7 +163,8 @@ describe('OpaMediaLibrary', function() {
     const expectedData = {
       filter: {
         sortBy: ctrl.sortField,
-        sortOrder: ctrl.sortDirection
+        sortOrder: ctrl.sortDirection,
+        include: ['id', 'title', 'date', 'thumbnail']
       },
       pagination: {
         page: 1,

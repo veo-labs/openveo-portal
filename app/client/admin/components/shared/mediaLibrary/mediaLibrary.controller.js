@@ -195,7 +195,8 @@
           var data = {
             filter: {
               sortBy: self.sortField,
-              sortOrder: self.sortDirection
+              sortOrder: self.sortDirection,
+              include: ['id', 'title', 'date', 'thumbnail']
             },
             pagination: {
               limit: self.limit
