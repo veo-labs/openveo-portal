@@ -100,8 +100,8 @@ class SettingsController extends openVeoApi.controllers.EntityController {
       let value;
 
       // Validate settings value depending on settings name
-      if (settingId === 'live') {
-        try {
+      try {
+        if (settingId === 'live') {
           value = openVeoApi.util.shallowValidateObject(request.body.value, {
             activated: {type: 'boolean', required: true, default: false},
             playerType: {type: 'string', in: ['wowza', 'youtube']},
@@ -124,10 +124,19 @@ class SettingsController extends openVeoApi.controllers.EntityController {
               return next(errors.UPDATE_SETTINGS_WRONG_PARAMETERS);
             }
           }
+        } else if (settingId === 'promoted-videos') {
+          if (Object.prototype.toString.call(request.body.value) !== '[object Array]')
+            throw new TypeError('value should be an Array');
 
-        } catch (error) {
-          return next(errors.UPDATE_SETTINGS_WRONG_PARAMETERS);
+          for (let id of request.body.value) {
+            if (id && Object.prototype.toString.call(id) !== '[object String]')
+              throw new TypeError('value should only contain strings');
+          }
+
+          value = request.body.value;
         }
+      } catch (error) {
+        return next(errors.UPDATE_SETTINGS_WRONG_PARAMETERS);
       }
 
       provider.add([

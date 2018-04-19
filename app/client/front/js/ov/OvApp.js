@@ -165,8 +165,8 @@
         controller: 'HomeController',
         title: 'HOME.PAGE_TITLE',
         resolve: {
-          result: ['searchService', function(searchService) {
-            return searchService.searchHomeVideos();
+          promotedVideos: ['searchService', function(searchService) {
+            return searchService.getPromotedVideos();
           }]
         }
       }).otherwise('/');

@@ -1,0 +1,82 @@
+$OPA_PROMOTED_VIDEOS_ERROR_VISUAL_COLOR: #eeeeee;
+$OPA_PROMOTED_VIDEOS_ERROR_MESSAGE_COLOR: #bdbdbd;
+$OPA_PROMOTED_VIDEOS_SUBMIT_BUTTON_FOCUSED_COLOR: #1a6c99;
+
+.opa-promoted-videos {
+
+  /* Promoted videos page is on error */
+  &.opa-error {
+    background: none;
+
+    .opa-error-message {
+      user-select: none;
+
+      /* Error visual */
+      md-icon {
+        width: 270px;
+        height: 270px;
+        margin: 0;
+        font-size: 270px;
+        color: $OPA_PROMOTED_VIDEOS_ERROR_VISUAL_COLOR;
+      }
+
+      /* Error message */
+      span {
+        color: $OPA_PROMOTED_VIDEOS_ERROR_MESSAGE_COLOR;
+      }
+    }
+  }
+
+  /* Submit button */
+  .opa-submit {
+    margin: 10px 0 0 0;
+
+    /* Align preloader inside the submit button */
+    md-progress-circular {
+      margin: 0 auto;
+    }
+
+    /* Set a darker primary color on the button when focused */
+    &:not([disabled]).md-raised.md-focused {
+      background-color: $OPA_PROMOTED_VIDEOS_SUBMIT_BUTTON_FOCUSED_COLOR;
+    }
+  }
+
+  .opa-containers {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    position: relative;
+    left: 8px;
+
+    &.opa-xs {
+      width: 316px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.opa-sm {
+      width: 474px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.opa-gt-sm {
+      width: 632px;
+      margin-left: 8px;
+    }
+  }
+
+  opa-media-container {
+    display: flex;
+    width: 142px;
+    height: 80px;
+    margin-right: 16px;
+    margin-bottom: 9px;
+
+    &.big {
+      width: 300px;
+      height: 169px;
+    }
+  }
+
+}

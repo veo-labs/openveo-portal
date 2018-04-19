@@ -49,6 +49,14 @@
         pageInfo: 'DASHBOARD.INFO'
       }).otherwise('/');
 
+      // Register "Promoted videos" page route
+      $routeProvider.when('/promoted-videos', {
+        template: '<opa-promoted-videos flex layout="row"></opa-promoted-videos>',
+        pageTitle: 'PROMOTED_VIDEOS.PAGE_TITLE',
+        title: 'PROMOTED_VIDEOS.TITLE',
+        pageInfo: 'PROMOTED_VIDEOS.INFO'
+      });
+
       // Register settings page route
       $routeProvider.when('/settings', {
         template: '<opa-settings flex layout="row"></opa-settings>',

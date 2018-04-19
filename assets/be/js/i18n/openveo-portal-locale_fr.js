@@ -28,6 +28,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
     NAV: {
       DASHBOARD: 'Tableau de bord',
       SETTINGS: 'Configuration',
+      PROMOTED_VIDEOS: 'Vidéos à la une',
       VIEW_PORTAL: 'Afficher le portail',
       LANGUAGE: 'Choisir la langue',
       LANGUAGES: {
@@ -52,6 +53,14 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         ERROR: 'Information non disponible',
         INFO: '"<strong>A propos</strong>" vous donne des informations concernant la version d\'OpenVeo Portal que vous utilisez. Il vous prévient lorsqu\'une nouvelle version est disponible et vous indique ou se trouve le code source.'
       }
+    },
+    PROMOTED_VIDEOS: {
+      PAGE_TITLE: 'OpenVeo Portal - Vidéos à la une',
+      TITLE: 'Vidéos à la une',
+      INFO: 'La page <strong>Vidéos à la une</strong> vous permet de choisir les vidéos à la une.',
+      ERROR_MESSAGE: 'Impossible d\'afficher les vidéos à la une',
+      SAVE_SUCCESS: 'Vidéos à la une enregistrées',
+      SUBMIT_BUTTON: 'Enregistrer'
     },
     SETTINGS: {
       PAGE_TITLE: 'OpenVeo Portal - Configuration',

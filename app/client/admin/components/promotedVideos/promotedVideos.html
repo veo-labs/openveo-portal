@@ -1,0 +1,58 @@
+<!-- Submit button -->
+<script type="text/ng-template" id="opa-promotedVideos-button.html">
+  <md-button
+             ng-click="$ctrl.save()"
+             ng-disabled="$ctrl.isSaving"
+             aria-label="{{'PROMOTED_VIDEOS.SUBMIT_BUTTON' | opaTranslate}}"
+             class="opa-submit md-raised md-primary md-whiteframe-1dp opa-submit-button"
+   >
+    <span ng-bind="'PROMOTED_VIDEOS.SUBMIT_BUTTON' | opaTranslate" ng-if="!$ctrl.isSaving"></span>
+    <md-progress-circular md-mode="indeterminate" md-diameter="20" ng-if="$ctrl.isSaving"></md-progress-circular>
+  </md-button>
+</script>
+
+<script type="text/ng-template" id="opa-promotedVideos-containers-2And4Cols.html">
+  <div flex="noshrink" layout="row" layout-wrap>
+    <opa-media-container class="big" opa-title="{{ $ctrl.containers[0].title }}" opa-media="$ctrl.containers[0].media" opa-edit="$ctrl.openMediaLibraryDialog(0)" opa-remove="$ctrl.clearContainer(0)"></opa-media-container>
+    <div layout="column">
+      <div layout="row">
+        <opa-media-container opa-title="{{ $ctrl.containers[1].title }}" opa-media="$ctrl.containers[1].media" opa-edit="$ctrl.openMediaLibraryDialog(1)" opa-remove="$ctrl.clearContainer(1)"></opa-media-container>
+        <opa-media-container opa-title="{{ $ctrl.containers[2].title }}" opa-media="$ctrl.containers[2].media" opa-edit="$ctrl.openMediaLibraryDialog(2)" opa-remove="$ctrl.clearContainer(2)"></opa-media-container>
+      </div>
+      <div layout="row">
+        <opa-media-container opa-title="{{ $ctrl.containers[3].title }}" opa-media="$ctrl.containers[3].media" opa-edit="$ctrl.openMediaLibraryDialog(3)" opa-remove="$ctrl.clearContainer(3)"></opa-media-container>
+        <opa-media-container opa-title="{{ $ctrl.containers[4].title }}" opa-media="$ctrl.containers[4].media" opa-edit="$ctrl.openMediaLibraryDialog(4)" opa-remove="$ctrl.clearContainer(4)"></opa-media-container>
+      </div>
+    </div>
+  </div>
+  <div flex="noshrink" layout="row" layout-wrap>
+    <opa-media-container ng-repeat="(i, container) in $ctrl.containers" ng-if="i > 4" opa-title="{{ container.title }}" opa-media="container.media" opa-edit="$ctrl.openMediaLibraryDialog(i)" opa-remove="$ctrl.clearContainer(i)"></opa-media-container>
+  </div>
+  <div layout="row" ng-include="'opa-promotedVideos-button.html'"></div>
+</script>
+
+<script type="text/ng-template" id="opa-promotedVideos-containers-3Cols.html">
+  <div flex="noshrink" layout="row" layout-wrap>
+    <opa-media-container class="big" opa-title="{{ $ctrl.containers[0].title }}" opa-media="$ctrl.containers[0].media" opa-edit="$ctrl.openMediaLibraryDialog(0)" opa-remove="$ctrl.clearContainer(0)"></opa-media-container>
+    <div layout="column">
+      <opa-media-container opa-title="{{ $ctrl.containers[1].title }}" opa-media="$ctrl.containers[1].media" opa-edit="$ctrl.openMediaLibraryDialog(1)" opa-remove="$ctrl.clearContainer(1)"></opa-media-container>
+      <opa-media-container opa-title="{{ $ctrl.containers[2].title }}" opa-media="$ctrl.containers[2].media" opa-edit="$ctrl.openMediaLibraryDialog(2)" opa-remove="$ctrl.clearContainer(2)"></opa-media-container>
+    </div>
+  </div>
+  <div flex="noshrink" layout="row" layout-wrap>
+    <opa-media-container ng-repeat="(i, container) in $ctrl.containers"ng-if="i > 2" opa-title="{{ container.title }}" opa-media="container.media" opa-edit="$ctrl.openMediaLibraryDialog(i)" opa-remove="$ctrl.clearContainer(i)"></opa-media-container>
+  </div>
+  <div layout="row" ng-include="'opa-promotedVideos-button.html'"></div>
+</script>
+
+<div layout="row" flex class="opa-promoted-videos" ng-class="{'opa-error' : $ctrl.isError}">
+  <div layout="column" flex class="opa-form" ng-if="!$ctrl.isError">
+    <div class="opa-containers" ng-class="$ctrl.containersClass" layout="column" ng-include="$ctrl.getContainersTemplate()"></div>
+  </div>
+
+  <!-- Error -->
+  <div layout="column" layout-align="center center" flex="auto" class="opa-error-message" ng-if="$ctrl.isError">
+    <md-icon>view_quilt</md-icon>
+    <span ng-bind="'PROMOTED_VIDEOS.ERROR_MESSAGE' | opaTranslate"></span>
+  </div>
+</div>
