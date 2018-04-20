@@ -323,14 +323,15 @@ class VideosController extends openVeoApi.controllers.Controller {
             portalConf.conf.cache.videoTTL,
             (error, video) => {
               if (error) {
-                if (error.httpCode === 404) {
+                process.logger.error(error.message, {error, method: 'getPromotedVideosAction'});
+
+                if (error.httpCode !== 404) {
 
                   // The video couldn't be fetched, maybe the video has been removed from OpenVeo
                   // Simply log the error
-                  process.logger.error(error.message, {error, method: 'getPromotedVideosAction'});
-
-                } else
                   return reject(errors.GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR);
+
+                }
               }
 
               resolve(video);
