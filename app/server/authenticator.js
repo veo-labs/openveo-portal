@@ -194,9 +194,12 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
         {
           name: thirdPartyUserName,
           email: thirdPartyUserEmail,
+          origin: strategy,
+          originId,
+          originGroups,
           groups
         }
-      ], strategy, originId, originGroups, (error, total, addedUsers) => {
+      ], (error, total, addedUsers) => {
         if (addedUsers) user = addedUsers[0];
         callback(error);
       });
