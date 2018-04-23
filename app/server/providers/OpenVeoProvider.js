@@ -201,6 +201,23 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   }
 
   /**
+   * Convert a video Point of Interest
+   *
+   * @method convertVideoPoi
+   * @async
+   * @param {String} videoId The id of the video to convert
+   * @param {Number} duration The duration of the video in ms
+   * @param {Function} [callback] The function to call when it's done
+   *   - **Error** The error if an error occured, null otherwise
+   *   - **Video** The video with converted POI
+   */
+  convertVideoPoi(videoId, duration, callback) {
+    this.storage.convertVideoPoi(videoId, duration, (error, video) => {
+      this.executeCallback(callback, error, video);
+    });
+  }
+
+  /**
    * Deletes cache of a document.
    *
    * @method deleteDocumentCache

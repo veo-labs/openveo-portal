@@ -157,6 +157,26 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
   }
 
   /**
+   * Convert video Points Of Interests
+   *
+   * @method convertVideoPoi
+   * @async
+   * @param {String} videoId The id of the video to convert
+   * @param {Number} duration The duration in milliseconds of the video
+   * @param {Function} callback The function to call when it's done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Video** The video with converted POI
+   */
+  convertVideoPoi(videoId, duration, callback) {
+    this.client
+    .post(`publish/videos/${videoId}/poi/convert`, {duration: duration})
+    .then((response) => {
+      callback(null, response.entity);
+    })
+    .catch(callback);
+  }
+
+  /**
    * Updates a document from collection.
    *
    * @method updateOne

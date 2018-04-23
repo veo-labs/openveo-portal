@@ -95,6 +95,65 @@ describe('VideosController', function() {
     mock.stopAll();
   });
 
+  describe('convertVideoPoiAction', function() {
+    it('should execute next if duration is wrong or null', function() {
+      request = {
+        params: {
+          id: 42
+        },
+        body: {
+        }
+      };
+      response.send = chai.spy(() => {});
+      let next = chai.spy((error) => {});
+      openVeoProvider.convertVideoPoi = chai.spy((videoId, duration, callback) => {
+      });
+
+      videosController.convertVideoPoiAction(request, response, next);
+      request.body.duration = 'coucou';
+      videosController.convertVideoPoiAction(request, response, next);
+      request.body.duration = 0;
+      videosController.convertVideoPoiAction(request, response, next);
+      request.body.duration = -10;
+      videosController.convertVideoPoiAction(request, response, next);
+      next.should.have.been.called.exactly(4);
+      openVeoProvider.convertVideoPoi.should.have.been.called.exactly(0);
+      response.send.should.have.been.called.exactly(0);
+    });
+
+    it('should return converted video', function(done) {
+      let expectedVideo = {
+        id: 42
+      };
+
+      request = {
+        params: {
+          id: expectedVideo.id
+        },
+        body: {
+          duration: 12345
+        }
+      };
+
+      openVeoProvider.convertVideoPoi = chai.spy((videoId, duration, callback) => {
+        assert.equal(videoId, expectedVideo.id, 'Wrong video id');
+        assert.equal(duration, request.body.duration, 'Wrong video duration');
+
+        callback(null, expectedVideo);
+      });
+
+      response.send = (result) => {
+        assert.deepEqual(result.entity, expectedVideo, 'Wrong video');
+        openVeoProvider.convertVideoPoi.should.have.been.called.exactly(1);
+        done();
+      };
+
+      videosController.convertVideoPoiAction(request, response, (error) => {
+        assert.ok(false, 'Unexpected call to next');
+      });
+    });
+  });
+
   describe('searchAction', function() {
 
     it('should send response with the list of videos and pagination', function(done) {

@@ -10,7 +10,16 @@
    * @param {type} $location
    * @returns {VideoController_L3.VideoController}
    */
-  function VideoController($scope, $locale, $timeout, $location, $analytics, videoService, searchService, $sce) {
+  function VideoController($scope,
+                           $http,
+                           $locale,
+                           $timeout,
+                           $location,
+                           $analytics,
+                           videoService,
+                           searchService,
+                           $sce,
+                           webServiceBasePath) {
     $scope.defaultMode = 'both';
     if ($scope.video.metadata) {
       var template = $scope.video.metadata.template || '';
@@ -58,6 +67,14 @@
     var myPlayer = document.getElementById('openveo-player');
     var playerController;
     var videoDuration;
+
+    angular.element(myPlayer).on('needPoiConversion', function(event, duration) {
+      $http
+        .post(webServiceBasePath + 'videos/' + $scope.video.id + '/poi/convert', {duration: duration})
+        .then(function(response) {
+          $scope.video = response.data.entity;
+        });
+    });
 
     /**
      * Executes, safely, the given function in AngularJS process.
@@ -117,13 +134,15 @@
   app.controller('VideoController', VideoController);
   VideoController.$inject = [
     '$scope',
+    '$http',
     '$locale',
     '$timeout',
     '$location',
     '$analytics',
     'videoService',
     'searchService',
-    '$sce'
+    '$sce',
+    'webServiceBasePath'
   ];
 
 })(angular.module('ov.portal'));

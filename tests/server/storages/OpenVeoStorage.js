@@ -337,6 +337,42 @@ describe('OpenVeoStorage', function() {
 
   });
 
+  describe('convertVideoPoi', function() {
+
+    it('should be able to call openVeo client convert function', function(done) {
+      const expectedVideoId = 42;
+      const expectedDuration = 3600000;
+      const expectedEndPoint = `publish/videos/${expectedVideoId}/poi/convert`;
+
+      openVeoStorage.client.post = chai.spy((endPoint, data, callback) => {
+        assert.strictEqual(endPoint, expectedEndPoint);
+        assert.strictEqual(data.duration, expectedDuration);
+
+        return Promise.resolve({});
+      });
+
+      openVeoStorage.convertVideoPoi(expectedVideoId, expectedDuration, (error, video) => {
+        openVeoStorage.client.post.should.have.been.called.exactly(1);
+        done();
+      });
+    });
+
+    it('should execute callback with an error if convert failed', function(done) {
+      const expectedError = new Error('Something went wrong');
+
+      openVeoStorage.client.post = chai.spy((endPoint, data, callback) => {
+        return Promise.reject(expectedError);
+      });
+
+      openVeoStorage.convertVideoPoi(null, null, (error, video) => {
+        assert.strictEqual(error, expectedError);
+        openVeoStorage.client.post.should.have.been.called.exactly(1);
+        done();
+      });
+    });
+
+  });
+
   describe('updateOne', function() {
 
     it('should update a document', function(done) {

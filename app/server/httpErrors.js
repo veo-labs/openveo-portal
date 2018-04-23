@@ -504,6 +504,30 @@ const HTTP_ERRORS = {
   GET_PROMOTED_VIDEOS_WRONG_PARAMETERS: {
     code: 0x306,
     httpCode: 400
+  },
+
+  /**
+   * Converting video points of interest failed, wrong parameters.
+   *
+   * @property CONVERT_VIDEO_POI_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  CONVERT_VIDEO_POI_WRONG_PARAMETERS: {
+    code: 0x307,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when converting video points of interests.
+   *
+   * @property CONVERT_VIDEO_POI_ERROR
+   * @type Object
+   * @final
+   */
+  CONVERT_VIDEO_POI_ERROR: {
+    code: 0x308,
+    httpCode: 400
   }
 
 };

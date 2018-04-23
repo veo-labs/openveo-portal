@@ -109,6 +109,45 @@ class VideosController extends openVeoApi.controllers.Controller {
   }
 
   /**
+   * Converts video points of interest
+   *
+   * @method convertVideoPoiAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Object} request.body Request's body
+   * @param {Number} request.body.duration The duration of the video
+   */
+  convertVideoPoiAction(request, response, next) {
+    const videoId = request.params.id;
+    const body = request.body;
+    let params;
+
+    // Parse Filters
+    try {
+      params = openVeoApi.util.shallowValidateObject(body, {
+        duration: {type: 'number', gt: 0, required: true}
+      });
+    } catch (error) {
+      return next(errors.CONVERT_VIDEO_POI_WRONG_PARAMETERS);
+    }
+
+    context.openVeoProvider.convertVideoPoi(
+      videoId,
+      params.duration,
+      (error, video) => {
+        if (error) {
+          process.logger.error(error.message, {error, method: 'convertVideoPoiAction'});
+          return next(errors.CONVERT_VIDEO_POI_ERROR);
+        }
+
+        response.send({
+          entity: video
+        });
+      }
+    );
+  }
+
+  /**
    * Searches OpenVeo Publish videos.
    *
    * @method searchAction

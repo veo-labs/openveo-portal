@@ -416,6 +416,24 @@ describe('OpenVeoProvider', function() {
 
   });
 
+  describe('convertVideoPoi', function() {
+    const expectedVideoId = 42;
+    const expectedDuration = 3600000;
+
+    it('should call storage.convertVideoPoi() method', function() {
+      storage.convertVideoPoi = chai.spy((videoId, duration, callback) => {
+        assert.strictEqual(videoId, expectedVideoId);
+        assert.strictEqual(duration, expectedDuration);
+
+        callback(null, {});
+      });
+
+      provider.convertVideoPoi(expectedVideoId, expectedDuration, (error, video) => {});
+
+      storage.convertVideoPoi.should.have.been.called.exactly(1);
+    });
+  });
+
   describe('deleteDocumentCache', function() {
 
     it('should delete cache entries regarding a document', function() {

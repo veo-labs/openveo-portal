@@ -352,6 +352,10 @@ class Server {
       `${webServiceBasePath}videos/:id`,
       videosController.getVideoAction.bind(videosController)
     );
+    this.app.post(
+      `${webServiceBasePath}videos/:id/poi/convert`,
+      videosController.convertVideoPoiAction.bind(videosController)
+    );
     this.app.get(
       `${webServiceBasePath}categories`,
       categoriesController.getCategoriesAction.bind(categoriesController)
