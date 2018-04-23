@@ -357,7 +357,7 @@ class VideosController extends openVeoApi.controllers.Controller {
             '/publish/videos',
             videoIds[i],
             {
-              include: ['id', 'title', 'date', 'thumbnail']
+              include: ['id', 'title', 'date', 'thumbnail', 'views']
             },
             portalConf.conf.cache.videoTTL,
             (error, video) => {
@@ -406,7 +406,7 @@ class VideosController extends openVeoApi.controllers.Controller {
           '/publish/videos',
           filter,
           {
-            include: ['id', 'title', 'date', 'thumbnail']
+            include: ['id', 'title', 'date', 'thumbnail', 'views']
           },
           NUMBER_OF_VIDEOS,
           0,
