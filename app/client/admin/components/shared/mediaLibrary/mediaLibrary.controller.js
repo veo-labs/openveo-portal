@@ -63,6 +63,17 @@
       },
 
       /**
+       * Indicates if next page loading is triggered
+       *
+       * @property triggered
+       * @type Boolean
+       */
+      triggered: {
+        value: false,
+        writable: true
+      },
+
+      /**
        * Number of results per page.
        *
        * @property limit
@@ -121,10 +132,14 @@
           var container = select.parent();
 
           container.on('scroll', function() {
-            if (this.scrollTop / (this.scrollHeight - this.clientHeight) < 0.8)
-              return;
+            var progress = this.scrollTop / (this.scrollHeight - this.clientHeight);
 
-            self.addNextPage();
+            if (progress < 0.7) {
+              self.triggered = false;
+            } else if (progress > 0.8 && self.triggered === false) {
+              self.triggered = true;
+              self.addNextPage();
+            }
           });
         }
       },
@@ -212,15 +227,20 @@
 
           $http
             .post(opaWebServiceBasePath + 'videos', data)
-            .then(function(response) {
-              self.isLoading = false;
+            .then(
+              function(response) {
+                self.isLoading = false;
+                self.triggered = false;
 
-              response.data.entities.forEach(function(entity) {
-                entity.preview = opaUrlFactory.setUrlParameter(entity.thumbnail, 'style', 'publish-square-142');
+                response.data.entities.forEach(function(entity) {
+                  entity.preview = opaUrlFactory.setUrlParameter(entity.thumbnail, 'style', 'publish-square-142');
+                });
+
+                return callback(response);
+              },
+              function(error) {
+                self.isLoading = false;
               });
-
-              return callback(response);
-            });
         }
       }
 
