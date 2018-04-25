@@ -26,7 +26,8 @@ class VersionController extends openVeoApi.controllers.Controller {
    * Handles version action to get information about OpenVeo Portal version.
    *
    * It requests Github atom feed to get the latest available version of OpenVeo Portal.
-   * Then version is compared to actual one using semver.
+   * Then version is compared to actual one using semver. Unstable versions (beta, alpha and release candidate are
+   * ignored).
    *
    * @method getVersionAction
    * @async
@@ -64,10 +65,13 @@ class VersionController extends openVeoApi.controllers.Controller {
         rawData += chunk;
       });
       result.on('end', () => {
-        let titles = rawData.match(/<title>(.*)<\/title>/gi);
 
-        // Latest version is the second one (the first title is the feed title)
-        info.latestVersion = /<title>(.*)<\/title>/.exec(titles[1])[1];
+        // Filter feed lines to keep only lines containing an XML "id" tag with a version number containing
+        // exclusively numbers and dots to eliminate release candidate / alpha and beta versions
+        let ids = rawData.match(/<id>.*\/([0-9\.]*)<\/id>/gi);
+
+        // Latest version is the first one
+        info.latestVersion = /<id>.*\/([^<]*)<\/id>/.exec(ids[0])[1];
         info.latestVersionReleaseUrl = `${packageConf.homepage}/releases/${info.latestVersion}`;
         info.versionReleaseUrl = `${packageConf.homepage}/releases/${info.version}`;
         info.versionSourcesUrl = `${packageConf.homepage}/tree/${info.version}`;

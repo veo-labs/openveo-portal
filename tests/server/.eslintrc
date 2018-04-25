@@ -15,8 +15,11 @@
   },
   "rules": {
 
-    // Require JSDoc comment
-    "require-jsdoc": 0
+    // Authorize to omit JSDoc comments
+    "require-jsdoc": 0,
+
+    // Allow synchronous methods
+    "no-sync": 0
 
   }
 
