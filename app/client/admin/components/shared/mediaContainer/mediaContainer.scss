@@ -81,6 +81,8 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
   }
 
   &:hover {
+    cursor: pointer;
+
     .opa-overlay {
       background: $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG;
     }
@@ -119,6 +121,8 @@ $OPA_MEDIA_CONTAINER_OVERLAY_OVER_BG: linear-gradient(
     padding: 7px;
     position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
 
     .opa-media-title {
       font-weight: 700;
