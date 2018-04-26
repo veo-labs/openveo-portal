@@ -318,7 +318,6 @@ class VideosController extends openVeoApi.controllers.Controller {
    * @param {Function} next Function to defer execution to the next registered middleware
    */
   async getPromotedVideosAction(request, response, next) {
-    const VIDEO_PUBLISH_STATES = 12;
     const NUMBER_OF_VIDEOS = 9;
     const settingsProvider = new SettingsProvider(context.database);
     let queryParameters;
@@ -358,7 +357,7 @@ class VideosController extends openVeoApi.controllers.Controller {
             '/publish/videos',
             videoIds[i],
             {
-              include: ['id', 'title', 'date', 'thumbnail', 'views']
+              include: ['id', 'title', 'date', 'thumbnail', 'views', 'state']
             },
             portalConf.conf.cache.videoTTL,
             (error, video) => {
@@ -368,7 +367,6 @@ class VideosController extends openVeoApi.controllers.Controller {
                 if (error.httpCode !== 404) {
 
                   // The video couldn't be fetched, maybe the video has been removed from OpenVeo
-                  // Simply log the error
                   return reject(errors.GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR);
 
                 }
@@ -379,9 +377,13 @@ class VideosController extends openVeoApi.controllers.Controller {
           );
         });
 
-        if (promotedVideo && this.isUserAuthorized(request.user, promotedVideo))
+        if (
+          promotedVideo &&
+          promotedVideo.state === VIDEO_PUBLISH_STATE &&
+          this.isUserAuthorized(request.user, promotedVideo)
+        ) {
           promotedVideos[i] = promotedVideo;
-        else
+        } else
           promotedVideos[i] = undefined;
       }
 
@@ -399,7 +401,7 @@ class VideosController extends openVeoApi.controllers.Controller {
       // Make sure user can access returned videos
       const filter = new ResourceFilter();
       this.addAccessFilter(filter, request.isAuthenticated() && request.user);
-      filter.equal('states', VIDEO_PUBLISH_STATES);
+      filter.equal('states', VIDEO_PUBLISH_STATE);
 
       // Get as many videos as the number of promoted videos to be sure to have enough
       let extraVideos = await new Promise((resolve, reject) => {

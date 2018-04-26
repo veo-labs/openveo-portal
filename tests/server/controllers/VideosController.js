@@ -739,6 +739,35 @@ describe('VideosController', function() {
       });
     });
 
+    it('should create an empty slot if a video is not published', function(done) {
+      expectedSettings = [
+        {
+          id: 'promoted-videos',
+          value: ['40', '41', '42', '43', '44', '45', '46', '47', '48']
+        }
+      ];
+
+      openVeoProvider.getOne = (location, id, fields, ttl, callback) => {
+        callback(null, {
+          id: '42',
+          state: 'Not published state'
+        });
+      };
+
+      response.send = function(promotedVideos) {
+        assert.lengthOf(promotedVideos, 9, 'Expected 9 slots');
+
+        for (let i = 0; i < promotedVideos.length; i++)
+          assert.isUndefined(promotedVideos[i], `Unexpected video for index ${i}`);
+
+        done();
+      };
+
+      videosController.getPromotedVideosAction(request, response, (error) => {
+        assert.ok(false, 'Unexpected error');
+      });
+    });
+
     it('should create empty slots if no settings', function(done) {
       response.send = function(promotedVideos) {
         assert.lengthOf(promotedVideos, 9, 'Expected 9 slots');
