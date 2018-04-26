@@ -5,7 +5,7 @@
          ng-if="item.label && item.action"
          ng-class="{'opa-selected': item.selected}"
          ng-click="item.action(item)"
-         ng-keypress="item.action(item)"
+         ng-keypress="$ctrl.handleItemKeypress($event, item)"
          ng-class="{'opa-selected': item.selected}"
          layout="row"
          layout-align="start center"
