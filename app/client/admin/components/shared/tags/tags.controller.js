@@ -422,6 +422,23 @@
             }
           }
         }
+      },
+
+      /**
+       * Invalidates component while untouched.
+       *
+       * Invalidates component if input has been touched while component is required and empty.
+       *
+       * @method invalidateUntouched
+       * @final
+       */
+      invalidateUntouched: {
+        value: function() {
+          var values = getValues();
+          var isEmpty = !values || values.length === 0;
+          if (inputNgModelController.$touched || !isRequired || !isEmpty) return;
+          mdInputContainerController.setInvalid(true);
+        }
       }
 
     });
@@ -443,6 +460,7 @@
           inputNgModelController &&
           inputNgModelController.$touched
         );
+
       return isEmpty;
     };
 

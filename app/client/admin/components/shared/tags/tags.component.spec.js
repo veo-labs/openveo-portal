@@ -413,6 +413,23 @@ describe('opaTags', function() {
     assert.isOk(element.hasClass('md-input-invalid'), 'Expected parent mdInputContainer to be invalid');
   });
 
+  it('should set parent mdInputContainer as invalid if required and touched', function() {
+    scope.required = true;
+    let element = angular.element(`
+      <md-input-container>
+        <opa-tags ng-model="data" ng-required="required"></opa-tags>
+      </md-input-container>
+    `);
+    element = $compile(element)(scope);
+    scope.$digest();
+
+    const inputElement = angular.element(element.find('input')[0]);
+    inputElement.triggerHandler({type: 'blur'});
+    scope.$digest();
+
+    assert.isOk(element.hasClass('md-input-invalid'), 'Expected parent mdInputContainer to be invalid');
+  });
+
   it('should add class "md-required" to mdInputContainer associated label if opa-tags is required', function() {
     scope.required = true;
     let element = angular.element(`
