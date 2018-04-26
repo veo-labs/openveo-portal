@@ -215,7 +215,7 @@
       save: {
         value: function() {
           ctrl.isSaving = true;
-          const promotedVideos = new Array(9);
+          var promotedVideos = new Array(9);
 
           for (var i = 0; i < promotedVideos.length; i++)
             promotedVideos[i] = (ctrl.containers[i].media && ctrl.containers[i].media.id) || undefined;
