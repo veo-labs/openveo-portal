@@ -3,6 +3,7 @@
 window.assert = chai.assert;
 
 describe('OpaActionsButtonController', function() {
+  let $componentController;
   let $compile;
   let $rootScope;
   let scope;
@@ -14,9 +15,10 @@ describe('OpaActionsButtonController', function() {
   });
 
   // Dependencies injections
-  beforeEach(inject(function(_$compile_, _$rootScope_) {
+  beforeEach(inject(function(_$compile_, _$rootScope_, _$componentController_) {
     $rootScope = _$rootScope_;
     $compile = _$compile_;
+    $componentController = _$componentController_;
   }));
 
   // Initializes tests
@@ -60,6 +62,36 @@ describe('OpaActionsButtonController', function() {
 
       assert.ok(!ctrl.isOpened, 'Expected the list of actions to be closed');
       assert.ok(!actionsWrapperHeight, 'Expected actions wrapper element to have a height of 0');
+    });
+
+  });
+
+  describe('handleActionKeypress', function() {
+
+    it('should execute action associated to the action element when "enter" key is hit', function() {
+      const ctrl = $componentController('opaActionsButton', {
+        $element: {}
+      });
+      const expectedAction = {
+        action: chai.spy(() => {})
+      };
+
+      ctrl.handleActionKeypress({keyCode: 13}, expectedAction);
+
+      expectedAction.action.should.have.been.called.exactly(1);
+    });
+
+    it('should not execute action when the pressed key is not "enter"', function() {
+      const ctrl = $componentController('opaActionsButton', {
+        $element: {}
+      });
+      const expectedAction = {
+        action: chai.spy(() => {})
+      };
+
+      ctrl.handleActionKeypress({keyCode: 42}, expectedAction);
+
+      expectedAction.action.should.have.been.called.exactly(0);
     });
 
   });

@@ -53,6 +53,27 @@
           } else
             actionsWrapperElement.style.height = '0px';
         }
+      },
+
+      /**
+       * Handles keypress events on actions.
+       *
+       * @method handleActionKeypress
+       * @final
+       * @param {Event} event The keypress event
+       * @param {Object} action The action receiving the event
+       */
+      handleActionKeypress: {
+        value: function(event, action) {
+          if (event.keyCode === 13) {
+
+            // Captured "enter" key
+
+            // Execute action associated action
+            action.action(action);
+
+          }
+        }
       }
 
     });

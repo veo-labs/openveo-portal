@@ -9,7 +9,7 @@
       <li ng-repeat="action in $ctrl.opaActions" ng-if="action.label && action.action" ng-class="{'opa-selected': action.selected}">
           <a
              ng-click="action.action(action)"
-             ng-keypress="action.action(action)"
+             ng-keypress="$ctrl.handleActionKeypress($event, action)"
              layout="row"
              layout-align="start center"
              tabindex="0"
