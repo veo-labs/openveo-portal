@@ -11,6 +11,8 @@ const context = process.require('app/server/context.js');
 const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
 const ResourceFilter = openVeoApi.storages.ResourceFilter;
 
+const VIDEO_PUBLISH_STATE = 12;
+
 class VideosController extends openVeoApi.controllers.Controller {
 
   /**
@@ -171,7 +173,6 @@ class VideosController extends openVeoApi.controllers.Controller {
    * @param {Function} next Function to defer execution to the next registered middleware
    */
   searchAction(request, response, next) {
-    const VIDEO_PUBLISH_STATES = 12;
     const body = request.body || {};
     const filter = new ResourceFilter();
     let params;
@@ -206,7 +207,7 @@ class VideosController extends openVeoApi.controllers.Controller {
     this.addAccessFilter(filter, request.isAuthenticated() && request.user);
 
     // Add published states
-    filter.equal('states', VIDEO_PUBLISH_STATES);
+    filter.equal('states', VIDEO_PUBLISH_STATE);
 
     // Add properties
     Object.keys(body.filter).forEach((key) => {
@@ -276,7 +277,7 @@ class VideosController extends openVeoApi.controllers.Controller {
           return next(errors.GET_VIDEO_ERROR);
         }
 
-        if (!video) return next(errors.GET_VIDEO_NOT_FOUND);
+        if (!video || video.state !== VIDEO_PUBLISH_STATE) return next(errors.GET_VIDEO_NOT_FOUND);
 
         const isInPublicGroups = video.metadata.groups && openVeoApi.util.intersectArray(
           video.metadata.groups,

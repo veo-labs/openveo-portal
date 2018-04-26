@@ -13,6 +13,10 @@
   - the promoted videos page to configure which videos to display on the portal home page
   - the settings page to configure a live
 
+## BUG FIXES
+
+- Videos not published in OpenVeo can't be accessed by URL anymore
+
 ## DEPENDENCIES
 
 - **angular-material** has been upgraded from 1.1.4 to **1.1.5**

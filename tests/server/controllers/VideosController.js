@@ -7,6 +7,7 @@ const mock = require('mock-require');
 const api = require('@openveo/api');
 const HTTP_ERRORS = process.require('app/server/httpErrors.js');
 const ResourceFilter = api.storages.ResourceFilter;
+const VIDEO_PUBLISH_STATE = 12;
 
 const assert = chai.assert;
 chai.should();
@@ -435,6 +436,7 @@ describe('VideosController', function() {
       expectedVideos = [
         {
           id: '42',
+          state: VIDEO_PUBLISH_STATE,
           metadata: {
             groups: conf.conf.publicFilter
           }
@@ -463,7 +465,8 @@ describe('VideosController', function() {
       request.params.id = '42';
       expectedVideos = [
         {
-          id: '42'
+          id: '42',
+          state: VIDEO_PUBLISH_STATE
         }
       ];
 
@@ -501,6 +504,26 @@ describe('VideosController', function() {
       });
     });
 
+    it('should execute next with an error if video is not published', function(done) {
+      request.params.id = '42';
+      expectedVideos = [
+        {
+          id: '42',
+          state: 'Not published state'
+        }
+      ];
+
+      response.send = (result) => {
+        assert.ok(false, 'Unexpected response');
+      };
+
+      videosController.getVideoAction(request, response, (error) => {
+        openVeoProvider.getOne.should.have.been.called.exactly(1);
+        assert.strictEqual(error, HTTP_ERRORS.GET_VIDEO_NOT_FOUND, 'Wrong error');
+        done();
+      });
+    });
+
     it(
       'should send response with a property "needAuth" if user is not authenticated and video not public',
       function(done) {
@@ -508,6 +531,7 @@ describe('VideosController', function() {
         expectedVideos = [
           {
             id: '42',
+            state: VIDEO_PUBLISH_STATE,
             metadata: {
               groups: []
             }
@@ -533,6 +557,7 @@ describe('VideosController', function() {
       expectedVideos = [
         {
           id: '42',
+          state: VIDEO_PUBLISH_STATE,
           metadata: {
             groups: []
           }
@@ -562,6 +587,7 @@ describe('VideosController', function() {
         expectedVideos = [
           {
             id: '42',
+            state: VIDEO_PUBLISH_STATE,
             metadata: {
               groups: conf.conf.privateFilter
             }
@@ -590,6 +616,7 @@ describe('VideosController', function() {
       expectedVideos = [
         {
           id: '42',
+          state: VIDEO_PUBLISH_STATE,
           metadata: {
             groups: request.user.groups
           }
@@ -619,6 +646,7 @@ describe('VideosController', function() {
         expectedVideos = [
           {
             id: '42',
+            state: VIDEO_PUBLISH_STATE,
             metadata: {
               groups: []
             }
@@ -659,7 +687,8 @@ describe('VideosController', function() {
 
       openVeoProvider.getOne = (location, id, fields, ttl, callback) => {
         callback(null, {
-          id: id
+          id: id,
+          state: VIDEO_PUBLISH_STATE
         });
       };
 
