@@ -102,6 +102,8 @@ body {
   /* Left side navigation is relative to the wrapper, not the body */
   position: relative;
 
+  min-height: 0;
+
 }
 
 /* ng-view preloader */
