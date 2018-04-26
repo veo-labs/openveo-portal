@@ -1,3 +1,8 @@
+$OPA_ACTIONS_BUTTON_FOCUSED_COLOR: #008bd6;
+$OPA_ACTIONS_BUTTON_ICON_COLOR: #616161;
+$OPA_ACTIONS_BUTTON_NAME_COLOR: #212121;
+$OPA_ACTIONS_BUTTON_SELECTED_COLOR: #e6007e;
+
 .opa-actions-button {
 
   button {
@@ -20,6 +25,7 @@
       /* On IE 10 a flex child need to be in display flex to grow or shrink */
       display: flex;
 
+      color: $OPA_ACTIONS_BUTTON_NAME_COLOR;
     }
 
     /* Up / down arrow */
@@ -27,6 +33,16 @@
       margin: 0;
       transform: rotate(0deg);
       transition: transform 0.3s ease-in-out;
+    }
+
+    md-icon {
+      color: $OPA_ACTIONS_BUTTON_ICON_COLOR;
+    }
+
+    &:focus {
+      md-icon, span {
+        color: $OPA_ACTIONS_BUTTON_FOCUSED_COLOR;
+      }
     }
   }
 
@@ -39,6 +55,19 @@
     a {
       cursor: pointer;
       @include user-select(none);
+
+      &.opa-selected {
+        md-icon, span {
+          color: $OPA_ACTIONS_BUTTON_SELECTED_COLOR;
+        }
+      }
+
+      &:focus {
+        md-icon, span {
+          color: $OPA_ACTIONS_BUTTON_FOCUSED_COLOR;
+        }
+      }
+
     }
   }
 
