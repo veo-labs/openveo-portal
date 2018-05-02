@@ -12,10 +12,13 @@
   - the dashboard which indicates the version of OpenVeo Portal and warns you if a new version is available
   - the promoted videos page to configure which videos to display on the portal home page
   - the settings page to configure a live
+- The video page now displays the lead paragraph in addition to the description
 
 ## BUG FIXES
 
 - Videos not published in OpenVeo can't be accessed by URL anymore
+- The format of dates now respects the language of the portal
+- Player now displays only the video by default if video stream contains both video and presentation
 
 ## DEPENDENCIES
 
