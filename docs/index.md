@@ -52,4 +52,10 @@ OpenVeo has been tested on the following:
 ![Video player](images/screenshots/video-player.jpg)
 
 ### Back office dashboard
-![Back office dashboard](images/screenshots/back-office-dashboard.jpg)
+![Back office dashboard](images/screenshots/back-office-dashboard.png)
+
+### Back office promoted videos configuration
+![Back office promoted videos](images/screenshots/back-office-promoted-videos.png)
+
+### Back office settings
+![Back office settings](images/screenshots/back-office-settings.png)
