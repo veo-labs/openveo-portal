@@ -4,6 +4,7 @@
 
 - Drop support for OpenVeo &lt; 5.0.0
 - All requests to OpenVeo are now cached with a default cache to 10 seconds still customizable through conf.json configuration file
+- Drop support for NodeJS &lt; 8.9.4 and NPM &lt; 5.6.0
 
 ## NEW FEATURES
 
