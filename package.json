@@ -81,7 +81,7 @@
     "yuidoc-theme-blue": "0.1.9"
   },
   "scripts": {
-    "prepublish": "grunt dist --production",
+    "prepack": "grunt dist --production",
     "postinstall": "bower install && node install.js",
     "eslint": "grunt eslint",
     "mocha": "grunt mochaTest",
