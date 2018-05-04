@@ -25,6 +25,7 @@
 ## DEPENDENCIES
 
 - **angular-material** has been upgraded from 1.1.4 to **1.1.5**
+- **openveo-player** has been upgraded from 2.\* to **4.\***
 - **@openveo/api** has been upgraded from 4.\* to **5.\***
 - **@openveo/test** has been upgraded from 5.\* to **6.\***
 
