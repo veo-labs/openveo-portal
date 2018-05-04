@@ -14,6 +14,7 @@
   - the promoted videos page to configure which videos to display on the portal home page
   - the settings page to configure a live
 - The video page now displays the lead paragraph in addition to the description
+- Add NPM npm-shrinkwrap.json file
 
 ## BUG FIXES
 
