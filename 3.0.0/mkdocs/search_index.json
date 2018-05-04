@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/",
-            "text": "What's OpenVeo Portal?\n\n\nOpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicative server based on \nExpress framework\n.\n\n\nIt aims to offer a portal to access medias exposed by an \nOpenVeo\n server associated to an \nOpenVeo Publish\n plugin.\n\n\nIt includes the following features:\n\n\n\n\nAn home page to present the most seen medias\n\n\nA search engine\n\n\nThemes\n\n\nStatistics with support for \nPiwik\n\n\n\n\nAuthentication\n\n\nOpenVeo Portal supports the following SSO (Single Sign On) providers:\n\n\n\n\nLDAP\n\n\nCAS\n\n\n\n\nCompatibility\n\n\nOpenVeo Portal has been tested on the following operating systems:\n\n\n\n\nWindows 10\n\n\nUbuntu 16.04\n\n\n\n\nOpenVeo has been tested on the following:\n\n\n\n\nGoogle Chrome 54\n\n\nMozilla Firefox 47\n\n\nOpera 42\n\n\nInternet Explorer Edge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScreenshots\n\n\nHome page\n\n\n\n\nVideo player",
+            "text": "What's OpenVeo Portal?\n\n\nOpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicative server based on \nExpress framework\n.\n\n\nIt aims to offer a portal to access medias exposed by an \nOpenVeo\n server associated to an \nOpenVeo Publish\n plugin.\n\n\nIt includes the following features:\n\n\n\n\nAn home page to present the most seen medias\n\n\nA live page to stream a live from Wowza or Youtube\n\n\nA search engine\n\n\nSupport for authentication using local database, \nCAS\n or \nLDAP\n\n\nThemes\n\n\nStatistics with support for \nPiwik\n\n\nAn administration interface\n\n\n\n\nAuthentication\n\n\nOpenVeo Portal supports the following SSO (Single Sign On) providers:\n\n\n\n\nLDAP\n\n\nCAS\n\n\n\n\nCompatibility\n\n\nOpenVeo Portal has been tested on the following operating systems:\n\n\n\n\nWindows 10\n\n\nUbuntu 16.04\n\n\n\n\nOpenVeo has been tested on the following:\n\n\n\n\nGoogle Chrome 54\n\n\nMozilla Firefox 47\n\n\nOpera 42\n\n\nInternet Explorer Edge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScreenshots\n\n\nHome page\n\n\n\n\nVideo player\n\n\n\n\nBack office dashboard",
             "title": "INTRODUCTION"
         },
         {
             "location": "/#whats-openveo-portal",
-            "text": "OpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicative server based on  Express framework .  It aims to offer a portal to access medias exposed by an  OpenVeo  server associated to an  OpenVeo Publish  plugin.  It includes the following features:   An home page to present the most seen medias  A search engine  Themes  Statistics with support for  Piwik",
+            "text": "OpenVeo Portal is a Node.js / AngularJS application. It embeds an HTTP applicative server based on  Express framework .  It aims to offer a portal to access medias exposed by an  OpenVeo  server associated to an  OpenVeo Publish  plugin.  It includes the following features:   An home page to present the most seen medias  A live page to stream a live from Wowza or Youtube  A search engine  Support for authentication using local database,  CAS  or  LDAP  Themes  Statistics with support for  Piwik  An administration interface",
             "title": "What's OpenVeo Portal?"
         },
         {
@@ -34,6 +34,11 @@
             "location": "/#video-player",
             "text": "",
             "title": "Video player"
+        },
+        {
+            "location": "/#back-office-dashboard",
+            "text": "",
+            "title": "Back office dashboard"
         },
         {
             "location": "/prerequisites/",
@@ -117,12 +122,12 @@
         },
         {
             "location": "/developers/prerequisites/",
-            "text": "OpenVeo Portal requires additional elements for development:\n\n\n\n\nGit\n - openveo-portal is versioned with git\n\n\nRuby\n / \nSass\n / \nCompass\n - CSS is written using SASS / Compass\n\n\nGrunt\n - Grunt is used to launch development tasks (compilation, obfuscation, tests etc.)\n\n\nMkdocs\n - To generate this documentation",
+            "text": "OpenVeo Portal requires additional elements for development:\n\n\n\n\nGit\n - openveo-portal is versioned with git\n\n\nRuby\n / \nSass\n / \nCompass\n - CSS is written using SASS / Compass\n\n\nGrunt\n - Grunt is used to launch development tasks (compilation, obfuscation, tests etc.)\n\n\nKarma\n - Back office AngularJS single page application is unit tested using karma\n\n\nMkdocs\n - To generate this documentation",
             "title": "Prerequisites"
         },
         {
             "location": "/developers/installation/",
-            "text": "Clone project from git\n\n\ncd /WORKSPACE_PATH/\ngit clone git@github.com:veo-labs/openveo-portal.git\n\n\n\nInstall OpenVeo Portal\n\n\ncd /WORKSPACE_PATH/openveo-portal\nnpm install",
+            "text": "Clone project from git\n\n\ncd /WORKSPACE_PATH/\ngit clone git@github.com:veo-labs/openveo-portal.git\n\n\n\nInstall OpenVeo Portal dependencies\n\n\ncd /WORKSPACE_PATH/openveo-portal\nnpm install\n\n\n\nCompile sources\n\n\nThis will compile front office and back office sources.\n\n\ncd /WORKSPACE_PATH/openveo-portal\ngrunt dist",
             "title": "Installation"
         },
         {
@@ -131,13 +136,18 @@
             "title": "Clone project from git"
         },
         {
-            "location": "/developers/installation/#install-openveo-portal",
+            "location": "/developers/installation/#install-openveo-portal-dependencies",
             "text": "cd /WORKSPACE_PATH/openveo-portal\nnpm install",
-            "title": "Install OpenVeo Portal"
+            "title": "Install OpenVeo Portal dependencies"
+        },
+        {
+            "location": "/developers/installation/#compile-sources",
+            "text": "This will compile front office and back office sources.  cd /WORKSPACE_PATH/openveo-portal\ngrunt dist",
+            "title": "Compile sources"
         },
         {
             "location": "/developers/conf/",
-            "text": "Introduction\n\n\nSome project's development configuration is made in \nconf.json\n file.\n\n\nLoad JavaScript files\n\n\nThe list of JavaScript files to load are defined in \nconf.json\n:\n\n\n{\n  scriptLibFiles: { // List of JavaScript files to load first\n    base: [ // List of JavaScript files to load on both development and production environments\n      ...\n    ],\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  },\n  scriptFiles: { // List of JavaScript files to load next\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  }\n}\n\n\n\n\nLoad CSS files\n\n\nThe list of CSS files to load are defined in \nconf.json\n:\n\n\n{\n  cssFiles: [ // List of CSS files to load\n    ...\n  ]\n}",
+            "text": "Introduction\n\n\nSome project's development configuration is made in \nconf.json\n file.\n\n\nLoad front office JavaScript files\n\n\nThe list of JavaScript files of the front office to load are defined in \nconf.json\n:\n\n\n{\n  scriptLibFiles: { // List of JavaScript files to load first\n    base: [ // List of JavaScript files to load on both development and production environments\n      ...\n    ],\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  },\n  scriptFiles: { // List of JavaScript files to load next\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  }\n}\n\n\n\n\nLoad front office CSS files\n\n\nThe list of CSS files to load are defined in \nconf.json\n:\n\n\n{\n  cssFiles: [ // List of CSS files to load\n    ...\n  ]\n}\n\n\n\n\nLoad back office JavaScript files\n\n\nBack office JavaScript files are loaded automatically, there is nothing to do about it. However libraries used by the back office still need to be loaded in \nconf.json\n:\n\n\n{\n  \"be\": {\n    \"scriptLibFiles\": [ // List of JavaScript library files to load\n      ...\n    ]\n  }\n}\n\n\n\n\nLoad back office CSS files\n\n\nBack office CSS files are loaded automatically, there is nothing to do about it.",
             "title": "conf.json"
         },
         {
@@ -146,28 +156,43 @@
             "title": "Introduction"
         },
         {
-            "location": "/developers/conf/#load-javascript-files",
-            "text": "The list of JavaScript files to load are defined in  conf.json :  {\n  scriptLibFiles: { // List of JavaScript files to load first\n    base: [ // List of JavaScript files to load on both development and production environments\n      ...\n    ],\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  },\n  scriptFiles: { // List of JavaScript files to load next\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  }\n}",
-            "title": "Load JavaScript files"
+            "location": "/developers/conf/#load-front-office-javascript-files",
+            "text": "The list of JavaScript files of the front office to load are defined in  conf.json :  {\n  scriptLibFiles: { // List of JavaScript files to load first\n    base: [ // List of JavaScript files to load on both development and production environments\n      ...\n    ],\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  },\n  scriptFiles: { // List of JavaScript files to load next\n    dev: [ // List of JavaScript files to load on development environment\n      ...\n    ],\n    prod: [ // List of JavaScript files to load on production environment\n      ...\n    ]\n  }\n}",
+            "title": "Load front office JavaScript files"
         },
         {
-            "location": "/developers/conf/#load-css-files",
+            "location": "/developers/conf/#load-front-office-css-files",
             "text": "The list of CSS files to load are defined in  conf.json :  {\n  cssFiles: [ // List of CSS files to load\n    ...\n  ]\n}",
-            "title": "Load CSS files"
+            "title": "Load front office CSS files"
+        },
+        {
+            "location": "/developers/conf/#load-back-office-javascript-files",
+            "text": "Back office JavaScript files are loaded automatically, there is nothing to do about it. However libraries used by the back office still need to be loaded in  conf.json :  {\n  \"be\": {\n    \"scriptLibFiles\": [ // List of JavaScript library files to load\n      ...\n    ]\n  }\n}",
+            "title": "Load back office JavaScript files"
+        },
+        {
+            "location": "/developers/conf/#load-back-office-css-files",
+            "text": "Back office CSS files are loaded automatically, there is nothing to do about it.",
+            "title": "Load back office CSS files"
         },
         {
             "location": "/developers/compilation/",
-            "text": "Introduction\n\n\nOpenVeo Portal is written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance.\n\n\nCompiling SASS files\n\n\nYou can compile the SASS files using the following command:\n\n\ngrunt compass:dist\n\n\n\nOr you can watch SASS files changes using the following command:\n\n\ngrunt\n\n\n\nCompiling JavaScript files\n\n\nYou'll probably want to compile AngularJS files, in production, for better performance. You can do it using:\n\n\ngrunt dist",
+            "text": "Introduction\n\n\nOpenVeo Portal is written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance. Front office and back office are two different applications and are not compiled the same way.\n\n\nCompile front office\n\n\nCompiling SASS files\n\n\nYou can compile the SASS files of the front office using the following command:\n\n\ngrunt compass:dist\n\n\n\nOr you can watch SASS files changes using the following command:\n\n\ngrunt\n\n\n\nCompiling JavaScript files\n\n\nYou'll probably want to compile AngularJS files, in production, for better performance. You can do it using:\n\n\ngrunt dist\n\n\n\nCompile back office\n\n\nCompiling SASS files and JavaScript files\n\n\nYou can compile the back office SASS files and JavaScript files using the following command:\n\n\ngrunt build-admin\n\n\n\nIt will generate source maps for both SASS files and JavaScript files. You can compile the back office without source maps using the following command (for production):\n\n\ngrunt build-admin --production\n\n\n\nIf you want the back office to be automatically compiled when a SASS file or a JavaScript file is changed use the following command:\n\n\ngrunt watch:admin",
             "title": "CSS / SASS / JS compilation"
         },
         {
             "location": "/developers/compilation/#introduction",
-            "text": "OpenVeo Portal is written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance.",
+            "text": "OpenVeo Portal is written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance. Front office and back office are two different applications and are not compiled the same way.",
             "title": "Introduction"
         },
         {
+            "location": "/developers/compilation/#compile-front-office",
+            "text": "",
+            "title": "Compile front office"
+        },
+        {
             "location": "/developers/compilation/#compiling-sass-files",
-            "text": "You can compile the SASS files using the following command:  grunt compass:dist  Or you can watch SASS files changes using the following command:  grunt",
+            "text": "You can compile the SASS files of the front office using the following command:  grunt compass:dist  Or you can watch SASS files changes using the following command:  grunt",
             "title": "Compiling SASS files"
         },
         {
@@ -176,8 +201,18 @@
             "title": "Compiling JavaScript files"
         },
         {
+            "location": "/developers/compilation/#compile-back-office",
+            "text": "",
+            "title": "Compile back office"
+        },
+        {
+            "location": "/developers/compilation/#compiling-sass-files-and-javascript-files",
+            "text": "You can compile the back office SASS files and JavaScript files using the following command:  grunt build-admin  It will generate source maps for both SASS files and JavaScript files. You can compile the back office without source maps using the following command (for production):  grunt build-admin --production  If you want the back office to be automatically compiled when a SASS file or a JavaScript file is changed use the following command:  grunt watch:admin",
+            "title": "Compiling SASS files and JavaScript files"
+        },
+        {
             "location": "/developers/api/",
-            "text": "Server side API (Node.js)\n\n\nOpenVeo Portal server API\n is the generated version of the Node.JS code documentation.\n\n\nClient side API (AngularJS)\n\n\nOpenVeo Portal client API\n is the generated version of the AngularJS code documentation.",
+            "text": "Server side API (Node.js)\n\n\nOpenVeo Portal server API\n is the generated version of the Node.JS code documentation.\n\n\nClient side API (AngularJS)\n\n\n\n\nOpenVeo Portal front API\n is the generated version of the documentation for the front AngularJS application.\n\n\nOpenVeo Portal admin API\n is the generated version of the documentation for the administration AngularJS application.",
             "title": "API"
         },
         {
@@ -187,7 +222,7 @@
         },
         {
             "location": "/developers/api/#client-side-api-angularjs",
-            "text": "OpenVeo Portal client API  is the generated version of the AngularJS code documentation.",
+            "text": "OpenVeo Portal front API  is the generated version of the documentation for the front AngularJS application.  OpenVeo Portal admin API  is the generated version of the documentation for the administration AngularJS application.",
             "title": "Client side API (AngularJS)"
         },
         {
@@ -209,6 +244,16 @@
             "location": "/developers/coding-standards/",
             "text": "OpenVeo Portal uses \nNode.js\n coding standards. \nESLint\n is used to validate coding rules. You can launch a code verification using the following command:\n\n\ngrunt eslint\n\n\n\nNb:\n Both Node.js and AngularJS parts of OpenVeo Portal must respect the same coding standards",
             "title": "Coding standards"
+        },
+        {
+            "location": "/developers/unit-tests/",
+            "text": "AngularJS back office unit tests\n\n\nClient side unit tests are performed using \nKarma\n. You can launch back office unit tests with the following command:\n\n\ngrunt unit-tests",
+            "title": "Unit tests"
+        },
+        {
+            "location": "/developers/unit-tests/#angularjs-back-office-unit-tests",
+            "text": "Client side unit tests are performed using  Karma . You can launch back office unit tests with the following command:  grunt unit-tests",
+            "title": "AngularJS back office unit tests"
         },
         {
             "location": "/developers/end-to-end-tests/",

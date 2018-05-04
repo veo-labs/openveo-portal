@@ -1,20 +1,29 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
+        "AuthenticationController",
+        "CategoriesController",
+        "DefaultController",
+        "ErrorController",
         "FilterCache",
+        "FiltersController",
+        "FrontPageVideosController",
+        "GroupsController",
         "HTTP_ERRORS",
+        "LiveController",
         "Server",
+        "SettingsController",
+        "SettingsModel",
+        "StatisticsController",
         "UserModel",
         "UserProvider",
+        "VersionController",
         "VideoCache",
+        "VideosController",
         "WebserviceClient",
-        "authenticationController",
         "authenticator",
-        "defaultController",
-        "errorController",
-        "searchController",
-        "statisticsController",
-        "storage"
+        "context",
+        "statisticsController"
     ],
     "modules": [
         "cache",
