@@ -1,3 +1,9 @@
+# 4.0.1 / YYYY-MM-DD
+
+## BUG FIXES
+
+- Remove use of inline styles on front office
+
 # 4.0.0 / 2018-05-04
 
 ## BREAKING CHANGES

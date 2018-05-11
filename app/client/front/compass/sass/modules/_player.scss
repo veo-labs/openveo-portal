@@ -67,14 +67,19 @@ md-dialog.dialog-video {
     padding-right: 7px;
   }
 
-  .subtitle-infos > span:not(:last-child) {
-    padding-right: 7px;
-  }
+  .subtitle-infos {
+    color: $BACKGROUND_600_COLOR;
+    border-color: $BACKGROUND_600_COLOR;
 
-  .subtitle-infos > span:not(:first-child) {
-    padding-left: 7px;
-    border-left: 1px solid;
-    border-color: inherit;
+    & > span:not(:last-child) {
+      padding-right: 7px;
+    }
+
+    & > span:not(:first-child) {
+      padding-left: 7px;
+      border-left: 1px solid;
+      border-color: inherit;
+    }
   }
 
   .share-code {
@@ -98,5 +103,11 @@ md-dialog.dialog-video {
 
   p {
     margin: 1em 0;
+  }
+}
+
+.video-full-infos {
+  label {
+    color: $BACKGROUND_400_COLOR;
   }
 }

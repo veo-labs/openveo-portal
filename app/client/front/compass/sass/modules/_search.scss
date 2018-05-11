@@ -47,6 +47,14 @@
     text-align: center;
   }
 
+  .cancel-button {
+    background-color: $BACKGROUND_500_COLOR;
+  }
+
+  .cancel-button.md-button.md-fab:not([disabled]):hover {
+    background-color: $BACKGROUND_A700_COLOR;
+  }
+
 }
 
 /* Options of select filters */

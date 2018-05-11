@@ -17,7 +17,7 @@
     <div layout="row" layout-align="space-between center">
       <div layout="column">
         <span class="md-headline">{{video.title}}</span>
-        <div flex class="md-caption subtitle-infos" md-colors="::{color: 'default-background-600', 'border-color': 'default-background-600'}">
+        <div flex class="md-caption subtitle-infos">
           <span>{{video.date| date: 'longDate'}}</span>
           <span>{{video.views ? video.views : 0}} {{ (video.views > 1 ? 'UI.VIEW.PLURAL':'UI.VIEW.SINGLE')|translate }}</span>
         </div>
@@ -59,7 +59,7 @@
     <div ng-show="showFullInfos" class="video-full-infos collapse">
       <div class="description md-body-1" ng-if="video.description && video.description.length > 0" ng-bind-html="trustedHTML(video.description)"></div>
       <div flex layout="row" layout-align="left center" ng-if="categoryName">
-        <label class="md-caption" ng-bind="'SEARCH.CATEGORY_FILTER' | translate" md-colors="::{color: 'default-background-400'}"></label>
+        <label class="md-caption" ng-bind="'SEARCH.CATEGORY_FILTER' | translate"></label>
         <p class="md-caption" ng-bind="categoryName"></p>
       </div>
     </div>

@@ -22,9 +22,14 @@
   .submit-button {
     text-align: center;
   }
+
+  .error {
+    color: $WARN_A700_COLOR;
+  }
 }
 
 .login-dialog {
+  background-color: $BACKGROUND_50_COLOR;
   p {
     margin: 0;
   }
