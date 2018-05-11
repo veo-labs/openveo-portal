@@ -1,0 +1,988 @@
+{
+    "project": {
+        "name": "OpenVeo Portal client",
+        "description": "AngularJS OpenVeo Portal front documentation",
+        "version": "4.0.1"
+    },
+    "files": {
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "modules": {
+                "ov.authentication": 1
+            },
+            "classes": {
+                "authenticationService": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/i18n/I18nApp.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/i18n/I18nApp.js",
+            "modules": {
+                "ov.i18n": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/i18n/I18nFilter.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/i18n/I18nFilter.js",
+            "modules": {},
+            "classes": {
+                "TranslateFilter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/ErrorInterceptor.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/ErrorInterceptor.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/HomeController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/HomeController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LiveController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LiveController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LoginFormController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LoginFormController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/OvApp.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/OvApp.js",
+            "modules": {
+                "ov.portal": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "modules": {
+                "ov": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoPageController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoPageController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoService.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoService.js",
+            "modules": {},
+            "classes": {
+                "applicationService": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/storage/StorageApp.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/storage/StorageApp.js",
+            "modules": {
+                "ov.storage": 1
+            },
+            "classes": {
+                "storageProvider": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "ov.authentication": {
+            "name": "ov.authentication",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "authenticationService": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "line": 13,
+            "description": "Service to authenticate / logout or manipulate authenticated user informations.",
+            "itemtype": "main"
+        },
+        "ov.i18n": {
+            "name": "ov.i18n",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "TranslateFilter": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/i18n/I18nFilter.js",
+            "line": 9,
+            "description": "Control internationalization.",
+            "itemtype": "main"
+        },
+        "ov.portal": {
+            "name": "ov.portal",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/OvApp.js",
+            "line": 3,
+            "description": "Main OpenVeo Portal module.\n\nInitializes routes.",
+            "itemtype": "main"
+        },
+        "ov": {
+            "name": "ov",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "applicationService": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoService.js",
+            "line": 5,
+            "description": "Defines service to manage the video search."
+        },
+        "ov.storage": {
+            "name": "ov.storage",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "storageProvider": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/storage/StorageApp.js",
+            "line": 13,
+            "description": "Helper module to manipulate local storage.",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "authenticationService": {
+            "name": "authenticationService",
+            "shortname": "authenticationService",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ov.authentication",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "line": 13,
+            "description": "Defines an authentication service to deal with user authentication.\nExposes methods to deal with user information and to sign in or logout."
+        },
+        "TranslateFilter": {
+            "name": "TranslateFilter",
+            "shortname": "TranslateFilter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ov.i18n",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/i18n/I18nFilter.js",
+            "line": 9,
+            "description": "Defines a filter to translate an id, contained inside a dictionary of translations,\ninto the appropriated text.",
+            "is_constructor": 1
+        },
+        "applicationService": {
+            "name": "applicationService",
+            "shortname": "applicationService",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ov",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoService.js",
+            "line": 5,
+            "description": "Defines service to manage the video search."
+        },
+        "storageProvider": {
+            "name": "storageProvider",
+            "shortname": "storageProvider",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ov.storage",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/storage/StorageApp.js",
+            "line": 13,
+            "description": "Defines a storage provider to help store information.\nFor now sessionStorage and localStorage are supported."
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "line": 22,
+            "description": "Initializes user information.",
+            "class": "authenticationService",
+            "module": "ov.authentication"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "line": 29,
+            "description": "Signs in using the given credentials.",
+            "params": [
+                {
+                    "name": "login",
+                    "description": "The login",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "The password",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The authentication promise",
+                "type": "HttPromise"
+            },
+            "itemtype": "method",
+            "name": "login",
+            "class": "authenticationService",
+            "module": "ov.authentication"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "line": 44,
+            "description": "Logs out user.",
+            "return": {
+                "description": "The logout promise",
+                "type": "HttPromise"
+            },
+            "itemtype": "method",
+            "name": "logout",
+            "class": "authenticationService",
+            "module": "ov.authentication"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "line": 54,
+            "description": "Gets user information.",
+            "return": {
+                "description": "The user description object",
+                "type": "Object"
+            },
+            "itemtype": "method",
+            "name": "getUserInfo",
+            "class": "authenticationService",
+            "module": "ov.authentication"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js",
+            "line": 64,
+            "description": "Sets user information.",
+            "params": [
+                {
+                    "name": "info",
+                    "description": "The user description object or null to remove all user information",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "itemtype": "method",
+            "name": "setUserInfo",
+            "class": "authenticationService",
+            "module": "ov.authentication"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/i18n/I18nFilter.js",
+            "line": 18,
+            "description": "Translates an id into the appropriated text.",
+            "itemtype": "method",
+            "name": "translate",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the translation",
+                    "type": "String"
+                },
+                {
+                    "name": "number",
+                    "description": "The number to determine pluralization",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "The translated string",
+                "type": "String"
+            },
+            "class": "TranslateFilter",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/ErrorInterceptor.js",
+            "line": 5,
+            "description": "Builds the error message for the given error.",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The promise error as returned by the interceptor",
+                    "type": "Object"
+                },
+                {
+                    "name": "$filter",
+                    "description": "Angular filter",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The translated error message",
+                "type": "String"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/ErrorInterceptor.js",
+            "line": 38,
+            "description": "Defines an HTTP interceptor to handle all application errors.\n\nNot authorized errors (401) logs out the user while the other HTTP errors set an error message\nusing an alert.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/HomeController.js",
+            "line": 3,
+            "params": [
+                {
+                    "name": "app",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/HomeController.js",
+            "line": 11,
+            "description": "Defines the home page controller.",
+            "params": [
+                {
+                    "name": "promotedVideos",
+                    "description": "Request results for promoted videos",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "data",
+                            "description": "Request data",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "entities",
+                                    "description": "The list of promoted videos",
+                                    "type": "Array"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LiveController.js",
+            "line": 5,
+            "description": "Defines the live page controller.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LoginFormController.js",
+            "line": 5,
+            "description": "Defines the controller which controls loginForm.html template.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LoginFormController.js",
+            "line": 18,
+            "description": "Signs in using the login form information (login and password).\nIf user successfully signed in, redirect to the home page, otherwise, set the form as on error.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 5,
+            "description": "Define toast controller for all toast in app",
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$mdToast",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "MainController_L3.ToastController"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 17,
+            "description": "Define dialog controller for all dialog in app",
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$mdDialog",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "video",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "MainController_L3.DialogController"
+            },
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 44,
+            "description": "Defines the main controller parent of all controllers in the\napplication. All actions not handled in partials are handled\nby the main controller.",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 187,
+            "description": "Logs out connected user.",
+            "itemtype": "method",
+            "name": "logout",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 199,
+            "description": "Show the login dialog.",
+            "itemtype": "method",
+            "name": "showLoginDialog",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 231,
+            "description": "Logouts connected user.",
+            "itemtype": "method",
+            "name": "logout",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 259,
+            "description": "Navigates to administration interface (/be).\n\nThis will leave this single page application.",
+            "itemtype": "method",
+            "name": "goToBackOffice",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js",
+            "line": 271,
+            "description": "Define placeholder directive on all video element",
+            "class": "applicationService",
+            "module": "ov.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/OvApp.js",
+            "line": 70,
+            "description": "Configures application main routes and set location mode to HTML5.",
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js",
+            "line": 4,
+            "description": "Defines the home page controller.",
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js",
+            "line": 17,
+            "description": "init search from location",
+            "params": [
+                {
+                    "name": "searchTmp",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js",
+            "line": 28,
+            "description": "Search call to service",
+            "class": "applicationService",
+            "module": "ov.portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 17,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Unresolved"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 34,
+            "return": {
+                "description": "filters"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 50,
+            "return": {
+                "description": "categories"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 65,
+            "description": "Gets a category name by its id.",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The category id",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "getCategoryName",
+            "return": {
+                "description": "A promise resolving with the category name",
+                "type": "HttpPromise"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 82,
+            "description": "Gets the list of promoted videos.",
+            "itemtype": "method",
+            "name": "getPromotedVideos",
+            "return": {
+                "description": "A promise resolving with the list of promoted videos",
+                "type": "Promise"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 103,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "paginate",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "data"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 117,
+            "description": "Clears a search service cache.",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "The cache element to clsear null to\nclear all caches",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "itemtype": "method",
+            "name": "cacheClear",
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js",
+            "line": 131,
+            "description": "Clears search parameters to avoid conflicts",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "clean search params",
+                "type": "Object"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoController.js",
+            "line": 5,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$locale",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$timeout",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "$location",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "VideoController_L3.VideoController"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoController.js",
+            "line": 79,
+            "description": "Executes, safely, the given function in AngularJS process.",
+            "params": [
+                {
+                    "name": "functionToExecute",
+                    "description": "The function to execute as part of\nthe angular digest process.",
+                    "type": "Function"
+                }
+            ],
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoPageController.js",
+            "line": 5,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "",
+                    "type": "Type"
+                },
+                {
+                    "name": "video",
+                    "description": "",
+                    "type": "Type"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "VideoPageController_L3.VideoPageController"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoService.js",
+            "line": 13,
+            "return": {
+                "description": "filters"
+            },
+            "class": "applicationService",
+            "module": "ov"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/storage/StorageApp.js",
+            "line": 32,
+            "description": "Gets information from storage using the given key.",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key of the element to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The stored value for the given key",
+                "type": "Object"
+            },
+            "itemtype": "method",
+            "name": "getFromStorage",
+            "class": "storageProvider",
+            "module": "ov.storage"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/storage/StorageApp.js",
+            "line": 43,
+            "description": "Adds information to the storage.",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key of the element to add",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value of the element to add",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "addToStorage",
+            "class": "storageProvider",
+            "module": "ov.storage"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/storage/StorageApp.js",
+            "line": 54,
+            "description": "Removes a key from the storage.",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key of the element to remove",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "removeFromStorage",
+            "class": "storageProvider",
+            "module": "ov.storage"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/HomeController.js:3"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js:5"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js:17"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js:17"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoController.js:5"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoPageController.js:5"
+        },
+        {
+            "message": "Missing item type\nInitializes user information.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/authentication/AuthenticationApp.js:22"
+        },
+        {
+            "message": "Missing item type\nBuilds the error message for the given error.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/ErrorInterceptor.js:5"
+        },
+        {
+            "message": "Missing item type\nDefines an HTTP interceptor to handle all application errors.\n\nNot authorized errors (401) logs out the user while the other HTTP errors set an error message\nusing an alert.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/ErrorInterceptor.js:38"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/HomeController.js:3"
+        },
+        {
+            "message": "Missing item type\nDefines the home page controller.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/HomeController.js:11"
+        },
+        {
+            "message": "Missing item type\nDefines the live page controller.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LiveController.js:5"
+        },
+        {
+            "message": "Missing item type\nDefines the controller which controls loginForm.html template.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LoginFormController.js:5"
+        },
+        {
+            "message": "Missing item type\nSigns in using the login form information (login and password).\nIf user successfully signed in, redirect to the home page, otherwise, set the form as on error.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/LoginFormController.js:18"
+        },
+        {
+            "message": "Missing item type\nDefine toast controller for all toast in app",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js:5"
+        },
+        {
+            "message": "Missing item type\nDefine dialog controller for all dialog in app",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js:17"
+        },
+        {
+            "message": "Missing item type\nDefines the main controller parent of all controllers in the\napplication. All actions not handled in partials are handled\nby the main controller.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js:44"
+        },
+        {
+            "message": "Missing item type\nDefine placeholder directive on all video element",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/MainController.js:271"
+        },
+        {
+            "message": "Missing item type\nConfigures application main routes and set location mode to HTML5.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/OvApp.js:70"
+        },
+        {
+            "message": "Missing item type\nDefines the home page controller.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js:4"
+        },
+        {
+            "message": "Missing item type\ninit search from location",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js:17"
+        },
+        {
+            "message": "Missing item type\nSearch call to service",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchController.js:28"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js:17"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js:34"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js:50"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js:103"
+        },
+        {
+            "message": "Missing item type\nClears search parameters to avoid conflicts",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/SearchService.js:131"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoController.js:5"
+        },
+        {
+            "message": "Missing item type\nExecutes, safely, the given function in AngularJS process.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoController.js:79"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoPageController.js:5"
+        },
+        {
+            "message": "Missing item type",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/front/js/ov/VideoService.js:13"
+        }
+    ]
+}
