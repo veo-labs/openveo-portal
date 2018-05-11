@@ -3,6 +3,7 @@
 ## BUG FIXES
 
 - Remove use of inline styles on front office
+- Fix category label on video information ("category" instead of "categorie")
 
 # 4.0.0 / 2018-05-04
 

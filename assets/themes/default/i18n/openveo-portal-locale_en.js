@@ -45,7 +45,7 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       ORDER_BY: 'Order by : ',
       FILTER_BY: 'Filter by : ',
       NAME_FILTER: 'Speaker',
-      CATEGORY_FILTER: 'Categorie',
+      CATEGORY_FILTER: 'Category',
       ORIGIN_FILTER: 'Origin',
       DATE_OR_VIEWS: 'Date or views',
       ORDER_ASC: 'Ascending or descending',
