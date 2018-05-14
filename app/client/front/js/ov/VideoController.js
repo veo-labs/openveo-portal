@@ -51,7 +51,7 @@
           $scope.shareText =
                   '<iframe width="768" height="500" ' +
                   'src="' + $location.protocol() + '://' + $location.host() + port + '/video/' + video.id +
-                  '?iframe=true&hidedetail=false" frameborder="0"></iframe>';
+                  '?iframe&hidedetail" frameborder="0"></iframe>';
 
           $scope.shareOpen = !$scope.shareOpen;
         }}

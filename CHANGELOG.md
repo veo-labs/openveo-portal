@@ -1,3 +1,9 @@
+# 4.0.2 / YYYY-MM-DD
+
+## BUG FIXES
+
+- Fix a bug introduced in version 4.0.0 about video shared page, the title of the video was displayed above of the player
+
 # 4.0.1 / 2018-05-11
 
 ## BUG FIXES
