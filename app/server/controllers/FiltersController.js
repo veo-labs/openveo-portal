@@ -89,7 +89,7 @@ class FiltersController extends openVeoApi.controllers.Controller {
               return callback(HTTP_ERRORS.GET_FILTERS_PROPERTIES_ERROR);
             }
 
-            if (property && property.type !== 'boolean') filters.push(property);
+            filters.push(property);
             callback();
           }
         );

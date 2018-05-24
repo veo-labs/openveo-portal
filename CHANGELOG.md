@@ -1,3 +1,9 @@
+# 4.1.0 / YYYY-MM-DD
+
+## NEW FEATURES
+
+- Add support for custom properties of type *True / false* in advanced search
+
 # 4.0.2 / 2018-05-14
 
 ## BUG FIXES

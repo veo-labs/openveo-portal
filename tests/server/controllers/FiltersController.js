@@ -129,38 +129,6 @@ describe('FiltersController', function() {
       });
     });
 
-    it('should ignore custom properties of type "boolean"', function(done) {
-      let count = 0;
-      const expectedCustomProperties = [
-        {
-          id: conf.conf.exposedFilter[0],
-          name: 'Name',
-          description: 'Description',
-          type: 'boolean'
-        }
-      ];
-
-      openVeoProvider.getOne = chai.spy((location, id, fields, ttl, callback) => {
-        if (count) {
-          count++;
-          callback();
-        } else {
-          count++;
-          callback(null, expectedCustomProperties[0]);
-        }
-      });
-
-      response.send = (result) => {
-        openVeoProvider.getOne.should.have.been.called.exactly(2);
-        assert.isEmpty(result, 'Unexpected filters');
-        done();
-      };
-
-      filtersController.getFiltersAction(request, response, (error) => {
-        assert.ok(false, 'Unexpected call to next');
-      });
-    });
-
     it('should send only custom properties if taxonomy id is not specified', function(done) {
       conf.conf.categoriesFilter = null;
 
