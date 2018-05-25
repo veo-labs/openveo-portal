@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>End to end tests - Openveo Portal</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "End to end tests";
+    var mkdocs_page_input_path = "developers/end-to-end-tests.md";
+    var mkdocs_page_url = "/developers/end-to-end-tests/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Openveo Portal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">INTRODUCTION</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>USERS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prerequisites/">Prerequisites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting-started/">Getting started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../advanced-configuration/">Advanced configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../production/">Production</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>DEVELOPERS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../prerequisites/">Prerequisites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../installation/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../conf/">conf.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../compilation/">CSS / SASS / JS compilation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logger/">Logger</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../coding-standards/">Coding standards</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../unit-tests/">Unit tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">End to end tests</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#introduction">Introduction</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#install-selenium-web-driver-and-chrome-driver">Install selenium web driver and chrome driver</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-tests">Configure tests</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#create-test">Create test</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#debug">Debug</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#launch-end-to-end-tests">Launch end to end tests</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Openveo Portal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>DEVELOPERS &raquo;</li>
+        
+      
+    
+    <li>End to end tests</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction">Introduction</h1>
+<p>End to end tests are performed using <a href="http://www.protractortest.org/">Protractor</a>.</p>
+<p>You need to have a running OpenVeo Web Service server before starting tests.</p>
+<p><strong>WARNING</strong> : Each time you launch end to end tests, all information are removed from OpenVeo ! Launch OpenVeo Web Service with option <strong>--databaseConf</strong> to specify a test database.</p>
+<h1 id="install-selenium-web-driver-and-chrome-driver">Install selenium web driver and chrome driver</h1>
+<pre><code>node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update
+</code></pre>
+<p>NB: Note that protractor module could be in node_modules/protractor</p>
+<h1 id="configure-tests">Configure tests</h1>
+<p>When launching tests, an OpenVeo Portal server is automatically spawned and must be configured through <strong>serverTestConf.json</strong>. Typically you may want to change the server port.</p>
+<p><strong>~/.openveo/core/serverTestConf.json</strong></p>
+<pre><code class="json">{
+  &quot;port&quot;: 3004,
+  &quot;sessionSecret&quot;: &quot;2bXELdIqoT9Tbv5i1RfcXGEIE+GQS+XYbwVn0qEx&quot;
+}
+</code></pre>
+
+<p>In order not to drop your development openveo-portal database, you need to configure a test openveo-portal database through <strong>databaseTestConf.json</strong>. Typically you may want to change the database, username and password.</p>
+<p><strong>~/.openveo/core/databaseTestConf.json</strong></p>
+<pre><code class="json">{
+  &quot;type&quot;: &quot;mongodb&quot;,
+  &quot;host&quot;: &quot;localhost&quot;,
+  &quot;port&quot;: 27017,
+  &quot;database&quot;: &quot;openveo-portal-test&quot;,
+  &quot;username&quot;: &quot;openveo-test&quot;,
+  &quot;password&quot;: &quot;openveo-test&quot;
+}
+</code></pre>
+
+<p>You will also need to configure your server by editing options relative to end-to-end tests. You need a <strong>confTest.json</strong> to typically set your test options like <strong>publicFilter</strong>.</p>
+<p><strong>~/.openveo/core/confTest.json</strong></p>
+<pre><code class="json">{
+  &quot;theme&quot;: &quot;default&quot;,
+  &quot;exposedFilter&quot;: [&quot;&quot;],
+  &quot;categoriesFilter&quot;: &quot;&quot;,
+  &quot;privateFilter&quot;: [&quot;&quot;],
+  &quot;publicFilter&quot;: [&quot;public&quot;],
+  &quot;cache&quot;: {
+    &quot;filterTTL&quot; : 600,
+    &quot;videoTTL&quot; : 60
+    },
+  &quot;useDialog&quot;: false
+}
+</code></pre>
+
+<p>The logger has to be configured through <strong>loggerTestConf.json</strong>. Typically you may want to deactivate logger standard output.</p>
+<p><strong>~/.openveo/core/loggerTestConf.json</strong></p>
+<pre><code class="json">{
+  &quot;level&quot;: &quot;info&quot;,
+  &quot;maxFileSize&quot;: 104857600,
+  &quot;maxFiles&quot;: 2,
+  &quot;fileName&quot;: &quot;/tmp/openveo-portal-test.log&quot;,
+  &quot;console&quot;: false
+}
+</code></pre>
+
+<p><strong>console: false</strong> will deactivate standard output.</p>
+<p>Finally the Web Service has to be configured through <strong>webservicesTestConf.json</strong>. Typically you may want to have a different server.</p>
+<pre><code class="json">{
+  &quot;path&quot;: &quot;http://127.0.0.1:3002&quot;,
+  &quot;certificate&quot;: &quot;&quot;,
+  &quot;clientID&quot;: &quot;B1535kPqe&quot;,
+  &quot;secretID&quot;: &quot;a058d8ff7420b84708bd1ff4bacb8e4c42424cd0&quot;
+}
+</code></pre>
+
+<h1 id="create-test">Create test</h1>
+<p>Create your test file in <strong>tests/client/e2eTests/</strong> then update the list of suites, if necessary, in <strong>tests/client/e2eTests/protractorSuites.json</strong>.</p>
+<h1 id="debug">Debug</h1>
+<p>If a test fails, a screenshot of the browser at the instant is taken and available in <strong>build/screenshots</strong> of the project.</p>
+<h1 id="launch-end-to-end-tests">Launch end to end tests</h1>
+<pre><code># Launch all end to end tests on chrome
+grunt test-e2e --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true
+
+# Launch all end to end tests on firefox
+grunt test-e2e --capabilities="{\"browserName\": \"firefox\"}" --directConnect=true
+
+# Launch only portal suite on chrome
+grunt test-e2e --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true --suite="portal"
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../unit-tests/" class="btn btn-neutral" title="Unit tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../unit-tests/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

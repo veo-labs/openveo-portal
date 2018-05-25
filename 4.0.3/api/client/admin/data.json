@@ -1,0 +1,3706 @@
+{
+    "project": {
+        "name": "OpenVeo Portal administration interface",
+        "description": "AngularJS OpenVeo Portal administration interface documentation",
+        "version": "4.0.3"
+    },
+    "files": {
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.component.js",
+            "modules": {},
+            "classes": {
+                "opaAbout": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaAboutController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaAboutFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/dashboard.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/dashboard.component.js",
+            "modules": {},
+            "classes": {
+                "opaDashboard": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/dashboard.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/dashboard.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaDashboardController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.component.js",
+            "modules": {},
+            "classes": {
+                "opaPromotedVideos": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaPromotedVideosController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.component.js",
+            "modules": {},
+            "classes": {
+                "opaLiveSettings": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.component.spec.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.component.spec.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaLiveSettingsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.component.js",
+            "modules": {},
+            "classes": {
+                "opaSettings": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaSettingsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.component.js",
+            "modules": {},
+            "classes": {
+                "opaActionsButton": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaActionsButtonController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaI18nFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.filter.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.filter.js",
+            "modules": {},
+            "classes": {
+                "OpaTranslateFilter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.module.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.module.js",
+            "modules": {
+                "opa.i18n": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaInfoController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.directive.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.directive.js",
+            "modules": {},
+            "classes": {
+                "opaInfo": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/infoConfiguration.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/infoConfiguration.factory.js",
+            "modules": {},
+            "classes": {
+                "opaInfoConfiguration": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/infoButton/infoButton.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/infoButton/infoButton.component.js",
+            "modules": {},
+            "classes": {
+                "opa": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/infoButton/infoButton.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/infoButton/infoButton.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaInfoButtonController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaLicenseKeyValidatorController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.directive.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.directive.js",
+            "modules": {},
+            "classes": {
+                "opaLicenseKeyValidator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaContainer/mediaContainer.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaContainer/mediaContainer.component.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaContainer/mediaContainer.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaContainer/mediaContainer.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaMediaContainerController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.component.js",
+            "modules": {},
+            "classes": {
+                "opaMediaLibrary": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaMediaLibraryController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaMediaLibraryDialogController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.component.js",
+            "modules": {},
+            "classes": {
+                "opaMediaOption": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaMediaOptionController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.component.js",
+            "modules": {},
+            "classes": {
+                "opaMediaSelect": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaMediaSelectController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/nav/nav.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/nav/nav.component.js",
+            "modules": {},
+            "classes": {
+                "opaNav": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/nav/nav.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/nav/nav.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaNavController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaNotificationController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaNotificationFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notificationConfiguration.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notificationConfiguration.factory.js",
+            "modules": {},
+            "classes": {
+                "opaNotificationConfiguration": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaStreamUrlValidatorController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.directive.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.directive.js",
+            "modules": {},
+            "classes": {
+                "opaStreamUrlValidator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.component.js",
+            "modules": {},
+            "classes": {
+                "opaTags": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaTagsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/toolbar/toolbar.component.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/toolbar/toolbar.component.js",
+            "modules": {},
+            "classes": {
+                "opaToolbar": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/toolbar/toolbar.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/toolbar/toolbar.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaToolbarController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/groups.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/groups.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaGroupsFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/interceptor.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/interceptor.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaInterceptor": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/settings.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/settings.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaSettingsFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/url.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/url.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaUrlFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaUserFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/videos.factory.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/videos.factory.js",
+            "modules": {},
+            "classes": {
+                "OpaVideosFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "modules": {},
+            "classes": {
+                "OpaIndexController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.module.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.module.js",
+            "modules": {
+                "opa": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "opa": {
+            "name": "opa",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "opaAbout": 1,
+                "OpaAboutController": 1,
+                "OpaAboutFactory": 1,
+                "opaDashboard": 1,
+                "OpaDashboardController": 1,
+                "opaPromotedVideos": 1,
+                "OpaPromotedVideosController": 1,
+                "opaLiveSettings": 1,
+                "OpaLiveSettingsController": 1,
+                "opaSettings": 1,
+                "OpaSettingsController": 1,
+                "opaActionsButton": 1,
+                "OpaActionsButtonController": 1,
+                "OpaInfoController": 1,
+                "opaInfo": 1,
+                "opaInfoConfiguration": 1,
+                "opa": 1,
+                "OpaInfoButtonController": 1,
+                "OpaLicenseKeyValidatorController": 1,
+                "opaLicenseKeyValidator": 1,
+                "opaMediaSelect": 1,
+                "OpaMediaContainerController": 1,
+                "opaMediaLibrary": 1,
+                "OpaMediaLibraryController": 1,
+                "OpaMediaLibraryDialogController": 1,
+                "opaMediaOption": 1,
+                "OpaMediaOptionController": 1,
+                "OpaMediaSelectController": 1,
+                "opaNav": 1,
+                "OpaNavController": 1,
+                "OpaNotificationController": 1,
+                "OpaNotificationFactory": 1,
+                "opaNotificationConfiguration": 1,
+                "OpaStreamUrlValidatorController": 1,
+                "opaStreamUrlValidator": 1,
+                "opaTags": 1,
+                "OpaTagsController": 1,
+                "opaToolbar": 1,
+                "OpaToolbarController": 1,
+                "OpaGroupsFactory": 1,
+                "OpaInterceptor": 1,
+                "OpaSettingsFactory": 1,
+                "OpaUrlFactory": 1,
+                "OpaUserFactory": 1,
+                "OpaVideosFactory": 1,
+                "OpaIndexController": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 9,
+            "description": "OpenVeo Portal AngularJS module to manage administration interface.\n\nopa (for OpenVeo Portal Admin) module holds all components of the OpenVeo Portal administration interface.\nIt also defines opaWebServiceBasePath constant holding the base path of the Web Service.",
+            "itemtype": "main"
+        },
+        "opa.i18n": {
+            "name": "opa.i18n",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "OpaI18nFactory": 1,
+                "OpaTranslateFilter": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.filter.js",
+            "line": 9,
+            "description": "Set of tools to handle internationalization.",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "opaAbout": {
+            "name": "opaAbout",
+            "shortname": "opaAbout",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.component.js",
+            "line": 7,
+            "description": "About component presents information about OpenVeo Portal project.\n\n    <opa-about></opa-about>\n\nRequires:\n- **ngMaterial** AngularJS Material module\n- **opaTranslate** Internationalization translate filter\n- **opaInfoButton** Component used to display info actions"
+        },
+        "OpaAboutController": {
+            "name": "OpaAboutController",
+            "shortname": "OpaAboutController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.controller.js",
+            "line": 9,
+            "description": "Manages opaAbout component.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$filter",
+                    "description": "AngularJS $filter service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaAboutFactory",
+                    "description": "Factory to get information about OpenVeo Portal",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OpaAboutFactory": {
+            "name": "OpaAboutFactory",
+            "shortname": "OpaAboutFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.factory.js",
+            "line": 9,
+            "description": "Manages information about actual version of OpenVeo Portal.",
+            "params": [
+                {
+                    "name": "$http",
+                    "description": "AngularJS $http service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaWebServiceBasePath",
+                    "description": "Portal web service base path",
+                    "type": "String"
+                }
+            ]
+        },
+        "opaDashboard": {
+            "name": "opaDashboard",
+            "shortname": "opaDashboard",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/dashboard.component.js",
+            "line": 7,
+            "description": "Dashboard component presents a list of components as cards.\n\n    <opa-dashboard></opa-dashboard>\n\nRequires:\n- **ngMaterial** AngularJS Material module\n- **opaAbout** Component presenting information about Portal"
+        },
+        "OpaDashboardController": {
+            "name": "OpaDashboardController",
+            "shortname": "OpaDashboardController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/dashboard.controller.js",
+            "line": 9,
+            "description": "Manages opaDashboard component.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "The component isolated scope",
+                    "type": "Object"
+                }
+            ]
+        },
+        "opaPromotedVideos": {
+            "name": "opaPromotedVideos",
+            "shortname": "opaPromotedVideos",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.component.js",
+            "line": 7,
+            "description": "Promoted videos component presents an editor to promote 9 videos.\n\nThe editor is made of placeholders symbolizing front office promoted videos. Videos can be added from a\nplaceholder using a media library.\n\n    <opa-promoted-videos></opa-promoted-videos>\n\nRequires:\n- **ngMaterial** AngularJS Material module\n- **opaSettingsFactory** Factory to manage Portal settings\n- **opaVideosFactory** Factory to manage videos\n- **opaNotificationFactory** Notification factory to display saving notifications\n- **opaUrlFactory** URL factory to manipulate URLs\n- **opaTranslate** Internationalization translate filter\n- **opaMediaContainer** Component to select a media from the media library"
+        },
+        "OpaPromotedVideosController": {
+            "name": "OpaPromotedVideosController",
+            "shortname": "OpaPromotedVideosController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 9,
+            "description": "Manages opaPromotedVideos component.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "The component isolated scope",
+                    "type": "Object"
+                },
+                {
+                    "name": "$filter",
+                    "description": "AngularJS $filter service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$mdDialog",
+                    "description": "AngularJS Material dialog service to open the media library",
+                    "type": "Object"
+                },
+                {
+                    "name": "$mdMedia",
+                    "description": "AngularJS Material media service to perform media queries",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaSettingsFactory",
+                    "description": "Settings factory to get / save settings",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaVideosFactory",
+                    "description": "Videos factory to get videos",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaNotificationFactory",
+                    "description": "Notification factory to display saving notifications",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaUrlFactory",
+                    "description": "URL factory to manipulate URLs",
+                    "type": "Object"
+                }
+            ]
+        },
+        "opaLiveSettings": {
+            "name": "opaLiveSettings",
+            "shortname": "opaLiveSettings",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.component.js",
+            "line": 7,
+            "description": "Live settings component presents a formular to configure OpenVeo Portal live.\n\n    <opa-live-settings></opa-live-settings>\n\nAvailable attributes are:\n  - [Object] **[opa-settings]**: The live settings with:\n    - [Boolean] **[activated]**: true if live is activated, false otherwise\n    - [String] **[playerType]**: The type of live player, could be either \"youtube\" or \"wowza\"\n    - [String] **[url]**: The live streeam url depending on \"playerType\"\n    - [Boolean] **[private]**: true if access to the live must be restricted to some OpenVeo groups\n    - [Array] **[groups]**: The list of OpenVeo groups which have access to the private live\n  - [Object] **[opa-groups]**: The list of available groups\n  - [Function] **[opa-on-update]**: Function to call when live settings have been modified\n\nRequires:\n- **ngMaterial** AngularJS Material module\n- **opaTranslate** Internationalization translate filter\n- **opaInfoButton** Component used to display info actions\n- **opaStreamUrlValidator** Stream URL validator\n- **opaLicenseKeyValidator** License key validator\n- **opaTags** Form element to enter a list of tags"
+        },
+        "OpaLiveSettingsController": {
+            "name": "OpaLiveSettingsController",
+            "shortname": "OpaLiveSettingsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 9,
+            "description": "Manages opaLiveSettings component.",
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "The component isolated scope",
+                    "type": "Object"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "opaSettings": {
+            "name": "opaSettings",
+            "shortname": "opaSettings",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.component.js",
+            "line": 7,
+            "description": "Settings component presents a formular to configure the portal.\n\n    <opa-settings></opa-settings>\n\nRequires:\n- **ngMaterial** AngularJS Material module\n- **opaSettingsFactory** Factory to manage Portal settings\n- **opaGroupsFactory** Factory to get OpenVeo groups\n- **opaNotificationFactory** Factory to manage notifications\n- **opaLiveSettings** Formular to configure OpenVeo Portal live\n- **opaTranslate** Internationalization translate filter"
+        },
+        "OpaSettingsController": {
+            "name": "OpaSettingsController",
+            "shortname": "OpaSettingsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 9,
+            "description": "Manages opaSettings component.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "The component isolated scope",
+                    "type": "Object"
+                },
+                {
+                    "name": "$q",
+                    "description": "AngularJS $q service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$filter",
+                    "description": "AngularJS $filter service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$element",
+                    "description": "The HTML element holding the component",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaSettingsFactory",
+                    "description": "Settings factory to get / save settings",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaGroupsFactory",
+                    "description": "Groups factory to get available groups",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaNotificationFactory",
+                    "description": "Notification factory to display saving notifications",
+                    "type": "Object"
+                }
+            ]
+        },
+        "opaActionsButton": {
+            "name": "opaActionsButton",
+            "shortname": "opaActionsButton",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.component.js",
+            "line": 7,
+            "description": "Actions button component presents a collapsable button with a list of actions.\n\n    $scope.icon = 'angular_material_icon_id';\n    $scope.label = 'Button label';\n    $scope.actions = [\n      {\n        label 'Action label',\n        icon: 'angular_material_icon_id',\n        selected: true,\n        action: function() {\n          console.log('Do something');\n        }\n      }\n    ];\n\n    <opa-actions-button opa-label=\"{{label}}\" opa-icon=\"{{icon}}\" opa-actions=\"actions\"></opa-actions-button>\n\nAvailable attributes are:\n- [String] **opa-label**: The button label\n- [String] **[opa-icon]**: An icon to display before the label, it must be an AngularJS Material icon id\n- [Array] **opa-actions**: The list of actions with for each action:\n  - [String] **label**: The action label\n  - [Function] **action**: A function to call when the action is clicked\n  - [String] **[icon]**: An icon to display before the label, must be an Angular Material icon id\n  - [Boolean] **[selected]**: A boolean indicating if the action must appear as selected\n\nRequires:\n- **ngMaterial** AngularJS Material module"
+        },
+        "OpaActionsButtonController": {
+            "name": "OpaActionsButtonController",
+            "shortname": "OpaActionsButtonController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.controller.js",
+            "line": 9,
+            "description": "Manages opaActionsButton component.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$element",
+                    "description": "The HTML element holding the component",
+                    "type": "Object"
+                },
+                {
+                    "name": "$window",
+                    "description": "JQLite element of the window",
+                    "type": "Object"
+                },
+                {
+                    "name": "$document",
+                    "description": "JQLite element of the document",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OpaI18nFactory": {
+            "name": "OpaI18nFactory",
+            "shortname": "OpaI18nFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa.i18n",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.factory.js",
+            "line": 9,
+            "description": "Manages languages."
+        },
+        "OpaTranslateFilter": {
+            "name": "OpaTranslateFilter",
+            "shortname": "OpaTranslateFilter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa.i18n",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.filter.js",
+            "line": 9,
+            "description": "Translate filter to translate an id using a dictionary of translations.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$sce",
+                    "description": "AngularJS $sce service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaTranslations",
+                    "description": "The list of OpenVeo Portal translations",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OpaInfoController": {
+            "name": "OpaInfoController",
+            "shortname": "OpaInfoController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.controller.js",
+            "line": 9,
+            "description": "Manages information dialogs.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "Directive isolated scope",
+                    "type": "Object"
+                },
+                {
+                    "name": "$element",
+                    "description": "JQLite element of the directive",
+                    "type": "Object"
+                },
+                {
+                    "name": "$document",
+                    "description": "JQLite element of the document",
+                    "type": "Object"
+                },
+                {
+                    "name": "$timeout",
+                    "description": "AngularJS $timeout service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$mdPanel",
+                    "description": "AngularJS Material service to create panels",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaInfoConfiguration",
+                    "description": "opa-info configuration service",
+                    "type": "Object"
+                }
+            ]
+        },
+        "opaInfo": {
+            "name": "opaInfo",
+            "shortname": "opaInfo",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.directive.js",
+            "line": 9,
+            "description": "Info directive presents a message in an AngularJS Material panel with a close button.\n\nWhen HTML element holding the attribute is clicked, a panel is opened next to the element\nwith the message and a close button.\n\n    $scope.message = 'Message which may contain HTML';\n\n    <div\n      opa-info=\"message\"\n      opa-close=\"Close button label\"\n      opa-close-aria=\"Close button ARIA label\"\n    ></div>\n\nAvailable attributes are:\n- [Object] **opa-info**: The wrapped version of the message that can be used as a trusted\nvariant in $sce.HTML context\n- [String] **opa-close**: The close button label\n- [String] **opa-close-aria**: The close button ARIA label\n\nRequires:\n- **ngMaterial** AngularJS Material module"
+        },
+        "opaInfoConfiguration": {
+            "name": "opaInfoConfiguration",
+            "shortname": "opaInfoConfiguration",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/infoConfiguration.factory.js",
+            "line": 9,
+            "description": "Manages opa-info default configuration."
+        },
+        "opa": {
+            "name": "opa",
+            "shortname": "opa",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/infoButton/infoButton.component.js",
+            "line": 7,
+            "description": "Info button presents an information button opening a dialog with a message.\n\nIt uses opa-info directive to display the message.\n\n    $scope.message = 'Message which may contain HTML';\n\n    <opa-info-button\n      opa-message=\"message\"\n      opa-accessibility=\"Info button accessibility message\"\n      opa-help=\"Info button tooltip text\"\n    ></opa-info-button>\n\nAvailable attributes are:\n  - [String] **opa-message**: An AngularJS expression evaluating to a wrapped version of the message that can be\n    used as a trusted variant in $sce.HTML context\n  - [String] **[opa-accessibility]**: The button accessibility message\n  - [String] **[opa-help]**: The tooltip text\n\nRequires:\n- **ngMaterial** AngularJS Material module\n- **opaInfo** Directive opening a panel with a message and a close button"
+        },
+        "OpaInfoButtonController": {
+            "name": "OpaInfoButtonController",
+            "shortname": "OpaInfoButtonController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/infoButton/infoButton.controller.js",
+            "line": 9,
+            "description": "Manages opaInfoButton component.",
+            "is_constructor": 1
+        },
+        "OpaLicenseKeyValidatorController": {
+            "name": "OpaLicenseKeyValidatorController",
+            "shortname": "OpaLicenseKeyValidatorController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.controller.js",
+            "line": 9,
+            "description": "Manages opaLicenseKeyValidator directive.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$element",
+                    "description": "JQLite element of the directive",
+                    "type": "Object"
+                }
+            ]
+        },
+        "opaLicenseKeyValidator": {
+            "name": "opaLicenseKeyValidator",
+            "shortname": "opaLicenseKeyValidator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.directive.js",
+            "line": 9,
+            "description": "License key validator directive validates that a model is a valid license key.\n\n    <script>\n      function Controller($scope) {\n        $scope.validates = true;\n      }\n    </script>\n    <form name=\"myForm\">\n      <input name=\"myField\" ng-model=\"myLicenseKey\" opa-license-key-validator=\"{{validates}}\" />\n      {{myForm.myField.$error.opaLicenseKeyValidator}}\n    </form>\n\nAvailable attributes are:\n  - [Boolean] **opa-license-key-validator** An AngularJS expression evaluating to true if validator is active,\n    false otherwise\n\nThe registered name of the validator is \"opaLicenseKey\"."
+        },
+        "opaMediaSelect": {
+            "name": "opaMediaSelect",
+            "shortname": "opaMediaSelect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.component.js",
+            "line": 3,
+            "description": "Media select component provides a (multiple or single) media selection within a list of medias\n\n<opa-media-select ng-model=\"ngModel\"\n                  opa-medias=\"medias\"\n                  opa-multiple=\"selectionMultiple\">\n</opa-media-select>\n\nAvailable attributes are:\n- [Mixed] **ng-model**: The selected medias, it can be an array when multiple selection is active,\n                        or a single value (string) otherwise.\n- [Array] **opa-medias**: The list of available medias\n- [Boolean] **opa-multiple**: Enable multiple selection\n\nRequires:\n- **ngMaterial** AngularJS Material module"
+        },
+        "OpaMediaContainerController": {
+            "name": "OpaMediaContainerController",
+            "shortname": "OpaMediaContainerController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaContainer/mediaContainer.controller.js",
+            "line": 9,
+            "description": "Manages opaMediaContainer component."
+        },
+        "opaMediaLibrary": {
+            "name": "opaMediaLibrary",
+            "shortname": "opaMediaLibrary",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.component.js",
+            "line": 3,
+            "description": "Media library component provides medias for media select component\n\n<opa-media-library ng-model=\"ngmodel\"\n                   opa-multiple=\"multiple\"\n                   opa-results-per-page=\"limit\">\n</opa-media-library>\n\nAvailable attributes are:\n- [Mixed] **ng-model**: The selected medias, it can be an array when multiple selection is active,\n                        or a single value (string) otherwise.\n- [Boolean] **opa-multiple**: Enable multiple selection\n\n\nRequires:\n- **ngMaterial** AngularJS Material module"
+        },
+        "OpaMediaLibraryController": {
+            "name": "OpaMediaLibraryController",
+            "shortname": "OpaMediaLibraryController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 9,
+            "description": "Manages opaMediaLibrary component.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "opaUrlFactory",
+                    "description": "URL factory to manipulate URLs",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OpaMediaLibraryDialogController": {
+            "name": "OpaMediaLibraryDialogController",
+            "shortname": "OpaMediaLibraryDialogController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "line": 9,
+            "description": "Manages media library dialog",
+            "is_constructor": 1
+        },
+        "opaMediaOption": {
+            "name": "opaMediaOption",
+            "shortname": "opaMediaOption",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.component.js",
+            "line": 3,
+            "description": "Media option component presents the thumbnail of a media with a checkbox to select it.\n\n<opa-media-option opa-checked=\"value\"\n                  opa-media=\"media\"\n                  opa-focus=\"focus\">\n                  opa-blur=\"blurCallback()\"></opa-media-option>\n\nAvailable attributes are:\n- [Boolean] **opa-checked**: The state of the checkbox\n- [Object] **opa-media**: The media to represent\n- [Boolean] **opa-focus**: Activate focus on the media\n- [Function] **opa-blur**: Blur callback function\n\nRequires\n- **ngMaterial** AngularJS Material module\n- **opaMediaSelect** OpenVeo Media select component"
+        },
+        "OpaMediaOptionController": {
+            "name": "OpaMediaOptionController",
+            "shortname": "OpaMediaOptionController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.controller.js",
+            "line": 8,
+            "description": "Manages opaMediaOption component."
+        },
+        "OpaMediaSelectController": {
+            "name": "OpaMediaSelectController",
+            "shortname": "OpaMediaSelectController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 9,
+            "description": "Manages opaMediaSelect component.",
+            "is_constructor": 1
+        },
+        "opaNav": {
+            "name": "opaNav",
+            "shortname": "opaNav",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/nav/nav.component.js",
+            "line": 7,
+            "description": "Nav component presents side navigation menu.\n\n    $scope.menu = [\n      {\n        label: 'Menu item label',\n        icon: 'angular_material_icon_id',\n        selected: true,\n        action: function() {\n          console.log('Do something');\n        }\n      },\n      {\n        divider: true\n      },\n      {\n        label: 'Menu item label',\n        icon: 'angular_material_icon_id',\n        actions: [\n          {\n            label 'Sub menu item label',\n            icon: 'angular_material_icon_id',\n            selected: true,\n            action: function() {\n              console.log('Do something');\n            }\n          }\n        ]\n      }\n    ];\n\n    <opa-nav opa-menu=\"menu\"></opa-nav>\n\nAvailable attributes are:\n- [Array] **opa-menu**: An array of menu items. Several kind of items exist:\n  - Simple menu items with:\n    - [String] **label**: The item label\n    - [Function] **action**: The function to call when the item is clicked\n    - [String] **[icon]**: An icon to place before the label, it must be an AngularJS Material icon id\n    - [Boolean] **[selected]**: A boolean indicating if the item must appear as selected\n  - Dividers with:\n    - [Boolean] **divider**: If set to \"true\" the item will be a simple rule. Use it to separate menu items\n  - Items containing sub items with:\n    - [String] **label**: The item label\n    - [String] **[icon]**: An icon to place before the label, it must be an AngularJS Material icon id\n    - [Array] **actions**: A list of actions with for each action:\n      - [String] **label**: The action label\n      - [Function] **action**: The function to call when the action is clicked\n      - [String] **[icon]**: An icon to place before the label, it must be an AngularJS Material icon id\n      - [Boolean] **[selected]**: A boolean indicating if the action must appear as selected\n\nRequires:\n- **ngMaterial** AngularJS Material module\n- **opaActionsButton** Component creating a collapsable button with a list of actions"
+        },
+        "OpaNavController": {
+            "name": "OpaNavController",
+            "shortname": "OpaNavController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/nav/nav.controller.js",
+            "line": 9,
+            "description": "Manages opaNav component.",
+            "is_constructor": 1
+        },
+        "OpaNotificationController": {
+            "name": "OpaNotificationController",
+            "shortname": "OpaNotificationController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.controller.js",
+            "line": 9,
+            "description": "Manages notifications.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$mdToast",
+                    "description": "AngularJS Material toast service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$mdMedia",
+                    "description": "AngularJS Material media query service",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OpaNotificationFactory": {
+            "name": "OpaNotificationFactory",
+            "shortname": "OpaNotificationFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.factory.js",
+            "line": 9,
+            "description": "Creates toasts notifications.\n\nRequires:\n- **ngMaterial** AngularJS Material module",
+            "params": [
+                {
+                    "name": "$mdToast",
+                    "description": "AngularJS Material media query service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaNotificationConfiguration",
+                    "description": "OPA notifications configuration service",
+                    "type": "Object"
+                }
+            ]
+        },
+        "opaNotificationConfiguration": {
+            "name": "opaNotificationConfiguration",
+            "shortname": "opaNotificationConfiguration",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notificationConfiguration.factory.js",
+            "line": 9,
+            "description": "Manages OPA notifications default configuration."
+        },
+        "OpaStreamUrlValidatorController": {
+            "name": "OpaStreamUrlValidatorController",
+            "shortname": "OpaStreamUrlValidatorController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.controller.js",
+            "line": 9,
+            "description": "Manages opaStreamUrlValidator directive.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$element",
+                    "description": "JQLite element of the directive",
+                    "type": "Object"
+                }
+            ]
+        },
+        "opaStreamUrlValidator": {
+            "name": "opaStreamUrlValidator",
+            "shortname": "opaStreamUrlValidator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.directive.js",
+            "line": 9,
+            "description": "Stream URL validator directive validates that a model is a valid stream URL depending on type.\n\n    <script>\n      function Controller($scope) {\n        $scope.validates = true;\n        $scope.streamType = 'youtube';\n      }\n    </script>\n    <form name=\"myForm\">\n      <input name=\"myField\" ng-model=\"myUrl\" opa-stream-url-validator=\"{{validates}}\" opa-type=\"{{streamType}}\"/>\n      {{myForm.myField.$error.opaStreamUrlValidator}}\n    </form>\n\nAvailable attributes are:\n  - [Boolean] **opa-stream-url-validator** An AngularJS expression evaluating to true if validator is active,\n    false otherwise\n  - [String] **opa-type** An AngularJS expression evaluating to a String, possible values are:\n    - **youtube** Validate that the stream url respect the following format: https://www.youtube.com/watch?v=[ID]\n      with:\n      - **[ID]** the id of the stream\n    - **wowza** Validate that the stream url respect the following format:\n      [WOWZA_PROTOCOL]://[WOWZA_IP_ADDRESS]:[WOWZA_PORT]/[WOWZA_APPLICATION_NAME]/[WOWZA_STREAM_NAME]/playlist.m3u8\n      with:\n       - **[WOWZA_PROTOCOL]** Wowza streaming protocol (either http or https)\n       - **[WOWZA_IP_ADDRESS]** Wowza streaming engine IP address\n       - **[WOWZA_PORT]** Wowza streaming engine port\n       - **[WOWZA_APPLICATION_NAME]** Wowza live application name\n       - **[WOWZA_STREAM_NAME]** Wowza live stream name (could be a SMIL name)\n\nThe registered name of the validator is \"opaStreamUrl\"."
+        },
+        "opaTags": {
+            "name": "opaTags",
+            "shortname": "opaTags",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.component.js",
+            "line": 7,
+            "description": "Tags component is a form element to enter a list of tags.\n\nTags form element is composed of an input element to add tags followed by the list of added tags. If attribute\nopa-available-tags is set, an autocomplete displays these tags then no other tag can be added.\n\nAn AngularJS Material component has the same features (and more) than the md-chips component. But md-chips\nhas some caveats, mostly visual like no support for errors and no support for floating label which\ncompletely destructures the whole formular.\n\n    <script>\n      $scope.listOfTags = ['tag1', 'tag2'];\n      $scope.isRequired = false;\n      $scope.availableTags = [\n        {\n          name: 'Tag 1',\n          value: 'tag1'\n        },\n        {\n          name: 'Tag 2',\n          value: 'tag2'\n        },\n        {\n          name: 'Tag 3',\n          value: 'tag3'\n        }\n      ];\n    </script>\n    <opa-tags\n             ng-model=\"listOfTags\"\n             opa-available-tags=\"availableTags\"\n             ng-required=\"isRequired\"\n    >\n    </opa-tags>\n\nopa-tags also works like AngularJS Material input, textarea and md-select elements, it can be added\nto an md-input-container with a label and error messages.\n\n    <script>\n      $scope.isRequired = true;\n      $scope.listOfTags = [];\n    </script>\n    <form name=\"myForm\">\n      <mb-input-container>\n        <label>My tags:</label>\n        <opa-tags\n                 name=\"myTags\"\n                 ng-model=\"listOfTags\"\n                 ng-required=\"isRequired\"\n        >\n        </opa-tags>\n        <div ng-messages=\"myForm.myTags.$error\">\n          <div ng-message=\"required\">Error: This field is required</div>\n        </div>\n      </mb-input-container>\n    </form>\n\nAvailable attributes are:\n  - [Array] **[opa-available-tags]**: The list of predefined tags, if set only tags in this list can be added\n    and autocomplete is displayed. Each tag must contain:\n    - [String] **name**: The label of the tag to display in autocomplete and validated tags\n    - [String] **value**: The unique value of the tag, two tags can't have the same value\n\nRequires:\n- **ngMaterial** AngularJS Material module"
+        },
+        "OpaTagsController": {
+            "name": "OpaTagsController",
+            "shortname": "OpaTagsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 9,
+            "description": "Manages opaTags component.",
+            "params": [
+                {
+                    "name": "$element",
+                    "description": "The HTML element holding the component",
+                    "type": "Object"
+                },
+                {
+                    "name": "$scope",
+                    "description": "The component isolated scope",
+                    "type": "Object"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "opaToolbar": {
+            "name": "opaToolbar",
+            "shortname": "opaToolbar",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/toolbar/toolbar.component.js",
+            "line": 7,
+            "description": "Toolbar component presents actions and a title.\n\n    $scope.toolbarTitle = 'Toolbar title';\n    $scope.toolbarLeftActions = [\n      {\n        type: 'icon',\n        icon: 'icon_action_icon_id',\n        help: 'Icon action tooltip message',\n        accessibility: 'Icon action accessibility message',\n        action: function() {\n          console.log('Do something');\n        }\n      }\n    ];\n\n    $scope.toolbarRightActions = [\n      {\n        type: 'list',\n        icon: 'list_action_icon_id',\n        help: 'List action tooltip message',\n        accessibility: 'List action accessibility message',\n        menu: [\n          {\n            label: 'Sub action label',\n            selected: true,\n            accessibility: 'Sub action accessibility message',\n            action: function() {\n              console.log('Do something');\n            }\n          }\n        ]\n      },\n      {\n        type: 'text',\n        label: 'Text action label',\n        accessibility: 'Text action accessibility message',\n        action: function() {\n          console.log('Do something');\n        }\n      }\n    ];\n    <opa-toolbar\n                 opa-title=\"{{toolbarTitle}}\"\n                 opa-left-actions=\"toolbarLeftActions\"\n                 opa-right-actions=\"toolbarRightActions\"\n    ></opa-toolbar>\n\nAvailable attributes are:\n- [String] **[opa-title]**: The toolbar title\n- [Array] **[opa-left-actions]**: The list of actions. May contain:\n  - [String] **type**: The type of action, could be either *text*, *icon* or *list*. Depending on type,\n    properties below can be added\n  - [...]: Properties depending on the **type** property as described below\n- [Array] **[opa-right-actions]**: Same as left actions\n\nAvailable action types are:\n- **text**, a simple text button which may have:\n  - [String] **label**: The action button label\n  - [Function] **action**: The function to execute when the button is clicked\n  - [String] **[accessibility]**: The action accessibility message\n- **icon**, a simple icon button which may have:\n  - [Function] **action**: The function to execute when the icon is clicked\n  - [String] **icon**: An icon representing the action as an Angular Materia icon id\n  - [String] **[help]**: Tooltip message about the action\n  - [String] **[accessibility]**: The action accessibility message\n- **list**, an icon button opening a list of textual actions which may have:\n  - [String] **icon**: An icon representing the action as an Angular Materia icon id\n  - [Array] **menu**: A list of simple actions with for each action:\n    - [String] **label**: The item name\n    - [Function] **action**: The function to execute when the item is clicked\n     - [String] **[accessibility]**: The item accessibility message\n    - [Boolean] **[selected]**: A boolean indicating if the item should be selected by default\n  - [String] **[accessibility]**: The action accessibility message\n- **info**, an icon button opening an information dialog with a close button which may have:\n  - [String] **message**: An AngularJS expression evaluating to a wrapped version of the message that can be\n    used as a trusted variant in $sce.HTML context\n  - [String] **[help]**: Tooltip message about the action\n  - [String] **[accessibility]**: The action accessibility message\n\nRequires:\n- **ngMaterial** The AngularJS Material module\n- **opaInfoButton** Component used to display info actions"
+        },
+        "OpaToolbarController": {
+            "name": "OpaToolbarController",
+            "shortname": "OpaToolbarController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/toolbar/toolbar.controller.js",
+            "line": 9,
+            "description": "Manages opaToolbar component.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$mdMedia",
+                    "description": "AngularJS Material service to evaluate media queries",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OpaGroupsFactory": {
+            "name": "OpaGroupsFactory",
+            "shortname": "OpaGroupsFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/groups.factory.js",
+            "line": 9,
+            "description": "Manages content groups.",
+            "params": [
+                {
+                    "name": "$http",
+                    "description": "AngularJS $http service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaWebServiceBasePath",
+                    "description": "Portal web service base path",
+                    "type": "String"
+                }
+            ]
+        },
+        "OpaInterceptor": {
+            "name": "OpaInterceptor",
+            "shortname": "OpaInterceptor",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/interceptor.factory.js",
+            "line": 9,
+            "description": "Defines an HTTP interceptor.\n\nIt intercepts HTTP requests to add the back office base path to all requests except templates.\nIt handles all HTTP responses errors and displays corresponding error messages.\n\nNot authorized errors (401) broadcast a opaHttpError event while the other HTTP errors display an error message\nusing a notification.",
+            "params": [
+                {
+                    "name": "$rootScope",
+                    "description": "AngularJS root scope",
+                    "type": "Object"
+                },
+                {
+                    "name": "$filter",
+                    "description": "AngularJS $filter service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$q",
+                    "description": "AngularJS $q service",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OpaSettingsFactory": {
+            "name": "OpaSettingsFactory",
+            "shortname": "OpaSettingsFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/settings.factory.js",
+            "line": 9,
+            "description": "Manages storage of OpenVeo Portal settings.",
+            "params": [
+                {
+                    "name": "$http",
+                    "description": "AngularJS $http service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaWebServiceBasePath",
+                    "description": "Portal web service base path",
+                    "type": "String"
+                }
+            ]
+        },
+        "OpaUrlFactory": {
+            "name": "OpaUrlFactory",
+            "shortname": "OpaUrlFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/url.factory.js",
+            "line": 9,
+            "description": "Offers helpers to manipulate URLs as Internet Explorer does not implement URL."
+        },
+        "OpaUserFactory": {
+            "name": "OpaUserFactory",
+            "shortname": "OpaUserFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js",
+            "line": 9,
+            "description": "Manages authenticated user.",
+            "params": [
+                {
+                    "name": "$http",
+                    "description": "AngularJS $http service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$cookies",
+                    "description": "AngularJS $cookies service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaWebServiceBasePath",
+                    "description": "Portal web service base path",
+                    "type": "String"
+                }
+            ]
+        },
+        "OpaVideosFactory": {
+            "name": "OpaVideosFactory",
+            "shortname": "OpaVideosFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/videos.factory.js",
+            "line": 9,
+            "description": "Manages videos.",
+            "params": [
+                {
+                    "name": "$http",
+                    "description": "AngularJS $http service",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaWebServiceBasePath",
+                    "description": "Portal web service base path",
+                    "type": "String"
+                }
+            ]
+        },
+        "OpaIndexController": {
+            "name": "OpaIndexController",
+            "shortname": "OpaIndexController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "opa",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 9,
+            "description": "Defines the main controller of the OpenVeo Portal administration interface.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$scope",
+                    "description": "AngularJS scope",
+                    "type": "Object"
+                },
+                {
+                    "name": "$route",
+                    "description": "AngularJS $route service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$window",
+                    "description": "AngularJS $window service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$location",
+                    "description": "AngularJS $location service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$filter",
+                    "description": "AngularJS $filter service",
+                    "type": "Object"
+                },
+                {
+                    "name": "$mdMedia",
+                    "description": "AngularJS Material service to evaluate media queries",
+                    "type": "Object"
+                },
+                {
+                    "name": "$mdSidenav",
+                    "description": "AngularJS Material service to manipulate sidenav directives",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaUserFactory",
+                    "description": "User factory to deal with the authenticated user",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaI18nFactory",
+                    "description": "I18n factory to manage languages",
+                    "type": "Object"
+                },
+                {
+                    "name": "opaNotificationFactory",
+                    "description": "Notification factory",
+                    "type": "Object"
+                }
+            ]
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.controller.js",
+            "line": 22,
+            "description": "Information about OpenVeo Portal.",
+            "itemtype": "property",
+            "name": "information",
+            "type": "Object",
+            "default": "{}",
+            "class": "OpaAboutController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.controller.js",
+            "line": 34,
+            "description": "About message which varies regarding project's information.",
+            "itemtype": "property",
+            "name": "message",
+            "type": "String",
+            "default": "''",
+            "class": "OpaAboutController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.controller.js",
+            "line": 46,
+            "description": "Indicates if component is loaded and can be displayed.",
+            "itemtype": "property",
+            "name": "isLoaded",
+            "type": "Boolean",
+            "default": "false",
+            "class": "OpaAboutController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.controller.js",
+            "line": 58,
+            "description": "Initializes controller.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaAboutController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/about/about.factory.js",
+            "line": 18,
+            "description": "Gets information about OpenVeo Portal.",
+            "return": {
+                "description": "An AngularJS promise resolving with an object containing:\n  - [String] **latestVersion** Latest OpenVeo Portal version available\n  - [String] **latestVersionUrl** Latest OpenVeo Portal version release note url\n  - [Boolean] **updateAvailable** true if a new version of OpenVeo Portal is available, false otherwise\n  - [String] **version** The actual version of OpenVeo Portal\n  - [String] **versionReleaseUrl** Actual OpenVeo Portal version release note url\n  - [String] **versionSourcesUrl** Actual OpenVeo Portal version sources url",
+                "type": "HttpPromise"
+            },
+            "itemtype": "method",
+            "name": "getInfo",
+            "class": "OpaAboutFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/dashboard/dashboard.controller.js",
+            "line": 21,
+            "description": "Initializes controller and informs when component is loaded.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaDashboardController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 37,
+            "description": "Indicates if retreiving the promoted videos failed.",
+            "itemtype": "property",
+            "name": "isError",
+            "type": "Boolean",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 49,
+            "description": "Indicates if currently saving.",
+            "itemtype": "property",
+            "name": "isSaving",
+            "type": "Boolean",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 61,
+            "description": "Promoted videos settings.",
+            "itemtype": "property",
+            "name": "promotedVideos",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 73,
+            "description": "The list of video containers.",
+            "itemtype": "property",
+            "name": "containers",
+            "type": "Array",
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 84,
+            "description": "CSS class of the media containers components.",
+            "itemtype": "property",
+            "name": "containersClass",
+            "type": "String",
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 95,
+            "description": "Initializes controller and informs when component is loaded.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 132,
+            "description": "Loads containers template depending on the media.",
+            "itemtype": "method",
+            "name": "getContainersTemplate",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 156,
+            "description": "Opens media library when click event is triggered on a video container.",
+            "itemtype": "method",
+            "name": "openMediaLibraryDialog",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 197,
+            "description": "Removes video from a container.",
+            "itemtype": "method",
+            "name": "clearContainer",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/promotedVideos/promotedVideos.controller.js",
+            "line": 209,
+            "description": "Saves promoted videos.",
+            "itemtype": "method",
+            "name": "save",
+            "final": 1,
+            "class": "OpaPromotedVideosController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.component.spec.js",
+            "line": 40,
+            "description": "Gets the switch label.",
+            "return": {
+                "description": "The clean switch label",
+                "type": "String"
+            },
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 21,
+            "description": "The list of available player types.",
+            "itemtype": "property",
+            "name": "availablePlayers",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 41,
+            "description": "Message which indicates if live is activated or not.",
+            "itemtype": "property",
+            "name": "liveSwitchMessage",
+            "type": "String",
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 52,
+            "description": "Error message if url does not respect the player type format.",
+            "itemtype": "property",
+            "name": "urlErrorMessage",
+            "type": "String",
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 63,
+            "description": "Live settings.",
+            "itemtype": "property",
+            "name": "settings",
+            "type": "Object",
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 74,
+            "description": "Handles one-way binding properties changes.\n\nValidate settings and set default values.",
+            "itemtype": "method",
+            "name": "$onChanges",
+            "params": [
+                {
+                    "name": "changedProperties",
+                    "description": "Properties which have changed since last digest loop",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "opaSettings",
+                            "description": "opa-settings old and new value",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "currentValue",
+                                    "description": "opa-settings new value",
+                                    "type": "Boolean",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 108,
+            "description": "Emits an 'opaLiveSettingsLinked' when component is linked.",
+            "itemtype": "method",
+            "name": "$postLink",
+            "final": 1,
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 120,
+            "description": "Executes opa-on-update function with settings if form is valid.",
+            "itemtype": "method",
+            "name": "callUpdate",
+            "final": 1,
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 133,
+            "description": "Updates the label of the switch element to activate / deactivate live.",
+            "itemtype": "method",
+            "name": "updateLiveSwitchMessage",
+            "params": [
+                {
+                    "name": "isActivated",
+                    "description": "true if activated, false otherwise",
+                    "type": "Boolean"
+                }
+            ],
+            "final": 1,
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 146,
+            "description": "Updates the url error message depending on player type.",
+            "itemtype": "method",
+            "name": "updateUrlErrorMessage",
+            "params": [
+                {
+                    "name": "playerType",
+                    "description": "The player type (either \"youtube\" or \"wowza\")",
+                    "type": "String"
+                }
+            ],
+            "final": 1,
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.controller.js",
+            "line": 160,
+            "description": "Tests if settings are valid.",
+            "itemtype": "method",
+            "name": "isValid",
+            "return": {
+                "description": "true if valid, false otherwise",
+                "type": "Boolean"
+            },
+            "final": 1,
+            "class": "OpaLiveSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 37,
+            "description": "Indicates if retreiving the settings failed.",
+            "itemtype": "property",
+            "name": "isError",
+            "type": "Boolean",
+            "final": 1,
+            "class": "OpaSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 49,
+            "description": "The list of OpenVeo groups with name and value.",
+            "itemtype": "property",
+            "name": "availableGroups",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 60,
+            "description": "Live settings.",
+            "itemtype": "property",
+            "name": "liveSettings",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 72,
+            "description": "Initializes controller and informs when component is loaded.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 120,
+            "description": "Saves current settings.",
+            "itemtype": "method",
+            "name": "save",
+            "final": 1,
+            "class": "OpaSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 139,
+            "description": "Updates live settings.",
+            "itemtype": "method",
+            "name": "updateLiveSettings",
+            "params": [
+                {
+                    "name": "settings",
+                    "description": "Live settings",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "activated",
+                            "description": "true if live is activated, false otherwise",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "playerType",
+                            "description": "Either \"youtube\" or \"wowza\"",
+                            "type": "String"
+                        },
+                        {
+                            "name": "url",
+                            "description": "Live stream URL",
+                            "type": "String"
+                        },
+                        {
+                            "name": "private",
+                            "description": "true if live is private, false otherwise",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "groups",
+                            "description": "The list of groups allowed to access the live",
+                            "type": "Array"
+                        },
+                        {
+                            "name": "wowza",
+                            "description": "Wowza specific settings",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "OpaSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/settings.controller.js",
+            "line": 164,
+            "description": "Tests if settings are valid.",
+            "itemtype": "method",
+            "name": "isValid",
+            "return": {
+                "description": "true if valid, false otherwise",
+                "type": "Boolean"
+            },
+            "final": 1,
+            "class": "OpaSettingsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.controller.js",
+            "line": 23,
+            "description": "Indicates if the list of actions is visible or not.",
+            "itemtype": "property",
+            "name": "isOpened",
+            "type": "Boolean",
+            "class": "OpaActionsButtonController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.controller.js",
+            "line": 34,
+            "description": "Shows / hides actions.",
+            "itemtype": "method",
+            "name": "toggleActions",
+            "final": 1,
+            "class": "OpaActionsButtonController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/actionsButton/actionsButton.controller.js",
+            "line": 58,
+            "description": "Handles keypress events on actions.",
+            "itemtype": "method",
+            "name": "handleActionKeypress",
+            "final": 1,
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The keypress event",
+                    "type": "Event"
+                },
+                {
+                    "name": "action",
+                    "description": "The action receiving the event",
+                    "type": "Object"
+                }
+            ],
+            "class": "OpaActionsButtonController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.factory.js",
+            "line": 16,
+            "description": "Gets the list of supported languages.",
+            "return": {
+                "description": "The list of language country codes",
+                "type": "Array"
+            },
+            "itemtype": "method",
+            "name": "getLanguages",
+            "class": "OpaI18nFactory",
+            "module": "opa.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.filter.js",
+            "line": 19,
+            "description": "Translates an id into the appropriated translated text.",
+            "example": [
+                "\n    // Translation dictionary\n    var translations = {\n      MY_SIMPLE_TRANSLATION_ID: 'Simple translation',\n      MY_TRANSLATION_ID: {\n        SINGLE: 'Single translation',\n        PLURAL: 'Plural translation'\n      },\n      MY_TRANSLATION_WITH_PARAMETERS_ID: 'Translation with \"%parameter%\"'\n    };\n\n    $scope.translationParameters = {\n      '%parameter%': 'my value'\n    };",
+                "\n    <!-- Simple translation -->\n    <p>{{'MY_SIMPLE_TRANSLATION_ID' | opaTranslate}}</p>\n\n    <!-- Single translation -->\n    <p>{{'MY_TRANSLATION_ID' | opaTranslate:0}}</p>\n\n    <!-- Single translation -->\n    <p>{{'MY_TRANSLATION_ID' | opaTranslate:1}}</p>\n\n    <!-- Plural translation -->\n    <p>{{'MY_TRANSLATION_ID' | opaTranslate:2}}</p>\n\n    <!-- Translation with \"my value\" -->\n    <p>{{'MY_TRANSLATION_WITH_PARAMETERS_ID' | opaTranslate:0:translationParameters}}</p>"
+            ],
+            "itemtype": "method",
+            "name": "opaTranslate",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the translation",
+                    "type": "String"
+                },
+                {
+                    "name": "number",
+                    "description": "The number to determine pluralization",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "parameters",
+                    "description": "Placeholder to replace with their values",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The wrapped version of the translated string that can be used as a\ntrusted variant in $sce.HTML context",
+                "type": "Object|null"
+            },
+            "class": "OpaTranslateFilter",
+            "module": "opa.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.module.js",
+            "line": 10,
+            "description": "Offer internationalization utilities.",
+            "class": "OpaInfoController",
+            "module": "opa.i18n"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.controller.js",
+            "line": 30,
+            "description": "Opens the information dialog.",
+            "itemtype": "method",
+            "name": "open",
+            "final": 1,
+            "class": "OpaInfoController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.controller.js",
+            "line": 74,
+            "description": "Closes the information dialog.",
+            "itemtype": "method",
+            "name": "close",
+            "final": 1,
+            "class": "OpaInfoController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.controller.js",
+            "line": 88,
+            "description": "Initializes controller.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "class": "OpaInfoController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/info.controller.js",
+            "line": 102,
+            "description": "Handles attributes changes.\n\nValidate attributes.",
+            "itemtype": "method",
+            "name": "$onChanges",
+            "params": [
+                {
+                    "name": "changedProperties",
+                    "description": "Properties which have changed since last digest loop",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "closeLabel",
+                            "description": "opa-close attribute old and new value",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "currentValue",
+                                    "description": "opa-close new value",
+                                    "type": "String",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "closeAriaLabel",
+                            "description": "opa-close-aria attribute old and new value",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "currentValue",
+                                    "description": "opa-close-aria new value",
+                                    "type": "String",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "OpaInfoController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/infoConfiguration.factory.js",
+            "line": 19,
+            "description": "The default options for the opa-info directives.",
+            "itemtype": "property",
+            "name": "options",
+            "type": "Object",
+            "final": 1,
+            "class": "opaInfoConfiguration",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/infoConfiguration.factory.js",
+            "line": 30,
+            "description": "Sets default options for the opa-info directives.",
+            "itemtype": "method",
+            "name": "setOptions",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "opa-info directive options",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "closeLabel",
+                            "description": "opa-info close button label",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "closeAriaLabel",
+                            "description": "opa-info close button ARIA label",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "opaInfoConfiguration",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/info/infoConfiguration.factory.js",
+            "line": 46,
+            "description": "Gets default options for the opa-info directives.",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "opa-info directive default options",
+                "type": "Object"
+            },
+            "final": 1,
+            "class": "opaInfoConfiguration",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.controller.js",
+            "line": 22,
+            "description": "Validates that the given value is a license key.\n\nExpected format only allows series of 5 characters separated by dashes.\nOnly alphanumeric characters are allowed between dashes.\ne.g. PLAY1-cerPw-zxezN-eMvje-9jHAD-8xA3j",
+            "itemtype": "method",
+            "name": "isValid",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The license key to validate",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "true if valid, false otherwise",
+                "type": "Boolean"
+            },
+            "final": 1,
+            "class": "OpaLicenseKeyValidatorController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/licenseKeyValidator/licenseKeyValidator.controller.js",
+            "line": 40,
+            "description": "Handles one-way binding properties changes and force model validation.",
+            "itemtype": "method",
+            "name": "$onChanges",
+            "final": 1,
+            "class": "OpaLicenseKeyValidatorController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaContainer/mediaContainer.controller.js",
+            "line": 19,
+            "description": "Trigger the edit callback to select a new media.",
+            "itemtype": "method",
+            "name": "onClick",
+            "final": 1,
+            "class": "OpaMediaContainerController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaContainer/mediaContainer.controller.js",
+            "line": 31,
+            "description": "Trigger the remove action to clear the media.",
+            "itemtype": "method",
+            "name": "onRemove",
+            "final": 1,
+            "class": "OpaMediaContainerController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 21,
+            "description": "The list of medias present in the select.",
+            "itemtype": "property",
+            "name": "medias",
+            "type": "Array",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 32,
+            "description": "Search keyword.",
+            "itemtype": "property",
+            "name": "search",
+            "type": "String",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 43,
+            "description": "Medias sort field.",
+            "itemtype": "property",
+            "name": "sortField",
+            "type": "string",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 54,
+            "description": "Medias sort direction.",
+            "itemtype": "property",
+            "name": "sortDirection",
+            "type": "String",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 65,
+            "description": "Indicates if next page loading is triggered",
+            "itemtype": "property",
+            "name": "triggered",
+            "type": "Boolean",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 76,
+            "description": "Number of results per page.",
+            "itemtype": "property",
+            "name": "limit",
+            "type": "Number",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 87,
+            "description": "Current page.",
+            "itemtype": "property",
+            "name": "currentPage",
+            "type": "Number",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 98,
+            "description": "Number of (filtered) pages.",
+            "itemtype": "property",
+            "name": "totalPages",
+            "type": "Number",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 109,
+            "description": "Indicates if data is loading.",
+            "itemtype": "property",
+            "name": "isLoading",
+            "type": "Boolean",
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 120,
+            "description": "Initializes the constructor.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 147,
+            "description": "Initialize first media fetch.",
+            "itemtype": "method",
+            "name": "init",
+            "final": 1,
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 160,
+            "description": "Loads the first page of a new search.",
+            "itemtype": "method",
+            "name": "search",
+            "final": 1,
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 179,
+            "description": "Loads the next page of medias.",
+            "itemtype": "method",
+            "name": "addNextPage",
+            "final": 1,
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibrary/mediaLibrary.controller.js",
+            "line": 198,
+            "description": "Calls the Web Service for medias fetching.",
+            "itemtype": "method",
+            "name": "fetch",
+            "final": 1,
+            "class": "OpaMediaLibraryController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "line": 20,
+            "description": "Value of the media library.",
+            "itemtype": "property",
+            "name": "value",
+            "type": "Mixed",
+            "class": "OpaMediaLibraryDialogController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "line": 31,
+            "description": "Defines if the value can contains one or many medias.",
+            "itemtype": "property",
+            "name": "multiple",
+            "type": "Boolean",
+            "class": "OpaMediaLibraryDialogController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "line": 42,
+            "description": "Initializes controller.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaMediaLibraryDialogController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "line": 55,
+            "description": "Determines the size of the dialog depending on the view port.",
+            "itemtype": "method",
+            "name": "dialogSizeClass",
+            "final": 1,
+            "class": "OpaMediaLibraryDialogController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "line": 79,
+            "description": "Cancels changes.",
+            "itemtype": "method",
+            "name": "cancel",
+            "final": 1,
+            "class": "OpaMediaLibraryDialogController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaLibraryDialog/mediaLibraryDialog.controller.js",
+            "line": 91,
+            "description": "Saves changes.",
+            "itemtype": "method",
+            "name": "close",
+            "final": 1,
+            "class": "OpaMediaLibraryDialogController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.controller.js",
+            "line": 18,
+            "description": "Indicates if the media is checked or not.",
+            "itemtype": "property",
+            "name": "isChecked",
+            "type": "Boolean",
+            "class": "OpaMediaOptionController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.controller.js",
+            "line": 29,
+            "description": "Handles one-way binding properties changes.\n\nWatch for checkboxes state changes",
+            "itemtype": "method",
+            "name": "$onChanges",
+            "params": [
+                {
+                    "name": "changedProperties",
+                    "description": "Properties which have changed since last digest loop",
+                    "type": "Object"
+                }
+            ],
+            "final": 1,
+            "class": "OpaMediaOptionController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.controller.js",
+            "line": 49,
+            "description": "Update the parent select when the checkbox is changed.",
+            "itemtype": "method",
+            "name": "updateSelect",
+            "final": 1,
+            "class": "OpaMediaOptionController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaOption/mediaOption.controller.js",
+            "line": 64,
+            "description": "Launch opaBlur() binding callback",
+            "itemtype": "method",
+            "name": "opaBlur",
+            "final": 1,
+            "class": "OpaMediaOptionController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 21,
+            "description": "The list of selected medias.",
+            "itemtype": "property",
+            "name": "selection",
+            "type": "Array",
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 32,
+            "description": "Defines if the model can contains one or many medias.",
+            "itemtype": "property",
+            "name": "multiple",
+            "type": "Boolean",
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 43,
+            "description": "Checkboxes states.",
+            "itemtype": "property",
+            "name": "checkboxesStates",
+            "type": "Array",
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 54,
+            "description": "Focus states.",
+            "itemtype": "property",
+            "name": "focusStates",
+            "type": "Array",
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 65,
+            "description": "Locks the focus when navigating between opaMediaOptions.",
+            "itemtype": "property",
+            "name": "keepFocus",
+            "type": "Boolean",
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 76,
+            "description": "Controller initialization state.\n\nThe initialization of the checkboxes states can't be done before\nthe controller initialization is completed.",
+            "itemtype": "property",
+            "name": "isInitialized",
+            "type": "Boolean",
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 90,
+            "description": "Initializes controller.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 108,
+            "description": "Handles one-way binding properties changes.",
+            "itemtype": "method",
+            "name": "$onChanges",
+            "params": [
+                {
+                    "name": "changedProperties",
+                    "description": "Properties which have changed since last digest loop",
+                    "type": "Object"
+                }
+            ],
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 124,
+            "description": "Add a media to the selection.",
+            "itemtype": "method",
+            "name": "check",
+            "params": [
+                {
+                    "name": "media",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 149,
+            "description": "Remove a media from the selection.",
+            "itemtype": "method",
+            "name": "uncheck",
+            "params": [
+                {
+                    "name": "media",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 173,
+            "description": "Set checkboxes states\n\nDefine if checkboxes are checked or not (depending on selection)\nat the initialization or when the medias are changed.",
+            "itemtype": "method",
+            "name": "setCheckboxesStates",
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 191,
+            "description": "Set focus states\n\nDisables the focus on all medias",
+            "itemtype": "method",
+            "name": "setFocusStates",
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 208,
+            "description": "Manages options focus.\n\nEnables focus on the first option when focus reaches\nthe mediaSelect component, or switches between options\nwhen left or right arrows are pressed.",
+            "itemtype": "method",
+            "name": "optionFocus",
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/mediaSelect/mediaSelect.controller.js",
+            "line": 262,
+            "description": "Disables options focus on blur event.",
+            "itemtype": "method",
+            "name": "onBlur",
+            "final": 1,
+            "class": "OpaMediaSelectController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/nav/nav.controller.js",
+            "line": 20,
+            "description": "Handles keypress items.",
+            "itemtype": "method",
+            "name": "handleItemKeypress",
+            "final": 1,
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The keypress event",
+                    "type": "Event"
+                },
+                {
+                    "name": "item",
+                    "description": "The item receiving the event",
+                    "type": "Object"
+                }
+            ],
+            "class": "OpaNavController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.controller.js",
+            "line": 22,
+            "description": "AngularJS Material $mdMedia service.",
+            "itemtype": "property",
+            "name": "$mdMedia",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaNotificationController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.controller.js",
+            "line": 33,
+            "description": "Hides the notification.",
+            "itemtype": "method",
+            "name": "hide",
+            "final": 1,
+            "class": "OpaNotificationController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notification.factory.js",
+            "line": 22,
+            "description": "Displays a notification using AngularJS Material toaster.",
+            "itemtype": "method",
+            "name": "displayNotification",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message to display",
+                    "type": "String"
+                },
+                {
+                    "name": "delay",
+                    "description": "Duration (in milliseconds) before automatically closing the notification,\n0 to add a button to close the notification",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "closeLabel",
+                    "description": "Close button label",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "closeAriaLabel",
+                    "description": "Close button ARIA label",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "class": "OpaNotificationFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notificationConfiguration.factory.js",
+            "line": 19,
+            "description": "The default options for all notifications.",
+            "itemtype": "property",
+            "name": "options",
+            "type": "Object",
+            "final": 1,
+            "class": "opaNotificationConfiguration",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notificationConfiguration.factory.js",
+            "line": 30,
+            "description": "Sets default options for all notifications.",
+            "itemtype": "method",
+            "name": "setOptions",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Notifications options",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "closeLabel",
+                            "description": "Notifications close button label",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "closeAriaLabel",
+                            "description": "Notifications close button ARIA label",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "opaNotificationConfiguration",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/notification/notificationConfiguration.factory.js",
+            "line": 46,
+            "description": "Gets default options for all notifications.",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "Notifications default options",
+                "type": "Object"
+            },
+            "final": 1,
+            "class": "opaNotificationConfiguration",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.controller.js",
+            "line": 22,
+            "description": "Validates that the given value is a Youtube stream URL.\n\nExpected format only allows URLs starting with \"https://www.youtube.com/watch?v=\" and\nfinishing with any number of alphanumeric characters plus some URL characters like\ndashes, underscores, ampersand and equals.\ne.g. https://www.youtube.com/watch?v=someid",
+            "itemtype": "method",
+            "name": "isValidYoutubeStreamUrl",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The url to validate",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "true if valid, false otherwise",
+                "type": "Boolean"
+            },
+            "final": 1,
+            "class": "OpaStreamUrlValidatorController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.controller.js",
+            "line": 41,
+            "description": "Validates that the given value is a Wowza stream URL.\n\nExpected format allows http or https URLs with or without port followed by two REST\nlike parameters and ending by \"playlist.m3u8\".\ne.g. https://wowza-example.local:1935/application-example/stream-example/playlist.m3u8",
+            "itemtype": "method",
+            "name": "isValidWowzaStreamUrl",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The url to validate",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "true if valid, false otherwise",
+                "type": "Boolean"
+            },
+            "final": 1,
+            "class": "OpaStreamUrlValidatorController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/streamUrlValidator/streamUrlValidator.controller.js",
+            "line": 59,
+            "description": "Handles one-way binding properties changes and force model validation.",
+            "itemtype": "method",
+            "name": "$onChanges",
+            "final": 1,
+            "class": "OpaStreamUrlValidatorController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 27,
+            "description": "Updates and validates component attributes.",
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 34,
+            "description": "Gets tag values.\n\nThe component stores either the list of values or the list of tags (with \"name\" and \"value\") depending\non opa-available-tags attribute.\n\nWhen directive does not have opa-available-tags attribute, ctrl.tags stores tags as values.\nWhen directive has opa-available-tags attribute, ctrl.tags contains tags as objects with name and\nvalue properties.",
+            "return": {
+                "description": "The opa-tags values",
+                "type": "Array"
+            },
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 67,
+            "description": "Avoids propagation and default behaviour of an event.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The event to stop",
+                    "type": "Event"
+                }
+            ],
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 80,
+            "description": "The input value.",
+            "itemtype": "property",
+            "name": "tag",
+            "type": "String",
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 91,
+            "description": "The list of added tags.\n\nIt could contain either a list of strings or a list of objects with \"name\" and \"value\" properties\n(if opa-available-tags is set).",
+            "itemtype": "property",
+            "name": "tags",
+            "type": "Array",
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 105,
+            "description": "The autocomplete values corresponding to current input value.\n\nOnly if opa-available-tags is set.",
+            "itemtype": "property",
+            "name": "autoCompleteValues",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 118,
+            "description": "Indicates if the autocomplete should be displayed or not.",
+            "itemtype": "property",
+            "name": "isAutoCompleteDisplayed",
+            "type": "Boolean",
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 130,
+            "description": "Initializes controller and attributes.",
+            "itemtype": "method",
+            "name": "$onInit",
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 148,
+            "description": "Adds a validator on the input.\n\nAngularJS Material has a special behavior when an HTMLInputElement is within an md-input-container.\nWhen the validity of the input changes it automatically sets the validity of the md-input-container which\nis used to visually indicates if the opa-tags field is valid or not.\nOpaTagsController also set the validity of the md-input-container when the opa-tags field validity changes.\nConsequently the validity state sent to the md-input-container by the OpaTagsController can be crushed by\nthe one sent by the input ngModel controller.\nTo avoid this we define a new validator on the input element to match the validity of the opa-tags element.",
+            "itemtype": "method",
+            "name": "$postLink",
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 175,
+            "description": "Removes event listeners.",
+            "itemtype": "method",
+            "name": "$onDestroy",
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 189,
+            "description": "Handles one-way binding properties changes.\n\nWatch for changes on the ng-required expression.",
+            "itemtype": "method",
+            "name": "$onChanges",
+            "params": [
+                {
+                    "name": "changedProperties",
+                    "description": "Properties which have changed since last digest loop",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "ngRequired",
+                            "description": "ng-required old and new value",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "currentValue",
+                                    "description": "ng-required new value",
+                                    "type": "Boolean",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 221,
+            "description": "Displays auto-complete depending on the given input value.",
+            "itemtype": "method",
+            "name": "autoComplete",
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 253,
+            "description": "Removes a tag when user click on the delete icon.",
+            "final": 1,
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The event which trigger the call to removeTag",
+                    "type": "Event"
+                },
+                {
+                    "name": "index",
+                    "description": "The index of the tag to remove in the list of tags",
+                    "type": "Number"
+                }
+            ],
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 282,
+            "description": "Handles keyboard events on autocomplete.\n\nDown and up arrows navigate into the autocomplete focusing the previous / next element in the list.\nWhen hitting down on the first item of the list the focus is set back to the input.\nWhen hitting up on the last item of the list the focus is set back to the input.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The keyboard event",
+                    "type": "Event"
+                },
+                {
+                    "name": "tagName",
+                    "description": "The name of the tag if enter is pressed",
+                    "type": "String"
+                }
+            ],
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 321,
+            "description": "Handles keys.\n\nAdd a new tag when user press \"enter\".",
+            "itemtype": "method",
+            "name": "handleInputKeys",
+            "final": 1,
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The keyboard event",
+                    "type": "Event"
+                }
+            ],
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 377,
+            "description": "Add a new tag.",
+            "itemtype": "method",
+            "name": "addTag",
+            "final": 1,
+            "params": [
+                {
+                    "name": "tag",
+                    "description": "Either the name of the tag if opa-available-tags is set or the value if not",
+                    "type": "String"
+                }
+            ],
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 427,
+            "description": "Invalidates component while untouched.\n\nInvalidates component if input has been touched while component is required and empty.",
+            "itemtype": "method",
+            "name": "invalidateUntouched",
+            "final": 1,
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 446,
+            "description": "Tests if the model is empty.\n\nIt overrides AngularJS $isEmpty.",
+            "params": [
+                {
+                    "name": "values",
+                    "description": "The list of tags",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "true if there is no tags, false otherwise",
+                "type": "Boolean"
+            },
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js",
+            "line": 467,
+            "description": "Renders the list of tags from model.\n\nThe component stores either the list of values or the list of tags (with \"name\" and \"value\") depending\non opa-available-tags attribute.\n\nWhen directive does not have opa-available-tags attribute, ctrl.tags stores tags as values.\nWhen directive has opa-available-tags attribute, ctrl.tags contains tags as objects with name and\nvalue properties.\n\nIt overrides AngularJS $render.",
+            "class": "OpaTagsController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/toolbar/toolbar.controller.js",
+            "line": 21,
+            "description": "AngularJS Material $mdMedia service.",
+            "itemtype": "property",
+            "name": "$mdMedia",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaToolbarController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/groups.factory.js",
+            "line": 18,
+            "description": "Gets the list of OpenVeo groups.",
+            "return": {
+                "description": "An AngularJS promise resolving with the list of groups",
+                "type": "HttpPromise"
+            },
+            "itemtype": "method",
+            "name": "getGroups",
+            "class": "OpaGroupsFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/interceptor.factory.js",
+            "line": 25,
+            "description": "Builds the error message for the given error.",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The promise error as returned by the interceptor",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The translated error message corresponding to the server error",
+                "type": "String"
+            },
+            "class": "OpaInterceptor",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/settings.factory.js",
+            "line": 18,
+            "description": "Gets a portal setting.",
+            "params": [
+                {
+                    "name": "settingId",
+                    "description": "The id of the setting to fetch",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "An AngularJS promise resolving with an object containing the value of the setting",
+                "type": "HttpPromise"
+            },
+            "itemtype": "method",
+            "name": "getSetting",
+            "class": "OpaSettingsFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/settings.factory.js",
+            "line": 29,
+            "description": "Updates a portal setting.",
+            "params": [
+                {
+                    "name": "settingId",
+                    "description": "The id of the setting to update / add",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value of the setting",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "An AngularJS promise resolving with an object containing:\n  - [String|null] **error** The error message or null if no error\n  - [String] **status** 'ok' if success, 'ko' otherwise",
+                "type": "HttpPromise"
+            },
+            "itemtype": "method",
+            "name": "updateSetting",
+            "class": "OpaSettingsFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/url.factory.js",
+            "line": 16,
+            "description": "Sets a query parameter of an URL.",
+            "itemtype": "method",
+            "name": "setUrlParameter",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The URL to modify",
+                    "type": "String"
+                },
+                {
+                    "name": "parameter",
+                    "description": "The name of the parameter to add",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value of the parameter to add",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The new computed URL",
+                "type": "String"
+            },
+            "class": "OpaUrlFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js",
+            "line": 20,
+            "description": "Gets user information.",
+            "return": {
+                "description": "The user description object",
+                "type": "Object"
+            },
+            "itemtype": "method",
+            "name": "getUserInfo",
+            "class": "OpaUserFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js",
+            "line": 30,
+            "description": "Indicates if user is authenticated or not.",
+            "itemtype": "method",
+            "name": "isAuthenticated",
+            "return": {
+                "description": "true if authenticated, false otherwise",
+                "type": "Boolean"
+            },
+            "class": "OpaUserFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js",
+            "line": 40,
+            "description": "Logs out user.",
+            "return": {
+                "description": "The logout promise",
+                "type": "HttPromise"
+            },
+            "itemtype": "method",
+            "name": "logout",
+            "class": "OpaUserFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js",
+            "line": 50,
+            "description": "Gets user's preferred language.",
+            "itemtype": "method",
+            "name": "getLanguage",
+            "return": {
+                "description": "The user's language code",
+                "type": "String"
+            },
+            "class": "OpaUserFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/user.factory.js",
+            "line": 60,
+            "description": "Sets user's preferred language.",
+            "params": [
+                {
+                    "name": "newLanguage",
+                    "description": "A language country code (e.g en-CA)",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "setLanguage",
+            "class": "OpaUserFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/videos.factory.js",
+            "line": 18,
+            "description": "Gets an OpenVeo video.",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the video to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "An AngularJS promise resolving with the video",
+                "type": "HttpPromise"
+            },
+            "itemtype": "method",
+            "name": "getVideo",
+            "class": "OpaVideosFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/videos.factory.js",
+            "line": 29,
+            "description": "Gets promoted videos.",
+            "return": {
+                "description": "An AngularJS promise resolving with an object containing the promoted videos",
+                "type": "HttpPromise"
+            },
+            "itemtype": "method",
+            "name": "getPromotedVideos",
+            "class": "OpaVideosFactory",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 42,
+            "description": "Information about the page.",
+            "itemtype": "property",
+            "name": "page",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 53,
+            "description": "Title of the administration interface as a translation id.",
+            "itemtype": "property",
+            "name": "adminTitle",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 64,
+            "description": "AngularJS Material $mdMedia service.",
+            "itemtype": "property",
+            "name": "$mdMedia",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 75,
+            "description": "Menu links.",
+            "itemtype": "property",
+            "name": "menuLinks",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 86,
+            "description": "The list of left actions for the toolbar.",
+            "itemtype": "property",
+            "name": "toolbarLeftActions",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 97,
+            "description": "The list of right actions for the toolbar.",
+            "itemtype": "property",
+            "name": "toolbarRightActions",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 108,
+            "description": "The list of right actions for the advanced toolbar.",
+            "itemtype": "property",
+            "name": "advancedToolbarRightActions",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 119,
+            "description": "Languages actions for the advanced toolbar.",
+            "itemtype": "property",
+            "name": "advancedToolbarLanguageActions",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 130,
+            "description": "Toolbar page info.\n\nHolds the configuration of the toolbar info action button which presents an information about the actual\npage. Information message changes with the router page.",
+            "itemtype": "property",
+            "name": "toolbarPageInfo",
+            "type": "Object",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 149,
+            "description": "Navigation menu for opa-nav component.",
+            "itemtype": "property",
+            "name": "navMenu",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 160,
+            "description": "Advanced navigation menu for opa-nav component.",
+            "itemtype": "property",
+            "name": "advancedNavMenu",
+            "type": "Array",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 171,
+            "description": "User's language.",
+            "itemtype": "property",
+            "name": "userLanguage",
+            "type": "String",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 182,
+            "description": "Indicates if ng-view is loaded or not.\n\ntrue if view is loaded, false if it is currently loading.",
+            "itemtype": "property",
+            "name": "isViewLoaded",
+            "type": "Boolean",
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 195,
+            "description": "Initializes properties for sub components.",
+            "itemtype": "method",
+            "name": "init",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 312,
+            "description": "Logs out current user.",
+            "itemtype": "method",
+            "name": "logout",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 326,
+            "description": "Navigates to a back office page.",
+            "itemtype": "method",
+            "name": "goTo",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "The menu item",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "href",
+                            "description": "The path to navigate to",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 341,
+            "description": "Navigates to the front office of the portal.",
+            "itemtype": "method",
+            "name": "goToPortal",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 353,
+            "description": "Sets user's language.",
+            "itemtype": "method",
+            "name": "setLanguage",
+            "params": [
+                {
+                    "name": "language",
+                    "description": "A language description object",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "code",
+                            "description": "The language country code",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 368,
+            "description": "Closes side navigation.",
+            "itemtype": "method",
+            "name": "closeSideNavigation",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 380,
+            "description": "Opens / closes side navigation.",
+            "itemtype": "method",
+            "name": "toggleSideNavigation",
+            "final": 1,
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.controller.js",
+            "line": 392,
+            "description": "Marks a menu item as selected.\n\nBoth navigation menu and advanced navigation menu are updated.\nThe item with an \"href\" property corresponding to the given path will be selected,\nselection on other items is removed.",
+            "itemtype": "method",
+            "name": "selectMenuItem",
+            "final": 1,
+            "params": [
+                {
+                    "name": "routePath",
+                    "description": "The path of the item to select",
+                    "type": "String"
+                }
+            ],
+            "class": "OpaIndexController",
+            "module": "opa"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.module.js",
+            "line": 15,
+            "description": "Main module of the OpenVeo Portal administration interface.\n\nRequires:\n- **ngRoute** AngularJS route module\n- **ngAnimate** AngularJS animate module\n- **ngAria** AngularJS ARIA module\n- **ngCookies** AngularJS Cookies module\n- **ngMessages** AngularJS Messages module\n- **ngMaterial** AngularJS Material module\n- **opa.i18n** OpenVeo Portal internationalization module\n- **opa.locale** OpenVeo Portal translations",
+            "class": "",
+            "module": "opa"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nGets the switch label.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/settings/liveSettings/liveSettings.component.spec.js:40"
+        },
+        {
+            "message": "Missing item type\nOffer internationalization utilities.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/i18n/i18n.module.js:10"
+        },
+        {
+            "message": "Missing item type\nUpdates and validates component attributes.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js:27"
+        },
+        {
+            "message": "Missing item type\nGets tag values.\n\nThe component stores either the list of values or the list of tags (with \"name\" and \"value\") depending\non opa-available-tags attribute.\n\nWhen directive does not have opa-available-tags attribute, ctrl.tags stores tags as values.\nWhen directive has opa-available-tags attribute, ctrl.tags contains tags as objects with name and\nvalue properties.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js:34"
+        },
+        {
+            "message": "Missing item type\nAvoids propagation and default behaviour of an event.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js:67"
+        },
+        {
+            "message": "Missing item type\nRemoves a tag when user click on the delete icon.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js:253"
+        },
+        {
+            "message": "Missing item type\nHandles keyboard events on autocomplete.\n\nDown and up arrows navigate into the autocomplete focusing the previous / next element in the list.\nWhen hitting down on the first item of the list the focus is set back to the input.\nWhen hitting up on the last item of the list the focus is set back to the input.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js:282"
+        },
+        {
+            "message": "Missing item type\nTests if the model is empty.\n\nIt overrides AngularJS $isEmpty.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js:446"
+        },
+        {
+            "message": "Missing item type\nRenders the list of tags from model.\n\nThe component stores either the list of values or the list of tags (with \"name\" and \"value\") depending\non opa-available-tags attribute.\n\nWhen directive does not have opa-available-tags attribute, ctrl.tags stores tags as values.\nWhen directive has opa-available-tags attribute, ctrl.tags contains tags as objects with name and\nvalue properties.\n\nIt overrides AngularJS $render.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/tags/tags.controller.js:467"
+        },
+        {
+            "message": "Missing item type\nBuilds the error message for the given error.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/components/shared/interceptor.factory.js:25"
+        },
+        {
+            "message": "Missing item type\nMain module of the OpenVeo Portal administration interface.\n\nRequires:\n- **ngRoute** AngularJS route module\n- **ngAnimate** AngularJS animate module\n- **ngAria** AngularJS ARIA module\n- **ngCookies** AngularJS Cookies module\n- **ngMessages** AngularJS Messages module\n- **ngMaterial** AngularJS Material module\n- **opa.i18n** OpenVeo Portal internationalization module\n- **opa.locale** OpenVeo Portal translations",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/client/admin/index.module.js:15"
+        }
+    ]
+}
