@@ -4,6 +4,12 @@
 
 - Add support for custom properties of type *True / false* in advanced search
 
+# 4.0.3 / 2018-05-25
+
+## BUG FIXES
+
+- Add missing breaking changes to the CHANGELOG of version 4.0.0. Custom themes also need to be modified
+
 # 4.0.2 / 2018-05-14
 
 ## BUG FIXES
@@ -24,6 +30,15 @@
 - Drop support for OpenVeo &lt; 5.0.0
 - All requests to OpenVeo are now cached with a default cache to 10 seconds still customizable through conf.json configuration file
 - Drop support for NodeJS &lt; 8.9.4 and NPM &lt; 5.6.0
+- Custom themes need to be updated:
+  - New translations have to be added:
+    - *UI.BACK_OFFICE* The label of the menu item to access the back office
+    - *UI.MORE* The tooltip message on a video page for the button to expend description
+    - *UI.LESS* The tooltip message on a video page for the button to collapse description
+    - *LIVE.PAGE_TITLE* The live page browser title (&lt;title&gt; tag)
+    - *LIVE.TITLE* The live page title
+    - *MENU.LIVE* The label of the menu item leading to the live page
+  - If you want to configure a live based on Wowza you also need to add a file *openveo-portal-live-wowza-locale_en.js* for Wowza player translations. You can referer to *assets/themes/default/i18n/openveo-portal-live-wowza-locale_en.js* file for an example
 
 ## NEW FEATURES
 

@@ -16,7 +16,7 @@ It includes the following features:
 
 # Documentation
 
-Documentation is available on [Github pages](http://veo-labs.github.io/openveo-portal/4.0.2/index.html).
+Documentation is available on [Github pages](http://veo-labs.github.io/openveo-portal/4.0.3/index.html).
 
 # Contributors
 
