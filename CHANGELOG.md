@@ -1,8 +1,15 @@
-# 4.1.0 / YYYY-MM-DD
+# 5.0.0 / YYYY-MM-DD
+
+## BREAKING CHANGES
+
+- Drop support for OpenVeo &lt;5.1.0
+- Drop support for OpenVeo Publish &lt;7.0.0
+- Search page with search parameters containing dates in the URL have changed and won't work anymore as literal dates have been replaced by timestamps. So if you have an URL with search results in your bookmarks you will have to update it
 
 ## NEW FEATURES
 
 - Add support for custom properties of type *True / false* in advanced search
+- Add support for custom properties of type *Date time* in advanced search. Searching by a custom property of type *Date time* will search all videos with a date between the entered date at midnight and next day at midnight
 
 # 4.0.3 / 2018-05-25
 

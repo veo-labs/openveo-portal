@@ -121,18 +121,16 @@
             var param = angular.copy($location.search());
             param.sortBy = param.sortBy ? 'views' : 'date';
             param.sortOrder = param.sortOrder ? 'asc' : 'desc';
-            var paramTemp = angular.copy(param);
-            if (paramTemp.dateStart) {
-              paramTemp.dateStart = $filter('date')(new Date(paramTemp.dateStart), 'MM/dd/yyyy');
-            }
-            if (paramTemp.dateEnd) {
-              var dateEnd = new Date(paramTemp.dateEnd);
+
+            if (param.dateStart) param.dateStart = Number(param.dateStart);
+            if (param.dateEnd) {
+              var dateEnd = new Date(Number(param.dateEnd));
               dateEnd.setDate(dateEnd.getDate() + 1);
-              paramTemp.dateEnd = $filter('date')(dateEnd, 'MM/dd/yyyy');
+              param.dateEnd = dateEnd.getTime();
             }
 
             // Clean search parameters to avoid conflicts
-            param = searchService.cleanSearch(paramTemp);
+            param = searchService.cleanSearch(param);
 
             return searchService.search(param, {limit: 12});
           }],

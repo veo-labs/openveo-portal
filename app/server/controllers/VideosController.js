@@ -182,8 +182,8 @@ class VideosController extends openVeoApi.controllers.Controller {
     try {
       params = openVeoApi.util.shallowValidateObject(body.filter, {
         query: {type: 'string'},
-        dateStart: {type: 'string'},
-        dateEnd: {type: 'string'},
+        dateStart: {type: 'date'},
+        dateEnd: {type: 'date'},
         categories: {type: 'array<string>'},
         sortBy: {type: 'string', in: ['views', 'date'], default: 'date'},
         sortOrder: {type: 'string', in: ['asc', 'desc'], default: 'desc'},

@@ -250,8 +250,8 @@ describe('VideosController', function() {
     });
 
     it('should be able to fetch videos by date', function(done) {
-      request.body.filter.dateStart = '1980-05-15';
-      request.body.filter.dateEnd = '1988-12-01';
+      request.body.filter.dateStart = new Date('2018-05-28').getTime();
+      request.body.filter.dateEnd = new Date('2018-05-29').getTime();
 
       openVeoProvider.get = chai.spy((location, filter, fields, limit, page, sort, ttl, callback) => {
         assert.equal(

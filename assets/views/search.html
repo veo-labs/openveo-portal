@@ -91,6 +91,9 @@
               <span ng-bind="filter.name | translate"></span>
             </md-checkbox>
 
+            <!-- Dates -->
+            <md-datepicker ng-if="filter.type == 'dateTime'" ng-model="search[filter.id]" md-placeholder=""></md-datepicker>
+
           </md-input-container>
         </div>
 

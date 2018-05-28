@@ -15,14 +15,28 @@
     $scope.isLoading = false;
 
     /**
-     * init search from location
-     * @param {type} searchTmp
-     * @returns {undefined}
+     * Gets search parameters from query parameters.
+     *
+     * @param {Object} queryParameters The key / value pairs of query parameters
      */
-    function initSearch(searchTmp) {
-      if (searchTmp.dateStart) searchTmp.dateStart = new Date(searchTmp.dateStart);
-      if (searchTmp.dateEnd) searchTmp.dateEnd = new Date(searchTmp.dateEnd);
-      $scope.search = angular.copy(searchTmp);
+    function buildSearchParameters(queryParameters) {
+      var searchParameters = angular.copy(queryParameters);
+      if (searchParameters.dateStart) searchParameters.dateStart = new Date(Number(searchParameters.dateStart));
+      if (searchParameters.dateEnd) searchParameters.dateEnd = new Date(Number(searchParameters.dateEnd));
+
+      // Convert dateTime filters (timestamps) into dates
+      for (var filter in searchParameters) {
+        for (var i = 0; i < $scope.filters.length; i++) {
+          if (filter === $scope.filters[i].id) {
+            if ($scope.filters[i].type === 'dateTime')
+              searchParameters[filter] = new Date(Number(searchParameters[filter]));
+
+            break;
+          }
+        }
+      }
+
+      return searchParameters;
     }
 
     /**
@@ -36,14 +50,20 @@
       var search = angular.copy($scope.search);
       var paginateParam = angular.copy($scope.pagination);
 
+      // Convert dates into timestamps
+      for (var name in search) {
+        if (search[name] instanceof Date)
+          search[name] = search[name].getTime();
+      }
+
+      if (search.dateEnd) {
+        var dateEnd = new Date(search.dateEnd);
+        dateEnd.setDate(dateEnd.getDate() + 1);
+        search.dateEnd = dateEnd.getTime();
+      }
+
       search.sortBy = search.sortBy ? 'views' : 'date';
       search.sortOrder = search.sortOrder ? 'asc' : 'desc';
-      search.dateStart = $filter('date')($scope.search.dateStart, 'MM/dd/yyyy');
-      if ($scope.search.dateEnd) {
-        var dateEnd = angular.copy($scope.search.dateEnd);
-        dateEnd.setDate(dateEnd.getDate() + 1);
-        search.dateEnd = $filter('date')(dateEnd, 'MM/dd/yyyy');
-      }
 
       searchService.search(search, paginateParam, canceller).then(function(result) {
         if (result.data.error) {
@@ -53,7 +73,6 @@
         }
 
         $scope.videos = result.data.entities;
-        $scope.search = $location.search();
         $scope.pagination = result.data.pagination;
         $scope.isLoading = false;
         reloadOnPageChange = true;
@@ -65,20 +84,26 @@
       });
     }
 
-    initSearch($location.search());
+    $scope.search = buildSearchParameters($location.search());
 
     $scope.searchSubmit = function() {
       var search = angular.copy($scope.search);
       $scope.showAdvancedSearch = false;
 
       // Clean search parameters to avoid conflicts
-      $scope.search = searchService.cleanSearch(search);
+      search = searchService.cleanSearch(search);
 
-      $location.search($scope.search);
+      // Convert dates into timestamps
+      for (var name in search) {
+        if (search[name] instanceof Date)
+          search[name] = search[name].getTime();
+      }
+
+      $location.search(search);
     };
 
     $scope.resetSearch = function() {
-      initSearch({query: $scope.search.query});
+      $scope.search = buildSearchParameters({query: $scope.search.query});
     };
 
     $scope.orderOnChange = function() {
@@ -100,7 +125,7 @@
     });
 
     $scope.$on('$routeUpdate', function(event, route) {
-      $scope.search = $location.search();
+      $scope.search = buildSearchParameters($location.search());
 
       if (!$scope.context || !$scope.context.keepContext) {
         reloadOnPageChange = false;
