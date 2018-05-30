@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js - OpenVeo Portal server</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo Portal server</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 4.0.4
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AuthenticationController.html">AuthenticationController</a></li>
+                                <li><a href="../classes/authenticator.html">authenticator</a></li>
+                                <li><a href="../classes/CategoriesController.html">CategoriesController</a></li>
+                                <li><a href="../classes/context.html">context</a></li>
+                                <li><a href="../classes/DefaultController.html">DefaultController</a></li>
+                                <li><a href="../classes/ErrorController.html">ErrorController</a></li>
+                                <li><a href="../classes/FiltersController.html">FiltersController</a></li>
+                                <li><a href="../classes/GroupsController.html">GroupsController</a></li>
+                                <li><a href="../classes/HTTP_ERRORS.html">HTTP_ERRORS</a></li>
+                                <li><a href="../classes/LiveController.html">LiveController</a></li>
+                                <li><a href="../classes/openveo-web-service-errors.html">openveo-web-service-errors</a></li>
+                                <li><a href="../classes/Server.html">Server</a></li>
+                                <li><a href="../classes/SettingsController.html">SettingsController</a></li>
+                                <li><a href="../classes/statisticsController.html">statisticsController</a></li>
+                                <li><a href="../classes/StatisticsController.html">StatisticsController</a></li>
+                                <li><a href="../classes/UserProvider.html">UserProvider</a></li>
+                                <li><a href="../classes/VersionController.html">VersionController</a></li>
+                                <li><a href="../classes/VideosController.html">VideosController</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/controllers.html">controllers</a></li>
+                                <li><a href="../modules/portal.html">portal</a></li>
+                                <li><a href="../modules/providers.html">providers</a></li>
+                                <li><a href="../modules/storages.html">storages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * Defines Portal HTTP Server.
+ *
+ * @module portal
+ * @main portal
+ */
+
+/* eslint no-sync: 0 */
+const path = require(&#x27;path&#x27;);
+const url = require(&#x27;url&#x27;);
+const fs = require(&#x27;fs&#x27;);
+const express = require(&#x27;express&#x27;);
+const session = require(&#x27;express-session&#x27;);
+const passport = require(&#x27;passport&#x27;);
+const consolidate = require(&#x27;consolidate&#x27;);
+const cookieParser = require(&#x27;cookie-parser&#x27;);
+const bodyParser = require(&#x27;body-parser&#x27;);
+const favicon = require(&#x27;serve-favicon&#x27;);
+const openVeoApi = require(&#x27;@openveo/api&#x27;);
+const DefaultController = process.require(&#x27;app/server/controllers/DefaultController.js&#x27;);
+const ErrorController = process.require(&#x27;app/server/controllers/ErrorController.js&#x27;);
+const StatisticsController = process.require(&#x27;app/server/controllers/StatisticsController.js&#x27;);
+const AuthenticationController = process.require(&#x27;app/server/controllers/AuthenticationController.js&#x27;);
+const VersionController = process.require(&#x27;app/server/controllers/VersionController.js&#x27;);
+const SettingsController = process.require(&#x27;app/server/controllers/SettingsController.js&#x27;);
+const GroupsController = process.require(&#x27;app/server/controllers/GroupsController.js&#x27;);
+const LiveController = process.require(&#x27;app/server/controllers/LiveController.js&#x27;);
+const VideosController = process.require(&#x27;app/server/controllers/VideosController.js&#x27;);
+const CategoriesController = process.require(&#x27;app/server/controllers/CategoriesController.js&#x27;);
+const FiltersController = process.require(&#x27;app/server/controllers/FiltersController.js&#x27;);
+const portalConf = process.require(&#x27;app/server/conf.js&#x27;);
+const authenticator = process.require(&#x27;app/server/authenticator.js&#x27;);
+const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), &#x27;portal&#x27;);
+const webservicesConf = require(path.join(configurationDirectoryPath, &#x27;webservicesConf.json&#x27;));
+const UserProvider = process.require(&#x27;app/server/providers/UserProvider.js&#x27;);
+const strategyFactory = openVeoApi.passport.strategyFactory;
+
+const OPENVEO_URL = webservicesConf.path;
+
+// Common options for all static servers delivering static files
+const staticServerOptions = {
+  extensions: [&#x27;htm&#x27;, &#x27;html&#x27;],
+  setHeaders: (response) =&gt; {
+    response.set(&#x27;x-timestamp&#x27;, Date.now());
+  }
+};
+
+/**
+ * Initializes passport strategies to manage user authentication.
+ *
+ * @method initializePassport
+ * @private
+ */
+function initializePassport() {
+  if (!this.configuration.auth) return;
+
+  this.app.use(passport.initialize());
+  this.app.use(passport.session());
+
+  // Instantiate passport strategies
+  Object.keys(this.configuration.auth).forEach((strategy) =&gt; {
+    let strategyConf = this.configuration.auth[strategy];
+    if (Object.prototype.toString.call(strategyConf) !== &#x27;[object Object]&#x27;)
+      strategyConf = {};
+
+    strategyConf.usernameField = &#x27;login&#x27;;
+    strategyConf.passwordField = &#x27;password&#x27;;
+    strategyConf.logoutUri = &#x27;be&#x27;;
+
+    if (strategy === openVeoApi.passport.STRATEGIES.LOCAL) {
+
+      // Local strategy does not work like the other strategies, the passport verify callback is used to
+      // retrieve the user instead of verifying it
+      passport.use(strategyFactory.get(
+        openVeoApi.passport.STRATEGIES.LOCAL,
+        strategyConf,
+        (login, password, callback) =&gt; {
+          authenticator.verifyUserByCredentials(login, password, (error, user) =&gt; {
+            if (error) {
+              process.logger.error(error.message, {error: error, method: &#x27;verify&#x27;});
+              callback(null, false);
+            } else
+              callback(null, user);
+          });
+        }
+      ));
+
+    } else {
+      passport.use(strategyFactory.get(strategy, strategyConf, (user, callback) =&gt; {
+        authenticator.verifyUserAuthentication(user, strategy, (error, verifiedUser) =&gt; {
+          if (error) {
+            process.logger.error(error.message, {error: error, method: &#x27;verify&#x27;});
+            callback(null, false);
+          } else
+            callback(null, verifiedUser);
+        });
+      }));
+    }
+
+  });
+
+  // In order to support login sessions, Passport serializes and
+  // deserializes user instances to and from the session
+  passport.serializeUser(authenticator.serializeUser);
+
+  // When subsequent requests are received, the serialized datas are used to find
+  // the user, which will be restored to req.user
+  passport.deserializeUser((id, callback) =&gt; {
+    authenticator.deserializeUser(id, (error, user) =&gt; {
+      if (error) {
+        process.logger.error(error.message, {error: error, method: &#x27;deserializeUser&#x27;});
+        callback(null, false);
+      } else
+        callback(null, user);
+    });
+  });
+}
+
+class Server {
+
+  /**
+   * Creates a new Portal HTTP server.
+   *
+   * @example
+   *     const Server = process.require(&#x27;app/server/Server.js&#x27;);
+   *     const serv = new Server({
+   *        port: 3003,
+   *        sessionSecret: &#x27;123456789&#x27;,
+   *        auth: {
+   *          cas: {
+   *            ...
+   *          }
+   *        }
+   *     });
+   *
+   * @class Server
+   * @constructor
+   * @param {Object} configuration Server configuration
+   */
+  constructor(configuration) {
+
+    Object.defineProperties(this, {
+
+      /**
+       * Express application.
+       *
+       * @property app
+       * @type Application
+       */
+      app: {
+        value: express(),
+        writable: true
+      },
+
+      /**
+       * Server configuration object.
+       *
+       * @property configuration
+       * @type Object
+       */
+      configuration: {
+        value: configuration,
+        writable: true
+      }
+
+    });
+
+  }
+
+  /**
+   * Prepares server after being sure that the connection to the database is established.
+   *
+   * @method onDatabaseAvailable
+   * @param {Database} database Project&#x27;s database
+   * @param {Function} callback Function to call when its done with:
+   *  - **Error** An error if something went wrong
+   */
+  onDatabaseAvailable(database, callback) {
+
+    // Remove x-powered-by http header
+    this.app.set(&#x27;x-powered-by&#x27;, false);
+
+    // Set mustache as the template engine and set views directory
+    this.app.engine(&#x27;html&#x27;, consolidate.mustache);
+    this.app.set(&#x27;view engine&#x27;, &#x27;html&#x27;);
+    this.app.set(&#x27;views&#x27;, [
+      path.join(process.root, &#x27;app/client/front/views&#x27;),
+      path.join(process.root, &#x27;assets/be/views&#x27;)
+    ]);
+
+    // Parse Cookie header
+    this.app.use(cookieParser());
+
+    // Parse request body
+    this.app.use(bodyParser.urlencoded({
+      extended: true
+    }));
+    this.app.use(bodyParser.json());
+
+    // Build express-session options
+    // Allowed server to restart without loosing any session
+    const sessionOptions = {
+      secret: this.configuration.sessionSecret,
+      saveUninitialized: true,
+      resave: true,
+      store: database.getStore(&#x27;portal_sessions&#x27;),
+      cookie: {}
+    };
+
+    // Secure cookies on production
+    if (process.env.NODE_ENV === &#x27;production&#x27;) {
+      this.app.set(&#x27;trust proxy&#x27;, 1);
+
+      // sessionOptions.cookie.secure = true; Only needed if server is ssl server, not behind a frontal
+    }
+
+    this.app.use(session(sessionOptions));
+
+    // Initialize authentication mechanisms
+    initializePassport.call(this);
+
+    // for thumbnail only, set server as proxy to webservice server
+    // path : /*/*.jpg, /*/*.jpeg, /*/*.jpg?thumb=small, /*/*.jpeg?thumb=small
+    // not: /themes/*.jpg
+    this.app.get(/^\/((?!themes).)+\/.+(\.jpg|\.jpeg)(\?thumb=small)?$/, (req, res) =&gt; {
+
+      const filename = path.basename(req.url).split(&#x27;?&#x27;)[0];
+
+      const urlParsed = url.parse(OPENVEO_URL);
+      const requestOptions = {
+        protocol: urlParsed.protocol,
+        port: urlParsed.port,
+        host: urlParsed.hostname,
+        method: &#x27;GET&#x27;,
+        path: req.url
+      };
+
+      const requestCallback = (response) =&gt; {
+        if (response.statusCode == 200) {
+          let currentByteIndex = 0;
+          let responseContentLength = 0;
+
+          response.setEncoding(&#x27;binary&#x27;);
+          if (response.headers &amp;&amp; response.headers[&#x27;content-length&#x27;]) {
+            responseContentLength = parseInt(response.headers[&#x27;content-length&#x27;]);
+          }
+          const responseBody = Buffer.alloc(responseContentLength);
+
+          response.on(&#x27;data&#x27;, (chunk) =&gt; {
+            responseBody.write(chunk, currentByteIndex, &#x27;binary&#x27;);
+            currentByteIndex += chunk.length;
+          });
+          response.on(&#x27;error&#x27;, (error) =&gt; {
+            process.logger.error(error.message, {error, method: &#x27;getImageResponse&#x27;});
+            res.status(502).send(&#x27;Server unavailable&#x27;);
+          });
+
+          response.on(&#x27;end&#x27;, () =&gt; {
+            res.contentType(filename);
+            res.send(responseBody);
+          });
+        } else {
+          res.status(404)        // HTTP status 404: NotFound
+            .send(&#x27;Not found&#x27;);
+        }
+      };
+
+      const protocol = urlParsed.protocol.split(&#x27;:&#x27;)[0];
+      if (protocol == &#x27;https&#x27;) {
+        requestOptions[&#x27;cert&#x27;] = fs.readFileSync(path.normalize(webservicesConf.certificate));
+        requestOptions[&#x27;agent&#x27;] = false;
+        requestOptions[&#x27;rejectUnauthorized&#x27;] = process.env.NODE_ENV === &#x27;production&#x27;;
+      }
+
+      const request = require(protocol).request(requestOptions, requestCallback);
+      request.on(&#x27;error&#x27;, (error) =&gt; {
+        process.logger.error(error.message, {error, method: &#x27;getImageRequest&#x27;});
+        res.status(502).send(&#x27;Server unavailable&#x27;);
+      });
+
+      request.end();
+    });
+
+    // Deliver assets using static server
+    this.app.use(express.static(path.normalize(&#x60;${process.root}/assets&#x60;), staticServerOptions));
+
+    // Add private static assets directory for development (uncompressed client JavaScript files)
+    if (process.env.NODE_ENV !== &#x27;production&#x27;)
+      this.app.use(express.static(path.normalize(&#x60;${process.root}/app/client/front/js&#x60;), staticServerOptions));
+
+    // Serve favicon
+    this.app.use(favicon(&#x60;${process.root}/assets/themes/${portalConf.conf.theme}/favicon.ico&#x60;));
+
+    // Disable cache on get requests
+    this.app.get(&#x27;*&#x27;, openVeoApi.middlewares.disableCacheMiddleware);
+
+    // Log each request
+    this.app.use(openVeoApi.middlewares.logRequestMiddleware);
+
+    this.mountRoutes();
+    this.createIndexes(database, callback);
+  }
+
+  /**
+   * Mounts server routes.
+   *
+   * @method mountRoutes
+   */
+  mountRoutes() {
+    const webServiceBasePath = this.configuration.webServiceBasePath;
+    const authenticationController = new AuthenticationController();
+    const categoriesController = new CategoriesController();
+    const defaultController = new DefaultController();
+    const errorController = new ErrorController();
+    const filtersController = new FiltersController();
+    const groupsController = new GroupsController();
+    const liveController = new LiveController();
+    const settingsController = new SettingsController();
+    const statisticsController = new StatisticsController();
+    const versionController = new VersionController();
+    const videosController = new VideosController();
+
+    // Routes
+    this.app.get(
+      &#x27;/live&#x27;,
+      liveController.defaultAction.bind(liveController)
+    );
+
+    // Web service routes
+    if (this.configuration.auth) {
+      this.app.get(
+        &#x60;${webServiceBasePath}authenticate/:type&#x60;,
+        authenticationController.authenticateExternalAction.bind(authenticationController)
+      );
+      this.app.post(
+        &#x60;${webServiceBasePath}authenticate&#x60;,
+        authenticationController.authenticateInternalAction.bind(authenticationController)
+      );
+    }
+
+    this.app.post(
+      &#x60;${webServiceBasePath}statistics/:entity/:type/:id&#x60;,
+      statisticsController.statisticsAction.bind(statisticsController)
+    );
+    this.app.get(
+      &#x60;${webServiceBasePath}videos/promoted&#x60;,
+      videosController.getPromotedVideosAction.bind(videosController)
+    );
+    this.app.get(
+      &#x60;${webServiceBasePath}videos/:id&#x60;,
+      videosController.getVideoAction.bind(videosController)
+    );
+    this.app.post(
+      &#x60;${webServiceBasePath}videos/:id/poi/convert&#x60;,
+      videosController.convertVideoPoiAction.bind(videosController)
+    );
+    this.app.get(
+      &#x60;${webServiceBasePath}categories&#x60;,
+      categoriesController.getCategoriesAction.bind(categoriesController)
+    );
+    this.app.get(
+      &#x60;${webServiceBasePath}filters&#x60;,
+      filtersController.getFiltersAction.bind(filtersController)
+    );
+    this.app.post(
+      &#x60;${webServiceBasePath}videos&#x60;,
+      videosController.searchAction.bind(videosController)
+    );
+    this.app.get(
+      &#x60;${webServiceBasePath}settings/:id&#x60;,
+      settingsController.getEntityAction.bind(settingsController)
+    );
+
+    // Routes security
+    this.app.all(
+      &#x27;/be*&#x27;,
+      authenticationController.restrictAction.bind(authenticationController)
+    );
+
+    // Web service routes
+    if (this.configuration.auth) {
+      this.app.get(
+        &#x60;/be${webServiceBasePath}logout&#x60;,
+        authenticationController.logoutAction.bind(authenticationController)
+      );
+      this.app.post(
+        &#x60;/be${webServiceBasePath}logout&#x60;,
+        authenticationController.logoutAction.bind(authenticationController)
+      );
+    }
+
+    this.app.get(
+      &#x60;/be${webServiceBasePath}version&#x60;,
+      versionController.getVersionAction.bind(versionController)
+    );
+    this.app.get(
+      &#x60;/be${webServiceBasePath}settings/:id&#x60;,
+      settingsController.getEntityAction.bind(settingsController)
+    );
+    this.app.post(
+      &#x60;/be${webServiceBasePath}settings/:id&#x60;,
+      settingsController.updateEntityAction.bind(settingsController)
+    );
+    this.app.get(
+      &#x60;/be${webServiceBasePath}groups&#x60;,
+      groupsController.getGroupsAction.bind(groupsController)
+    );
+    this.app.get(
+      &#x60;/be${webServiceBasePath}videos/promoted&#x60;,
+      videosController.getPromotedVideosAction.bind(videosController)
+    );
+    this.app.get(
+      &#x60;/be${webServiceBasePath}videos/:id&#x60;,
+      videosController.getVideoAction.bind(videosController)
+    );
+    this.app.post(
+      &#x60;/be${webServiceBasePath}videos&#x60;,
+      videosController.searchAction.bind(videosController)
+    );
+
+    // Not found web service routes
+    this.app.all(
+      &#x60;/${webServiceBasePath}*&#x60;,
+      defaultController.defaultWebServiceAction.bind(defaultController)
+    );
+    this.app.all(
+      &#x60;/be${webServiceBasePath}*&#x60;,
+      defaultController.defaultWebServiceAction.bind(defaultController)
+    );
+
+    // Not found routes
+    this.app.all(
+      &#x27;/be*&#x27;,
+      defaultController.defaultBackOfficeAction.bind(defaultController)
+    );
+    this.app.all(
+      &#x27;*&#x27;,
+      defaultController.defaultAction.bind(defaultController)
+    );
+
+    // Handle errors
+    this.app.use(errorController.errorAction.bind(errorController));
+  }
+
+  /**
+   * Creates database indexes.
+   *
+   * @method createIndexes
+   * @param {Database} database The database instance
+   * @param {Function} callback Function to call when its done with:
+   *  - **Error** An error if something went wrong
+   */
+  createIndexes(database, callback) {
+    const userProvider = new UserProvider(database);
+    userProvider.createIndexes(callback);
+  }
+
+  /**
+   * Starts the server.
+   *
+   * @method start
+   */
+  start() {
+    const server = this.app.listen(this.configuration.port, () =&gt; {
+      process.logger.info(&#x27;Server listening at http://%s:%s&#x27;, server.address().address, server.address().port);
+
+      // If process is a child process, send an event to parent process informing that the server has started
+      if (process.connected)
+        process.send({status: &#x27;started&#x27;});
+
+    });
+  }
+
+}
+
+module.exports = Server;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

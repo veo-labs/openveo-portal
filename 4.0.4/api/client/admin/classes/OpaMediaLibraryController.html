@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>OpaMediaLibraryController - OpenVeo Portal administration interface</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo Portal administration interface</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 4.0.4
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/opa.html">opa</a></li>
+                                <li><a href="../classes/opaAbout.html">opaAbout</a></li>
+                                <li><a href="../classes/OpaAboutController.html">OpaAboutController</a></li>
+                                <li><a href="../classes/OpaAboutFactory.html">OpaAboutFactory</a></li>
+                                <li><a href="../classes/opaActionsButton.html">opaActionsButton</a></li>
+                                <li><a href="../classes/OpaActionsButtonController.html">OpaActionsButtonController</a></li>
+                                <li><a href="../classes/opaDashboard.html">opaDashboard</a></li>
+                                <li><a href="../classes/OpaDashboardController.html">OpaDashboardController</a></li>
+                                <li><a href="../classes/OpaGroupsFactory.html">OpaGroupsFactory</a></li>
+                                <li><a href="../classes/OpaI18nFactory.html">OpaI18nFactory</a></li>
+                                <li><a href="../classes/OpaIndexController.html">OpaIndexController</a></li>
+                                <li><a href="../classes/opaInfo.html">opaInfo</a></li>
+                                <li><a href="../classes/OpaInfoButtonController.html">OpaInfoButtonController</a></li>
+                                <li><a href="../classes/opaInfoConfiguration.html">opaInfoConfiguration</a></li>
+                                <li><a href="../classes/OpaInfoController.html">OpaInfoController</a></li>
+                                <li><a href="../classes/OpaInterceptor.html">OpaInterceptor</a></li>
+                                <li><a href="../classes/opaLicenseKeyValidator.html">opaLicenseKeyValidator</a></li>
+                                <li><a href="../classes/OpaLicenseKeyValidatorController.html">OpaLicenseKeyValidatorController</a></li>
+                                <li><a href="../classes/opaLiveSettings.html">opaLiveSettings</a></li>
+                                <li><a href="../classes/OpaLiveSettingsController.html">OpaLiveSettingsController</a></li>
+                                <li><a href="../classes/OpaMediaContainerController.html">OpaMediaContainerController</a></li>
+                                <li><a href="../classes/opaMediaLibrary.html">opaMediaLibrary</a></li>
+                                <li><a href="../classes/OpaMediaLibraryController.html">OpaMediaLibraryController</a></li>
+                                <li><a href="../classes/OpaMediaLibraryDialogController.html">OpaMediaLibraryDialogController</a></li>
+                                <li><a href="../classes/opaMediaOption.html">opaMediaOption</a></li>
+                                <li><a href="../classes/OpaMediaOptionController.html">OpaMediaOptionController</a></li>
+                                <li><a href="../classes/opaMediaSelect.html">opaMediaSelect</a></li>
+                                <li><a href="../classes/OpaMediaSelectController.html">OpaMediaSelectController</a></li>
+                                <li><a href="../classes/opaNav.html">opaNav</a></li>
+                                <li><a href="../classes/OpaNavController.html">OpaNavController</a></li>
+                                <li><a href="../classes/opaNotificationConfiguration.html">opaNotificationConfiguration</a></li>
+                                <li><a href="../classes/OpaNotificationController.html">OpaNotificationController</a></li>
+                                <li><a href="../classes/OpaNotificationFactory.html">OpaNotificationFactory</a></li>
+                                <li><a href="../classes/opaPromotedVideos.html">opaPromotedVideos</a></li>
+                                <li><a href="../classes/OpaPromotedVideosController.html">OpaPromotedVideosController</a></li>
+                                <li><a href="../classes/opaSettings.html">opaSettings</a></li>
+                                <li><a href="../classes/OpaSettingsController.html">OpaSettingsController</a></li>
+                                <li><a href="../classes/OpaSettingsFactory.html">OpaSettingsFactory</a></li>
+                                <li><a href="../classes/opaStreamUrlValidator.html">opaStreamUrlValidator</a></li>
+                                <li><a href="../classes/OpaStreamUrlValidatorController.html">OpaStreamUrlValidatorController</a></li>
+                                <li><a href="../classes/opaTags.html">opaTags</a></li>
+                                <li><a href="../classes/OpaTagsController.html">OpaTagsController</a></li>
+                                <li><a href="../classes/opaToolbar.html">opaToolbar</a></li>
+                                <li><a href="../classes/OpaToolbarController.html">OpaToolbarController</a></li>
+                                <li><a href="../classes/OpaTranslateFilter.html">OpaTranslateFilter</a></li>
+                                <li><a href="../classes/OpaUrlFactory.html">OpaUrlFactory</a></li>
+                                <li><a href="../classes/OpaUserFactory.html">OpaUserFactory</a></li>
+                                <li><a href="../classes/OpaVideosFactory.html">OpaVideosFactory</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/opa.html">opa</a></li>
+                                <li><a href="../modules/opa.i18n.html">opa.i18n</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>OpaMediaLibraryController</h1>
+<div class="meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l9"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:9</code></a>
+        </div>
+
+            Module: <a href="../modules/opa.html">opa</a>
+
+</div>
+
+
+<h3>Summary</h3>
+<div class="intro">
+    <p>Manages opaMediaLibrary component.</p>
+
+</div>
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_OpaMediaLibraryController" class="method item">
+  <h3 class="blue-method-name">OpaMediaLibraryController</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l9"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:9</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>OpaMediaLibraryController</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>opaUrlFactory</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">opaUrlFactory</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>URL factory to manipulate URLs</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_$onInit">$onInit</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_addNextPage">addNextPage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fetch">fetch</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_init">init</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_search">search</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                            <li class="index-item property">
+                                <a href="#property_currentPage">currentPage</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_isLoading">isLoading</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_limit">limit</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_medias">medias</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_search">search</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_sortDirection">sortDirection</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_sortField">sortField</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_totalPages">totalPages</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_triggered">triggered</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_$onInit" class="method item">
+  <h3 class="blue-method-name">$onInit</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l120"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:120</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>$onInit</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+        <span class="flag final">final</span>
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Initializes the constructor.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_addNextPage" class="method item">
+  <h3 class="blue-method-name">addNextPage</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l179"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:179</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>addNextPage</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+        <span class="flag final">final</span>
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Loads the next page of medias.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fetch" class="method item">
+  <h3 class="blue-method-name">fetch</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l198"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:198</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>fetch</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+        <span class="flag final">final</span>
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Calls the Web Service for medias fetching.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_init" class="method item">
+  <h3 class="blue-method-name">init</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l147"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:147</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>init</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+        <span class="flag final">final</span>
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Initialize first media fetch.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_search" class="method item">
+  <h3 class="blue-method-name">search</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l160"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:160</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>search</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+        <span class="flag final">final</span>
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Loads the first page of a new search.</p>
+
+    </div>
+
+
+
+
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                    <div id="property_currentPage" class="property item">
+                    
+                      <h3 class="blue-method-name">currentPage</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l87"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:87</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>currentPage</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Current page.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_isLoading" class="property item">
+                    
+                      <h3 class="blue-method-name">isLoading</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l109"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:109</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>isLoading</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Indicates if data is loading.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_limit" class="property item">
+                    
+                      <h3 class="blue-method-name">limit</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l76"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:76</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>limit</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Number of results per page.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_medias" class="property item">
+                    
+                      <h3 class="blue-method-name">medias</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l21"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:21</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>medias</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>The list of medias present in the select.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_search" class="property item">
+                    
+                      <h3 class="blue-method-name">search</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l32"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:32</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>search</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Search keyword.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_sortDirection" class="property item">
+                    
+                      <h3 class="blue-method-name">sortDirection</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l54"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:54</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>sortDirection</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Medias sort direction.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_sortField" class="property item">
+                    
+                      <h3 class="blue-method-name">sortField</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l43"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:43</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>sortField</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Medias sort field.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_totalPages" class="property item">
+                    
+                      <h3 class="blue-method-name">totalPages</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l98"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:98</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>totalPages</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Number of (filtered) pages.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_triggered" class="property item">
+                    
+                      <h3 class="blue-method-name">triggered</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/_home_lhawsa_Documents_projects_openveo_openveo-portal_app_client_admin_components_shared_mediaLibrary_mediaLibrary.controller.js.html#l65"><code>&#x2F;home&#x2F;lhawsa&#x2F;Documents&#x2F;projects&#x2F;openveo&#x2F;openveo-portal&#x2F;app&#x2F;client&#x2F;admin&#x2F;components&#x2F;shared&#x2F;mediaLibrary&#x2F;mediaLibrary.controller.js:65</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>triggered</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Indicates if next page loading is triggered</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+            </div>
+
+
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
