@@ -11,6 +11,12 @@
 - Add support for custom properties of type *True / false* in advanced search
 - Add support for custom properties of type *Date time* in advanced search. Searching by a custom property of type *Date time* will search all videos with a date between the entered date at midnight and next day at midnight
 
+# 4.0.4 / 2018-05-30
+
+## BUG FIXES
+
+- Fix access to the back office due to missing files if installed using the archive (not the NPM package)
+
 # 4.0.3 / 2018-05-25
 
 ## BUG FIXES
