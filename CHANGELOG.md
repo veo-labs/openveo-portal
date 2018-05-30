@@ -1,3 +1,9 @@
+# 4.0.4 / 2018-05-30
+
+## BUG FIXES
+
+- Fix access to the back office due to missing files if installed using the archive (not the NPM package)
+
 # 4.0.3 / 2018-05-25
 
 ## BUG FIXES
