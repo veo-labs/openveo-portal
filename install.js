@@ -90,7 +90,7 @@ function createConf(callback) {
       filterTTL: 10,
       videoTTL: 10
     },
-    useDialog: true
+    useDialog: false
   };
 
   async.series([
