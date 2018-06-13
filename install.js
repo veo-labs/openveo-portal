@@ -87,8 +87,8 @@ function createConf(callback) {
     privateFilter: [],
     publicFilter: [],
     cache: {
-      filterTTL: 600,
-      videoTTL: 60
+      filterTTL: 10,
+      videoTTL: 10
     },
     useDialog: true
   };
@@ -194,7 +194,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
 
     // Ask for cache filter TTL
     (callback) => {
-      rl.question('Enter the TTL of cache filter in seconds (default:600) :\n', (answer) => {
+      rl.question('Enter the TTL of cache filter in seconds (default:' + conf.cache.filterTTL + ') :\n', (answer) => {
         conf.cache.filterTTL = parseInt(answer || conf.cache.filterTTL);
         callback();
       });
@@ -202,7 +202,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
 
     // Ask for cache video TTL
     (callback) => {
-      rl.question('Enter the TTL of cache video in seconds (default:60) :\n', (answer) => {
+      rl.question('Enter the TTL of cache video in seconds (default:' + conf.cache.videoTTL + ') :\n', (answer) => {
         conf.cache.videoTTL = parseInt(answer || conf.cache.videoTTL);
         callback();
       });
