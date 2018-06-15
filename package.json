@@ -1,6 +1,6 @@
 {
   "name": "@openveo/portal",
-  "version": "4.0.4",
+  "version": "5.0.0",
   "description": "OpenVeo Portal gives access to medias exposed by OpenVeo server associated to an OpenVeo Publish plugin",
   "keywords": [
     "openveo",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@openveo/api": "5.*",
-    "@openveo/rest-nodejs-client": "2.*",
+    "@openveo/rest-nodejs-client": "3.*",
     "async": "2.1.4",
     "body-parser": "1.15.2",
     "consolidate": "0.14.5",
@@ -47,7 +47,7 @@
     "semver": "5.4.1"
   },
   "devDependencies": {
-    "@openveo/test": "6.*",
+    "@openveo/test": "7.*",
     "chai": "4.0.2",
     "chai-as-promised": "7.1.1",
     "chai-spies": "0.7.1",
