@@ -25,7 +25,6 @@ OpenVeo Portal supports the following SSO (Single Sign On) providers:
 
 OpenVeo Portal has been tested on the following operating systems:
 
-- Windows 10
 - Ubuntu 16.04
 
 OpenVeo has been tested on the following:
@@ -36,7 +35,6 @@ OpenVeo has been tested on the following:
 - Internet Explorer Edge
 
 ![Ubuntu](images/operating-systems/ubuntu.gif)
-![Windows](images/operating-systems/windows.gif)
 
 ![Firefox](images/browsers/firefox.gif)
 ![Google Chrome](images/browsers/chrome.gif)
