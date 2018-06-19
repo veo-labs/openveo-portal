@@ -237,7 +237,7 @@
       var self = this;
 
       if ($scope.user) {
-        $analytics.eventTrack('Logout');
+        $analytics.eventTrack('Logout', {});
 
         if ($scope.user.origin === authenticationStrategies.CAS) {
 

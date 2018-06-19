@@ -22,7 +22,7 @@
     this.signIn = function() {
       if (this.login && this.password) {
         this.isLogging = true;
-        $analytics.eventTrack('Login');
+        $analytics.eventTrack('Login', {});
 
         authenticationService.login(this.login, this.password).then(function(result) {
           authenticationService.setUserInfo(result.data);
