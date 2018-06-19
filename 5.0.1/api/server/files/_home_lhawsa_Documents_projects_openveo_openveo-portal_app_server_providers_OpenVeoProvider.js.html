@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js - OpenVeo Portal server</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo Portal server</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 5.0.1
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AuthenticationController.html">AuthenticationController</a></li>
+                                <li><a href="../classes/authenticator.html">authenticator</a></li>
+                                <li><a href="../classes/CategoriesController.html">CategoriesController</a></li>
+                                <li><a href="../classes/context.html">context</a></li>
+                                <li><a href="../classes/DefaultController.html">DefaultController</a></li>
+                                <li><a href="../classes/ErrorController.html">ErrorController</a></li>
+                                <li><a href="../classes/FiltersController.html">FiltersController</a></li>
+                                <li><a href="../classes/GroupsController.html">GroupsController</a></li>
+                                <li><a href="../classes/HTTP_ERRORS.html">HTTP_ERRORS</a></li>
+                                <li><a href="../classes/LiveController.html">LiveController</a></li>
+                                <li><a href="../classes/openveo-web-service-errors.html">openveo-web-service-errors</a></li>
+                                <li><a href="../classes/Server.html">Server</a></li>
+                                <li><a href="../classes/SettingsController.html">SettingsController</a></li>
+                                <li><a href="../classes/statisticsController.html">statisticsController</a></li>
+                                <li><a href="../classes/StatisticsController.html">StatisticsController</a></li>
+                                <li><a href="../classes/UserProvider.html">UserProvider</a></li>
+                                <li><a href="../classes/VersionController.html">VersionController</a></li>
+                                <li><a href="../classes/VideosController.html">VideosController</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/controllers.html">controllers</a></li>
+                                <li><a href="../modules/portal.html">portal</a></li>
+                                <li><a href="../modules/providers.html">providers</a></li>
+                                <li><a href="../modules/storages.html">storages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module providers
+ */
+
+const querystring = require(&#x27;querystring&#x27;);
+const openVeoApi = require(&#x27;@openveo/api&#x27;);
+const Cache = process.require(&#x27;app/server/Cache.js&#x27;);
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
+
+class OpenVeoProvider extends openVeoApi.providers.Provider {
+
+  /**
+   * Defines an OpenVeoProvider to interact with OpenVeo web service.
+   *
+   * @extends OpenVeoProvider
+   * @constructor
+   * @param {Storage} storage The storage to interact with
+   * @param {Cache} [cache] The cache to use. If not specified a 10 seconds cache is created
+   */
+  constructor(storage, cache) {
+    super(storage);
+
+    Object.defineProperties(this, {
+
+      /**
+       * The OpenVeo cache.
+       *
+       * @property cache
+       * @type Cache
+       * @final
+       */
+      cache: {
+        value: cache || new Cache({stdTTL: 10, checkperiod: 10})
+      }
+
+    });
+
+    this.cache.on(&#x27;expired&#x27;, (key, value) =&gt; {
+      this.cache.del(key);
+    });
+  }
+
+  /**
+   * Fetches a document.
+   *
+   * @method getOne
+   * @async
+   * @param {String} location The location of the documents in the storage
+   * @param {String} id The id of the document to fetch
+   * @param {Object} [fields] Fields to be included or excluded from the resulting documents, by default all
+   * fields are returned. Only &quot;exclude&quot; or &quot;include&quot; can be specified, not both
+   * @param {Array} [fields.include] The list of fields to include in the response, all other fields are excluded
+   * @param {Array} [fields.exclude] The list of fields to exclude from response, all other fields are included. Ignored
+   * if include is also specified.
+   * @param {Number} [ttl] The duration of the cache for this request (in seconds)
+   * @param {Function} callback The function to call when it&#x27;s done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Object** The document
+   */
+  getOne(location, id, fields, ttl, callback) {
+    new Promise((resolve, reject) =&gt; {
+      let cacheId = &#x60;getOne-${location}-${id}-${querystring.stringify(fields)}&#x60;;
+      let document = this.cache.get(cacheId);
+      if (document) return resolve(document);
+
+      this.storage.getOne(location, new ResourceFilter().equal(&#x27;id&#x27;, id), fields, (error, fetchedDocument) =&gt; {
+        if (error) return reject(error);
+        this.cache.set(cacheId, fetchedDocument, (ttl === null || ttl === undefined) ? undefined : ttl);
+        resolve(fetchedDocument);
+      });
+    }).then((document) =&gt; {
+      callback(null, document);
+    }).catch((error) =&gt; {
+      callback(error);
+    });
+  }
+
+  /**
+   * Fetches documents.
+   *
+   * @method get
+   * @async
+   * @param {String} location The location of the documents in the storage
+   * @param {ResourceFilter} [filter] Rules to filter documents
+   * @param {Object} [fields] Fields to be included or excluded from the resulting documents, by default all
+   * fields are returned. Only &quot;exclude&quot; or &quot;include&quot; can be specified, not both
+   * @param {Array} [fields.include] The list of fields to include in the response, all other fields are excluded
+   * @param {Array} [fields.exclude] The list of fields to exclude from response, all other fields are included. Ignored
+   * if include is also specified.
+   * @param {Number} [limit] A limit number of documents to retrieve (10 by default)
+   * @param {Number} [page] The page number started at 0 for the first page
+   * @param {Object} sort The list of fields to sort by with the field name as key and the sort order as
+   * value (e.g. {field1: &#x27;asc&#x27;}). Sort can be made only on one field
+   * @param {Number} [ttl] The duration of the cache for this request (in seconds)
+   * @param {Function} callback The function to call when it&#x27;s done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Array** The list of retrieved documents
+   *   - **Object** Pagination information
+   *     - **Number** limit The specified limit
+   *     - **Number** page The actual page
+   *     - **Number** pages The total number of pages
+   *     - **Number** size The total number of documents
+   */
+  get(location, filter, fields, limit, page, sort, ttl, callback) {
+    new Promise((resolve, reject) =&gt; {
+      let fieldsString = querystring.stringify(fields);
+      let operationsString = querystring.stringify(this.storage.buildFilter(filter));
+      let sortString = querystring.stringify(sort || {});
+      let cacheId = &#x60;get-${location}-${operationsString}-${fieldsString}-${limit}-${page}-${sortString}&#x60;;
+      let cacheValue = this.cache.get(cacheId);
+      if (cacheValue) return resolve(cacheValue);
+
+      this.storage.get(location, filter, fields, limit, page, sort, (error, fetchedDocuments, pagination) =&gt; {
+        if (error) return reject(error);
+
+        let result = {
+          documents: fetchedDocuments,
+          pagination: pagination
+        };
+
+        this.cache.set(cacheId, result, (ttl === null || ttl === undefined) ? undefined : ttl);
+        resolve(result);
+      });
+
+    }).then((result) =&gt; {
+      callback(null, result.documents, result.pagination);
+    }).catch((error) =&gt; {
+      callback(error);
+    });
+  }
+
+  /**
+   * Gets all documents from storage iterating on all pages.
+   *
+   * @method getAll
+   * @async
+   * @param {String} location The location of the documents in the storage
+   * @param {ResourceFilter} [filter] Rules to filter documents
+   * @param {Object} [fields] Fields to be included or excluded from the resulting documents, by default all
+   * fields are returned. Only &quot;exclude&quot; or &quot;include&quot; can be specified, not both
+   * @param {Array} [fields.include] The list of fields to include in the response, all other fields are excluded
+   * @param {Array} [fields.exclude] The list of fields to exclude from response, all other fields are included. Ignored
+   * if include is also specified.
+   * @param {Object} sort The list of fields to sort by with the field name as key and the sort order as
+   * value (e.g. {field1: &#x27;asc&#x27;}). Sort can be made only on one field
+   * @param {Number} [ttl] The duration of the cache for this request (in seconds)
+   * @param {Function} callback Function to call when it&#x27;s done with:
+   *  - **Error** An error if something went wrong, null otherwise
+   *  - **Array** The list of documents
+   */
+  getAll(location, filter, fields, sort, ttl, callback) {
+    let allDocuments = [];
+    let page = 0;
+
+    const getDocuments = (callback) =&gt; {
+      this.get(location, filter, fields, null, page, sort, ttl, function(error, documents, pagination) {
+        if (error) return callback(error);
+
+        allDocuments = allDocuments.concat(documents);
+
+        if (page &lt; pagination.pages - 1) {
+
+          // There are other pages
+          // Get next page
+          page++;
+          getDocuments(callback);
+
+        } else {
+
+          // No more pages
+          // End it
+          callback(null);
+
+        }
+      });
+    };
+
+    getDocuments(function(error) {
+      callback(error, allDocuments);
+    });
+  }
+
+  /**
+   * Updates a document.
+   *
+   * @method updateOne
+   * @async
+   * @param {String} location The location of the document in the storage
+   * @param {String} id The id of the document to update
+   * @param {Object} data The modifications to perform
+   * @param {Function} [callback] The function to call when it&#x27;s done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Number** 1 if everything went fine
+   */
+  updateOne(location, id, data, callback) {
+    this.storage.updateOne(location, new ResourceFilter().equal(&#x27;id&#x27;, id), data, (error, total) =&gt; {
+      this.executeCallback(callback, error, total);
+    });
+  }
+
+  /**
+   * Convert a video Point of Interest
+   *
+   * @method convertVideoPoi
+   * @async
+   * @param {String} videoId The id of the video to convert
+   * @param {Number} duration The duration of the video in ms
+   * @param {Function} [callback] The function to call when it&#x27;s done
+   *   - **Error** The error if an error occured, null otherwise
+   *   - **Video** The video with converted POI
+   */
+  convertVideoPoi(videoId, duration, callback) {
+    this.storage.convertVideoPoi(videoId, duration, (error, video) =&gt; {
+      this.executeCallback(callback, error, video);
+    });
+  }
+
+  /**
+   * Deletes cache of a document.
+   *
+   * @method deleteDocumentCache
+   * @param {String} location The location of the document in the storage
+   * @param {String} id The id of the document to remove from cache
+   * @param {Boolean} alsoRemoveFromPages Also remove cache entries containing the document (paginated results)
+   * @return {Number} The number of removed entries
+   */
+  deleteDocumentCache(location, id, alsoRemoveFromPages) {
+    let deleteCount = 0;
+
+    if (!location || !id) return deleteCount;
+
+    deleteCount += this.cache.del(&#x60;getOne-${location}-${id}-*&#x60;);
+
+    if (alsoRemoveFromPages) {
+
+      // Find cache entries referencing the document
+      const cacheValues = this.cache.mget([&#x60;get-${location}-*&#x60;]);
+
+      for (let cacheId in cacheValues) {
+        let result = cacheValues[cacheId];
+
+        for (let document of result.documents) {
+          if (document.id === id)
+            deleteCount += this.cache.del(cacheId);
+        }
+      }
+
+    }
+
+    return deleteCount;
+  }
+
+  /**
+   * Deletes all cache entries associated to a location.
+   *
+   * @method deleteLocationCache
+   * @param {String} location The location of the documents in the storage
+   * @return {Number} The number of removed entries
+   */
+  deleteLocationCache(location) {
+    let deleteCount = 0;
+
+    if (!location) return deleteCount;
+
+    deleteCount += this.cache.del(&#x60;get-${location}-*&#x60;);
+    deleteCount += this.cache.del(&#x60;getOne-${location}-*&#x60;);
+
+    return deleteCount;
+  }
+
+}
+
+module.exports = OpenVeoProvider;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
