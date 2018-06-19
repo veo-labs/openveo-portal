@@ -3,6 +3,7 @@
 ## BUG FIXES
 
 - Fix connection to the administration interface which wasn't working when OpenVeo Portal was used with Piwik
+- Fix missing dependency *esprima* while installing
 
 # 5.0.0 / 2018-06-15
 
