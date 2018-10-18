@@ -85,7 +85,8 @@
     "postinstall": "bower install && node install.js",
     "eslint": "grunt eslint",
     "mocha": "grunt mochaTest",
-    "karma": "grunt karma:backOffice"
+    "karma": "grunt karma:backOffice",
+    "postpublish": "grunt deploy-doc"
   },
   "precommit": [
     "eslint",
