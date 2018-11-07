@@ -53,13 +53,25 @@ class DefaultController extends openVeoApi.controllers.Controller {
       }
 
       // Retrieve the list of scripts and css files from configuration
-      response.locals.librariesScriptsBase = applicationConf['scriptLibFiles']['base'] || [];
+      response.locals.librariesScriptsBase = [];
+      response.locals.css = [];
+
+      if (applicationConf['libraries']) {
+        response.locals.librariesScriptsBase.concat(applicationConf['libraries'].map((library) => {
+          if (library.files) {
+            library.files.forEach((filePath) => {
+              const fileUri = path.join(library.mountPath, filePath);
+              if (/.css$/.test(fileUri)) response.locals.css.push(fileUri);
+              else if (/.js$/.test(fileUri)) response.locals.librariesScriptsBase.push(fileUri);
+            });
+          }
+        }));
+      }
+
       response.locals.librariesScripts = applicationConf['scriptLibFiles'][env] || [];
       response.locals.librariesScripts = response.locals.librariesScriptsBase.concat(response.locals.librariesScripts);
-      response.locals.scriptsBase = applicationConf['scriptFiles']['base'] || [];
       response.locals.scripts = applicationConf['scriptFiles'][env] || [];
-      response.locals.scripts = response.locals.scriptsBase.concat(response.locals.scripts);
-      response.locals.css = Object.assign([], applicationConf['cssFiles']) || [];
+      response.locals.css = response.locals.css.concat(applicationConf['cssFiles']);
       response.locals.languages = ['"en"', '"fr"'];
       response.locals.theme = portalConf.conf.theme;
       response.locals.useDialog = portalConf.conf.useDialog;

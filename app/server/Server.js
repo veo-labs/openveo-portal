@@ -35,6 +35,7 @@ const authenticator = process.require('app/server/authenticator.js');
 const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
 const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 const UserProvider = process.require('app/server/providers/UserProvider.js');
+const applicationConf = process.require('conf.json');
 const strategyFactory = openVeoApi.passport.strategyFactory;
 
 const OPENVEO_URL = webservicesConf.path;
@@ -286,6 +287,9 @@ class Server {
     // Deliver assets using static server
     this.app.use(express.static(path.normalize(`${process.root}/assets`), staticServerOptions));
 
+    // Deliver libraries
+    this.mountLibraries();
+
     // Add private static assets directory for development (uncompressed client JavaScript files)
     if (process.env.NODE_ENV !== 'production')
       this.app.use(express.static(path.normalize(`${process.root}/app/client/front/js`), staticServerOptions));
@@ -301,6 +305,27 @@ class Server {
 
     this.mountRoutes();
     this.createIndexes(database, callback);
+  }
+
+  /**
+   * Mounts libraries.
+   *
+   * @method mountLibraries
+   */
+  mountLibraries() {
+    if (!applicationConf.libraries) return;
+
+    applicationConf.libraries.forEach((library) => {
+      const mountPath = path.join('/', library.mountPath);
+      process.logger.info(`Mount library "${library.name}" on ${mountPath}`);
+
+      try {
+        const libraryPath = path.dirname(require.resolve(path.join(library.name, 'package.json')));
+        this.app.use(mountPath, express.static(libraryPath, staticServerOptions));
+      } catch (error) {
+        process.logger.error(`Unable to mount library "${library.name}" with message: ${error.message}`);
+      }
+    });
   }
 
   /**

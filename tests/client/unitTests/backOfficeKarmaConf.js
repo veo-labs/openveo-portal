@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 // Karma configuration
 module.exports = (config) => {
   const resources = process.require('build/ng-admin-files.json');
@@ -7,12 +9,17 @@ module.exports = (config) => {
   const files = [];
 
   // Library scripts
-  conf.be.scriptLibFiles.forEach((file) => {
-    files.push(`assets${file}`);
+  conf.be.libraries.forEach((library) => {
+    library.files.forEach((libraryFilePath) => {
+      if (/.js$/.test(libraryFilePath)) {
+        const libraryPath = path.dirname(require.resolve(path.join(library.name, 'package.json')));
+        files.push(path.join(libraryPath, libraryFilePath));
+      }
+    });
   });
 
   // AngularJS mock and Chai Spies
-  files.push('assets/lib/angular-mocks/angular-mocks.js');
+  files.push('node_modules/angular-mocks/angular-mocks.js');
   files.push('node_modules/chai-spies/chai-spies.js');
 
   // Back office sources

@@ -1,4 +1,8 @@
-# 5.0.2 / YYYY-MM-DD
+# 5.1.0 / YYYY-MM-DD
+
+## NEW FEATURES
+
+- OpenVeo Portal does not use Bower anymore, it now uses NPM for both client and server dependencies
 
 ## BUG FIXES
 

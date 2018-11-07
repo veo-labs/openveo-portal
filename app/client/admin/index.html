@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" type="text/css" href="/lib/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
     <link rel="stylesheet" type="text/css" href="/be/css/index.css">
 
     <script>
@@ -72,7 +72,7 @@
       var languageCode = (cookieLanguage || navigator.language || navigator.browserLanguage).split('-')[0];
       languageCode = openVeoPortalSettings.languages.indexOf(languageCode) > -1 ? languageCode : openVeoPortalSettings.languages[0];
 
-      document.write('\x3Cscript type="text/javascript" src="/lib/angular-i18n/angular-locale_' + languageCode + '.js">\x3C/script>');
+      document.write('\x3Cscript type="text/javascript" src="/angular-i18n/angular-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/be/js/i18n/openveo-portal-locale_' + languageCode + '.js">\x3C/script>');
     </script>
 

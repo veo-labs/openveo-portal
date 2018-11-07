@@ -21,9 +21,6 @@ module.exports = {
 
   serverSourcesPath: '<%= project.root %>/app/server',
 
-  bootstrapFontsPath: '<%= project.root %>/assets/lib/bootstrap-sass/assets/fonts',
-  bootstrapFontsHttpPath: '/lib/bootstrap-sass/assets/fonts',
-
   clientTestSourcesPath: '<%= project.tests %>/client',
   clientLibrariesPath: '<%= project.root %>/assets/lib',
 

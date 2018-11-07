@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 // Replace placeholders
 // For more information about Grunt replace, have a look at https://www.npmjs.com/package/grunt-replace
 module.exports = {
@@ -21,7 +23,7 @@ module.exports = {
               adminScss += `@import "${resource}";\n`;
             });
 
-            fontScss += '@import "../../assets/lib/roboto-fontface/css/roboto/sass/roboto-fontface-regular.scss";\n';
+            fontScss += '@import "../../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface-regular.scss";\n';
 
             done({
               '// INJECT_SCSS': adminScss,
@@ -48,8 +50,13 @@ module.exports = {
             const conf = process.require('conf.json');
             let libraryScriptsHtml = '';
 
-            conf.be.scriptLibFiles.forEach((libraryFile) => {
-              libraryScriptsHtml += `<script src="${libraryFile}"></script>\n`;
+            conf.be.libraries.forEach((library) => {
+              library.files.forEach((libraryFilePath) => {
+                if (/.js$/.test(libraryFilePath)) {
+                  const libraryFileUri = path.join('/', library.mountPath, libraryFilePath);
+                  libraryScriptsHtml += `<script src="${libraryFileUri}"></script>\n`;
+                }
+              });
             });
 
             done({
@@ -72,7 +79,7 @@ module.exports = {
       patterns: [
         {
           match: '../../../fonts/roboto/',
-          replacement: '../../lib/roboto-fontface/fonts/roboto/'
+          replacement: '/roboto-fontface/fonts/roboto/'
         }
       ]
     },

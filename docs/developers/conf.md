@@ -9,9 +9,6 @@ The list of JavaScript files of the front office to load are defined in **conf.j
 ```js
 {
   scriptLibFiles: { // List of JavaScript files to load first
-    base: [ // List of JavaScript files to load on both development and production environments
-      ...
-    ],
     dev: [ // List of JavaScript files to load on development environment
       ...
     ],
