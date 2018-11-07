@@ -36,37 +36,30 @@
     "libraries": [
       {
         "name": "angular",
-        "mountPath": "angular",
         "files": ["angular.min.js", "angular-csp.css"]
       },
       {
         "name": "angular-route",
-        "mountPath": "angular-route",
         "files": ["angular-route.min.js"]
       },
       {
         "name": "angular-aria",
-        "mountPath": "angular-aria",
         "files": ["angular-aria.min.js"]
       },
       {
         "name": "angular-animate",
-        "mountPath": "angular-animate",
         "files": ["angular-animate.min.js"]
       },
       {
         "name": "angular-cookies",
-        "mountPath": "angular-cookies",
         "files": ["angular-cookies.min.js"]
       },
       {
         "name": "angular-messages",
-        "mountPath": "angular-messages",
         "files": ["angular-messages.min.js"]
       },
       {
         "name": "angular-material",
-        "mountPath": "angular-material",
         "files": ["angular-material.min.js"]
       }
     ]

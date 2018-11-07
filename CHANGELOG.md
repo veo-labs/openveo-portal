@@ -3,6 +3,7 @@
 ## NEW FEATURES
 
 - OpenVeo Portal does not use Bower anymore, it now uses NPM for both client and server dependencies
+- Automatically remove all generated files before building project when executing grunt dist
 
 ## BUG FIXES
 

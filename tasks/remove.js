@@ -9,6 +9,18 @@ module.exports = {
     src: [
       '<%= project.documentationDeployPath %>'
     ]
+  },
+
+  // Remove project's built files and directories
+  build: {
+    src: [
+      '<%= project.buildPath %>',
+      '<%= project.adminDeployJsPath %>/openveo-portal-admin.*',
+      '<%= project.adminDeployCssPath %>/index.css*',
+      '<%= project.adminDeployViewsPath %>/index.html',
+      '<%= project.frontDeployCssPath %>/style.css*',
+      '<%= project.frontDeployJsPath %>/openveo-portal*'
+    ]
   }
 
 };
