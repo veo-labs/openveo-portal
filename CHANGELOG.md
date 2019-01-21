@@ -8,6 +8,7 @@
 ## BUG FIXES
 
 - Fix "grunt remove:doc" which hasn't worked since version 2.0.0
+- Fix home page title english translation, "Latest videos" instead of "Last videos"
 
 # 5.0.1 / 2018-06-19
 

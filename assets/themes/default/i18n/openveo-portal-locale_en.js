@@ -26,7 +26,7 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     },
     HOME: {
       PAGE_TITLE: 'Portal - Home',
-      TITLE: 'Last videos',
+      TITLE: 'Latest videos',
       ALL_VIDEOS: 'See all videos'
     },
     VIDEO: {
