@@ -1,0 +1,3308 @@
+{
+    "project": {
+        "name": "OpenVeo Portal server",
+        "description": "OpenVeo Portal server side documentation",
+        "version": "5.1.0"
+    },
+    "files": {
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/AuthenticationController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/AuthenticationController.js",
+            "modules": {},
+            "classes": {
+                "AuthenticationController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/CategoriesController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/CategoriesController.js",
+            "modules": {},
+            "classes": {
+                "CategoriesController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/DefaultController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/DefaultController.js",
+            "modules": {},
+            "classes": {
+                "DefaultController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/ErrorController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/ErrorController.js",
+            "modules": {},
+            "classes": {
+                "ErrorController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/FiltersController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/FiltersController.js",
+            "modules": {},
+            "classes": {
+                "FiltersController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/GroupsController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/GroupsController.js",
+            "modules": {},
+            "classes": {
+                "GroupsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/LiveController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/LiveController.js",
+            "modules": {},
+            "classes": {
+                "LiveController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/SettingsController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/SettingsController.js",
+            "modules": {},
+            "classes": {
+                "SettingsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/StatisticsController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/StatisticsController.js",
+            "modules": {},
+            "classes": {
+                "statisticsController": 1,
+                "StatisticsController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VersionController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VersionController.js",
+            "modules": {},
+            "classes": {
+                "VersionController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "modules": {},
+            "classes": {
+                "VideosController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/doc.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/doc.js",
+            "modules": {
+                "controllers": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/SettingsProvider.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/SettingsProvider.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "modules": {},
+            "classes": {
+                "UserProvider": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/doc.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/doc.js",
+            "modules": {
+                "providers": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/doc.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/doc.js",
+            "modules": {
+                "storages": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/openVeoWebServiceErrors.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/openVeoWebServiceErrors.js",
+            "modules": {},
+            "classes": {
+                "openveo-web-service-errors": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Cache.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Cache.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "modules": {
+                "portal": 1
+            },
+            "classes": {
+                "Server": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js",
+            "modules": {},
+            "classes": {
+                "authenticator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/context.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/context.js",
+            "modules": {},
+            "classes": {
+                "context": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js": {
+            "name": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "modules": {},
+            "classes": {
+                "HTTP_ERRORS": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "controllers": {
+            "name": "controllers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "AuthenticationController": 1,
+                "CategoriesController": 1,
+                "DefaultController": 1,
+                "ErrorController": 1,
+                "FiltersController": 1,
+                "GroupsController": 1,
+                "LiveController": 1,
+                "SettingsController": 1,
+                "statisticsController": 1,
+                "StatisticsController": 1,
+                "VersionController": 1,
+                "VideosController": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 18,
+            "description": "Controllers provide all server route actions.",
+            "itemtype": "main"
+        },
+        "providers": {
+            "name": "providers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "UserProvider": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 18,
+            "description": "Providers module includes all portal providers.",
+            "itemtype": "main"
+        },
+        "storages": {
+            "name": "storages",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "openveo-web-service-errors": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/openVeoWebServiceErrors.js",
+            "line": 7,
+            "description": "Include all storages implemented by OpenVeo Portal.",
+            "itemtype": "main"
+        },
+        "portal": {
+            "name": "portal",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Server": 1,
+                "authenticator": 1,
+                "context": 1,
+                "HTTP_ERRORS": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 7,
+            "description": "Defines Portal HTTP Server.",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "AuthenticationController": {
+            "name": "AuthenticationController",
+            "shortname": "AuthenticationController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/AuthenticationController.js",
+            "line": 14,
+            "description": "Defines an AuthenticationController to deal with user authentication.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "CategoriesController": {
+            "name": "CategoriesController",
+            "shortname": "CategoriesController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/CategoriesController.js",
+            "line": 15,
+            "description": "Defines a CategoriesController to deal with OpenVeo Publish categories.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "DefaultController": {
+            "name": "DefaultController",
+            "shortname": "DefaultController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/DefaultController.js",
+            "line": 20,
+            "description": "Defines a DefaultController to deal with AngularJS single page application.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "ErrorController": {
+            "name": "ErrorController",
+            "shortname": "ErrorController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/ErrorController.js",
+            "line": 13,
+            "description": "Defines a ErrorController to deal with errors.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "FiltersController": {
+            "name": "FiltersController",
+            "shortname": "FiltersController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/FiltersController.js",
+            "line": 16,
+            "description": "Defines a FiltersController to deal with video filters.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "GroupsController": {
+            "name": "GroupsController",
+            "shortname": "GroupsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/GroupsController.js",
+            "line": 13,
+            "description": "Defines a GroupsController to deal with OpenVeo groups.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "LiveController": {
+            "name": "LiveController",
+            "shortname": "LiveController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/LiveController.js",
+            "line": 16,
+            "description": "Defines a LiveController to deal with the live page.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "SettingsController": {
+            "name": "SettingsController",
+            "shortname": "SettingsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/SettingsController.js",
+            "line": 15,
+            "description": "Defines a SettingsController to deal with portal settings.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "statisticsController": {
+            "name": "statisticsController",
+            "shortname": "statisticsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/StatisticsController.js",
+            "line": 7,
+            "description": "Provides route actions for all requests relative to statistics.",
+            "static": 1
+        },
+        "StatisticsController": {
+            "name": "StatisticsController",
+            "shortname": "StatisticsController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/StatisticsController.js",
+            "line": 22,
+            "description": "Defines a StatisticsController to deal with portal settings.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "VersionController": {
+            "name": "VersionController",
+            "shortname": "VersionController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VersionController.js",
+            "line": 14,
+            "description": "Defines a VersionController to deal with project version.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "VideosController": {
+            "name": "VideosController",
+            "shortname": "VideosController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "controllers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 18,
+            "description": "Defines a VideosController to deal with videos.",
+            "extends": "Controller",
+            "is_constructor": 1
+        },
+        "UserProvider": {
+            "name": "UserProvider",
+            "shortname": "UserProvider",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "providers",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 18,
+            "description": "Defines a UserProvider to get and save back end users.",
+            "extends": "EntityProvider",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "storage",
+                    "description": "The storage to use to store users",
+                    "type": "Storage"
+                }
+            ]
+        },
+        "openveo-web-service-errors": {
+            "name": "openveo-web-service-errors",
+            "shortname": "openveo-web-service-errors",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "storages",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/openVeoWebServiceErrors.js",
+            "line": 7,
+            "description": "The list of OpenVeo web service errors with, for each error, its associated hexadecimal code.",
+            "static": 1
+        },
+        "Server": {
+            "name": "Server",
+            "shortname": "Server",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 123,
+            "description": "Creates a new Portal HTTP server.",
+            "example": [
+                "\n    const Server = process.require('app/server/Server.js');\n    const serv = new Server({\n       port: 3003,\n       sessionSecret: '123456789',\n       auth: {\n         cas: {\n           ...\n         }\n       }\n    });"
+            ],
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "configuration",
+                    "description": "Server configuration",
+                    "type": "Object"
+                }
+            ]
+        },
+        "authenticator": {
+            "name": "authenticator",
+            "shortname": "authenticator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js",
+            "line": 15,
+            "description": "The authenticator helps manipulate users authenticated by passport strategies.\n\nUsers returned by passport are not necessary OpenVeo Portal users. It could be users from a third party\nauthentication server. The authenticator helps making sure that the authenticated user is a ready to\nuse OpenVeo Portal user.",
+            "static": 1
+        },
+        "context": {
+            "name": "context",
+            "shortname": "context",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/context.js",
+            "line": 12,
+            "description": "Defines an application context.\n\nContext is a singleton representing a global context for the whole project.\nIt contains a restricted list of elements as properties which can be accessed\nfrom anywhere.\n\n    const context = process.require('app/server/context.js');\n    console.log(context.database);",
+            "is_constructor": 1
+        },
+        "HTTP_ERRORS": {
+            "name": "HTTP_ERRORS",
+            "shortname": "HTTP_ERRORS",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "portal",
+            "namespace": "",
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 7,
+            "description": "The list of HTTP errors with, for each error, its associated hexadecimal code and HTTP return code.\nHTTP errors are sent by {{#crossLinkModule 'controllers'}}{{/crossLinkModule}}.",
+            "example": [
+                "\n    const httpErrors = process.require('app/server/httpErrors.js');\n    console.log(httpErrors.UNKNOWN_ERROR);"
+            ],
+            "static": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/AuthenticationController.js",
+            "line": 25,
+            "description": "Handles user authentication using internal providers (which do not require a redirection to a third party site).",
+            "itemtype": "method",
+            "name": "authenticateInternalAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "body",
+                            "description": "Request's body",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "login",
+                                    "description": "The login",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "password",
+                                    "description": "The password",
+                                    "type": "String"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "AuthenticationController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/AuthenticationController.js",
+            "line": 82,
+            "description": "Handles user authentication using external providers (which require a redirection on third party site).",
+            "itemtype": "method",
+            "name": "authenticateExternalAction",
+            "static": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "params",
+                            "description": "Request's parameters",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "type",
+                                    "description": "The authentication provider to use",
+                                    "type": "String"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "AuthenticationController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/AuthenticationController.js",
+            "line": 130,
+            "description": "Logs out user.",
+            "itemtype": "method",
+            "name": "logoutAction",
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "AuthenticationController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/AuthenticationController.js",
+            "line": 163,
+            "description": "Checks if current request is authenticated.\n\nIf not send back an HTTP code 401 with appropriate page.\nIt just go to the next route action if permission is granted.",
+            "itemtype": "method",
+            "name": "restrictAction",
+            "static": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "Request's url",
+                            "type": "String"
+                        },
+                        {
+                            "name": "user",
+                            "description": "The connected user",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "id",
+                                    "description": "The connected user id",
+                                    "type": "String"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "AuthenticationController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/CategoriesController.js",
+            "line": 26,
+            "description": "Gets OpenVeo Publish categories.",
+            "itemtype": "method",
+            "name": "getCategoriesAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "CategoriesController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/DefaultController.js",
+            "line": 31,
+            "description": "Handles default action to display main HTML.\n\nIf no other action were performed display the main template.\nMain template loads libraries JavaScript files, Bootstrap CSS file and CSS file from the configured theme.",
+            "itemtype": "method",
+            "name": "defaultAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "DefaultController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/DefaultController.js",
+            "line": 93,
+            "description": "Handles administration default action to display root HTML.",
+            "itemtype": "method",
+            "name": "defaultBackOfficeAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "user",
+                            "description": "The connected user",
+                            "type": "Object"
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "DefaultController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/DefaultController.js",
+            "line": 108,
+            "description": "Handles default web service actions.\n\nSend back an HTTP code 404.",
+            "itemtype": "method",
+            "name": "defaultWebServiceAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "DefaultController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/ErrorController.js",
+            "line": 24,
+            "description": "Handles requests which does not correspond to anything.",
+            "itemtype": "method",
+            "name": "notFoundAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "ErrorController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/ErrorController.js",
+            "line": 37,
+            "description": "Handles all errors.",
+            "example": [
+                "\n    {\n      \"code\" : 1,\n      \"httpCode\" : 500\n    }"
+            ],
+            "itemtype": "method",
+            "name": "errorAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "error",
+                    "description": "An error object with error code, HTTP code and error message",
+                    "type": "Object"
+                },
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "ErrorController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/FiltersController.js",
+            "line": 27,
+            "description": "Gets the list of available video filters (both custom properties and categories).",
+            "itemtype": "method",
+            "name": "getFiltersAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "FiltersController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/GroupsController.js",
+            "line": 24,
+            "description": "Handles groups action to get OpenVeo groups.",
+            "itemtype": "method",
+            "name": "getGroupsAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "GroupsController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/LiveController.js",
+            "line": 27,
+            "description": "Handles default action to compute live page.",
+            "itemtype": "method",
+            "name": "defaultAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "LiveController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/SettingsController.js",
+            "line": 26,
+            "description": "Gets an instance of the entity provider associated to the controller.",
+            "itemtype": "method",
+            "name": "getProvider",
+            "return": {
+                "description": "The provider",
+                "type": "SettingsProvider"
+            },
+            "class": "SettingsController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/SettingsController.js",
+            "line": 36,
+            "description": "Handles settings action to get an OpenVeo Portal setting.",
+            "example": [
+                "\n\n    // Response example\n    {\n      \"entity\" : { ... }\n    }"
+            ],
+            "itemtype": "method",
+            "name": "getEntityAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "params.id",
+                            "description": "The setting id to retrieve",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "SettingsController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/SettingsController.js",
+            "line": 76,
+            "description": "Handles settings action to update OpenVeo Portal a setting.",
+            "example": [
+                "\n\n    // Response example\n    {\n      \"total\": 1\n    }"
+            ],
+            "itemtype": "method",
+            "name": "updateEntityAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "params",
+                            "description": "Request's parameters",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "id",
+                                    "description": "The setting id to update",
+                                    "type": "String"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "body",
+                            "description": "Request's body",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "value",
+                                    "description": "Settings",
+                                    "type": "String",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "SettingsController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/SettingsController.js",
+            "line": 165,
+            "description": "Adds settings.\n\nIt is not possible to add several settings for now, use update instead.",
+            "itemtype": "method",
+            "name": "addEntitiesAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "SettingsController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/StatisticsController.js",
+            "line": 34,
+            "description": "The cache holding the number of views by user and media.",
+            "itemtype": "property",
+            "name": "viewsCache",
+            "type": "Cache",
+            "final": 1,
+            "class": "StatisticsController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/StatisticsController.js",
+            "line": 53,
+            "description": "Sends statistics to OpenVeo.",
+            "itemtype": "method",
+            "name": "statisticsAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "params",
+                            "description": "Requests parameters",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "entity",
+                                    "description": "The name of the OpenVeo entity receiving statistics",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "type",
+                                    "description": "The type of statistic to update",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "id",
+                                    "description": "The id of the entity",
+                                    "type": "String"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "StatisticsController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VersionController.js",
+            "line": 25,
+            "description": "Handles version action to get information about OpenVeo Portal version.\n\nIt requests Github atom feed to get the latest available version of OpenVeo Portal.\nThen version is compared to actual one using semver. Unstable versions (beta, alpha and release candidate are\nignored).",
+            "itemtype": "method",
+            "name": "getVersionAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request"
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "VersionController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 29,
+            "description": "Checks if a user is authorized to see a video.",
+            "itemtype": "method",
+            "name": "isUserAuthorized",
+            "params": [
+                {
+                    "name": "user",
+                    "description": "The user to test",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "id",
+                            "description": "The user id",
+                            "type": "String"
+                        },
+                        {
+                            "name": "groups",
+                            "description": "The user groups",
+                            "type": "Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "video",
+                    "description": "The video to test",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "metadata",
+                            "description": "Metadata of the video",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "groups",
+                                    "description": "The list of groups the video belongs to",
+                                    "type": "Array"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "true if the user if authorized, false otherwise",
+                "type": "Boolean"
+            },
+            "class": "VideosController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 75,
+            "description": "Adds operations to limit access to videos.",
+            "itemtype": "method",
+            "name": "addAccessFilter",
+            "params": [
+                {
+                    "name": "filter",
+                    "description": "The filter to add access operations to, generated if not specified",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "user",
+                    "description": "The user to limit",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "groups",
+                            "description": "The user groups",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "The filter",
+                "type": "ResourceFilter"
+            },
+            "class": "VideosController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 113,
+            "description": "Converts video points of interest",
+            "itemtype": "method",
+            "name": "convertVideoPoiAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "body",
+                            "description": "Request's body",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "duration",
+                                    "description": "The duration of the video",
+                                    "type": "Number"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "class": "VideosController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 152,
+            "description": "Searches OpenVeo Publish videos.",
+            "itemtype": "method",
+            "name": "searchAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "body",
+                            "description": "Request's body",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "filter",
+                                    "description": "Web service endpoint filters",
+                                    "type": "Object"
+                                },
+                                {
+                                    "name": "filter.query",
+                                    "description": "Filter to get only videos which contain the query\ninside the title or description",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.dateStart",
+                                    "description": "Filter to get only videos after a particular date",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.dateEnd",
+                                    "description": "Filter to get only videos before a particular date",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.sortBy",
+                                    "description": "The name of the property to sort by (either \"views\" or \"date\")",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter.sortOrder",
+                                    "description": "The order of the sort (either \"asc\" or \"desc\")",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "pagination",
+                                    "description": "Pagination to set limit and page",
+                                    "type": "Object"
+                                },
+                                {
+                                    "name": "pagination.limit",
+                                    "description": "Maximum number of videos to retreive",
+                                    "type": "Object",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "pagination.page",
+                                    "description": "The number of the page to retrieve",
+                                    "type": "Object",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "include",
+                                    "description": "The list of fields to include from returned videos",
+                                    "type": "String|Array",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "exclude",
+                                    "description": "The list of fields to exclude from returned videos. Ignored if\ninclude is also specified.",
+                                    "type": "String|Array",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "VideosController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 257,
+            "description": "Gets details about an OpenVeo Publish video.",
+            "itemtype": "method",
+            "name": "getVideoAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "params",
+                            "description": "Request's parameters",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "id",
+                                    "description": "The id of the video to fetch",
+                                    "type": "Object"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "VideosController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js",
+            "line": 309,
+            "description": "Fetches promoted videos.",
+            "itemtype": "method",
+            "name": "getPromotedVideosAction",
+            "async": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "ExpressJS HTTP Request",
+                    "type": "Request",
+                    "props": [
+                        {
+                            "name": "query",
+                            "description": "Request query parameters",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "auto",
+                                    "description": "true to automatically fulfill empty slots when possible",
+                                    "type": "Boolean",
+                                    "optional": true,
+                                    "optdefault": "false"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "response",
+                    "description": "ExpressJS HTTP Response",
+                    "type": "Response"
+                },
+                {
+                    "name": "next",
+                    "description": "Function to defer execution to the next registered middleware",
+                    "type": "Function"
+                }
+            ],
+            "class": "VideosController",
+            "module": "controllers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 14,
+            "description": "Defines an OpenVeoProvider to interact with OpenVeo web service.",
+            "extends": "OpenVeoProvider",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "storage",
+                    "description": "The storage to interact with",
+                    "type": "Storage"
+                },
+                {
+                    "name": "cache",
+                    "description": "The cache to use. If not specified a 10 seconds cache is created",
+                    "type": "Cache",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 27,
+            "description": "The OpenVeo cache.",
+            "itemtype": "property",
+            "name": "cache",
+            "type": "Cache",
+            "final": 1,
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 45,
+            "description": "Fetches a document.",
+            "itemtype": "method",
+            "name": "getOne",
+            "async": 1,
+            "params": [
+                {
+                    "name": "location",
+                    "description": "The location of the documents in the storage",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "The id of the document to fetch",
+                    "type": "String"
+                },
+                {
+                    "name": "fields",
+                    "description": "Fields to be included or excluded from the resulting documents, by default all\nfields are returned. Only \"exclude\" or \"include\" can be specified, not both",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "include",
+                            "description": "The list of fields to include in the response, all other fields are excluded",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "exclude",
+                            "description": "The list of fields to exclude from response, all other fields are included. Ignored\nif include is also specified.",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "ttl",
+                    "description": "The duration of the cache for this request (in seconds)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The document",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 80,
+            "description": "Fetches documents.",
+            "itemtype": "method",
+            "name": "get",
+            "async": 1,
+            "params": [
+                {
+                    "name": "location",
+                    "description": "The location of the documents in the storage",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "Rules to filter documents",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "fields",
+                    "description": "Fields to be included or excluded from the resulting documents, by default all\nfields are returned. Only \"exclude\" or \"include\" can be specified, not both",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "include",
+                            "description": "The list of fields to include in the response, all other fields are excluded",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "exclude",
+                            "description": "The list of fields to exclude from response, all other fields are included. Ignored\nif include is also specified.",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "limit",
+                    "description": "A limit number of documents to retrieve (10 by default)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "page",
+                    "description": "The page number started at 0 for the first page",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "sort",
+                    "description": "The list of fields to sort by with the field name as key and the sort order as\nvalue (e.g. {field1: 'asc'}). Sort can be made only on one field",
+                    "type": "Object"
+                },
+                {
+                    "name": "ttl",
+                    "description": "The duration of the cache for this request (in seconds)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Array** The list of retrieved documents\n  - **Object** Pagination information\n    - **Number** limit The specified limit\n    - **Number** page The actual page\n    - **Number** pages The total number of pages\n    - **Number** size The total number of documents",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 134,
+            "description": "Gets all documents from storage iterating on all pages.",
+            "itemtype": "method",
+            "name": "getAll",
+            "async": 1,
+            "params": [
+                {
+                    "name": "location",
+                    "description": "The location of the documents in the storage",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "Rules to filter documents",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "fields",
+                    "description": "Fields to be included or excluded from the resulting documents, by default all\nfields are returned. Only \"exclude\" or \"include\" can be specified, not both",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "include",
+                            "description": "The list of fields to include in the response, all other fields are excluded",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "exclude",
+                            "description": "The list of fields to exclude from response, all other fields are included. Ignored\nif include is also specified.",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "sort",
+                    "description": "The list of fields to sort by with the field name as key and the sort order as\nvalue (e.g. {field1: 'asc'}). Sort can be made only on one field",
+                    "type": "Object"
+                },
+                {
+                    "name": "ttl",
+                    "description": "The duration of the cache for this request (in seconds)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done with:\n - **Error** An error if something went wrong, null otherwise\n - **Array** The list of documents",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 185,
+            "description": "Updates a document.",
+            "itemtype": "method",
+            "name": "updateOne",
+            "async": 1,
+            "params": [
+                {
+                    "name": "location",
+                    "description": "The location of the document in the storage",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "The id of the document to update",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The modifications to perform",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** 1 if everything went fine",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 203,
+            "description": "Convert a video Point of Interest",
+            "itemtype": "method",
+            "name": "convertVideoPoi",
+            "async": 1,
+            "params": [
+                {
+                    "name": "videoId",
+                    "description": "The id of the video to convert",
+                    "type": "String"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the video in ms",
+                    "type": "Number"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occured, null otherwise\n  - **Video** The video with converted POI",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 220,
+            "description": "Deletes cache of a document.",
+            "itemtype": "method",
+            "name": "deleteDocumentCache",
+            "params": [
+                {
+                    "name": "location",
+                    "description": "The location of the document in the storage",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "The id of the document to remove from cache",
+                    "type": "String"
+                },
+                {
+                    "name": "alsoRemoveFromPages",
+                    "description": "Also remove cache entries containing the document (paginated results)",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "The number of removed entries",
+                "type": "Number"
+            },
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js",
+            "line": 255,
+            "description": "Deletes all cache entries associated to a location.",
+            "itemtype": "method",
+            "name": "deleteLocationCache",
+            "params": [
+                {
+                    "name": "location",
+                    "description": "The location of the documents in the storage",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The number of removed entries",
+                "type": "Number"
+            },
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/SettingsProvider.js",
+            "line": 13,
+            "description": "Defines an EntityProvider to get and save settings.",
+            "extends": "SettingsProvider",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "database",
+                    "description": "The database to interact with",
+                    "type": "Database"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/SettingsProvider.js",
+            "line": 24,
+            "description": "Adds settings.\n\nIf a setting already exists, an update is performed.",
+            "itemtype": "method",
+            "name": "add",
+            "async": 1,
+            "params": [
+                {
+                    "name": "settings",
+                    "description": "The list of settings to store with for each setting:\n  - **String** id The setting key\n  - **Mixed** value The setting value",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The total amount of settings inserted / updated\n  - **Array** The list of added / updated settings",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/SettingsProvider.js",
+            "line": 124,
+            "description": "Updates a setting.",
+            "itemtype": "method",
+            "name": "updateOne",
+            "async": 1,
+            "params": [
+                {
+                    "name": "filter",
+                    "description": "Rules to filter the setting to update",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "data",
+                    "description": "The modifications to perform",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "value",
+                            "description": "The setting value",
+                            "type": "Mixed"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** 1 if everything went fine",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 30,
+            "description": "Gets an internal user by its credentials.",
+            "itemtype": "method",
+            "name": "getUserByCredentials",
+            "async": 1,
+            "params": [
+                {
+                    "name": "email",
+                    "description": "The email of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "The password of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 56,
+            "description": "Gets an internal user by its email.",
+            "itemtype": "method",
+            "name": "getUserByEmail",
+            "async": 1,
+            "params": [
+                {
+                    "name": "email",
+                    "description": "The email of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 79,
+            "description": "Adds users.",
+            "itemtype": "method",
+            "name": "add",
+            "async": 1,
+            "params": [
+                {
+                    "name": "users",
+                    "description": "The list of users to store with for each user:\n  - **String** name The user name\n  - **String** email The user email\n  - **String** password The user password\n  - **String** passwordValidate The user password validation\n  - **String** [id] The user id, generated if not specified\n  - **Array** [groups] The user groups ids\n  - **Boolean** [locked=false] true to lock the user from edition, false otherwise",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The total amount of users inserted\n  - **Array** The list of added users",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 168,
+            "description": "Updates an internal user.",
+            "itemtype": "method",
+            "name": "updateOne",
+            "async": 1,
+            "params": [
+                {
+                    "name": "filter",
+                    "description": "Rules to filter the user to update",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "data",
+                    "description": "The modifications to perform",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The user name",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "email",
+                            "description": "The user email",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "password",
+                            "description": "The user password. Also requires passwordValidate",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "passwordValidate",
+                            "description": "The user password validation. Also requires password",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "groups",
+                            "description": "The user group ids",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "locked",
+                            "description": "true to lock the user from edition, false otherwise",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** 1 if everything went fine",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 267,
+            "description": "Adds external users.\n\nExternal users are automatically locked when added.",
+            "itemtype": "method",
+            "name": "addThirdPartyUsers",
+            "async": 1,
+            "params": [
+                {
+                    "name": "users",
+                    "description": "The list of users to add with for each user:\n  - **String** name The user name\n  - **String** email The user email\n  - **String** origin Id of the third party provider system\n  - **String** originId The user id in third party provider system\n  - **String** [id] The user id, generated if not specified\n  - **Array** [originGroups] The user groups in third party provider system\n  - **Array** [groups] The user group ids",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** The total amount of users inserted\n  - **Array** The inserted users",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 317,
+            "description": "Updates an external user.",
+            "itemtype": "method",
+            "name": "updateThirdPartyUser",
+            "async": 1,
+            "params": [
+                {
+                    "name": "filter",
+                    "description": "Rules to filter users to update",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "data",
+                    "description": "The modifications to perform",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The user name",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "email",
+                            "description": "The user email",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "originGroups",
+                            "description": "The user groups in third party provider system",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "groups",
+                            "description": "The user group ids",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "locked",
+                            "description": "true to lock the user from edition, false otherwise",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "origin",
+                    "description": "The user origin (see openVeoApi.passport.STRATEGIES)",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** 1 if everything went fine",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/UserProvider.js",
+            "line": 354,
+            "description": "Creates users indexes.",
+            "itemtype": "method",
+            "name": "createIndexes",
+            "async": 1,
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "Function to call when it's done with:\n - **Error** An error if something went wrong, null otherwise",
+                    "type": "Function"
+                }
+            ],
+            "class": "UserProvider",
+            "module": "providers"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 16,
+            "description": "Defines an OpenVeo web service storage.",
+            "extends": "Storage",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "configuration",
+                    "description": "OpenVeo web service configuration",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "path",
+                            "description": "OpenVeo web service server URL",
+                            "type": "String"
+                        },
+                        {
+                            "name": "clientId",
+                            "description": "OpenVeo web service client id",
+                            "type": "String"
+                        },
+                        {
+                            "name": "secretId",
+                            "description": "OpenVeo web service client secret",
+                            "type": "String"
+                        },
+                        {
+                            "name": "certificate",
+                            "description": "Path to OpenVeo web service full chain certificate if the root\nauthority is not part of system well known authorities",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 33,
+            "description": "The OpenVeo web service client.",
+            "itemtype": "property",
+            "name": "client",
+            "type": "OpenVeoClient",
+            "final": 1,
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 52,
+            "description": "Builds OpenVeo web service filter from a ResourceFilter.",
+            "itemtype": "method",
+            "name": "buildFilter",
+            "static": 1,
+            "params": [
+                {
+                    "name": "resourceFilter",
+                    "description": "The filter",
+                    "type": "ResourceFilter",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The filter with fields as keys and fields values as values",
+                "type": "Object"
+            },
+            "throws": {
+                "description": "If an operation is not supported",
+                "type": "TypeError"
+            },
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 88,
+            "description": "Builds OpenVeo web service sort.\n\nOnly the first found field will we used as a sort field.",
+            "itemtype": "method",
+            "name": "buildSort",
+            "static": 1,
+            "params": [
+                {
+                    "name": "sort",
+                    "description": "The list of fields to sort by with the field name as key and the sort order as\nvalue (e.g. {field1: 'asc'})",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The sort descriptor with sortBy and sortOrder properties",
+                "type": "Object"
+            },
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 113,
+            "description": "Fetches documents from the collection.",
+            "itemtype": "method",
+            "name": "get",
+            "async": 1,
+            "params": [
+                {
+                    "name": "collection",
+                    "description": "The endpoint to work on",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "Rules to filter documents",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "fields",
+                    "description": "Expected resource fields to be included or excluded from the response, by default all\nfields are returned. Only \"exclude\" or \"include\" can be specified, not both",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "include",
+                            "description": "The list of fields to include in the response, all other fields are excluded",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "exclude",
+                            "description": "The list of fields to exclude from response, all other fields are included. Ignored\nif include is also specified.",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "limit",
+                    "description": "A limit number of documents to retrieve (10 by default)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "page",
+                    "description": "The page number started at 0 for the first page",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "sort",
+                    "description": "The list of fields to sort by with the field name as key and the sort order as\nvalue (e.g. {field1: 'asc'})",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Array** The list of retrieved documents\n  - **Object** Pagination information\n    - **Number** limit The specified limit\n    - **Number** page The actual page\n    - **Number** pages The total number of pages\n    - **Number** size The total number of documents",
+                    "type": "Function"
+                }
+            ],
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 159,
+            "description": "Convert video Points Of Interests",
+            "itemtype": "method",
+            "name": "convertVideoPoi",
+            "async": 1,
+            "params": [
+                {
+                    "name": "videoId",
+                    "description": "The id of the video to convert",
+                    "type": "String"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration in milliseconds of the video",
+                    "type": "Number"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Video** The video with converted POI",
+                    "type": "Function"
+                }
+            ],
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 179,
+            "description": "Updates a document from collection.",
+            "itemtype": "method",
+            "name": "updateOne",
+            "async": 1,
+            "params": [
+                {
+                    "name": "collection",
+                    "description": "The endpoint to work on",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "Rules to filter document to update. Must contain an equal operation with a field\n\"id\"",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "data",
+                    "description": "The modifications to perform",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Number** 1 if everything went fine",
+                    "type": "Function"
+                }
+            ],
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js",
+            "line": 203,
+            "description": "Fetches a single document from the collection.",
+            "itemtype": "method",
+            "name": "getOne",
+            "async": 1,
+            "params": [
+                {
+                    "name": "collection",
+                    "description": "The endpoint to work on",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "Rules to filter documents",
+                    "type": "ResourceFilter",
+                    "optional": true
+                },
+                {
+                    "name": "fields",
+                    "description": "Expected document fields to be included or excluded from the response, by default all\nfields are returned. Only \"exclude\" or \"include\" can be specified, not both",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "include",
+                            "description": "The list of fields to include in the response, all other fields are excluded",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "exclude",
+                            "description": "The list of fields to exclude from response, all other fields are included. Ignored\nif include is also specified.",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The document",
+                    "type": "Function"
+                }
+            ],
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/openVeoWebServiceErrors.js",
+            "line": 15,
+            "description": "An error occurring when an unsupported ResourceFilter operation is used.",
+            "itemtype": "property",
+            "name": "BUILD_FILTERS_UNKNOWN_OPERATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "openveo-web-service-errors",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Cache.js",
+            "line": 7,
+            "description": "Defines a cache based on NodeCache.\n\nCache adds the possibility to use wildcards when getting / deleting cache entries.",
+            "extends": "NodeCache",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "NodeCache options",
+                    "type": "Object"
+                }
+            ],
+            "class": "Server",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Cache.js",
+            "line": 20,
+            "description": "Removes cache entries.\n\nOverride NodeCache.del to implement wildcards to be able to remove all cache entries corresponding to a wildcard.\nOnly wildcard at the end of the entry id is supported, it is not possible to add a wildcard at the beginning of\nthe id.",
+            "example": [
+                "\n    cache.del('entry-id-with-wildcard-*');"
+            ],
+            "itemtype": "method",
+            "name": "del",
+            "params": [
+                {
+                    "name": "keys",
+                    "description": "The list of keys to delete",
+                    "type": "Array|String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when its done with:\n- **Error** An error if something went wrong\n- **Number** The number of delete entries",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "The number of deleted entries",
+                "type": "String"
+            },
+            "class": "Server",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Cache.js",
+            "line": 65,
+            "description": "Gets cache entry.\n\nOverride NodeCache.get to implement wildcards to be able to get all cache entries corresponding to a wildcard.\nOnly wildcard at the end of the entry id is supported, it is not possible to add a wildcard at the beginning of\nthe id.",
+            "example": [
+                "\n    cache.get('entry-id-with-wildcard-*');"
+            ],
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "The key to look for",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when its done with:\n- **Error** An error if something went wrong\n- **Mixed** The value of the cache entry if no wildcard used or the values of the cache entries when a wildcard is\nused",
+                    "type": "Function"
+                },
+                {
+                    "name": "errorOnMissing",
+                    "description": "true to throw an error if no cache entry is not found",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "The value of the cache entry if no wildcard used or the values of the cache\nentries when a wildcard is used",
+                "type": "String|Array|Undefined"
+            },
+            "throws": {
+                "description": "If entry is not found and errorOnMissing is set to true",
+                "type": "Error"
+            },
+            "class": "Server",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Cache.js",
+            "line": 113,
+            "description": "Gets cache entries.\n\nOverride NodeCache.mget to implement wildcards to be able to get all cache entries corresponding to a wildcard.\nOnly wildcard at the end of the entry id is supported, it is not possible to add a wildcard at the beginning of\nthe id.",
+            "example": [
+                "\n    cache.mget(['entry-id-with-wildcard-*']);"
+            ],
+            "itemtype": "method",
+            "name": "mget",
+            "params": [
+                {
+                    "name": "keys",
+                    "description": "The list of cache entries to fetch",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when its done with:\n- **Error** An error if something went wrong\n- **Object** The values of the cache entries with cache id as the key and cache value as the value",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "The values of the cache entries with cache id as the key and cache value as the value",
+                "type": "Object"
+            },
+            "class": "Server",
+            "module": "storages"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 50,
+            "description": "Initializes passport strategies to manage user authentication.",
+            "itemtype": "method",
+            "name": "initializePassport",
+            "access": "private",
+            "tagname": "",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 146,
+            "description": "Express application.",
+            "itemtype": "property",
+            "name": "app",
+            "type": "Application",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 157,
+            "description": "Server configuration object.",
+            "itemtype": "property",
+            "name": "configuration",
+            "type": "Object",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 172,
+            "description": "Prepares server after being sure that the connection to the database is established.",
+            "itemtype": "method",
+            "name": "onDatabaseAvailable",
+            "params": [
+                {
+                    "name": "database",
+                    "description": "Project's database",
+                    "type": "Database"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done with:\n - **Error** An error if something went wrong",
+                    "type": "Function"
+                }
+            ],
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 306,
+            "description": "Mounts server routes.",
+            "itemtype": "method",
+            "name": "mountRoutes",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 447,
+            "description": "Creates database indexes.",
+            "itemtype": "method",
+            "name": "createIndexes",
+            "params": [
+                {
+                    "name": "database",
+                    "description": "The database instance",
+                    "type": "Database"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done with:\n - **Error** An error if something went wrong",
+                    "type": "Function"
+                }
+            ],
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Server.js",
+            "line": 460,
+            "description": "Starts the server.",
+            "itemtype": "method",
+            "name": "start",
+            "class": "Server",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js",
+            "line": 26,
+            "description": "Populates user with permissions.",
+            "itemtype": "method",
+            "name": "populateUser",
+            "access": "private",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "user",
+                    "description": "The user to populate",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "id",
+                            "description": "The user id",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The populated user",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js",
+            "line": 54,
+            "description": "Serializes only essential user information required to retrieve it later.",
+            "itemtype": "method",
+            "name": "serializeUser",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "user",
+                    "description": "The user to serialize",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **String** The serialized user information",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js",
+            "line": 72,
+            "description": "Fetches a user from serialized data.",
+            "itemtype": "method",
+            "name": "deserializeUser",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "data",
+                    "description": "Serialized data as serialized by serializeUser(), the id of the user",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when it's done\n  - **Error** The error if an error occurred, null otherwise\n  - **Object** The user with its permissions",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js",
+            "line": 93,
+            "description": "Verifies a user as returned by the passport local strategy.",
+            "itemtype": "method",
+            "name": "verifyUserByCredentials",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "email",
+                    "description": "User's email",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "User's password",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done\n - **Error** An error if something went wrong, null otherwise\n - **Object** The user with its permissions",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/authenticator.js",
+            "line": 115,
+            "description": "Verifies user as returned by third party providers.\n\nOpenVeo Portal trusts users from third party providers, if the user does not exist in OpenVeo Portal\nit is created with minimum information.",
+            "itemtype": "method",
+            "name": "verifyUserAuthentication",
+            "async": 1,
+            "static": 1,
+            "params": [
+                {
+                    "name": "thirdPartyUser",
+                    "description": "The user from the third party provider",
+                    "type": "Object"
+                },
+                {
+                    "name": "strategy",
+                    "description": "The id of the strategy",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to call when its done\n - **Error** An error if something went wrong, null otherwise\n - **Object** The user with its permissions",
+                    "type": "Function"
+                }
+            ],
+            "class": "authenticator",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/context.js",
+            "line": 31,
+            "description": "The application database instance.",
+            "itemtype": "property",
+            "name": "database",
+            "type": "Database",
+            "class": "context",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/context.js",
+            "line": 47,
+            "description": "An OpenVeoProvider instance.",
+            "itemtype": "property",
+            "name": "openVeoProvider",
+            "type": "OpenVeoProvider",
+            "class": "context",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 22,
+            "description": "A server error occurring when no error were specified.",
+            "itemtype": "property",
+            "name": "UNKNOWN_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 34,
+            "description": "A server error occurring when server configuration is not valid.",
+            "itemtype": "property",
+            "name": "CONF_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 47,
+            "description": "A server error occurring when searching for videos, using the Web Service, failed.",
+            "itemtype": "property",
+            "name": "SEARCH_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 59,
+            "description": "A server error occurring when authenticating the user to the back end.",
+            "itemtype": "property",
+            "name": "BACK_END_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 71,
+            "description": "A server error occurring when authenticating using an external provider (which require redirection).",
+            "itemtype": "property",
+            "name": "BACK_END_EXTERNAL_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 83,
+            "description": "A server error occurring when authenticating the user to CAS.",
+            "itemtype": "property",
+            "name": "CAS_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 95,
+            "description": "A server error occurring when authenticating the user to LDAP.",
+            "itemtype": "property",
+            "name": "LDAP_AUTHENTICATION_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 107,
+            "description": "A server error occurring when getting a video from OpenVeo failed.",
+            "itemtype": "property",
+            "name": "GET_VIDEO_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 119,
+            "description": "A server error occurring when updating settings.",
+            "itemtype": "property",
+            "name": "UPDATE_SETTINGS_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 131,
+            "description": "A server error occurring when getting a setting.",
+            "itemtype": "property",
+            "name": "GET_SETTING_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 143,
+            "description": "A server error occurring when getting OpenVeo groups.",
+            "itemtype": "property",
+            "name": "GET_GROUPS_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 155,
+            "description": "A server error occurring when getting a setting while processing default action.",
+            "itemtype": "property",
+            "name": "DEFAULT_GET_SETTING_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 167,
+            "description": "A server error occurring when getting a setting while processing live action.",
+            "itemtype": "property",
+            "name": "LIVE_GET_SETTING_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 179,
+            "description": "Getting filters failed when getting custom properties.",
+            "itemtype": "property",
+            "name": "GET_FILTERS_PROPERTIES_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 191,
+            "description": "Getting filters failed when getting taxonomy \"categories\".",
+            "itemtype": "property",
+            "name": "GET_FILTERS_CATEGORIES_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 203,
+            "description": "Getting categories failed.",
+            "itemtype": "property",
+            "name": "GET_CATEGORIES_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 215,
+            "description": "Modifying the number of views of a media failed when getting the media.",
+            "itemtype": "property",
+            "name": "STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 227,
+            "description": "Modifying the number of views of a media failed.",
+            "itemtype": "property",
+            "name": "STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 239,
+            "description": "Getting promoted videos failed when getting promoted videos setting.",
+            "itemtype": "property",
+            "name": "GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 251,
+            "description": "Getting promoted videos failed when getting promoted videos.",
+            "itemtype": "property",
+            "name": "GET_PROMOTED_VIDEOS_GET_ONE_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 263,
+            "description": "Getting promoted videos failed.",
+            "itemtype": "property",
+            "name": "GET_PROMOTED_VIDEOS_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 275,
+            "description": "Getting promoted videos failed when getting videos to fulfill empty slots.",
+            "itemtype": "property",
+            "name": "GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 287,
+            "description": "Getting promoted videos failed when getting a video.",
+            "itemtype": "property",
+            "name": "GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 301,
+            "description": "A server error occurring when routes has not been found.",
+            "itemtype": "property",
+            "name": "PATH_NOT_FOUND",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 313,
+            "description": "Getting video failed, video not found.",
+            "itemtype": "property",
+            "name": "GET_VIDEO_NOT_FOUND",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 327,
+            "description": "A server error occurring when user authentication to CAS failed.",
+            "itemtype": "property",
+            "name": "CAS_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 339,
+            "description": "A server error occurring when user authentication to the back end failed using an external provider.",
+            "itemtype": "property",
+            "name": "BACK_END_EXTERNAL_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 351,
+            "description": "A server error occurring when user authentication to LDAP failed.",
+            "itemtype": "property",
+            "name": "LDAP_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 363,
+            "description": "A server error occurring when user authentication to the back end failed.",
+            "itemtype": "property",
+            "name": "BACK_END_AUTHENTICATION_FAILED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 375,
+            "description": "A server error occurring when user is not allowed to get a video.",
+            "itemtype": "property",
+            "name": "GET_VIDEO_NOT_ALLOWED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 387,
+            "description": "A server error occurring when a back office authentication is needed to perform the action.",
+            "itemtype": "property",
+            "name": "BACK_END_UNAUTHORIZED",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 399,
+            "description": "A server error occurring when user connected to the back office is not authorized to perform an action.",
+            "itemtype": "property",
+            "name": "BACK_END_FORBIDDEN",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 411,
+            "description": "A server error occurring when connected user is not authorized to access live.",
+            "itemtype": "property",
+            "name": "LIVE_FORBIDDEN",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 425,
+            "description": "A server error occurring when authenticating to external provider with wrong parameters.",
+            "itemtype": "property",
+            "name": "AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 437,
+            "description": "A server error occurring when authenticating to internal provider with wrong parameters.",
+            "itemtype": "property",
+            "name": "AUTHENTICATE_INTERNAL_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 449,
+            "description": "A server error occurring when getting a setting with missing parameters.",
+            "itemtype": "property",
+            "name": "GET_SETTING_MISSING_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 461,
+            "description": "A server error occurring when updating settings with missing parameters.",
+            "itemtype": "property",
+            "name": "UPDATE_SETTINGS_MISSING_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 473,
+            "description": "A server error occurring when updating settings with wrong parameters.",
+            "itemtype": "property",
+            "name": "UPDATE_SETTINGS_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 485,
+            "description": "Search failed, wrong parameters.",
+            "itemtype": "property",
+            "name": "SEARCH_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 497,
+            "description": "Getting promoted videos failed, wrong parameters.",
+            "itemtype": "property",
+            "name": "GET_PROMOTED_VIDEOS_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 509,
+            "description": "Converting video points of interest failed, wrong parameters.",
+            "itemtype": "property",
+            "name": "CONVERT_VIDEO_POI_WRONG_PARAMETERS",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        },
+        {
+            "file": "/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js",
+            "line": 521,
+            "description": "A server error occurring when converting video points of interests.",
+            "itemtype": "property",
+            "name": "CONVERT_VIDEO_POI_ERROR",
+            "type": "Object",
+            "final": 1,
+            "class": "HTTP_ERRORS",
+            "module": "portal"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nDefines an OpenVeoProvider to interact with OpenVeo web service.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/OpenVeoProvider.js:14"
+        },
+        {
+            "message": "Missing item type\nDefines an EntityProvider to get and save settings.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/providers/SettingsProvider.js:13"
+        },
+        {
+            "message": "Missing item type\nDefines an OpenVeo web service storage.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js:16"
+        },
+        {
+            "message": "Missing item type\nDefines a cache based on NodeCache.\n\nCache adds the possibility to use wildcards when getting / deleting cache entries.",
+            "line": " /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/Cache.js:7"
+        }
+    ]
+}

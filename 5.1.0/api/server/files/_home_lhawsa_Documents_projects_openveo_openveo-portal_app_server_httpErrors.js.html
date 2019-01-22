@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js - OpenVeo Portal server</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo Portal server</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 5.1.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AuthenticationController.html">AuthenticationController</a></li>
+                                <li><a href="../classes/authenticator.html">authenticator</a></li>
+                                <li><a href="../classes/CategoriesController.html">CategoriesController</a></li>
+                                <li><a href="../classes/context.html">context</a></li>
+                                <li><a href="../classes/DefaultController.html">DefaultController</a></li>
+                                <li><a href="../classes/ErrorController.html">ErrorController</a></li>
+                                <li><a href="../classes/FiltersController.html">FiltersController</a></li>
+                                <li><a href="../classes/GroupsController.html">GroupsController</a></li>
+                                <li><a href="../classes/HTTP_ERRORS.html">HTTP_ERRORS</a></li>
+                                <li><a href="../classes/LiveController.html">LiveController</a></li>
+                                <li><a href="../classes/openveo-web-service-errors.html">openveo-web-service-errors</a></li>
+                                <li><a href="../classes/Server.html">Server</a></li>
+                                <li><a href="../classes/SettingsController.html">SettingsController</a></li>
+                                <li><a href="../classes/statisticsController.html">statisticsController</a></li>
+                                <li><a href="../classes/StatisticsController.html">StatisticsController</a></li>
+                                <li><a href="../classes/UserProvider.html">UserProvider</a></li>
+                                <li><a href="../classes/VersionController.html">VersionController</a></li>
+                                <li><a href="../classes/VideosController.html">VideosController</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/controllers.html">controllers</a></li>
+                                <li><a href="../modules/portal.html">portal</a></li>
+                                <li><a href="../modules/providers.html">providers</a></li>
+                                <li><a href="../modules/storages.html">storages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/httpErrors.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module portal
+ */
+
+/**
+ * The list of HTTP errors with, for each error, its associated hexadecimal code and HTTP return code.
+ * HTTP errors are sent by {{#crossLinkModule &#x27;controllers&#x27;}}{{/crossLinkModule}}.
+ *
+ * @example
+ *     const httpErrors = process.require(&#x27;app/server/httpErrors.js&#x27;);
+ *     console.log(httpErrors.UNKNOWN_ERROR);
+ *
+ * @class HTTP_ERRORS
+ * @static
+ */
+const HTTP_ERRORS = {
+
+  // General errors
+
+  /**
+   * A server error occurring when no error were specified.
+   *
+   * @property UNKNOWN_ERROR
+   * @type Object
+   * @final
+   */
+  UNKNOWN_ERROR: {
+    code: 0x001,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when server configuration is not valid.
+   *
+   * @property CONF_ERROR
+   * @type Object
+   * @final
+   */
+  CONF_ERROR: {
+    code: 0x002,
+    httpCode: 500,
+    message: &#x27;Portal configuration error&#x27;
+  },
+
+  /**
+   * A server error occurring when searching for videos, using the Web Service, failed.
+   *
+   * @property SEARCH_ERROR
+   * @type Object
+   * @final
+   */
+  SEARCH_ERROR: {
+    code: 0x003,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when authenticating the user to the back end.
+   *
+   * @property BACK_END_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  BACK_END_AUTHENTICATION_ERROR: {
+    code: 0x004,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when authenticating using an external provider (which require redirection).
+   *
+   * @property BACK_END_EXTERNAL_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  BACK_END_EXTERNAL_AUTHENTICATION_ERROR: {
+    code: 0x005,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when authenticating the user to CAS.
+   *
+   * @property CAS_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  CAS_AUTHENTICATION_ERROR: {
+    code: 0x006,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when authenticating the user to LDAP.
+   *
+   * @property LDAP_AUTHENTICATION_ERROR
+   * @type Object
+   * @final
+   */
+  LDAP_AUTHENTICATION_ERROR: {
+    code: 0x007,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a video from OpenVeo failed.
+   *
+   * @property GET_VIDEO_ERROR
+   * @type Object
+   * @final
+   */
+  GET_VIDEO_ERROR: {
+    code: 0x008,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when updating settings.
+   *
+   * @property UPDATE_SETTINGS_ERROR
+   * @type Object
+   * @final
+   */
+  UPDATE_SETTINGS_ERROR: {
+    code: 0x009,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a setting.
+   *
+   * @property GET_SETTING_ERROR
+   * @type Object
+   * @final
+   */
+  GET_SETTING_ERROR: {
+    code: 0x00a,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting OpenVeo groups.
+   *
+   * @property GET_GROUPS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_GROUPS_ERROR: {
+    code: 0x00b,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a setting while processing default action.
+   *
+   * @property DEFAULT_GET_SETTING_ERROR
+   * @type Object
+   * @final
+   */
+  DEFAULT_GET_SETTING_ERROR: {
+    code: 0x00c,
+    httpCode: 500
+  },
+
+  /**
+   * A server error occurring when getting a setting while processing live action.
+   *
+   * @property LIVE_GET_SETTING_ERROR
+   * @type Object
+   * @final
+   */
+  LIVE_GET_SETTING_ERROR: {
+    code: 0x00d,
+    httpCode: 500
+  },
+
+  /**
+   * Getting filters failed when getting custom properties.
+   *
+   * @property GET_FILTERS_PROPERTIES_ERROR
+   * @type Object
+   * @final
+   */
+  GET_FILTERS_PROPERTIES_ERROR: {
+    code: 0x00e,
+    httpCode: 500
+  },
+
+  /**
+   * Getting filters failed when getting taxonomy &quot;categories&quot;.
+   *
+   * @property GET_FILTERS_CATEGORIES_ERROR
+   * @type Object
+   * @final
+   */
+  GET_FILTERS_CATEGORIES_ERROR: {
+    code: 0x00f,
+    httpCode: 500
+  },
+
+  /**
+   * Getting categories failed.
+   *
+   * @property GET_CATEGORIES_ERROR
+   * @type Object
+   * @final
+   */
+  GET_CATEGORIES_ERROR: {
+    code: 0x010,
+    httpCode: 500
+  },
+
+  /**
+   * Modifying the number of views of a media failed when getting the media.
+   *
+   * @property STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR
+   * @type Object
+   * @final
+   */
+  STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR: {
+    code: 0x011,
+    httpCode: 500
+  },
+
+  /**
+   * Modifying the number of views of a media failed.
+   *
+   * @property STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR
+   * @type Object
+   * @final
+   */
+  STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR: {
+    code: 0x012,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed when getting promoted videos setting.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR: {
+    code: 0x013,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed when getting promoted videos.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_ONE_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_ONE_ERROR: {
+    code: 0x014,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed.
+   *
+   * @property GET_PROMOTED_VIDEOS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_ERROR: {
+    code: 0x015,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed when getting videos to fulfill empty slots.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR: {
+    code: 0x016,
+    httpCode: 500
+  },
+
+  /**
+   * Getting promoted videos failed when getting a video.
+   *
+   * @property GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR: {
+    code: 0x017,
+    httpCode: 500
+  },
+
+  // Not found errors
+
+  /**
+   * A server error occurring when routes has not been found.
+   *
+   * @property PATH_NOT_FOUND
+   * @type Object
+   * @final
+   */
+  PATH_NOT_FOUND: {
+    code: 0x100,
+    httpCode: 404
+  },
+
+  /**
+   * Getting video failed, video not found.
+   *
+   * @property GET_VIDEO_NOT_FOUND
+   * @type Object
+   * @final
+   */
+  GET_VIDEO_NOT_FOUND: {
+    code: 0x101,
+    httpCode: 404
+  },
+
+  // Authentication errors
+
+  /**
+   * A server error occurring when user authentication to CAS failed.
+   *
+   * @property CAS_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  CAS_AUTHENTICATION_FAILED: {
+    code: 0x200,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when user authentication to the back end failed using an external provider.
+   *
+   * @property BACK_END_EXTERNAL_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  BACK_END_EXTERNAL_AUTHENTICATION_FAILED: {
+    code: 0x201,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when user authentication to LDAP failed.
+   *
+   * @property LDAP_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  LDAP_AUTHENTICATION_FAILED: {
+    code: 0x202,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when user authentication to the back end failed.
+   *
+   * @property BACK_END_AUTHENTICATION_FAILED
+   * @type Object
+   * @final
+   */
+  BACK_END_AUTHENTICATION_FAILED: {
+    code: 0x203,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when user is not allowed to get a video.
+   *
+   * @property GET_VIDEO_NOT_ALLOWED
+   * @type Object
+   * @final
+   */
+  GET_VIDEO_NOT_ALLOWED: {
+    code: 0x204,
+    httpCode: 403
+  },
+
+  /**
+   * A server error occurring when a back office authentication is needed to perform the action.
+   *
+   * @property BACK_END_UNAUTHORIZED
+   * @type Object
+   * @final
+   */
+  BACK_END_UNAUTHORIZED: {
+    code: 0x205,
+    httpCode: 401
+  },
+
+  /**
+   * A server error occurring when user connected to the back office is not authorized to perform an action.
+   *
+   * @property BACK_END_FORBIDDEN
+   * @type Object
+   * @final
+   */
+  BACK_END_FORBIDDEN: {
+    code: 0x206,
+    httpCode: 403
+  },
+
+  /**
+   * A server error occurring when connected user is not authorized to access live.
+   *
+   * @property LIVE_FORBIDDEN
+   * @type Object
+   * @final
+   */
+  LIVE_FORBIDDEN: {
+    code: 0x207,
+    httpCode: 403
+  },
+
+  // Wrong parameters
+
+  /**
+   * A server error occurring when authenticating to external provider with wrong parameters.
+   *
+   * @property AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS: {
+    code: 0x300,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when authenticating to internal provider with wrong parameters.
+   *
+   * @property AUTHENTICATE_INTERNAL_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  AUTHENTICATE_INTERNAL_WRONG_PARAMETERS: {
+    code: 0x301,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when getting a setting with missing parameters.
+   *
+   * @property GET_SETTING_MISSING_PARAMETERS
+   * @type Object
+   * @final
+   */
+  GET_SETTING_MISSING_PARAMETERS: {
+    code: 0x302,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when updating settings with missing parameters.
+   *
+   * @property UPDATE_SETTINGS_MISSING_PARAMETERS
+   * @type Object
+   * @final
+   */
+  UPDATE_SETTINGS_MISSING_PARAMETERS: {
+    code: 0x303,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when updating settings with wrong parameters.
+   *
+   * @property UPDATE_SETTINGS_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  UPDATE_SETTINGS_WRONG_PARAMETERS: {
+    code: 0x304,
+    httpCode: 400
+  },
+
+  /**
+   * Search failed, wrong parameters.
+   *
+   * @property SEARCH_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  SEARCH_WRONG_PARAMETERS: {
+    code: 0x305,
+    httpCode: 400
+  },
+
+  /**
+   * Getting promoted videos failed, wrong parameters.
+   *
+   * @property GET_PROMOTED_VIDEOS_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  GET_PROMOTED_VIDEOS_WRONG_PARAMETERS: {
+    code: 0x306,
+    httpCode: 400
+  },
+
+  /**
+   * Converting video points of interest failed, wrong parameters.
+   *
+   * @property CONVERT_VIDEO_POI_WRONG_PARAMETERS
+   * @type Object
+   * @final
+   */
+  CONVERT_VIDEO_POI_WRONG_PARAMETERS: {
+    code: 0x307,
+    httpCode: 400
+  },
+
+  /**
+   * A server error occurring when converting video points of interests.
+   *
+   * @property CONVERT_VIDEO_POI_ERROR
+   * @type Object
+   * @final
+   */
+  CONVERT_VIDEO_POI_ERROR: {
+    code: 0x308,
+    httpCode: 400
+  }
+
+};
+
+Object.freeze(HTTP_ERRORS);
+module.exports = HTTP_ERRORS;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
