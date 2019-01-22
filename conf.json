@@ -118,7 +118,7 @@
     {
       "name": "@openveo/player",
       "mountPath": "openveo-player",
-      "files": ["dist/openveo-player.min.js", "dist/openveo-player.css"]
+      "files": ["dist/openveo-player.min.js", "dist/openveo-player.min.css"]
     },
     {
       "name": "video.js",
