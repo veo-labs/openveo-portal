@@ -142,7 +142,7 @@
        * @method updateLiveSettings
        * @param {Object} settings Live settings
        * @param {Boolean} settings.activated true if live is activated, false otherwise
-       * @param {String} settings.playerType Either "youtube" or "wowza"
+       * @param {String} settings.playerType Either "youtube", "wowza" or "vodalys"
        * @param {String} settings.url Live stream URL
        * @param {Boolean} settings.private true if live is private, false otherwise
        * @param {Array} settings.groups The list of groups allowed to access the live

@@ -116,6 +116,21 @@ describe('OpaLiveSettingsController', function() {
       assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_YOUTUBE_ERROR', 'Expected youtube message');
     });
 
+    it('should update url error message with Vodalys message if player is vodalys', function() {
+      const ctrl = $componentController('opaLiveSettings');
+      ctrl.settings = {};
+
+      ctrl.$onChanges({
+        opaSettings: {
+          currentValue: {
+            playerType: 'vodalys'
+          }
+        }
+      });
+
+      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_VODALYS_ERROR', 'Expected vodalys message');
+    });
+
     it('should call function registered by opa-on-update attribute if settings are valid', function() {
       $scope.opaLiveSettings = {
         $valid: true
@@ -157,10 +172,13 @@ describe('OpaLiveSettingsController', function() {
       const ctrl = $componentController('opaLiveSettings');
 
       ctrl.updateUrlErrorMessage('wowza');
-      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_WOWZA_ERROR');
+      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_WOWZA_ERROR', 'Wrong Wowza error message');
 
       ctrl.updateUrlErrorMessage('youtube');
-      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_YOUTUBE_ERROR');
+      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_YOUTUBE_ERROR', 'Wrong Youtube error message');
+
+      ctrl.updateUrlErrorMessage('vodalys');
+      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_VODALYS_ERROR', 'Wrong Vodalys error message');
     });
 
   });

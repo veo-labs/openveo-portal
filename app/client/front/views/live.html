@@ -70,6 +70,9 @@
 
             if (urlChunks.length === 2)
               document.write('\x3Ciframe src="https://www.youtube.com/embed/' + urlChunks[1] + '" frameboarder="0" gesture="media" allow="encrypted-media" allowfullscreen>\x3C/iframe>');
+          } else if (liveSettings.playerType === 'vodalys') {
+            var urlChunks = liveSettings.url.match(/console\.vodalys\.studio\/(.*)$/);
+            document.write('\x3Ciframe src="https://console.vodalys.studio/' + urlChunks[1] + '#?embedded=true" frameboarder="0" allowfullscreen>\x3C/iframe>');
           } else
             document.write('\x3Cdiv id="wowza-player">\x3C/div>');
         </script>

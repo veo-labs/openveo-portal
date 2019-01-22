@@ -104,7 +104,7 @@ class SettingsController extends openVeoApi.controllers.EntityController {
         if (settingId === 'live') {
           value = openVeoApi.util.shallowValidateObject(request.body.value, {
             activated: {type: 'boolean', required: true, default: false},
-            playerType: {type: 'string', in: ['wowza', 'youtube']},
+            playerType: {type: 'string', in: ['wowza', 'youtube', 'vodalys']},
             url: {type: 'string'},
             private: {type: 'boolean'},
             groups: {type: 'array<string>'},
@@ -119,7 +119,8 @@ class SettingsController extends openVeoApi.controllers.EntityController {
                 (type === 'wowza' && !value.wowza) ||
                 (type === 'youtube' && !/^https:\/\/www\.youtube\.com\/watch\?v=.+/.test(value.url)) ||
                 (type === 'wowza' && !/^https?:\/\/[^:/]*(:[0-9]+)?\/[^/]+\/[^/]+\/playlist.m3u8$/.test(value.url)) ||
-                (type === 'wowza' && !/^([a-zA-Z0-9]{5}-)*[a-zA-Z0-9]{5}$/.test(value.wowza.playerLicenseKey))
+                (type === 'wowza' && !/^([a-zA-Z0-9]{5}-)*[a-zA-Z0-9]{5}$/.test(value.wowza.playerLicenseKey)) ||
+                (type === 'vodalys' && !/^https?:\/\/console\.vodalys\.studio\/[^#?=]+$/.test(value.url))
             ) {
               return next(errors.UPDATE_SETTINGS_WRONG_PARAMETERS);
             }

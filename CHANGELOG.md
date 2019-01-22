@@ -1,4 +1,4 @@
-# 5.1.0 / YYYY-MM-DD
+# 5.2.0 / YYYY-MM-DD
 
 ## NEW FEATURES
 
@@ -9,6 +9,12 @@
 
 - Fix "grunt remove:doc" which hasn't worked since version 2.0.0
 - Fix home page title english translation, "Latest videos" instead of "Last videos"
+
+# 5.1.0 / 2019-01-22
+
+## NEW FEATURES
+
+- Add support for Vodalys Studio live
 
 # 5.0.1 / 2018-06-19
 

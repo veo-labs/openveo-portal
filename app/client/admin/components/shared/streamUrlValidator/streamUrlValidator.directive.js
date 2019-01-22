@@ -35,6 +35,9 @@
   *        - **[WOWZA_PORT]** Wowza streaming engine port
   *        - **[WOWZA_APPLICATION_NAME]** Wowza live application name
   *        - **[WOWZA_STREAM_NAME]** Wowza live stream name (could be a SMIL name)
+   *     - **vodalys** Validate that the stream url respect the following format: https://console.vodalys.studio/[ID]
+   *       with:
+   *       - **[ID]** the id of the stream
    *
    * The registered name of the validator is "opaStreamUrl".
    *

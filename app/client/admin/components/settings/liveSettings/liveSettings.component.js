@@ -12,7 +12,7 @@
  * Available attributes are:
  *   - [Object] **[opa-settings]**: The live settings with:
  *     - [Boolean] **[activated]**: true if live is activated, false otherwise
- *     - [String] **[playerType]**: The type of live player, could be either "youtube" or "wowza"
+ *     - [String] **[playerType]**: The type of live player, could be either "youtube", "wowza" or "vodalys"
  *     - [String] **[url]**: The live streeam url depending on "playerType"
  *     - [Boolean] **[private]**: true if access to the live must be restricted to some OpenVeo groups
  *     - [Array] **[groups]**: The list of OpenVeo groups which have access to the private live
