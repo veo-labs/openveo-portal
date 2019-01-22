@@ -2,6 +2,22 @@
 
 const path = require('path');
 
+/**
+ * Finds a library in top level "libraries" property of the conf.json file.
+ *
+ * @param {String} mountPath The library mount path to look for
+ * @return {Object} The library
+ */
+function findLibraryByMountPath(mountPath) {
+  const conf = process.require('conf.json');
+
+  for (let library of conf.libraries) {
+    if (library.mountPath === mountPath) return library;
+  }
+
+  return null;
+}
+
 // Karma configuration
 module.exports = (config) => {
   const resources = process.require('build/ng-admin-files.json');
@@ -9,8 +25,9 @@ module.exports = (config) => {
   const files = [];
 
   // Library scripts
-  conf.be.libraries.forEach((library) => {
-    library.files.forEach((libraryFilePath) => {
+  conf.be.libraries.forEach((backEndLibrary) => {
+    const library = findLibraryByMountPath(backEndLibrary.mountPath);
+    backEndLibrary.files.forEach((libraryFilePath) => {
       if (/.js$/.test(libraryFilePath)) {
         const libraryPath = path.dirname(require.resolve(path.join(library.name, 'package.json')));
         files.push(path.join(libraryPath, libraryFilePath));

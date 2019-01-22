@@ -80,8 +80,8 @@ Back office JavaScript and CSS files are loaded automatically however libraries 
     "libraries": [ // List of libraries to load
       {
 
-        // The name of the library as defined in package.json file
-        name: 'angular',
+        // The mount path of the library mounted in top level "libraries" property
+        mountPath: 'angular',
 
         // The list of files to automatically load in the back office with paths relative to the library directory
         files: ['angular.min.js', 'angular-csp.css']
