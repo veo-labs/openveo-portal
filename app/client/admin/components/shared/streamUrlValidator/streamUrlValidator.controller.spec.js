@@ -130,4 +130,41 @@ describe('OpaStreamUrlValidatorController', function() {
     });
   });
 
+  it('should be able to validate a Vodalys URL', function() {
+    const validValues = [
+      'https://console.vodalys.studio/vpage2/0hjertPpReB2Dbmr',
+      'http://console.vodalys.studio/vpage2/0hjertPpReB2Dbmr',
+      'https://console.vodalys.studio/id'
+    ];
+    const invalidValues = [
+      'https://www.console.vodalys.studio/id',
+      'https://console.vodalys/id',
+      'https://console/id',
+      'https://console.vodalys.studio/id?param=value',
+      'https://console.vodalys.studio/id#something',
+      'https://console.vodalys.studio/id#?embedded=true',
+      'https://console.vodalys.studio/id/#?embedded=true',
+      'https://console.vodalys.studio/vpage2/0hjertPpReB2Dbmr/#?embedded=true'
+    ];
+    const ctrl = $controller('OpaStreamUrlValidatorController', {
+      $element
+    });
+    ctrl.opaStreamUrlValidator = true;
+    ctrl.opaType = 'vodalys';
+
+    validValues.forEach(function(validValue) {
+      assert.isOk(
+        modelController.$validators.opaStreamUrl(validValue),
+        `Expected model to be valid for value "${validValue}"`
+      );
+    });
+
+    invalidValues.forEach(function(invalidValue) {
+      assert.isNotOk(
+        modelController.$validators.opaStreamUrl(invalidValue),
+        `Expected model to be invalid for value "${invalidValue}"`
+      );
+    });
+  });
+
 });

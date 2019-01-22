@@ -1,3 +1,9 @@
+# 5.1.0 / YYYY-MM-DD
+
+## NEW FEATURES
+
+- Add support for Vodalys Studio live
+
 # 5.0.1 / 2018-06-19
 
 ## BUG FIXES

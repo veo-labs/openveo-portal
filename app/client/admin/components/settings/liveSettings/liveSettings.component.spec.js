@@ -102,7 +102,11 @@ describe('opaLiveSettings', function() {
     scope.$digest();
 
     let messageElement = angular.element(element[0].querySelector('.opa-live-url div[ng-message="opaStreamUrl"]'));
-    assert.equal(messageElement.text(), $sce.getTrustedHtml($filter('opaTranslate')('SETTINGS.LIVE.URL_WOWZA_ERROR')));
+    assert.equal(
+      messageElement.text(),
+      $sce.getTrustedHtml($filter('opaTranslate')('SETTINGS.LIVE.URL_WOWZA_ERROR')),
+      'Expected error message about Wowza'
+    );
 
     // Change player type
     scope.settings = {
@@ -115,7 +119,23 @@ describe('opaLiveSettings', function() {
 
     assert.equal(
       messageElement.text(),
-      $sce.getTrustedHtml($filter('opaTranslate')('SETTINGS.LIVE.URL_YOUTUBE_ERROR'))
+      $sce.getTrustedHtml($filter('opaTranslate')('SETTINGS.LIVE.URL_YOUTUBE_ERROR')),
+      'Expected error message about Youtube'
+    );
+
+    // Change player type
+    scope.settings = {
+      activated: true,
+      playerType: 'vodalys',
+      url: 'wrong url format'
+    };
+
+    scope.$digest();
+
+    assert.equal(
+      messageElement.text(),
+      $sce.getTrustedHtml($filter('opaTranslate')('SETTINGS.LIVE.URL_VODALYS_ERROR')),
+      'Expected error message about Vodalys'
     );
   });
 

@@ -79,6 +79,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         URL_EMPTY_ERROR: 'Error: you must specify a live stream URL',
         URL_YOUTUBE_ERROR: 'Error: Invalid Youtube live stream URL (e.g. https://www.youtube.com/watch?v=123456)',
         URL_WOWZA_ERROR: 'Error: Invalid Wowza live stream URL (e.g. https://wowza-example.local:1935/application-example/stream-example/playlist.m3u8)',
+        URL_VODALYS_ERROR: 'Error: Invalid Vodalys Studio live stream URL (e.g. https://console.vodalys.studio/vpage2/0hjertPpReB2Dbmr)',
         PRIVATE_LABEL: 'Private',
         PRIVATE_DESCRIPTION: 'Restrict access to the live',
         GROUPS_LABEL: 'OpenVeo groups',
@@ -87,7 +88,8 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         PLAYER_LICENSE_EMPTY_ERROR: 'Error: you must specify a Wowza player license key (available on https://player.wowza.com)',
         PLAYER_LICENSE_ERROR: 'Error: Invalid Wowza player license key (e.g. xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx)',
         WOWZA: 'Wowza',
-        YOUTUBE: 'Youtube'
+        YOUTUBE: 'Youtube',
+        VODALYS: 'Vodalys'
       },
       SUBMIT_BUTTON: 'Save',
       SAVE_SUCCESS: 'Settings saved',

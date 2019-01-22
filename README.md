@@ -7,7 +7,7 @@ It aims to offer a portal to access medias exposed by an [OpenVeo](https://githu
 It includes the following features:
 
 - An home page to present the most seen medias
-- A live page to stream a live from Wowza or Youtube
+- A live page to stream a live from Wowza, Youtube or Vodalys Studio
 - A search engine
 - Support for authentication using local database, [CAS](https://www.apereo.org/projects/cas) or [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
 - Themes

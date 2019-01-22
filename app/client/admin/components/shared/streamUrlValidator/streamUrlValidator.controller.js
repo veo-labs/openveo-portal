@@ -57,6 +57,24 @@
       },
 
       /**
+       * Validates that the given value is a Vodalys Studio stream URL.
+       *
+       * Expected format only allows URLs starting with "https://console.vodaly.stydio/" and
+       * finishing with any sequence of characters excluding interrogation point, hash or equal.
+       * e.g. https://console.vodalys.studio/vpage2/0hjertPpReB2Dbmr
+       *
+       * @method isValidVodalysStreamUrl
+       * @param {String} value The url to validate
+       * @return {Boolean} true if valid, false otherwise
+       * @final
+       */
+      isValidVodalysStreamUrl: {
+        value: function(value) {
+          return /^https?:\/\/console\.vodalys\.studio\/[^#?=]+$/.test(value);
+        }
+      },
+
+      /**
        * Handles one-way binding properties changes and force model validation.
        *
        * @method $onChanges
@@ -77,6 +95,7 @@
 
       if (ctrl.opaType === 'youtube') return ctrl.isValidYoutubeStreamUrl(modelValue);
       else if (ctrl.opaType === 'wowza') return ctrl.isValidWowzaStreamUrl(modelValue);
+      else if (ctrl.opaType === 'vodalys') return ctrl.isValidVodalysStreamUrl(modelValue);
     };
   }
 

@@ -34,6 +34,10 @@
           {
             id: 'youtube',
             name: 'SETTINGS.LIVE.YOUTUBE'
+          },
+          {
+            id: 'vodalys',
+            name: 'SETTINGS.LIVE.VODALYS'
           }
         ]
       },
@@ -147,13 +151,12 @@
        * Updates the url error message depending on player type.
        *
        * @method updateUrlErrorMessage
-       * @param {String} playerType The player type (either "youtube" or "wowza")
+       * @param {String} playerType The player type (either "youtube", "wowza" or "vodalys")
        * @final
        */
       updateUrlErrorMessage: {
         value: function(playerType) {
-          ctrl.urlErrorMessage =
-          (playerType === 'youtube') ? 'SETTINGS.LIVE.URL_YOUTUBE_ERROR' : 'SETTINGS.LIVE.URL_WOWZA_ERROR';
+          ctrl.urlErrorMessage = 'SETTINGS.LIVE.URL_' + playerType.toUpperCase() + '_ERROR';
         }
       },
 
