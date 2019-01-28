@@ -1,3 +1,7 @@
+# 5.2.0 / YYYY-MM-DD
+
+- The size of the live player has been increased
+
 # 5.1.0 / 2019-01-22
 
 ## NEW FEATURES
