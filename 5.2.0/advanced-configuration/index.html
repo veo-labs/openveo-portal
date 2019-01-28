@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Advanced configuration - Openveo Portal</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Advanced configuration";
+    var mkdocs_page_input_path = "advanced-configuration.md";
+    var mkdocs_page_url = "/advanced-configuration/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Openveo Portal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">INTRODUCTION</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>USERS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../prerequisites/">Prerequisites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../getting-started/">Getting started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Advanced configuration</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#introduction">Introduction</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-openveo-portal">Configure OpenVeo Portal</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-database-access">Configure database access</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-the-logger">Configure the logger</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-the-server">Configure the server</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-the-access-to-openveo-web-service">Configure the access to OpenVeo Web Service</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../production/">Production</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>DEVELOPERS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/prerequisites/">Prerequisites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/installation/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/conf/">conf.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/compilation/">CSS / SASS / JS compilation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/logger/">Logger</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/coding-standards/">Coding standards</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/unit-tests/">Unit tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../developers/end-to-end-tests/">End to end tests</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Openveo Portal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>USERS &raquo;</li>
+        
+      
+    
+    <li>Advanced configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction">Introduction</h1>
+<p>Configuration files are all in user's directory under <strong>~/.openveo/portal</strong></p>
+<ul>
+<li><strong>~/.openveo/portal/conf.json</strong></li>
+<li><strong>~/.openveo/portal/databaseConf.json</strong></li>
+<li><strong>~/.openveo/portal/loggerConf.json</strong></li>
+<li><strong>~/.openveo/portal/serverConf.json</strong></li>
+<li><strong>~/.openveo/portal/webservicesConf.json</strong></li>
+</ul>
+<p><strong>Nb :</strong> You must restart OpenVeo Portal after modifications.</p>
+<h1 id="configure-openveo-portal">Configure OpenVeo Portal</h1>
+<p>Open <strong>~/.openveo/portal/conf.json</strong></p>
+<pre><code class="json">{
+  &quot;passwordHashKey&quot; : &quot;KEY&quot;, // Replace KEY by a secret key used to encrypt users passwords
+  &quot;theme&quot;: &quot;default&quot;, // The name of the theme to use (this is the name of the directory in assets/themes)
+  &quot;exposedFilter&quot;: [ // A list of custom properties' ids defined in OpenVeo Publish to add as search engine filters
+    &quot;VJWL6-0Cx&quot;,
+    &quot;NkLcut70x&quot;,
+    &quot;4yYs5f0Ag&quot;
+  ],
+  &quot;categoriesFilter&quot;: &quot;1443702123703&quot;, // Id of the taxonomy &quot;categories&quot; defined in OpenVeo Publish
+  &quot;privateFilter&quot;: [ // A list of groups' ids, defined in OpenVeo, only content in this list of groups will be available to an authenticated user
+    &quot;4keznvtlW&quot;
+  ],
+  &quot;publicFilter&quot;: [ // A list of groups' ids, defined in OpenVeo, only content in this list of groups will be available to an anonymous user
+    &quot;Vyog3_KgW&quot;
+  ],
+  &quot;cache&quot;: {
+    &quot;filterTTL&quot;: 600, // Time (in seconds) to keep the list of categories and custom properties' values in cache
+    &quot;videoTTL&quot;: 60 // Time (in seconds) to keep information about a video in cache
+  },
+  &quot;useDialog&quot;: true // true to open videos in a dialog, false to open videos in a new page
+}
+</code></pre>
+
+<h1 id="configure-database-access">Configure database access</h1>
+<p>Open <strong>~/.openveo/portal/databaseConf.json</strong></p>
+<pre><code class="json">{
+  &quot;type&quot; : &quot;mongodb&quot;, // Do not change
+  &quot;host&quot; : &quot;localhost&quot;, // MongoDB server host
+  &quot;port&quot; : 27017, // MongoDB port
+  &quot;database&quot; : &quot;DATABASE_NAME&quot;, // Replace DATABASE_NAME by the name of the OpenVeo Portal database
+  &quot;username&quot; : &quot;DATABASE_USER_NAME&quot;, // Replace DATABASE_USER_NAME by the name of the database user
+  &quot;password&quot; : &quot;DATABASE_USER_PWD&quot; // Replace DATABASE_USER_PWD  by the password of the database user
+}
+</code></pre>
+
+<h1 id="configure-the-logger">Configure the logger</h1>
+<p>Open <strong>~/.openveo/portal/loggerConf.json</strong></p>
+<pre><code class="json">{
+  &quot;fileName&quot; : &quot;/var/log/openveo/openveo-portal.log&quot;, // Path to application log file
+  &quot;level&quot; : &quot;info&quot;, // Log level
+  &quot;maxFileSize&quot; : 104857600, // Maximum log file size (in Bytes)
+  &quot;maxFiles&quot; : 2 // Maximum number of files archived
+}
+</code></pre>
+
+<h1 id="configure-the-server">Configure the server</h1>
+<p>Open <strong>~/.openveo/core/serverConf.json</strong></p>
+<pre><code class="json">{
+  &quot;port&quot;: PORT, // Replace PORT by the HTTP server port to use (e.g. 3003)
+  &quot;sessionSecret&quot;: &quot;SECRET&quot;, // Replace SECRET by a secret used to secure HTTP sessions
+  &quot;auth&quot;: {
+    &quot;cas&quot;: { // CAS configuration
+      &quot;version&quot;: &quot;3&quot;, // The version of the CAS server
+      &quot;service&quot;: &quot;https://my-openveo-portal.test&quot;, // The service to use to authenticate to the CAS server
+      &quot;url&quot;: &quot;https://my-cas-server.test:8443/cas&quot;, // The url of the CAS server
+      &quot;userGroupAttribute&quot;: &quot;group&quot;, // The name of the CAS attribute holding the group name of a user
+      &quot;userIdAttribute&quot;: &quot;id&quot;, // The name of the CAS attribute holding the unique id of a user
+      &quot;userNameAttribute&quot;: &quot;name&quot;, // The name of the CAS attribute holding the name of a user
+      &quot;userEmailAttribute&quot;: &quot;name&quot;, // The name of the CAS attribute holding the email of a user
+      &quot;certificate&quot;: &quot;/etc/ssl/certs/cas.crt&quot;, // The absolute path of the CAS server certificate if root CA is not in the Node.JS well known CAs
+      &quot;groupAssociations&quot;: [ // Matches between LDAP groups and OpenVeo groups of contents
+        {
+          &quot;group&quot;: &quot;my-cas-group&quot;, // CAS group to associate
+          &quot;groups&quot;: [&quot;Ef5erF&quot;, &quot;89erFgbG&quot;] // Authorized OpenVeo group ids for the CAS group
+        }
+      ]
+    },
+    &quot;ldapauth&quot;: { // LDAP configuration
+      &quot;url&quot;: &quot;ldaps://my-ldap.test&quot;, // The url of the LDAP server
+      &quot;bindAttribute&quot;: &quot;dn&quot;, // The LDAP attribute used by &quot;bindDn&quot; (default to &quot;dn&quot;)
+      &quot;bindDn&quot;: &quot;cn=my-user,dc=my-ldap,dc=test&quot;, // The value of the &quot;bindAttribute&quot; associated to the entry used to connect to the server API
+      &quot;bindPassword&quot;: &quot;qT5gvobG2ZxYSiY2r4mt&quot;, // The password of the entry used to connect to the server API
+      &quot;searchBase&quot;: &quot;ou=user,dc=my-ldap,dc=test&quot;, // The search base when looking for users
+      &quot;searchScope&quot;: &quot;sub&quot;, // The search scope when looking for users (default to &quot;sub&quot;)
+      &quot;searchFilter&quot;: &quot;(&amp;(objectclass=person)(cn={{username}}))&quot;, // The search filter to find user by name, use placeholder &quot;{{username}}&quot; which will be replaced by the user name when searching
+      &quot;userGroupAttribute&quot;: &quot;group&quot;, // The name of the LDAP attribute holding the group name of a user
+      &quot;userIdAttribute&quot;: &quot;dn&quot;, // The name of the LDAP attribute holding the unique id of a user
+      &quot;userNameAttribute&quot;: &quot;cn&quot;, // The name of the LDAP attribute holding the name of a user
+      &quot;userEmailAttribute&quot;: &quot;email&quot;, // The name of the LDAP attribute holding the email of a user
+      &quot;certificate&quot;: &quot;/etc/ssl/certs/ldap.crt&quot;, // The absolute path of the LDAP server certificate full chain if root CA is not in the Node.JS well known CAs
+      &quot;groupAssociations&quot;: [ // Matches between LDAP groups and OpenVeo groups of contents
+        {
+          &quot;group&quot;: &quot;my-ldap-group&quot;, // LDAP group to associate
+          &quot;groups&quot;: [&quot;Ef5erF&quot;, &quot;89erFgbG&quot;] // Authorized OpenVeo group ids for the LDAP group
+        }
+      ]
+    }
+    &quot;local&quot;: true // Activate local authentication (WARNING: settings this to false won't remove the local authentication, to remove local authentication remove the property)
+  }
+}
+</code></pre>
+
+<h1 id="configure-the-access-to-openveo-web-service">Configure the access to OpenVeo Web Service</h1>
+<p>Open <strong>~/.openveo/portal/webservicesConf.json</strong></p>
+<pre><code class="json">{
+ &quot;path&quot;: &quot;https://www.my-openveo-ws.com&quot;, // Complete path to the web service (including port if necessary)
+ &quot;clientID&quot;: &quot;65d6247f0293049523d6a5e2efdf49ac07b51600&quot;, // OpenVeo Portal id
+ &quot;secretID&quot;: &quot;8a7b0d43a631b52cf15e89eba7a65f274ccc7f73&quot;, // OpenVeo Portal secret
+ &quot;certificate&quot;: &quot;server.crt&quot; // The absolute path of the OpenVeo Web Service certificate if root CA is not in the system well known CAs
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../production/" class="btn btn-neutral float-right" title="Production">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../getting-started/" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../getting-started/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../production/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
