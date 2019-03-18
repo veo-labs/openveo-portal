@@ -10,6 +10,14 @@
 - Fix "grunt remove:doc" which hasn't worked since version 2.0.0
 - Fix home page title english translation, "Latest videos" instead of "Last videos"
 
+## DEPENDENCIES
+
+- **video.js** has been upgraded from 5.9.2 to **7.3.0**
+- **dashjs** has been upgraded from 2.1.1 to **2.9.2**
+- **videojs-contrib-dash** has been upgraded from 2.4.0 to **2.10.0**
+- **videojs-contrib-hls** has been removed. It is replaced by videojs-http-streaming which is a sub dependency of video.js since version 7.0.0
+- **@openveo/player** has been upgraded from 4.0.0 to **5.0.0**
+
 # 5.2.0 / 2019-01-28
 
 - The size of the live player has been increased

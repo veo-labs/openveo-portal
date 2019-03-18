@@ -108,7 +108,7 @@
       });
     });
 
-    angular.element(myPlayer).on('ovPlay', function(event) {
+    angular.element(myPlayer).on('play', function(event) {
       $analytics.pageTrack($location.path());
       $analytics.eventTrack('play', {value: $scope.video.id});
       videoService.increaseVideoView($scope.video.id, videoDuration);

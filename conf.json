@@ -136,11 +136,6 @@
       "files": ["dist/videojs-dash.min.js"]
     },
     {
-      "name": "videojs-contrib-hls",
-      "mountPath": "videojs-contrib-hls",
-      "files": ["dist/videojs.hls.min.js"]
-    },
-    {
       "name": "angular-i18n",
       "mountPath": "angular-i18n",
       "files": []

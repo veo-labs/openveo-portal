@@ -2,13 +2,12 @@
 
   <!-- Player -->
   <div class="player-container" ng-class="{'md-dialog-content' : !dialogIsFull}">
-    <ov-player ov-mode="{{defaultMode}}"
-               ov-player-type="{{playerType}}"
-               ov-data="video"
-               ov-language="{{language}}"
-               ov-media-sources-icon="true"
+    <opl-player opl-mode="{{defaultMode}}"
+               opl-player-type="{{playerType}}"
+               opl-data="video"
+               opl-language="{{language}}"
                id="openveo-player">
-    </ov-player>
+    </opl-player>
   </div>
 
   <div ng-if="!hideDetailVideo" class="video-infos md-dialog-content">
