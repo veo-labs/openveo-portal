@@ -65,7 +65,6 @@
     };
 
     var myPlayer = document.getElementById('openveo-player');
-    var playerController;
     var videoDuration;
 
     angular.element(myPlayer).on('needPoiConversion', function(event, duration) {
@@ -100,11 +99,6 @@
     angular.element(myPlayer).on('durationChange', function(event, duration) {
       safeApply(function() {
         videoDuration = duration;
-
-        // only gets called once
-        if (!playerController || duration) {
-          playerController = angular.element(myPlayer).controller('ovPlayer');
-        }
       });
     });
 
