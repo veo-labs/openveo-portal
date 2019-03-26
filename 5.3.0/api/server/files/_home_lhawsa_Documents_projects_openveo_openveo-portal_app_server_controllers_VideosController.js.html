@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js - OpenVeo Portal server</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo Portal server</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 5.3.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AuthenticationController.html">AuthenticationController</a></li>
+                                <li><a href="../classes/authenticator.html">authenticator</a></li>
+                                <li><a href="../classes/CategoriesController.html">CategoriesController</a></li>
+                                <li><a href="../classes/context.html">context</a></li>
+                                <li><a href="../classes/DefaultController.html">DefaultController</a></li>
+                                <li><a href="../classes/ErrorController.html">ErrorController</a></li>
+                                <li><a href="../classes/FiltersController.html">FiltersController</a></li>
+                                <li><a href="../classes/GroupsController.html">GroupsController</a></li>
+                                <li><a href="../classes/HTTP_ERRORS.html">HTTP_ERRORS</a></li>
+                                <li><a href="../classes/LiveController.html">LiveController</a></li>
+                                <li><a href="../classes/openveo-web-service-errors.html">openveo-web-service-errors</a></li>
+                                <li><a href="../classes/Server.html">Server</a></li>
+                                <li><a href="../classes/SettingsController.html">SettingsController</a></li>
+                                <li><a href="../classes/statisticsController.html">statisticsController</a></li>
+                                <li><a href="../classes/StatisticsController.html">StatisticsController</a></li>
+                                <li><a href="../classes/UserProvider.html">UserProvider</a></li>
+                                <li><a href="../classes/VersionController.html">VersionController</a></li>
+                                <li><a href="../classes/VideosController.html">VideosController</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/controllers.html">controllers</a></li>
+                                <li><a href="../modules/portal.html">portal</a></li>
+                                <li><a href="../modules/providers.html">providers</a></li>
+                                <li><a href="../modules/storages.html">storages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/controllers/VideosController.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module controllers
+ */
+
+const openVeoApi = require(&#x27;@openveo/api&#x27;);
+const errors = process.require(&#x27;app/server/httpErrors.js&#x27;);
+const portalConf = process.require(&#x27;app/server/conf.js&#x27;);
+const context = process.require(&#x27;app/server/context.js&#x27;);
+const SettingsProvider = process.require(&#x27;app/server/providers/SettingsProvider.js&#x27;);
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
+
+const VIDEO_PUBLISH_STATE = 12;
+
+class VideosController extends openVeoApi.controllers.Controller {
+
+  /**
+   * Defines a VideosController to deal with videos.
+   *
+   * @class VideosController
+   * @extends Controller
+   * @constructor
+   */
+  constructor() {
+    super();
+  }
+
+  /**
+   * Checks if a user is authorized to see a video.
+   *
+   * @method isUserAuthorized
+   * @param {Object} [user] The user to test
+   * @param {String} user.id The user id
+   * @param {Array} user.groups The user groups
+   * @param {Object} video The video to test
+   * @param {Object} video.metadata Metadata of the video
+   * @param {Array} video.metadata.groups The list of groups the video belongs to
+   * @return {Boolean} true if the user if authorized, false otherwise
+   */
+  isUserAuthorized(user, video) {
+    const isInPublicGroups = video.metadata.groups &amp;&amp; openVeoApi.util.intersectArray(
+      video.metadata.groups,
+      portalConf.conf.publicFilter
+    ).length;
+
+    if (isInPublicGroups) {
+
+      // Video is public
+      return true;
+
+    } else if (!user) {
+      return false;
+    } else {
+
+      // User is authenticated
+
+      // Super administrator can see all videos
+      if (user.id === portalConf.superAdminId)
+        return true;
+
+      // Find out if video is part of private groups or user groups
+      // If video is part of these groups user is allowed to access the video
+      const isInPrivateGroups = openVeoApi.util.intersectArray(
+        video.metadata.groups, portalConf.conf.privateFilter
+      ).length;
+      const isInUserGroups = openVeoApi.util.intersectArray(
+        video.metadata.groups, user.groups
+      ).length;
+
+      return (isInPrivateGroups || isInUserGroups);
+    }
+  }
+
+  /**
+   * Adds operations to limit access to videos.
+   *
+   * @method addAccessFilter
+   * @param {ResourceFilter} [filter] The filter to add access operations to, generated if not specified
+   * @param {Object} [user] The user to limit
+   * @param {Array} [user.groups] The user groups
+   * @return {ResourceFilter} The filter
+   */
+  addAccessFilter(filter, user) {
+    if (!filter) filter = new ResourceFilter();
+
+    if (!user) {
+
+      // Anonymous user (not authenticated)
+      // Add public groups
+      filter.in(&#x27;groups&#x27;, portalConf.conf.publicFilter || []);
+
+    } else if (user.id !== portalConf.superAdminId) {
+
+      // User authenticated and not the super administrator
+      // Add public groups
+      let groups = portalConf.conf.publicFilter || [];
+
+      // Add private groups
+      if (portalConf.conf.privateFilter)
+        groups = groups.concat(portalConf.conf.privateFilter);
+
+      // Add user groups
+      if (user.groups &amp;&amp; user.groups.length)
+        groups = groups.concat(user.groups);
+
+      filter.in(&#x27;groups&#x27;, groups);
+    }
+
+    return filter;
+  }
+
+  /**
+   * Converts video points of interest
+   *
+   * @method convertVideoPoiAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Object} request.body Request&#x27;s body
+   * @param {Number} request.body.duration The duration of the video
+   */
+  convertVideoPoiAction(request, response, next) {
+    const videoId = request.params.id;
+    const body = request.body;
+    let params;
+
+    // Parse Filters
+    try {
+      params = openVeoApi.util.shallowValidateObject(body, {
+        duration: {type: &#x27;number&#x27;, gt: 0, required: true}
+      });
+    } catch (error) {
+      return next(errors.CONVERT_VIDEO_POI_WRONG_PARAMETERS);
+    }
+
+    context.openVeoProvider.convertVideoPoi(
+      videoId,
+      params.duration,
+      (error, video) =&gt; {
+        if (error) {
+          process.logger.error(error.message, {error, method: &#x27;convertVideoPoiAction&#x27;});
+          return next(errors.CONVERT_VIDEO_POI_ERROR);
+        }
+
+        response.send({
+          entity: video
+        });
+      }
+    );
+  }
+
+  /**
+   * Searches OpenVeo Publish videos.
+   *
+   * @method searchAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Object} request.body Request&#x27;s body
+   * @param {Object} request.body.filter Web service endpoint filters
+   * @param {String} [request.body.filter.query] Filter to get only videos which contain the query
+   * inside the title or description
+   * @param {String} [request.body.filter.dateStart] Filter to get only videos after a particular date
+   * @param {String} [request.body.filter.dateEnd] Filter to get only videos before a particular date
+   * @param {String} [request.body.filter.sortBy] The name of the property to sort by (either &quot;views&quot; or &quot;date&quot;)
+   * @param {String} [request.body.filter.sortOrder] The order of the sort (either &quot;asc&quot; or &quot;desc&quot;)
+   * @param {Object} request.body.pagination Pagination to set limit and page
+   * @param {Object} [request.body.pagination.limit] Maximum number of videos to retreive
+   * @param {Object} [request.body.pagination.page] The number of the page to retrieve
+   * @param {String|Array} [request.body.include] The list of fields to include from returned videos
+   * @param {String|Array} [request.body.exclude] The list of fields to exclude from returned videos. Ignored if
+   * include is also specified.
+   * @param {Response} response ExpressJS HTTP Response
+   * @param {Function} next Function to defer execution to the next registered middleware
+   */
+  searchAction(request, response, next) {
+    const body = request.body || {};
+    const filter = new ResourceFilter();
+    let params;
+    let paginate;
+
+    // Parse Filters
+    try {
+      params = openVeoApi.util.shallowValidateObject(body.filter, {
+        query: {type: &#x27;string&#x27;},
+        dateStart: {type: &#x27;date&#x27;},
+        dateEnd: {type: &#x27;date&#x27;},
+        categories: {type: &#x27;array&lt;string&gt;&#x27;},
+        sortBy: {type: &#x27;string&#x27;, in: [&#x27;views&#x27;, &#x27;date&#x27;], default: &#x27;date&#x27;},
+        sortOrder: {type: &#x27;string&#x27;, in: [&#x27;asc&#x27;, &#x27;desc&#x27;], default: &#x27;desc&#x27;},
+        include: {type: &#x27;array&lt;string&gt;&#x27;},
+        exclude: {type: &#x27;array&lt;string&gt;&#x27;}
+      });
+      paginate = openVeoApi.util.shallowValidateObject(body.pagination, {
+        limit: {type: &#x27;number&#x27;, gt: 0, default: 9},
+        page: {type: &#x27;number&#x27;, gte: 0, default: 0}
+      });
+    } catch (error) {
+      return next(errors.SEARCH_WRONG_PARAMETERS);
+    }
+
+    // Public group filter not defined
+    if (!portalConf.conf.publicFilter.length) {
+      process.logger.error(errors.CONF_ERROR.message, {error: errors.CONF_ERROR, method: &#x27;searchAction&#x27;});
+      return next(errors.CONF_ERROR);
+    }
+
+    this.addAccessFilter(filter, request.isAuthenticated() &amp;&amp; request.user);
+
+    // Add published states
+    filter.equal(&#x27;states&#x27;, VIDEO_PUBLISH_STATE);
+
+    // Add properties
+    Object.keys(body.filter).forEach((key) =&gt; {
+      if (!params[key] &amp;&amp; params[key] !== &#x27;&#x27;)
+        filter.equal(&#x60;properties[${key}]&#x60;, body.filter[key]);
+    });
+
+    // Search query
+    if (params[&#x27;query&#x27;]) filter.search(params[&#x27;query&#x27;]);
+
+    // Date
+    if (params[&#x27;dateStart&#x27;]) filter.equal(&#x27;dateStart&#x27;, params[&#x27;dateStart&#x27;]);
+    if (params[&#x27;dateEnd&#x27;]) filter.equal(&#x27;dateEnd&#x27;, params[&#x27;dateEnd&#x27;]);
+
+    // Category
+    if (params[&#x27;categories&#x27;]) filter.in(&#x27;categories&#x27;, params[&#x27;categories&#x27;]);
+
+    // Sort
+    const sort = {};
+    if (params[&#x27;sortBy&#x27;] &amp;&amp; params[&#x27;sortOrder&#x27;]) sort[params[&#x27;sortBy&#x27;]] = params[&#x27;sortOrder&#x27;];
+
+    context.openVeoProvider.get(
+      &#x27;/publish/videos&#x27;,
+      filter,
+      {
+        exclude: params.exclude,
+        include: params.include
+      },
+      paginate[&#x27;limit&#x27;],
+      paginate[&#x27;page&#x27;],
+      sort,
+      portalConf.conf.cache.videoTTL,
+      (error, videos, pagination) =&gt; {
+        if (error) {
+          process.logger.error(error.message, {error, method: &#x27;searchAction&#x27;});
+          return next(errors.SEARCH_ERROR);
+        }
+
+        response.send({
+          entities: videos,
+          pagination
+        });
+      }
+    );
+  }
+
+  /**
+   * Gets details about an OpenVeo Publish video.
+   *
+   * @method getVideoAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Object} request.params Request&#x27;s parameters
+   * @param {Object} request.params.id The id of the video to fetch
+   * @param {Response} response ExpressJS HTTP Response
+   * @param {Function} next Function to defer execution to the next registered middleware
+   */
+  getVideoAction(request, response, next) {
+    context.openVeoProvider.getOne(
+      &#x27;/publish/videos&#x27;,
+      request.params.id,
+      null,
+      portalConf.conf.cache.videoTTL,
+      (error, video) =&gt; {
+        if (error) {
+          process.logger.error(error.message, {error, method: &#x27;getVideoAction&#x27;});
+          return next(errors.GET_VIDEO_ERROR);
+        }
+
+        if (!video || video.state !== VIDEO_PUBLISH_STATE) return next(errors.GET_VIDEO_NOT_FOUND);
+
+        const isInPublicGroups = video.metadata.groups &amp;&amp; openVeoApi.util.intersectArray(
+          video.metadata.groups,
+          portalConf.conf.publicFilter
+        ).length;
+
+        if (isInPublicGroups) {
+
+          // Video is public
+          response.send({entity: video});
+
+        } else if (!request.isAuthenticated()) {
+
+          // User is not authenticated
+          // Send need authent
+          response.send({needAuth: true});
+
+        } else if (this.isUserAuthorized(request.user, video)) {
+
+          // User is authenticated
+          response.send({entity: video});
+
+        } else
+            next(errors.GET_VIDEO_NOT_ALLOWED);
+      }
+    );
+  }
+
+  /**
+   * Fetches promoted videos.
+   *
+   * @method getPromotedVideosAction
+   * @async
+   * @param {Request} request ExpressJS HTTP Request
+   * @param {Object} request.query Request query parameters
+   * @param {Boolean} [request.query.auto=false] true to automatically fulfill empty slots when possible
+   * @param {Response} response ExpressJS HTTP Response
+   * @param {Function} next Function to defer execution to the next registered middleware
+   */
+  async getPromotedVideosAction(request, response, next) {
+    const NUMBER_OF_VIDEOS = 9;
+    const settingsProvider = new SettingsProvider(context.database);
+    let queryParameters;
+
+    // Validate parameters
+    try {
+      queryParameters = openVeoApi.util.shallowValidateObject(request.query, {
+        auto: {type: &#x27;boolean&#x27;}
+      });
+    } catch (error) {
+      return next(errors.GET_PROMOTED_VIDEOS_WRONG_PARAMETERS);
+    }
+
+    try {
+
+      // Get ids of promoted videos which have been configured
+      const videoIds = await new Promise((resolve, reject) =&gt; {
+        settingsProvider.getOne(new ResourceFilter().equal(&#x27;id&#x27;, &#x27;promoted-videos&#x27;), null, (error, setting) =&gt; {
+          if (error) {
+            process.logger.error(error.message, {error, method: &#x27;getPromotedVideosAction&#x27;});
+            return reject(errors.GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR);
+          }
+
+          resolve((setting &amp;&amp; setting.value) || new Array(NUMBER_OF_VIDEOS));
+        });
+      });
+
+      // Get information about promoted videos
+      const promotedVideos = new Array(NUMBER_OF_VIDEOS);
+
+      for (let i = 0; i &lt; videoIds.length; i++) {
+        const videoId = videoIds[i];
+        if (!videoId) continue;
+
+        const promotedVideo = await new Promise((resolve, reject) =&gt; {
+          context.openVeoProvider.getOne(
+            &#x27;/publish/videos&#x27;,
+            videoIds[i],
+            {
+              include: [&#x27;id&#x27;, &#x27;title&#x27;, &#x27;date&#x27;, &#x27;thumbnail&#x27;, &#x27;views&#x27;, &#x27;state&#x27;]
+            },
+            portalConf.conf.cache.videoTTL,
+            (error, video) =&gt; {
+              if (error) {
+                process.logger.error(error.message, {error, method: &#x27;getPromotedVideosAction&#x27;});
+
+                if (error.httpCode !== 404) {
+
+                  // The video couldn&#x27;t be fetched, maybe the video has been removed from OpenVeo
+                  return reject(errors.GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR);
+
+                }
+              }
+
+              resolve(video);
+            }
+          );
+        });
+
+        if (
+          promotedVideo &amp;&amp;
+          promotedVideo.state === VIDEO_PUBLISH_STATE &amp;&amp;
+          this.isUserAuthorized(request.user, promotedVideo)
+        ) {
+          promotedVideos[i] = promotedVideo;
+        } else
+          promotedVideos[i] = undefined;
+      }
+
+      if (!queryParameters.auto) return response.send(promotedVideos);
+
+      // Some slots are empty, get videos to fulfill slots
+      // Find the number of empty slots
+      let emptySlotsNumbers = 0;
+      for (let slot of promotedVideos) {
+        if (!slot) emptySlotsNumbers++;
+      }
+
+      if (!emptySlotsNumbers) return response.send(promotedVideos);
+
+      // Make sure user can access returned videos
+      const filter = new ResourceFilter();
+      this.addAccessFilter(filter, request.isAuthenticated() &amp;&amp; request.user);
+      filter.equal(&#x27;states&#x27;, VIDEO_PUBLISH_STATE);
+
+      // Get as many videos as the number of promoted videos to be sure to have enough
+      let extraVideos = await new Promise((resolve, reject) =&gt; {
+        context.openVeoProvider.get(
+          &#x27;/publish/videos&#x27;,
+          filter,
+          {
+            include: [&#x27;id&#x27;, &#x27;title&#x27;, &#x27;date&#x27;, &#x27;thumbnail&#x27;, &#x27;views&#x27;]
+          },
+          NUMBER_OF_VIDEOS,
+          0,
+          {
+            date: &#x27;desc&#x27;
+          },
+          portalConf.conf.cache.videoTTL,
+          (error, videos, pagination) =&gt; {
+            if (error) return reject(errors.GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR);
+            resolve(videos);
+          }
+        );
+      });
+
+      // Remove promotedVideos from extraVideos if any
+      extraVideos = extraVideos.filter((video) =&gt; {
+        for (let promotedVideo of promotedVideos) {
+          if (promotedVideo &amp;&amp; video.id === promotedVideo.id) return false;
+        }
+        return true;
+      });
+
+      // Fill empty slots with extra videos
+      const extraVideosIterator = extraVideos[Symbol.iterator]();
+
+      for (let i = 0; i &lt; promotedVideos.length; i++) {
+        const promotedVideo = promotedVideos[i];
+        if (!promotedVideo)
+          promotedVideos[i] = extraVideosIterator.next().value;
+      }
+
+      response.send(promotedVideos);
+    } catch (error) {
+      process.logger.error(error.message, {error, method: &#x27;getPromotedVideosAction&#x27;});
+      next(error);
+    }
+  }
+
+}
+
+module.exports = VideosController;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
