@@ -44,10 +44,10 @@ OpenVeo has been tested on the following:
 ## Screenshots
 
 ### Home page
-![Home page](images/screenshots/home-page.jpg)
+![Home page](images/screenshots/home-page.png)
 
-### Video player
-![Video player](images/screenshots/video-player.jpg)
+### Player page
+![Player page](images/screenshots/player-page.png)
 
 ### Back office dashboard
 ![Back office dashboard](images/screenshots/back-office-dashboard.png)
