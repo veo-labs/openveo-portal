@@ -1,6 +1,6 @@
 {
   "name": "@openveo/portal",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "description": "OpenVeo Portal gives access to medias exposed by OpenVeo server associated to an OpenVeo Publish plugin",
   "keywords": [
     "openveo",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@openveo/api": "5.*",
-    "@openveo/player": "4.0.0",
+    "@openveo/player": "5.*",
     "@openveo/rest-nodejs-client": "3.*",
     "angular": "1.6.4",
     "angular-animate": "1.6.4",
