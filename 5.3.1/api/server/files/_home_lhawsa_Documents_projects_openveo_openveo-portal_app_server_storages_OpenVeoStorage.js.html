@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>/home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js - OpenVeo Portal server</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo Portal server</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 5.3.1
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AuthenticationController.html">AuthenticationController</a></li>
+                                <li><a href="../classes/authenticator.html">authenticator</a></li>
+                                <li><a href="../classes/CategoriesController.html">CategoriesController</a></li>
+                                <li><a href="../classes/context.html">context</a></li>
+                                <li><a href="../classes/DefaultController.html">DefaultController</a></li>
+                                <li><a href="../classes/ErrorController.html">ErrorController</a></li>
+                                <li><a href="../classes/FiltersController.html">FiltersController</a></li>
+                                <li><a href="../classes/GroupsController.html">GroupsController</a></li>
+                                <li><a href="../classes/HTTP_ERRORS.html">HTTP_ERRORS</a></li>
+                                <li><a href="../classes/LiveController.html">LiveController</a></li>
+                                <li><a href="../classes/openveo-web-service-errors.html">openveo-web-service-errors</a></li>
+                                <li><a href="../classes/Server.html">Server</a></li>
+                                <li><a href="../classes/SettingsController.html">SettingsController</a></li>
+                                <li><a href="../classes/statisticsController.html">statisticsController</a></li>
+                                <li><a href="../classes/StatisticsController.html">StatisticsController</a></li>
+                                <li><a href="../classes/UserProvider.html">UserProvider</a></li>
+                                <li><a href="../classes/VersionController.html">VersionController</a></li>
+                                <li><a href="../classes/VideosController.html">VideosController</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/controllers.html">controllers</a></li>
+                                <li><a href="../modules/portal.html">portal</a></li>
+                                <li><a href="../modules/providers.html">providers</a></li>
+                                <li><a href="../modules/storages.html">storages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: /home/lhawsa/Documents/projects/openveo/openveo-portal/app/server/storages/OpenVeoStorage.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module storages
+ */
+
+const querystring = require(&#x27;querystring&#x27;);
+const openVeoApi = require(&#x27;@openveo/api&#x27;);
+const OpenVeoClient = require(&#x27;@openveo/rest-nodejs-client&#x27;).OpenVeoClient;
+const OPENVEO_ERRORS = process.require(&#x27;app/server/storages/openVeoWebServiceErrors.js&#x27;);
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
+const StorageError = openVeoApi.storages.StorageError;
+
+class OpenVeoStorage extends openVeoApi.storages.Storage {
+
+  /**
+   * Defines an OpenVeo web service storage.
+   *
+   * @extends Storage
+   * @constructor
+   * @param {Object} configuration OpenVeo web service configuration
+   * @param {String} configuration.path OpenVeo web service server URL
+   * @param {String} configuration.clientId OpenVeo web service client id
+   * @param {String} configuration.secretId OpenVeo web service client secret
+   * @param {String} [configuration.certificate] Path to OpenVeo web service full chain certificate if the root
+   * authority is not part of system well known authorities
+   */
+  constructor(configuration) {
+    super(configuration);
+
+    Object.defineProperties(this, {
+
+      /**
+       * The OpenVeo web service client.
+       *
+       * @property client
+       * @type OpenVeoClient
+       * @final
+       */
+      client: {
+        value: new OpenVeoClient(
+          configuration.path,
+          configuration.clientID,
+          configuration.secretID,
+          configuration.certificate
+        )
+      }
+
+    });
+  }
+
+  /**
+   * Builds OpenVeo web service filter from a ResourceFilter.
+   *
+   * @method buildFilter
+   * @static
+   * @param {ResourceFilter} [resourceFilter] The filter
+   * @return {Object} The filter with fields as keys and fields values as values
+   * @throws {TypeError} If an operation is not supported
+   */
+  buildFilter(resourceFilter) {
+    let filter = {};
+
+    if (!resourceFilter) return filter;
+
+    for (let operation of resourceFilter.operations) {
+      switch (operation.type) {
+        case ResourceFilter.OPERATORS.EQUAL:
+          filter[operation.field] = operation.value;
+          break;
+        case ResourceFilter.OPERATORS.IN:
+          filter[operation.field] = operation.value;
+          break;
+        case ResourceFilter.OPERATORS.SEARCH:
+          filter[&#x27;query&#x27;] = operation.value;
+          break;
+        default:
+          throw new StorageError(
+            &#x60;Operation ${operation.type} not supported&#x60;,
+            OPENVEO_ERRORS.BUILD_FILTERS_UNKNOWN_OPERATION_ERROR
+          );
+      }
+    }
+
+    return filter;
+  }
+
+  /**
+   * Builds OpenVeo web service sort.
+   *
+   * Only the first found field will we used as a sort field.
+   *
+   * @method buildSort
+   * @static
+   * @param {Object} [sort] The list of fields to sort by with the field name as key and the sort order as
+   * value (e.g. {field1: &#x27;asc&#x27;})
+   * @return {Object} The sort descriptor with sortBy and sortOrder properties
+   */
+  buildSort(sort) {
+    let sortDescription = {};
+
+    if (!sort) return sortDescription;
+
+    for (let field in sort) {
+      sortDescription.sortBy = field;
+      sortDescription.sortOrder = sort[field];
+      break;
+    }
+
+    return sortDescription;
+  }
+
+  /**
+   * Fetches documents from the collection.
+   *
+   * @method get
+   * @async
+   * @param {String} collection The endpoint to work on
+   * @param {ResourceFilter} [filter] Rules to filter documents
+   * @param {Object} [fields] Expected resource fields to be included or excluded from the response, by default all
+   * fields are returned. Only &quot;exclude&quot; or &quot;include&quot; can be specified, not both
+   * @param {Array} [fields.include] The list of fields to include in the response, all other fields are excluded
+   * @param {Array} [fields.exclude] The list of fields to exclude from response, all other fields are included. Ignored
+   * if include is also specified.
+   * @param {Number} [limit] A limit number of documents to retrieve (10 by default)
+   * @param {Number} [page] The page number started at 0 for the first page
+   * @param {Object} sort The list of fields to sort by with the field name as key and the sort order as
+   * value (e.g. {field1: &#x27;asc&#x27;})
+   * @param {Function} callback The function to call when it&#x27;s done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Array** The list of retrieved documents
+   *   - **Object** Pagination information
+   *     - **Number** limit The specified limit
+   *     - **Number** page The actual page
+   *     - **Number** pages The total number of pages
+   *     - **Number** size The total number of documents
+   */
+  get(collection, filter, fields, limit, page, sort, callback) {
+    let queryString;
+    limit = limit || 10;
+    fields = fields || {};
+    page = page || 0;
+
+    let query = {
+      page,
+      limit
+    };
+    openVeoApi.util.merge(query, this.buildFilter(filter));
+    openVeoApi.util.merge(query, this.buildSort(sort));
+    openVeoApi.util.merge(query, fields);
+    queryString = querystring.stringify(query);
+    queryString = queryString ? &#x60;?${queryString}&#x60; : queryString;
+
+    this.client.get(&#x60;${collection}${queryString}&#x60;).then((response) =&gt; {
+      callback(null, response.entities, response.pagination);
+    }).catch(callback);
+  }
+
+  /**
+   * Convert video Points Of Interests
+   *
+   * @method convertVideoPoi
+   * @async
+   * @param {String} videoId The id of the video to convert
+   * @param {Number} duration The duration in milliseconds of the video
+   * @param {Function} callback The function to call when it&#x27;s done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Video** The video with converted POI
+   */
+  convertVideoPoi(videoId, duration, callback) {
+    this.client
+    .post(&#x60;publish/videos/${videoId}/poi/convert&#x60;, {duration: duration})
+    .then((response) =&gt; {
+      callback(null, response.entity);
+    })
+    .catch(callback);
+  }
+
+  /**
+   * Updates a document from collection.
+   *
+   * @method updateOne
+   * @async
+   * @param {String} collection The endpoint to work on
+   * @param {ResourceFilter} [filter] Rules to filter document to update. Must contain an equal operation with a field
+   * &quot;id&quot;
+   * @param {Object} data The modifications to perform
+   * @param {Function} callback The function to call when it&#x27;s done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Number** 1 if everything went fine
+   */
+  updateOne(collection, filter, data, callback) {
+    let id = filter.getComparisonOperation(ResourceFilter.OPERATORS.EQUAL, &#x27;id&#x27;).value;
+
+    this.client
+    .post(&#x60;${collection}/${id}&#x60;, data)
+    .then((response) =&gt; {
+      callback(null, response.total);
+    })
+    .catch(callback);
+  }
+
+  /**
+   * Fetches a single document from the collection.
+   *
+   * @method getOne
+   * @async
+   * @param {String} collection The endpoint to work on
+   * @param {ResourceFilter} [filter] Rules to filter documents
+   * @param {Object} [fields] Expected document fields to be included or excluded from the response, by default all
+   * fields are returned. Only &quot;exclude&quot; or &quot;include&quot; can be specified, not both
+   * @param {Array} [fields.include] The list of fields to include in the response, all other fields are excluded
+   * @param {Array} [fields.exclude] The list of fields to exclude from response, all other fields are included. Ignored
+   * if include is also specified.
+   * @param {Function} callback The function to call when it&#x27;s done
+   *   - **Error** The error if an error occurred, null otherwise
+   *   - **Object** The document
+   */
+  getOne(collection, filter, fields, callback) {
+    let id = filter.getComparisonOperation(ResourceFilter.OPERATORS.EQUAL, &#x27;id&#x27;).value;
+    let query = {};
+    let queryString;
+    fields = fields || {};
+
+    openVeoApi.util.merge(query, fields);
+    queryString = querystring.stringify(query);
+    queryString = queryString ? &#x60;?${queryString}&#x60; : queryString;
+
+    this.client.get(&#x60;${collection}/${id}${queryString}&#x60;).then((response) =&gt; {
+      callback(null, response.entity);
+    }).catch(callback);
+  }
+
+}
+
+module.exports = OpenVeoStorage;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
