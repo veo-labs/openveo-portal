@@ -1,3 +1,9 @@
+# 5.3.1 / YYYY-MM-DD
+
+## BUG FIXES
+
+- Fix non admin users authentication. This problem was introduced in version 4.0.0.
+
 # 5.3.0 / 2019-03-26
 
 ## NEW FEATURES

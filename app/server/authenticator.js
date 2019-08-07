@@ -44,7 +44,7 @@ function populateUser(user, callback) {
   settingsProvider.getOne(new ResourceFilter().equal('id', 'live'), null, (error, setting) => {
     if (error) return callback(error);
     user.hasLiveAccess = openVeoApi.util.intersectArray(
-      user.groups, setting.value.groups
+      user.groups, setting && setting.value && setting.value.groups ? setting.value.groups : []
     ).length ? true : false;
 
     callback(null, user);
