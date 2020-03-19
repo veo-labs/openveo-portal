@@ -4,6 +4,10 @@
 
 - Drop support for NodeJS &lt; 12.4.0 and NPM &lt; 6.9.0
 
+## BUG FIXES
+
+- Upgrade Wowza player which wasn't working with version 4.7.8 of Wowza
+
 # 5.3.1 / 2019-08-07
 
 ## BUG FIXES
