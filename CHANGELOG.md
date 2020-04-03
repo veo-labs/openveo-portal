@@ -8,6 +8,10 @@
 
 - Upgrade Wowza player which wasn't working with version 4.7.8 of Wowza
 
+## DEPENDENCIES
+
+- **async** has been upgraded from 2.1.4 to **3.2.0**
+
 # 5.3.1 / 2019-08-07
 
 ## BUG FIXES
