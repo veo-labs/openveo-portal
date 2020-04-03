@@ -22,6 +22,7 @@
 - **node-cache** has been upgraded from 4.1.1 to **5.1.0**
 - **nopt** has been upgraded from 4.0.1 to **4.0.3**
 - **passport** has been upgraded from 0.4.0 to **0.4.1**
+- **roboto-fontface** has been upgraded from 0.8.0 to **0.10.0**
 
 # 5.3.1 / 2019-08-07
 
