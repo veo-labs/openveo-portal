@@ -23,6 +23,7 @@
 - **nopt** has been upgraded from 4.0.1 to **4.0.3**
 - **passport** has been upgraded from 0.4.0 to **0.4.1**
 - **roboto-fontface** has been upgraded from 0.8.0 to **0.10.0**
+- **semver** has been upgraded from 5.4.1 to **7.1.3**
 
 # 5.3.1 / 2019-08-07
 
