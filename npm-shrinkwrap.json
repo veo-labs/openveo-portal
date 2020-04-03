@@ -1203,6 +1203,11 @@
       "integrity": "sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=",
       "dev": true
     },
+    "codem-isoboxer": {
+      "version": "0.3.6",
+      "resolved": "https://registry.npmjs.org/codem-isoboxer/-/codem-isoboxer-0.3.6.tgz",
+      "integrity": "sha512-LuO8/7LW6XuR5ERn1yavXAfodGRhuY2yP60JTZIw5yNYMCE5lUVbk3NFUCJxjnphQH+Xemp5hOGb1LgUXm00Xw=="
+    },
     "coffee-script": {
       "version": "1.10.0",
       "resolved": "https://registry.npmjs.org/coffee-script/-/coffee-script-1.10.0.tgz",
@@ -1561,19 +1566,19 @@
       }
     },
     "dashjs": {
-      "version": "2.9.2",
-      "resolved": "https://registry.npmjs.org/dashjs/-/dashjs-2.9.2.tgz",
-      "integrity": "sha512-a/hivdWbxn41E8rlQzPPMLphwCq80AW2zL916Wm386AFsUZb7gm1tbdxHuW52QOL1axYIrmV+v9nqnoCCGoImQ==",
+      "version": "3.0.3",
+      "resolved": "https://registry.npmjs.org/dashjs/-/dashjs-3.0.3.tgz",
+      "integrity": "sha512-K5hnf9aEaGpC9AwWSFgxeENFjomVYHX88O5+ADbUTr2THd2GBKBC1v4Z9ERkXgVK+bNMFhRJYT4jOdR91g73bg==",
       "requires": {
         "codem-isoboxer": "0.3.6",
-        "fast-deep-equal": "1.1.0",
-        "imsc": "^1.0.1-rc.3"
+        "fast-deep-equal": "2.0.1",
+        "imsc": "^1.0.2"
       },
       "dependencies": {
-        "codem-isoboxer": {
-          "version": "0.3.6",
-          "resolved": "https://registry.npmjs.org/codem-isoboxer/-/codem-isoboxer-0.3.6.tgz",
-          "integrity": "sha512-LuO8/7LW6XuR5ERn1yavXAfodGRhuY2yP60JTZIw5yNYMCE5lUVbk3NFUCJxjnphQH+Xemp5hOGb1LgUXm00Xw=="
+        "fast-deep-equal": {
+          "version": "2.0.1",
+          "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz",
+          "integrity": "sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk="
         }
       }
     },
@@ -2409,7 +2414,8 @@
     "fast-deep-equal": {
       "version": "1.1.0",
       "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz",
-      "integrity": "sha1-wFNHeBfIa1HaqFPIHgWbcz0CNhQ="
+      "integrity": "sha1-wFNHeBfIa1HaqFPIHgWbcz0CNhQ=",
+      "dev": true
     },
     "fast-json-stable-stringify": {
       "version": "2.0.0",
@@ -4134,9 +4140,9 @@
       "dev": true
     },
     "imsc": {
-      "version": "1.0.2",
-      "resolved": "https://registry.npmjs.org/imsc/-/imsc-1.0.2.tgz",
-      "integrity": "sha512-oxQWr4g2bAzjz5TIXA4K+9xQ4nnktsDI12/nijLQ42lT5c76JO7A8i9pbVkC8MUNQl3sd+bdwshnxB1Wn8lZlQ==",
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/imsc/-/imsc-1.1.1.tgz",
+      "integrity": "sha512-kfWjrmg/vdcqM65FPxpq46RyxKTpfMikDk0PhXOeAlZ6o1OkWBZsll4TlmSj261WcuNT252VBB0aGqSQ+vBZ/A==",
       "requires": {
         "sax": "1.2.1"
       },
@@ -8224,6 +8230,21 @@
         "video.js": "^5.18.0 || ^6.2.8"
       },
       "dependencies": {
+        "dashjs": {
+          "version": "2.9.3",
+          "resolved": "https://registry.npmjs.org/dashjs/-/dashjs-2.9.3.tgz",
+          "integrity": "sha512-Bhbh+tapes3f6ZUprOR6Yoh61AbRBK/96hC71tog5Rw5eSkBGeDD3l53hRVR9Ex6O1W4iEYxDAhE8c8UVUYEaQ==",
+          "requires": {
+            "codem-isoboxer": "0.3.6",
+            "fast-deep-equal": "2.0.1",
+            "imsc": "^1.0.2"
+          }
+        },
+        "fast-deep-equal": {
+          "version": "2.0.1",
+          "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz",
+          "integrity": "sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk="
+        },
         "video.js": {
           "version": "6.13.0",
           "resolved": "https://registry.npmjs.org/video.js/-/video.js-6.13.0.tgz",

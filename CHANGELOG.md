@@ -14,6 +14,7 @@
 - **body-parser** has been upgraded from 1.15.2 to **1.19.0**
 - **consolidate** has been upgraded from 0.14.5 to **0.15.1**
 - **cookie-parser** has been upgraded from 1.4.3 to **1.4.5**
+- **dashjs** has been upgraded from 2.9.2 to **3.0.3**
 
 # 5.3.1 / 2019-08-07
 
