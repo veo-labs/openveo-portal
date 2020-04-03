@@ -211,7 +211,7 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
           user.email !== thirdPartyUserEmail ||
           !openVeoApi.util.areSameArrays(user.originGroups, originGroups) ||
           !openVeoApi.util.areSameArrays(user.groups, groups)
-         ) {
+      ) {
 
         user.name = thirdPartyUserName;
         user.email = thirdPartyUserEmail;

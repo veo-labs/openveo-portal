@@ -76,8 +76,8 @@ describe('OpenVeoStorage', function() {
       const expectedInValue = ['inValue1', 'inValue2'];
       const expectedSearch = 'search';
       filter.equal(expectedEqualField, expectedEqualValue)
-      .in(expectedInField, expectedInValue)
-      .search(expectedSearch);
+        .in(expectedInField, expectedInValue)
+        .search(expectedSearch);
 
       const builtFilter = openVeoStorage.buildFilter(filter);
 
@@ -201,9 +201,9 @@ describe('OpenVeoStorage', function() {
       const expectedInValue = ['value1', 'value2'];
       const expectedSearch = 'search';
       const expectedFilter = new ResourceFilter()
-      .equal(expectedEqualField, expectedEqualValue)
-      .in(expectedInField, expectedInValue)
-      .search(expectedSearch);
+        .equal(expectedEqualField, expectedEqualValue)
+        .in(expectedInField, expectedInValue)
+        .search(expectedSearch);
 
       openVeoStorage.client.get = chai.spy((endPoint) => {
         const endPointChunks = endPoint.split('?');

@@ -70,8 +70,8 @@
             // Prepare message regarding if an update is available or not
             ctrl.message = $filter('opaTranslate')(
               (ctrl.information.updateAvailable) ?
-              'DASHBOARD.ABOUT.NEED_UPGRADE_DESCRIPTION' :
-              'DASHBOARD.ABOUT.UP_TO_DATE_DESCRIPTION',
+                'DASHBOARD.ABOUT.NEED_UPGRADE_DESCRIPTION' :
+                'DASHBOARD.ABOUT.UP_TO_DATE_DESCRIPTION',
               0,
               {
                 '%version%': ctrl.information.version,

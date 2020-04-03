@@ -301,7 +301,7 @@ class VideosController extends openVeoApi.controllers.Controller {
           response.send({entity: video});
 
         } else
-            next(errors.GET_VIDEO_NOT_ALLOWED);
+          next(errors.GET_VIDEO_NOT_ALLOWED);
       }
     );
   }

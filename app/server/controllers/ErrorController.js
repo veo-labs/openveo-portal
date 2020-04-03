@@ -61,7 +61,7 @@ class ErrorController extends openVeoApi.controllers.Controller {
       headers: request.headers
     });
 
-     // Send response with HTML content
+    // Send response with HTML content
     if (request.accepts('html') && (error.httpCode == '401' || error.httpCode == '403')) {
       response.status(error.httpCode);
       const defaultController = new DefaultController();

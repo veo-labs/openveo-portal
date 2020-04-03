@@ -147,8 +147,10 @@ class SettingsController extends openVeoApi.controllers.EntityController {
         }
       ], function(error, total) {
         if (error) {
-          process.logger.error((error && error.message) || 'Fail updating',
-                               {method: 'updateEntityAction', entity: settingId});
+          process.logger.error(
+            (error && error.message) || 'Fail updating',
+            {method: 'updateEntityAction', entity: settingId}
+          );
           next(errors.UPDATE_SETTINGS_ERROR);
         } else {
           response.send({total});

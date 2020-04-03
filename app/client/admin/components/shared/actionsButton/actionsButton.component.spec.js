@@ -148,9 +148,10 @@ describe('opaActionsButton', function() {
       let linkElement = actionElements[i].querySelector('a');
       assert.equal(angular.element(iconElement).text(), scope.actions[i].icon, 'Wrong icon');
       assert.equal(angular.element(labelElement).text().toLowerCase(), scope.actions[i].label, 'Wrong label');
-      assert.notInclude(angular.element(actionElements[i]).attr('class').split(' '),
-                        'opa-selected',
-                        'Expected action to be selected'
+      assert.notInclude(
+        angular.element(actionElements[i]).attr('class').split(' '),
+        'opa-selected',
+        'Expected action to be selected'
       );
 
       angular.element(linkElement).triggerHandler({type: 'click'});

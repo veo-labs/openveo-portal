@@ -385,9 +385,10 @@
         value: function(tag) {
 
           // Without opa-available-tags attribute
-          if ((!ctrl.opaAvailableTags) &&
-              (tag && ctrl.tags.indexOf(tag) === -1)
-             ) {
+          if (
+            (!ctrl.opaAvailableTags) &&
+            (tag && ctrl.tags.indexOf(tag) === -1)
+          ) {
             ctrl.tag = '';
             ctrl.tags.push(tag);
             ngModelController.$setViewValue(getValues());

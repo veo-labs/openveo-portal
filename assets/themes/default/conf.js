@@ -113,10 +113,10 @@ app.config(['$mdThemingProvider', function($mdThemingProvider) {
 
   // Specify "default" theme
   $mdThemingProvider.theme('default')
-  .primaryPalette('primary')
-  .accentPalette('accent')
-  .warnPalette('warn')
-  .backgroundPalette('background');
+    .primaryPalette('primary')
+    .accentPalette('accent')
+    .warnPalette('warn')
+    .backgroundPalette('background');
 
   $mdThemingProvider.setDefaultTheme('default');
 }]);

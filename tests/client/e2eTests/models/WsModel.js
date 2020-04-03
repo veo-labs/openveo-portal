@@ -22,22 +22,22 @@ class WsModel {
     const url = !entityId ? `/publish/${this.type}` : `/publish/${this.type}/${entityId}`;
 
     this.openVeoClient.get(url)
-    .then((response) => {
-      callback(null, response.entities);
-    })
-    .catch((error) => {
-      callback(error);
-    });
+      .then((response) => {
+        callback(null, response.entities);
+      })
+      .catch((error) => {
+        callback(error);
+      });
   }
 
   add(entity, callback) {
     this.openVeoClient.put(`/publish/${this.type}`, entity)
-    .then((response) => {
-      callback(null, response);
-    })
-    .catch((error) => {
-      callback(error);
-    });
+      .then((response) => {
+        callback(null, response);
+      })
+      .catch((error) => {
+        callback(error);
+      });
   }
 
   remove(entityIds, callback) {
@@ -45,12 +45,12 @@ class WsModel {
 
     // remove entity
     this.openVeoClient.delete(`/publish/${this.type}/${allIds}`)
-    .then((response) => {
-      callback(null, response);
-    })
-    .catch((error) => {
-      callback(error);
-    });
+      .then((response) => {
+        callback(null, response);
+      })
+      .catch((error) => {
+        callback(error);
+      });
   }
 }
 

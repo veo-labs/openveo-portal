@@ -29,7 +29,7 @@ describe('Search page', () => {
       };
     }).then((result) => {
       const message = inverse ? 'video list should be sorted by views inverted' :
-      'video list should be sorted by views';
+        'video list should be sorted by views';
       const sorted = result.slice().sort((a, b) => {
         if (inverse) return a.views - b.views;
         return b.views - a.views;
@@ -51,7 +51,7 @@ describe('Search page', () => {
       };
     }).then((result) => {
       const message = inverse ? 'video list should be sorted by date inverted' :
-      'video list should be sorted by date';
+        'video list should be sorted by date';
       const sorted = result.slice().sort((a, b) => {
         const tsa = new Date(a.date).getTime();
         const tsb = new Date(b.date).getTime();
@@ -102,7 +102,7 @@ describe('Search page', () => {
           body.dialogElement.element(by.css('h2')).getText(),
           result,
           'dialog video should be displayed'
-          );
+        );
         body.closeDialog();
         assert.eventually.isNotOk(body.dialogElement.isPresent(), 'dialog video should be displayed');
         assert.eventually.equal(page.getPath(), oldpath, 'Url should change back to old path when dialog is closed');

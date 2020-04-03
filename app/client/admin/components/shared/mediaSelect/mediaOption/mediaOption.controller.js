@@ -37,10 +37,10 @@
        */
       $onChanges: {
         value: function(changedProperties) {
-          if (changedProperties.hasOwnProperty('opaChecked'))
+          if (Object.prototype.hasOwnProperty.call(changedProperties, 'opaChecked'))
             self.isChecked = self.opaChecked;
 
-          if (changedProperties.hasOwnProperty('opaFocus') && self.opaFocus === true) {
+          if (Object.prototype.hasOwnProperty.call(changedProperties, 'opaFocus') && self.opaFocus === true) {
             $element.find('md-checkbox')[0].focus();
           }
         }

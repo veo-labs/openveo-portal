@@ -13,7 +13,7 @@ module.exports = {
         src: ['**/*.js', '!ov/*.js'], // Actual pattern(s) to match
         dest: '<%= project.uglifyBuildPath %>/lib', // Destination path prefix
         ext: '.min.js', // Dest filepaths will have this extension
-        extDot: 'first'   // Extensions in filenames begin after the first dot
+        extDot: 'first' // Extensions in filenames begin after the first dot
       },
       {
         expand: true, // Enable dynamic expansion
@@ -21,7 +21,7 @@ module.exports = {
         src: ['ov/*.js'], // Actual pattern(s) to match
         dest: '<%= project.uglifyBuildPath %>/', // Destination path prefix
         ext: '.min.js', // Dest filepaths will have this extension
-        extDot: 'first'   // Extensions in filenames begin after the first dot
+        extDot: 'first' // Extensions in filenames begin after the first dot
       }
     ]
   },

@@ -10,16 +10,18 @@
    * @param {type} $location
    * @returns {VideoController_L3.VideoController}
    */
-  function VideoController($scope,
-                           $http,
-                           $locale,
-                           $timeout,
-                           $location,
-                           $analytics,
-                           videoService,
-                           searchService,
-                           $sce,
-                           webServiceBasePath) {
+  function VideoController(
+    $scope,
+    $http,
+    $locale,
+    $timeout,
+    $location,
+    $analytics,
+    videoService,
+    searchService,
+    $sce,
+    webServiceBasePath
+  ) {
     $scope.defaultMode = 'both';
     if ($scope.video.metadata) {
       var template = $scope.video.metadata.template || '';

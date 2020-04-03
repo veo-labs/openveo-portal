@@ -263,7 +263,7 @@ class Server {
             res.send(responseBody);
           });
         } else {
-          res.status(404)        // HTTP status 404: NotFound
+          res.status(404) // HTTP status 404: NotFound
             .send('Not found');
         }
       };

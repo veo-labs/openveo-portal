@@ -68,7 +68,7 @@ class VersionController extends openVeoApi.controllers.Controller {
 
         // Filter feed lines to keep only lines containing an XML "id" tag with a version number containing
         // exclusively numbers and dots to eliminate release candidate / alpha and beta versions
-        let ids = rawData.match(/<id>.*\/([0-9\.]*)<\/id>/gi);
+        let ids = rawData.match(/<id>.*\/([0-9.]*)<\/id>/gi);
 
         // Latest version is the first one
         info.latestVersion = /<id>.*\/([^<]*)<\/id>/.exec(ids[0])[1];

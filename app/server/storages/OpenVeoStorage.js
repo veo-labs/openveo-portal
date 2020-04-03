@@ -169,11 +169,11 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
    */
   convertVideoPoi(videoId, duration, callback) {
     this.client
-    .post(`publish/videos/${videoId}/poi/convert`, {duration: duration})
-    .then((response) => {
-      callback(null, response.entity);
-    })
-    .catch(callback);
+      .post(`publish/videos/${videoId}/poi/convert`, {duration: duration})
+      .then((response) => {
+        callback(null, response.entity);
+      })
+      .catch(callback);
   }
 
   /**
@@ -193,11 +193,11 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
     let id = filter.getComparisonOperation(ResourceFilter.OPERATORS.EQUAL, 'id').value;
 
     this.client
-    .post(`${collection}/${id}`, data)
-    .then((response) => {
-      callback(null, response.total);
-    })
-    .catch(callback);
+      .post(`${collection}/${id}`, data)
+      .then((response) => {
+        callback(null, response.total);
+      })
+      .catch(callback);
   }
 
   /**

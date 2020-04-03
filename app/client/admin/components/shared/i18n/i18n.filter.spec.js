@@ -24,9 +24,10 @@ describe('opaTranslate', function() {
 
   it('should be able to translate a simple text', function() {
     translations.TRANSLATION_ID = 'Expected translation';
-    assert.equal($sce.getTrustedHtml(opaTranslate('TRANSLATION_ID')),
-                 translations.TRANSLATION_ID,
-                 'Wrong translation'
+    assert.equal(
+      $sce.getTrustedHtml(opaTranslate('TRANSLATION_ID')),
+      translations.TRANSLATION_ID,
+      'Wrong translation'
     );
   });
 
@@ -34,9 +35,10 @@ describe('opaTranslate', function() {
     translations.TRANSLATION_GROUP = {
       TRANSLATION_ID: 'Expected translation'
     };
-    assert.equal($sce.getTrustedHtml(opaTranslate('TRANSLATION_GROUP.TRANSLATION_ID')),
-                 translations.TRANSLATION_GROUP.TRANSLATION_ID,
-                 'Wrong translation'
+    assert.equal(
+      $sce.getTrustedHtml(opaTranslate('TRANSLATION_GROUP.TRANSLATION_ID')),
+      translations.TRANSLATION_GROUP.TRANSLATION_ID,
+      'Wrong translation'
     );
   });
 
@@ -70,9 +72,10 @@ describe('opaTranslate', function() {
 
   it('should accept translation ids in lowercase', function() {
     translations.TRANSLATION_ID = 'Expected translation';
-    assert.equal($sce.getTrustedHtml(opaTranslate('translation_id')),
-                 translations.TRANSLATION_ID,
-                 'Wrong translation'
+    assert.equal(
+      $sce.getTrustedHtml(opaTranslate('translation_id')),
+      translations.TRANSLATION_ID,
+      'Wrong translation'
     );
   });
 
@@ -82,14 +85,16 @@ describe('opaTranslate', function() {
       PLURAL: 'Plural translation'
     };
 
-    assert.equal($sce.getTrustedHtml(opaTranslate('TRANSLATION_ID', 0)),
-                 translations.TRANSLATION_ID.SINGLE,
-                 'Wrong single translation'
+    assert.equal(
+      $sce.getTrustedHtml(opaTranslate('TRANSLATION_ID', 0)),
+      translations.TRANSLATION_ID.SINGLE,
+      'Wrong single translation'
     );
 
-    assert.equal($sce.getTrustedHtml(opaTranslate('TRANSLATION_ID', 42)),
-                 translations.TRANSLATION_ID.PLURAL,
-                 'Wrong plural translation'
+    assert.equal(
+      $sce.getTrustedHtml(opaTranslate('TRANSLATION_ID', 42)),
+      translations.TRANSLATION_ID.PLURAL,
+      'Wrong plural translation'
     );
   });
 
@@ -111,7 +116,7 @@ describe('opaTranslate', function() {
     const placeholder2Value = 'Placeholder value 2';
     translations.TRANSLATION_ID = 'Text with placeholders: %placeholder1% and %placeholder2%';
     const exepectedTranslation = translations.TRANSLATION_ID.replace('%placeholder1%', placeholder1Value)
-    .replace('%placeholder2%', placeholder2Value);
+      .replace('%placeholder2%', placeholder2Value);
 
     assert.equal(
       $sce.getTrustedHtml(

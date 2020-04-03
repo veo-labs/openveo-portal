@@ -185,8 +185,8 @@ class AuthenticationController extends openVeoApi.controllers.Controller {
 
       // Only the super administrator can access the back office
       const webServiceBasePath = portalConf.serverConf.webServiceBasePath;
-      const escapedWebServiceBasePath = webServiceBasePath.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
-      const logoutRegExp = new RegExp(`^\/be${escapedWebServiceBasePath}logout.*`);
+      const escapedWebServiceBasePath = webServiceBasePath.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
+      const logoutRegExp = new RegExp(`^/be${escapedWebServiceBasePath}logout.*`);
       if (request.user.id === superAdminId || logoutRegExp.test(request.path))
         return next();
 

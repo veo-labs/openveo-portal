@@ -46,8 +46,22 @@
    * application. All actions not handled in partials are handled
    * by the main controller.
    */
-  function MainController($route, $scope, links, $mdDialog, $mdToast, $mdMedia, $mdPanel,
-  $location, $filter, $window, $analytics, searchService, authenticationService, webServiceBasePath) {
+  function MainController(
+    $route,
+    $scope,
+    links,
+    $mdDialog,
+    $mdToast,
+    $mdMedia,
+    $mdPanel,
+    $location,
+    $filter,
+    $window,
+    $analytics,
+    searchService,
+    authenticationService,
+    webServiceBasePath
+  ) {
     var self = this;
     var urlParams = $location.search();
     var authenticationStrategies = openVeoPortalSettings.authenticationStrategies;
@@ -203,14 +217,14 @@
      */
     this.showLoginDialog = function() {
       var position = $mdPanel.newPanelPosition()
-      .relativeTo('.log-in-button')
-      .addPanelPosition($mdPanel.xPosition.CENTER, $mdPanel.yPosition.CENTER);
+        .relativeTo('.log-in-button')
+        .addPanelPosition($mdPanel.xPosition.CENTER, $mdPanel.yPosition.CENTER);
 
       var animation = $mdPanel.newPanelAnimation()
-      .duration(50)
-      .openFrom('.log-in-button')
-      .closeTo('.log-in-button')
-      .withAnimation($mdPanel.animation.SCALE);
+        .duration(50)
+        .openFrom('.log-in-button')
+        .closeTo('.log-in-button')
+        .withAnimation($mdPanel.animation.SCALE);
 
       var config = {
         id: 'loginDialog',

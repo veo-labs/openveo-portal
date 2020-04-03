@@ -178,7 +178,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
     (callback) => {
       const ask = () => {
         const alert = conf.privateFilter.length ? '' :
-        'If you do not specify any group, results will not change even if the user is connected';
+          'If you do not specify any group, results will not change even if the user is connected';
         rl.question(`Enter the video group IDs that authentified user will see. ${alert}
 (Enter empty value to skip or finish):\n`, (answer) => {
           if (answer) {
@@ -221,7 +221,7 @@ you will need to define it in assets/themes/${conf.theme}/analytics.html
       process.stdout.write(error.message);
       callback();
     } else
-    fs.writeFile(confFile, JSON.stringify(conf, null, '\t'), {encoding: 'utf8'}, callback);
+      fs.writeFile(confFile, JSON.stringify(conf, null, '\t'), {encoding: 'utf8'}, callback);
   });
 }
 

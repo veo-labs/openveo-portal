@@ -114,7 +114,7 @@
        */
       $onChanges: {
         value: function(changedProperties) {
-          if (changedProperties.hasOwnProperty('opaMedias') && self.isInitialized) {
+          if (Object.prototype.hasOwnProperty.call(changedProperties, 'opaMedias') && self.isInitialized) {
             self.setCheckboxesStates();
             self.setFocusStates();
           }
@@ -217,7 +217,7 @@
        */
       optionFocus: {
         value: function($event) {
-          if (!KeyboardEvent.prototype.isPrototypeOf($event) || !self.focusStates.length)
+          if (!Object.prototype.isPrototypeOf.call(KeyboardEvent.prototype, $event) || !self.focusStates.length)
             return;
 
           if ($event.keyCode === 9) {

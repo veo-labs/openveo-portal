@@ -43,9 +43,9 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
 
     this.getOne(
       new ResourceFilter()
-      .equal('origin', openVeoApi.passport.STRATEGIES.LOCAL)
-      .equal('email', email)
-      .equal('password', password),
+        .equal('origin', openVeoApi.passport.STRATEGIES.LOCAL)
+        .equal('email', email)
+        .equal('password', password),
       {
         exclude: ['password']
       },
@@ -66,8 +66,8 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
   getUserByEmail(email, callback) {
     this.getOne(
       new ResourceFilter()
-      .equal('origin', openVeoApi.passport.STRATEGIES.LOCAL)
-      .equal('email', email),
+        .equal('origin', openVeoApi.passport.STRATEGIES.LOCAL)
+        .equal('email', email),
       {
         exclude: ['password']
       },
@@ -117,8 +117,8 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
     // Find users
     this.getAll(
       new ResourceFilter()
-      .equal('origin', openVeoApi.passport.STRATEGIES.LOCAL)
-      .in('email', userEmails),
+        .equal('origin', openVeoApi.passport.STRATEGIES.LOCAL)
+        .in('email', userEmails),
       {
         include: ['email']
       },

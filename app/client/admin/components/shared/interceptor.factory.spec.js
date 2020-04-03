@@ -64,8 +64,9 @@ describe('opaInterceptor', function() {
 
     it('should broadcast an "opaHttpError" when a network error occured', function() {
       $rootScope.$on('opaHttpError', (event, data) => {
-        assert.equal($sce.getTrustedHtml(data.message),
-                     $sce.getTrustedHtml($filter('opaTranslate')('ERRORS.SERVER')), 'Wrong error message');
+        assert.equal(
+          $sce.getTrustedHtml(data.message),
+          $sce.getTrustedHtml($filter('opaTranslate')('ERRORS.SERVER')), 'Wrong error message');
       });
 
       opaInterceptor.responseError({
@@ -82,9 +83,10 @@ describe('opaInterceptor', function() {
 
       Object.keys(errors).forEach((error) => {
         const deregister = $rootScope.$on('opaHttpError', (event, data) => {
-          assert.equal($sce.getTrustedHtml(data.message),
-                       $sce.getTrustedHtml($filter('opaTranslate')(error)),
-                       `Wrong error message for code ${errors[error]}`
+          assert.equal(
+            $sce.getTrustedHtml(data.message),
+            $sce.getTrustedHtml($filter('opaTranslate')(error)),
+            `Wrong error message for code ${errors[error]}`
           );
         });
 
@@ -101,9 +103,10 @@ describe('opaInterceptor', function() {
       while receiving a server error with an error code`, function() {
       const serverErrorCode = '42';
       $rootScope.$on('opaHttpError', (event, data) => {
-        assert.equal(data.message,
-                     $sce.getTrustedHtml($filter('opaTranslate')('ERRORS.SERVER')) + ` (code=${serverErrorCode})`,
-                     'Wrong error message'
+        assert.equal(
+          data.message,
+          $sce.getTrustedHtml($filter('opaTranslate')('ERRORS.SERVER')) + ` (code=${serverErrorCode})`,
+          'Wrong error message'
         );
       });
 

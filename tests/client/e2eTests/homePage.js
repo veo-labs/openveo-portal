@@ -84,7 +84,7 @@ describe('Home page', () => {
           body.dialogElement.element(by.css('h2')).getText(),
           result,
           'dialog video should be displayed'
-          );
+        );
         body.closeDialog();
         assert.eventually.isNotOk(body.dialogElement.isPresent(), 'dialog video should be displayed');
         assert.eventually.equal(page.getPath(), oldpath, 'Url should change back to old path when dialog is closed');
@@ -97,9 +97,9 @@ describe('Home page', () => {
   //   browser.getCurrentUrl().then((result) => {
   //     body.overSpeedDial();
   //     assert.eventually.ok(body.dialActionElement.first().isDisplayed(),
-   // 'Speed Dial opening should show first share button');
+  // 'Speed Dial opening should show first share button');
   //     assert.eventually.ok(body.dialActionElement.last().isDisplayed(),
-   // 'Speed Dial opening should show first share button');
+  // 'Speed Dial opening should show first share button');
   //     body.clickFirstDial();
   //     assert.eventually.equal(body.shareLinkElement.getText(), result, 'share link should be equal with current url')
   //     body.closeDialog();

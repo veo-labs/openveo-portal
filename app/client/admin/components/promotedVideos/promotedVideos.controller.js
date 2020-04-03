@@ -21,14 +21,14 @@
    * @param {Object} opaUrlFactory URL factory to manipulate URLs
    */
   function OpaPromotedVideosController(
-   $scope,
-   $filter,
-   $mdDialog,
-   $mdMedia,
-   opaSettingsFactory,
-   opaVideosFactory,
-   opaNotificationFactory,
-   opaUrlFactory
+    $scope,
+    $filter,
+    $mdDialog,
+    $mdMedia,
+    opaSettingsFactory,
+    opaVideosFactory,
+    opaNotificationFactory,
+    opaUrlFactory
   ) {
     var ctrl = this;
 

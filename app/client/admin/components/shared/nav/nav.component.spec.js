@@ -55,9 +55,10 @@ describe('opaAbout', function() {
       assert.equal(angular.element(itemElement.querySelector('a > md-icon')).text(), menuItem.icon);
 
       if (menuItem.selected) {
-        assert.include(angular.element(itemElement.querySelector('a')).attr('class').split(' '),
-                       'opa-selected',
-                       `Expected item ${menuItem.label} to be selected`
+        assert.include(
+          angular.element(itemElement.querySelector('a')).attr('class').split(' '),
+          'opa-selected',
+          `Expected item ${menuItem.label} to be selected`
         );
       }
 

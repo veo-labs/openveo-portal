@@ -43,14 +43,16 @@ describe('opaAbout', function() {
     ctrl.isLoaded = false;
     scope.$digest();
 
-    assert.notInclude(angular.element(element[0].querySelector('.opa-loader')).attr('class').split(' '),
-                      'ng-hide',
-                      'Expected loader to be displayed'
+    assert.notInclude(
+      angular.element(element[0].querySelector('.opa-loader')).attr('class').split(' '),
+      'ng-hide',
+      'Expected loader to be displayed'
     );
 
-    assert.include(angular.element(element[0].querySelector('.opa-about > div')).attr('class').split(' '),
-                   'ng-hide',
-                   'Expected content to be hidden'
+    assert.include(
+      angular.element(element[0].querySelector('.opa-about > div')).attr('class').split(' '),
+      'ng-hide',
+      'Expected content to be hidden'
     );
   });
 
