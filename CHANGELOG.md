@@ -29,6 +29,7 @@
 - **video.js** has been upgraded from 7.3.0 to **7.7.5**
 - **videojs-contrib-dash** has been upgraded from 2.10.0 to **2.11.0**
 - **chai** has been upgraded from 4.0.2 to **4.2.0**
+- **chai-spies** has been upgraded from 0.7.1 to **1.0.0**
 
 # 5.3.1 / 2019-08-07
 
