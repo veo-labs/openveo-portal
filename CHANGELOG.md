@@ -39,6 +39,7 @@
 - **grunt-contrib-yuidoc** sub dependencies have been upgraded
 - **grunt-eslint** has been upgraded from 19.0.0 to **22.0.0**
 - **grunt-gh-pages** has been upgraded from 2.0.0 to **3.1.0**
+- **grunt-karma** has been upgraded from 2.0.0 to **3.0.2**
 
 # 5.3.1 / 2019-08-07
 
