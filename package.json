@@ -68,7 +68,7 @@
     "@openveo/test": "7.*",
     "angular-mocks": "1.6.4",
     "chai": "^4.2.0",
-    "chai-as-promised": "7.1.1",
+    "chai-as-promised": "^7.1.1",
     "chai-spies": "0.7.1",
     "grunt": "1.0.1",
     "grunt-angular-templates": "1.1.0",
