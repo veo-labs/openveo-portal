@@ -22,14 +22,8 @@ describe('Cache', function() {
       const expectedKeyId = 'cache-key';
       cache.set(expectedKeyId, 'value');
 
-      const onDelete = chai.spy((error, total) => {
-        assert.isNull(error);
-        assert.equal(total, 1, 'Wrong number of deleted entries');
-      });
-
-      assert.equal(cache.del(expectedKeyId, onDelete), 1, 'Wrong returned number of deleted entries');
+      assert.equal(cache.del(expectedKeyId), 1, 'Wrong number of deleted entries');
       assert.isUndefined(cache.get(expectedKeyId), 'Expected entry to be removed');
-      onDelete.should.have.been.called.exactly(1);
     });
 
     it('should be able to delete several keys', function() {
@@ -38,17 +32,10 @@ describe('Cache', function() {
       for (let key of keys)
         cache.set(key, `${key}-value`);
 
-      const onDelete = chai.spy((error, total) => {
-        assert.isNull(error);
-        assert.equal(total, keys.length, 'Wrong number of deleted entries');
-      });
-
-      assert.equal(cache.del(keys, onDelete), keys.length, 'Wrong returned number of deleted entries');
+      assert.equal(cache.del(keys), keys.length, 'Wrong number of deleted entries');
 
       for (let key of keys)
         assert.isUndefined(cache.get(key), `Expected ${key} to be removed`);
-
-      onDelete.should.have.been.called.exactly(1);
     });
 
     it('should be able to delete several keys using a wildcard', function() {
@@ -58,17 +45,10 @@ describe('Cache', function() {
       for (let key of keys)
         cache.set(key, `${key}-value`);
 
-      const onDelete = chai.spy((error, total) => {
-        assert.isNull(error, 'Unexpected error');
-        assert.equal(total, keys.length, 'Wrong number of deleted entries');
-      });
-
-      assert.equal(cache.del(`${prefix}*`, onDelete), keys.length, 'Wrong returned number of deleted entries');
+      assert.equal(cache.del(`${prefix}*`), keys.length, 'Wrong number of deleted entries');
 
       for (let key of keys)
         assert.isUndefined(cache.get(key), `Expected ${key} to be removed`);
-
-      onDelete.should.have.been.called.exactly(1);
     });
 
   });
@@ -78,15 +58,10 @@ describe('Cache', function() {
     it('should be able to get a value from cache', function() {
       const expectedKeyId = 'cache-key';
       const expectedValue = 'value';
-      cache.set(expectedKeyId, 'value');
 
-      const onGet = chai.spy((error, value) => {
-        assert.isNull(error, 'Unexpected error');
-        assert.equal(value, expectedValue, 'Wrong value');
-      });
+      cache.set(expectedKeyId, expectedValue);
 
-      assert.equal(cache.get(expectedKeyId, onGet), expectedValue, 'Wrong returned value');
-      onGet.should.have.been.called.exactly(1);
+      assert.equal(cache.get(expectedKeyId), expectedValue, 'Wrong value');
     });
 
     it('should be able to get several values using wildcard', function() {
@@ -98,28 +73,21 @@ describe('Cache', function() {
       for (let key in entries)
         cache.set(key, entries[key]);
 
-      const onGet = chai.spy((error, values) => {
-        assert.isNull(error, 'Unexpected error');
-        assert.deepEqual(values, Object.values(entries), 'Wrong values');
-      });
-
-      assert.deepEqual(cache.get(`${prefix}*`, onGet), Object.values(entries), 'Wrong returned values');
-      onGet.should.have.been.called.exactly(1);
+      assert.deepEqual(cache.get(`${prefix}*`), Object.values(entries), 'Wrong values');
     });
 
     it('should return undefined if value is not found', function() {
-      const onGet = chai.spy((error, value) => {
-        assert.isNull(error, 'Unexpected error');
-        assert.isUndefined(value, 'Unexpected value');
-      });
-
-      assert.isUndefined(cache.get('Unknown', onGet), 'Unexpected value');
+      assert.isUndefined(cache.get('Unknown'), 'Unexpected value');
     });
 
-    it('should throw an error if value is not found and errors activated', function() {
-      assert.throws(() => {
-        cache.get('Unknown', true);
-      });
+    it('should throw an error if key is not a string nor a number', function() {
+      const invalidKeys = [[], {}, true];
+
+      for (let invalidKey of invalidKeys) {
+        assert.throws(() => {
+          cache.get(invalidKey, true);
+        });
+      }
     });
 
   });
@@ -135,13 +103,7 @@ describe('Cache', function() {
       for (let key in entries)
         cache.set(key, entries[key]);
 
-      const onGet = chai.spy((error, values) => {
-        assert.isNull(error, 'Unexpected error');
-        assert.deepEqual(values, entries, 'Wrong values');
-      });
-
-      assert.deepEqual(cache.mget(Object.keys(entries), onGet), entries, 'Wrong returned values');
-      onGet.should.have.been.called.exactly(1);
+      assert.deepEqual(cache.mget(Object.keys(entries)), entries, 'Wrong values');
     });
 
     it('should be able to get several values using wildcard', function() {
@@ -154,13 +116,7 @@ describe('Cache', function() {
       for (let key in entries)
         cache.set(key, entries[key]);
 
-      const onGet = chai.spy((error, values) => {
-        assert.isNull(error, 'Unexpected error');
-        assert.deepEqual(values, entries, 'Wrong values');
-      });
-
-      assert.deepEqual(cache.mget([`${prefix}*`], onGet), entries, 'Wrong returned values');
-      onGet.should.have.been.called.exactly(1);
+      assert.deepEqual(cache.mget([`${prefix}*`]), entries, 'Wrong values');
     });
 
   });
