@@ -4,7 +4,7 @@
  * @module controllers
  */
 
-const JSONPath = require('jsonpath-plus');
+const JSONPath = require('jsonpath-plus').JSONPath;
 const openVeoApi = require('@openveo/api');
 const portalConf = process.require('app/server/conf.js');
 const context = process.require('app/server/context.js');

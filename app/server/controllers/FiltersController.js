@@ -5,7 +5,7 @@
  */
 
 const async = require('async');
-const JSONPath = require('jsonpath-plus');
+const JSONPath = require('jsonpath-plus').JSONPath;
 const openVeoApi = require('@openveo/api');
 const context = process.require('/app/server/context.js');
 const portalConf = process.require('app/server/conf.js');
