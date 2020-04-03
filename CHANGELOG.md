@@ -44,6 +44,7 @@
 - **grunt-mocha-test** has been upgraded from 0.13.2 to **0.13.3**
 - **grunt-protractor-runner** sub dependencies have been upgraded
 - **grunt-replace** sub dependencies have been upgraded
+- **karma** has been upgraded from 1.3.0 to **4.4.1**
 
 # 5.3.1 / 2019-08-07
 
