@@ -21,6 +21,7 @@
 - **mustache** has been upgraded from 2.3.0 to **3.2.1**
 - **node-cache** has been upgraded from 4.1.1 to **5.1.0**
 - **nopt** has been upgraded from 4.0.1 to **4.0.3**
+- **passport** has been upgraded from 0.4.0 to **0.4.1**
 
 # 5.3.1 / 2019-08-07
 
