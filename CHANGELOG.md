@@ -26,6 +26,7 @@
 - **semver** has been upgraded from 5.4.1 to **7.1.3**
 - **serve-favicon** has been upgraded from 2.3.2 to **2.5.0**
 - **shortid** has been upgraded from 2.2.6 to **2.2.15**
+- **video.js** has been upgraded from 7.3.0 to **7.7.5**
 
 # 5.3.1 / 2019-08-07
 
