@@ -50,6 +50,7 @@
 - **karma-ie-launcher** has been removed as no tests are performed on Internet Explorer
 - **mocha** has been upgraded from 3.2.0 to **7.1.1**
 - **mock-require** has been upgraded from 3.0.1 to **3.0.3**
+- **nodemon** has been upgraded from 1.11.0 to **2.0.2**
 
 # 5.3.1 / 2019-08-07
 
