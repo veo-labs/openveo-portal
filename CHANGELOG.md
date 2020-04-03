@@ -24,6 +24,7 @@
 - **passport** has been upgraded from 0.4.0 to **0.4.1**
 - **roboto-fontface** has been upgraded from 0.8.0 to **0.10.0**
 - **semver** has been upgraded from 5.4.1 to **7.1.3**
+- **serve-favicon** has been upgraded from 2.3.2 to **2.5.0**
 
 # 5.3.1 / 2019-08-07
 
