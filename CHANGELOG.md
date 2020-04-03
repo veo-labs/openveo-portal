@@ -18,6 +18,7 @@
 - **express** has been upgraded from 4.14.0 to **4.17.1**
 - **express-session** has been upgraded from 1.14.2 to **1.17.0**
 - **jsonpath-plus** has been upgraded from 0.15.0 to **3.0.0**
+- **mustache** has been upgraded from 2.3.0 to **3.2.1**
 
 # 5.3.1 / 2019-08-07
 
