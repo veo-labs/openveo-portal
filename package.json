@@ -52,7 +52,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "jsonpath-plus": "^3.0.0",
-    "material-design-icons": "3.0.1",
+    "material-design-icons": "^3.0.1",
     "mustache": "2.3.0",
     "node-cache": "4.1.1",
     "nopt": "4.0.1",
