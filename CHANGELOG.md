@@ -11,6 +11,7 @@
 ## DEPENDENCIES
 
 - **async** has been upgraded from 2.1.4 to **3.2.0**
+- **body-parser** has been upgraded from 1.15.2 to **1.19.0**
 
 # 5.3.1 / 2019-08-07
 
