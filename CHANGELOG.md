@@ -28,6 +28,7 @@
 - **shortid** has been upgraded from 2.2.6 to **2.2.15**
 - **video.js** has been upgraded from 7.3.0 to **7.7.5**
 - **videojs-contrib-dash** has been upgraded from 2.10.0 to **2.11.0**
+- **chai** has been upgraded from 4.0.2 to **4.2.0**
 
 # 5.3.1 / 2019-08-07
 
