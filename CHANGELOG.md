@@ -43,6 +43,7 @@
 - **grunt-mkdocs** has been upgraded from 0.2.0 to **1.0.1**
 - **grunt-mocha-test** has been upgraded from 0.13.2 to **0.13.3**
 - **grunt-protractor-runner** sub dependencies have been upgraded
+- **grunt-replace** sub dependencies have been upgraded
 
 # 5.3.1 / 2019-08-07
 

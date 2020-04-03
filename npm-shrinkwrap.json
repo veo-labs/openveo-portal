@@ -1418,9 +1418,9 @@
       "integrity": "sha512-LuO8/7LW6XuR5ERn1yavXAfodGRhuY2yP60JTZIw5yNYMCE5lUVbk3NFUCJxjnphQH+Xemp5hOGb1LgUXm00Xw=="
     },
     "coffee-script": {
-      "version": "1.10.0",
-      "resolved": "https://registry.npmjs.org/coffee-script/-/coffee-script-1.10.0.tgz",
-      "integrity": "sha1-EpOLz5vhlI+gBvkuDEyegXBRCMA=",
+      "version": "1.12.7",
+      "resolved": "https://registry.npmjs.org/coffee-script/-/coffee-script-1.12.7.tgz",
+      "integrity": "sha512-fLeEhqwymYat/MpTPUjSKHVYYl0ec2mOyALEMLmzr5i1isuG+6jfI2j2d5oBO3VIzgUXgBVIcOT9uH1TFxBckw==",
       "dev": true
     },
     "collection-visit": {
@@ -5457,21 +5457,13 @@
       "dev": true
     },
     "js-yaml": {
-      "version": "3.5.5",
-      "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-3.5.5.tgz",
-      "integrity": "sha1-A3fDgBfKvHMisNH7zSWkkWQfL74=",
+      "version": "3.13.1",
+      "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-3.13.1.tgz",
+      "integrity": "sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==",
       "dev": true,
       "requires": {
-        "argparse": "^1.0.2",
-        "esprima": "^2.6.0"
-      },
-      "dependencies": {
-        "esprima": {
-          "version": "2.7.3",
-          "resolved": "https://registry.npmjs.org/esprima/-/esprima-2.7.3.tgz",
-          "integrity": "sha1-luO3DVd59q1JzQMmc9HDEnZ7pYE=",
-          "dev": true
-        }
+        "argparse": "^1.0.7",
+        "esprima": "^4.0.0"
       }
     },
     "jsbn": {
