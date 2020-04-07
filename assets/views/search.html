@@ -78,7 +78,7 @@
         <div layout="row" layout-xs="column" layout-wrap>
           <md-input-container ng-repeat="filter in filters | orderBy:'name'" class="md-block" flex-gt-sm="33" flex-sm="50" flex-xs="100">
 
-            <!-- Categories -->
+            <!-- Filter label -->
             <label ng-if="filter.type !== 'boolean'" ng-bind="filter.name == 'categories' ? 'SEARCH.CATEGORY_FILTER' : filter.name | translate"></label>
 
             <!-- Lists -->
