@@ -135,6 +135,10 @@ class SettingsController extends openVeoApi.controllers.EntityController {
           }
 
           value = request.body.value;
+        } else if (settingId === 'search') {
+          value = openVeoApi.util.shallowValidateObject(request.body.value, {
+            pois: {type: 'boolean', required: true, default: false}
+          });
         }
       } catch (error) {
         return next(errors.UPDATE_SETTINGS_WRONG_PARAMETERS);

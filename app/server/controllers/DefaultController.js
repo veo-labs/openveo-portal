@@ -45,60 +45,77 @@ class DefaultController extends openVeoApi.controllers.Controller {
     const configuredAuth = (authConf && Object.keys(authConf)) || [];
     const settingsProvider = new SettingsProvider(context.database);
 
-    // Get live settings
-    settingsProvider.getOne(new ResourceFilter().equal('id', 'live'), null, (error, settings) => {
-      if (error) {
-        process.logger.error(error.message, {error: error, method: 'defaultAction'});
-        return next(errors.DEFAULT_GET_SETTING_ERROR);
-      }
-
-      // Retrieve the list of scripts and css files from configuration
-      response.locals.librariesScriptsBase = [];
-      response.locals.css = [];
-
-      if (applicationConf['libraries']) {
-        response.locals.librariesScriptsBase.concat(applicationConf['libraries'].map((library) => {
-          if (library.files) {
-            library.files.forEach((filePath) => {
-              const fileUri = path.join(library.mountPath, filePath);
-              if (/.css$/.test(fileUri)) response.locals.css.push(fileUri);
-              else if (/.js$/.test(fileUri)) response.locals.librariesScriptsBase.push(fileUri);
-            });
-          }
-        }));
-      }
-
-      response.locals.librariesScripts = applicationConf['scriptLibFiles'][env] || [];
-      response.locals.librariesScripts = response.locals.librariesScriptsBase.concat(response.locals.librariesScripts);
-      response.locals.scripts = applicationConf['scriptFiles'][env] || [];
-      response.locals.css = response.locals.css.concat(applicationConf['cssFiles']);
-      response.locals.languages = ['"en"', '"fr"'];
-      response.locals.theme = portalConf.conf.theme;
-      response.locals.useDialog = portalConf.conf.useDialog;
-      response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
-      response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
-      response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
-      response.locals.superAdminId = portalConf.superAdminId;
-      response.locals.live = settings && settings.value.activated &&
-        (
-          !settings.value.private ||
-          ((request.user && request.user.hasLiveAccess) || false)
-        );
-      response.locals.live = response.locals.live || false;
-
-      // Add theme css file
-      response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);
-
-      // Retrieve analytics template and render root with analytics
-      const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.conf.theme, 'analytics.html');
-      cons.mustache(analyticsPath, {}, (err, html) => {
-        if (err) response.render('root', response.locals);
-        else {
-          response.locals.analytics = html;
-          response.render('root', response.locals);
+    // Get both live and search settings
+    settingsProvider.getAll(
+      new ResourceFilter().or([
+        new ResourceFilter().equal('id', 'live'),
+        new ResourceFilter().equal('id', 'search')
+      ]),
+      null,
+      {id: 'desc'},
+      (error, settings) => {
+        if (error) {
+          process.logger.error(error.message, {error: error, method: 'defaultAction'});
+          return next(errors.DEFAULT_GET_SETTING_ERROR);
         }
-      });
-    });
+        var liveSettings = null;
+        var searchSettings = null;
+
+        if (settings[0] && settings[0].id === 'live') liveSettings = settings[0].value;
+        else if (settings[1] && settings[1].id === 'live') liveSettings = settings[1].value;
+        if (settings[0] && settings[0].id === 'search') searchSettings = settings[0].value;
+        else if (settings[1] && settings[1].id === 'search') searchSettings = settings[1].value;
+
+        // Retrieve the list of scripts and css files from configuration
+        response.locals.librariesScriptsBase = [];
+        response.locals.css = [];
+
+        if (applicationConf['libraries']) {
+          response.locals.librariesScriptsBase.concat(applicationConf['libraries'].map((library) => {
+            if (library.files) {
+              library.files.forEach((filePath) => {
+                const fileUri = path.join(library.mountPath, filePath);
+                if (/.css$/.test(fileUri)) response.locals.css.push(fileUri);
+                else if (/.js$/.test(fileUri)) response.locals.librariesScriptsBase.push(fileUri);
+              });
+            }
+          }));
+        }
+
+        response.locals.librariesScripts = applicationConf['scriptLibFiles'][env] || [];
+        response.locals.librariesScripts =
+          response.locals.librariesScriptsBase.concat(response.locals.librariesScripts);
+        response.locals.scripts = applicationConf['scriptFiles'][env] || [];
+        response.locals.css = response.locals.css.concat(applicationConf['cssFiles']);
+        response.locals.languages = ['"en"', '"fr"'];
+        response.locals.theme = portalConf.conf.theme;
+        response.locals.useDialog = portalConf.conf.useDialog;
+        response.locals.user = request.isAuthenticated() ? JSON.stringify(request.user) : JSON.stringify(null);
+        response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
+        response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
+        response.locals.superAdminId = portalConf.superAdminId;
+        response.locals.live = liveSettings && liveSettings.activated &&
+          (
+            !liveSettings.private ||
+            ((request.user && request.user.hasLiveAccess) || false)
+          );
+        response.locals.live = response.locals.live || false;
+        response.locals.search = JSON.stringify(searchSettings || {});
+
+        // Add theme css file
+        response.locals.css.push(`/themes/${portalConf.conf.theme}/style.css`);
+
+        // Retrieve analytics template and render root with analytics
+        const analyticsPath = path.join(process.root, '/assets/themes/', portalConf.conf.theme, 'analytics.html');
+        cons.mustache(analyticsPath, {}, (err, html) => {
+          if (err) response.render('root', response.locals);
+          else {
+            response.locals.analytics = html;
+            response.render('root', response.locals);
+          }
+        });
+      }
+    );
 
   }
 
