@@ -159,6 +159,8 @@ class VideosController extends openVeoApi.controllers.Controller {
    * @param {Object} request.body.filter Web service endpoint filters
    * @param {String} [request.body.filter.query] Filter to get only videos which contain the query
    * inside the title or description
+   * @param {Number} [request.body.filter.searchInPois=0] 1 to also search in points of interest (tags / chapters)
+   * titles and descriptions
    * @param {String} [request.body.filter.dateStart] Filter to get only videos after a particular date
    * @param {String} [request.body.filter.dateEnd] Filter to get only videos before a particular date
    * @param {String} [request.body.filter.sortBy] The name of the property to sort by (either "views" or "date")
@@ -182,6 +184,7 @@ class VideosController extends openVeoApi.controllers.Controller {
     try {
       params = openVeoApi.util.shallowValidateObject(body.filter, {
         query: {type: 'string'},
+        searchInPois: {type: 'number', in: [0, 1], default: 0},
         dateStart: {type: 'date'},
         dateEnd: {type: 'date'},
         categories: {type: 'array<string>'},
@@ -217,6 +220,9 @@ class VideosController extends openVeoApi.controllers.Controller {
 
     // Search query
     if (params['query']) filter.search(params['query']);
+
+    // Search in points of interest
+    if (params['searchInPois'] !== undefined) filter.equal('searchInPois', params['searchInPois']);
 
     // Date
     if (params['dateStart']) filter.equal('dateStart', params['dateStart']);
