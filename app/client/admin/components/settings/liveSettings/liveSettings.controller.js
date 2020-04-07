@@ -71,7 +71,7 @@
        * @type Object
        */
       settings: {
-        value: {},
+        value: null,
         writable: true
       },
 
@@ -90,13 +90,16 @@
         value: function(changedProperties) {
           if (changedProperties.opaSettings && changedProperties.opaSettings.currentValue) {
             var settings = angular.copy(changedProperties.opaSettings.currentValue);
-            ctrl.settings.activated = settings.activated === undefined ? false : settings.activated;
-            ctrl.settings.playerType = settings.playerType || ctrl.availablePlayers[0].id;
-            ctrl.settings.url = settings.url || null;
-            ctrl.settings.wowza = settings.wowza || {};
+
+            ctrl.settings = {
+              activated: settings.activated === undefined ? false : settings.activated,
+              playerType: settings.playerType || ctrl.availablePlayers[0].id,
+              url: settings.url || null,
+              wowza: settings.wowza || {},
+              private: settings.private === undefined ? false : settings.private,
+              groups: settings.groups || []
+            };
             ctrl.settings.wowza.playerLicenseKey = (settings.wowza && settings.wowza.playerLicenseKey) || null;
-            ctrl.settings.private = settings.private === undefined ? false : settings.private;
-            ctrl.settings.groups = settings.groups || [];
 
             // Update live switch message
             ctrl.updateLiveSwitchMessage(ctrl.settings.activated);
