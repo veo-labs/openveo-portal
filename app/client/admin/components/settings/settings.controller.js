@@ -30,6 +30,7 @@
   ) {
     var ctrl = this;
     var liveSettingsController;
+    var searchSettingsController;
     var mdContentController = $element.controller && $element.controller('mdContent');
 
     Object.defineProperties(ctrl, {
@@ -70,6 +71,18 @@
       },
 
       /**
+       * Search settings.
+       *
+       * @property searchSettings
+       * @type Object
+       * @final
+       */
+      searchSettings: {
+        value: null,
+        writable: true
+      },
+
+      /**
        * Initializes controller and informs when component is loaded.
        *
        * @method $onInit
@@ -79,10 +92,12 @@
         value: function() {
           $q.all([
             opaSettingsFactory.getSetting('live'),
+            opaSettingsFactory.getSetting('search'),
             opaGroupsFactory.getGroups()
           ]).then(function(results) {
-            var groups = results[1].data && results[1].data.entities;
+            var groups = results[2].data && results[2].data.entities;
             ctrl.liveSettings = results[0].data && results[0].data.entity && results[0].data.entity.value || {};
+            ctrl.searchSettings = results[1].data && results[1].data.entity && results[1].data.entity.value || {};
 
             // Build the list of available groups
             if (groups) {
@@ -102,6 +117,10 @@
 
           $scope.$on('opaLiveSettingsLinked', function(event, data) {
             liveSettingsController = data.controller;
+          });
+
+          $scope.$on('opaSearchSettingsLinked', function(event, data) {
+            searchSettingsController = data.controller;
           });
 
           // If the component is inside an md-content element the only way to have a background color
@@ -127,7 +146,10 @@
         value: function() {
           ctrl.isSaving = true;
 
-          opaSettingsFactory.updateSetting('live', ctrl.liveSettings).then(function() {
+          $q.all([
+            opaSettingsFactory.updateSetting('live', ctrl.liveSettings),
+            opaSettingsFactory.updateSetting('search', ctrl.searchSettings)
+          ]).then(function() {
             ctrl.isSaving = false;
             opaNotificationFactory.displayNotification($filter('opaTranslate')('SETTINGS.SAVE_SUCCESS'), 1000);
           }, function(error) {
@@ -162,6 +184,21 @@
       },
 
       /**
+       * Updates search settings.
+       *
+       * @method updateSearchSettings
+       * @param {Object} settings Search settings
+       * @param {Boolean} settings.pois true if search must be performed also in points of interest, false otherwise
+       * @final
+       */
+      updateSearchSettings: {
+        value: function(settings) {
+          if (!settings || !ctrl.searchSettings) return;
+          ctrl.searchSettings.pois = settings.pois;
+        }
+      },
+
+      /**
        * Tests if settings are valid.
        *
        * @method isValid
@@ -170,8 +207,8 @@
        */
       isValid: {
         value: function() {
-          if (liveSettingsController) {
-            return liveSettingsController.isValid();
+          if (liveSettingsController && searchSettingsController) {
+            return liveSettingsController.isValid() && searchSettingsController.isValid();
           }
           return false;
         }

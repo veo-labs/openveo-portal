@@ -91,6 +91,14 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         YOUTUBE: 'Youtube',
         VODALYS: 'Vodalys'
       },
+      SEARCH: {
+        TITLE: 'Search',
+        INFO_BUTTON_DESCRIPTION: 'Show more information about search configuration',
+        INFO_BUTTON_TOOLTIP: 'Show more information about search configuration',
+        INFO: '<strong>Search</strong> in portal default behaviour can be customized from here.',
+        POIS_LABEL: 'Search in tags and chapters by default',
+        POIS_DESCRIPTION: 'Search in titles and descriptions of tags and chapters by default'
+      },
       SUBMIT_BUTTON: 'Save',
       SAVE_SUCCESS: 'Settings saved',
       ERROR_MESSAGE: 'Can\'t load settings'

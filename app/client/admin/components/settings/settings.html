@@ -3,6 +3,9 @@
     <div layout="row" flex>
       <div layout="column" flex flex-gt-xs="50" flex-gt-md="33">
 
+        <!-- Search settings -->
+        <opa-search-settings opa-settings="$ctrl.searchSettings" opa-on-update="$ctrl.updateSearchSettings(settings)"></opa-search-settings>
+
         <!-- Live settings -->
         <opa-live-settings opa-groups="$ctrl.availableGroups" opa-settings="$ctrl.liveSettings" opa-on-update="$ctrl.updateLiveSettings(settings)"></opa-live-settings>
 

@@ -91,6 +91,14 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         YOUTUBE: 'Youtube',
         VODALYS: 'Vodalys'
       },
+      SEARCH: {
+        TITLE: 'Recherche',
+        INFO_BUTTON_DESCRIPTION: 'Afficher plus d\'informations sur la configuration du moteur de recherche',
+        INFO_BUTTON_TOOLTIP: 'Afficher plus d\'informations sur la configuration du moteur de recherche',
+        INFO: '<strong>Recherche</strong> du portail peut être paramétrée à partir d\'ici.',
+        POIS_LABEL: 'Rechercher dans les tags et chapitres par défaut',
+        POIS_DESCRIPTION: 'Rechercher dans les titres et descriptions des tags et chapitres par défaut'
+      },
       SUBMIT_BUTTON: 'Enregistrer',
       SAVE_SUCCESS: 'Configuration enregistrée',
       ERROR_MESSAGE: 'Impossible d\'afficher la configuration'
