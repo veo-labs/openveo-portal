@@ -43,6 +43,8 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
       NO_RESULTS: 'Aucun résultat correspondant à la recherche',
       ADVANCED: 'Recherche avancée',
       ORDER_BY: 'Trier par : ',
+      POINTS_OF_INTEREST: 'Rechercher dans les chapitres et tags',
+      POINTS_OF_INTEREST_ARIA_LABEL: 'Rechercher dans les titres et descriptions des chapitres et tags',
       FILTER_BY: 'Filtrer par :',
       NAME_FILTER: 'Intervenant',
       CATEGORY_FILTER: 'Rubrique',

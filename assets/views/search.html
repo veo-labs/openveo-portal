@@ -65,6 +65,12 @@
         </div>
 
         <div layout="row" layout-xs="column">
+          <md-checkbox ng-model="search['searchInPois']" aria-label="{{SEARCH.POINTS_OF_INTEREST_ARIA_LABEL | translate}}">
+            <span ng-bind="'SEARCH.POINTS_OF_INTEREST' | translate"></span>
+          </md-checkbox>
+        </div>
+
+        <div layout="row" layout-xs="column">
           <label ng-bind="'SEARCH.FILTER_BY'|translate"></label>
         </div>
 
@@ -128,13 +134,13 @@
         <span hide-xs hide-sm flex="20" class="md-body-2" ng-bind="'SEARCH.ORDER_BY' | translate"></span>
         <md-switch md-no-ink
                    ng-model="search.sortBy"
-                   ng-change="orderOnChange()"
+                   ng-change="searchSubmit()"
                    aria-label="{{'SEARCH.DATE_OR_VIEWS' | translate}}">
           <md-icon material-icons md-light md-48 ng-bind="search.sortBy ? 'visibility' : 'access_time'"></md-icon>
         </md-switch>
         <md-switch md-no-ink
                    ng-model="search.sortOrder"
-                   ng-change="orderOnChange()"
+                   ng-change="searchSubmit()"
                    aria-label="{{'SEARCH.ORDER_ASC' | translate}}">
           <md-icon material-icons md-light md-48 ng-class="{reverse: search.sortOrder}">sort</md-icon>
         </md-switch>

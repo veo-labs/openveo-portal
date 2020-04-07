@@ -5,6 +5,10 @@
 - Drop support for NodeJS &lt; 12.4.0 and NPM &lt; 6.9.0
 - Drop support for OpenVeo Publish &lt;11.0.0
 
+## NEW FEATURES
+
+- Add a checkbox to advanced search form to perform search in titles and descriptions of chapters and tags. Default checkbox value can be customized from within the administration interface
+
 ## BUG FIXES
 
 - Upgrade Wowza player which wasn't working with version 4.7.8 of Wowza

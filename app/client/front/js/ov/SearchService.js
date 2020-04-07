@@ -128,25 +128,6 @@
       promotedVideos = {};
     }
 
-    /**
-     * Clears search parameters to avoid conflicts
-     *
-     * @param  {Object} params
-     * @return {Object} clean search params
-     */
-    function cleanSearch(params) {
-      var paramsKeys = Object.keys(params);
-      var paramsCopy = angular.copy(params);
-
-      paramsKeys.map(function(value) {
-        if (paramsCopy[value] === '' || paramsCopy[value] === false || paramsCopy[value] === 'false') {
-          delete params[value];
-        }
-      });
-
-      return params;
-    }
-
     return {
       cacheClear: cacheClear,
       loadVideo: loadVideo,
@@ -154,8 +135,7 @@
       getCategories: getCategories,
       getCategoryName: getCategoryName,
       getPromotedVideos: getPromotedVideos,
-      search: search,
-      cleanSearch: cleanSearch
+      search: search
     };
 
   }
