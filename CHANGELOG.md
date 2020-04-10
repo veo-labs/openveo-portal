@@ -8,6 +8,7 @@
 ## NEW FEATURES
 
 - Add a checkbox to advanced search form to perform search in titles and descriptions of chapters and tags. Default checkbox value can be customized from within the administration interface
+- Use Roboto font family instead of default browser sans-serif font for the front end
 
 ## BUG FIXES
 
