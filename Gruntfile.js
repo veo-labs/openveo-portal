@@ -113,6 +113,6 @@ module.exports = function(grunt) {
   ]);
 
   // Launch back office unit tests
-  grunt.registerTask('unit-tests', ['ngDp:backOffice', 'karma:backOffice']);
+  grunt.registerTask('unit-tests', ['ngDp:backOffice', 'karma:backOffice', 'karma:frontOffice']);
 
 };

@@ -55,6 +55,82 @@
     background-color: $BACKGROUND_A700_COLOR;
   }
 
+  md-grid-list md-grid-tile {
+    cursor: auto;
+    min-width: 470px;
+    overflow: hidden;
+
+    // Video thumbnail in resting state
+    .thumbnail {
+      cursor: pointer;
+      margin: 0;
+      width: 256px;
+      height: 144px;
+
+      // Video thumbnail in over state
+      &:hover, &:focus {
+        outline: none;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+        // Thumbnail play overlay
+        .play {
+          z-index: 1;
+          background-color: rgba(0, 0, 0, 0.2);
+
+          // Play icon
+          md-icon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    // Video details
+    .details {
+
+      // Video title
+      .md-body-2 {
+        cursor: pointer;
+        overflow: hidden;
+        line-height: 20px;
+        padding-bottom: 4px;
+        max-height: 44px;
+
+        // Video title in both focus and over states
+        &:focus, &:hover {
+          text-decoration: underline;
+          outline: 0;
+        }
+      }
+
+      // Video points of interest
+      .pois {
+
+        ul {
+          background-color: $BACKGROUND_100_COLOR;
+          margin: 0;
+          padding: 4px;
+          max-height: 40px;
+          overflow-y: auto;
+        }
+
+        // Point of interest time
+        .time {
+          cursor: pointer;
+
+          // Point of interest time in both focus and over states
+          &:focus, &:hover {
+            text-decoration: underline;
+            outline: 0;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
 }
 
 /* Options of select filters */

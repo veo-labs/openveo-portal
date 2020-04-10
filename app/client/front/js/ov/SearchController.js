@@ -5,15 +5,38 @@
   /**
    * Defines the home page controller.
    */
-  function SearchController($scope, $location, $q, searchService, filters, $analytics) {
+  function SearchController($scope, $location, $q, $timeout, searchService, filters, $analytics, $mdMedia) {
+    var self = this;
     var reloadOnPageChange = false;
     var canceller = $q.defer();
+    var isLargeScreen;
 
     $scope.videos = [];
     $scope.filters = filters.data || [];
     $scope.pagination = {size: 0, page: 0, pages: 0, limit: 12};
     $scope.showAdvancedSearch = false;
     $scope.isLoading = true;
+
+    /**
+     * Executes, safely, the given function in AngularJS process.
+     *
+     * @param {Function} functionToExecute The function to execute as part of
+     * the angular digest process.
+     */
+    function safeApply(functionToExecute) {
+
+      // Execute each apply on a different loop
+      $timeout(function() {
+
+        // Make sure we're not on a digestion cycle
+        var phase = $scope.$root.$$phase;
+
+        if (phase === '$apply' || phase === '$digest')
+          functionToExecute();
+        else
+          $scope.$apply(functionToExecute);
+      }, 1);
+    }
 
     /**
      * Converts timestamp into Date.
@@ -145,14 +168,210 @@
     }
 
     /**
+     * Decodes all HTML entities and remove all HTML elements from specified text.
+     *
+     * @param {String} text The text to sanitize
+     * @return {String} The sanitized text
+     */
+    function sanitizeText(text) {
+
+      // Use he library to decode text as it might contain HTML entities
+      text = he.decode(text);
+
+      // Remove any HTML tag (<\/?[^>]*>), carriage return (\n|\r\n) and non-breaking space (\u00a0) from the text
+      // HTML tags and entities are removed while new lines and non-breaking spaces are replaced by spaces
+      return text.replace(/(<\/?[^>]*>)|(\n)|(\r\n)|(\u00a0)/gi, function(
+        match,
+        tag,
+        newLine,
+        newLine2,
+        nonBreakingSpace
+      ) {
+        if (tag) return '';
+        if (newLine || newLine2 || nonBreakingSpace) return ' ';
+      });
+    }
+
+    /**
+     * Truncates videos texts (title and descriptions) depending on the viewport size.
+     *
+     * If a query has been made using keywords it emphasis the query in the properties of the videos where it has been
+     * found. The text containing the emphased keywords is also truncated around it.
+     * If query is not found in the description the description is set to the leading paragraph.
+     *
+     * @param {Array} videos The list of videos with for each video: title, pois, rawLeadParagraph and rawDescription
+     * @return {Array} The reference to the list of videos (not a copy)
+     */
+    function truncateVideosTexts(videos) {
+      isLargeScreen = $mdMedia('gt-md');
+
+      var titleLimit = 90;
+      var descriptionLimit = 45;
+      var descriptionSpreadLimit = 90;
+      var descriptionLargeScreenLimit = 50;
+      var descriptionSpreadLargeScreenLimit = 200;
+      var poiLimit = 15;
+      var poiLargeScreenLimit = 40;
+      var query = $scope.search && $scope.search.query;
+
+      videos.forEach(function(video) {
+        var title;
+        var description;
+        var limit = isLargeScreen ? descriptionLargeScreenLimit : descriptionLimit;
+        var poisLimit = isLargeScreen ? poiLargeScreenLimit : poiLimit;
+
+        if (video.title && query)
+          title = self.emphasisQuery(video.title, query, 50, titleLimit);
+        if (video.title && !title)
+          title = self.emphasisQuery(video.title, sanitizeText(video.title).split(' ')[0], 50, titleLimit, true);
+
+        // No point of interest found, authorize description to spread
+        if (!video.pois.length) {
+          limit = isLargeScreen ? descriptionSpreadLargeScreenLimit : descriptionSpreadLimit;
+        } else {
+          video.pois.forEach(function(poi) {
+            poi.name = self.emphasisQuery(poi.rawName, query, 20, poisLimit);
+            poi.description = self.emphasisQuery(poi.rawDescription, query, 20, poisLimit);
+          });
+        }
+
+        // Lead paragraph and description
+        if (video.rawDescription && query) {
+          description = self.emphasisQuery(video.rawDescription, query, 50, limit);
+        }
+        if (video.rawLeadParagraph && !description) {
+          var sanitizedLead = sanitizeText(video.rawLeadParagraph).split(' ')[0];
+          description = self.emphasisQuery(video.rawLeadParagraph, sanitizedLead, 50, limit, true);
+        }
+
+        video.title = title;
+        video.description = description;
+      });
+
+      return videos;
+    }
+
+    /**
+     * Emphasises the query in the given text and truncates around it.
+     *
+     * All HTML tags in text are ignored, new lines are considered spaces and HTML entities are resolved.
+     * Query is searched in the text in case insensitive manner.
+     *
+     * Truncated result is prefixed and / or suffixed by ellipsis.
+     *
+     * @param {String} text The text to emphasis and truncate
+     * @param {String} query The word or group of words to look for
+     * @param {Number|undefined} wordsAround The number of words to keep around the emphasised text, if not set the
+     * whole text is kept
+     * @param {Number|undefined} limit The maximum number of expected characters, if the limit is reached wordsAround
+     * will be decreased by one until it fits in the limit. Note that the ellipsis characters count.
+     * @param {Boolean} noEmphasis true to truncate text without emphasing query
+     * @return {String|null} The emphasised / truncated text or null if query has not been found in the text
+     */
+    self.emphasisQuery = function(text, query, wordsAround, limit, noEmphasis) {
+      if (!text || !query) return null;
+
+      var sanitizedText = sanitizeText(text);
+      var beforeWordsAroundRegExp;
+      var afterWordsAroundRegExp;
+      var beforeWordRegExp = '(?:[^ ]* +)';
+      var afterWordRegExp = '(?: +[^ ]*)';
+
+      if (wordsAround === undefined || wordsAround === null) {
+        beforeWordsAroundRegExp = '(?:' + beforeWordRegExp + '+)';
+        afterWordsAroundRegExp = '(?:' + afterWordRegExp + '+)';
+      } else if (wordsAround === 0) {
+        beforeWordsAroundRegExp = '(?: +)';
+        afterWordsAroundRegExp = '(?: +)';
+      } else {
+        beforeWordsAroundRegExp = '(?:' + beforeWordRegExp + '{1,' + wordsAround + '})';
+        afterWordsAroundRegExp = '(?:' + afterWordRegExp + '{1,' + wordsAround + '})';
+      }
+
+      // Escape all regExp reserved words from the query
+      var queryRegExp = query.replace(/(\?|\||\/|\(|\)|\{|\}|\[|\]|\\)/ig, '\\$1');
+
+      // Look for query in text and truncate
+      var truncateRegExp = new RegExp(
+        '(' + beforeWordsAroundRegExp + '|^|[\']+)(' + queryRegExp + 's?)(' + afterWordsAroundRegExp + '|$|[.,]+)',
+        'i'
+      );
+      var chunks = sanitizedText.match(truncateRegExp);
+
+      if (!chunks) return null;
+
+      var wordsBefore = chunks[1];
+      var wordsAfter = chunks[3];
+      var prefix = chunks.index > 0 ? '...' : '';
+      var suffix =
+        chunks.index + wordsBefore.length + chunks[2].length + wordsAfter.length < sanitizedText.length ? '...' : '';
+      var emphasisedKeywords = noEmphasis ? chunks[2] : '<strong>' + chunks[2] + '</strong>';
+      var totalCharacters =
+        prefix.length + wordsBefore.trimStart().length + chunks[2].length + wordsAfter.trimEnd().length + suffix.length;
+      var result = prefix + wordsBefore.trimStart() + emphasisedKeywords + wordsAfter.trimEnd() + suffix;
+
+      if (
+        limit &&
+        limit < totalCharacters &&
+        (chunks[2].length + prefix.length + suffix.length < totalCharacters) &&
+        wordsAround > 0
+      )
+        return self.emphasisQuery(text, query, --wordsAround, limit, noEmphasis);
+
+      return result;
+    };
+
+    /**
+     * Prepares videos returned by the server to be used by the view.
+     *
+     * @param {Array} rawVideos The list of videos as returned by the server
+     * @return {Array} The list of videos with, for each video, its thumbnail, date and views, its title and
+     * description with emphased keywords, its chapters and tags which match the query
+     */
+    self.formatVideos = function(rawVideos) {
+      var videos = [];
+      var query = $scope.search.query;
+      var filterPois = function(poi) {
+        poi.rawName = poi.name;
+        poi.rawDescription = poi.description;
+
+        var name = self.emphasisQuery(poi.name, query);
+        var description = self.emphasisQuery(poi.description, query);
+        return name || description ? true : false;
+      };
+
+      rawVideos.forEach(function(rawVideo) {
+        var tags = (rawVideo.tags || []).filter(filterPois);
+        var chapters = (rawVideo.chapters || []).filter(filterPois);
+        var pois = tags.concat(chapters).sort(function(poi1, poi2) {
+          if (poi1.value === poi2.value) return 0;
+          return poi1.value < poi2.value ? -1 : 1;
+        });
+
+        videos.push({
+          id: rawVideo.id,
+          title: rawVideo.title,
+          rawLeadParagraph: rawVideo.leadParagraph,
+          rawDescription: rawVideo.description,
+          thumbnail: rawVideo.thumbnail,
+          date: rawVideo.date,
+          views: rawVideo.views,
+          pois: pois
+        });
+      });
+
+      return truncateVideosTexts(videos);
+    };
+
+    /**
      * Makes a search call to the server.
      */
-    function search() {
+    $scope.fetch = function() {
       $scope.isLoading = true;
       if (canceller) canceller.resolve();
       canceller = $q.defer();
 
-      searchService.search(
+      return searchService.search(
         formValuesToQueryParameters($scope.search),
         $scope.pagination,
         canceller
@@ -162,8 +381,7 @@
           $scope.showToast('error');
           return;
         }
-
-        $scope.videos = result.data.entities;
+        $scope.videos = self.formatVideos(result.data.entities);
         $scope.pagination = result.data.pagination;
         $scope.isLoading = false;
         reloadOnPageChange = true;
@@ -173,7 +391,7 @@
 
         $analytics.trackSiteSearch(searchQuery, searchCategories, $scope.pagination.size);
       });
-    }
+    };
 
     // Listen to advanced search form submit
     $scope.searchSubmit = function() {
@@ -196,7 +414,7 @@
     // Listen to changes on the current page
     $scope.$watch('pagination.page', function(current, old) {
       $scope.pagination.page = current;
-      if (reloadOnPageChange) search();
+      if (reloadOnPageChange) $scope.fetch();
       else reloadOnPageChange = true;
     });
 
@@ -207,17 +425,26 @@
       if (!$scope.context || !$scope.context.keepContext) {
         reloadOnPageChange = false;
         $scope.pagination.page = 0;
-        search();
+        $scope.fetch();
       } else {
         $scope.context.keepContext = false;
       }
+    });
+
+    // Listen to window resize event to truncate videos texts
+    window.addEventListener('resize', function() {
+      if (isLargeScreen === $mdMedia('gt-md')) return;
+      isLargeScreen = $mdMedia('gt-md');
+      safeApply(function() {
+        truncateVideosTexts($scope.videos);
+      });
     });
 
     // Build model from query parameters
     $scope.search = queryParametersToForm($location.search());
 
     // Perform a search using current model
-    search();
+    $scope.fetch();
 
   }
 
@@ -226,9 +453,11 @@
     '$scope',
     '$location',
     '$q',
+    '$timeout',
     'searchService',
     'filters',
-    '$analytics'
+    '$analytics',
+    '$mdMedia'
   ];
 
 })(angular.module('ov.portal'));

@@ -15,7 +15,10 @@
     "es6": false,
 
     // Add openveo global var to environment globals but do not authorize to overwrite it
-    openVeoPortalSettings: false
+    openVeoPortalSettings: false,
+
+    // Add he var to environment globals but do not authorize to overwrite it
+    he: false
 
   },
   "rules": {

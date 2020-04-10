@@ -162,39 +162,66 @@
 
   <!-- Search results -->
   <md-grid-list ng-if="videos.length > 0 && !isLoading"
-                md-cols-xs="1"
-                md-cols-sm="3"
-                md-cols-gt-sm="4"
-                md-row-height-gt-md="16:13"
-                md-row-height-gt-xs="16:14"
-                md-row-height-xs="16:11"
-                md-gutter="12px"
-                md-gutter-gt-sm="25px">
+                md-cols="1"
+                md-cols-sm="1"
+                md-cols-gt-sm="2"
+                md-row-height="144px"
+                md-gutter="16px"
+                md-gutter-gt-sm="24px">
 
-    <md-grid-tile ng-repeat="video in videos"
-                  layout="column"
-                  ng-click="openVideo($event, video)"
-                  analytics-on="click"
-                  analytics-event="OpenVideo">
-      <div class="tile-layout" layout="column" layout-align="space-between none">
-        <div class="thumbnail">
+    <md-grid-tile ng-repeat="video in videos" layout="column">
+      <div layout="row" flex="auto">
+
+        <!-- Thumbnail -->
+        <div
+          layout="column"
+          flex="none"
+          class="thumbnail"
+          ng-click="openVideo($event, video)"
+          analytics-on="click"
+          analytics-event="OpenVideo"
+        >
           <img check-image ng-src="{{video.thumbnail}}">
           <div class="play">
             <md-icon material-icons md-light md-48>play_circle_outline</md-icon>
           </div>
         </div>
 
-        <div flex layout="column" layout-align="space-between none" class="details">
-          <div class="md-body-2">{{video.title}}</div>
-          <div  layout="row" layout-align="space-between center">
-            <div class="md-caption">{{video.date | date : 'longDate'}}</div>
-            <div class="md-caption nb-views"><span class="number">{{video.views ? video.views : 0}}</span> <span ng-bind="'UI.VIEW' | translate:video.views?video.views:0"></span></div>
+        <!-- Details -->
+        <div layout="column" flex="grow" class="details">
+          <div
+            class="md-body-2"
+            flex="nogrow"
+            ng-bind-html="video.title"
+            ng-click="openVideo($event, video)"
+            analytics-on="click"
+            analytics-event="OpenVideo"
+          ></div>
+          <div class="md-caption" flex="auto">
+            <span ng-bind="video.date | date : 'longDate'"></span> - <span class="number" ng-bind="video.views ? video.views : 0"></span> <span ng-bind="'UI.VIEW' | translate:video.views?video.views:0"></span>
+          </div>
+          <div
+            class="md-body-1"
+            flex="auto"
+            ng-bind-html="video.description"
+            ng-if="video.description"
+          ></div>
+          <div class="pois" flex="none" ng-if="video.pois.length">
+            <ul>
+              <li ng-repeat="poi in video.pois" class="md-body-1">
+                <span
+                  ng-bind="poi.value | millisecondsToTime"
+                  ng-click="openVideo($event, video)"
+                  analytics-on="click"
+                  analytics-event="OpenVideo"
+                  class="time"
+                ></span> - <span ng-if="poi.name" ng-bind-html="poi.name"></span><span ng-if="poi.description && !poi.name" ng-bind-html="poi.description"></span>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <md-divider></md-divider>
-
       </div>
+
     </md-grid-tile>
   </md-grid-list>
 

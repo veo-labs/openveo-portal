@@ -22,7 +22,8 @@
       "/ov/SearchController.js",
       "/ov/LoginFormController.js",
       "/ov/VideoService.js",
-      "/ov/LiveController.js"
+      "/ov/LiveController.js",
+      "/ov/MillisecondsToTimeFilter.js"
     ],
     "prod" : [
       "/js/openveo-portal.js"
@@ -149,6 +150,11 @@
       "name": "material-design-icons",
       "mountPath": "material-design-icons",
       "files": []
+    },
+    {
+      "name": "he",
+      "mountPath": "he",
+      "files": ["he.js"]
     }
   ]
 }
