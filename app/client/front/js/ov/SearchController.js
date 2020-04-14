@@ -168,12 +168,12 @@
     }
 
     /**
-     * Decodes all HTML entities and remove all HTML elements from specified text.
+     * Decodes all HTML entities and removes all HTML elements from specified text.
      *
      * @param {String} text The text to sanitize
      * @return {String} The sanitized text
      */
-    function sanitizeText(text) {
+    function removeHtmlFromText(text) {
 
       // Use he library to decode text as it might contain HTML entities
       text = he.decode(text);
@@ -223,7 +223,7 @@
         if (video.title && query)
           title = self.emphasisQuery(video.title, query, 50, titleLimit);
         if (video.title && !title)
-          title = self.emphasisQuery(video.title, sanitizeText(video.title).split(' ')[0], 50, titleLimit, true);
+          title = self.emphasisQuery(video.title, removeHtmlFromText(video.title).split(' ')[0], 50, titleLimit, true);
 
         // No point of interest found, authorize description to spread
         if (!video.pois.length) {
@@ -240,7 +240,7 @@
           description = self.emphasisQuery(video.rawDescription, query, 50, limit);
         }
         if (video.rawLeadParagraph && !description) {
-          var sanitizedLead = sanitizeText(video.rawLeadParagraph).split(' ')[0];
+          var sanitizedLead = removeHtmlFromText(video.rawLeadParagraph).split(' ')[0];
           description = self.emphasisQuery(video.rawLeadParagraph, sanitizedLead, 50, limit, true);
         }
 
@@ -271,7 +271,7 @@
     self.emphasisQuery = function(text, query, wordsAround, limit, noEmphasis) {
       if (!text || !query) return null;
 
-      var sanitizedText = sanitizeText(text);
+      var sanitizedText = removeHtmlFromText(text);
       var beforeWordsAroundRegExp;
       var afterWordsAroundRegExp;
       var beforeWordRegExp = '(?:[^ ]* +)';
