@@ -21,9 +21,10 @@
    * @param {type} video
    * @returns {MainController_L3.DialogController}
    */
-  function DialogController($scope, $mdDialog, video, $mdMedia) {
+  function DialogController($scope, $mdDialog, video, startTime, $mdMedia) {
 
     $scope.video = video;
+    $scope.startTime = startTime;
     $scope.playerType = video.type == 'youtube' ? 'youtube' : 'html';
     $scope.dialogIsFull = ($mdMedia('sm') || $mdMedia('xs'));
 
@@ -124,7 +125,8 @@
       }
     });
 
-    $scope.openVideo = function(ev, video) {
+    $scope.openVideo = function(ev, video, startTime) {
+      if (startTime) $location.search('t', startTime);
 
       // If dialog disable, open video by URL
       if (!$scope.useDialog) {
@@ -156,6 +158,7 @@
           $location.path('/video/' + video.id, false).search({});
 
           $scope.dialog.locals.video = result.data.entity;
+          $scope.dialog.locals.startTime = startTime;
           $mdDialog.show($scope.dialog).finally(function() {
             $scope.context.keepContext = true;
             $location.path(urlContext, false).search(searchContext);
@@ -184,9 +187,10 @@
     };
 
     $scope.onTabSelected = function(path) {
-      if (path == '/search')
+      if (path == '/search') {
+        $location.search('t', null);
         $location.path(path);
-      else // reset search on home page
+      } else // reset search on home page
         $location.path(path).search({});
     };
 
@@ -320,7 +324,7 @@
     'authenticationService',
     'webServiceBasePath'
   ];
-  DialogController.$inject = ['$scope', '$mdDialog', 'video', '$mdMedia'];
+  DialogController.$inject = ['$scope', '$mdDialog', 'video', 'startTime', '$mdMedia'];
   ToastController.$inject = ['$scope', '$mdToast'];
 
   ImageLoadedDirective.$inject = ['$http'];

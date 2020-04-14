@@ -211,7 +211,7 @@
               <li ng-repeat="poi in video.pois" class="md-body-1">
                 <span
                   ng-bind="poi.value | millisecondsToTime"
-                  ng-click="openVideo($event, video)"
+                  ng-click="openVideo($event, video, poi.value)"
                   analytics-on="click"
                   analytics-event="OpenVideo"
                   class="time"

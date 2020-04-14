@@ -22,6 +22,8 @@
     $sce,
     webServiceBasePath
   ) {
+    var urlParams = $location.search();
+    $scope.start = Number(urlParams['t']) || $scope.startTime || 0;
     $scope.defaultMode = 'both';
     if ($scope.video.metadata) {
       var template = $scope.video.metadata.template || '';
