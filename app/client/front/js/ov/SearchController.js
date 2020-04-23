@@ -60,7 +60,7 @@
      */
     function unserializeFilterValue(filter, value) {
       if (filter.type === 'dateTime') return timestampToDate(value);
-      if (filter.type === 'boolean') return JSON.parse(value);
+      if (filter.type === 'boolean') return Number(value) ? true : false;
       return value;
     }
 
