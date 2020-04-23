@@ -189,7 +189,7 @@
       ) {
         if (tag) return '';
         if (newLine || newLine2 || nonBreakingSpace) return ' ';
-      });
+      }).replace(/ +/gi, ' ').trim();
     }
 
     /**
@@ -221,27 +221,27 @@
         var poisLimit = isLargeScreen ? poiLargeScreenLimit : poiLimit;
 
         if (video.title && query)
-          title = self.emphasisQuery(video.title, query, 50, titleLimit);
+          title = self.emphasisQuery(video.title, query, titleLimit);
         if (video.title && !title)
-          title = self.emphasisQuery(video.title, removeHtmlFromText(video.title).split(' ')[0], 50, titleLimit, true);
+          title = self.emphasisQuery(video.title, removeHtmlFromText(video.title).split(' ')[0], titleLimit, true);
 
         // No point of interest found, authorize description to spread
         if (!video.pois.length) {
           limit = isLargeScreen ? descriptionSpreadLargeScreenLimit : descriptionSpreadLimit;
         } else {
           video.pois.forEach(function(poi) {
-            poi.name = self.emphasisQuery(poi.rawName, query, 20, poisLimit);
-            poi.description = self.emphasisQuery(poi.rawDescription, query, 20, poisLimit);
+            poi.name = self.emphasisQuery(poi.rawName, query, poisLimit);
+            poi.description = self.emphasisQuery(poi.rawDescription, query, poisLimit);
           });
         }
 
         // Lead paragraph and description
         if (video.rawDescription && query) {
-          description = self.emphasisQuery(video.rawDescription, query, 50, limit);
+          description = self.emphasisQuery(video.rawDescription, query, limit);
         }
         if (video.rawLeadParagraph && !description) {
           var sanitizedLead = removeHtmlFromText(video.rawLeadParagraph).split(' ')[0];
-          description = self.emphasisQuery(video.rawLeadParagraph, sanitizedLead, 50, limit, true);
+          description = self.emphasisQuery(video.rawLeadParagraph, sanitizedLead, limit, true);
         }
 
         video.title = title;
@@ -261,31 +261,43 @@
      *
      * @param {String} text The text to emphasis and truncate
      * @param {String} query The word or group of words to look for
-     * @param {Number|undefined} wordsAround The number of words to keep around the emphasised text, if not set the
-     * whole text is kept
-     * @param {Number|undefined} limit The maximum number of expected characters, if the limit is reached wordsAround
-     * will be decreased by one until it fits in the limit. Note that the ellipsis characters count.
+     * @param {Number|undefined} limit The maximum number of expected characters. Note that the ellipsis characters
+     * count.
      * @param {Boolean} noEmphasis true to truncate text without emphasing query
+     * @param {Number|undefined} maxWordsBefore The number of words to keep before the emphasised text, if not set the
+     * maximum is kept. Don't use it, it's only for internal use
+     * @param {Number|undefined} maxWordsAfter The number of words to keep after the emphasised text, if not set the
+     * maximum is kept. Don't use it, it's only for internal use
      * @return {String|null} The emphasised / truncated text or null if query has not been found in the text
      */
-    self.emphasisQuery = function(text, query, wordsAround, limit, noEmphasis) {
+    self.emphasisQuery = function(text, query, limit, noEmphasis, maxWordsBefore, maxWordsAfter) {
       if (!text || !query) return null;
 
       var sanitizedText = removeHtmlFromText(text);
+      var totalWords = sanitizedText.split(' ').length;
       var beforeWordsAroundRegExp;
       var afterWordsAroundRegExp;
       var beforeWordRegExp = '(?:[^ ]* +)';
       var afterWordRegExp = '(?: +[^ ]*)';
 
-      if (wordsAround === undefined || wordsAround === null) {
-        beforeWordsAroundRegExp = '(?:' + beforeWordRegExp + '+)';
-        afterWordsAroundRegExp = '(?:' + afterWordRegExp + '+)';
-      } else if (wordsAround === 0) {
+      if (!maxWordsBefore && maxWordsBefore !== 0)
+        maxWordsBefore = totalWords;
+
+      if (!maxWordsAfter && maxWordsAfter !== 0)
+        maxWordsAfter = totalWords;
+
+      if (maxWordsBefore === 0)
         beforeWordsAroundRegExp = '(?: +)';
+      else {
+        maxWordsBefore = Math.min(maxWordsBefore, totalWords);
+        beforeWordsAroundRegExp = '(?:' + beforeWordRegExp + '{1,' + maxWordsBefore + '})';
+      }
+
+      if (maxWordsAfter === 0)
         afterWordsAroundRegExp = '(?: +)';
-      } else {
-        beforeWordsAroundRegExp = '(?:' + beforeWordRegExp + '{1,' + wordsAround + '})';
-        afterWordsAroundRegExp = '(?:' + afterWordRegExp + '{1,' + wordsAround + '})';
+      else {
+        maxWordsAfter = Math.min(maxWordsAfter, totalWords);
+        afterWordsAroundRegExp = '(?:' + afterWordRegExp + '{1,' + maxWordsAfter + '})';
       }
 
       // Escape all regExp reserved words from the query
@@ -293,30 +305,145 @@
 
       // Look for query in text and truncate
       var truncateRegExp = new RegExp(
-        '(' + beforeWordsAroundRegExp + '|^|[\']+)(' + queryRegExp + 's?)(' + afterWordsAroundRegExp + '|$|[.,]+)',
+        '(' + beforeWordsAroundRegExp + '|^)([^ ]*)(' + queryRegExp + 's?)([^ ]*)(' + afterWordsAroundRegExp + '|$)',
         'i'
       );
       var chunks = sanitizedText.match(truncateRegExp);
 
       if (!chunks) return null;
 
+      var match = chunks[3];
       var wordsBefore = chunks[1];
-      var wordsAfter = chunks[3];
+      var wordsAfter = chunks[5];
+      var extraCharactersBefore = chunks[2];
+      var extraCharactersAfter = chunks[4];
       var prefix = chunks.index > 0 ? '...' : '';
-      var suffix =
-        chunks.index + wordsBefore.length + chunks[2].length + wordsAfter.length < sanitizedText.length ? '...' : '';
-      var emphasisedKeywords = noEmphasis ? chunks[2] : '<strong>' + chunks[2] + '</strong>';
-      var totalCharacters =
-        prefix.length + wordsBefore.trimStart().length + chunks[2].length + wordsAfter.trimEnd().length + suffix.length;
-      var result = prefix + wordsBefore.trimStart() + emphasisedKeywords + wordsAfter.trimEnd() + suffix;
+      var suffix = '';
+
+      if (
+        (
+          chunks.index +
+          wordsBefore.length +
+          extraCharactersBefore.length +
+          match.length +
+          extraCharactersAfter.length +
+          wordsAfter.length
+        ) < sanitizedText.length
+      ) {
+        suffix = '...';
+      }
+
+      var emphasisedKeywords = noEmphasis ? match : '<strong>' + match + '</strong>';
+      var totalCharacters = prefix.length +
+        wordsBefore.trimStart().length +
+        extraCharactersBefore.length +
+        match.length +
+        extraCharactersAfter.length +
+        wordsAfter.trimEnd().length +
+        suffix.length;
+      var result = prefix +
+        wordsBefore.trimStart() +
+        extraCharactersBefore +
+        emphasisedKeywords +
+        extraCharactersAfter +
+        wordsAfter.trimEnd() +
+        suffix;
+
+      if (limit && limit > totalCharacters) {
+
+        // The number of characters is under the limit but a word that was removed before or after can still fit under
+        // the limit
+
+        var hypotheticalTotalCharacters = totalCharacters;
+        var beforeTextAvailable = (chunks.index > 0) ? sanitizedText.substring(0, chunks.index).trim() : '';
+        var afterTextAvailable = sanitizedText.substring(
+          chunks.index +
+          wordsBefore.length +
+          extraCharactersBefore.length +
+          match.length +
+          extraCharactersAfter.length +
+          wordsAfter.length,
+          sanitizedText.length
+        ).trim();
+        var beforeWordsAvailable = beforeTextAvailable ? beforeTextAvailable.split(' ') : [];
+        var afterWordsAvailable = afterTextAvailable ? afterTextAvailable.split(' ') : [];
+        var beforeWordsActual = wordsBefore.trim() ? wordsBefore.trim().split(' ') : [];
+        var afterWordsActual = wordsAfter.trim() ? wordsAfter.trim().split(' ') : [];
+        var doesBeforeFit = true;
+
+        if (
+          beforeWordsAvailable.length &&
+          (!afterWordsAvailable.length || beforeWordsActual.length <= afterWordsActual.length)
+        ) {
+
+          // Some words are available before text
+
+          if (beforeWordsAvailable.length === 1) {
+
+            // Only one word available before
+            // Remove prefix from the maths
+
+            hypotheticalTotalCharacters = totalCharacters - prefix.length;
+          }
+
+          hypotheticalTotalCharacters = hypotheticalTotalCharacters +
+            beforeWordsAvailable[beforeWordsAvailable.length - 1].length +
+            1;
+
+          if (hypotheticalTotalCharacters <= limit) {
+
+            // Using one more word before fits
+
+            return self.emphasisQuery(text, query, limit, noEmphasis, ++maxWordsBefore, maxWordsAfter);
+
+          }
+
+          doesBeforeFit = false;
+        }
+
+        if (
+          afterWordsAvailable.length &&
+          (!doesBeforeFit || !beforeWordsAvailable.length || afterWordsActual.length <= beforeWordsActual.length)
+        ) {
+
+          // Some words are available after text
+
+          if (afterWordsAvailable.length === 1) {
+
+            // Only one word available after
+            // Remove suffix from the maths
+
+            hypotheticalTotalCharacters = totalCharacters - suffix.length;
+          }
+
+          hypotheticalTotalCharacters = hypotheticalTotalCharacters + afterWordsAvailable[0].length + 1;
+
+          if (hypotheticalTotalCharacters <= limit) {
+
+            // Using one more word after fits
+
+            return self.emphasisQuery(text, query, limit, noEmphasis, maxWordsBefore, ++maxWordsAfter);
+
+          }
+        }
+      }
 
       if (
         limit &&
         limit < totalCharacters &&
-        (chunks[2].length + prefix.length + suffix.length < totalCharacters) &&
-        wordsAround > 0
-      )
-        return self.emphasisQuery(text, query, --wordsAround, limit, noEmphasis);
+        (
+          (
+            match.length +
+            extraCharactersBefore.length +
+            extraCharactersAfter.length +
+            prefix.length +
+            suffix.length
+          ) < totalCharacters
+        ) &&
+        (maxWordsBefore || maxWordsAfter > 0)
+      ) {
+        return self.emphasisQuery(text, query, limit, noEmphasis, --maxWordsBefore, --maxWordsAfter);
+      }
 
       return result;
     };

@@ -54,16 +54,20 @@ describe('SearchController', function() {
         {text: query, res: markedQuery},
         {text: `With before words ${query}`, res: `With before words ${markedQuery}`},
         {text: `${query} with words after`, res: `${markedQuery} with words after`},
-        {text: `With before words without space${query}`, res: null},
-        {text: `${query}with words after without space`, res: null},
+        {text: `With before words without space${query}`, res: `With before words without space${markedQuery}`},
+        {text: `${query}with words after without space`, res: `${markedQuery}with words after without space`},
         {text: `Multilines ${queryMultiLines}`, res: `Multilines ${markedQuery}`},
-        {text: `Multispaces  ${query}`, res: `Multispaces  ${markedQuery}`},
-        {text: `${query}  multispaces`, res: `${markedQuery}  multispaces`},
-        {text: `.${query}`, res: null},
-        {text: `,${query}`, res: null},
+        {text: `Multispaces  ${query}`, res: `Multispaces ${markedQuery}`},
+        {text: `${query}  multispaces`, res: `${markedQuery} multispaces`},
+        {text: `.${query}`, res: `.${markedQuery}`},
+        {text: `,${query}`, res: `,${markedQuery}`},
         {text: `${query}.`, res: `${markedQuery}.`},
         {text: `${query},`, res: `${markedQuery},`},
-        {text: `${query}s`, res: `<strong>${query}s</strong>`}
+        {text: `l'${query},`, res: `l'${markedQuery},`},
+        {text: `-${query},`, res: `-${markedQuery},`},
+        {text: `${query}au`, res: `${markedQuery}au`},
+        {text: `${query}s`, res: `<strong>${query}s</strong>`},
+        {text: `${query}s.`, res: `<strong>${query}s</strong>.`}
       ];
 
       for (let i = 0; i < examples.length; i++)
@@ -80,8 +84,9 @@ describe('SearchController', function() {
         {text: `<a alt="Alt">${query}</a>`, res: markedQuery},
         {text: `<div><p>${query}</div></p>`, res: markedQuery},
         {text: `<strong>${queryFirstWord}</strong>${queryRest}`, res: markedQuery},
-        {text: `<p>Text before</p><span>${query}</span>`, res: null},
-        {text: query.replace(' ', '&nbsp;'), res: markedQuery}
+        {text: `<p>Text before</p><span>${query}</span>`, res: `Text before${markedQuery}`},
+        {text: query.replace(' ', '&nbsp;'), res: markedQuery},
+        {text: query.replace(' ', '    '), res: markedQuery}
       ];
 
       for (let i = 0; i < examples.length; i++)
@@ -113,31 +118,6 @@ describe('SearchController', function() {
         assert.equal(controller.emphasisQuery(examples[i].text, query), examples[i].res, `Example ${i} failed`);
     });
 
-    it('should be able to return a limited number of words before and after emphasised text', function() {
-      const query = 'Query keywords';
-      const markedQuery = `<strong>${query}</strong>`;
-      const ellipsis = '...';
-      const examples = [
-        {text: query, words: 0, res: markedQuery},
-        {text: `Before ${query}`, words: 0, res: `${ellipsis}${markedQuery}`},
-        {text: `${query} after`, words: 0, res: `${markedQuery}${ellipsis}`},
-        {text: `Before ${query} after`, words: 0, res: `${ellipsis}${markedQuery}${ellipsis}`},
-        {text: `Before ${query} after`, words: 1, res: `Before ${markedQuery} after`},
-        {text: `Before ${query} after`, words: 2, res: `Before ${markedQuery} after`},
-        {text: `Wo bef ${query} wo aft`, words: 2, res: `Wo bef ${markedQuery} wo aft`},
-        {text: `Wo bef ${query} wo aft`, words: 1, res: `${ellipsis}bef ${markedQuery} wo${ellipsis}`},
-        {text: `Wo bef ${query} wo aft`, words: 0, res: `${ellipsis}${markedQuery}${ellipsis}`}
-      ];
-
-      for (let i = 0; i < examples.length; i++) {
-        assert.equal(
-          controller.emphasisQuery(examples[i].text, query, examples[i].words),
-          examples[i].res,
-          `Example ${i} failed`
-        );
-      }
-    });
-
     it('should be able to limit the number of returned characters', function() {
       const query = 'Query keywords';
       const total = query.length;
@@ -145,23 +125,34 @@ describe('SearchController', function() {
       const ellipsis = '...';
       const examples = [
         {text: query, limit: 0, res: markedQuery},
-        {text: `Before ${query} after`, limit: 1, res: `${ellipsis}${markedQuery}${ellipsis}`},
-        {text: `Before ${query} after`, limit: -1, res: `${ellipsis}${markedQuery}${ellipsis}`},
-        {text: `Before ${query} after`, limit: 13 + total, res: `Before ${markedQuery} after`},
-        {text: `Before ${query} after`, limit: 12 + total, res: `${ellipsis}${markedQuery}${ellipsis}`},
-        {text: `Before ${query}`, limit: 7 + total, res: `Before ${markedQuery}`},
-        {text: `Before ${query}`, limit: 6 + total, res: `${ellipsis}${markedQuery}`},
-        {text: `${query} after`, limit: 6 + total, res: `${markedQuery} after`},
-        {text: `${query} after`, limit: 5 + total, res: `${markedQuery}${ellipsis}`},
+        {text: query, limit: query.length, res: markedQuery},
+        {text: query, limit: query.length + 1, res: markedQuery},
+        {text: `Bef ${query} aft`, limit: 0, res: `Bef ${markedQuery} aft`},
+        {text: `Bef ${query} aft`, limit: 1, res: `${ellipsis}${markedQuery}${ellipsis}`},
+        {text: `Bef ${query} aft`, limit: 4 + total + 4, res: `Bef ${markedQuery} aft`},
+        {text: `Bef ${query} aft`, limit: 4 + total + 4 + 1, res: `Bef ${markedQuery} aft`},
+        {text: `Bef ${query} aft`, limit: -1, res: `${ellipsis}${markedQuery}${ellipsis}`},
+        {text: `Bef ${query} aft`, limit: 4 + total + 4 - 1, res: `Bef ${markedQuery}${ellipsis}`},
+        {text: `Bef ${query}`, limit: 4 + total, res: `Bef ${markedQuery}`},
+        {text: `Bef ${query}`, limit: 4 + total - 1, res: `${ellipsis}${markedQuery}`},
+        {text: `${query} aft`, limit: 4 + total, res: `${markedQuery} aft`},
+        {text: `${query} aft`, limit: 4 + total - 1, res: `${markedQuery}${ellipsis}`},
         {text: `Wo bef ${query} wo aft`, limit: 14 + total, res: `Wo bef ${markedQuery} wo aft`},
-        {text: `Wo bef ${query} wo aft`, limit: 13 + total, res: `${ellipsis}bef ${markedQuery} wo${ellipsis}`},
+        {text: `Wo bef ${query} wo aft`, limit: 14 + total - 1, res: `${ellipsis}bef ${markedQuery} wo${ellipsis}`},
         {text: `Wo bef ${query} wo aft`, limit: 7 + total + 6, res: `${ellipsis}bef ${markedQuery} wo${ellipsis}`},
-        {text: `Wo bef ${query} wo aft`, limit: 6 + total + 6, res: `${ellipsis}${markedQuery}${ellipsis}`}
+        {text: `Wo bef ${query} wo aft`, limit: 6 + total + 6, res: `${ellipsis}bef ${markedQuery}${ellipsis}`},
+        {text: `${query} wo aft`, limit: total + 7, res: `${markedQuery} wo aft`},
+        {text: `${query} wo aft`, limit: total + 7 - 2, res: `${markedQuery}${ellipsis}`},
+        {text: `Wo bef ${query}`, limit: total + 7, res: `Wo bef ${markedQuery}`},
+        {text: `Wo bef ${query}`, limit: total + 7 - 1, res: `${ellipsis}${markedQuery}`},
+        {text: `- Before ${query} then after`, limit: 9 + total + 10, res: `- Before ${markedQuery} then${ellipsis}`},
+        {text: `Before ${query} then after`, limit: 7 + total + 10, res: `Before ${markedQuery} then${ellipsis}`},
+        {text: `Then before ${query} after`, limit: 12 + total + 5, res: `${ellipsis}before ${markedQuery} after`}
       ];
 
       for (let i = 0; i < examples.length; i++) {
         assert.equal(
-          controller.emphasisQuery(examples[i].text, query, 20, examples[i].limit),
+          controller.emphasisQuery(examples[i].text, query, examples[i].limit),
           examples[i].res,
           `Example ${i} failed`
         );
@@ -176,12 +167,12 @@ describe('SearchController', function() {
         {text: query, limit: 0, res: query},
         {text: `Before ${query} after`, limit: 1, res: `${ellipsis}${query}${ellipsis}`},
         {text: `Before ${query} after`, limit: 13 + total, res: `Before ${query} after`},
-        {text: `Before ${query} after`, limit: 12 + total, res: `${ellipsis}${query}${ellipsis}`}
+        {text: `Before ${query} after`, limit: 12 + total, res: `Before ${query}${ellipsis}`}
       ];
 
       for (let i = 0; i < examples.length; i++) {
         assert.equal(
-          controller.emphasisQuery(examples[i].text, query, 20, examples[i].limit, true),
+          controller.emphasisQuery(examples[i].text, query, examples[i].limit, true),
           examples[i].res,
           `Example ${i} failed`
         );
