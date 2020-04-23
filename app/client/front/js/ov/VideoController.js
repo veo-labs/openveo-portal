@@ -24,11 +24,11 @@
   ) {
     var urlParams = $location.search();
     $scope.start = Number(urlParams['t']) || $scope.startTime || 0;
-    $scope.defaultMode = 'both';
+    $scope.defaultMode = 'split_50_50';
     if ($scope.video.metadata) {
       var template = $scope.video.metadata.template || '';
       if (template.match(/^mix-/))
-        $scope.defaultMode = 'media';
+        $scope.defaultMode = 'split_1';
     }
     if ($scope.video.category) {
       searchService.getCategoryName($scope.video.category).then(function(val) {
