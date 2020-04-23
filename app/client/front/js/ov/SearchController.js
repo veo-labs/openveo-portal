@@ -73,7 +73,7 @@
      * @return The serialized filter value
      */
     function serializeFilterValue(filter, value) {
-      if (filter.type === 'dateTime') return value.getTime();
+      if (filter.type === 'dateTime') return value && value.getTime();
       if (filter.type === 'boolean') return Number(value);
       return value;
     }
