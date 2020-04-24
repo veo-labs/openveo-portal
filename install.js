@@ -309,7 +309,8 @@ function createLoggerConf(callback) {
   const conf = {
     level: 'info',
     maxFileSize: 104857600,
-    maxFiles: 2
+    maxFiles: 2,
+    console: false
   };
 
   async.series([

@@ -62,7 +62,8 @@ Open **~/.openveo/portal/loggerConf.json**
   "fileName" : "/var/log/openveo/openveo-portal.log", // Path to application log file
   "level" : "info", // Log level
   "maxFileSize" : 104857600, // Maximum log file size (in Bytes)
-  "maxFiles" : 2 // Maximum number of files archived
+  "maxFiles" : 2, // Maximum number of files archived
+  "console": true // Also print logs to standard output
 }
 ```
 
