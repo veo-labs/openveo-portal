@@ -14,7 +14,10 @@
                ng-if="$ctrl.information.version && $ctrl.information.updateAvailable"
                aria-label="{{'DASHBOARD.ABOUT.NEED_UPGRADE' | opaTranslate}}"
                md-colors="::{color: 'warn-A400'}"
-      >new_releases</md-icon>
+      >
+        new_releases
+        <md-tooltip>{{'DASHBOARD.ABOUT.NEED_UPGRADE' | opaTranslate}}</md-tooltip>
+      </md-icon>
       <opa-info-button
                        opa-message="'DASHBOARD.ABOUT.INFO' | opaTranslate"
                        opa-accessibility="{{'DASHBOARD.ABOUT.INFO_BUTTON_DESCRIPTION' | opaTranslate}}"

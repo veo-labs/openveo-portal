@@ -84,7 +84,7 @@ describe('opaAbout', function() {
 
     scope.$digest();
 
-    assert.equal(angular.element(element[0].querySelector('header md-icon')).text(), 'new_releases', 'Wrong icon');
+    assert.include(angular.element(element[0].querySelector('header md-icon')).text(), 'new_releases', 'Wrong icon');
   });
 
   it('should display an error message if no message defined', function() {

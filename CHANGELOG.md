@@ -13,6 +13,7 @@
 ## BUG FIXES
 
 - Upgrade Wowza player which wasn't working with version 4.7.8 of Wowza
+- Fix tooltip on "need upgrade" icon in dashboard "About" block which wasn't displayed
 
 ## DEPENDENCIES
 
