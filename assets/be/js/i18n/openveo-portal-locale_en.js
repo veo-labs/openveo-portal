@@ -95,9 +95,9 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         TITLE: 'Search',
         INFO_BUTTON_DESCRIPTION: 'Show more information about search configuration',
         INFO_BUTTON_TOOLTIP: 'Show more information about search configuration',
-        INFO: '<strong>Search</strong> in portal default behaviour can be customized from here.',
-        POIS_LABEL: 'Search in tags and chapters by default',
-        POIS_DESCRIPTION: 'Search in titles and descriptions of tags and chapters by default'
+        INFO: '"<strong>Search</strong>" lets you configure the default behaviour of the search engine.',
+        POIS_LABEL: 'Search in chapters and tags by default',
+        POIS_DESCRIPTION: 'Search in titles and descriptions of chapters and tags by default'
       },
       SUBMIT_BUTTON: 'Save',
       SAVE_SUCCESS: 'Settings saved',

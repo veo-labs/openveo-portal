@@ -95,9 +95,9 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         TITLE: 'Recherche',
         INFO_BUTTON_DESCRIPTION: 'Afficher plus d\'informations sur la configuration du moteur de recherche',
         INFO_BUTTON_TOOLTIP: 'Afficher plus d\'informations sur la configuration du moteur de recherche',
-        INFO: '<strong>Recherche</strong> du portail peut être paramétrée à partir d\'ici.',
-        POIS_LABEL: 'Rechercher dans les tags et chapitres par défaut',
-        POIS_DESCRIPTION: 'Rechercher dans les titres et descriptions des tags et chapitres par défaut'
+        INFO: '"<strong>Recherche</strong>" vous permet de paramétrer le moteur de recherche',
+        POIS_LABEL: 'Rechercher dans les chapitres et tags par défaut',
+        POIS_DESCRIPTION: 'Rechercher dans les titres et descriptions des chapitres et tags par défaut'
       },
       SUBMIT_BUTTON: 'Enregistrer',
       SAVE_SUCCESS: 'Configuration enregistrée',
