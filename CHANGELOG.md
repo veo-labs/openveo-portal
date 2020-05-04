@@ -1,4 +1,4 @@
-# 6.0.0 / YYYY-MM-DD
+# 6.0.0 / 2020-05-04
 
 ## BREAKING CHANGES
 
@@ -17,6 +17,10 @@
 
 ## DEPENDENCIES
 
+- **@openveo/api** has been upgraded from 5.1.1 to **7.0.0**
+- **@openveo/player** has been upgraded from 5.0.0 to **6.0.0**
+- **@openveo/rest-nodejs-client** has been upgraded from 3.0.0 to **4.0.0**
+- **@openveo/test** has been upgraded from 7.0.0 to **8.0.0**
 - **async** has been upgraded from 2.1.4 to **3.2.0**
 - **body-parser** has been upgraded from 1.15.2 to **1.19.0**
 - **consolidate** has been upgraded from 0.14.5 to **0.15.1**
