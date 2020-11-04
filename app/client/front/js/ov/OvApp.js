@@ -124,7 +124,7 @@
       });
 
       // Register live page route
-      if (openVeoPortalSettings.live) {
+      if (openVeoPortalSettings.live.activated) {
         $routeProvider.when('/live-event', {
           templateUrl: 'views/live.html',
           controller: 'LiveController',

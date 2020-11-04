@@ -18,7 +18,7 @@
       var languages = [ [[& languages]] ];
       var openVeoPortalSettings = {
         user: [[& user]],
-        live: [[live]],
+        live: [[& live]],
         authenticationMechanisms: [[& authenticationMechanisms]],
         authenticationStrategies: [[& authenticationStrategies]],
         theme: '[[theme]]',
@@ -185,6 +185,10 @@
       document.write('\x3Cscript type="text/javascript" src="/angular-i18n/angular-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/i18n/openveo-portal-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/conf.js">\x3C/script>');
+
+      if (openVeoPortalSettings.live.playerType === 'wowza') {
+        document.write('\x3Cscript type="text/javascript" src="/lib/wowza-player/wowzaplayer.min.js">\x3C/script>');
+      }
     </script>
 
     [[#scripts]]

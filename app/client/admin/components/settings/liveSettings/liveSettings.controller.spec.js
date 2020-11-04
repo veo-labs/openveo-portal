@@ -116,6 +116,21 @@ describe('OpaLiveSettingsController', function() {
       assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_YOUTUBE_ERROR', 'Expected youtube message');
     });
 
+    it('should update url error message with vimeo message if player is vimeo', function() {
+      const ctrl = $componentController('opaLiveSettings');
+      ctrl.settings = {};
+
+      ctrl.$onChanges({
+        opaSettings: {
+          currentValue: {
+            playerType: 'vimeo'
+          }
+        }
+      });
+
+      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_VIMEO_ERROR', 'Expected vimeo message');
+    });
+
     it('should update url error message with Vodalys message if player is vodalys', function() {
       const ctrl = $componentController('opaLiveSettings');
       ctrl.settings = {};
@@ -176,6 +191,9 @@ describe('OpaLiveSettingsController', function() {
 
       ctrl.updateUrlErrorMessage('youtube');
       assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_YOUTUBE_ERROR', 'Wrong Youtube error message');
+
+      ctrl.updateUrlErrorMessage('vimeo');
+      assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_VIMEO_ERROR', 'Wrong Vimeo error message');
 
       ctrl.updateUrlErrorMessage('vodalys');
       assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_VODALYS_ERROR', 'Wrong Vodalys error message');

@@ -29,7 +29,11 @@
     "element": true,
     "by": true,
     "protractor": true,
-    "browser": true
+    "browser": true,
+
+    // Add OpenVeo Portal environment globals but do not authorize to overwrite it
+    "openVeoPortalSettings": true,
+    "WowzaPlayer": true
 
   },
   "rules": {

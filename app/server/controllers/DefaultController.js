@@ -82,6 +82,15 @@ class DefaultController extends openVeoApi.controllers.Controller {
           }));
         }
 
+        if (liveSettings) {
+          liveSettings.activated = liveSettings.activated && (
+            !liveSettings.private ||
+            ((request.user && request.user.hasLiveAccess) || false)
+          );
+        } else {
+          liveSettings = {activated: false};
+        }
+
         response.locals.librariesScripts = applicationConf['scriptLibFiles'][env] || [];
         response.locals.librariesScripts =
           response.locals.librariesScriptsBase.concat(response.locals.librariesScripts);
@@ -94,12 +103,7 @@ class DefaultController extends openVeoApi.controllers.Controller {
         response.locals.authenticationMechanisms = JSON.stringify(configuredAuth);
         response.locals.authenticationStrategies = JSON.stringify(openVeoApi.passport.STRATEGIES);
         response.locals.superAdminId = portalConf.superAdminId;
-        response.locals.live = liveSettings && liveSettings.activated &&
-          (
-            !liveSettings.private ||
-            ((request.user && request.user.hasLiveAccess) || false)
-          );
-        response.locals.live = response.locals.live || false;
+        response.locals.live = JSON.stringify(liveSettings);
         response.locals.search = JSON.stringify(searchSettings || {});
 
         // Add theme css file

@@ -29,6 +29,7 @@ module.exports = function(config) {
       'node_modules/angular-material/angular-material.js',
       'node_modules/angulartics/dist/angulartics.min.js',
       'node_modules/angulartics-piwik/dist/angulartics-piwik.min.js',
+      'node_modules/chai-spies/chai-spies.js',
       'node_modules/he/he.js',
       'node_modules/@openveo/player/dist/openveo-player.js',
       'assets/themes/default/i18n/openveo-portal-locale_en.js',

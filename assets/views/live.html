@@ -4,7 +4,15 @@
     <h1 class="md-headline" ng-bind="'LIVE.TITLE' | translate"></h1>
     <div class="op-live-player">
       <div>
-        <iframe src="/live"></iframe>
+        <div id="wowza-player" ng-show="live.playerType === 'wowza'"></div>
+        <iframe
+          ng-if="live.playerType !== 'wowza'"
+          ng-src="{{url}}"
+          frameboarder="0"
+          gesture="media"
+          allow="encrypted-media"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </div>

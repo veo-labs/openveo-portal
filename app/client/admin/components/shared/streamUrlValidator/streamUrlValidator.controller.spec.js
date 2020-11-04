@@ -93,6 +93,41 @@ describe('OpaStreamUrlValidatorController', function() {
     });
   });
 
+  it('should be able to validate a vimeo URL', function() {
+    const validValues = [
+      'https://vimeo.com/event/id',
+      'https://vimeo.com/event/id_0123456789'
+    ];
+    const invalidValues = [
+      'https://vimeo.com/event',
+      'https://vimeo.com/event/',
+      'https://vimeo.com/event/id with spaces',
+      'https://vimeo.com/event/é',
+      'https://www.vimeo.com/event/id',
+      'http://vimeo.com/event/id',
+      'beforehttps://vimeo.com/event/id'
+    ];
+    const ctrl = $controller('OpaStreamUrlValidatorController', {
+      $element
+    });
+    ctrl.opaStreamUrlValidator = true;
+    ctrl.opaType = 'vimeo';
+
+    validValues.forEach(function(validValue) {
+      assert.isOk(
+        modelController.$validators.opaStreamUrl(validValue),
+        `Expected model to be valid for value "${validValue}"`
+      );
+    });
+
+    invalidValues.forEach(function(invalidValue) {
+      assert.isNotOk(
+        modelController.$validators.opaStreamUrl(invalidValue),
+        `Expected model to be invalid for value "${invalidValue}"`
+      );
+    });
+  });
+
   it('should be able to validate a wowza URL', function() {
     const validValues = [
       'https://wowza-example.local:1935/application-example/stream-example/playlist.m3u8',

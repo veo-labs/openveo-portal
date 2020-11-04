@@ -80,7 +80,7 @@
     $scope.user = openVeoPortalSettings.user || authenticationService.getUserInfo() || null;
     $scope.isAuth = openVeoPortalSettings.authenticationMechanisms.length ? true : false;
     $scope.isAdmin = $scope.user && $scope.user.id === openVeoPortalSettings.superAdminId;
-    $scope.isLive = openVeoPortalSettings.live;
+    $scope.isLive = openVeoPortalSettings.live.activated;
     $scope.theme = openVeoPortalSettings.theme;
     $scope.useDialog = openVeoPortalSettings.useDialog;
 

@@ -1,3 +1,9 @@
+# 6.1.0 / YYYY-MM-DD
+
+## NEW FEATURES
+
+- Add support for Vimeo live
+
 # 6.0.0 / 2020-05-04
 
 ## BREAKING CHANGES

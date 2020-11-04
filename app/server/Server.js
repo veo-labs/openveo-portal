@@ -26,7 +26,6 @@ const AuthenticationController = process.require('app/server/controllers/Authent
 const VersionController = process.require('app/server/controllers/VersionController.js');
 const SettingsController = process.require('app/server/controllers/SettingsController.js');
 const GroupsController = process.require('app/server/controllers/GroupsController.js');
-const LiveController = process.require('app/server/controllers/LiveController.js');
 const VideosController = process.require('app/server/controllers/VideosController.js');
 const CategoriesController = process.require('app/server/controllers/CategoriesController.js');
 const FiltersController = process.require('app/server/controllers/FiltersController.js');
@@ -341,17 +340,10 @@ class Server {
     const errorController = new ErrorController();
     const filtersController = new FiltersController();
     const groupsController = new GroupsController();
-    const liveController = new LiveController();
     const settingsController = new SettingsController();
     const statisticsController = new StatisticsController();
     const versionController = new VersionController();
     const videosController = new VideosController();
-
-    // Routes
-    this.app.get(
-      '/live',
-      liveController.defaultAction.bind(liveController)
-    );
 
     // Web service routes
     if (this.configuration.auth) {

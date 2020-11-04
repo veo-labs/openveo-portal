@@ -79,6 +79,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         URL_EMPTY_ERROR: 'Erreur : vous devez préciser une URL de streaming live',
         URL_YOUTUBE_ERROR: 'Erreur : URL Youtube de streaming live invalide (ex : https://www.youtube.com/watch?v=123456)',
         URL_WOWZA_ERROR: 'Erreur : URL Wowza de streaming live invalide (ex : https://wowza-example.local:1935/application-example/stream-example/playlist.m3u8)',
+        URL_VIMEO_ERROR: 'Erreur : URL Vimeo de streaming live invalide (ex : https://vimeo.com/event/428806)',
         URL_VODALYS_ERROR: 'Erreur : URL Vodalys Studio de streaming live invalide (ex : https://console.vodalys.studio/vpage2/0hjertPpReB2Dbmr)',
         PRIVATE_LABEL: 'Privé',
         PRIVATE_DESCRIPTION: 'Restreindre l\'accès au live',
@@ -89,6 +90,7 @@ angular.module('opa.locale', [], ['$provide', function($provide) {
         PLAYER_LICENSE_ERROR: 'Erreur : numéro de license invalide (ex : xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx)',
         WOWZA: 'Wowza',
         YOUTUBE: 'Youtube',
+        VIMEO: 'Vimeo',
         VODALYS: 'Vodalys'
       },
       SEARCH: {

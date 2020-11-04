@@ -55,7 +55,17 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     },
     LIVE: {
       PAGE_TITLE: 'Portal - Live',
-      TITLE: 'Live'
+      TITLE: 'Live',
+      WOWZA: {
+        AUTO: 'Auto',
+        BUFFERING: 'Buffering...',
+        COUNT_DOWN: 'Time until show',
+        STREAM_ERROR: 'Stream unavailable',
+        CORS_ERROR: 'Stream unavailable (check cross-origin policy)',
+        LIVE_BUTTON: 'LIVE',
+        LIVE_BUTTON_OVER: 'Seek to LIVE',
+        LIVE_ENDED: 'This live event has ended'
+      }
     },
     LOGIN: {
       PAGE_TITLE: 'Portal - Login',

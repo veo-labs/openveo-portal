@@ -126,6 +126,21 @@ describe('opaLiveSettings', function() {
     // Change player type
     scope.settings = {
       activated: true,
+      playerType: 'vimeo',
+      url: 'wrong url format'
+    };
+
+    scope.$digest();
+
+    assert.equal(
+      messageElement.text(),
+      $sce.getTrustedHtml($filter('opaTranslate')('SETTINGS.LIVE.URL_VIMEO_ERROR')),
+      'Expected error message about Vimeo'
+    );
+
+    // Change player type
+    scope.settings = {
+      activated: true,
       playerType: 'vodalys',
       url: 'wrong url format'
     };

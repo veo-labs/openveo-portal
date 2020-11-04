@@ -36,6 +36,10 @@
             name: 'SETTINGS.LIVE.YOUTUBE'
           },
           {
+            id: 'vimeo',
+            name: 'SETTINGS.LIVE.VIMEO'
+          },
+          {
             id: 'vodalys',
             name: 'SETTINGS.LIVE.VODALYS'
           }

@@ -57,6 +57,24 @@
       },
 
       /**
+       * Validates that the given value is a Vimeo stream URL.
+       *
+       * Expected format only allows URLs starting with "https://vimeo.com/event/" and
+       * finishing with any number of alphanumeric characters.
+       * e.g. https://vimeo.com/event/428806
+       *
+       * @method isValidVimeoStreamUrl
+       * @param {String} value The url to validate
+       * @return {Boolean} true if valid, false otherwise
+       * @final
+       */
+      isValidVimeoStreamUrl: {
+        value: function(value) {
+          return /^https:\/\/vimeo\.com\/event\/\w+$/.test(value);
+        }
+      },
+
+      /**
        * Validates that the given value is a Vodalys Studio stream URL.
        *
        * Expected format only allows URLs starting with "https://console.vodaly.stydio/" and
@@ -95,6 +113,7 @@
 
       if (ctrl.opaType === 'youtube') return ctrl.isValidYoutubeStreamUrl(modelValue);
       else if (ctrl.opaType === 'wowza') return ctrl.isValidWowzaStreamUrl(modelValue);
+      else if (ctrl.opaType === 'vimeo') return ctrl.isValidVimeoStreamUrl(modelValue);
       else if (ctrl.opaType === 'vodalys') return ctrl.isValidVodalysStreamUrl(modelValue);
     };
   }
