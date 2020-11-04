@@ -117,7 +117,7 @@ class SettingsController extends openVeoApi.controllers.EntityController {
                 !value.url ||
                 (value.private && !value.groups.length) ||
                 (type === 'wowza' && !value.wowza) ||
-                (type === 'youtube' && !/^https:\/\/www\.youtube\.com\/watch\?v=.+/.test(value.url)) ||
+                (type === 'youtube' && !/^https:\/\/www\.youtube\.com\/watch\?v=[&=\w-]+$/.test(value.url)) ||
                 (type === 'wowza' && !/^https?:\/\/[^:/]*(:[0-9]+)?\/[^/]+\/[^/]+\/playlist.m3u8$/.test(value.url)) ||
                 (type === 'wowza' && !/^([a-zA-Z0-9]{5}-)*[a-zA-Z0-9]{5}$/.test(value.wowza.playerLicenseKey)) ||
                 (type === 'vodalys' && !/^https?:\/\/console\.vodalys\.studio\/[^#?=]+$/.test(value.url))
