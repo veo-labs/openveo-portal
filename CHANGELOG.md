@@ -1,4 +1,8 @@
-# 6.1.0 / YYYY-MM-DD
+# 7.0.0 / YYYY-MM-DD
+
+## BREAKING CHANGES
+
+- Custom themes need to update their translations, one can take the default theme as an example
 
 ## NEW FEATURES
 
