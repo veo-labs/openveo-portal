@@ -25,7 +25,7 @@ OpenVeo Portal supports the following SSO (Single Sign On) providers:
 
 OpenVeo Portal has been tested on the following operating systems:
 
-- Ubuntu 16.04
+- Ubuntu 18.04
 
 OpenVeo has been tested on the following:
 
