@@ -21,7 +21,7 @@ module.exports = {
       '<%= project.root %>/conf.json'
     ],
     tasks: [
-      'build-admin'
+      'build-back-office-client'
     ]
   }
 

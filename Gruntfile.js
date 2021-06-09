@@ -77,7 +77,7 @@ module.exports = function(grunt) {
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
 
   // Prepare project for production
-  grunt.registerTask('dist', ['remove:build', 'compass:dist', 'compile-js', 'build-admin']);
+  grunt.registerTask('dist', ['remove:build', 'compass:dist', 'compile-js', 'build-back-office-client']);
 
   // Deploy documentation to github pages
   grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
   });
 
   // Build the administration interface
-  grunt.registerTask('build-admin', [
+  grunt.registerTask('build-back-office-client', [
     'ngDp:backOffice',
     'replace:admin-inject-scss',
     'replace:admin-inject-scripts',

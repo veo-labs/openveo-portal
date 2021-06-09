@@ -102,7 +102,7 @@
   "scripts": {
     "build": "npx grunt dist",
     "build:front-office-client": "npx grunt compass:dist",
-    "build:back-office-client": "npx grunt build-admin",
+    "build:back-office-client": "npx grunt build-back-office-client",
     "e2e": "npx grunt test-e2e",
     "lint": "npx grunt eslint",
     "postinstall": "node install.js",
