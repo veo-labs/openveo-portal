@@ -23,7 +23,7 @@ module.exports = {
 
   serverSourcesPath: '<%= project.root %>/app/server',
 
-  clientTestSourcesPath: '<%= project.tests %>/client',
+  clientTestSourcesPath: '<%= project.root %>/tests/client',
   clientLibrariesPath: '<%= project.root %>/assets/lib',
 
   documentationDeployPath: '<%= project.root %>/site',

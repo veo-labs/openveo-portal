@@ -12,6 +12,10 @@
 - Command `grunt dist` has been replaced by `npm run build`
 - Command `grunt` has been replaced by `npm run watch -- --with-source-maps` and now also watches for modifications on front office JavaScript files
 
+## BUG FIXES
+
+- Fix end to end tests execution which wasn't working since version 4.0.0
+
 # 7.0.0 / 2020-11-19
 
 ## BREAKING CHANGES
