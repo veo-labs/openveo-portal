@@ -15,7 +15,7 @@ nav:
   - 'Prerequisites': 'developers/prerequisites.md'
   - 'Installation': 'developers/installation.md'
   - 'conf.json': 'developers/conf.md'
-  - 'CSS / SASS / JS compilation': 'developers/compilation.md'
+  - 'Compilation': 'developers/compilation.md'
   - 'API': 'developers/api.md'
   - 'Logger': 'developers/logger.md'
   - 'Coding standards': 'developers/coding-standards.md'
