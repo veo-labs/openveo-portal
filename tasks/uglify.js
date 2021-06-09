@@ -4,8 +4,8 @@
 // For more information about Grunt uglify, have a look at https://www.npmjs.com/package/grunt-contrib-uglify
 module.exports = {
 
-  // Obfuscate project's client JavaScript files
-  dist: {
+  // Obfuscate project's front office client JavaScript files
+  front: {
     files: [
       {
         expand: true, // Enable dynamic expansion
@@ -26,7 +26,7 @@ module.exports = {
     ]
   },
 
-  // Obfuscate JavaScript files of the administration interface
+  // Obfuscate JavaScript files of the back office client
   // Use grunt uglify:admin --with-source-maps to add source maps generation
   // Not that this task should be run after concat:admin
   admin: {
