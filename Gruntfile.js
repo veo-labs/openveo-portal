@@ -61,9 +61,6 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
   grunt.registerMultiTask('ngDp', openVeoApi.grunt.ngDpTask(grunt));
 
-  // Listen to changes on SCSS files and generate CSS files
-  grunt.registerTask('default', ['compass:front', 'watch']);
-
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
 

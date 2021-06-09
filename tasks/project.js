@@ -17,6 +17,8 @@ module.exports = {
   frontDeployCssPath: '<%= project.root %>/assets/css',
   frontScssSourcesPath: '<%= project.root %>/app/client/front/compass/sass',
   frontJsSourcesPath: '<%= project.root %>/app/client/front/js',
+  frontThemesSourcesPath: '<%= project.root %>/assets/themes',
+  frontViewsSourcesPath: '<%= project.root %>/assets/views',
   frontDeployJsPath: '<%= project.root %>/assets/js',
 
   serverSourcesPath: '<%= project.root %>/app/server',

@@ -4,15 +4,21 @@
 // For more information about Grunt watch, have a look at https://www.npmjs.com/package/grunt-contrib-watch
 module.exports = {
 
-  // Launch compass compilation on each SCSS files modification
-  compass: {
-    files: '**/*.scss',
+  // Automatically rebuild front office when a file is modified
+  front: {
+    files: [
+      '<%= project.frontScssSourcesPath %>/**/*',
+      '<%= project.frontJsSourcesPath %>/**/*',
+      '<%= project.frontThemesSourcesPath %>/**/*',
+      '<%= project.frontViewsSourcesPath %>/**/*',
+      '<%= project.root %>/conf.json'
+    ],
     tasks: [
-      'compass:dev'
+      'build-front-office-client'
     ]
   },
 
-  // Automatically rebuild administration interface when a file is modified
+  // Automatically rebuild back office when a file is modified
   admin: {
     files: [
       '<%= project.adminSourcesPath %>/**/*',

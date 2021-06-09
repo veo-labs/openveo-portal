@@ -114,8 +114,8 @@
     "test:front-office-client": "npx grunt karma:frontOffice",
     "test:server": "npx grunt mochaTest",
     "upgrade-web-driver": "npx webdriver-manager update",
-    "watch": "npx grunt",
-    "watch:front-office-client": "npx grunt watch:compass",
+    "watch": "npx grunt watch",
+    "watch:front-office-client": "npx grunt watch:front",
     "watch:back-office-client": "npx grunt watch:admin"
   },
   "precommit": [

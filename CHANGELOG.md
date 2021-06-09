@@ -10,7 +10,7 @@
 - Command `grunt test-e2e` has been replaced by `npm run e2e`
 - Command `grunt compile-js` has been removed
 - Command `grunt dist` has been replaced by `npm run build`
-- Command `grunt` has been replaced by `npm run watch -- --with-source-maps`
+- Command `grunt` has been replaced by `npm run watch -- --with-source-maps` and now also watches for modifications on front office JavaScript files
 
 # 7.0.0 / 2020-11-19
 
