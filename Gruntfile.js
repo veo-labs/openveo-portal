@@ -62,7 +62,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('ngDp', openVeoApi.grunt.ngDpTask(grunt));
 
   // Listen to changes on SCSS files and generate CSS files
-  grunt.registerTask('default', ['compass:dev', 'watch']);
+  grunt.registerTask('default', ['compass:front', 'watch']);
 
   // Minify and concat AngularJS Javascript files
   grunt.registerTask('compile-js', ['uglify:front', 'concat:front-lib', 'concat:front-js']);
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
 
   // Prepare project for production
-  grunt.registerTask('dist', ['remove:build', 'compass:dist', 'compile-js', 'build-back-office-client']);
+  grunt.registerTask('dist', ['remove:build', 'compass:front', 'compile-js', 'build-back-office-client']);
 
   // Deploy documentation to github pages
   grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);

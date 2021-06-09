@@ -4,22 +4,11 @@
 // For more information about Grunt compass, have a look at https://www.npmjs.com/package/grunt-contrib-compass
 module.exports = {
 
-  // Compile default theme SCSS for development
-  dev: {
+  // Build the front office stylesheet
+  // Use grunt compass:front --with-source-maps to add source maps generation
+  front: {
     options: {
-      sourcemap: true,
-      sassDir: '<%= project.frontScssSourcesPath %>',
-      cssDir: '<%= project.frontDeployCssPath %>',
-      environment: 'development',
-      specify: '<%= project.frontScssSourcesPath %>/style.scss',
-      force: true
-    }
-  },
-
-  // Compile default theme SCSS for distribution
-  dist: {
-    options: {
-      sourcemap: false,
+      sourcemap: process.withSourceMaps,
       sassDir: '<%= project.frontScssSourcesPath %>',
       cssDir: '<%= project.frontDeployCssPath %>',
       environment: 'production',
@@ -29,7 +18,7 @@ module.exports = {
     }
   },
 
-  // Build the administration interface stylesheet
+  // Build the back office stylesheet
   // Use grunt compass:admin --with-source-maps to add source maps generation
   admin: {
     options: {
