@@ -10,11 +10,11 @@ You can compile the whole OpenVeo Portal (front office client and back office cl
 
 # Compile only front office
 
-You can compile the SASS files of the front office using the following command:
+You can compile the front office using the following command:
 
     npm run build:front-office-client
 
-You can also automatically compile SASS files of the front office on changes using:
+You can also automatically compile the front office on changes using:
 
     npm run watch:front-office-client
 

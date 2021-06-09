@@ -64,14 +64,8 @@ module.exports = function(grunt) {
   // Listen to changes on SCSS files and generate CSS files
   grunt.registerTask('default', ['compass:front', 'watch']);
 
-  // Minify and concat AngularJS Javascript files
-  grunt.registerTask('compile-js', ['uglify:front', 'concat:front-lib', 'concat:front-js']);
-
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
-
-  // Prepare project for production
-  grunt.registerTask('dist', ['remove:build', 'compass:front', 'compile-js', 'build-back-office-client']);
 
   // Deploy documentation to github pages
   grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
@@ -92,7 +86,15 @@ module.exports = function(grunt) {
     grunt.config('concat', concat);
   });
 
-  // Build the administration interface
+  // Build the front office
+  grunt.registerTask('build-front-office-client', [
+    'compass:front',
+    'uglify:front',
+    'concat:front-lib',
+    'concat:front-js'
+  ]);
+
+  // Build the back office
   grunt.registerTask('build-back-office-client', [
     'ngDp:backOffice',
     'replace:admin-inject-scss',
