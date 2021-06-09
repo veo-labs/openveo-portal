@@ -31,15 +31,11 @@ OpenVeo has been tested on the following:
 
 - Google Chrome
 - Mozilla Firefox
-- Opera
-- Edge
 
 ![Ubuntu](images/operating-systems/ubuntu.gif)
 
 ![Firefox](images/browsers/firefox.gif)
 ![Google Chrome](images/browsers/chrome.gif)
-![Opera](images/browsers/opera.gif)
-![Edge](images/browsers/edge.gif)
 
 ## Screenshots
 
