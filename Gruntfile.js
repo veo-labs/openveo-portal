@@ -64,12 +64,6 @@ module.exports = function(grunt) {
   // Listen to changes on SCSS files and generate CSS files
   grunt.registerTask('default', ['compass:dev', 'watch']);
 
-  // Launch end to end tests
-  // e.g. grunt test-e2e --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true
-  // e.g. grunt test-e2e --capabilities="{\"browserName\": \"firefox\"}" --directConnect=true
-  // e.g. grunt test-e2e --capabilities="{\"browserName\": \"internet explorer\"}"
-  grunt.registerTask('test-e2e', ['protractor']);
-
   // Minify and concat AngularJS Javascript files
   grunt.registerTask('compile-js', ['uglify:dist', 'concat:lib', 'concat:js']);
 
