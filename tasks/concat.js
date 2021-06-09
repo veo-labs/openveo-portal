@@ -12,8 +12,8 @@ module.exports = {
     separator: ';'
   },
 
-  // Concatenate compiled JavaScript library files
-  lib: {
+  // Concatenate front office compiled JavaScript library files
+  'front-lib': {
     src: (() => {
       const files = [];
       libFile.forEach((filePath) => {
@@ -36,7 +36,7 @@ module.exports = {
     dest: '<%= project.frontDeployJsPath %>/openveo-portal.js'
   },
 
-  // Concatenate JavaScript files of the administration interface
+  // Concatenate JavaScript files of the back office
   // Use grunt concat:admin --with-source-maps to add source maps generation
   // Not that src property is empty because it is filled by the admin-set-concat-src task
   // Consequently using this task directly won't have any effect

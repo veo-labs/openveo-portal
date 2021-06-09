@@ -65,7 +65,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['compass:dev', 'watch']);
 
   // Minify and concat AngularJS Javascript files
-  grunt.registerTask('compile-js', ['uglify:front', 'concat:lib', 'concat:js']);
+  grunt.registerTask('compile-js', ['uglify:front', 'concat:front-lib', 'concat:js']);
 
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
