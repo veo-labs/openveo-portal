@@ -33,6 +33,17 @@ exports.config = {
       inline: screenshotPlugin
     }
   ],
+  capabilities: {
+    browserName: 'chrome',
+    chromeOptions: {
+      args: [
+        'headless',
+        'no-sandbox',
+        '--window-size=1080,720',
+        'disable-infobars'
+      ]
+    }
+  },
   onPrepare: () => {
     const deferred = protractor.promise.defer();
     const flow = browser.controlFlow();
