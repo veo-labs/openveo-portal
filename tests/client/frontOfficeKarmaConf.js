@@ -31,7 +31,7 @@ module.exports = function(config) {
       'node_modules/angulartics-piwik/dist/angulartics-piwik.min.js',
       'node_modules/chai-spies/chai-spies.js',
       'node_modules/he/he.js',
-      'node_modules/@openveo/player/dist/openveo-player.js',
+      'node_modules/@openveo/player/dist/openveo-player.min.js',
       'assets/themes/default/i18n/openveo-portal-locale_en.js',
       'assets/themes/default/conf.js',
       'tests/client/unitTests/init.js',
