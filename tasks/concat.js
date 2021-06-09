@@ -24,8 +24,8 @@ module.exports = {
     dest: '<%= project.frontDeployJsPath %>/openveo-portal-lib.js'
   },
 
-  // Concatenate compiled JavaScript files
-  js: {
+  // Concatenate front office compiled JavaScript files
+  'front-js': {
     src: (() => {
       const files = [];
       jsFile.forEach((filePath) => {
