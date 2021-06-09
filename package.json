@@ -103,6 +103,7 @@
     "build": "npx grunt remove:build && npx grunt build-front-office-client && npx grunt build-back-office-client",
     "build:front-office-client": "npx grunt remove:build && npx grunt build-front-office-client",
     "build:back-office-client": "npx grunt remove:build && npx grunt build-back-office-client",
+    "doc": "npx grunt doc",
     "e2e": "npx grunt protractor",
     "lint": "npx grunt eslint",
     "postinstall": "node install.js",

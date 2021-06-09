@@ -11,6 +11,7 @@
 - Command `grunt compile-js` has been removed
 - Command `grunt dist` has been replaced by `npm run build`
 - Command `grunt` has been replaced by `npm run watch -- --with-source-maps` and now also watches for modifications on front office JavaScript files
+- Command `grunt doc` has been replaced by `npm run doc`
 
 ## NEW FEATURES
 
