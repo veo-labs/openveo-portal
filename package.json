@@ -109,7 +109,7 @@
     "postpublish": "npx grunt deploy-doc",
     "prepack": "npm run build",
     "test": "npm run test:client && npm run test:server",
-    "test:back-office-client": "npx grunt karma:backOffice",
+    "test:back-office-client": "npx grunt back-office-client-unit-tests",
     "test:client": "npm run test:front-office-client && npm run test:back-office-client",
     "test:front-office-client": "npx grunt karma:frontOffice",
     "test:server": "npx grunt mochaTest",

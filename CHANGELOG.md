@@ -6,6 +6,7 @@
 - No longer tested on Ubuntu 16.04 (tested on Ubuntu 18.04)
 - OpenVeo Portal is no longer tested on Opera and Edge
 - Command `grunt build:admin` has been replaced by `npm run build:back-office-client`
+- Command `grunt unit-tests` has been replaced by `npm run test:client`
 
 # 7.0.0 / 2020-11-19
 
