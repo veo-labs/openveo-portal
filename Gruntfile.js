@@ -33,8 +33,8 @@ module.exports = function(grunt) {
     env: process.env
   };
 
-  // Set "production" property which will be used by grunt tasks to set appropriate configuration
-  process.production = (process.argv.length > 3 && process.argv[3] === '--production') ? true : false;
+  // Set "withSourceMaps" property which will be used by grunt tasks to set appropriate configuration
+  process.withSourceMaps = (process.argv.length > 3 && process.argv[3] === '--with-source-maps') ? true : false;
 
   grunt.initConfig(config);
 

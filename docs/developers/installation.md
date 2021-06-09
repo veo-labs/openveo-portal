@@ -13,4 +13,4 @@
 This will compile front office and back office sources.
 
     cd /WORKSPACE_PATH/openveo-portal
-    grunt dist
+    npm run build

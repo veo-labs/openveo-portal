@@ -8,9 +8,11 @@ You need to have a running OpenVeo Web Service server before starting tests.
 
 # Install selenium web driver and chrome driver
 
-    node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update
+    npm run upgrade-web-client
 
-NB: Note that protractor module could be in node_modules/protractor
+If the version of Google Chrome is too recent for the Chrome Driver installed with Protractor you can enter a specific version of the Chrome Driver using:
+
+    npm run upgrade-web-client -- --versions.chrome=80.0.3987.149
 
 # Configure tests
 
@@ -97,10 +99,10 @@ If a test fails, a screenshot of the browser at the instant is taken and availab
 # Launch end to end tests
 
     # Launch all end to end tests on chrome
-    grunt test-e2e --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true
+    npm run e2e -- --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true
 
     # Launch all end to end tests on firefox
-    grunt test-e2e --capabilities="{\"browserName\": \"firefox\"}" --directConnect=true
+    npm run e2e -- --capabilities="{\"browserName\": \"firefox\"}" --directConnect=true
 
     # Launch only portal suite on chrome
-    grunt test-e2e --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true --suite="portal"
+    npm run e2e -- --capabilities="{\"browserName\": \"chrome\"}" --directConnect=true --suite="portal"

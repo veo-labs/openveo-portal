@@ -27,12 +27,12 @@ module.exports = {
   },
 
   // Obfuscate JavaScript files of the administration interface
-  // Use grunt uglify:admin --production to skip source maps generation
+  // Use grunt uglify:admin --with-source-maps to add source maps generation
   // Not that this task should be run after concat:admin
   admin: {
     options: {
-      sourceMap: !process.production,
-      sourceMapIn: !process.production ? '<%= project.buildPath %>/openveo-portal-admin.js.map' : null
+      sourceMap: process.withSourceMaps,
+      sourceMapIn: process.withSourceMaps ? '<%= project.buildPath %>/openveo-portal-admin.js.map' : null
     },
     expand: true,
     cwd: '<%= project.buildPath %>/',

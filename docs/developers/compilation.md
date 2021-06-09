@@ -2,36 +2,34 @@
 
 OpenVeo Portal is written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance. Front office and back office are two different applications and are not compiled the same way.
 
-# Compile front office
+# Compile OpenVeo portal
 
-## Compiling SASS files
+You can compile the whole OpenVeo Portal (front office client and back office client) using:
+
+    npm run build
+
+# Compile only front office
 
 You can compile the SASS files of the front office using the following command:
 
-    grunt compass:dist
+    npm run build:front-office-client
 
-Or you can watch SASS files changes using the following command:
+You can also automatically compile SASS files of the front office on changes using:
 
-    grunt
+    npm run watch:front-office-client
 
-## Compiling JavaScript files
+# Compile only back office
 
-You'll probably want to compile AngularJS files, in production, for better performance. You can do it using:
+You can compile the back office client using the following command:
 
-    grunt dist
+    npm run build:back-office-client
 
-# Compile back office
+To compile the back office client with source maps:
 
-## Compiling SASS files and JavaScript files
+    npm run build:back-office-client -- --with-source-maps
 
-You can compile the back office SASS files and JavaScript files using the following command:
+It will generate source maps for both SASS files and JavaScript files.
 
-    grunt build-admin
+You can also compile automatically the back office client on changes using:
 
-It will generate source maps for both SASS files and JavaScript files. You can compile the back office without source maps using the following command (for production):
-
-    grunt build-admin --production
-
-If you want the back office to be automatically compiled when a SASS file or a JavaScript file is changed use the following command:
-
-    grunt watch:admin
+    npm run watch:back-office-client

@@ -30,10 +30,10 @@ module.exports = {
   },
 
   // Build the administration interface stylesheet
-  // Use grunt compass:admin --production to skip source maps generation
+  // Use grunt compass:admin --with-source-maps to add source maps generation
   admin: {
     options: {
-      sourcemap: !process.production,
+      sourcemap: process.withSourceMaps,
       sassDir: '<%= project.compassBuildPath %>',
       cssDir: '<%= project.compassBuildPath %>',
       environment: 'production',

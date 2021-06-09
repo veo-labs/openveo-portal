@@ -37,12 +37,12 @@ module.exports = {
   },
 
   // Concatenate JavaScript files of the administration interface
-  // Use grunt concat:admin --production to skip source maps generation
+  // Use grunt concat:admin --with-source-maps to add source maps generation
   // Not that src property is empty because it is filled by the admin-set-concat-src task
   // Consequently using this task directly won't have any effect
   admin: {
     options: {
-      sourceMap: !process.production
+      sourceMap: process.withSourceMaps
     },
     src: [],
     dest: '<%= project.buildPath %>/openveo-portal-admin.js'
