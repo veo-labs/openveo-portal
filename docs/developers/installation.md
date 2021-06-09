@@ -6,7 +6,7 @@
 # Install OpenVeo Portal dependencies
 
     cd /WORKSPACE_PATH/openveo-portal
-    npm install
+    npm ci
 
 # Compile sources
 

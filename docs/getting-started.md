@@ -14,7 +14,7 @@ Actually OpenVeo Portal can be downloaded directly from [github](https://github.
 
 From OpenVeo Portal root directory:
 
-    npm install --production
+    npm ci --production
 
 **Nb :** You will be prompted for some configuration. Don't worry if you made an error, you can edit configuration anytime using [advanced configuration](advanced-configuration).
 

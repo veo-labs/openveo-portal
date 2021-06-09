@@ -1,3 +1,9 @@
+# 8.0.0 / YYYY-MM-DD
+
+## BREAKING CHANGES
+
+- No longer tested on NodeJS &lt; 16.3.0 and NPM &lt; 7.15.1
+
 # 7.0.0 / 2020-11-19
 
 ## BREAKING CHANGES
