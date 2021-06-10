@@ -5,7 +5,7 @@
 module.exports = {
 
   // Automatically rebuild front office when a file is modified
-  front: {
+  'front-office': {
     files: [
       '<%= project.frontScssSourcesPath %>/**/*',
       '<%= project.frontJsSourcesPath %>/**/*',

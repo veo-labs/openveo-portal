@@ -82,10 +82,10 @@ module.exports = function(grunt) {
 
   // Build the front office
   grunt.registerTask('build-front-office-client', [
-    'compass:front',
-    'uglify:front',
-    'concat:front-lib',
-    'concat:front-js'
+    'compass:front-office',
+    'uglify:front-office',
+    'concat:front-office-lib',
+    'concat:front-office-js'
   ]);
 
   // Build the back office

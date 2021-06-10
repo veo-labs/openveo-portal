@@ -5,7 +5,7 @@
 module.exports = {
 
   // Obfuscate project's front office client JavaScript files
-  front: {
+  'front-office': {
     files: [
       {
         expand: true, // Enable dynamic expansion

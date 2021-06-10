@@ -5,8 +5,8 @@
 module.exports = {
 
   // Build the front office stylesheet
-  // Use grunt compass:front --with-source-maps to add source maps generation
-  front: {
+  // Use grunt compass:front-office --with-source-maps to add source maps generation
+  'front-office': {
     options: {
       sourcemap: process.withSourceMaps,
       sassDir: '<%= project.frontScssSourcesPath %>',

@@ -112,11 +112,11 @@
     "test": "npm run test:client && npm run test:server",
     "test:back-office-client": "npx grunt back-office-client-unit-tests",
     "test:client": "npm run test:front-office-client && npm run test:back-office-client",
-    "test:front-office-client": "npx grunt karma:frontOffice",
+    "test:front-office-client": "npx grunt karma:front-office",
     "test:server": "npx grunt mochaTest",
     "upgrade-web-driver": "npx webdriver-manager update",
     "watch": "npx grunt watch",
-    "watch:front-office-client": "npx grunt watch:front",
+    "watch:front-office-client": "npx grunt watch:front-office",
     "watch:back-office-client": "npx grunt watch:back-office"
   },
   "precommit": [

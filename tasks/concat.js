@@ -13,7 +13,7 @@ module.exports = {
   },
 
   // Concatenate front office compiled JavaScript library files
-  'front-lib': {
+  'front-office-lib': {
     src: (() => {
       const files = [];
       libFile.forEach((filePath) => {
@@ -25,7 +25,7 @@ module.exports = {
   },
 
   // Concatenate front office compiled JavaScript files
-  'front-js': {
+  'front-office-js': {
     src: (() => {
       const files = [];
       jsFile.forEach((filePath) => {

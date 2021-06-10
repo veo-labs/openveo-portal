@@ -45,8 +45,7 @@ module.exports = {
   },
 
   // Front office unit tests
-  // Task ngDp:backOffice should be run before
-  frontOffice: {
+  'front-office': {
     configFile: 'tests/client/frontOfficeKarmaConf.js'
   }
 
