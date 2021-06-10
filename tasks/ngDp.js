@@ -7,7 +7,7 @@ module.exports = {
   // Generates a file containing the ordered list of SCSS and JavaScript files
   // of the administration interface
   // Paths will be transformed, replacing basePath by cssPrefix or jsPrefix
-  backOffice: {
+  'back-office': {
     options: {
       basePath: '<%= project.adminSourcesPath %>/',
       cssPrefix: '../../app/client/admin/'

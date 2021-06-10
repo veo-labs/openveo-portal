@@ -27,9 +27,9 @@ module.exports = {
   },
 
   // Obfuscate JavaScript files of the back office client
-  // Use grunt uglify:admin --with-source-maps to add source maps generation
+  // Use grunt uglify:back-office --with-source-maps to add source maps generation
   // Not that this task should be run after concat:admin
-  admin: {
+  'back-office': {
     options: {
       sourceMap: process.withSourceMaps,
       sourceMapIn: process.withSourceMaps ? '<%= project.buildPath %>/openveo-portal-admin.js.map' : null

@@ -117,7 +117,7 @@
     "upgrade-web-driver": "npx webdriver-manager update",
     "watch": "npx grunt watch",
     "watch:front-office-client": "npx grunt watch:front",
-    "watch:back-office-client": "npx grunt watch:admin"
+    "watch:back-office-client": "npx grunt watch:back-office"
   },
   "precommit": [
     "lint",

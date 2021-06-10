@@ -8,8 +8,8 @@ module.exports = {
 
   // Inject SCSS files of the administration interface into its main SCSS file
   // It makes sure SCSS files are loaded in the right order
-  // Note that it must be run after ngDp:backOffice task
-  'admin-inject-scss': {
+  // Note that it must be run after ngDp:back-office task
+  'back-office-inject-scss': {
     options: {
       usePrefix: false,
       patterns: [
@@ -41,7 +41,7 @@ module.exports = {
 
   // Inject JavaScript library files of the administration interface into root HTML
   // Injected scripts are retrieved from conf.json file
-  'admin-inject-scripts': {
+  'back-office-inject-scripts': {
     options: {
       usePrefix: false,
       patterns: [
@@ -73,7 +73,7 @@ module.exports = {
   },
 
   // Replace admin font path from index.css file
-  'admin-font-paths': {
+  'back-office-font-paths': {
     options: {
       usePrefix: false,
       patterns: [

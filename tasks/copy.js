@@ -5,7 +5,7 @@
 module.exports = {
 
   // Copy compiled admin HTML root file into public directory
-  'admin-html-root': {
+  'back-office-html-root': {
     cwd: '<%= project.buildPath %>',
     src: 'index.html',
     dest: '<%= project.adminDeployViewsPath %>/',

@@ -31,7 +31,7 @@ module.exports = {
   },
 
   // Generate yuidoc for the administration part
-  admin: {
+  'back-office': {
     name: 'OpenVeo Portal administration interface',
     description: 'AngularJS OpenVeo Portal administration interface documentation',
     version: '<%= pkg.version %>',

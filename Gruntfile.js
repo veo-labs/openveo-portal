@@ -64,17 +64,17 @@ module.exports = function(grunt) {
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
 
-  // Dynamically set src property of the concat:admin task
-  // The list of sources is built dynamically by the ngDp:backOffice task
-  grunt.registerTask('admin-set-concat-src', 'Set src of concat:admin task', () => {
+  // Dynamically set src property of the concat:back-office task
+  // The list of sources is built dynamically by the ngDp:back-office task
+  grunt.registerTask('back-office-set-concat-src', 'Set src of concat:back-office task', () => {
 
-    // Get the list of sources to concat from the results of ngDp:backOffice task
+    // Get the list of sources to concat from the results of ngDp:back-office task
     const resources = process.require('build/ng-admin-files.json');
     var concat = grunt.config('concat');
-    concat.admin.src = [];
+    concat['back-office'].src = [];
 
     resources.js.forEach((resourcePath) => {
-      concat.admin.src.push(`<%= project.adminSourcesPath %>/${resourcePath}`);
+      concat['back-office'].src.push(`<%= project.adminSourcesPath %>/${resourcePath}`);
     });
 
     grunt.config('concat', concat);
@@ -90,19 +90,19 @@ module.exports = function(grunt) {
 
   // Build the back office
   grunt.registerTask('build-back-office-client', [
-    'ngDp:backOffice',
-    'replace:admin-inject-scss',
-    'replace:admin-inject-scripts',
-    'compass:admin',
-    'replace:admin-font-paths',
-    'admin-set-concat-src',
-    'concat:admin',
-    'uglify:admin',
-    'copy:admin-html-root',
-    'ngtemplates:admin'
+    'ngDp:back-office',
+    'replace:back-office-inject-scss',
+    'replace:back-office-inject-scripts',
+    'compass:back-office',
+    'replace:back-office-font-paths',
+    'back-office-set-concat-src',
+    'concat:back-office',
+    'uglify:back-office',
+    'copy:back-office-html-root',
+    'ngtemplates:back-office'
   ]);
 
   // Launch back office unit tests
-  grunt.registerTask('back-office-client-unit-tests', ['ngDp:backOffice', 'karma:backOffice']);
+  grunt.registerTask('back-office-client-unit-tests', ['ngDp:back-office', 'karma:back-office']);
 
 };

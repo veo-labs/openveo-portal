@@ -5,7 +5,7 @@
 module.exports = {
 
   // Generates AngularJS templates cache for the administration interface
-  admin: {
+  'back-office': {
     options: {
       module: 'opa',
       url: (url) => {

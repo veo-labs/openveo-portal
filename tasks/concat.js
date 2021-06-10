@@ -37,10 +37,10 @@ module.exports = {
   },
 
   // Concatenate JavaScript files of the back office
-  // Use grunt concat:admin --with-source-maps to add source maps generation
+  // Use grunt concat:back-office --with-source-maps to add source maps generation
   // Not that src property is empty because it is filled by the admin-set-concat-src task
   // Consequently using this task directly won't have any effect
-  admin: {
+  'back-office': {
     options: {
       sourceMap: process.withSourceMaps
     },
