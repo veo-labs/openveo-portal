@@ -64,9 +64,6 @@ module.exports = function(grunt) {
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
 
-  // Deploy documentation to github pages
-  grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
-
   // Dynamically set src property of the concat:admin task
   // The list of sources is built dynamically by the ngDp:backOffice task
   grunt.registerTask('admin-set-concat-src', 'Set src of concat:admin task', () => {

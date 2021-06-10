@@ -107,7 +107,7 @@
     "e2e": "npx grunt protractor",
     "lint": "npx grunt eslint",
     "postinstall": "node install.js",
-    "postpublish": "npx grunt deploy-doc",
+    "postpublish": "npm run doc && npx grunt gh-pages:doc",
     "prepack": "npm run build",
     "test": "npm run test:client && npm run test:server",
     "test:back-office-client": "npx grunt back-office-client-unit-tests",
