@@ -5,21 +5,6 @@
 - No longer tested on NodeJS &lt; 16.3.0 and NPM &lt; 7.15.1
 - No longer tested on Ubuntu 16.04 (tested on Ubuntu 18.04)
 - OpenVeo Portal is no longer tested on Opera and Edge
-- Command `grunt build:admin` has been replaced by `npm run build:back-office-client`
-- Command `grunt unit-tests` has been replaced by `npm run test:client`
-- Command `grunt test-e2e` has been replaced by `npm run e2e`
-- Command `grunt compile-js` has been removed
-- Command `grunt dist` has been replaced by `npm run build`
-- Command `grunt` has been replaced by `npm run watch -- --with-source-maps` and now also watches for modifications on front office JavaScript files
-- Command `grunt doc` has been replaced by `npm run doc`
-
-## NEW FEATURES
-
-- End to end tests are now run in headless Chrome
-
-## BUG FIXES
-
-- Fix end to end tests execution which wasn't working since version 4.0.0
 
 # 7.0.0 / 2020-11-19
 
