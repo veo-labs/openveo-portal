@@ -5,7 +5,7 @@
 module.exports = {
 
   // Validate the whole project
-  validate: {
+  portal: {
     src: [
       'server.js',
       'install.js',
