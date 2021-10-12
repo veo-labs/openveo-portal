@@ -9,6 +9,9 @@
 ## DEPENDENCIES
 
 - **consolidate** has been upgraded from 0.15.1 to **0.16.0**
+- **dashjs** has been upgraded from 3.0.3 to **4.1.0**
+- **video.js** has been upgraded from 7.7.5 to **7.15.4**
+- **videojs-contrib-dash** has been upgraded from 2.11.0 to **5.1.0**
 
 # 7.0.0 / 2020-11-19
 
