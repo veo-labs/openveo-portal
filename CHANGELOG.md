@@ -6,6 +6,10 @@
 - No longer tested on Ubuntu 16.04 (tested on Ubuntu 18.04)
 - OpenVeo Portal is no longer tested on Opera and Edge
 
+## DEPENDENCIES
+
+- **consolidate** has been upgraded from 0.15.1 to **0.16.0**
+
 # 7.0.0 / 2020-11-19
 
 ## BREAKING CHANGES

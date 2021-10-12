@@ -46,7 +46,7 @@
     "angulartics-piwik": "1.0.2",
     "async": "^3.2.0",
     "body-parser": "^1.19.0",
-    "consolidate": "^0.15.1",
+    "consolidate": "^0.16.0",
     "cookie-parser": "^1.4.5",
     "dashjs": "^3.0.3",
     "express": "^4.17.1",
