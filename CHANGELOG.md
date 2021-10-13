@@ -16,6 +16,7 @@
 - **node-cache** has been upgraded from 5.1.0 to **5.1.2**
 - **nopt** has been upgraded from 4.0.3 to **5.0.0**
 - **semver** has been upgraded from 7.1.3 to **7.3.5**
+- **shortid** has been replaced by nanoid
 - **video.js** has been upgraded from 7.7.5 to **7.15.4**
 - **videojs-contrib-dash** has been upgraded from 2.11.0 to **5.1.0**
 

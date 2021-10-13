@@ -36,13 +36,13 @@
         "jsonpath-plus": "^6.0.1",
         "material-design-icons": "^3.0.1",
         "mustache": "^4.2.0",
+        "nanoid": "^3.1.23",
         "node-cache": "^5.1.2",
         "nopt": "^5.0.0",
         "passport": "^0.4.1",
         "roboto-fontface": "^0.10.0",
         "semver": "^7.3.5",
         "serve-favicon": "^2.5.0",
-        "shortid": "^2.2.15",
         "video.js": "^7.15.4",
         "videojs-contrib-dash": "^5.1.0"
       },
@@ -8418,9 +8418,15 @@
       "optional": true
     },
     "node_modules/nanoid": {
-      "version": "2.1.11",
-      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-2.1.11.tgz",
-      "integrity": "sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA=="
+      "version": "3.1.23",
+      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.1.23.tgz",
+      "integrity": "sha512-FiB0kzdP0FFVGDKlRLEQ1BgDzU87dy5NnzjeW9YZNt+/c3+q82EQDUwniSAUxp/F0gFNI1ZhKU1FqYsMuqZVnw==",
+      "bin": {
+        "nanoid": "bin/nanoid.cjs"
+      },
+      "engines": {
+        "node": "^10 || ^12 || ^13.7 || ^14 || >=15.0.1"
+      }
     },
     "node_modules/nanomatch": {
       "version": "1.2.13",
@@ -10642,6 +10648,11 @@
       "dependencies": {
         "nanoid": "^2.1.0"
       }
+    },
+    "node_modules/shortid/node_modules/nanoid": {
+      "version": "2.1.11",
+      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-2.1.11.tgz",
+      "integrity": "sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA=="
     },
     "node_modules/signal-exit": {
       "version": "3.0.2",
@@ -19849,9 +19860,9 @@
       "optional": true
     },
     "nanoid": {
-      "version": "2.1.11",
-      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-2.1.11.tgz",
-      "integrity": "sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA=="
+      "version": "3.1.23",
+      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.1.23.tgz",
+      "integrity": "sha512-FiB0kzdP0FFVGDKlRLEQ1BgDzU87dy5NnzjeW9YZNt+/c3+q82EQDUwniSAUxp/F0gFNI1ZhKU1FqYsMuqZVnw=="
     },
     "nanomatch": {
       "version": "1.2.13",
@@ -21625,6 +21636,13 @@
       "integrity": "sha512-5EaCy2mx2Jgc/Fdn9uuDuNIIfWBpzY4XIlhoqtXF6qsf+/+SGZ+FxDdX/ZsMZiWupIWNqAEmiNY4RC+LSmCeOw==",
       "requires": {
         "nanoid": "^2.1.0"
+      },
+      "dependencies": {
+        "nanoid": {
+          "version": "2.1.11",
+          "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-2.1.11.tgz",
+          "integrity": "sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA=="
+        }
       }
     },
     "signal-exit": {
