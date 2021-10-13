@@ -68,7 +68,7 @@
   "devDependencies": {
     "@openveo/test": "^8.0.0",
     "angular-mocks": "1.6.4",
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "chai-spies": "^1.0.0",
     "grunt": "^1.1.0",
