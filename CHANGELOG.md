@@ -13,6 +13,7 @@
 - **dashjs** has been upgraded from 3.0.3 to **4.1.0**
 - **express-session** has been upgraded from 1.17.0 to **1.17.2**
 - **jsonpath-plus** has been upgraded from 3.0.0 to **6.0.1**
+- **mocha** has been upgraded from 7.1.1 to **9.1.1**
 - **mustache** has been upgraded from 3.2.1 to **4.2.0**
 - **node-cache** has been upgraded from 5.1.0 to **5.1.2**
 - **nodemon** has been removed
