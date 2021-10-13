@@ -11,6 +11,7 @@
 - **consolidate** has been upgraded from 0.15.1 to **0.16.0**
 - **dashjs** has been upgraded from 3.0.3 to **4.1.0**
 - **express-session** has been upgraded from 1.17.0 to **1.17.2**
+- **jsonpath-plus** has been upgraded from 3.0.0 to **6.0.1**
 - **video.js** has been upgraded from 7.7.5 to **7.15.4**
 - **videojs-contrib-dash** has been upgraded from 2.11.0 to **5.1.0**
 
