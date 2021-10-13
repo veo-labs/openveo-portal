@@ -1,6 +1,7 @@
 'use strict';
 
 const e2e = require('@openveo/test').e2e;
+
 const Page = e2e.pages.Page;
 
 /**
@@ -12,27 +13,25 @@ class GlobalPage extends Page {
     super();
 
     this.logoElement = element(by.css('a#logo'));
-    this.connexionButtonElement = element(by.css('a.log-in-button'));
-    this.homeMenuElement = element(by.css('md-tab-item[aria-controls=tab-content-0]'));
-    this.searchMenuElement = element(by.css('md-tab-item[aria-controls=tab-content-1]'));
+    this.connectionButtonElement = element(by.css('button.log-in-button'));
+    this.menuItemsElements = element.all(by.css('.menu button'));
+    this.homeMenuElement = this.menuItemsElements.get(0);
+    this.searchMenuElement = this.menuItemsElements.get(1);
     this.activeItemElement = element(by.className('md-active'));
-
-    this.dialogElement = element(by.css('.dialog-video'));
-    this.speedDialElement = this.dialogElement.element(by.css('md-fab-speed-dial'));
-    this.dialActionElement = this.dialogElement.all(by.css('md-fab-actions button'));
-
-    this.shareLinkElement = this.dialogElement.element(by.css('.share-code a'));
-
-    Object.defineProperties(this, {
-      path: {
-        value: '',
-        writable: true
-      }
-    });
+    this.path = '';
   }
 
   onLoaded() {
-    return browser.wait(this.EC.presenceOf(this.logoElement), 2000, 'Missing Logo Link');
+    return browser.executeAsyncScript(`
+      const callback = arguments[arguments.length - 1];
+      var $injector = angular.injector(['ov.locale']);
+      $injector.invoke(['translations', function(translations) {
+        callback(translations);
+}]);
+    `).then((translations) => {
+      this.translations = translations;
+      return browser.wait(this.EC.presenceOf(this.logoElement), 2000, 'Missing Logo Link');
+    });
   }
 
   reload(path) {
