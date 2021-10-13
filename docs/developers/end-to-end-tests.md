@@ -8,11 +8,11 @@ You need to have a running OpenVeo Web Service server before starting tests.
 
 # Install selenium web driver and chrome driver
 
-    npm run upgrade-web-client
+    npm run upgrade-web-driver
 
 If the version of Google Chrome is too recent for the Chrome Driver installed with Protractor you can enter a specific version of the Chrome Driver using:
 
-    npm run upgrade-web-client -- --versions.chrome=80.0.3987.149
+    npm run upgrade-web-driver -- --versions.chrome=80.0.3987.149
 
 # Configure tests
 
