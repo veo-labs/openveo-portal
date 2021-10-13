@@ -15,6 +15,7 @@
 - **jsonpath-plus** has been upgraded from 3.0.0 to **6.0.1**
 - **mustache** has been upgraded from 3.2.1 to **4.2.0**
 - **node-cache** has been upgraded from 5.1.0 to **5.1.2**
+- **nodemon** has been removed
 - **nopt** has been upgraded from 4.0.3 to **5.0.0**
 - **semver** has been upgraded from 7.1.3 to **7.3.5**
 - **shortid** has been replaced by nanoid
