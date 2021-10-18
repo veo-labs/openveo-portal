@@ -1,6 +1,5 @@
 site_name: Openveo Portal
 theme: readthedocs
-site_dir: site/version
 markdown_extensions:
   - fenced_code
   - tables

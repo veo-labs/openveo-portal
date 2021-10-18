@@ -48,7 +48,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.loadNpmTasks('grunt-mkdocs');
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-protractor-runner');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -56,12 +55,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerMultiTask('rename', openVeoApi.grunt.renameTask(grunt));
   grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
   grunt.registerMultiTask('ngDp', openVeoApi.grunt.ngDpTask(grunt));
-
-  // Generate documentation
-  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
 
   // Dynamically set src property of the concat:back-office task
   // The list of sources is built dynamically by the ngDp:back-office task

@@ -16,6 +16,7 @@
 - **consolidate** has been upgraded from 0.15.1 to **0.16.0**
 - **dashjs** has been upgraded from 3.0.3 to **4.1.0**
 - **express-session** has been upgraded from 1.17.0 to **1.17.2**
+- **grunt-mkdocs** has been removed
 - **jsonpath-plus** has been upgraded from 3.0.0 to **6.0.1**
 - **karma** has been upgraded from 4.4.1 to **6.3.4**
 - **karma-mocha** has been upgraded from 1.3.0 to **2.0.1**
