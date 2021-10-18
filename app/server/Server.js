@@ -6,8 +6,6 @@
 
 /* eslint node/no-sync: 0 */
 const path = require('path');
-const url = require('url');
-const fs = require('fs');
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
@@ -28,13 +26,9 @@ const CategoriesController = process.require('app/server/controllers/CategoriesC
 const FiltersController = process.require('app/server/controllers/FiltersController.js');
 const portalConf = process.require('app/server/conf.js');
 const authenticator = process.require('app/server/authenticator.js');
-const configurationDirectoryPath = path.join(openVeoApi.fileSystem.getConfDir(), 'portal');
-const webservicesConf = require(path.join(configurationDirectoryPath, 'webservicesConf.json'));
 const UserProvider = process.require('app/server/providers/UserProvider.js');
 const applicationConf = process.require('conf.json');
 const strategyFactory = openVeoApi.passport.strategyFactory;
-
-const OPENVEO_URL = webservicesConf.path;
 
 // Common options for all static servers delivering static files
 const staticServerOptions = {
@@ -222,68 +216,6 @@ class Server {
 
     // Initialize authentication mechanisms
     initializePassport.call(this);
-
-    // for thumbnail only, set server as proxy to webservice server
-    // path : /*/*.jpg, /*/*.jpeg, /*/*.jpg?thumb=small, /*/*.jpeg?thumb=small
-    // not: /themes/*.jpg
-    this.app.get(/^\/((?!themes).)+\/.+(\.jpg|\.jpeg)(\?thumb=small)?$/, (req, res) => {
-
-      const filename = path.basename(req.url).split('?')[0];
-
-      const urlParsed = new url.URL(OPENVEO_URL);
-      const requestOptions = {
-        protocol: urlParsed.protocol,
-        port: urlParsed.port,
-        host: urlParsed.hostname,
-        method: 'GET',
-        path: req.url
-      };
-
-      const requestCallback = (response) => {
-        if (response.statusCode == 200) {
-          let currentByteIndex = 0;
-          let responseContentLength = 0;
-
-          response.setEncoding('binary');
-          if (response.headers && response.headers['content-length']) {
-            responseContentLength = parseInt(response.headers['content-length']);
-          }
-          const responseBody = Buffer.alloc(responseContentLength);
-
-          response.on('data', (chunk) => {
-            responseBody.write(chunk, currentByteIndex, 'binary');
-            currentByteIndex += chunk.length;
-          });
-          response.on('error', (error) => {
-            process.logger.error(error.message, {error, method: 'getImageResponse'});
-            res.status(502).send('Server unavailable');
-          });
-
-          response.on('end', () => {
-            res.contentType(filename);
-            res.send(responseBody);
-          });
-        } else {
-          res.status(404) // HTTP status 404: NotFound
-            .send('Not found');
-        }
-      };
-
-      const protocol = urlParsed.protocol.split(':')[0];
-      if (protocol == 'https') {
-        requestOptions['cert'] = fs.readFileSync(path.normalize(webservicesConf.certificate));
-        requestOptions['agent'] = false;
-        requestOptions['rejectUnauthorized'] = process.env.NODE_ENV === 'production';
-      }
-
-      const request = require(protocol).request(requestOptions, requestCallback);
-      request.on('error', (error) => {
-        process.logger.error(error.message, {error, method: 'getImageRequest'});
-        res.status(502).send('Server unavailable');
-      });
-
-      request.end();
-    });
 
     // Deliver assets using static server
     this.app.use(express.static(path.normalize(`${process.root}/assets`), staticServerOptions));
