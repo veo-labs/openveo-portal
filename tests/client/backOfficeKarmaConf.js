@@ -2,6 +2,9 @@
 
 const path = require('path');
 
+require('../../processRequire.js');
+const baseConf = require('./karmaConf.js');
+
 /**
  * Finds a library in top level "libraries" property of the conf.json file.
  *
@@ -49,7 +52,7 @@ module.exports = (config) => {
   // Tests
   files.push('app/client/admin/**/*.spec.js');
 
-  config.set({
+  config.set(Object.assign(baseConf, {
 
     // Base path that will be used to resolve all patterns
     // (eg. files, exclude)
@@ -81,6 +84,6 @@ module.exports = (config) => {
     // List of files / patterns to load in the browser
     files: files
 
-  });
+  }));
 
 };

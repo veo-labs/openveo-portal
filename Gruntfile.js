@@ -52,7 +52,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-angular-templates');
-  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
   grunt.registerMultiTask('ngDp', openVeoApi.grunt.ngDpTask(grunt));
@@ -94,8 +93,5 @@ module.exports = function(grunt) {
     'copy:back-office-html-root',
     'ngtemplates:back-office'
   ]);
-
-  // Launch back office unit tests
-  grunt.registerTask('back-office-client-unit-tests', ['ngDp:back-office', 'karma:back-office']);
 
 };

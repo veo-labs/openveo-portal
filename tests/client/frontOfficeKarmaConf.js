@@ -1,9 +1,11 @@
 'use strict';
 
+const baseConf = require('./karmaConf.js');
+
 // Karma configuration
 module.exports = function(config) {
 
-  config.set({
+  config.set(Object.assign(baseConf, {
 
     // Base path that will be used to resolve all patterns
     // (eg. files, exclude)
@@ -44,7 +46,7 @@ module.exports = function(config) {
       'tests/client/unitTests/*.js'
     ]
 
-  });
+  }));
 
 };
 
