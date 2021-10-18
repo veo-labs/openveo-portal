@@ -3,8 +3,7 @@
 /**
  * Service to authenticate / logout or manipulate authenticated user informations.
  *
- * @module ov.authentication
- * @main ov.authentication
+ * @module ov/authentication
  */
 
 (function(angular) {
@@ -14,7 +13,7 @@
    * Defines an authentication service to deal with user authentication.
    * Exposes methods to deal with user information and to sign in or logout.
    *
-   * @class authenticationService
+   * @class AuthenticationService
    */
   function AuthenticationService($http, webServiceBasePath) {
     var userInfo;
@@ -29,10 +28,12 @@
     /**
      * Signs in using the given credentials.
      *
+     * @memberof module:ov/authentication~AuthenticationService
+     * @instance
+     * @async
      * @param {String} login The login
      * @param {String} password The password
      * @return {HttPromise} The authentication promise
-     * @method login
      */
     function login(login, password) {
       return $http.post(webServiceBasePath + 'authenticate', {
@@ -44,8 +45,10 @@
     /**
      * Logs out user.
      *
+     * @memberof module:ov/authentication~AuthenticationService
+     * @instance
+     * @async
      * @return {HttPromise} The logout promise
-     * @method logout
      */
     function logout() {
       return $http.post('/be' + webServiceBasePath + 'logout');
@@ -54,8 +57,10 @@
     /**
      * Gets user information.
      *
+     * @memberof module:ov/authentication~AuthenticationService
+     * @instance
+     * @async
      * @return {Object} The user description object
-     * @method getUserInfo
      */
     function getUserInfo() {
       return userInfo;
@@ -64,8 +69,9 @@
     /**
      * Sets user information.
      *
+     * @memberof module:ov/authentication~AuthenticationService
+     * @instance
      * @param {Object} [info] The user description object or null to remove all user information
-     * @method setUserInfo
      */
     function setUserInfo(info) {
       userInfo = (info) ? info : null;

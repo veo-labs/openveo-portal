@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module providers
+ * @module portal/providers/OpenVeoProvider
  */
 
 const querystring = require('querystring');
@@ -18,24 +18,29 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
    * @constructor
    * @param {Storage} storage The storage to interact with
    * @param {Cache} [cache] The cache to use. If not specified a 10 seconds cache is created
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Storage
    */
   constructor(storage, cache) {
     super(storage);
 
-    Object.defineProperties(this, {
+    Object.defineProperties(this,
 
-      /**
-       * The OpenVeo cache.
-       *
-       * @property cache
-       * @type Cache
-       * @final
-       */
-      cache: {
-        value: cache || new Cache({stdTTL: 10, checkperiod: 10})
+      /** @lends module:portal/providers/OpenVeoProvider~OpenVeoProvider */
+      {
+
+        /**
+         * The OpenVeo cache.
+         *
+         * @type {Cache}
+         * @instance
+         */
+        cache: {
+          value: cache || new Cache({stdTTL: 10, checkperiod: 10})
+        }
+
       }
 
-    });
+    );
 
     this.cache.on('expired', (key, value) => {
       this.cache.del(key);
@@ -45,8 +50,6 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   /**
    * Fetches a document.
    *
-   * @method getOne
-   * @async
    * @param {String} location The location of the documents in the storage
    * @param {String} id The id of the document to fetch
    * @param {Object} [fields] Fields to be included or excluded from the resulting documents, by default all
@@ -55,9 +58,8 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
    * @param {Array} [fields.exclude] The list of fields to exclude from response, all other fields are included. Ignored
    * if include is also specified.
    * @param {Number} [ttl] The duration of the cache for this request (in seconds)
-   * @param {Function} callback The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Object** The document
+   * @param {module:portal/providers/OpenVeoProvider~OpenVeoProvider~getOneCallback} callback The function to call when
+   * it's done
    */
   getOne(location, id, fields, ttl, callback) {
     new Promise((resolve, reject) => {
@@ -80,8 +82,6 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   /**
    * Fetches documents.
    *
-   * @method get
-   * @async
    * @param {String} location The location of the documents in the storage
    * @param {ResourceFilter} [filter] Rules to filter documents
    * @param {Object} [fields] Fields to be included or excluded from the resulting documents, by default all
@@ -94,14 +94,8 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
    * @param {Object} sort The list of fields to sort by with the field name as key and the sort order as
    * value (e.g. {field1: 'asc'}). Sort can be made only on one field
    * @param {Number} [ttl] The duration of the cache for this request (in seconds)
-   * @param {Function} callback The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Array** The list of retrieved documents
-   *   - **Object** Pagination information
-   *     - **Number** limit The specified limit
-   *     - **Number** page The actual page
-   *     - **Number** pages The total number of pages
-   *     - **Number** size The total number of documents
+   * @param {module:portal/providers/OpenVeoProvider~OpenVeoProvider~getCallback} callback The function to call when
+   * it's done
    */
   get(location, filter, fields, limit, page, sort, ttl, callback) {
     new Promise((resolve, reject) => {
@@ -134,8 +128,6 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   /**
    * Gets all documents from storage iterating on all pages.
    *
-   * @method getAll
-   * @async
    * @param {String} location The location of the documents in the storage
    * @param {ResourceFilter} [filter] Rules to filter documents
    * @param {Object} [fields] Fields to be included or excluded from the resulting documents, by default all
@@ -146,9 +138,8 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
    * @param {Object} sort The list of fields to sort by with the field name as key and the sort order as
    * value (e.g. {field1: 'asc'}). Sort can be made only on one field
    * @param {Number} [ttl] The duration of the cache for this request (in seconds)
-   * @param {Function} callback Function to call when it's done with:
-   *  - **Error** An error if something went wrong, null otherwise
-   *  - **Array** The list of documents
+   * @param {module:portal/providers/OpenVeoProvider~OpenVeoProvider~getAllCallback} callback The function to call when
+   * it's done
    */
   getAll(location, filter, fields, sort, ttl, callback) {
     let allDocuments = [];
@@ -185,14 +176,11 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   /**
    * Updates a document.
    *
-   * @method updateOne
-   * @async
    * @param {String} location The location of the document in the storage
    * @param {String} id The id of the document to update
    * @param {Object} data The modifications to perform
-   * @param {Function} [callback] The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** 1 if everything went fine
+   * @param {module:portal/providers/OpenVeoProvider~OpenVeoProvider~updateOneCallback} callback The function to call
+   * when it's done
    */
   updateOne(location, id, data, callback) {
     this.storage.updateOne(location, new ResourceFilter().equal('id', id), data, (error, total) => {
@@ -203,13 +191,10 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   /**
    * Convert a video Point of Interest
    *
-   * @method convertVideoPoi
-   * @async
    * @param {String} videoId The id of the video to convert
    * @param {Number} duration The duration of the video in ms
-   * @param {Function} [callback] The function to call when it's done
-   *   - **Error** The error if an error occured, null otherwise
-   *   - **Video** The video with converted POI
+   * @param {module:portal/providers/OpenVeoProvider~OpenVeoProvider~convertVideoPoiCallback} callback The function to
+   * call when it's done
    */
   convertVideoPoi(videoId, duration, callback) {
     this.storage.convertVideoPoi(videoId, duration, (error, video) => {
@@ -220,7 +205,6 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   /**
    * Deletes cache of a document.
    *
-   * @method deleteDocumentCache
    * @param {String} location The location of the document in the storage
    * @param {String} id The id of the document to remove from cache
    * @param {Boolean} alsoRemoveFromPages Also remove cache entries containing the document (paginated results)
@@ -255,7 +239,6 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
   /**
    * Deletes all cache entries associated to a location.
    *
-   * @method deleteLocationCache
    * @param {String} location The location of the documents in the storage
    * @return {Number} The number of removed entries
    */
@@ -273,3 +256,38 @@ class OpenVeoProvider extends openVeoApi.providers.Provider {
 }
 
 module.exports = OpenVeoProvider;
+
+/**
+ * @callback module:portal/providers/OpenVeoProvider~OpenVeoProvider~getOneCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} result The document
+ */
+
+/**
+ * @callback module:portal/providers/OpenVeoProvider~OpenVeoProvider~getCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Array} result The list of retrieved documents
+ * @param {Object} pagination Pagination information
+ * @param {Number} pagination.limit The specified limit
+ * @param {Number} pagination.page The actual page
+ * @param {Number} pagination.pages The total number of pages
+ * @param {Number} pagination.size The total number of documents
+ */
+
+/**
+ * @callback module:portal/providers/OpenVeoProvider~OpenVeoProvider~getAllCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Array} result The list of documents
+ */
+
+/**
+ * @callback module:portal/providers/OpenVeoProvider~OpenVeoProvider~updateOneCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total 1 if everything went fine
+ */
+
+/**
+ * @callback module:portal/providers/OpenVeoProvider~OpenVeoProvider~convertVideoPoiCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} video The video with converted POI
+ */

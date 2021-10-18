@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/DefaultController
  */
 
 const path = require('path');
@@ -23,6 +23,7 @@ class DefaultController extends openVeoApi.controllers.Controller {
    * @class DefaultController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -34,8 +35,6 @@ class DefaultController extends openVeoApi.controllers.Controller {
    * If no other action were performed display the main template.
    * Main template loads libraries JavaScript files, Bootstrap CSS file and CSS file from the configured theme.
    *
-   * @method defaultAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware
@@ -126,8 +125,6 @@ class DefaultController extends openVeoApi.controllers.Controller {
   /**
    * Handles administration default action to display root HTML.
    *
-   * @method defaultBackOfficeAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.user The connected user
    * @param {Response} response ExpressJS HTTP Response
@@ -143,8 +140,6 @@ class DefaultController extends openVeoApi.controllers.Controller {
    *
    * Send back an HTTP code 404.
    *
-   * @method defaultWebServiceAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware

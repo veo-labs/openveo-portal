@@ -3,12 +3,9 @@
 /**
  * Set of tools to handle internationalization.
  *
- * @module opa.i18n
- * @main opa.i18n
- */
-
-/**
  * Offer internationalization utilities.
+ *
+ * @module opa/i18n
  */
 
 (function(angular) {

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/SettingsController
  */
 
 const openVeoApi = require('@openveo/api');
@@ -18,6 +18,7 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    * @class SettingsController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -26,8 +27,7 @@ class SettingsController extends openVeoApi.controllers.EntityController {
   /**
    * Gets an instance of the entity provider associated to the controller.
    *
-   * @method getProvider
-   * @return {SettingsProvider} The provider
+   * @return {module:portal/providers/SettingsProvider~SettingsProvider} The provider
    */
   getProvider() {
     return new SettingsProvider(context.database);
@@ -37,14 +37,11 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    * Handles settings action to get an OpenVeo Portal setting.
    *
    * @example
+   * // Response example
+   * {
+   *   "entity" : { ... }
+   * }
    *
-   *     // Response example
-   *     {
-   *       "entity" : { ... }
-   *     }
-   *
-   * @method getEntityAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {String} request.params.id The setting id to retrieve
    * @param {Response} response ExpressJS HTTP Response
@@ -77,14 +74,11 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    * Handles settings action to update OpenVeo Portal a setting.
    *
    * @example
+   * // Response example
+   * {
+   *   "total": 1
+   * }
    *
-   *     // Response example
-   *     {
-   *       "total": 1
-   *     }
-   *
-   * @method updateEntityAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.params Request's parameters
    * @param {String} request.params.id The setting id to update
@@ -174,8 +168,6 @@ class SettingsController extends openVeoApi.controllers.EntityController {
    *
    * It is not possible to add several settings for now, use update instead.
    *
-   * @method addEntitiesAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware

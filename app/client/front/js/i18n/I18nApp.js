@@ -3,8 +3,7 @@
 /**
  * Control internationalization.
  *
- * @module ov.i18n
- * @main ov.i18n
+ * @module ov/i18n
  */
 
 (function(angular) {

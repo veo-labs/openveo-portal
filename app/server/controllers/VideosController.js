@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/VideosController
  */
 
 const openVeoApi = require('@openveo/api');
@@ -21,6 +21,7 @@ class VideosController extends openVeoApi.controllers.Controller {
    * @class VideosController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -29,7 +30,6 @@ class VideosController extends openVeoApi.controllers.Controller {
   /**
    * Checks if a user is authorized to see a video.
    *
-   * @method isUserAuthorized
    * @param {Object} [user] The user to test
    * @param {String} user.id The user id
    * @param {Array} user.groups The user groups
@@ -75,7 +75,6 @@ class VideosController extends openVeoApi.controllers.Controller {
   /**
    * Adds operations to limit access to videos.
    *
-   * @method addAccessFilter
    * @param {ResourceFilter} [filter] The filter to add access operations to, generated if not specified
    * @param {Object} [user] The user to limit
    * @param {Array} [user.groups] The user groups
@@ -113,8 +112,6 @@ class VideosController extends openVeoApi.controllers.Controller {
   /**
    * Converts video points of interest
    *
-   * @method convertVideoPoiAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.body Request's body
    * @param {Number} request.body.duration The duration of the video
@@ -152,8 +149,6 @@ class VideosController extends openVeoApi.controllers.Controller {
   /**
    * Searches OpenVeo Publish videos.
    *
-   * @method searchAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.body Request's body
    * @param {Object} request.body.filter Web service endpoint filters
@@ -168,8 +163,8 @@ class VideosController extends openVeoApi.controllers.Controller {
    * @param {Object} request.body.pagination Pagination to set limit and page
    * @param {Object} [request.body.pagination.limit] Maximum number of videos to retreive
    * @param {Object} [request.body.pagination.page] The number of the page to retrieve
-   * @param {String|Array} [request.body.include] The list of fields to include from returned videos
-   * @param {String|Array} [request.body.exclude] The list of fields to exclude from returned videos. Ignored if
+   * @param {(String|Array)} [request.body.include] The list of fields to include from returned videos
+   * @param {(String|Array)} [request.body.exclude] The list of fields to exclude from returned videos. Ignored if
    * include is also specified.
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware
@@ -263,8 +258,6 @@ class VideosController extends openVeoApi.controllers.Controller {
   /**
    * Gets details about an OpenVeo Publish video.
    *
-   * @method getVideoAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.params Request's parameters
    * @param {Object} request.params.id The id of the video to fetch
@@ -315,8 +308,6 @@ class VideosController extends openVeoApi.controllers.Controller {
   /**
    * Fetches promoted videos.
    *
-   * @method getPromotedVideosAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.query Request query parameters
    * @param {Boolean} [request.query.auto=false] true to automatically fulfill empty slots when possible

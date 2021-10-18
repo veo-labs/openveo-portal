@@ -1,15 +1,13 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Manages information dialogs.
    *
    * @class OpaInfoController
+   * @memberof module:opa/info
+   * @inner
    * @constructor
    * @param {Object} $scope Directive isolated scope
    * @param {Object} $element JQLite element of the directive
@@ -25,104 +23,114 @@
     var panelPosition = $mdPanel.newPanelPosition();
     var defaultOptions = opaInfoConfiguration.getOptions();
 
-    Object.defineProperties(ctrl, {
+    Object.defineProperties(ctrl,
 
-      /**
-       * Opens the information dialog.
-       *
-       * @method open
-       * @final
-       */
-      open: {
-        value: function() {
-          if (panelReference || panelPromise) return;
+      /** @lends module:opa/info~OpaInfoController */
+      {
 
-          panelPromise = $mdPanel.open({
-            templateUrl: 'opa-info.html',
-            controller: function() {
-              this.close = ctrl.close;
-            },
-            controllerAs: 'ctrl',
-            locals: {
-              message: ctrl.message,
-              closeLabel: ctrl.closeLabel,
-              closeAriaLabel: ctrl.closeAriaLabel
-            },
-            attachTo: $document[0].body,
-            escapeToClose: true,
-            clickOutsideToClose: true,
-            position: panelPosition,
-            onCloseSuccess: function() {
-              panelReference = null;
-              $element[0].focus();
+        /**
+         * Opens the information dialog.
+         *
+         * @memberof module:opa/info~OpaInfoController
+         * @method open
+         * @instance
+         */
+        open: {
+          value: function() {
+            if (panelReference || panelPromise) return;
+
+            panelPromise = $mdPanel.open({
+              templateUrl: 'opa-info.html',
+              controller: function() {
+                this.close = ctrl.close;
+              },
+              controllerAs: 'ctrl',
+              locals: {
+                message: ctrl.message,
+                closeLabel: ctrl.closeLabel,
+                closeAriaLabel: ctrl.closeAriaLabel
+              },
+              attachTo: $document[0].body,
+              escapeToClose: true,
+              clickOutsideToClose: true,
+              position: panelPosition,
+              onCloseSuccess: function() {
+                panelReference = null;
+                $element[0].focus();
+              }
+            }).then(function(reference) {
+              panelPromise = null;
+              panelReference = reference;
+
+              $timeout(function() {
+
+                // Set focus on button
+                $document[0].querySelector('.opa-info button').focus();
+
+              }, 1);
+
+            });
+          }
+        },
+
+        /**
+         * Closes the information dialog.
+         *
+         * @memberof module:opa/info~OpaInfoController
+         * @method close
+         * @instance
+         */
+        close: {
+          value: function() {
+            if (panelReference) {
+              panelReference.close();
             }
-          }).then(function(reference) {
-            panelPromise = null;
-            panelReference = reference;
+          }
+        },
 
-            $timeout(function() {
+        /**
+         * Initializes controller.
+         *
+         * @memberof module:opa/info~OpaInfoController
+         * @method $onInit
+         * @instance
+         */
+        $onInit: {
+          value: function() {
+            panelPosition.relativeTo($element).addPanelPosition(
+              $mdPanel.xPosition.ALIGN_START,
+              $mdPanel.yPosition.BELOW
+            );
+          }
+        },
 
-              // Set focus on button
-              $document[0].querySelector('.opa-info button').focus();
+        /**
+         * Handles attributes changes.
+         *
+         * Validate attributes.
+         *
+         * @memberof module:opa/info~OpaInfoController
+         * @method $onChanges
+         * @instance
+         * @param {Object} changedProperties Properties which have changed since last digest loop
+         * @param {Object} [changedProperties.closeLabel] opa-close attribute old and new value
+         * @param {String} [changedProperties.closeLabel.currentValue] opa-close new value
+         * @param {Object} [changedProperties.closeAriaLabel] opa-close-aria attribute old and new value
+         * @param {String} [changedProperties.closeAriaLabel.currentValue] opa-close-aria new value
+         */
+        $onChanges: {
+          value: function(changedProperties) {
+            if (changedProperties.closeLabel)
+              ctrl.closeLabel = changedProperties.closeLabel.currentValue || defaultOptions.closeLabel;
 
-            }, 1);
-
-          });
-        }
-      },
-
-      /**
-       * Closes the information dialog.
-       *
-       * @method close
-       * @final
-       */
-      close: {
-        value: function() {
-          if (panelReference) {
-            panelReference.close();
+            if (changedProperties.closeAriaLabel)
+              ctrl.closeAriaLabel = changedProperties.closeAriaLabel.currentValue || defaultOptions.closeAriaLabel;
           }
         }
-      },
 
-      /**
-       * Initializes controller.
-       *
-       * @method $onInit
-       */
-      $onInit: {
-        value: function() {
-          panelPosition.relativeTo($element).addPanelPosition(
-            $mdPanel.xPosition.ALIGN_START,
-            $mdPanel.yPosition.BELOW
-          );
-        }
-      },
-
-      /**
-       * Handles attributes changes.
-       *
-       * Validate attributes.
-       *
-       * @method $onChanges
-       * @param {Object} changedProperties Properties which have changed since last digest loop
-       * @param {Object} [changedProperties.closeLabel] opa-close attribute old and new value
-       * @param {String} [changedProperties.closeLabel.currentValue] opa-close new value
-       * @param {Object} [changedProperties.closeAriaLabel] opa-close-aria attribute old and new value
-       * @param {String} [changedProperties.closeAriaLabel.currentValue] opa-close-aria new value
-       * @final
-       */
-      $onChanges: {
-        value: function(changedProperties) {
-          if (changedProperties.closeLabel)
-            ctrl.closeLabel = changedProperties.closeLabel.currentValue || defaultOptions.closeLabel;
-
-          if (changedProperties.closeAriaLabel)
-            ctrl.closeAriaLabel = changedProperties.closeAriaLabel.currentValue || defaultOptions.closeAriaLabel;
-        }
       }
 
-    });
+    );
 
     // Add click event handler to open the dialog
     $element.on('click', ctrl.open);

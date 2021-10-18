@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module portal/Cache
+ */
+
 const NodeCache = require('node-cache');
 
 class Cache extends NodeCache {
@@ -25,10 +29,9 @@ class Cache extends NodeCache {
    * the id.
    *
    * @example
-   *     cache.del('entry-id-with-wildcard-*');
+   * cache.del('entry-id-with-wildcard-*');
    *
-   * @method del
-   * @param {Array|String} keys The list of keys to delete
+   * @param {(Array|String)} keys The list of keys to delete
    * @return {String} The number of deleted entries
    */
   del(keys) {
@@ -66,11 +69,10 @@ class Cache extends NodeCache {
    * the id.
    *
    * @example
-   *     cache.get('entry-id-with-wildcard-*');
+   * cache.get('entry-id-with-wildcard-*');
    *
-   * @method get
    * @param {String} key The key to look for
-   * @return {String|Array|Undefined} The value of the cache entry if no wildcard used or the values of the cache
+   * @return {(String|Array|Undefined)} The value of the cache entry if no wildcard used or the values of the cache
    * entries when a wildcard is used
    * @throws {Error} If entry is not found
    */
@@ -101,9 +103,8 @@ class Cache extends NodeCache {
    * the id.
    *
    * @example
-   *     cache.mget(['entry-id-with-wildcard-*']);
+   * cache.mget(['entry-id-with-wildcard-*']);
    *
-   * @method mget
    * @param {Array} keys The list of cache entries to fetch
    * @return {Object} The values of the cache entries with cache id as the key and cache value as the value
    */

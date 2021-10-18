@@ -1,15 +1,13 @@
 'use strict';
 
-/**
- * @module ov.i18n
- */
-
 (function(app) {
 
   /**
    * Defines a filter to translate an id, contained inside a dictionary of translations,
    * into the appropriated text.
    *
+   * @memberof module:ov/i18n
+   * @inner
    * @class TranslateFilter
    * @constructor
    */
@@ -18,6 +16,7 @@
     /**
      * Translates an id into the appropriated text.
      *
+     * @memberof module:ov/i18n~TranslateFilter
      * @method translate
      * @param {String} id The id of the translation
      * @param {Number} number The number to determine pluralization

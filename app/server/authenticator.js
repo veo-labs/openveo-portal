@@ -1,7 +1,13 @@
 'use strict';
 
 /**
- * @module portal
+ * The authenticator helps manipulate users authenticated by passport strategies.
+ *
+ * Users returned by passport are not necessary OpenVeo Portal users. It could be users from a third party
+ * authentication server. The authenticator helps making sure that the authenticated user is a ready to
+ * use OpenVeo Portal user.
+ *
+ * @module portal/authenticator
  */
 
 const async = require('async');
@@ -13,27 +19,13 @@ const context = process.require('app/server/context.js');
 const ResourceFilter = openVeoApi.storages.ResourceFilter;
 
 /**
- * The authenticator helps manipulate users authenticated by passport strategies.
- *
- * Users returned by passport are not necessary OpenVeo Portal users. It could be users from a third party
- * authentication server. The authenticator helps making sure that the authenticated user is a ready to
- * use OpenVeo Portal user.
- *
- * @class authenticator
- * @static
- */
-
-/**
  * Populates user with permissions.
  *
  * @method populateUser
  * @private
- * @async
  * @param {Object} user The user to populate
  * @param {Array} [user.id] The user id
- * @param {Function} callback The function to call when it's done
- *   - **Error** The error if an error occurred, null otherwise
- *   - **Object** The populated user
+ * @param {module:portal/authenticator~populateUserCallback} callback The function to call when it's done
  */
 function populateUser(user, callback) {
   if (user.id === conf.superAdminId) user.hasLiveAccess = true;
@@ -55,12 +47,9 @@ function populateUser(user, callback) {
  * Serializes only essential user information required to retrieve it later.
  *
  * @method serializeUser
- * @async
  * @static
  * @param {Object} user The user to serialize
- * @param {Function} callback The function to call when it's done
- *   - **Error** The error if an error occurred, null otherwise
- *   - **String** The serialized user information
+ * @param {module:portal/authenticator~serializeUserCallback} callback The function to call when it's done
  */
 module.exports.serializeUser = (user, callback) => {
   if (!user || !user.id)
@@ -73,12 +62,9 @@ module.exports.serializeUser = (user, callback) => {
  * Fetches a user from serialized data.
  *
  * @method deserializeUser
- * @async
  * @static
  * @param {String} data Serialized data as serialized by serializeUser(), the id of the user
- * @param {Function} callback The function to call when it's done
- *   - **Error** The error if an error occurred, null otherwise
- *   - **Object** The user with its permissions
+ * @param {module:portal/authenticator~deserializeUserCallback} callback The function to call when it's done
  */
 module.exports.deserializeUser = (data, callback) => {
   const userProvider = new UserProvider(context.database);
@@ -94,13 +80,10 @@ module.exports.deserializeUser = (data, callback) => {
  * Verifies a user as returned by the passport local strategy.
  *
  * @method verifyUserByCredentials
- * @async
  * @static
  * @param {String} email User's email
  * @param {String} password User's password
- * @param {Function} callback Function to call when its done
- *  - **Error** An error if something went wrong, null otherwise
- *  - **Object** The user with its permissions
+ * @param {module:portal/authenticator~verifyUserByCredentialsCallback} callback Function to call when its done
  */
 module.exports.verifyUserByCredentials = (email, password, callback) => {
   const userProvider = new UserProvider(context.database);
@@ -119,13 +102,10 @@ module.exports.verifyUserByCredentials = (email, password, callback) => {
  * it is created with minimum information.
  *
  * @method verifyUserAuthentication
- * @async
  * @static
  * @param {Object} thirdPartyUser The user from the third party provider
  * @param {String} strategy The id of the strategy
- * @param {Function} callback Function to call when its done
- *  - **Error** An error if something went wrong, null otherwise
- *  - **Object** The user with its permissions
+ * @param {module:portal/authenticator~verifyUserAuthenticationCallback} callback Function to call when its done
  */
 module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) => {
   const strategyConfiguration = conf.serverConf.auth[strategy];
@@ -243,3 +223,33 @@ module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) =
   });
 
 };
+
+/**
+ * @callback module:portal/authenticator~populateUserCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The populated user
+ */
+
+/**
+ * @callback module:portal/authenticator~serializeUserCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {String} serializedUser The serialized user information
+ */
+
+/**
+ * @callback module:portal/authenticator~deserializeUserCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user with its permissions
+ */
+
+/**
+ * @callback module:portal/authenticator~verifyUserByCredentialsCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user with its permissions
+ */
+
+/**
+ * @callback module:portal/authenticator~verifyUserAuthenticationCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user with its permissions
+ */

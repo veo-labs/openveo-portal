@@ -1,13 +1,7 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Live settings component presents a formular to configure OpenVeo Portal live.
- *
- *     <opa-live-settings></opa-live-settings>
  *
  * Available attributes are:
  *   - [Object] **[opa-settings]**: The live settings with:
@@ -27,7 +21,10 @@
  * - **opaLicenseKeyValidator** License key validator
  * - **opaTags** Form element to enter a list of tags
  *
- * @class opaLiveSettings
+ * @example
+ * <opa-live-settings></opa-live-settings>
+ *
+ * @module opa/settings/liveSettings
  */
 
 (function(app) {

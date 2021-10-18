@@ -3,10 +3,11 @@
 (function(app) {
 
   /**
-   * Define toast controller for all toast in app
-   * @param {type} $scope
-   * @param {type} $mdToast
-   * @returns {MainController_L3.ToastController}
+   * Defines toast controller for all toast in app
+   *
+   * @param {Object} $scope
+   * @param {Object} $mdToast
+   * @return {ToastController}
    */
   function ToastController($scope, $mdToast) {
     $scope.closeToast = function() {
@@ -15,11 +16,12 @@
   }
 
   /**
-   * Define dialog controller for all dialog in app
-   * @param {type} $scope
-   * @param {type} $mdDialog
-   * @param {type} video
-   * @returns {MainController_L3.DialogController}
+   * Defines dialog controller for all dialog in app
+   *
+   * @param {Object} $scope
+   * @param {Object} $mdDialog
+   * @param {Object} video
+   * @returns {DialogController}
    */
   function DialogController($scope, $mdDialog, video, startTime, $mdMedia) {
 
@@ -204,8 +206,6 @@
 
     /**
      * Logs out connected user.
-     *
-     * @method logout
      */
     $scope.logout = function() {
       authenticationService.logout().then(function() {
@@ -216,8 +216,6 @@
 
     /**
      * Show the login dialog.
-     *
-     * @method showLoginDialog
      */
     this.showLoginDialog = function() {
       var position = $mdPanel.newPanelPosition()
@@ -248,8 +246,6 @@
 
     /**
      * Logouts connected user.
-     *
-     * @method logout
      */
     this.logout = function() {
       var self = this;
@@ -278,8 +274,6 @@
      * Navigates to administration interface (/be).
      *
      * This will leave this single page application.
-     *
-     * @method goToBackOffice
      */
     this.goToBackOffice = function() {
       $window.location.href = '/be';

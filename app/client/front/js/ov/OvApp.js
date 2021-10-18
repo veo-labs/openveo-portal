@@ -5,8 +5,7 @@
  *
  * Initializes routes.
  *
- * @module ov.portal
- * @main ov.portal
+ * @module ov
  */
 
 (function(angular) {

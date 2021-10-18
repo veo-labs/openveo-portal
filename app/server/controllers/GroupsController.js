@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/GroupsController
  */
 
 const openVeoApi = require('@openveo/api');
@@ -16,6 +16,7 @@ class GroupsController extends openVeoApi.controllers.Controller {
    * @class GroupsController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -24,8 +25,6 @@ class GroupsController extends openVeoApi.controllers.Controller {
   /**
    * Handles groups action to get OpenVeo groups.
    *
-   * @method getGroupsAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware

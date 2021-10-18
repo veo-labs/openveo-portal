@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module storages
+ * @module portal/storages/OpenVeoStorage
  */
 
 const querystring = require('querystring');
@@ -16,6 +16,7 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
   /**
    * Defines an OpenVeo web service storage.
    *
+   * @class Storage
    * @extends Storage
    * @constructor
    * @param {Object} configuration OpenVeo web service configuration
@@ -24,36 +25,40 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
    * @param {String} configuration.secretId OpenVeo web service client secret
    * @param {String} [configuration.certificate] Path to OpenVeo web service full chain certificate if the root
    * authority is not part of system well known authorities
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Storage
    */
   constructor(configuration) {
     super(configuration);
 
-    Object.defineProperties(this, {
+    Object.defineProperties(this,
 
-      /**
-       * The OpenVeo web service client.
-       *
-       * @property client
-       * @type OpenVeoClient
-       * @final
-       */
-      client: {
-        value: new OpenVeoClient(
-          configuration.path,
-          configuration.clientID,
-          configuration.secretID,
-          configuration.certificate
-        )
+      /** @lends module:portal/storages/OpenVeoStorage~OpenVeoStorage */
+      {
+
+        /**
+         * The OpenVeo web service client.
+         *
+         * @type {OpenVeoClient}
+         * @instance
+         * @readonly
+         */
+        client: {
+          value: new OpenVeoClient(
+            configuration.path,
+            configuration.clientID,
+            configuration.secretID,
+            configuration.certificate
+          )
+        }
+
       }
 
-    });
+    );
   }
 
   /**
    * Builds OpenVeo web service filter from a ResourceFilter.
    *
-   * @method buildFilter
-   * @static
    * @param {ResourceFilter} [resourceFilter] The filter
    * @return {Object} The filter with fields as keys and fields values as values
    * @throws {TypeError} If an operation is not supported
@@ -90,8 +95,6 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
    *
    * Only the first found field will we used as a sort field.
    *
-   * @method buildSort
-   * @static
    * @param {Object} [sort] The list of fields to sort by with the field name as key and the sort order as
    * value (e.g. {field1: 'asc'})
    * @return {Object} The sort descriptor with sortBy and sortOrder properties
@@ -113,8 +116,6 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
   /**
    * Fetches documents from the collection.
    *
-   * @method get
-   * @async
    * @param {String} collection The endpoint to work on
    * @param {ResourceFilter} [filter] Rules to filter documents
    * @param {Object} [fields] Expected resource fields to be included or excluded from the response, by default all
@@ -126,14 +127,8 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
    * @param {Number} [page] The page number started at 0 for the first page
    * @param {Object} sort The list of fields to sort by with the field name as key and the sort order as
    * value (e.g. {field1: 'asc'})
-   * @param {Function} callback The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Array** The list of retrieved documents
-   *   - **Object** Pagination information
-   *     - **Number** limit The specified limit
-   *     - **Number** page The actual page
-   *     - **Number** pages The total number of pages
-   *     - **Number** size The total number of documents
+   * @param {module:portal/storages/OpenVeoStorage~OpenVeoStorage~getCallback} callback The function to call when it's
+   * done
    */
   get(collection, filter, fields, limit, page, sort, callback) {
     let queryString;
@@ -159,13 +154,10 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
   /**
    * Convert video Points Of Interests
    *
-   * @method convertVideoPoi
-   * @async
    * @param {String} videoId The id of the video to convert
    * @param {Number} duration The duration in milliseconds of the video
-   * @param {Function} callback The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Video** The video with converted POI
+   * @param {module:portal/storages/OpenVeoStorage~OpenVeoStorage~convertVideoPoiCallback} callback The function to
+   * call when it's done
    */
   convertVideoPoi(videoId, duration, callback) {
     this.client
@@ -179,15 +171,12 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
   /**
    * Updates a document from collection.
    *
-   * @method updateOne
-   * @async
    * @param {String} collection The endpoint to work on
    * @param {ResourceFilter} [filter] Rules to filter document to update. Must contain an equal operation with a field
    * "id"
    * @param {Object} data The modifications to perform
-   * @param {Function} callback The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** 1 if everything went fine
+   * @param {module:portal/storages/OpenVeoStorage~OpenVeoStorage~updateOneCallback} callback The function to call when
+   * it's done
    */
   updateOne(collection, filter, data, callback) {
     let id = filter.getComparisonOperation(ResourceFilter.OPERATORS.EQUAL, 'id').value;
@@ -203,8 +192,6 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
   /**
    * Fetches a single document from the collection.
    *
-   * @method getOne
-   * @async
    * @param {String} collection The endpoint to work on
    * @param {ResourceFilter} [filter] Rules to filter documents
    * @param {Object} [fields] Expected document fields to be included or excluded from the response, by default all
@@ -212,9 +199,8 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
    * @param {Array} [fields.include] The list of fields to include in the response, all other fields are excluded
    * @param {Array} [fields.exclude] The list of fields to exclude from response, all other fields are included. Ignored
    * if include is also specified.
-   * @param {Function} callback The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Object** The document
+   * @param {module:portal/storages/OpenVeoStorage~OpenVeoStorage~getOneCallback} callback The function to call when
+   * it's done
    */
   getOne(collection, filter, fields, callback) {
     let id = filter.getComparisonOperation(ResourceFilter.OPERATORS.EQUAL, 'id').value;
@@ -234,3 +220,32 @@ class OpenVeoStorage extends openVeoApi.storages.Storage {
 }
 
 module.exports = OpenVeoStorage;
+
+/**
+ * @callback module:portal/storages/OpenVeoStorage~OpenVeoStorage~getCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Array} results The list of retrieved documents
+ * @param {Object} pagination Pagination information
+ * @param {Number} pagination.limit The specified limit
+ * @param {Number} pagination.page The actual page
+ * @param {Number} pagination.pages The total number of pages
+ * @param {Number} pagination.size The total number of documents
+ */
+
+/**
+ * @callback module:portal/storages/OpenVeoStorage~OpenVeoStorage~convertVideoPoiCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} result The video with converted POI
+ */
+
+/**
+ * @callback module:portal/storages/OpenVeoStorage~OpenVeoStorage~updateOneCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total 1 if everything went fine
+ */
+
+/**
+ * @callback module:portal/storages/OpenVeoStorage~OpenVeoStorage~getOneCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} result The document
+ */

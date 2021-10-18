@@ -3,11 +3,6 @@
 /**
  * Media select component provides a (multiple or single) media selection within a list of medias
  *
- * <opa-media-select ng-model="ngModel"
- *                   opa-medias="medias"
- *                   opa-multiple="selectionMultiple">
- * </opa-media-select>
- *
  * Available attributes are:
  * - [Mixed] **ng-model**: The selected medias, it can be an array when multiple selection is active,
  *                         or a single value (string) otherwise.
@@ -17,8 +12,13 @@
  * Requires:
  * - **ngMaterial** AngularJS Material module
  *
- * @module opa
- * @class opaMediaSelect
+ * @example
+ * <opa-media-select ng-model="ngModel"
+ *                   opa-medias="medias"
+ *                   opa-multiple="selectionMultiple">
+ * </opa-media-select>
+ *
+ * @module opa/mediaSelect
  */
 
 (function(app) {

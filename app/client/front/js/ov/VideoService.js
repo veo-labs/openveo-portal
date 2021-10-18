@@ -5,14 +5,14 @@
   /**
    * Defines service to manage the video search.
    *
-   * @module ov
-   * @class applicationService
+   * @class VideoService
+   * @memberof module:ov
+   * @inner
    */
   function VideoService($http, $cookies, webServiceBasePath) {
 
     /**
-     *
-     * @return filters
+     * @return {HttpPromise}
      */
     function increaseVideoView(id, expires) {
       if ($cookies.get(id) || !expires) return;

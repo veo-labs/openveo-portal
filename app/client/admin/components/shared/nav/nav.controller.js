@@ -1,44 +1,48 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Manages opaNav component.
    *
    * @class OpaNavController
+   * @memberof module:opa/nav
+   * @inner
    * @constructor
    */
   function OpaNavController() {
     var ctrl = this;
 
-    Object.defineProperties(ctrl, {
+    Object.defineProperties(ctrl,
 
-      /**
-       * Handles keypress items.
-       *
-       * @method handleItemKeypress
-       * @final
-       * @param {Event} event The keypress event
-       * @param {Object} item The item receiving the event
-       */
-      handleItemKeypress: {
-        value: function(event, item) {
-          if (event.keyCode === 13) {
+      /** @lends module:opa/nav~OpaNavController */
+      {
 
-            // Captured "enter" key
+        /**
+         * Handles keypress items.
+         *
+         * @memberof module:opa/nav~OpaNavController
+         * @method handleItemKeypress
+         * @instance
+         * @param {Event} event The keypress event
+         * @param {Object} item The item receiving the event
+         */
+        handleItemKeypress: {
+          value: function(event, item) {
+            if (event.keyCode === 13) {
 
-            // Execute item associated action
-            item.action(item);
+              // Captured "enter" key
 
+              // Execute item associated action
+              item.action(item);
+
+            }
           }
         }
+
       }
 
-    });
+    );
   }
 
   app.controller('OpaNavController', OpaNavController);

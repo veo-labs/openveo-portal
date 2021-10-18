@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
@@ -11,14 +7,6 @@
    *
    * When HTML element holding the attribute is clicked, a panel is opened next to the element
    * with the message and a close button.
-   *
-   *     $scope.message = 'Message which may contain HTML';
-   *
-   *     <div
-   *       opa-info="message"
-   *       opa-close="Close button label"
-   *       opa-close-aria="Close button ARIA label"
-   *     ></div>
    *
    * Available attributes are:
    * - [Object] **opa-info**: The wrapped version of the message that can be used as a trusted
@@ -29,7 +17,16 @@
    * Requires:
    * - **ngMaterial** AngularJS Material module
    *
-   * @class opaInfo
+   * @example
+   * $scope.message = 'Message which may contain HTML';
+   *
+   * <div
+   *   opa-info="message"
+   *   opa-close="Close button label"
+   *   opa-close-aria="Close button ARIA label"
+   * ></div>
+   *
+   * @module opa/info
    */
   function opaInfo() {
     return {

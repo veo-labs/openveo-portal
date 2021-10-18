@@ -3,12 +3,18 @@
 (function(app) {
 
   /**
+   * Defines the home page controller.
    *
-   * @param {type} $scope
-   * @param {type} $locale
-   * @param {type} $timeout
-   * @param {type} $location
-   * @returns {VideoController_L3.VideoController}
+   * @param {Object} $scope
+   * @param {Object} $http
+   * @param {Object} $locale
+   * @param {Object} $timeout
+   * @param {Object} $location
+   * @param {Object} $analytics
+   * @param {Object} videoService
+   * @param {Object} searchService
+   * @param {Object} $sce
+   * @param {Object} webServiceBasePath
    */
   function VideoController(
     $scope,

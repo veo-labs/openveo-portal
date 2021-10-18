@@ -1,10 +1,7 @@
 'use strict';
 
 /**
- * Defines Portal HTTP Server.
- *
- * @module portal
- * @main portal
+ * @module portal/Server
  */
 
 /* eslint no-sync: 0 */
@@ -50,8 +47,10 @@ const staticServerOptions = {
 /**
  * Initializes passport strategies to manage user authentication.
  *
- * @method initializePassport
+ * @memberof module:portal/Server~Server
+ * @this module:portal/Server~Server
  * @private
+ * @inner
  */
 function initializePassport() {
   if (!this.configuration.auth) return;
@@ -124,16 +123,16 @@ class Server {
    * Creates a new Portal HTTP server.
    *
    * @example
-   *     const Server = process.require('app/server/Server.js');
-   *     const serv = new Server({
-   *        port: 3003,
-   *        sessionSecret: '123456789',
-   *        auth: {
-   *          cas: {
-   *            ...
-   *          }
-   *        }
-   *     });
+   * const Server = process.require('app/server/Server.js');
+   * const serv = new Server({
+   *    port: 3003,
+   *    sessionSecret: '123456789',
+   *    auth: {
+   *      cas: {
+   *        ...
+   *      }
+   *    }
+   * });
    *
    * @class Server
    * @constructor
@@ -141,41 +140,44 @@ class Server {
    */
   constructor(configuration) {
 
-    Object.defineProperties(this, {
+    Object.defineProperties(this,
 
-      /**
-       * Express application.
-       *
-       * @property app
-       * @type Application
-       */
-      app: {
-        value: express(),
-        writable: true
-      },
+      /** @lends module:portal/Server~Server */
+      {
 
-      /**
-       * Server configuration object.
-       *
-       * @property configuration
-       * @type Object
-       */
-      configuration: {
-        value: configuration,
-        writable: true
+        /**
+         * Express application.
+         *
+         * @type {Application}
+         * @instance
+         */
+        app: {
+          value: express(),
+          writable: true
+        },
+
+        /**
+         * Server configuration object.
+         *
+         * @type {Object}
+         * @instance
+         */
+        configuration: {
+          value: configuration,
+          writable: true
+        }
+
       }
 
-    });
+    );
 
   }
 
   /**
    * Prepares server after being sure that the connection to the database is established.
    *
-   * @method onDatabaseAvailable
    * @param {Database} database Project's database
-   * @param {Function} callback Function to call when its done with:
-   *  - **Error** An error if something went wrong
+   * @param {callback} callback Function to call when its done
    */
   onDatabaseAvailable(database, callback) {
 
@@ -308,8 +310,6 @@ class Server {
 
   /**
    * Mounts libraries.
-   *
-   * @method mountLibraries
    */
   mountLibraries() {
     if (!applicationConf.libraries) return;
@@ -329,8 +329,6 @@ class Server {
 
   /**
    * Mounts server routes.
-   *
-   * @method mountRoutes
    */
   mountRoutes() {
     const webServiceBasePath = this.configuration.webServiceBasePath;
@@ -464,10 +462,8 @@ class Server {
   /**
    * Creates database indexes.
    *
-   * @method createIndexes
    * @param {Database} database The database instance
-   * @param {Function} callback Function to call when its done with:
-   *  - **Error** An error if something went wrong
+   * @param {callback} callback Function to call when its done
    */
   createIndexes(database, callback) {
     const userProvider = new UserProvider(database);
@@ -476,8 +472,6 @@ class Server {
 
   /**
    * Starts the server.
-   *
-   * @method start
    */
   start() {
     const server = this.app.listen(this.configuration.port, () => {

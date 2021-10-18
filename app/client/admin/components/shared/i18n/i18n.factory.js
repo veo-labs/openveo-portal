@@ -1,23 +1,22 @@
 'use strict';
 
-/**
- * @module opa.i18n
- */
-
 (function(app) {
 
   /**
    * Manages languages.
    *
    * @class OpaI18nFactory
+   * @memberof module:opa/i18n
+   * @inner
    */
   function OpaI18nFactory() {
 
     /**
      * Gets the list of supported languages.
      *
+     * @memberof module:opa/i18n~OpaI18nFactory
+     * @instance
      * @return {Array} The list of language country codes
-     * @method getLanguages
      */
     function getLanguages() {
       return openVeoPortalSettings.languages;

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module portal
+ * @module portal/context
  */
 
 const openVeoApi = require('@openveo/api');
@@ -16,8 +16,9 @@ class Context {
    * It contains a restricted list of elements as properties which can be accessed
    * from anywhere.
    *
-   *     const context = process.require('app/server/context.js');
-   *     console.log(context.database);
+   * @example
+   * const context = process.require('app/server/context.js');
+   * console.log(context.database);
    *
    * @class context
    * @constructor
@@ -26,41 +27,46 @@ class Context {
     let database;
     let openVeoProvider;
 
-    Object.defineProperties(this, {
+    Object.defineProperties(this,
 
-      /**
-       * The application database instance.
-       *
-       * @property database
-       * @type Database
-       */
-      database: {
-        enumerable: true,
-        get: () => {
-          return database;
-        },
-        set: (value) => {
-          if (value instanceof openVeoApi.storages.Database) database = value;
-        }
-      },
+      /** @lends module:portal/context~Context */
+      {
 
-      /**
-       * An OpenVeoProvider instance.
-       *
-       * @property openVeoProvider
-       * @type OpenVeoProvider
-       */
-      openVeoProvider: {
-        enumerable: true,
-        get: () => {
-          return openVeoProvider;
+        /**
+         * The application database instance.
+         *
+         * @type {Database}
+         * @instance
+         */
+        database: {
+          enumerable: true,
+          get: () => {
+            return database;
+          },
+          set: (value) => {
+            if (value instanceof openVeoApi.storages.Database) database = value;
+          }
         },
-        set: (value) => {
-          if (value instanceof OpenVeoProvider) openVeoProvider = value;
+
+        /**
+         * An OpenVeoProvider instance.
+         *
+         * @type {module:portal/providers/OpenVeoProvider~OpenVeoProvider}
+         * @instance
+         */
+        openVeoProvider: {
+          enumerable: true,
+          get: () => {
+            return openVeoProvider;
+          },
+          set: (value) => {
+            if (value instanceof OpenVeoProvider) openVeoProvider = value;
+          }
         }
+
       }
 
-    });
+    );
   }
 
 }

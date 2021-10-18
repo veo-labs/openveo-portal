@@ -1,15 +1,13 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Manages opaInfoButton component.
    *
    * @class OpaInfoButtonController
+   * @memberof module:opa/infoButton
+   * @inner
    * @constructor
    */
   function OpaInfoButtonController() {}

@@ -1,14 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
- */
-
-/**
- * Provides route actions for all requests relative to statistics.
- *
- * @class statisticsController
- * @static
+ * @module portal/controllers/StatisticsController
  */
 
 const openVeoApi = require('@openveo/api');
@@ -25,24 +18,30 @@ class StatisticsController extends openVeoApi.controllers.Controller {
    * @class StatisticsController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
 
-    Object.defineProperties(this, {
+    Object.defineProperties(this,
 
-      /**
-       * The cache holding the number of views by user and media.
-       *
-       * @property viewsCache
-       * @type Cache
-       * @final
-       */
-      viewsCache: {
-        value: new Cache({checkperiod: 0})
+      /** @lends module:portal/controllers/StatisticsController~StatisticsController */
+      {
+
+        /**
+         * The cache holding the number of views by user and media.
+         *
+         * @type {Cache}
+         * @instance
+         * @readonly
+         */
+        viewsCache: {
+          value: new Cache({checkperiod: 0})
+        }
+
       }
 
-    });
+    );
 
     this.viewsCache.on('expired', (key, value) => {
       this.viewsCache.del(key);
@@ -53,8 +52,6 @@ class StatisticsController extends openVeoApi.controllers.Controller {
   /**
    * Sends statistics to OpenVeo.
    *
-   * @method statisticsAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.params Requests parameters
    * @param {String} request.params.entity The name of the OpenVeo entity receiving statistics

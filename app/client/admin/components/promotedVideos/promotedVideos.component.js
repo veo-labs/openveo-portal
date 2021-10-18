@@ -1,16 +1,10 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Promoted videos component presents an editor to promote 9 videos.
  *
  * The editor is made of placeholders symbolizing front office promoted videos. Videos can be added from a
  * placeholder using a media library.
- *
- *     <opa-promoted-videos></opa-promoted-videos>
  *
  * Requires:
  * - **ngMaterial** AngularJS Material module
@@ -21,7 +15,10 @@
  * - **opaTranslate** Internationalization translate filter
  * - **opaMediaContainer** Component to select a media from the media library
  *
- * @class opaPromotedVideos
+ * @example
+ * <opa-promoted-videos></opa-promoted-videos>
+ *
+ * @module opa/promotedVideos
  */
 
 (function(app) {

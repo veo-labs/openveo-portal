@@ -3,10 +3,10 @@
 (function(app) {
 
   /**
+   * Defines the home page controller.
    *
-   * @param {type} $scope
-   * @param {type} video
-   * @returns {VideoPageController_L3.VideoPageController}
+   * @param {Object} $scope
+   * @param {Object} video
    */
   function VideoPageController($scope, video) {
     $scope.video = video.data.entity;

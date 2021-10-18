@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/ErrorController
  */
 
 const openVeoApi = require('@openveo/api');
@@ -16,6 +16,7 @@ class ErrorController extends openVeoApi.controllers.Controller {
    * @class ErrorController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -24,8 +25,6 @@ class ErrorController extends openVeoApi.controllers.Controller {
   /**
    * Handles requests which does not correspond to anything.
    *
-   * @method notFoundAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware
@@ -38,13 +37,11 @@ class ErrorController extends openVeoApi.controllers.Controller {
    * Handles all errors.
    *
    * @example
-   *     {
-   *       "code" : 1,
-   *       "httpCode" : 500
-   *     }
+   * {
+   *   "code" : 1,
+   *   "httpCode" : 500
+   * }
    *
-   * @method errorAction
-   * @async
    * @param {Object} error An error object with error code, HTTP code and error message
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response

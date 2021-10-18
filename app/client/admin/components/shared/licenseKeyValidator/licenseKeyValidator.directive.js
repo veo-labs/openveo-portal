@@ -1,23 +1,9 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * License key validator directive validates that a model is a valid license key.
-   *
-   *     <script>
-   *       function Controller($scope) {
-   *         $scope.validates = true;
-   *       }
-   *     </script>
-   *     <form name="myForm">
-   *       <input name="myField" ng-model="myLicenseKey" opa-license-key-validator="{{validates}}" />
-   *       {{myForm.myField.$error.opaLicenseKeyValidator}}
-   *     </form>
    *
    * Available attributes are:
    *   - [Boolean] **opa-license-key-validator** An AngularJS expression evaluating to true if validator is active,
@@ -25,7 +11,18 @@
    *
    * The registered name of the validator is "opaLicenseKey".
    *
-   * @class opaLicenseKeyValidator
+   * @example
+   * <script>
+   *   function Controller($scope) {
+   *     $scope.validates = true;
+   *   }
+   * </script>
+   * <form name="myForm">
+   *   <input name="myField" ng-model="myLicenseKey" opa-license-key-validator="{{validates}}" />
+   *   {{myForm.myField.$error.opaLicenseKeyValidator}}
+   * </form>
+   *
+   * @module opa/licenseKeyValidator
    */
   function opaLicenseKeyValidator() {
     return {

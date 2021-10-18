@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module opa
+ * @module opa/notification
  */
 
 (function(app) {
@@ -10,6 +10,8 @@
    * Manages notifications.
    *
    * @class OpaNotificationController
+   * @memberof module:opa/notification
+   * @inner
    * @constructor
    * @param {Object} $mdToast AngularJS Material toast service
    * @param {Object} $mdMedia AngularJS Material media query service
@@ -17,32 +19,38 @@
   function OpaNotificationController($mdToast, $mdMedia) {
     var ctrl = this;
 
-    Object.defineProperties(ctrl, {
+    Object.defineProperties(ctrl,
 
-      /**
-       * AngularJS Material $mdMedia service.
-       *
-       * @property $mdMedia
-       * @type Object
-       * @final
-       */
-      $mdMedia: {
-        value: $mdMedia
-      },
+      /** @lends module:opa/notification~OpaNotificationController */
+      {
 
-      /**
-       * Hides the notification.
-       *
-       * @method hide
-       * @final
-       */
-      hide: {
-        value: function() {
-          $mdToast.hide();
+        /**
+         * AngularJS Material $mdMedia service.
+         *
+         * @type {Object}
+         * @instance
+         * @readonly
+         */
+        $mdMedia: {
+          value: $mdMedia
+        },
+
+        /**
+         * Hides the notification.
+         *
+         * @memberof module:opa/notification~OpaNotificationController
+         * @method hide
+         * @instance
+         */
+        hide: {
+          value: function() {
+            $mdToast.hide();
+          }
         }
+
       }
 
-    });
+    );
   }
 
   app.controller('OpaNotificationController', OpaNotificationController);

@@ -1,15 +1,13 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Manages authenticated user.
    *
    * @class OpaUserFactory
+   * @memberof module:opa
+   * @inner
    * @param {Object} $http AngularJS $http service
    * @param {Object} $cookies AngularJS $cookies service
    * @param {String} opaWebServiceBasePath Portal web service base path
@@ -20,8 +18,9 @@
     /**
      * Gets user information.
      *
+     * @memberof module:opa~OpaUserFactory
+     * @instance
      * @return {Object} The user description object
-     * @method getUserInfo
      */
     function getUserInfo() {
       return openVeoPortalSettings.user;
@@ -30,7 +29,8 @@
     /**
      * Indicates if user is authenticated or not.
      *
-     * @method isAuthenticated
+     * @memberof module:opa~OpaUserFactory
+     * @instance
      * @return {Boolean} true if authenticated, false otherwise
      */
     function isAuthenticated() {
@@ -40,8 +40,9 @@
     /**
      * Logs out user.
      *
+     * @memberof module:opa~OpaUserFactory
+     * @instance
      * @return {HttPromise} The logout promise
-     * @method logout
      */
     function logout() {
       return $http.post(opaWebServiceBasePath + 'logout');
@@ -50,7 +51,8 @@
     /**
      * Gets user's preferred language.
      *
-     * @method getLanguage
+     * @memberof module:opa~OpaUserFactory
+     * @instance
      * @return {String} The user's language code
      */
     function getLanguage() {
@@ -60,8 +62,9 @@
     /**
      * Sets user's preferred language.
      *
+     * @memberof module:opa~OpaUserFactory
+     * @instance
      * @param {String} newLanguage A language country code (e.g en-CA)
-     * @method setLanguage
      */
     function setLanguage(newLanguage) {
       language = newLanguage;

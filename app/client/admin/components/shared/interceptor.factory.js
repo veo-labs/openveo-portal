@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
@@ -16,6 +12,8 @@
    * using a notification.
    *
    * @class OpaInterceptor
+   * @memberof module:opa
+   * @inner
    * @param {Object} $rootScope AngularJS root scope
    * @param {Object} $filter AngularJS $filter service
    * @param {Object} $q AngularJS $q service

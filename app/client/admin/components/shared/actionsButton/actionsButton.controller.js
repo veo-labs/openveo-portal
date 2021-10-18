@@ -1,15 +1,13 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Manages opaActionsButton component.
    *
    * @class OpaActionsButtonController
+   * @memberof module:opa/actionsButton
+   * @inner
    * @constructor
    * @param {Object} $element The HTML element holding the component
    * @param {Object} $window JQLite element of the window
@@ -18,65 +16,73 @@
   function OpaActionsButtonController($element, $window, $document) {
     var ctrl = this;
 
-    Object.defineProperties(ctrl, {
+    Object.defineProperties(ctrl,
 
-      /**
-       * Indicates if the list of actions is visible or not.
-       *
-       * @property isOpened
-       * @type Boolean
-       */
-      isOpened: {
-        value: false,
-        writable: true
-      },
+      /** @lends module:opa/actionsButton~OpaActionsButtonController */
+      {
 
-      /**
-       * Shows / hides actions.
-       *
-       * @method toggleActions
-       * @final
-       */
-      toggleActions: {
-        value: function() {
-          var actionsWrapperElement = $element[0].querySelector('.opa-actions-wrapper');
-          ctrl.isOpened = !ctrl.isOpened;
+        /**
+         * Indicates if the list of actions is visible or not.
+         *
+         * @type {Boolean}
+         * @instance
+         * @default false
+         */
+        isOpened: {
+          value: false,
+          writable: true
+        },
 
-          if (ctrl.isOpened) {
-            var height;
-            var actionsElement = $element.find('ul')[0];
-            var computedStyle = $window.getComputedStyle(actionsElement);
-            height = parseFloat(computedStyle.getPropertyValue('height') || computedStyle['height']);
-            if (!height) height = actionsElement['offsetHeight'];
+        /**
+         * Shows / hides actions.
+         *
+         * @memberof module:opa/actionsButton~OpaActionsButtonController
+         * @method toggleActions
+         * @instance
+         */
+        toggleActions: {
+          value: function() {
+            var actionsWrapperElement = $element[0].querySelector('.opa-actions-wrapper');
+            ctrl.isOpened = !ctrl.isOpened;
 
-            actionsWrapperElement.style.height = height + 'px';
-          } else
-            actionsWrapperElement.style.height = '0px';
-        }
-      },
+            if (ctrl.isOpened) {
+              var height;
+              var actionsElement = $element.find('ul')[0];
+              var computedStyle = $window.getComputedStyle(actionsElement);
+              height = parseFloat(computedStyle.getPropertyValue('height') || computedStyle['height']);
+              if (!height) height = actionsElement['offsetHeight'];
 
-      /**
-       * Handles keypress events on actions.
-       *
-       * @method handleActionKeypress
-       * @final
-       * @param {Event} event The keypress event
-       * @param {Object} action The action receiving the event
-       */
-      handleActionKeypress: {
-        value: function(event, action) {
-          if (event.keyCode === 13) {
+              actionsWrapperElement.style.height = height + 'px';
+            } else
+              actionsWrapperElement.style.height = '0px';
+          }
+        },
 
-            // Captured "enter" key
+        /**
+         * Handles keypress events on actions.
+         *
+         * @memberof module:opa/actionsButton~OpaActionsButtonController
+         * @method handleActionKeypress
+         * @instance
+         * @param {Event} event The keypress event
+         * @param {Object} action The action receiving the event
+         */
+        handleActionKeypress: {
+          value: function(event, action) {
+            if (event.keyCode === 13) {
 
-            // Execute action associated action
-            action.action(action);
+              // Captured "enter" key
 
+              // Execute action associated action
+              action.action(action);
+
+            }
           }
         }
+
       }
 
-    });
+    );
 
   }
 

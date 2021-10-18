@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module providers
+ * @module portal/providers/SettingsProvider
  */
 
 const async = require('async');
@@ -13,9 +13,11 @@ class SettingsProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Defines an EntityProvider to get and save settings.
    *
-   * @extends SettingsProvider
+   * @class SettingsProvider
+   * @extends EntityProvider
    * @constructor
    * @param {Database} database The database to interact with
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Database and EntityProvider
    */
   constructor(database) {
     super(database, 'portal_settings');
@@ -26,15 +28,11 @@ class SettingsProvider extends openVeoApi.providers.EntityProvider {
    *
    * If a setting already exists, an update is performed.
    *
-   * @method add
-   * @async
-   * @param {Array} settings The list of settings to store with for each setting:
-   *   - **String** id The setting key
-   *   - **Mixed** value The setting value
-   * @param {Function} [callback] The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** The total amount of settings inserted / updated
-   *   - **Array** The list of added / updated settings
+   * @param {Array} settings The list of settings to store
+   * @param {String} settings[].id The setting key
+   * @param {*} settings[].value The setting value
+   * @param {module:portal/providers/SettingsProvider~SettingsProvider~addCallback} [callback] The function to call
+   * when it's done
    */
   add(settings, callback) {
     const settingsToAdd = [];
@@ -124,14 +122,11 @@ class SettingsProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Updates a setting.
    *
-   * @method updateOne
-   * @async
    * @param {ResourceFilter} [filter] Rules to filter the setting to update
    * @param {Object} data The modifications to perform
-   * @param {Mixed} data.value The setting value
-   * @param {Function} [callback] The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** 1 if everything went fine
+   * @param {*} data.value The setting value
+   * @param {module:portal/providers/SettingsProvider~SettingsProvider~updateOneCallback} [callback] The function to
+   * call when it's done
    */
   updateOne(filter, data, callback) {
     const modifications = {};
@@ -143,3 +138,16 @@ class SettingsProvider extends openVeoApi.providers.EntityProvider {
 }
 
 module.exports = SettingsProvider;
+
+/**
+ * @callback module:portal/providers/SettingsProvider~SettingsProvider~addCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total The total amount of settings inserted / updated
+ * @param {Array} settings The list of added / updated settings
+ */
+
+/**
+ * @callback module:portal/providers/SettingsProvider~SettingsProvider~updateOneCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total 1 if everything went fine
+ */

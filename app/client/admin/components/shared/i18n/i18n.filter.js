@@ -1,15 +1,13 @@
 'use strict';
 
-/**
- * @module opa.i18n
- */
-
 (function(app) {
 
   /**
    * Translate filter to translate an id using a dictionary of translations.
    *
    * @class OpaTranslateFilter
+   * @memberof module:opa/i18n
+   * @inner
    * @constructor
    * @param {Object} $sce AngularJS $sce service
    * @param {Object} opaTranslations The list of OpenVeo Portal translations
@@ -20,41 +18,43 @@
      * Translates an id into the appropriated translated text.
      *
      * @example
-     *     // Translation dictionary
-     *     var translations = {
-     *       MY_SIMPLE_TRANSLATION_ID: 'Simple translation',
-     *       MY_TRANSLATION_ID: {
-     *         SINGLE: 'Single translation',
-     *         PLURAL: 'Plural translation'
-     *       },
-     *       MY_TRANSLATION_WITH_PARAMETERS_ID: 'Translation with "%parameter%"'
-     *     };
+     * // Translation dictionary
+     * var translations = {
+     *   MY_SIMPLE_TRANSLATION_ID: 'Simple translation',
+     *   MY_TRANSLATION_ID: {
+     *     SINGLE: 'Single translation',
+     *     PLURAL: 'Plural translation'
+     *   },
+     *   MY_TRANSLATION_WITH_PARAMETERS_ID: 'Translation with "%parameter%"'
+     * };
      *
-     *     $scope.translationParameters = {
-     *       '%parameter%': 'my value'
-     *     };
+     * $scope.translationParameters = {
+     *   '%parameter%': 'my value'
+     * };
      *
      * @example
-     *     <!-- Simple translation -->
-     *     <p>{{'MY_SIMPLE_TRANSLATION_ID' | opaTranslate}}</p>
+     * <!-- Simple translation -->
+     * <p>{{'MY_SIMPLE_TRANSLATION_ID' | opaTranslate}}</p>
      *
-     *     <!-- Single translation -->
-     *     <p>{{'MY_TRANSLATION_ID' | opaTranslate:0}}</p>
+     * <!-- Single translation -->
+     * <p>{{'MY_TRANSLATION_ID' | opaTranslate:0}}</p>
      *
-     *     <!-- Single translation -->
-     *     <p>{{'MY_TRANSLATION_ID' | opaTranslate:1}}</p>
+     * <!-- Single translation -->
+     * <p>{{'MY_TRANSLATION_ID' | opaTranslate:1}}</p>
      *
-     *     <!-- Plural translation -->
-     *     <p>{{'MY_TRANSLATION_ID' | opaTranslate:2}}</p>
+     * <!-- Plural translation -->
+     * <p>{{'MY_TRANSLATION_ID' | opaTranslate:2}}</p>
      *
-     *     <!-- Translation with "my value" -->
-     *     <p>{{'MY_TRANSLATION_WITH_PARAMETERS_ID' | opaTranslate:0:translationParameters}}</p>
+     * <!-- Translation with "my value" -->
+     * <p>{{'MY_TRANSLATION_WITH_PARAMETERS_ID' | opaTranslate:0:translationParameters}}</p>
      *
+     * @memberof module:opa/i18n~OpaTranslateFilter
      * @method opaTranslate
+     * @instance
      * @param {String} id The id of the translation
      * @param {Number} [number] The number to determine pluralization
      * @param {Object} [parameters] Placeholder to replace with their values
-     * @return {Object|null} The wrapped version of the translated string that can be used as a
+     * @return {(Object|null)} The wrapped version of the translated string that can be used as a
      * trusted variant in $sce.HTML context
      */
     return function(id, number, parameters) {

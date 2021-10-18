@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module providers
+ * @module portal/providers/UserProvider
  */
 
 const path = require('path');
@@ -22,6 +22,7 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
    * @extends EntityProvider
    * @constructor
    * @param {Storage} storage The storage to use to store users
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Storage and EntityProvider
    */
   constructor(storage) {
     super(storage, 'portal_users');
@@ -30,13 +31,10 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Gets an internal user by its credentials.
    *
-   * @method getUserByCredentials
-   * @async
    * @param {String} email The email of the user
    * @param {String} password The password of the user
-   * @param {Function} callback Function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Object** The user
+   * @param {module:portal/providers/UserProvider~UserProvider~getUserByCredentialsCallback} callback Function to call
+   * when it's done
    */
   getUserByCredentials(email, password, callback) {
     password = crypto.createHmac('sha256', conf.passwordHashKey).update(password).digest('hex');
@@ -56,12 +54,9 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Gets an internal user by its email.
    *
-   * @method getUserByEmail
-   * @async
    * @param {String} email The email of the user
-   * @param {Function} callback Function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Object** The user
+   * @param {module:portal/providers/UserProvider~UserProvider~getUserByEmailCallback} callback Function to call when
+   * it's done
    */
   getUserByEmail(email, callback) {
     this.getOne(
@@ -79,20 +74,15 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Adds users.
    *
-   * @method add
-   * @async
    * @param {Array} users The list of users to store with for each user:
-   *   - **String** name The user name
-   *   - **String** email The user email
-   *   - **String** password The user password
-   *   - **String** passwordValidate The user password validation
-   *   - **String** [id] The user id, generated if not specified
-   *   - **Array** [groups] The user groups ids
-   *   - **Boolean** [locked=false] true to lock the user from edition, false otherwise
-   * @param {Function} [callback] The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** The total amount of users inserted
-   *   - **Array** The list of added users
+   * @param {String} users[].name The user name
+   * @param {String} users[].email The user email
+   * @param {String} users[].password The user password
+   * @param {String} users[].passwordValidate The user password validation
+   * @param {String} [users[].id] The user id, generated if not specified
+   * @param {Array} [users[].groups] The user groups ids
+   * @param {Boolean} [users[].locked=false] true to lock the user from edition, false otherwise
+   * @param {module:portal/providers/UserProvider~UserProvider~addCallback} callback Function to call when it's done
    */
   add(users, callback) {
     const usersToAdd = [];
@@ -168,8 +158,6 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Updates an internal user.
    *
-   * @method updateOne
-   * @async
    * @param {ResourceFilter} [filter] Rules to filter the user to update
    * @param {Object} data The modifications to perform
    * @param {String} [data.name] The user name
@@ -178,9 +166,8 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
    * @param {String} [data.passwordValidate] The user password validation. Also requires password
    * @param {Array} [data.groups] The user group ids
    * @param {Boolean} [data.locked] true to lock the user from edition, false otherwise
-   * @param {Function} [callback] The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** 1 if everything went fine
+   * @param {module:portal/providers/UserProvider~UserProvider~updateOneCallback} callback Function to call when it's
+   * done
    */
   updateOne(filter, data, callback) {
     const modifications = {};
@@ -269,20 +256,16 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
    *
    * External users are automatically locked when added.
    *
-   * @method addThirdPartyUsers
-   * @async
    * @param {Array} users The list of users to add with for each user:
-   *   - **String** name The user name
-   *   - **String** email The user email
-   *   - **String** origin Id of the third party provider system
-   *   - **String** originId The user id in third party provider system
-   *   - **String** [id] The user id, generated if not specified
-   *   - **Array** [originGroups] The user groups in third party provider system
-   *   - **Array** [groups] The user group ids
-   * @param {Function} [callback] The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** The total amount of users inserted
-   *   - **Array** The inserted users
+   * @param {String} users[].name The user name
+   * @param {String} users[].email The user email
+   * @param {String} users[].origin Id of the third party provider system
+   * @param {String} users[].originId The user id in third party provider system
+   * @param {String} [users[].id] The user id, generated if not specified
+   * @param {Array} [users[].originGroups] The user groups in third party provider system
+   * @param {Array} [users[].groups] The user group ids
+   * @param {module:portal/providers/UserProvider~UserProvider~addThirdPartyUsersCallback} callback Function to call
+   * when it's done
    */
   addThirdPartyUsers(users, callback) {
     const usersToAdd = [];
@@ -317,8 +300,6 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Updates an external user.
    *
-   * @method updateThirdPartyUser
-   * @async
    * @param {ResourceFilter} [filter] Rules to filter users to update
    * @param {Object} data The modifications to perform
    * @param {String} [data.name] The user name
@@ -327,9 +308,8 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
    * @param {Array} [data.groups] The user group ids
    * @param {Boolean} [data.locked] true to lock the user from edition, false otherwise
    * @param {String} origin The user origin (see openVeoApi.passport.STRATEGIES)
-   * @param {Function} callback The function to call when it's done
-   *   - **Error** The error if an error occurred, null otherwise
-   *   - **Number** 1 if everything went fine
+   * @param {module:portal/providers/UserProvider~UserProvider~updateThirdPartyUserCallback} callback Function to call
+   * when it's done
    */
   updateThirdPartyUser(filter, data, origin, callback) {
     const modifications = {};
@@ -354,10 +334,7 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
   /**
    * Creates users indexes.
    *
-   * @method createIndexes
-   * @async
-   * @param {Function} callback Function to call when it's done with:
-   *  - **Error** An error if something went wrong, null otherwise
+   * @param {callback} callback Function to call when it's done with:
    */
   createIndexes(callback) {
     this.storage.createIndexes(this.location, [
@@ -374,3 +351,41 @@ class UserProvider extends openVeoApi.providers.EntityProvider {
 }
 
 module.exports = UserProvider;
+
+/**
+ * @callback module:portal/providers/UserProvider~UserProvider~getUserByCredentialsCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user
+ */
+
+/**
+ * @callback module:portal/providers/UserProvider~UserProvider~getUserByEmailCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user
+ */
+
+/**
+ * @callback module:portal/providers/UserProvider~UserProvider~addCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total The total amount of users inserted
+ * @param {Array} users The list of added users
+ */
+
+/**
+ * @callback module:portal/providers/UserProvider~UserProvider~updateOneCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total 1 if everything went fine
+ */
+
+/**
+ * @callback module:portal/providers/UserProvider~UserProvider~addThirdPartyUsersCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total The total amount of users inserted
+ * @param {Number} users The inserted users
+ */
+
+/**
+ * @callback module:portal/providers/UserProvider~UserProvider~updateThirdPartyUserCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Number} total 1 if everything went fine
+ */

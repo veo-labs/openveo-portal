@@ -1,13 +1,7 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Search settings component presents a formular to configure OpenVeo Portal search engine.
- *
- *     <opa-search-settings></opa-search-settings>
  *
  * Available attributes are:
  *   - [Object] **[opa-settings]**: The search settings with:
@@ -19,7 +13,10 @@
  * - **opaTranslate** Internationalization translate filter
  * - **opaInfoButton** Component used to display info actions
  *
- * @class opaSearchSettings
+ * @example
+ * <opa-search-settings></opa-search-settings>
+ *
+ * @module opa/settings/searchSettings
  */
 
 (function(app) {

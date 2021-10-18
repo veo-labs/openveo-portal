@@ -1,47 +1,52 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Manages opaMediaContainer component.
    *
    * @class OpaMediaContainerController
+   * @memberof module:opa/mediaContainer
+   * @inner
    */
   function OpaMediaContainerController() {
     var self = this;
 
-    Object.defineProperties(self, {
+    Object.defineProperties(self,
 
-      /**
-       * Trigger the edit callback to select a new media.
-       *
-       * @method onClick
-       * @final
-       */
-      onClick: {
-        value: function() {
-          self.opaEdit();
-        }
-      },
+      /** @lends module:opa/mediaContainer~OpaMediaContainerController */
+      {
 
-      /**
-       * Trigger the remove action to clear the media.
-       *
-       * @method onRemove
-       * @final
-       */
-      onRemove: {
-        value: function($event) {
-          $event.stopImmediatePropagation();
-          self.opaRemove();
+        /**
+         * Trigger the edit callback to select a new media.
+         *
+         * @memberof module:opa/mediaContainer~OpaMediaContainerController
+         * @method onClick
+         * @instance
+         */
+        onClick: {
+          value: function() {
+            self.opaEdit();
+          }
+        },
+
+        /**
+         * Trigger the remove action to clear the media.
+         *
+         * @memberof module:opa/mediaContainer~OpaMediaContainerController
+         * @method onRemove
+         * @instance
+         */
+        onRemove: {
+          value: function($event) {
+            $event.stopImmediatePropagation();
+            self.opaRemove();
+          }
         }
+
       }
 
-    });
+    );
   }
 
   app.controller('OpaMediaContainerController', OpaMediaContainerController);

@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- *
- * @param {type} app
- * @returns {undefined}
- */
-
 (function(app) {
 
   /**

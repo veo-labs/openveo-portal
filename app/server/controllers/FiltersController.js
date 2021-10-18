@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/FiltersController
  */
 
 const async = require('async');
@@ -19,6 +19,7 @@ class FiltersController extends openVeoApi.controllers.Controller {
    * @class FiltersController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -27,8 +28,6 @@ class FiltersController extends openVeoApi.controllers.Controller {
   /**
    * Gets the list of available video filters (both custom properties and categories).
    *
-   * @method getFiltersAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware

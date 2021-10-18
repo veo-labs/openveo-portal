@@ -1,13 +1,7 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Settings component presents a formular to configure the portal.
- *
- *     <opa-settings></opa-settings>
  *
  * Requires:
  * - **ngMaterial** AngularJS Material module
@@ -17,7 +11,10 @@
  * - **opaLiveSettings** Formular to configure OpenVeo Portal live
  * - **opaTranslate** Internationalization translate filter
  *
- * @class opaSettings
+ * @example
+ * <opa-settings></opa-settings>
+ *
+ * @module opa/settings
  */
 
 (function(app) {

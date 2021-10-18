@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/AuthenticationController
  */
 
 const passport = require('passport');
@@ -17,6 +17,7 @@ class AuthenticationController extends openVeoApi.controllers.Controller {
    * @class AuthenticationController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -25,8 +26,6 @@ class AuthenticationController extends openVeoApi.controllers.Controller {
   /**
    * Handles user authentication using internal providers (which do not require a redirection to a third party site).
    *
-   * @method authenticateInternalAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.body Request's body
    * @param {String} request.body.login The login
@@ -82,9 +81,6 @@ class AuthenticationController extends openVeoApi.controllers.Controller {
   /**
    * Handles user authentication using external providers (which require a redirection on third party site).
    *
-   * @method authenticateExternalAction
-   * @static
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Object} request.params Request's parameters
    * @param {String} request.params.type The authentication provider to use
@@ -130,7 +126,6 @@ class AuthenticationController extends openVeoApi.controllers.Controller {
   /**
    * Logs out user.
    *
-   * @method logoutAction
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware
@@ -166,8 +161,6 @@ class AuthenticationController extends openVeoApi.controllers.Controller {
    * If not send back an HTTP code 401 with appropriate page.
    * It just go to the next route action if permission is granted.
    *
-   * @method restrictAction
-   * @static
    * @param {Request} request ExpressJS HTTP Request
    * @param {String} request.url Request's url
    * @param {Object} request.user The connected user

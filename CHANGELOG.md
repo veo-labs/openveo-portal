@@ -6,6 +6,10 @@
 - No longer tested on Ubuntu 16.04 (tested on Ubuntu 18.04)
 - OpenVeo Portal is no longer tested on Opera and Edge
 
+## NEW FEATURES
+
+- Improve code documentation by replacing Yuidoc by JSDoc
+
 ## DEPENDENCIES
 
 - **chai** has been upgraded from 4.2.0 to **4.3.4**
@@ -24,6 +28,7 @@
 - **shortid** has been replaced by nanoid
 - **video.js** has been upgraded from 7.7.5 to **7.15.4**
 - **videojs-contrib-dash** has been upgraded from 2.11.0 to **5.1.0**
+- **yuidoc** has been replaced by **JSDoc**
 
 # 7.0.0 / 2020-11-19
 

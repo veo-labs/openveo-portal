@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module portal/controllers/CategoriesController
  */
 
 const JSONPath = require('jsonpath-plus').JSONPath;
@@ -18,6 +18,7 @@ class CategoriesController extends openVeoApi.controllers.Controller {
    * @class CategoriesController
    * @extends Controller
    * @constructor
+   * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about Controller
    */
   constructor() {
     super();
@@ -26,8 +27,6 @@ class CategoriesController extends openVeoApi.controllers.Controller {
   /**
    * Gets OpenVeo Publish categories.
    *
-   * @method getCategoriesAction
-   * @async
    * @param {Request} request ExpressJS HTTP Request
    * @param {Response} response ExpressJS HTTP Response
    * @param {Function} next Function to defer execution to the next registered middleware

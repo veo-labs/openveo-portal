@@ -55,8 +55,8 @@
      *
      * @param {Object} filter The filter corresponding to the specified value
      * @param {String} filter.type The filter type
-     * @param {String|Number|Boolean} value The filter value
-     * @return The unserialized value respecting the filter type
+     * @param {(String|Number|Boolean)} value The filter value
+     * @return {*} The unserialized value respecting the filter type
      */
     function unserializeFilterValue(filter, value) {
       if (filter.type === 'dateTime') return timestampToDate(value);
@@ -69,8 +69,8 @@
      *
      * @param {Object} filter The filter corresponding to the specified value
      * @param {String} filter.type The filter type
-     * @param {String|Number|Boolean} value The filter value
-     * @return The serialized filter value
+     * @param {(String|Number|Boolean)} value The filter value
+     * @return {String} The serialized filter value
      */
     function serializeFilterValue(filter, value) {
       if (filter.type === 'dateTime') return value && value.getTime();
@@ -81,8 +81,8 @@
     /**
      * Serializes form values.
      *
-     * @param {formValues} The key / value pairs of form value to serialize
-     * @return The list of serialized form values
+     * @param {Object} formValues The key / value pairs of form value to serialize
+     * @return {Object} The list of serialized form values
      */
     function serializeFormValues(formValues) {
       var values = {};
@@ -121,7 +121,7 @@
      * Prepares form values to be used as query parameters.
      *
      * @param {Object} formValues The key / value pairs of form value
-     * @return The list of form values formatted for query parameters
+     * @return {Object} The list of form values formatted for query parameters
      */
     function formValuesToQueryParameters(formValues) {
       return serializeFormValues(formValues);
@@ -261,14 +261,14 @@
      *
      * @param {String} text The text to emphasis and truncate
      * @param {String} query The word or group of words to look for
-     * @param {Number|undefined} limit The maximum number of expected characters. Note that the ellipsis characters
+     * @param {(Number|undefined)} limit The maximum number of expected characters. Note that the ellipsis characters
      * count.
      * @param {Boolean} noEmphasis true to truncate text without emphasing query
-     * @param {Number|undefined} maxWordsBefore The number of words to keep before the emphasised text, if not set the
+     * @param {(Number|undefined)} maxWordsBefore The number of words to keep before the emphasised text, if not set the
      * maximum is kept. Don't use it, it's only for internal use
-     * @param {Number|undefined} maxWordsAfter The number of words to keep after the emphasised text, if not set the
+     * @param {(Number|undefined)} maxWordsAfter The number of words to keep after the emphasised text, if not set the
      * maximum is kept. Don't use it, it's only for internal use
-     * @return {String|null} The emphasised / truncated text or null if query has not been found in the text
+     * @return {(String|null)} The emphasised / truncated text or null if query has not been found in the text
      */
     self.emphasisQuery = function(text, query, limit, noEmphasis, maxWordsBefore, maxWordsAfter) {
       if (!text || !query) return null;

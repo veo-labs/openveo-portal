@@ -7,7 +7,6 @@
  * It also defines opaWebServiceBasePath constant holding the base path of the Web Service.
  *
  * @module opa
- * @main opa
  */
 
 (function(angular) {

@@ -1,56 +1,7 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Toolbar component presents actions and a title.
- *
- *     $scope.toolbarTitle = 'Toolbar title';
- *     $scope.toolbarLeftActions = [
- *       {
- *         type: 'icon',
- *         icon: 'icon_action_icon_id',
- *         help: 'Icon action tooltip message',
- *         accessibility: 'Icon action accessibility message',
- *         action: function() {
- *           console.log('Do something');
- *         }
- *       }
- *     ];
- *
- *     $scope.toolbarRightActions = [
- *       {
- *         type: 'list',
- *         icon: 'list_action_icon_id',
- *         help: 'List action tooltip message',
- *         accessibility: 'List action accessibility message',
- *         menu: [
- *           {
- *             label: 'Sub action label',
- *             selected: true,
- *             accessibility: 'Sub action accessibility message',
- *             action: function() {
- *               console.log('Do something');
- *             }
- *           }
- *         ]
- *       },
- *       {
- *         type: 'text',
- *         label: 'Text action label',
- *         accessibility: 'Text action accessibility message',
- *         action: function() {
- *           console.log('Do something');
- *         }
- *       }
- *     ];
- *     <opa-toolbar
- *                  opa-title="{{toolbarTitle}}"
- *                  opa-left-actions="toolbarLeftActions"
- *                  opa-right-actions="toolbarRightActions"
- *     ></opa-toolbar>
  *
  * Available attributes are:
  * - [String] **[opa-title]**: The toolbar title
@@ -88,7 +39,53 @@
  * - **ngMaterial** The AngularJS Material module
  * - **opaInfoButton** Component used to display info actions
  *
- * @class opaToolbar
+ * @example
+ * $scope.toolbarTitle = 'Toolbar title';
+ * $scope.toolbarLeftActions = [
+ *   {
+ *     type: 'icon',
+ *     icon: 'icon_action_icon_id',
+ *     help: 'Icon action tooltip message',
+ *     accessibility: 'Icon action accessibility message',
+ *     action: function() {
+ *       console.log('Do something');
+ *     }
+ *   }
+ * ];
+ *
+ * $scope.toolbarRightActions = [
+ *   {
+ *     type: 'list',
+ *     icon: 'list_action_icon_id',
+ *     help: 'List action tooltip message',
+ *     accessibility: 'List action accessibility message',
+ *     menu: [
+ *       {
+ *         label: 'Sub action label',
+ *         selected: true,
+ *         accessibility: 'Sub action accessibility message',
+ *         action: function() {
+ *           console.log('Do something');
+ *         }
+ *       }
+ *     ]
+ *   },
+ *   {
+ *     type: 'text',
+ *     label: 'Text action label',
+ *     accessibility: 'Text action accessibility message',
+ *     action: function() {
+ *       console.log('Do something');
+ *     }
+ *   }
+ * ];
+ * <opa-toolbar
+ *              opa-title="{{toolbarTitle}}"
+ *              opa-left-actions="toolbarLeftActions"
+ *              opa-right-actions="toolbarRightActions"
+ * ></opa-toolbar>
+ *
+ * @module opa/toolbar
  */
 (function(app) {
 

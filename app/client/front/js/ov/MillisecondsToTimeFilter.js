@@ -5,10 +5,17 @@
   /**
    * Converts time in milliseconds into time string (hh:mm:ss).
    *
-   * @module ov.portal
-   * @class millisecondsToTime
+   * @memberof module:ov
+   * @inner
+   * @class MillisecondsToTime
+   * @constructor
    */
   function MillisecondsToTime() {
+
+    /**
+     * @memberof module:ov~MillisecondsToTime
+     * @method millisecondsToTime
+     */
     return function(value) {
       var ms = parseInt(value);
 

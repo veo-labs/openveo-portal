@@ -5,8 +5,9 @@
   /**
    * Defines service to manage the video search.
    *
-   * @module ov
-   * @class applicationService
+   * @memberof module:ov
+   * @inner
+   * @class SearchService
    */
   function SearchService($http, $q, webServiceBasePath) {
     var filters;
@@ -15,9 +16,10 @@
     var videosCache = {};
 
     /**
-     *
-     * @param {type} id
-     * @return {unresolved}
+     * @memberof module:ov~SearchService
+     * @instance
+     * @param {String} id
+     * @return {HttpPromise}
      */
     function loadVideo(id) {
       if (!videosCache[id] || videosCache[id].needAuth) {
@@ -32,8 +34,9 @@
     }
 
     /**
-     *
-     * @return filters
+     * @memberof module:ov~SearchService
+     * @instance
+     * @return {HttpPromise}
      */
     function getFilters() {
       if (!filters || !Object.keys(filters).length) {
@@ -48,8 +51,9 @@
 
 
     /**
-     *
-     * @return categories
+     * @memberof module:ov~SearchService
+     * @instance
+     * @return {HttpPromise}
      */
     function getCategories() {
       if (!categories || !Object.keys(categories).length) {
@@ -65,8 +69,9 @@
     /**
      * Gets a category name by its id.
      *
+     * @memberof module:ov~SearchService
+     * @instance
      * @param {String} id The category id
-     * @method getCategoryName
      * @return {HttpPromise} A promise resolving with the category name
      */
     function getCategoryName(id) {
@@ -82,7 +87,8 @@
     /**
      * Gets the list of promoted videos.
      *
-     * @method getPromotedVideos
+     * @memberof module:ov~SearchService
+     * @instance
      * @return {Promise} A promise resolving with the list of promoted videos
      */
     function getPromotedVideos() {
@@ -101,10 +107,11 @@
     }
 
     /**
-     *
+     * @memberof module:ov~SearchService
+     * @instance
      * @param {Object} params
      * @param {Object} paginate
-     * @return data
+     * @return {HttpPromise}
      */
     function search(filter, paginate, canceller) {
       var options = {};
@@ -117,9 +124,10 @@
     /**
      * Clears a search service cache.
      *
+     * @memberof module:ov~SearchService
+     * @instance
      * @param {String} [type] The cache element to clsear null to
      * clear all caches
-     * @method cacheClear
      */
     function cacheClear() {
       videosCache = {};

@@ -1,26 +1,7 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Actions button component presents a collapsable button with a list of actions.
- *
- *     $scope.icon = 'angular_material_icon_id';
- *     $scope.label = 'Button label';
- *     $scope.actions = [
- *       {
- *         label 'Action label',
- *         icon: 'angular_material_icon_id',
- *         selected: true,
- *         action: function() {
- *           console.log('Do something');
- *         }
- *       }
- *     ];
- *
- *     <opa-actions-button opa-label="{{label}}" opa-icon="{{icon}}" opa-actions="actions"></opa-actions-button>
  *
  * Available attributes are:
  * - [String] **opa-label**: The button label
@@ -34,7 +15,23 @@
  * Requires:
  * - **ngMaterial** AngularJS Material module
  *
- * @class opaActionsButton
+ * @example
+ * $scope.icon = 'angular_material_icon_id';
+ * $scope.label = 'Button label';
+ * $scope.actions = [
+ *   {
+ *     label 'Action label',
+ *     icon: 'angular_material_icon_id',
+ *     selected: true,
+ *     action: function() {
+ *       console.log('Do something');
+ *     }
+ *   }
+ * ];
+ *
+ * <opa-actions-button opa-label="{{label}}" opa-icon="{{icon}}" opa-actions="actions"></opa-actions-button>
+ *
+ * @module opa/actionsButton
  */
 
 (function(app) {

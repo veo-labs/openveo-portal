@@ -1,15 +1,13 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Manages videos.
    *
    * @class OpaVideosFactory
+   * @memberof module:opa
+   * @inner
    * @param {Object} $http AngularJS $http service
    * @param {String} opaWebServiceBasePath Portal web service base path
    */
@@ -18,9 +16,10 @@
     /**
      * Gets an OpenVeo video.
      *
+     * @memberof module:opa~OpaVideosFactory
+     * @instance
      * @param {String} id The id of the video to retrieve
      * @return {HttpPromise} An AngularJS promise resolving with the video
-     * @method getVideo
      */
     function getVideo(id) {
       return $http.get(opaWebServiceBasePath + 'videos/' + id);
@@ -29,8 +28,9 @@
     /**
      * Gets promoted videos.
      *
+     * @memberof module:opa~OpaVideosFactory
+     * @instance
      * @return {HttpPromise} An AngularJS promise resolving with an object containing the promoted videos
-     * @method getPromotedVideos
      */
     function getPromotedVideos() {
       return $http.get(opaWebServiceBasePath + 'videos/promoted');

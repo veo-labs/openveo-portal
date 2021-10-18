@@ -1,24 +1,9 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
    * Stream URL validator directive validates that a model is a valid stream URL depending on type.
-   *
-   *     <script>
-   *       function Controller($scope) {
-   *         $scope.validates = true;
-   *         $scope.streamType = 'youtube';
-   *       }
-   *     </script>
-   *     <form name="myForm">
-   *       <input name="myField" ng-model="myUrl" opa-stream-url-validator="{{validates}}" opa-type="{{streamType}}"/>
-   *       {{myForm.myField.$error.opaStreamUrlValidator}}
-   *     </form>
    *
    * Available attributes are:
    *   - [Boolean] **opa-stream-url-validator** An AngularJS expression evaluating to true if validator is active,
@@ -41,7 +26,19 @@
    *
    * The registered name of the validator is "opaStreamUrl".
    *
-   * @class opaStreamUrlValidator
+   * @example
+   * <script>
+   *   function Controller($scope) {
+   *     $scope.validates = true;
+   *     $scope.streamType = 'youtube';
+   *   }
+   * </script>
+   * <form name="myForm">
+   *   <input name="myField" ng-model="myUrl" opa-stream-url-validator="{{validates}}" opa-type="{{streamType}}"/>
+   *   {{myForm.myField.$error.opaStreamUrlValidator}}
+   * </form>
+   *
+   * @module opa/streamUrlValidator
    */
   function opaStreamUrlValidator() {
     return {

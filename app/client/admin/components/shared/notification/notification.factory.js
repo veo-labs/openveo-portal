@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * @module opa
- */
-
 (function(app) {
 
   /**
@@ -13,6 +9,8 @@
    * - **ngMaterial** AngularJS Material module
    *
    * @class OpaNotificationFactory
+   * @memberof module:opa/notification
+   * @inner
    * @param {Object} $mdToast AngularJS Material media query service
    * @param {Object} opaNotificationConfiguration OPA notifications configuration service
    */
@@ -22,7 +20,8 @@
     /**
      * Displays a notification using AngularJS Material toaster.
      *
-     * @method displayNotification
+     * @memberof module:opa/notification~OpaNotificationFactory
+     * @instance
      * @param {String} message The message to display
      * @param {Number} [delay] Duration (in milliseconds) before automatically closing the notification,
      * 0 to add a button to close the notification

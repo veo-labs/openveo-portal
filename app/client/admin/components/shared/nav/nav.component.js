@@ -1,41 +1,7 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Nav component presents side navigation menu.
- *
- *     $scope.menu = [
- *       {
- *         label: 'Menu item label',
- *         icon: 'angular_material_icon_id',
- *         selected: true,
- *         action: function() {
- *           console.log('Do something');
- *         }
- *       },
- *       {
- *         divider: true
- *       },
- *       {
- *         label: 'Menu item label',
- *         icon: 'angular_material_icon_id',
- *         actions: [
- *           {
- *             label 'Sub menu item label',
- *             icon: 'angular_material_icon_id',
- *             selected: true,
- *             action: function() {
- *               console.log('Do something');
- *             }
- *           }
- *         ]
- *       }
- *     ];
- *
- *     <opa-nav opa-menu="menu"></opa-nav>
  *
  * Available attributes are:
  * - [Array] **opa-menu**: An array of menu items. Several kind of items exist:
@@ -59,7 +25,38 @@
  * - **ngMaterial** AngularJS Material module
  * - **opaActionsButton** Component creating a collapsable button with a list of actions
  *
- * @class opaNav
+ * @example
+ * $scope.menu = [
+ *   {
+ *     label: 'Menu item label',
+ *     icon: 'angular_material_icon_id',
+ *     selected: true,
+ *     action: function() {
+ *       console.log('Do something');
+ *     }
+ *   },
+ *   {
+ *     divider: true
+ *   },
+ *   {
+ *     label: 'Menu item label',
+ *     icon: 'angular_material_icon_id',
+ *     actions: [
+ *       {
+ *         label 'Sub menu item label',
+ *         icon: 'angular_material_icon_id',
+ *         selected: true,
+ *         action: function() {
+ *           console.log('Do something');
+ *         }
+ *       }
+ *     ]
+ *   }
+ * ];
+ *
+ * <opa-nav opa-menu="menu"></opa-nav>
+ *
+ * @module opa/nav
  */
 
 (function(app) {

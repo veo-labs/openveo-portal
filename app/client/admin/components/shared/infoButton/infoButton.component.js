@@ -1,21 +1,9 @@
 'use strict';
 
 /**
- * @module opa
- */
-
-/**
  * Info button presents an information button opening a dialog with a message.
  *
  * It uses opa-info directive to display the message.
- *
- *     $scope.message = 'Message which may contain HTML';
- *
- *     <opa-info-button
- *       opa-message="message"
- *       opa-accessibility="Info button accessibility message"
- *       opa-help="Info button tooltip text"
- *     ></opa-info-button>
  *
  * Available attributes are:
  *   - [String] **opa-message**: An AngularJS expression evaluating to a wrapped version of the message that can be
@@ -27,7 +15,16 @@
  * - **ngMaterial** AngularJS Material module
  * - **opaInfo** Directive opening a panel with a message and a close button
  *
- * @class opa
+ * @example
+ * $scope.message = 'Message which may contain HTML';
+ *
+ * <opa-info-button
+ *   opa-message="message"
+ *   opa-accessibility="Info button accessibility message"
+ *   opa-help="Info button tooltip text"
+ * ></opa-info-button>
+ *
+ * @module opa/infoButton
  */
 
 (function(app) {
