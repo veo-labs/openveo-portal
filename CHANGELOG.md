@@ -15,7 +15,9 @@
 - **chai** has been upgraded from 4.2.0 to **4.3.4**
 - **consolidate** has been upgraded from 0.15.1 to **0.16.0**
 - **dashjs** has been upgraded from 3.0.3 to **4.1.0**
+- **eslint** has been upgraded from 22.0.0 to **23.0.0**
 - **express-session** has been upgraded from 1.17.0 to **1.17.2**
+- **grunt-eslint** has been removed
 - **grunt-mkdocs** has been removed
 - **jsonpath-plus** has been upgraded from 3.0.0 to **6.0.1**
 - **karma** has been upgraded from 4.4.1 to **6.3.4**

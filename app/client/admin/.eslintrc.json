@@ -8,11 +8,11 @@
   "globals": {
 
     // Add chai to environment globals but do not authorize to overwrite it
-    chai: false,
-    assert: false,
+    "chai": false,
+    "assert": false,
 
     // Add angular test properties to environment globals but do not authorize to overwrite it
-    inject: false
+    "inject": false
 
   },
   "rules": {

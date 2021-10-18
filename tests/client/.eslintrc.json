@@ -6,24 +6,21 @@
     "browser": true,
 
     // Add mocha environment globals
-    "mocha": true,
-
-    // Enable ECMAScript 6 features
-    "es6": true
+    "mocha": true
 
   },
   "globals": {
 
     // Add he to environment globals but do not authorize to overwrite it
-    he: false,
+    "he": false,
 
     // Add angular to environment globals but do not authorize to overwrite it
-    angular: false,
-    inject: false,
+    "angular": false,
+    "inject": false,
 
     // Add chai to environment globals but do not authorize to overwrite it
-    chai: false,
-    assert: false,
+    "chai": false,
+    "assert": false,
 
     // Add protractor environment globals but do not authorize to overwrite it
     "element": true,

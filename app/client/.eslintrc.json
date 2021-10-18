@@ -9,19 +9,19 @@
   "globals": {
 
     // Add angular to environment globals but do not authorize to overwrite it
-    angular: false,
+    "angular": false,
 
     // Enable ECMAScript 6 features
     "es6": false,
 
     // Add openveo global var to environment globals but do not authorize to overwrite it
-    openVeoPortalSettings: false,
+    "openVeoPortalSettings": false,
 
     // Add wowza player global var to environment globals but do not authorize to overwrite it
-    WowzaPlayer: false,
+    "WowzaPlayer": false,
 
     // Add he var to environment globals but do not authorize to overwrite it
-    he: false
+    "he": false
 
   },
   "rules": {

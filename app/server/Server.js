@@ -4,7 +4,7 @@
  * @module portal/Server
  */
 
-/* eslint no-sync: 0 */
+/* eslint node/no-sync: 0 */
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
@@ -230,7 +230,7 @@ class Server {
 
       const filename = path.basename(req.url).split('?')[0];
 
-      const urlParsed = url.parse(OPENVEO_URL);
+      const urlParsed = new url.URL(OPENVEO_URL);
       const requestOptions = {
         protocol: urlParsed.protocol,
         port: urlParsed.port,

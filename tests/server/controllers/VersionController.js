@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint node/no-sync: 0 */
 const fs = require('fs');
 const path = require('path');
 const chai = require('chai');

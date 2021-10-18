@@ -98,8 +98,8 @@ function createConf(callback) {
     // Test if portal configuration exists
     // If configuration file already exists, nothing is done
     (callback) => {
-      fs.exists(confFile, (exists) => {
-        if (exists)
+      fs.access(confFile, (error) => {
+        if (!error)
           callback(new Error(`${confFile} already exists\n`));
         else
           callback();
@@ -243,8 +243,8 @@ function createDatabaseConf(callback) {
     // Test if database configuration exists
     // If configuration file already exists, nothing is done
     (callback) => {
-      fs.exists(confFile, (exists) => {
-        if (exists)
+      fs.access(confFile, (error) => {
+        if (!error)
           callback(new Error(`${confFile} already exists\n`));
         else
           callback();
@@ -318,8 +318,8 @@ function createLoggerConf(callback) {
     // Test if logger configuration exists
     // If configuration file already exists, nothing is done
     (callback) => {
-      fs.exists(confFile, (exists) => {
-        if (exists)
+      fs.access(confFile, (error) => {
+        if (!error)
           callback(new Error(`${confFile} already exists\n`));
         else
           callback();
@@ -567,8 +567,8 @@ function createServerConf(callback) {
     // Test if server configuration exists
     // If configuration file already exists, nothing is done
     (callback) => {
-      fs.exists(confFile, (exists) => {
-        if (exists)
+      fs.access(confFile, (error) => {
+        if (!error)
           callback(new Error(`${confFile} already exists\n`));
         else
           callback();
@@ -672,8 +672,8 @@ function createWebservicesConf(callback) {
     // Test if webservices configuration exists
     // If configuration file already exists, nothing is done
     (callback) => {
-      fs.exists(confFile, (exists) => {
-        if (exists)
+      fs.access(confFile, (error) => {
+        if (!error)
           callback(new Error(`${confFile} already exists\n`));
         else
           callback();
