@@ -23,7 +23,7 @@ function findLibraryByMountPath(mountPath) {
 
 // Karma configuration
 module.exports = (config) => {
-  const resources = process.require('build/ng-admin-files.json');
+  const resources = process.require('build/admin/ng-admin-files.json');
   const conf = process.require('conf.json');
   const files = [];
 
@@ -46,7 +46,7 @@ module.exports = (config) => {
   files.push('assets/be/js/i18n/openveo-portal-locale_en.js');
   files.push('app/client/admin/components/**/*.html');
   resources.js.forEach((file) => {
-    files.push(`app/client/admin/${file}`);
+    files.push(file);
   });
 
   // Tests
