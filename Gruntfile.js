@@ -38,7 +38,6 @@ module.exports = function(grunt) {
   grunt.config.merge(loadConfig('./tasks'));
 
   // Load grunt tasks
-  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-protractor-runner');
 
 };
