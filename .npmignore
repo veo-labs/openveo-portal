@@ -43,11 +43,6 @@ ehthumbs.db
 /DOC-*.md
 /jsdoc*.js
 
-# Grunt files
-/Gruntfile.js
-/tasks
-/.grunt
-
 # Themes not default
 /assets/themes/*
 !/assets/themes/default
