@@ -26,7 +26,7 @@ ehthumbs.db
 /build
 
 # Sass
-/.sass-cache
+.sass-cache
 
 # Unit tests
 /tests

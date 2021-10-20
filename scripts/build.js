@@ -37,6 +37,8 @@ const openVeoApi = require('@openveo/api');
 
 const applicationConf = require('../conf.json');
 
+const ACTIONS = openVeoApi.fileSystem.ACTIONS;
+
 /**
  * Logs given message to stdout with a prefix.
  *
@@ -244,14 +246,8 @@ async function main() {
   const frontScssPath = path.join(frontSourcesPath, 'compass/sass');
   const frontScssBuildPath = path.join(frontBuildPath, 'scss');
   const frontMainScssBuildPath = path.join(frontScssBuildPath, 'style.scss');
-  const frontMainScssDistPath = path.join(frontCssPath, 'style.scss');
   const frontMainCssBuildPath = path.join(frontScssBuildPath, 'style.css');
   const frontMainCssDistPath = path.join(frontCssPath, 'style.css');
-  const frontMainCssSourceMapBuildPath = path.join(frontScssBuildPath, 'style.css.map');
-  const frontMainCssSourceMapDistPath = path.join(frontCssPath, 'style.css.map');
-  const frontScssBaseDistPath = path.join(frontCssPath, 'base');
-  const frontScssMixinsDistPath = path.join(frontCssPath, 'mixins');
-  const frontScssModulesDistPath = path.join(frontCssPath, 'modules');
 
   const backSourcesPath = path.join(baseSourcesPath, 'admin');
   const backOrderedSourcesBuildPath = path.join(backBuildPath, 'ng-admin-files.json');
@@ -285,46 +281,21 @@ async function main() {
     log(`Compile front office main SCSS file ${frontMainScssBuildPath} to ${frontScssBuildPath}`);
     await compileScssFiles(frontScssBuildPath, frontMainScssBuildPath, frontScssBuildPath, args.production);
 
-    log(`Copy front office main CSS file ${frontMainCssBuildPath} to ${frontMainCssDistPath}`);
-    await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-      frontMainCssBuildPath,
-      frontMainCssDistPath
-    );
-
     if (!args.production) {
-      log(`Copy front office main SCSS file ${frontMainScssBuildPath} to ${frontMainScssDistPath}`);
+      log(`Copy front office CSS and SCSS files to ${frontCssPath}`);
       await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        frontMainScssBuildPath,
-        frontMainScssDistPath
-      );
-
-      log(`Copy front office main CSS source map file ${frontMainCssSourceMapBuildPath} to \
-        ${frontMainCssSourceMapDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        frontMainCssSourceMapBuildPath,
-        frontMainCssSourceMapDistPath
-      );
-
-      log(`Copy front office SCSS base sources files to ${frontScssBaseDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        path.join(frontScssBuildPath, 'base'),
-        frontScssBaseDistPath
-      );
-
-      log(`Copy front office SCSS mixins sources files to ${frontScssMixinsDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        path.join(frontScssBuildPath, 'mixins'),
-        frontScssMixinsDistPath
-      );
-
-      log(`Copy front office SCSS mixins sources files to ${frontScssModulesDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        path.join(frontScssBuildPath, 'modules'),
-        frontScssModulesDistPath
+        frontScssBuildPath,
+        frontCssPath
       );
     } else {
       const frontJsLibraryDistPath = path.join(assetsPath, applicationConf.scriptLibFiles.prod[0]);
       const frontJsDistPath = path.join(assetsPath, applicationConf.scriptFiles.prod[0]);
+
+      log(`Copy front office main CSS file ${frontMainCssBuildPath} to ${frontMainCssDistPath}`);
+      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
+        frontMainCssBuildPath,
+        frontMainCssDistPath
+      );
 
       log(`Compile front office library JavaScript files to ${frontJsLibraryDistPath}`);
       await compileJavaScriptFiles(
@@ -450,29 +421,13 @@ async function main() {
     await generateTemplatesCache(path.join(backSourcesPath, 'components'), backTemplatesCacheDistPath);
 
     if (!args.production) {
-      log(`Copy back office CSS source map file ${backMainCssSourceMapBuildPath} to ${backMainCssSourceMapDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        backMainCssSourceMapBuildPath,
-        backMainCssSourceMapDistPath
-      );
-
-      log(`Copy back office main SCSS source file ${backMainScssBuildPath} to ${backMainScssDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        backMainScssBuildPath,
-        backMainScssDistPath
-      );
-
-      log(`Copy back office SCSS source files ${backScssBuildPath} to ${backScssDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        backScssBuildPath,
-        backScssDistPath
-      );
-
-      log(`Copy back office JavaScript source files ${backJsBuildPath} to ${backJsSourcesDistPath}`);
-      await util.promisify(openVeoApi.fileSystem.copy.bind(openVeoApi.fileSystem))(
-        backJsBuildPath,
-        backJsSourcesDistPath
-      );
+      log(`Copy back office original sources files and sources maps to ${backCssDistPath}`);
+      await util.promisify(openVeoApi.fileSystem.performActions.bind(openVeoApi.fileSystem))([
+        {type: ACTIONS.COPY, sourcePath: backMainCssSourceMapBuildPath, destinationPath: backMainCssSourceMapDistPath},
+        {type: ACTIONS.COPY, sourcePath: backMainScssBuildPath, destinationPath: backMainScssDistPath},
+        {type: ACTIONS.COPY, sourcePath: backScssBuildPath, destinationPath: backScssDistPath},
+        {type: ACTIONS.COPY, sourcePath: backJsBuildPath, destinationPath: backJsSourcesDistPath}
+      ]);
     }
   }
 }
