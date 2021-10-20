@@ -94,7 +94,7 @@
     "build:front-office-client:development": "./scripts/build.js -f",
     "build:clean": "npm run build:clean:back-office-client && npm run build:clean:front-office-client",
     "build:clean:back-office-client": "npx ovRemove ./build/admin && npx ovRemove ./assets/be/views/index.html && npx ovRemove ./assets/be/js/js && npx ovRemove ./assets/be/js/openveo-portal-admin.templates.js && npx ovRemove ./assets/be/js/openveo-portal-admin.js && npx ovRemove ./assets/be/js/openveo-portal-admin.js.map && npx ovRemove ./assets/be/css/index.css && npx ovRemove ./assets/be/css/index.css.map && npx ovRemove ./assets/be/css/index.scss && npx ovRemove ./assets/be/css/scss",
-    "build:clean:front-office-client": "npx ovRemove ./build/front && npx ovRemove ./assets/css/style.css && npx ovRemove ./assets/css/style.css.map && npx ovRemove ./assets/js/openveo-portal-lib.js && npx ovRemove ./assets/js/openveo-portal.js && npx ovRemove ./assets/css/style.scss && npx ovRemove ./assets/css/base && npx ovRemove ./assets/css/mixins && npx ovRemove ./assets/css/modules",
+    "build:clean:front-office-client": "npx ovRemove ./build/front && npx ovRemove ./assets/css/* && npx ovRemove ./assets/js/*",
     "doc": "npm run doc:openveo-portal && npm run doc:back-office && npm run doc:front-office && npm run doc:server",
     "doc:back-office": "npx jsdoc -c jsdoc-back-office.js -d \"./site/$(echo $npm_package_version)/api/admin\" -p -r",
     "doc:front-office": "npx jsdoc -c jsdoc-front-office.js -d \"./site/$(echo $npm_package_version)/api/front\" -p -r",
