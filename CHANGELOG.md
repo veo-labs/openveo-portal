@@ -9,6 +9,7 @@
 ## NEW FEATURES
 
 - Improve code documentation by replacing Yuidoc by JSDoc
+- Replace deprecated Wowza player by Video.js for Wowza live streams
 
 ## DEPENDENCIES
 

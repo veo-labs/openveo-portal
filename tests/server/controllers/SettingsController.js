@@ -193,9 +193,6 @@ describe('SettingsController', function() {
           activated: true,
           playerType: 'wowza',
           url: 'https://wowza-example.local:1935/application-example/stream-example/playlist.m3u8',
-          wowza: {
-            playerLicenseKey: 'PLAY1-cerPw-zxezN-eMvje-9jHAD-8xA3j'
-          },
           private: true,
           groups: ['groupId']
         },
@@ -305,10 +302,7 @@ describe('SettingsController', function() {
       request.params.id = 'live';
       request.body.value = {
         activated: true,
-        playerType: 'wowza',
-        wowza: {
-          playerLicenseKey: 'PLAY1-cerPw-zxezN-eMvje-9jHAD-8xA3j'
-        }
+        playerType: 'wowza'
       };
 
       const values = [
@@ -322,39 +316,6 @@ describe('SettingsController', function() {
 
       values.forEach((value) => {
         request.body.value.url = value;
-
-        response.send = (result) => {
-          assert.ok(false, 'Unexpected result');
-        };
-
-        settingsController.updateEntityAction(request, response, (error) => {
-          SettingsProvider.prototype.add.should.have.been.called.exactly(0);
-          assert.strictEqual(error, HTTP_ERRORS.UPDATE_SETTINGS_WRONG_PARAMETERS, 'Wrong error');
-        });
-      });
-
-      done();
-    });
-
-    it('should execute next with an error if Wowza player license is not valid', function(done) {
-      request.params.id = 'live';
-      request.body.value = {
-        activated: true,
-        playerType: 'wowza',
-        url: 'https://wowza-example.local:1935/application-example/stream-example/playlist.m3u8',
-        wowza: {}
-      };
-
-      const values = [
-        '123456-cerPw-zxezN-eMvje-9jHAD-8xA3j',
-        'PLAY1--cerPw-zxezN-eMvje-9jHAD-8xA3j',
-        'PLAYé-cerPw-zxezN-eMvje-9jHAD-8xA3j',
-        '-cerPw-zxezN-eMvje-9jHAD-8xA3j',
-        '-'
-      ];
-
-      values.forEach((value) => {
-        request.body.value.playerLicenseKey = value;
 
         response.send = (result) => {
           assert.ok(false, 'Unexpected result');

@@ -101,8 +101,7 @@ class SettingsController extends openVeoApi.controllers.EntityController {
             playerType: {type: 'string', in: ['wowza', 'youtube', 'vimeo', 'vodalys']},
             url: {type: 'string'},
             private: {type: 'boolean'},
-            groups: {type: 'array<string>'},
-            wowza: {type: 'object'}
+            groups: {type: 'array<string>'}
           });
 
           if (value.activated) {
@@ -110,11 +109,9 @@ class SettingsController extends openVeoApi.controllers.EntityController {
             if (!type ||
                 !value.url ||
                 (value.private && !value.groups.length) ||
-                (type === 'wowza' && !value.wowza) ||
                 (type === 'youtube' && !/^https:\/\/www\.youtube\.com\/watch\?v=[&=\w-]+$/.test(value.url)) ||
                 (type === 'vimeo' && !/^https:\/\/vimeo\.com\/event\/\w+$/.test(value.url)) ||
                 (type === 'wowza' && !/^https?:\/\/[^:/]*(:[0-9]+)?\/[^/]+\/[^/]+\/playlist.m3u8$/.test(value.url)) ||
-                (type === 'wowza' && !/^([a-zA-Z0-9]{5}-)*[a-zA-Z0-9]{5}$/.test(value.wowza.playerLicenseKey)) ||
                 (type === 'vodalys' && !/^https?:\/\/console\.vodalys\.studio\/[^#?=]+$/.test(value.url))
             ) {
               return next(errors.UPDATE_SETTINGS_WRONG_PARAMETERS);

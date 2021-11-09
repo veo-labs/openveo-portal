@@ -172,7 +172,6 @@
          * @param {String} settings.url Live stream URL
          * @param {Boolean} settings.private true if live is private, false otherwise
          * @param {Array} settings.groups The list of groups allowed to access the live
-         * @param {Object} settings.wowza Wowza specific settings
          * @instance
          */
         updateLiveSettings: {
@@ -183,7 +182,6 @@
             ctrl.liveSettings.url = settings.url;
             ctrl.liveSettings.private = settings.private;
             ctrl.liveSettings.groups = settings.groups;
-            ctrl.liveSettings.wowza = settings.wowza;
           }
         },
 

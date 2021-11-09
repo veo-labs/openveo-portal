@@ -18,7 +18,6 @@
  * - **opaTranslate** Internationalization translate filter
  * - **opaInfoButton** Component used to display info actions
  * - **opaStreamUrlValidator** Stream URL validator
- * - **opaLicenseKeyValidator** License key validator
  * - **opaTags** Form element to enter a list of tags
  *
  * @example

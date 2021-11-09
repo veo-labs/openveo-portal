@@ -49,8 +49,6 @@ describe('OpaLiveSettingsController', function() {
       assert.isNotOk(ctrl.settings.activated, 'Expected live to be deactivated by default');
       assert.equal(ctrl.settings.playerType, 'wowza', 'Expected wowza player by default');
       assert.isNull(ctrl.settings.url, 'Expected stream url to be null by default');
-      assert.isDefined(ctrl.settings.wowza, 'Expected wowza property to be defined by default');
-      assert.isNull(ctrl.settings.wowza.playerLicenseKey, 'Expected wowza player license to be null by default');
       assert.isNotOk(ctrl.settings.private, 'Expected live to be private by default');
       assert.isArray(ctrl.settings.groups, 'Expected groups to be an array by default');
       assert.isEmpty(ctrl.settings.groups, 'No groups expected by default');

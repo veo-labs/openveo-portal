@@ -30,7 +30,7 @@
 
     // Add OpenVeo Portal environment globals but do not authorize to overwrite it
     "openVeoPortalSettings": true,
-    "WowzaPlayer": true
+    "videojs": true
 
   },
   "rules": {

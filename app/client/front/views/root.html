@@ -183,12 +183,9 @@
       var languageCode = (navigator.language || navigator.browserLanguage).split('-')[0];
       languageCode = languages.indexOf(languageCode) > -1 ? languageCode : languages[0];
       document.write('\x3Cscript type="text/javascript" src="/angular-i18n/angular-locale_' + languageCode + '.js">\x3C/script>');
+      document.write('\x3Cscript type="text/javascript" src="/video.js/dist/lang/' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/i18n/openveo-portal-locale_' + languageCode + '.js">\x3C/script>');
       document.write('\x3Cscript type="text/javascript" src="/themes/[[theme]]/conf.js">\x3C/script>');
-
-      if (openVeoPortalSettings.live.playerType === 'wowza') {
-        document.write('\x3Cscript type="text/javascript" src="/lib/wowza-player/wowzaplayer.min.js">\x3C/script>');
-      }
     </script>
 
     [[#scripts]]

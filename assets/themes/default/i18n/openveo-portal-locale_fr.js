@@ -55,17 +55,7 @@ angular.module('ov.locale', [], ['$provide', function($provide) {
     },
     LIVE: {
       PAGE_TITLE: 'Portail - Live',
-      TITLE: 'Live',
-      WOWZA: {
-        AUTO: 'Auto',
-        BUFFERING: 'Chargement...',
-        COUNT_DOWN: 'Temps restant avant le début de la diffusion',
-        STREAM_ERROR: 'Flux indisponible',
-        CORS_ERROR: 'Flux indisponible (vérifier les règles de cross domaines)',
-        LIVE_BUTTON: 'LIVE',
-        LIVE_BUTTON_OVER: 'Aller au LIVE',
-        LIVE_ENDED: 'Cet évènement est terminé'
-      }
+      TITLE: 'Live'
     },
     LOGIN: {
       PAGE_TITLE: 'Portail - Connexion',

@@ -104,11 +104,9 @@
                 activated: settings.activated === undefined ? false : settings.activated,
                 playerType: settings.playerType || ctrl.availablePlayers[0].id,
                 url: settings.url || null,
-                wowza: settings.wowza || {},
                 private: settings.private === undefined ? false : settings.private,
                 groups: settings.groups || []
               };
-              ctrl.settings.wowza.playerLicenseKey = (settings.wowza && settings.wowza.playerLicenseKey) || null;
 
               // Update live switch message
               ctrl.updateLiveSwitchMessage(ctrl.settings.activated);

@@ -7,6 +7,8 @@
    */
   function LiveController($scope, $filter, $sce) {
     var urlChunks;
+    var player;
+
     $scope.live = openVeoPortalSettings.live;
     $scope.url = $sce.trustAsResourceUrl($scope.live.url);
 
@@ -20,33 +22,26 @@
       urlChunks = $scope.live.url.match(/console\.vodalys\.studio\/(.*)$/);
       $scope.url = $sce.trustAsResourceUrl('https://console.vodalys.studio/' + urlChunks[1] + '#?embedded=true');
     } else if ($scope.live.playerType === 'wowza') {
-      var translateFilter = $filter('translate');
-
-      WowzaPlayer.create(
-        'wowza-player',
-        {
-          license: $scope.live.wowza.playerLicenseKey,
-          sourceURL: $scope.live.url + '?DVR',
-          autoPlay: true,
-          volume: '100',
-          mute: false,
-          loop: false,
-          audioOnly: false,
-          uiShowQuickRewind: true,
-          uiShowBitrateSelector: true,
-          uiQuickRewindSeconds: '30',
-          stringAuto: translateFilter('LIVE.WOWZA.AUTO'),
-          stringBuffering: translateFilter('LIVE.WOWZA.BUFFERING'),
-          stringCountdownTimerLabel: translateFilter('LIVE.WOWZA.COUNT_DOWN'),
-          stringErrorStreamUnavailable: translateFilter('LIVE.WOWZA.STREAM_ERROR'),
-          stringErrorCORSStreamUnavailable: translateFilter('LIVE.WOWZA.CORS_ERROR'),
-          stringLiveLabel: translateFilter('LIVE.WOWZA.LIVE_BUTTON'),
-          stringLiveEventEnded: translateFilter('LIVE.WOWZA.LIVE_ENDED'),
-          stringLiveSeekAlt: translateFilter('LIVE.WOWZA.LIVE_BUTTON_OVER')
-        }
-      );
+      player = videojs('videojs-player', {
+        autoplay: false,
+        controls: true,
+        sources: [{
+          src: $scope.live.url + '?DVR',
+          type: 'application/x-mpegURL'
+        }],
+        html5: {
+          nativeControlsForTouch: false,
+          nativeAudioTracks: false,
+          nativeVideoTracks: false
+        },
+        liveui: true,
+        preload: 'auto'
+      });
     }
 
+    $scope.$on('$destroy', function() {
+      if (player) player.dispose();
+    });
   }
 
   app.controller('LiveController', LiveController);

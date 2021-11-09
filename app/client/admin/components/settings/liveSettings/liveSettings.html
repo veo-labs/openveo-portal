@@ -55,28 +55,6 @@
         </div>
       </md-input-container>
 
-      <!-- Wowza specific settings -->
-      <div layout="column" flex="none" ng-show="$ctrl.settings.playerType === 'wowza'" class="opa-live-wowza-settings">
-
-        <!-- Player license key -->
-        <md-input-container flex="none" class="opa-live-wowza-license">
-          <label ng-bind="'SETTINGS.LIVE.PLAYER_LICENSE_LABEL' | opaTranslate"></label>
-          <input
-                 type="text"
-                 ng-model="$ctrl.settings.wowza.playerLicenseKey"
-                 ng-change="$ctrl.callUpdate();"
-                 ng-required="$ctrl.settings.activated && $ctrl.settings.playerType === 'wowza'"
-                 opa-license-key-validator="$ctrl.settings.activated && $ctrl.settings.playerType === 'wowza'"
-                 name="wowzaPlayerLicenseKey"
-          />
-          <div ng-messages="opaLiveSettings.wowzaPlayerLicenseKey.$error">
-            <div ng-message="required" ng-bind="'SETTINGS.LIVE.PLAYER_LICENSE_EMPTY_ERROR' | opaTranslate"></div>
-            <div ng-message="opaLicenseKey" ng-bind="'SETTINGS.LIVE.PLAYER_LICENSE_ERROR' | opaTranslate"></div>
-          </div>
-        </md-input-container>
-
-      </div>
-
       <!-- Private -->
       <md-checkbox
                    ng-model="$ctrl.settings.private"

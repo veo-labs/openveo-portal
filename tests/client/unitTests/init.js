@@ -5,11 +5,10 @@ var openVeoPortalSettings = {
   authenticationMechanisms: [],
   authenticationStrategies: {},
   user: {},
-  live: {activated: false, wowza: {}},
+  live: {activated: false},
   search: {},
   superAdminId: '0',
   theme: 'default',
   useDialog: false
 };
-
-var WowzaPlayer = {create: function() {}};
+var videojs = function() {};

@@ -17,8 +17,8 @@
     // Add openveo global var to environment globals but do not authorize to overwrite it
     "openVeoPortalSettings": false,
 
-    // Add wowza player global var to environment globals but do not authorize to overwrite it
-    "WowzaPlayer": false,
+    // Add Video.js player global var to environment globals but do not authorize to overwrite it
+    "videojs": false,
 
     // Add he var to environment globals but do not authorize to overwrite it
     "he": false
