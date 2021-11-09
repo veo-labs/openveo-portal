@@ -49,7 +49,7 @@ describe('OpaSearchSettingsController', function() {
       assert.isNotOk(ctrl.settings.pois, 'Expected search in points of interest to be deactivated by default');
     });
 
-    it('should call function registered by opa-on-update attribute if settings are valid', function() {
+    it('should call function registered by opa-on-update attribute if settings are valid', function(done) {
       $scope.opaLiveSettings = {
         $valid: true
       };
@@ -65,7 +65,10 @@ describe('OpaSearchSettingsController', function() {
         }
       });
 
-      ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+      setTimeout(function() {
+        ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+        done();
+      });
     });
 
   });
@@ -101,7 +104,7 @@ describe('OpaSearchSettingsController', function() {
 
   describe('callUpdate', function() {
 
-    it('should call the function registered using opa-on-update attribute with settings', function() {
+    it('should call the function registered using opa-on-update attribute with settings', function(done) {
       const ctrl = $componentController('opaSearchSettings');
       ctrl.settings = {};
       ctrl.opaOnUpdate = chai.spy((data) => {
@@ -109,10 +112,13 @@ describe('OpaSearchSettingsController', function() {
       });
       ctrl.callUpdate();
 
-      ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+      setTimeout(function() {
+        ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+        done();
+      });
     });
 
-    it('should not call the function registered using opa-on-update attribute if form is invalid', function() {
+    it('should not call the function registered using opa-on-update attribute if form is invalid', function(done) {
       $scope.opaSearchSettings = {
         $valid: false
       };
@@ -122,7 +128,10 @@ describe('OpaSearchSettingsController', function() {
       ctrl.opaOnUpdate = chai.spy(() => {});
       ctrl.callUpdate();
 
-      ctrl.opaOnUpdate.should.have.been.called.exactly(0);
+      setTimeout(function() {
+        ctrl.opaOnUpdate.should.have.been.called.exactly(0);
+        done();
+      });
     });
 
     it('should not throw an error if opa-on-update is not defined', function() {
@@ -132,7 +141,6 @@ describe('OpaSearchSettingsController', function() {
       assert.doesNotThrow(() => {
         ctrl.callUpdate();
       });
-
     });
 
   });

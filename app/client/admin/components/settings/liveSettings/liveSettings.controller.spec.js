@@ -144,7 +144,7 @@ describe('OpaLiveSettingsController', function() {
       assert.equal(ctrl.urlErrorMessage, 'SETTINGS.LIVE.URL_VODALYS_ERROR', 'Expected vodalys message');
     });
 
-    it('should call function registered by opa-on-update attribute if settings are valid', function() {
+    it('should call function registered by opa-on-update attribute if settings are valid', function(done) {
       $scope.opaLiveSettings = {
         $valid: true
       };
@@ -160,7 +160,10 @@ describe('OpaLiveSettingsController', function() {
         }
       });
 
-      ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+      setTimeout(function() {
+        ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+        done();
+      });
     });
 
   });
@@ -230,7 +233,7 @@ describe('OpaLiveSettingsController', function() {
 
   describe('callUpdate', function() {
 
-    it('should call the function registered using opa-on-update attribute with settings', function() {
+    it('should call the function registered using opa-on-update attribute with settings', function(done) {
       const ctrl = $componentController('opaLiveSettings');
       ctrl.settings = {};
       ctrl.opaOnUpdate = chai.spy((data) => {
@@ -238,10 +241,13 @@ describe('OpaLiveSettingsController', function() {
       });
       ctrl.callUpdate();
 
-      ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+      setTimeout(function() {
+        ctrl.opaOnUpdate.should.have.been.called.exactly(1);
+        done();
+      });
     });
 
-    it('should not call the function registered using opa-on-update attribute if form is invalid', function() {
+    it('should not call the function registered using opa-on-update attribute if form is invalid', function(done) {
       $scope.opaLiveSettings = {
         $valid: false
       };
@@ -251,7 +257,10 @@ describe('OpaLiveSettingsController', function() {
       ctrl.opaOnUpdate = chai.spy(() => {});
       ctrl.callUpdate();
 
-      ctrl.opaOnUpdate.should.have.been.called.exactly(0);
+      setTimeout(function() {
+        ctrl.opaOnUpdate.should.have.been.called.exactly(0);
+        done();
+      });
     });
 
     it('should not throw an error if opa-on-update is not defined', function() {

@@ -79,8 +79,13 @@
          */
         callUpdate: {
           value: function() {
-            if (ctrl.isValid() && ctrl.opaOnUpdate)
-              ctrl.opaOnUpdate({settings: ctrl.settings});
+
+            // Differ to let AngularJs the time to validate the formular with the new values
+            setTimeout(function() {
+              if (ctrl.isValid() && ctrl.opaOnUpdate)
+                ctrl.opaOnUpdate({settings: ctrl.settings});
+            });
+
           }
         },
 
