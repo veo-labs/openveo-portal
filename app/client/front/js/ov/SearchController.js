@@ -94,9 +94,16 @@
       // Date start and date end
       if (formValues.dateStart) values.dateStart = formValues.dateStart.getTime();
       if (formValues.dateEnd) {
+
+        // Set end date to same date at 1 millisecond before midnight
         var dateEnd = new Date(formValues.dateEnd);
+        dateEnd.setHours(0);
+        dateEnd.setMinutes(0);
+        dateEnd.setSeconds(0);
+        dateEnd.setMilliseconds(0);
         dateEnd.setDate(dateEnd.getDate() + 1);
-        values.dateEnd = dateEnd.getTime();
+        values.dateEnd = dateEnd.getTime() - 1;
+
       }
 
       // Query

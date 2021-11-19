@@ -11,6 +11,10 @@
 - Improve code documentation by replacing Yuidoc by JSDoc
 - Replace deprecated Wowza player by Video.js for Wowza live streams
 
+## BUG FIXES
+
+- Fix advanced search end date which was automatically set to one day after the entered date
+
 ## DEPENDENCIES
 
 - **chai** has been upgraded from 4.2.0 to **4.3.4**
