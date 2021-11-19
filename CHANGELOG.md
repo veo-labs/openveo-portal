@@ -14,6 +14,7 @@
 ## BUG FIXES
 
 - Fix advanced search end date which was automatically set to one day after the entered date
+- Fix infinite scroll in administration interface media library
 
 ## DEPENDENCIES
 

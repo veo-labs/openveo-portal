@@ -4,6 +4,7 @@
   .opa-select-container {
     overflow: auto;
     flex-grow: 1;
+    flex-basis: 1px;
 
     opa-media-select {
       flex-grow: 1;
