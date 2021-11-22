@@ -1,6 +1,6 @@
 {
   "name": "@openveo/portal",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "description": "OpenVeo Portal gives access to medias exposed by OpenVeo server associated to an OpenVeo Publish plugin",
   "keywords": [
     "openveo",
@@ -29,9 +29,9 @@
     "url": "https://github.com/veo-labs/openveo-portal.git"
   },
   "dependencies": {
-    "@openveo/api": "^7.0.0",
-    "@openveo/player": "^6.0.0",
-    "@openveo/rest-nodejs-client": "^4.0.0",
+    "@openveo/api": "^8.0.2",
+    "@openveo/player": "^7.0.0",
+    "@openveo/rest-nodejs-client": "^5.0.1",
     "angular": "1.6.4",
     "angular-animate": "1.6.4",
     "angular-aria": "1.6.4",
@@ -66,7 +66,7 @@
     "videojs-contrib-dash": "^5.1.0"
   },
   "devDependencies": {
-    "@openveo/test": "^8.0.0",
+    "@openveo/test": "^9.0.1",
     "angular-mocks": "1.6.4",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
