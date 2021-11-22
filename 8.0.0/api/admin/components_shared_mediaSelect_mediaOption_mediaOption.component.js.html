@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/shared/mediaSelect/mediaOption/mediaOption.component.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/shared/mediaSelect/mediaOption/mediaOption.component.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Media option component presents the thumbnail of a media with a checkbox to select it.
+ *
+ * Available attributes are:
+ * - [Boolean] **opa-checked**: The state of the checkbox
+ * - [Object] **opa-media**: The media to represent
+ * - [Boolean] **opa-focus**: Activate focus on the media
+ * - [Function] **opa-blur**: Blur callback function
+ *
+ * Requires
+ * - **ngMaterial** AngularJS Material module
+ * - **opaMediaSelect** OpenVeo Media select component
+ *
+ * @example
+ * &lt;opa-media-option opa-checked="value"
+ *                   opa-media="media"
+ *                   opa-focus="focus">
+ *                   opa-blur="blurCallback()">&lt;/opa-media-option>
+ *
+ * @module opa/mediaOption
+ */
+
+(function(app) {
+
+  app.component('opaMediaOption', {
+    templateUrl: 'opa-mediaOption.html',
+    controller: 'OpaMediaOptionController',
+
+    // md-truncate overrides $ctrl
+    controllerAs: 'ctrl',
+    require: {
+      selectCtrl: '^opaMediaSelect'
+    },
+    bindings: {
+      opaChecked: '&lt;',
+      opaMedia: '&lt;',
+      opaFocus: '&lt;',
+      opaBlur: '&amp;'
+    }
+  });
+
+})(angular.module('opa'));
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-opa.html">opa</a></li><li><a href="module-opa_actionsButton.html">opa/actionsButton</a></li><li><a href="module-opa_dashboard.html">opa/dashboard</a></li><li><a href="module-opa_dashboard_about.html">opa/dashboard/about</a></li><li><a href="module-opa_i18n.html">opa/i18n</a></li><li><a href="module-opa_info.html">opa/info</a></li><li><a href="module-opa_infoButton.html">opa/infoButton</a></li><li><a href="module-opa_licenseKeyValidator.html">opa/licenseKeyValidator</a></li><li><a href="module-opa_mediaContainer.html">opa/mediaContainer</a></li><li><a href="module-opa_mediaLibrary.html">opa/mediaLibrary</a></li><li><a href="module-opa_mediaLibraryDialog.html">opa/mediaLibraryDialog</a></li><li><a href="module-opa_mediaOption.html">opa/mediaOption</a></li><li><a href="module-opa_mediaSelect.html">opa/mediaSelect</a></li><li><a href="module-opa_nav.html">opa/nav</a></li><li><a href="module-opa_notification.html">opa/notification</a></li><li><a href="module-opa_promotedVideos.html">opa/promotedVideos</a></li><li><a href="module-opa_settings.html">opa/settings</a></li><li><a href="module-opa_settings_liveSettings.html">opa/settings/liveSettings</a></li><li><a href="module-opa_settings_searchSettings.html">opa/settings/searchSettings</a></li><li><a href="module-opa_streamUrlValidator.html">opa/streamUrlValidator</a></li><li><a href="module-opa_tags.html">opa/tags</a></li><li><a href="module-opa_toolbar.html">opa/toolbar</a></li></ul><h3>Classes</h3><ul><li><a href="module-opa_actionsButton-OpaActionsButtonController.html">opa/actionsButton~OpaActionsButtonController</a></li><li><a href="module-opa_dashboard_about-OpaAboutController.html">opa/dashboard/about~OpaAboutController</a></li><li><a href="module-opa_dashboard_about-OpaAboutFactory.html">opa/dashboard/about~OpaAboutFactory</a></li><li><a href="module-opa_dashboard-OpaDashboardController.html">opa/dashboard~OpaDashboardController</a></li><li><a href="module-opa_i18n-OpaI18nFactory.html">opa/i18n~OpaI18nFactory</a></li><li><a href="module-opa_i18n-OpaTranslateFilter.html">opa/i18n~OpaTranslateFilter</a></li><li><a href="module-opa_infoButton-OpaInfoButtonController.html">opa/infoButton~OpaInfoButtonController</a></li><li><a href="module-opa_info-OpaInfoConfiguration.html">opa/info~OpaInfoConfiguration</a></li><li><a href="module-opa_info-OpaInfoController.html">opa/info~OpaInfoController</a></li><li><a href="module-opa_licenseKeyValidator-OpaLicenseKeyValidatorController.html">opa/licenseKeyValidator~OpaLicenseKeyValidatorController</a></li><li><a href="module-opa_mediaContainer-OpaMediaContainerController.html">opa/mediaContainer~OpaMediaContainerController</a></li><li><a href="module-opa_mediaLibraryDialog-OpaMediaLibraryDialogController.html">opa/mediaLibraryDialog~OpaMediaLibraryDialogController</a></li><li><a href="module-opa_mediaLibrary-OpaMediaLibraryController.html">opa/mediaLibrary~OpaMediaLibraryController</a></li><li><a href="module-opa_mediaOption-OpaMediaOptionController.html">opa/mediaOption~OpaMediaOptionController</a></li><li><a href="module-opa_mediaSelect-OpaMediaSelectController.html">opa/mediaSelect~OpaMediaSelectController</a></li><li><a href="module-opa_nav-OpaNavController.html">opa/nav~OpaNavController</a></li><li><a href="module-opa_notification-OpaNotificationConfiguration.html">opa/notification~OpaNotificationConfiguration</a></li><li><a href="module-opa_notification-OpaNotificationController.html">opa/notification~OpaNotificationController</a></li><li><a href="module-opa_notification-OpaNotificationFactory.html">opa/notification~OpaNotificationFactory</a></li><li><a href="module-opa_promotedVideos-OpaPromotedVideosController.html">opa/promotedVideos~OpaPromotedVideosController</a></li><li><a href="module-opa_settings_liveSettings-OpaLiveSettingsController.html">opa/settings/liveSettings~OpaLiveSettingsController</a></li><li><a href="module-opa_settings_searchSettings-OpaSearchSettingsController.html">opa/settings/searchSettings~OpaSearchSettingsController</a></li><li><a href="module-opa_settings-OpaSettingsController.html">opa/settings~OpaSettingsController</a></li><li><a href="module-opa_streamUrlValidator-OpaStreamUrlValidatorController.html">opa/streamUrlValidator~OpaStreamUrlValidatorController</a></li><li><a href="module-opa_tags-OpaTagsController.html">opa/tags~OpaTagsController</a></li><li><a href="module-opa_toolbar-OpaToolbarController.html">opa/toolbar~OpaToolbarController</a></li><li><a href="module-opa-OpaGroupsFactory.html">opa~OpaGroupsFactory</a></li><li><a href="module-opa-OpaIndexController.html">opa~OpaIndexController</a></li><li><a href="module-opa-OpaInterceptor.html">opa~OpaInterceptor</a></li><li><a href="module-opa-OpaSettingsFactory.html">opa~OpaSettingsFactory</a></li><li><a href="module-opa-OpaUrlFactory.html">opa~OpaUrlFactory</a></li><li><a href="module-opa-OpaUserFactory.html">opa~OpaUserFactory</a></li><li><a href="module-opa-OpaVideosFactory.html">opa~OpaVideosFactory</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Nov 22 2021 08:01:43 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

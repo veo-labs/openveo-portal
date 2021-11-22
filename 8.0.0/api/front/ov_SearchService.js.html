@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ov/SearchService.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ov/SearchService.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+(function(app) {
+
+  /**
+   * Defines service to manage the video search.
+   *
+   * @memberof module:ov
+   * @inner
+   * @class SearchService
+   */
+  function SearchService($http, $q, webServiceBasePath) {
+    var filters;
+    var categories;
+    var promotedVideos;
+    var videosCache = {};
+
+    /**
+     * @memberof module:ov~SearchService
+     * @instance
+     * @param {String} id
+     * @return {HttpPromise}
+     */
+    function loadVideo(id) {
+      if (!videosCache[id] || videosCache[id].needAuth) {
+        return $http.get(webServiceBasePath + 'videos/' + id).then(function(response) {
+          videosCache[id] = response.data.entity;
+          return response;
+        });
+      }
+      return $q.when({
+        data: {entity: videosCache[id]}
+      });
+    }
+
+    /**
+     * @memberof module:ov~SearchService
+     * @instance
+     * @return {HttpPromise}
+     */
+    function getFilters() {
+      if (!filters || !Object.keys(filters).length) {
+        return $http.get(webServiceBasePath + 'filters').then(function(response) {
+          filters = response.data;
+          return response;
+        });
+      }
+
+      return $q.when({data: filters});
+    }
+
+
+    /**
+     * @memberof module:ov~SearchService
+     * @instance
+     * @return {HttpPromise}
+     */
+    function getCategories() {
+      if (!categories || !Object.keys(categories).length) {
+        return $http.get(webServiceBasePath + 'categories').then(function(response) {
+          categories = response.data;
+          return response;
+        });
+      }
+
+      return $q.when({data: categories});
+    }
+
+    /**
+     * Gets a category name by its id.
+     *
+     * @memberof module:ov~SearchService
+     * @instance
+     * @param {String} id The category id
+     * @return {HttpPromise} A promise resolving with the category name
+     */
+    function getCategoryName(id) {
+      var self = this;
+
+      if (!id) return $q.reject(new Error('Category id not defined'));
+
+      return self.getCategories().then(function(result) {
+        return result.data[id];
+      });
+    }
+
+    /**
+     * Gets the list of promoted videos.
+     *
+     * @memberof module:ov~SearchService
+     * @instance
+     * @return {Promise} A promise resolving with the list of promoted videos
+     */
+    function getPromotedVideos() {
+      if (!promotedVideos || !Object.keys(promotedVideos).length) {
+        return $http.get(webServiceBasePath + 'videos/promoted', {
+          params: {
+            auto: true
+          }
+        }).then(function(response) {
+          promotedVideos = response.data;
+          return response;
+        });
+      }
+
+      return $q.when({data: promotedVideos});
+    }
+
+    /**
+     * @memberof module:ov~SearchService
+     * @instance
+     * @param {Object} params
+     * @param {Object} paginate
+     * @return {HttpPromise}
+     */
+    function search(filter, paginate, canceller) {
+      var options = {};
+      if (canceller)
+        options['timeout'] = canceller;
+      var params = {filter: filter, pagination: paginate};
+      return $http.post(webServiceBasePath + 'videos', params, options);
+    }
+
+    /**
+     * Clears a search service cache.
+     *
+     * @memberof module:ov~SearchService
+     * @instance
+     * @param {String} [type] The cache element to clsear null to
+     * clear all caches
+     */
+    function cacheClear() {
+      videosCache = {};
+      filters = {};
+      categories = {};
+      promotedVideos = {};
+    }
+
+    return {
+      cacheClear: cacheClear,
+      loadVideo: loadVideo,
+      getFilters: getFilters,
+      getCategories: getCategories,
+      getCategoryName: getCategoryName,
+      getPromotedVideos: getPromotedVideos,
+      search: search
+    };
+
+  }
+
+  app.factory('searchService', SearchService);
+  SearchService.$inject = ['$http', '$q', 'webServiceBasePath'];
+
+})(angular.module('ov.portal'));
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-ov.html">ov</a></li><li><a href="module-ov_authentication.html">ov/authentication</a></li><li><a href="module-ov_i18n.html">ov/i18n</a></li><li><a href="module-ov_storage.html">ov/storage</a></li></ul><h3>Classes</h3><ul><li><a href="module-ov_authentication-AuthenticationService.html">ov/authentication~AuthenticationService</a></li><li><a href="module-ov_i18n-TranslateFilter.html">ov/i18n~TranslateFilter</a></li><li><a href="module-ov_storage-StorageProvider.html">ov/storage~StorageProvider</a></li><li><a href="module-ov-ErrorInterceptor.html">ov~ErrorInterceptor</a></li><li><a href="module-ov-MillisecondsToTime.html">ov~MillisecondsToTime</a></li><li><a href="module-ov-SearchService.html">ov~SearchService</a></li><li><a href="module-ov-VideoService.html">ov~VideoService</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Nov 22 2021 08:01:44 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
