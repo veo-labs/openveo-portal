@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{{=[[ ]]=}}
+<html ng-controller="OpaIndexController as ctrl">
+  <head>
+    <title ng-bind="ctrl.page.pageTitle | opaTranslate"></title>
+    <base href="/be/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="/be/css/index.css">
+
+    <script>
+      var openVeoPortalSettings = {
+        user: [[& user]],
+        languages: ['en', 'fr']
+      };
+      Object.freeze(openVeoPortalSettings);
+    </script>
+  </head>
+
+  <body layout="column" ng-cloak>
+
+    <!-- Large screen toolbar -->
+    <opa-toolbar
+                 ng-if="ctrl.$mdMedia('gt-sm')"
+                 opa-title="{{ctrl.adminTitle | opaTranslate}}"
+                 opa-right-actions="ctrl.advancedToolbarRightActions"
+    ></opa-toolbar>
+
+    <!-- Small screen toolbar -->
+    <opa-toolbar
+                 ng-if="!ctrl.$mdMedia('gt-sm')"
+                 opa-title="{{ctrl.page.title | opaTranslate}}"
+                 opa-left-actions="ctrl.toolbarLeftActions"
+                 opa-right-actions="ctrl.toolbarRightActions"
+    ></opa-toolbar>
+
+    <section layout="row" flex="auto" class="opa-wrapper">
+
+      <!-- Large screen side navigation -->
+      <md-sidenav md-component-id="opa" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp">
+        <opa-nav
+                 ng-if="ctrl.$mdMedia('gt-sm')"
+                 opa-menu="ctrl.navMenu"
+        ></opa-nav>
+
+        <!-- Small screen side navigation -->
+        <opa-nav
+                 ng-if="!ctrl.$mdMedia('gt-sm')"
+                 opa-menu="ctrl.advancedNavMenu"
+        ></opa-nav>
+      </md-sidenav>
+
+      <md-content flex layout="row">
+        <div ng-view ng-show="ctrl.isViewLoaded" class="opa-view" layout="row" flex></div>
+
+        <div layout="row" layout-align="center center" flex="auto" ng-show="!ctrl.isViewLoaded" class="opa-loader">
+          <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+      </md-content>
+    </section>
+
+    <script src="/angular/angular.min.js"></script>
+<script src="/angular-route/angular-route.min.js"></script>
+<script src="/angular-aria/angular-aria.min.js"></script>
+<script src="/angular-animate/angular-animate.min.js"></script>
+<script src="/angular-cookies/angular-cookies.min.js"></script>
+<script src="/angular-messages/angular-messages.min.js"></script>
+<script src="/angular-material/angular-material.min.js"></script>
+
+    <script>
+      var languageChunks = /language=(.*?)(?:;|$)/.exec(document.cookie);
+      var cookieLanguage = (languageChunks && languageChunks.length === 2 && languageChunks[1]) || null;
+      var languageCode = (cookieLanguage || navigator.language || navigator.browserLanguage).split('-')[0];
+      languageCode = openVeoPortalSettings.languages.indexOf(languageCode) > -1 ? languageCode : openVeoPortalSettings.languages[0];
+
+      document.write('\x3Cscript type="text/javascript" src="/angular-i18n/angular-locale_' + languageCode + '.js">\x3C/script>');
+      document.write('\x3Cscript type="text/javascript" src="/be/js/i18n/openveo-portal-locale_' + languageCode + '.js">\x3C/script>');
+    </script>
+
+    <script type="text/javascript" src="/be/js/openveo-portal-admin.js"></script>
+    <script type="text/javascript" src="/be/js/openveo-portal-admin.templates.js"></script>
+  </body>
+</html>
