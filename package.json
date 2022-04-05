@@ -32,7 +32,7 @@
     "@openveo/api": "^8.0.2",
     "@openveo/player": "^8.0.0",
     "@openveo/rest-nodejs-client": "^5.0.1",
-    "angular": "1.6.4",
+    "angular": "1.8.0",
     "angular-animate": "1.6.4",
     "angular-aria": "1.6.4",
     "angular-cookies": "1.6.4",
