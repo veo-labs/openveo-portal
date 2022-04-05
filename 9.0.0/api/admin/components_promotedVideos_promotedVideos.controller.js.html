@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/promotedVideos/promotedVideos.controller.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/promotedVideos/promotedVideos.controller.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+(function(app) {
+
+  /**
+   * Manages opaPromotedVideos component.
+   *
+   * @class OpaPromotedVideosController
+   * @memberof module:opa/promotedVideos
+   * @inner
+   * @constructor
+   * @param {Object} $scope The component isolated scope
+   * @param {Object} $filter AngularJS $filter service
+   * @param {Object} $mdDialog AngularJS Material dialog service to open the media library
+   * @param {Object} $mdMedia AngularJS Material media service to perform media queries
+   * @param {Object} opaSettingsFactory Settings factory to get / save settings
+   * @param {Object} opaVideosFactory Videos factory to get videos
+   * @param {Object} opaNotificationFactory Notification factory to display saving notifications
+   * @param {Object} opaUrlFactory URL factory to manipulate URLs
+   */
+  function OpaPromotedVideosController(
+    $scope,
+    $filter,
+    $mdDialog,
+    $mdMedia,
+    opaSettingsFactory,
+    opaVideosFactory,
+    opaNotificationFactory,
+    opaUrlFactory
+  ) {
+    var ctrl = this;
+
+    Object.defineProperties(ctrl,
+
+      /** @lends module:opa/promotedVideos~OpaPromotedVideosController */
+      {
+
+        /**
+         * Indicates if retreiving the promoted videos failed.
+         *
+         * @type {Boolean}
+         * @instance
+         * @default false
+         */
+        isError: {
+          value: false,
+          writable: true
+        },
+
+        /**
+         * Indicates if currently saving.
+         *
+         * @type {Boolean}
+         * @instance
+         * @default false
+         */
+        isSaving: {
+          value: false,
+          writable: true
+        },
+
+        /**
+         * Promoted videos settings.
+         *
+         * @type {Object}
+         * @instance
+         */
+        promotedVideos: {
+          value: null,
+          writable: true
+        },
+
+        /**
+         * The list of video containers.
+         *
+         * @type {Array}
+         * @instance
+         */
+        containers: {
+          value: [],
+          writable: true
+        },
+
+        /**
+         * CSS class of the media containers components.
+         *
+         * @type {String}
+         * @instance
+         * @default ''
+         */
+        containersClass: {
+          value: '',
+          writable: true
+        },
+
+        /**
+         * Initializes controller and informs when component is loaded.
+         *
+         * @memberof module:opa/promotedVideos~OpaPromotedVideosController
+         * @method $onInit
+         * @instance
+         */
+        $onInit: {
+          value: function() {
+            opaVideosFactory.getPromotedVideos().then(function(result) {
+              ctrl.promotedVideos = result.data &amp;&amp; result.data || new Array(9);
+
+              for (var i = 0; i &lt; ctrl.promotedVideos.length; i++) {
+                var style = i === 0 ? 'publish-16by9-300' : 'publish-16by9-142';
+
+                if (ctrl.promotedVideos[i]) {
+                  ctrl.promotedVideos[i].preview = opaUrlFactory.setUrlParameter(
+                    ctrl.promotedVideos[i].thumbnail,
+                    'style',
+                    style
+                  );
+                }
+
+                ctrl.containers[i] = {
+                  title: i + 1,
+                  style: style,
+                  media: ctrl.promotedVideos[i]
+                };
+              }
+
+              $scope.$emit('opaViewLoaded');
+            }, function(error) {
+              ctrl.isError = true;
+              $scope.$emit('opaViewLoaded');
+            });
+          }
+        },
+
+        /**
+         * Loads containers template depending on the media.
+         *
+         * @memberof module:opa/promotedVideos~OpaPromotedVideosController
+         * @method getContainersTemplate
+         * @instance
+         */
+        getContainersTemplate: {
+          value: function() {
+            var template;
+
+            if ($mdMedia('xs')) {
+              ctrl.containersClass = 'opa-xs';
+              template = 'opa-promotedVideos-containers-2And4Cols.html';
+            } else if ($mdMedia('sm')) {
+              ctrl.containersClass = 'opa-sm';
+              template = 'opa-promotedVideos-containers-3Cols.html';
+            } else {
+              ctrl.containersClass = 'opa-gt-sm';
+              template = 'opa-promotedVideos-containers-2And4Cols.html';
+            }
+            return template;
+          }
+        },
+
+        /**
+         * Opens media library when click event is triggered on a video container.
+         *
+         * @memberof module:opa/promotedVideos~OpaPromotedVideosController
+         * @method openMediaLibraryDialog
+         * @instance
+         */
+        openMediaLibraryDialog: {
+          value: function(index) {
+            var container = ctrl.containers[index];
+            $mdDialog.show({
+              controller: 'OpaMediaLibraryDialogController',
+              controllerAs: '$ctrl',
+              templateUrl: 'opa-mediaLibraryDialog.html',
+              locals: {
+                value: container.media ? container.media.id : undefined,
+                multiple: false
+              }
+            }).then(
+              function(response) {
+                var mediaId = response.value;
+
+                if (!mediaId) {
+                  container.media = undefined;
+                  return;
+                }
+
+                opaVideosFactory.getVideo(mediaId).then(function(response) {
+                  container.media = response.data.entity;
+                  container.media.preview = opaUrlFactory.setUrlParameter(
+                    response.data.entity.thumbnail,
+                    'style',
+                    container.style
+                  );
+                });
+              },
+              function() {
+              }
+            );
+          }
+        },
+
+        /**
+         * Removes video from a container.
+         *
+         * @memberof module:opa/promotedVideos~OpaPromotedVideosController
+         * @method clearContainer
+         * @instance
+         */
+        clearContainer: {
+          value: function(index) {
+            ctrl.containers[index].media = undefined;
+          }
+        },
+
+        /**
+         * Saves promoted videos.
+         *
+         * @memberof module:opa/promotedVideos~OpaPromotedVideosController
+         * @method save
+         * @instance
+         */
+        save: {
+          value: function() {
+            ctrl.isSaving = true;
+            var promotedVideos = new Array(9);
+
+            for (var i = 0; i &lt; promotedVideos.length; i++)
+              promotedVideos[i] = (ctrl.containers[i].media &amp;&amp; ctrl.containers[i].media.id) || undefined;
+
+            opaSettingsFactory.updateSetting('promoted-videos', promotedVideos).then(function() {
+              ctrl.isSaving = false;
+              opaNotificationFactory.displayNotification($filter('opaTranslate')('PROMOTED_VIDEOS.SAVE_SUCCESS'), 1000);
+            }, function(error) {
+              ctrl.isSaving = false;
+            });
+          }
+        }
+
+      }
+
+    );
+  }
+
+  app.controller('OpaPromotedVideosController', OpaPromotedVideosController);
+  OpaPromotedVideosController.$inject = [
+    '$scope',
+    '$filter',
+    '$mdDialog',
+    '$mdMedia',
+    'opaSettingsFactory',
+    'opaVideosFactory',
+    'opaNotificationFactory',
+    'opaUrlFactory'
+  ];
+
+})(angular.module('opa'));
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-opa.html">opa</a></li><li><a href="module-opa_actionsButton.html">opa/actionsButton</a></li><li><a href="module-opa_dashboard.html">opa/dashboard</a></li><li><a href="module-opa_dashboard_about.html">opa/dashboard/about</a></li><li><a href="module-opa_i18n.html">opa/i18n</a></li><li><a href="module-opa_info.html">opa/info</a></li><li><a href="module-opa_infoButton.html">opa/infoButton</a></li><li><a href="module-opa_licenseKeyValidator.html">opa/licenseKeyValidator</a></li><li><a href="module-opa_mediaContainer.html">opa/mediaContainer</a></li><li><a href="module-opa_mediaLibrary.html">opa/mediaLibrary</a></li><li><a href="module-opa_mediaLibraryDialog.html">opa/mediaLibraryDialog</a></li><li><a href="module-opa_mediaOption.html">opa/mediaOption</a></li><li><a href="module-opa_mediaSelect.html">opa/mediaSelect</a></li><li><a href="module-opa_nav.html">opa/nav</a></li><li><a href="module-opa_notification.html">opa/notification</a></li><li><a href="module-opa_promotedVideos.html">opa/promotedVideos</a></li><li><a href="module-opa_settings.html">opa/settings</a></li><li><a href="module-opa_settings_liveSettings.html">opa/settings/liveSettings</a></li><li><a href="module-opa_settings_searchSettings.html">opa/settings/searchSettings</a></li><li><a href="module-opa_streamUrlValidator.html">opa/streamUrlValidator</a></li><li><a href="module-opa_tags.html">opa/tags</a></li><li><a href="module-opa_toolbar.html">opa/toolbar</a></li></ul><h3>Classes</h3><ul><li><a href="module-opa_actionsButton-OpaActionsButtonController.html">opa/actionsButton~OpaActionsButtonController</a></li><li><a href="module-opa_dashboard_about-OpaAboutController.html">opa/dashboard/about~OpaAboutController</a></li><li><a href="module-opa_dashboard_about-OpaAboutFactory.html">opa/dashboard/about~OpaAboutFactory</a></li><li><a href="module-opa_dashboard-OpaDashboardController.html">opa/dashboard~OpaDashboardController</a></li><li><a href="module-opa_i18n-OpaI18nFactory.html">opa/i18n~OpaI18nFactory</a></li><li><a href="module-opa_i18n-OpaTranslateFilter.html">opa/i18n~OpaTranslateFilter</a></li><li><a href="module-opa_infoButton-OpaInfoButtonController.html">opa/infoButton~OpaInfoButtonController</a></li><li><a href="module-opa_info-OpaInfoConfiguration.html">opa/info~OpaInfoConfiguration</a></li><li><a href="module-opa_info-OpaInfoController.html">opa/info~OpaInfoController</a></li><li><a href="module-opa_licenseKeyValidator-OpaLicenseKeyValidatorController.html">opa/licenseKeyValidator~OpaLicenseKeyValidatorController</a></li><li><a href="module-opa_mediaContainer-OpaMediaContainerController.html">opa/mediaContainer~OpaMediaContainerController</a></li><li><a href="module-opa_mediaLibraryDialog-OpaMediaLibraryDialogController.html">opa/mediaLibraryDialog~OpaMediaLibraryDialogController</a></li><li><a href="module-opa_mediaLibrary-OpaMediaLibraryController.html">opa/mediaLibrary~OpaMediaLibraryController</a></li><li><a href="module-opa_mediaOption-OpaMediaOptionController.html">opa/mediaOption~OpaMediaOptionController</a></li><li><a href="module-opa_mediaSelect-OpaMediaSelectController.html">opa/mediaSelect~OpaMediaSelectController</a></li><li><a href="module-opa_nav-OpaNavController.html">opa/nav~OpaNavController</a></li><li><a href="module-opa_notification-OpaNotificationConfiguration.html">opa/notification~OpaNotificationConfiguration</a></li><li><a href="module-opa_notification-OpaNotificationController.html">opa/notification~OpaNotificationController</a></li><li><a href="module-opa_notification-OpaNotificationFactory.html">opa/notification~OpaNotificationFactory</a></li><li><a href="module-opa_promotedVideos-OpaPromotedVideosController.html">opa/promotedVideos~OpaPromotedVideosController</a></li><li><a href="module-opa_settings_liveSettings-OpaLiveSettingsController.html">opa/settings/liveSettings~OpaLiveSettingsController</a></li><li><a href="module-opa_settings_searchSettings-OpaSearchSettingsController.html">opa/settings/searchSettings~OpaSearchSettingsController</a></li><li><a href="module-opa_settings-OpaSettingsController.html">opa/settings~OpaSettingsController</a></li><li><a href="module-opa_streamUrlValidator-OpaStreamUrlValidatorController.html">opa/streamUrlValidator~OpaStreamUrlValidatorController</a></li><li><a href="module-opa_tags-OpaTagsController.html">opa/tags~OpaTagsController</a></li><li><a href="module-opa_toolbar-OpaToolbarController.html">opa/toolbar~OpaToolbarController</a></li><li><a href="module-opa-OpaGroupsFactory.html">opa~OpaGroupsFactory</a></li><li><a href="module-opa-OpaIndexController.html">opa~OpaIndexController</a></li><li><a href="module-opa-OpaInterceptor.html">opa~OpaInterceptor</a></li><li><a href="module-opa-OpaSettingsFactory.html">opa~OpaSettingsFactory</a></li><li><a href="module-opa-OpaUrlFactory.html">opa~OpaUrlFactory</a></li><li><a href="module-opa-OpaUserFactory.html">opa~OpaUserFactory</a></li><li><a href="module-opa-OpaVideosFactory.html">opa~OpaVideosFactory</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 05 2022 15:35:08 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
