@@ -1,0 +1,3378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: HTTP_ERRORS</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: HTTP_ERRORS</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-portal_httpErrors.html">portal/httpErrors</a>~</span>HTTP_ERRORS</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>The list of HTTP errors with, for each error, its associated hexadecimal code and HTTP return code.
+HTTP errors are sent by {{#crossLinkModule 'controllers'}}{{/crossLinkModule}}.</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            <h3>Example</h3>
+            
+    <pre class="prettyprint"><code>const httpErrors = process.require('app/server/httpErrors.js');
+console.log(httpErrors.UNKNOWN_ERROR);</code></pre>
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="~AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS"><span class="type-signature">(inner, constant) </span>AUTHENTICATE_EXTERNAL_WRONG_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when authenticating to external provider with wrong parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":768,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line465">line 465</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~AUTHENTICATE_INTERNAL_WRONG_PARAMETERS"><span class="type-signature">(inner, constant) </span>AUTHENTICATE_INTERNAL_WRONG_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when authenticating to internal provider with wrong parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":769,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line478">line 478</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~BACK_END_AUTHENTICATION_ERROR"><span class="type-signature">(inner, constant) </span>BACK_END_AUTHENTICATION_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when authenticating the user to the back end.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":4,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~BACK_END_AUTHENTICATION_FAILED"><span class="type-signature">(inner, constant) </span>BACK_END_AUTHENTICATION_FAILED<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when user authentication to the back end failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":515,"httpCode":401}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line398">line 398</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~BACK_END_EXTERNAL_AUTHENTICATION_ERROR"><span class="type-signature">(inner, constant) </span>BACK_END_EXTERNAL_AUTHENTICATION_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when authenticating using an external provider (which require redirection).</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":5,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line82">line 82</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~BACK_END_EXTERNAL_AUTHENTICATION_FAILED"><span class="type-signature">(inner, constant) </span>BACK_END_EXTERNAL_AUTHENTICATION_FAILED<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when user authentication to the back end failed using an external provider.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":513,"httpCode":401}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line372">line 372</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~BACK_END_FORBIDDEN"><span class="type-signature">(inner, constant) </span>BACK_END_FORBIDDEN<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when user connected to the back office is not authorized to perform an action.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":518,"httpCode":403}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line437">line 437</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~BACK_END_UNAUTHORIZED"><span class="type-signature">(inner, constant) </span>BACK_END_UNAUTHORIZED<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when a back office authentication is needed to perform the action.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":517,"httpCode":401}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line424">line 424</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~CAS_AUTHENTICATION_ERROR"><span class="type-signature">(inner, constant) </span>CAS_AUTHENTICATION_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when authenticating the user to CAS.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":6,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~CAS_AUTHENTICATION_FAILED"><span class="type-signature">(inner, constant) </span>CAS_AUTHENTICATION_FAILED<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when user authentication to CAS failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":512,"httpCode":401}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line359">line 359</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~CONF_ERROR"><span class="type-signature">(inner, constant) </span>CONF_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when server configuration is not valid.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":2,"httpCode":500,"message":"Portal configuration error"}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~CONVERT_VIDEO_POI_ERROR"><span class="type-signature">(inner, constant) </span>CONVERT_VIDEO_POI_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when converting video points of interests.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":776,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line569">line 569</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~CONVERT_VIDEO_POI_WRONG_PARAMETERS"><span class="type-signature">(inner, constant) </span>CONVERT_VIDEO_POI_WRONG_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Converting video points of interest failed, wrong parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":775,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line556">line 556</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~DEFAULT_GET_SETTING_ERROR"><span class="type-signature">(inner, constant) </span>DEFAULT_GET_SETTING_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when getting a setting while processing default action.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":12,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line173">line 173</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_CATEGORIES_ERROR"><span class="type-signature">(inner, constant) </span>GET_CATEGORIES_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting categories failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":16,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line225">line 225</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_FILTERS_CATEGORIES_ERROR"><span class="type-signature">(inner, constant) </span>GET_FILTERS_CATEGORIES_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting filters failed when getting taxonomy &quot;categories&quot;.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":15,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line212">line 212</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_FILTERS_PROPERTIES_ERROR"><span class="type-signature">(inner, constant) </span>GET_FILTERS_PROPERTIES_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting filters failed when getting custom properties.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":14,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line199">line 199</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_GROUPS_ERROR"><span class="type-signature">(inner, constant) </span>GET_GROUPS_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when getting OpenVeo groups.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":11,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line160">line 160</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_PROMOTED_VIDEOS_ERROR"><span class="type-signature">(inner, constant) </span>GET_PROMOTED_VIDEOS_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting promoted videos failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":21,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line290">line 290</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_PROMOTED_VIDEOS_GET_ONE_ERROR"><span class="type-signature">(inner, constant) </span>GET_PROMOTED_VIDEOS_GET_ONE_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting promoted videos failed when getting promoted videos.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":20,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line277">line 277</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR"><span class="type-signature">(inner, constant) </span>GET_PROMOTED_VIDEOS_GET_SETTINGS_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting promoted videos failed when getting promoted videos setting.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":19,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line264">line 264</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR"><span class="type-signature">(inner, constant) </span>GET_PROMOTED_VIDEOS_GET_VIDEO_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting promoted videos failed when getting a video.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":23,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line316">line 316</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR"><span class="type-signature">(inner, constant) </span>GET_PROMOTED_VIDEOS_GET_VIDEOS_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting promoted videos failed when getting videos to fulfill empty slots.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":22,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line303">line 303</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_PROMOTED_VIDEOS_WRONG_PARAMETERS"><span class="type-signature">(inner, constant) </span>GET_PROMOTED_VIDEOS_WRONG_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting promoted videos failed, wrong parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":774,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line543">line 543</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_SETTING_ERROR"><span class="type-signature">(inner, constant) </span>GET_SETTING_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when getting a setting.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":10,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line147">line 147</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_SETTING_MISSING_PARAMETERS"><span class="type-signature">(inner, constant) </span>GET_SETTING_MISSING_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when getting a setting with missing parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":770,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line491">line 491</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_VIDEO_ERROR"><span class="type-signature">(inner, constant) </span>GET_VIDEO_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when getting a video from OpenVeo failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":8,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line121">line 121</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_VIDEO_NOT_ALLOWED"><span class="type-signature">(inner, constant) </span>GET_VIDEO_NOT_ALLOWED<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when user is not allowed to get a video.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":516,"httpCode":403}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line411">line 411</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~GET_VIDEO_NOT_FOUND"><span class="type-signature">(inner, constant) </span>GET_VIDEO_NOT_FOUND<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Getting video failed, video not found.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":257,"httpCode":404}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line344">line 344</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~LDAP_AUTHENTICATION_ERROR"><span class="type-signature">(inner, constant) </span>LDAP_AUTHENTICATION_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when authenticating the user to LDAP.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":7,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~LDAP_AUTHENTICATION_FAILED"><span class="type-signature">(inner, constant) </span>LDAP_AUTHENTICATION_FAILED<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when user authentication to LDAP failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":514,"httpCode":401}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line385">line 385</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~LIVE_FORBIDDEN"><span class="type-signature">(inner, constant) </span>LIVE_FORBIDDEN<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when connected user is not authorized to access live.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":519,"httpCode":403}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line450">line 450</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~LIVE_GET_SETTING_ERROR"><span class="type-signature">(inner, constant) </span>LIVE_GET_SETTING_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when getting a setting while processing live action.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":13,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line186">line 186</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~PATH_NOT_FOUND"><span class="type-signature">(inner, constant) </span>PATH_NOT_FOUND<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when routes has not been found.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":256,"httpCode":404}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line331">line 331</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~SEARCH_ERROR"><span class="type-signature">(inner, constant) </span>SEARCH_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when searching for videos, using the Web Service, failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":3,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line56">line 56</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~SEARCH_WRONG_PARAMETERS"><span class="type-signature">(inner, constant) </span>SEARCH_WRONG_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Search failed, wrong parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":773,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line530">line 530</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR"><span class="type-signature">(inner, constant) </span>STATISTICS_MEDIA_VIEWS_GET_ONE_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Modifying the number of views of a media failed when getting the media.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":17,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line238">line 238</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR"><span class="type-signature">(inner, constant) </span>STATISTICS_MEDIA_VIEWS_INCREMENT_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Modifying the number of views of a media failed.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":18,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line251">line 251</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~UNKNOWN_ERROR"><span class="type-signature">(inner, constant) </span>UNKNOWN_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when no error were specified.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":1,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~UPDATE_SETTINGS_ERROR"><span class="type-signature">(inner, constant) </span>UPDATE_SETTINGS_ERROR<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when updating settings.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":9,"httpCode":500}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line134">line 134</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~UPDATE_SETTINGS_MISSING_PARAMETERS"><span class="type-signature">(inner, constant) </span>UPDATE_SETTINGS_MISSING_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when updating settings with missing parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":771,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line504">line 504</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~UPDATE_SETTINGS_WRONG_PARAMETERS"><span class="type-signature">(inner, constant) </span>UPDATE_SETTINGS_WRONG_PARAMETERS<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A server error occurring when updating settings with wrong parameters.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li class="object-value"><pre class="prettyprint"><code>{"code":772,"httpCode":400}</code></pre></li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="httpErrors.js.html">httpErrors.js</a>, <a href="httpErrors.js.html#line517">line 517</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-portal_authenticator.html">portal/authenticator</a></li><li><a href="module-portal_Cache.html">portal/Cache</a></li><li><a href="module-portal_context.html">portal/context</a></li><li><a href="module-portal_controllers_AuthenticationController.html">portal/controllers/AuthenticationController</a></li><li><a href="module-portal_controllers_CategoriesController.html">portal/controllers/CategoriesController</a></li><li><a href="module-portal_controllers_DefaultController.html">portal/controllers/DefaultController</a></li><li><a href="module-portal_controllers_ErrorController.html">portal/controllers/ErrorController</a></li><li><a href="module-portal_controllers_FiltersController.html">portal/controllers/FiltersController</a></li><li><a href="module-portal_controllers_GroupsController.html">portal/controllers/GroupsController</a></li><li><a href="module-portal_controllers_SettingsController.html">portal/controllers/SettingsController</a></li><li><a href="module-portal_controllers_StatisticsController.html">portal/controllers/StatisticsController</a></li><li><a href="module-portal_controllers_VersionController.html">portal/controllers/VersionController</a></li><li><a href="module-portal_controllers_VideosController.html">portal/controllers/VideosController</a></li><li><a href="module-portal_httpErrors.html">portal/httpErrors</a></li><li><a href="module-portal_providers_OpenVeoProvider.html">portal/providers/OpenVeoProvider</a></li><li><a href="module-portal_providers_SettingsProvider.html">portal/providers/SettingsProvider</a></li><li><a href="module-portal_providers_UserProvider.html">portal/providers/UserProvider</a></li><li><a href="module-portal_Server.html">portal/Server</a></li><li><a href="module-portal_storages_OpenVeoStorage.html">portal/storages/OpenVeoStorage</a></li><li><a href="module-portal_storages_openveVeoWebServiceErrors.html">portal/storages/openveVeoWebServiceErrors</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-portal_httpErrors-HTTP_ERRORS.html">portal/httpErrors~HTTP_ERRORS</a></li><li><a href="module-portal_storages_openveVeoWebServiceErrors-OPENVEO_ERRORS.html">portal/storages/openveVeoWebServiceErrors~OPENVEO_ERRORS</a></li></ul><h3>Classes</h3><ul><li><a href="module-portal_Cache-Cache.html">portal/Cache~Cache</a></li><li><a href="module-portal_context-Context.html">portal/context~Context</a></li><li><a href="module-portal_controllers_AuthenticationController-AuthenticationController.html">portal/controllers/AuthenticationController~AuthenticationController</a></li><li><a href="module-portal_controllers_CategoriesController-CategoriesController.html">portal/controllers/CategoriesController~CategoriesController</a></li><li><a href="module-portal_controllers_DefaultController-DefaultController.html">portal/controllers/DefaultController~DefaultController</a></li><li><a href="module-portal_controllers_ErrorController-ErrorController.html">portal/controllers/ErrorController~ErrorController</a></li><li><a href="module-portal_controllers_FiltersController-FiltersController.html">portal/controllers/FiltersController~FiltersController</a></li><li><a href="module-portal_controllers_GroupsController-GroupsController.html">portal/controllers/GroupsController~GroupsController</a></li><li><a href="module-portal_controllers_SettingsController-SettingsController.html">portal/controllers/SettingsController~SettingsController</a></li><li><a href="module-portal_controllers_StatisticsController-StatisticsController.html">portal/controllers/StatisticsController~StatisticsController</a></li><li><a href="module-portal_controllers_VersionController-VersionController.html">portal/controllers/VersionController~VersionController</a></li><li><a href="module-portal_controllers_VideosController-VideosController.html">portal/controllers/VideosController~VideosController</a></li><li><a href="module-portal_providers_OpenVeoProvider-OpenVeoProvider.html">portal/providers/OpenVeoProvider~OpenVeoProvider</a></li><li><a href="module-portal_providers_SettingsProvider-SettingsProvider.html">portal/providers/SettingsProvider~SettingsProvider</a></li><li><a href="module-portal_providers_UserProvider-UserProvider.html">portal/providers/UserProvider~UserProvider</a></li><li><a href="module-portal_Server-Server.html">portal/Server~Server</a></li><li><a href="module-portal_storages_OpenVeoStorage-OpenVeoStorage.html">portal/storages/OpenVeoStorage~OpenVeoStorage</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 19 2022 10:18:43 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

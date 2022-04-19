@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: OpaIndexController</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: OpaIndexController</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="module-opa.html">opa</a>~</span>OpaIndexController<span class="signature">($scope, $route, $window, $location, $filter, $mdMedia, $mdSidenav, opaUserFactory, opaI18nFactory, opaNotificationFactory)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>OpaIndexController</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="OpaIndexController"><span class="type-signature"></span>new OpaIndexController<span class="signature">($scope, $route, $window, $location, $filter, $mdMedia, $mdSidenav, opaUserFactory, opaI18nFactory, opaNotificationFactory)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Defines the main controller of the OpenVeo Portal administration interface.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>$scope</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>AngularJS scope</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$route</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>AngularJS $route service</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$window</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>AngularJS $window service</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$location</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>AngularJS $location service</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$filter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>AngularJS $filter service</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$mdMedia</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>AngularJS Material service to evaluate media queries</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$mdSidenav</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>AngularJS Material service to manipulate sidenav directives</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opaUserFactory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>User factory to deal with the authenticated user</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opaI18nFactory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>I18n factory to manage languages</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opaNotificationFactory</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Notification factory</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="$mdMedia"><span class="type-signature">(readonly) </span>$mdMedia<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>AngularJS Material $mdMedia service.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="adminTitle"><span class="type-signature">(readonly) </span>adminTitle<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Title of the administration interface as a translation id.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>'HEADER.TITLE'</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="advancedNavMenu"><span class="type-signature">(readonly) </span>advancedNavMenu<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    <p>Advanced navigation menu for opa-nav component.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line169">line 169</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="advancedToolbarLanguageActions"><span class="type-signature">(readonly) </span>advancedToolbarLanguageActions<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    <p>Languages actions for the advanced toolbar.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line128">line 128</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="advancedToolbarRightActions"><span class="type-signature">(readonly) </span>advancedToolbarRightActions<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    <p>The list of right actions for the advanced toolbar.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line117">line 117</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="isViewLoaded"><span class="type-signature">(readonly) </span>isViewLoaded<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Indicates if ng-view is loaded or not.</p>
+<p>true if view is loaded, false if it is currently loading.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line193">line 193</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="menuLinks"><span class="type-signature">(readonly) </span>menuLinks<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    <p>Menu links.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="navMenu"><span class="type-signature">(readonly) </span>navMenu<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    <p>Navigation menu for opa-nav component.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="page"><span class="type-signature">(readonly) </span>page<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Information about the page.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line50">line 50</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="toolbarLeftActions"><span class="type-signature">(readonly) </span>toolbarLeftActions<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    <p>The list of left actions for the toolbar.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="toolbarPageInfo"><span class="type-signature">(readonly) </span>toolbarPageInfo<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Toolbar page info.</p>
+<p>Holds the configuration of the toolbar info action button which presents an information about the actual
+page. Information message changes with the router page.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line142">line 142</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="toolbarRightActions"><span class="type-signature">(readonly) </span>toolbarRightActions<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    <p>The list of right actions for the toolbar.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line106">line 106</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="userLanguage"><span class="type-signature">(readonly) </span>userLanguage<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>User's language.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line180">line 180</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="closeSideNavigation"><span class="type-signature"></span>closeSideNavigation<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Closes side navigation.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line376">line 376</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="goTo"><span class="type-signature"></span>goTo<span class="signature">(item)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Navigates to a back office page.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The menu item</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>href</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The path to navigate to</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line331">line 331</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="goToPortal"><span class="type-signature"></span>goToPortal<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Navigates to the front office of the portal.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line347">line 347</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="init"><span class="type-signature"></span>init<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Initializes properties for sub components.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line198">line 198</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="logout"><span class="type-signature"></span>logout<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Logs out current user.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line316">line 316</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="selectMenuItem"><span class="type-signature"></span>selectMenuItem<span class="signature">(routePath)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Marks a menu item as selected.</p>
+<p>Both navigation menu and advanced navigation menu are updated.
+The item with an &quot;href&quot; property corresponding to the given path will be selected,
+selection on other items is removed.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>routePath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The path of the item to select</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line402">line 402</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setLanguage"><span class="type-signature"></span>setLanguage<span class="signature">(language)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Sets user's language.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>language</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A language description object</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The language country code</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line360">line 360</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="toggleSideNavigation"><span class="type-signature"></span>toggleSideNavigation<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Opens / closes side navigation.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.controller.js.html">index.controller.js</a>, <a href="index.controller.js.html#line389">line 389</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-opa.html">opa</a></li><li><a href="module-opa_actionsButton.html">opa/actionsButton</a></li><li><a href="module-opa_dashboard.html">opa/dashboard</a></li><li><a href="module-opa_dashboard_about.html">opa/dashboard/about</a></li><li><a href="module-opa_i18n.html">opa/i18n</a></li><li><a href="module-opa_info.html">opa/info</a></li><li><a href="module-opa_infoButton.html">opa/infoButton</a></li><li><a href="module-opa_licenseKeyValidator.html">opa/licenseKeyValidator</a></li><li><a href="module-opa_mediaContainer.html">opa/mediaContainer</a></li><li><a href="module-opa_mediaLibrary.html">opa/mediaLibrary</a></li><li><a href="module-opa_mediaLibraryDialog.html">opa/mediaLibraryDialog</a></li><li><a href="module-opa_mediaOption.html">opa/mediaOption</a></li><li><a href="module-opa_mediaSelect.html">opa/mediaSelect</a></li><li><a href="module-opa_nav.html">opa/nav</a></li><li><a href="module-opa_notification.html">opa/notification</a></li><li><a href="module-opa_promotedVideos.html">opa/promotedVideos</a></li><li><a href="module-opa_settings.html">opa/settings</a></li><li><a href="module-opa_settings_liveSettings.html">opa/settings/liveSettings</a></li><li><a href="module-opa_settings_searchSettings.html">opa/settings/searchSettings</a></li><li><a href="module-opa_streamUrlValidator.html">opa/streamUrlValidator</a></li><li><a href="module-opa_tags.html">opa/tags</a></li><li><a href="module-opa_toolbar.html">opa/toolbar</a></li></ul><h3>Classes</h3><ul><li><a href="module-opa_actionsButton-OpaActionsButtonController.html">opa/actionsButton~OpaActionsButtonController</a></li><li><a href="module-opa_dashboard_about-OpaAboutController.html">opa/dashboard/about~OpaAboutController</a></li><li><a href="module-opa_dashboard_about-OpaAboutFactory.html">opa/dashboard/about~OpaAboutFactory</a></li><li><a href="module-opa_dashboard-OpaDashboardController.html">opa/dashboard~OpaDashboardController</a></li><li><a href="module-opa_i18n-OpaI18nFactory.html">opa/i18n~OpaI18nFactory</a></li><li><a href="module-opa_i18n-OpaTranslateFilter.html">opa/i18n~OpaTranslateFilter</a></li><li><a href="module-opa_infoButton-OpaInfoButtonController.html">opa/infoButton~OpaInfoButtonController</a></li><li><a href="module-opa_info-OpaInfoConfiguration.html">opa/info~OpaInfoConfiguration</a></li><li><a href="module-opa_info-OpaInfoController.html">opa/info~OpaInfoController</a></li><li><a href="module-opa_licenseKeyValidator-OpaLicenseKeyValidatorController.html">opa/licenseKeyValidator~OpaLicenseKeyValidatorController</a></li><li><a href="module-opa_mediaContainer-OpaMediaContainerController.html">opa/mediaContainer~OpaMediaContainerController</a></li><li><a href="module-opa_mediaLibraryDialog-OpaMediaLibraryDialogController.html">opa/mediaLibraryDialog~OpaMediaLibraryDialogController</a></li><li><a href="module-opa_mediaLibrary-OpaMediaLibraryController.html">opa/mediaLibrary~OpaMediaLibraryController</a></li><li><a href="module-opa_mediaOption-OpaMediaOptionController.html">opa/mediaOption~OpaMediaOptionController</a></li><li><a href="module-opa_mediaSelect-OpaMediaSelectController.html">opa/mediaSelect~OpaMediaSelectController</a></li><li><a href="module-opa_nav-OpaNavController.html">opa/nav~OpaNavController</a></li><li><a href="module-opa_notification-OpaNotificationConfiguration.html">opa/notification~OpaNotificationConfiguration</a></li><li><a href="module-opa_notification-OpaNotificationController.html">opa/notification~OpaNotificationController</a></li><li><a href="module-opa_notification-OpaNotificationFactory.html">opa/notification~OpaNotificationFactory</a></li><li><a href="module-opa_promotedVideos-OpaPromotedVideosController.html">opa/promotedVideos~OpaPromotedVideosController</a></li><li><a href="module-opa_settings_liveSettings-OpaLiveSettingsController.html">opa/settings/liveSettings~OpaLiveSettingsController</a></li><li><a href="module-opa_settings_searchSettings-OpaSearchSettingsController.html">opa/settings/searchSettings~OpaSearchSettingsController</a></li><li><a href="module-opa_settings-OpaSettingsController.html">opa/settings~OpaSettingsController</a></li><li><a href="module-opa_streamUrlValidator-OpaStreamUrlValidatorController.html">opa/streamUrlValidator~OpaStreamUrlValidatorController</a></li><li><a href="module-opa_tags-OpaTagsController.html">opa/tags~OpaTagsController</a></li><li><a href="module-opa_toolbar-OpaToolbarController.html">opa/toolbar~OpaToolbarController</a></li><li><a href="module-opa-OpaGroupsFactory.html">opa~OpaGroupsFactory</a></li><li><a href="module-opa-OpaIndexController.html">opa~OpaIndexController</a></li><li><a href="module-opa-OpaInterceptor.html">opa~OpaInterceptor</a></li><li><a href="module-opa-OpaSettingsFactory.html">opa~OpaSettingsFactory</a></li><li><a href="module-opa-OpaUrlFactory.html">opa~OpaUrlFactory</a></li><li><a href="module-opa-OpaUserFactory.html">opa~OpaUserFactory</a></li><li><a href="module-opa-OpaVideosFactory.html">opa~OpaVideosFactory</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 19 2022 10:18:40 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

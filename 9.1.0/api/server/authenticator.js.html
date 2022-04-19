@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: authenticator.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: authenticator.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * The authenticator helps manipulate users authenticated by passport strategies.
+ *
+ * Users returned by passport are not necessary OpenVeo Portal users. It could be users from a third party
+ * authentication server. The authenticator helps making sure that the authenticated user is a ready to
+ * use OpenVeo Portal user.
+ *
+ * @module portal/authenticator
+ */
+
+const async = require('async');
+const openVeoApi = require('@openveo/api');
+const SettingsProvider = process.require('app/server/providers/SettingsProvider.js');
+const UserProvider = process.require('app/server/providers/UserProvider.js');
+const conf = process.require('app/server/conf.js');
+const context = process.require('app/server/context.js');
+const ResourceFilter = openVeoApi.storages.ResourceFilter;
+
+/**
+ * Populates user with permissions.
+ *
+ * @method populateUser
+ * @private
+ * @param {Object} user The user to populate
+ * @param {Array} [user.id] The user id
+ * @param {module:portal/authenticator~populateUserCallback} callback The function to call when it's done
+ */
+function populateUser(user, callback) {
+  if (user.id === conf.superAdminId) user.hasLiveAccess = true;
+  if (!user.groups || !user.groups.length) return callback(null, user);
+
+  // Get live settings
+  const settingsProvider = new SettingsProvider(context.database);
+  settingsProvider.getOne(new ResourceFilter().equal('id', 'live'), null, (error, setting) => {
+    if (error) return callback(error);
+    user.hasLiveAccess = openVeoApi.util.intersectArray(
+      user.groups, setting &amp;&amp; setting.value &amp;&amp; setting.value.groups ? setting.value.groups : []
+    ).length ? true : false;
+
+    callback(null, user);
+  });
+}
+
+/**
+ * Serializes only essential user information required to retrieve it later.
+ *
+ * @method serializeUser
+ * @static
+ * @param {Object} user The user to serialize
+ * @param {module:portal/authenticator~serializeUserCallback} callback The function to call when it's done
+ */
+module.exports.serializeUser = (user, callback) => {
+  if (!user || !user.id)
+    return callback(new Error(`Could not serialize user: unknown user "${(user ? user.id : '')}"`));
+
+  callback(null, user.id);
+};
+
+/**
+ * Fetches a user from serialized data.
+ *
+ * @method deserializeUser
+ * @static
+ * @param {String} data Serialized data as serialized by serializeUser(), the id of the user
+ * @param {module:portal/authenticator~deserializeUserCallback} callback The function to call when it's done
+ */
+module.exports.deserializeUser = (data, callback) => {
+  const userProvider = new UserProvider(context.database);
+
+  userProvider.getOne(new ResourceFilter().equal('id', data), null, (error, user) => {
+    if (error) return callback(error);
+    if (!user) return callback(new Error(`Unkown user "${data}"`));
+    populateUser(user, callback);
+  });
+};
+
+/**
+ * Verifies a user as returned by the passport local strategy.
+ *
+ * @method verifyUserByCredentials
+ * @static
+ * @param {String} email User's email
+ * @param {String} password User's password
+ * @param {module:portal/authenticator~verifyUserByCredentialsCallback} callback Function to call when its done
+ */
+module.exports.verifyUserByCredentials = (email, password, callback) => {
+  const userProvider = new UserProvider(context.database);
+
+  userProvider.getUserByCredentials(email, password, (error, user) => {
+    if (error) return callback(error);
+    if (!user) return callback(new Error(`Email and / or password incorrect for "${email}"`));
+    populateUser(user, callback);
+  });
+};
+
+/**
+ * Verifies user as returned by third party providers.
+ *
+ * OpenVeo Portal trusts users from third party providers, if the user does not exist in OpenVeo Portal
+ * it is created with minimum information.
+ *
+ * @method verifyUserAuthentication
+ * @static
+ * @param {Object} thirdPartyUser The user from the third party provider
+ * @param {String} strategy The id of the strategy
+ * @param {module:portal/authenticator~verifyUserAuthenticationCallback} callback Function to call when its done
+ */
+module.exports.verifyUserAuthentication = (thirdPartyUser, strategy, callback) => {
+  const strategyConfiguration = conf.serverConf.auth[strategy];
+  const groupAssociations = strategyConfiguration.groupAssociations;
+  const thirdPartyIdAttribute = strategyConfiguration.userIdAttribute;
+  const thirdPartyNameAttribute = strategyConfiguration.userNameAttribute;
+  const thirdPartyEmailAttribute = strategyConfiguration.userEmailAttribute;
+  const thirdPartyGroupAttribute = strategyConfiguration.userGroupAttribute;
+  const userProvider = new UserProvider(context.database);
+  const originId = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyIdAttribute, thirdPartyUser);
+  const thirdPartyUserName = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyNameAttribute, thirdPartyUser);
+  const thirdPartyUserEmail = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyEmailAttribute, thirdPartyUser);
+  let originGroups = openVeoApi.util.evaluateDeepObjectProperties(thirdPartyGroupAttribute, thirdPartyUser);
+  let user;
+  let exists = false;
+  let groups = [];
+  originGroups = originGroups || [];
+  originGroups = (Array.isArray(originGroups)) ? originGroups : originGroups.split(',');
+
+  async.series([
+
+    // Test if user already exists in OpenVeo
+    (callback) => {
+      if (originId) {
+        userProvider.getAll(
+          new ResourceFilter().equal('origin', strategy).equal('originId', originId),
+          null,
+          {
+            id: 'desc'
+          },
+          (error, users) => {
+            if (error) return callback(error);
+            if (users &amp;&amp; users.length) {
+              exists = true;
+              user = users[0];
+            }
+            callback();
+          }
+        );
+      } else {
+        exists = false;
+        callback();
+      }
+    },
+
+    // Match third party user groups with OpenVeo content groups
+    (callback) => {
+      if (!originGroups) return callback();
+
+      if (groupAssociations &amp;&amp; groupAssociations.length) {
+
+        // Look for third party user group inside OpenVeo Portal configuration
+        groupAssociations.forEach((groupAssociation) => {
+          if (originGroups.indexOf(groupAssociation.group) >= 0)
+            groups = groups.concat(groupAssociation.groups);
+        });
+      }
+      callback();
+    },
+
+    // Create user if it does not exist yet
+    (callback) => {
+      if (exists) return callback();
+
+      userProvider.addThirdPartyUsers([
+        {
+          name: thirdPartyUserName,
+          email: thirdPartyUserEmail,
+          origin: strategy,
+          originId,
+          originGroups,
+          groups
+        }
+      ], (error, total, addedUsers) => {
+        if (addedUsers) user = addedUsers[0];
+        callback(error);
+      });
+    },
+
+    // Update user if information from third party provider have changed (name, email, group)
+    (callback) => {
+      if (user.name !== thirdPartyUserName ||
+          user.email !== thirdPartyUserEmail ||
+          !openVeoApi.util.areSameArrays(user.originGroups, originGroups) ||
+          !openVeoApi.util.areSameArrays(user.groups, groups)
+      ) {
+
+        user.name = thirdPartyUserName;
+        user.email = thirdPartyUserEmail;
+        user.groups = groups;
+        user.originGroups = originGroups;
+
+        userProvider.updateThirdPartyUser(
+          new ResourceFilter().equal('id', user.id),
+          {
+            name: user.name,
+            email: user.email,
+            originGroups: user.originGroups,
+            groups: user.groups
+          },
+          strategy,
+          callback
+        );
+      } else
+        callback();
+    },
+
+    // Populate user with permissions
+    (callback) => {
+      populateUser(user, callback);
+    }
+
+  ], (error, results) => {
+    callback(error, user);
+  });
+
+};
+
+/**
+ * @callback module:portal/authenticator~populateUserCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The populated user
+ */
+
+/**
+ * @callback module:portal/authenticator~serializeUserCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {String} serializedUser The serialized user information
+ */
+
+/**
+ * @callback module:portal/authenticator~deserializeUserCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user with its permissions
+ */
+
+/**
+ * @callback module:portal/authenticator~verifyUserByCredentialsCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user with its permissions
+ */
+
+/**
+ * @callback module:portal/authenticator~verifyUserAuthenticationCallback
+ * @param {(Error|undefined)} error The error if an error occurred
+ * @param {Object} user The user with its permissions
+ */
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-portal_authenticator.html">portal/authenticator</a></li><li><a href="module-portal_Cache.html">portal/Cache</a></li><li><a href="module-portal_context.html">portal/context</a></li><li><a href="module-portal_controllers_AuthenticationController.html">portal/controllers/AuthenticationController</a></li><li><a href="module-portal_controllers_CategoriesController.html">portal/controllers/CategoriesController</a></li><li><a href="module-portal_controllers_DefaultController.html">portal/controllers/DefaultController</a></li><li><a href="module-portal_controllers_ErrorController.html">portal/controllers/ErrorController</a></li><li><a href="module-portal_controllers_FiltersController.html">portal/controllers/FiltersController</a></li><li><a href="module-portal_controllers_GroupsController.html">portal/controllers/GroupsController</a></li><li><a href="module-portal_controllers_SettingsController.html">portal/controllers/SettingsController</a></li><li><a href="module-portal_controllers_StatisticsController.html">portal/controllers/StatisticsController</a></li><li><a href="module-portal_controllers_VersionController.html">portal/controllers/VersionController</a></li><li><a href="module-portal_controllers_VideosController.html">portal/controllers/VideosController</a></li><li><a href="module-portal_httpErrors.html">portal/httpErrors</a></li><li><a href="module-portal_providers_OpenVeoProvider.html">portal/providers/OpenVeoProvider</a></li><li><a href="module-portal_providers_SettingsProvider.html">portal/providers/SettingsProvider</a></li><li><a href="module-portal_providers_UserProvider.html">portal/providers/UserProvider</a></li><li><a href="module-portal_Server.html">portal/Server</a></li><li><a href="module-portal_storages_OpenVeoStorage.html">portal/storages/OpenVeoStorage</a></li><li><a href="module-portal_storages_openveVeoWebServiceErrors.html">portal/storages/openveVeoWebServiceErrors</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-portal_httpErrors-HTTP_ERRORS.html">portal/httpErrors~HTTP_ERRORS</a></li><li><a href="module-portal_storages_openveVeoWebServiceErrors-OPENVEO_ERRORS.html">portal/storages/openveVeoWebServiceErrors~OPENVEO_ERRORS</a></li></ul><h3>Classes</h3><ul><li><a href="module-portal_Cache-Cache.html">portal/Cache~Cache</a></li><li><a href="module-portal_context-Context.html">portal/context~Context</a></li><li><a href="module-portal_controllers_AuthenticationController-AuthenticationController.html">portal/controllers/AuthenticationController~AuthenticationController</a></li><li><a href="module-portal_controllers_CategoriesController-CategoriesController.html">portal/controllers/CategoriesController~CategoriesController</a></li><li><a href="module-portal_controllers_DefaultController-DefaultController.html">portal/controllers/DefaultController~DefaultController</a></li><li><a href="module-portal_controllers_ErrorController-ErrorController.html">portal/controllers/ErrorController~ErrorController</a></li><li><a href="module-portal_controllers_FiltersController-FiltersController.html">portal/controllers/FiltersController~FiltersController</a></li><li><a href="module-portal_controllers_GroupsController-GroupsController.html">portal/controllers/GroupsController~GroupsController</a></li><li><a href="module-portal_controllers_SettingsController-SettingsController.html">portal/controllers/SettingsController~SettingsController</a></li><li><a href="module-portal_controllers_StatisticsController-StatisticsController.html">portal/controllers/StatisticsController~StatisticsController</a></li><li><a href="module-portal_controllers_VersionController-VersionController.html">portal/controllers/VersionController~VersionController</a></li><li><a href="module-portal_controllers_VideosController-VideosController.html">portal/controllers/VideosController~VideosController</a></li><li><a href="module-portal_providers_OpenVeoProvider-OpenVeoProvider.html">portal/providers/OpenVeoProvider~OpenVeoProvider</a></li><li><a href="module-portal_providers_SettingsProvider-SettingsProvider.html">portal/providers/SettingsProvider~SettingsProvider</a></li><li><a href="module-portal_providers_UserProvider-UserProvider.html">portal/providers/UserProvider~UserProvider</a></li><li><a href="module-portal_Server-Server.html">portal/Server~Server</a></li><li><a href="module-portal_storages_OpenVeoStorage-OpenVeoStorage.html">portal/storages/OpenVeoStorage~OpenVeoStorage</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 19 2022 10:18:43 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
