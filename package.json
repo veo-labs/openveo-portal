@@ -29,7 +29,7 @@
     "url": "https://github.com/veo-labs/openveo-portal.git"
   },
   "dependencies": {
-    "@openveo/api": "^8.0.2",
+    "@openveo/api": "^8.1.0",
     "@openveo/player": "^8.0.0",
     "@openveo/rest-nodejs-client": "^5.0.1",
     "angular": "1.6.4",
