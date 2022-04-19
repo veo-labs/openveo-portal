@@ -13,7 +13,7 @@
         "@openveo/api": "^8.1.0",
         "@openveo/player": "^8.0.0",
         "@openveo/rest-nodejs-client": "^5.0.1",
-        "angular": "1.6.4",
+        "angular": "1.8.3",
         "angular-animate": "1.6.4",
         "angular-aria": "1.6.4",
         "angular-cookies": "1.6.4",
@@ -589,9 +589,10 @@
       }
     },
     "node_modules/angular": {
-      "version": "1.6.4",
-      "resolved": "https://registry.npmjs.org/angular/-/angular-1.6.4.tgz",
-      "integrity": "sha1-A7exXAGggC1+LPWTJA5gQFTcd/s="
+      "version": "1.8.3",
+      "resolved": "https://registry.npmjs.org/angular/-/angular-1.8.3.tgz",
+      "integrity": "sha512-5qjkWIQQVsHj4Sb5TcEs4WZWpFeVFHXwxEBHUhrny41D8UrBAd6T/6nPPAsLngJCReIOqi95W3mxdveveutpZw==",
+      "deprecated": "For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward."
     },
     "node_modules/angular-animate": {
       "version": "1.6.4",
@@ -7890,9 +7891,9 @@
       }
     },
     "angular": {
-      "version": "1.6.4",
-      "resolved": "https://registry.npmjs.org/angular/-/angular-1.6.4.tgz",
-      "integrity": "sha1-A7exXAGggC1+LPWTJA5gQFTcd/s="
+      "version": "1.8.3",
+      "resolved": "https://registry.npmjs.org/angular/-/angular-1.8.3.tgz",
+      "integrity": "sha512-5qjkWIQQVsHj4Sb5TcEs4WZWpFeVFHXwxEBHUhrny41D8UrBAd6T/6nPPAsLngJCReIOqi95W3mxdveveutpZw=="
     },
     "angular-animate": {
       "version": "1.6.4",
